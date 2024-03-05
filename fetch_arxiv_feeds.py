@@ -1,16 +1,33 @@
 import subprocess
 import datetime
 import os
+import json
+
+FOLDER = 'taxonomy_data'
 
 def fetch_categories():
-    return ['hep-th', 'cs.CV', 'cs.AI']  
+
+    base_workspace_path = os.getenv('GITHUB_WORKSPACE', '.')
+    folder_path = os.path.join(base_workspace_path , FOLDER)
+    path = os.path.join(folder_path, 'tax.json')
+
+    if os.path.exists(path):
+        with open(path, 'r') as json_file:
+            taxonomy = json.load(json_file)
+        return list(taxonomy.keys())
+    else:
+        return ['hep-th', 'cs.CV', 'cs.AI'] 
 
 def fetch_rss_for_categories(categories):
     date_str = datetime.datetime.now().strftime('%Y-%m-%d')
     base_workspace_path = os.getenv('GITHUB_WORKSPACE', '.')
 
+    base_path = os.path.join(base_workspace_path, "rss_data")
+    os.makedirs(base_path, exist_ok=True)
+
+
     for category in categories:
-        category_path = os.path.join(base_workspace_path, category)
+        category_path = os.path.join(base_path, category)
         os.makedirs(category_path, exist_ok=True)
 
         filename = f"{date_str}_{category}.xml"
