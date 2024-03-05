@@ -4,6 +4,7 @@ import os
 import json
 
 FOLDER = 'taxonomy_data'
+URL = "https://rss.arxiv.org/rss"
 
 def fetch_categories():
 
@@ -33,7 +34,7 @@ def fetch_rss_for_categories(categories):
         filename = f"{date_str}_{category}.xml"
         file_path = os.path.join(category_path, filename)
 
-        url = f"https://rss.arxiv.org/rss/{category}"
+        url = f"{URL}/{category}"
         subprocess.run(['curl', url, '-o', file_path], check=True)
 
 if __name__ == "__main__":
