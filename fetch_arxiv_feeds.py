@@ -20,7 +20,7 @@ def fetch_categories():
         return ['hep-th', 'cs.CV', 'cs.AI'] 
 
 def fetch_rss_for_categories(categories):
-    date_str = datetime.datetime.now().strftime('%Y-%m-%d')
+    date_str = datetime.datetime.utcnow().strftime('%Y-%m-%d')
     base_workspace_path = os.getenv('GITHUB_WORKSPACE', '.')
 
     base_path = os.path.join(base_workspace_path, "rss_data")
