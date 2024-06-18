@@ -7,116 +7,92 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.AR" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Jun 2024 02:48:17 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2024 04:00:09 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Mon, 17 Jun 2024 00:00:00 -0400</pubDate>
+    <pubDate>Tue, 18 Jun 2024 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Sunday</day>
       <day>Saturday</day>
     </skipDays>
     <item>
-      <title>Optimizing Layer-Fused Scheduling of Transformer Networks on Multi-accelerator Platforms</title>
-      <link>https://arxiv.org/abs/2406.09804</link>
-      <description>arXiv:2406.09804v1 Announce Type: new 
-Abstract: The impact of transformer networks is booming, yet, they come with significant computational complexity. It is therefore essential to understand how to optimally map and execute these networks on modern neural processor hardware. So far, literature on transformer scheduling optimization has been focusing on deployment on GPU and specific ASICs. This work enables extensive hardware/mapping exploration by extending the DSE framework Stream towards support for transformers across a wide variety of hardware architectures and different execution schedules. After validation, we explore the optimal schedule for transformer layers/attention heads and investigate whether layer fusion is beneficial to improve latency, energy or memory requirements. Our study shows that the memory requirements for active feature data can be drastically reduced, by adapting the execution schedule based on the size of the input of the attention head.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2406.09804v1</guid>
+      <title>FuseMax: Leveraging Extended Einsums to Optimize Attention Accelerator Design</title>
+      <link>https://arxiv.org/abs/2406.10491</link>
+      <description>arXiv:2406.10491v1 Announce Type: new 
+Abstract: Attention for transformers is a critical workload that has recently received significant "attention" as a target for custom acceleration. Yet, while prior work succeeds in reducing attention's memory-bandwidth requirements, it creates load imbalance between attention operators (resulting in severe compute under-utilization) and requires on-chip memory that scales with sequence length (which is expected to grow over time).
+  This paper ameliorates these issues, enabling attention with nearly 100% compute utilization, no off-chip memory traffic bottlenecks, and on-chip buffer size requirements that are independent of sequence length. The main conceptual contribution is to use a recently proposed abstraction -- the cascade of Einsums -- to describe, formalize and taxonomize the space of attention algorithms that appear in the literature. In particular, we show how Einsum cascades can be used to infer non-trivial lower bounds on the number of passes a kernel must take through its input data, which has implications for either required on-chip buffer capacity or memory traffic. We show how this notion can be used to meaningfully divide the space of attention algorithms into several categories and use these categories to inform our design process.
+  Based on the above characterization, we propose FuseMax -- a novel mapping of attention onto a spatial array-style architecture. On attention, in an iso-area comparison, FuseMax achieves an average $6.7\times$ speedup over the prior state-of-the-art FLAT while using $79\%$ of the energy. Similarly, on the full end-to-end transformer inference, FuseMax achieves an average $5.3\times$ speedup over FLAT using $83\%$ of the energy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2406.10491v1</guid>
       <category>cs.AR</category>
       <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Steven Colleman, Arne Symons, Victor J. B. Jung, Marian Verhelst</dc:creator>
-    </item>
-    <item>
-      <title>CircuitVAE: Efficient and Scalable Latent Circuit Optimization</title>
-      <link>https://arxiv.org/abs/2406.09535</link>
-      <description>arXiv:2406.09535v1 Announce Type: cross 
-Abstract: Automatically designing fast and space-efficient digital circuits is challenging because circuits are discrete, must exactly implement the desired logic, and are costly to simulate. We address these challenges with CircuitVAE, a search algorithm that embeds computation graphs in a continuous space and optimizes a learned surrogate of physical simulation by gradient descent. By carefully controlling overfitting of the simulation surrogate and ensuring diverse exploration, our algorithm is highly sample-efficient, yet gracefully scales to large problem instances and high sample budgets. We test CircuitVAE by designing binary adders across a large range of sizes, IO timing constraints, and sample budgets. Our method excels at designing large circuits, where other algorithms struggle: compared to reinforcement learning and genetic algorithms, CircuitVAE typically finds 64-bit adders which are smaller and faster using less than half the sample budget. We also find CircuitVAE can design state-of-the-art adders in a real-world chip, demonstrating that our method can outperform commercial tools in a realistic setting.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2406.09535v1</guid>
-      <category>cs.LG</category>
-      <category>cs.AR</category>
-      <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.1145/3649329.3656543</arxiv:DOI>
-      <dc:creator>Jialin Song, Aidan Swope, Robert Kirby, Rajarshi Roy, Saad Godil, Jonathan Raiman, Bryan Catanzaro</dc:creator>
+      <dc:creator>Nandeeka Nayak, Xinrui Wu, Toluwanimi O. Odemuyiwa, Michael Pellauer, Joel S. Emer, Christopher W. Fletcher</dc:creator>
     </item>
     <item>
-      <title>Cross-Modality Program Representation Learning for Electronic Design Automation with High-Level Synthesis</title>
-      <link>https://arxiv.org/abs/2406.09606</link>
-      <description>arXiv:2406.09606v1 Announce Type: cross 
-Abstract: In recent years, domain-specific accelerators (DSAs) have gained popularity for applications such as deep learning and autonomous driving. To facilitate DSA designs, programmers use high-level synthesis (HLS) to compile a high-level description written in C/C++ into a design with low-level hardware description languages that eventually synthesize DSAs on circuits. However, creating a high-quality HLS design still demands significant domain knowledge, particularly in microarchitecture decisions expressed as \textit{pragmas}. Thus, it is desirable to automate such decisions with the help of machine learning for predicting the quality of HLS designs, requiring a deeper understanding of the program that consists of original code and pragmas. Naturally, these programs can be considered as sequence data. In addition, these programs can be compiled and converted into a control data flow graph (CDFG). But existing works either fail to leverage both modalities or combine the two in shallow or coarse ways. We propose ProgSG, a model that allows interaction between the source code sequence modality and the graph modality in a deep and fine-grained way. To alleviate the scarcity of labeled designs, a pre-training method is proposed based on a suite of compiler's data flow analysis tasks. Experimental results show that ProgSG reduces the RMSE of design performance predictions by up to $22\%$, and identifies designs with an average of $1.10\times$ and $1.26\times$ (up to $8.17\times$ and $13.31\times$) performance improvement in design space exploration (DSE) task compared to HARP and AutoDSE, respectively.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2406.09606v1</guid>
-      <category>cs.LG</category>
-      <category>cs.AI</category>
+      <title>Triangel: A High-Performance, Accurate, Timely On-Chip Temporal Prefetcher</title>
+      <link>https://arxiv.org/abs/2406.10627</link>
+      <description>arXiv:2406.10627v1 Announce Type: new 
+Abstract: Temporal prefetching, where correlated pairs of addresses are logged and replayed on repeat accesses, has recently become viable in commercial designs. Arm's latest processors include Correlating Miss Chaining prefetchers, which store such patterns in a partition of the on-chip cache. However, the state-of-the-art on-chip temporal prefetcher in the literature, Triage, features some design inconsistencies and inaccuracies that pose challenges for practical implementation. We first examine and design fixes for these inconsistencies to produce an implementable baseline. We then introduce Triangel, a prefetcher that extends Triage with novel sampling-based methodologies to allow it to be aggressive and timely when the prefetcher is able to handle observed long-term patterns, and to avoid inaccurate prefetches when less able to do so. Triangel gives a 26.4% speedup compared to a baseline system with a conventional stride prefetcher alone, compared with 9.3% for Triage at degree 1 and 14.2% at degree 4. At the same time Triangel only increases memory traffic by 10% relative to baseline, versus 28.5% for Triage.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2406.10627v1</guid>
       <category>cs.AR</category>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Zongyue Qin, Yunsheng Bai, Atefeh Sograbizadeh, Zijian Ding, Ziniu Hu, Yizhou Sun, Jason Cong</dc:creator>
-    </item>
-    <item>
-      <title>SAGA: Synthesis Augmentation with Genetic Algorithms for In-Memory Sequence Optimization</title>
-      <link>https://arxiv.org/abs/2406.09677</link>
-      <description>arXiv:2406.09677v1 Announce Type: cross 
-Abstract: The von-Neumann architecture has a bottleneck which limits the speed at which data can be made available for computation. To combat this problem, novel paradigms for computing are being developed. One such paradigm, known as in-memory computing, interleaves computation with the storage of data within the same circuits. MAGIC, or Memristor Aided Logic, is an approach which uses memory circuits which physically perform computation through write operations to memory. Sequencing these operations is a computationally difficult problem which is directly correlated with the cost of solutions using MAGIC based in-memory computation. SAGA models the execution sequences as a topological sorting problem which makes the optimization well-suited for genetic algorithms. We then detail the formation and implementation of these genetic algorithms and evaluate them over a number of open circuit implementations. The memory-footprint needed for evaluating each of these circuits is decreased by up to 52% from existing, greedy-algorithm-based optimization solutions. Over the 10 benchmark circuits evaluated, these modifications lead to an overall improvement in the efficiency of in-memory circuit evaluation of 128% in the best case and 27.5% on average.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2406.09677v1</guid>
-      <category>cs.NE</category>
-      <category>cs.AR</category>
-      <arxiv:announce_type>cross</arxiv:announce_type>
+      <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Andey Robins, Mike Borowczak</dc:creator>
+      <dc:creator>Sam Ainsworth, Lev Mukhanov</dc:creator>
     </item>
     <item>
-      <title>DeFiNES: Enabling Fast Exploration of the Depth-first Scheduling Space for DNN Accelerators through Analytical Modeling</title>
-      <link>https://arxiv.org/abs/2212.05344</link>
-      <description>arXiv:2212.05344v4 Announce Type: replace 
-Abstract: DNN workloads can be scheduled onto DNN accelerators in many different ways: from layer-by-layer scheduling to cross-layer depth-first scheduling (a.k.a. layer fusion, or cascaded execution). This results in a very broad scheduling space, with each schedule leading to varying hardware (HW) costs in terms of energy and latency. To rapidly explore this vast space for a wide variety of hardware architectures, analytical cost models are crucial to estimate scheduling effects on the HW level. However, state-of-the-art cost models are lacking support for exploring the complete depth-first scheduling space, for instance focusing only on activations while ignoring weights, or modeling only DRAM accesses while overlooking on-chip data movements. These limitations prevent researchers from systematically and accurately understanding the depth-first scheduling space.
-  After formalizing this design space, this work proposes a unified modeling framework, DeFiNES, for layer-by-layer and depth-first scheduling to fill in the gaps. DeFiNES enables analytically estimating the hardware cost for possible schedules in terms of both energy and latency, while considering data access at every memory level. This is done for each schedule and HW architecture under study by optimally choosing the active part of the memory hierarchy per unique combination of operand, layer, and feature map tile. The hardware costs are estimated, taking into account both data computation and data copy phases. The analytical cost model is validated against measured data from a taped-out depth-first DNN accelerator, DepFiN, showing good modeling accuracy at the end-to-end neural network level. A comparison with generalized state-of-the-art demonstrates up to 10X better solutions found with DeFiNES.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2212.05344v4</guid>
-      <category>cs.AR</category>
+      <title>High-Performance Hardware Accelerator with Medium Granularity Dataflow for SpTRSV</title>
+      <link>https://arxiv.org/abs/2406.10511</link>
+      <description>arXiv:2406.10511v1 Announce Type: cross 
+Abstract: Sparse triangular solve (SpTRSV) is widely used in various domains. Numerous studies have been conducted using CPUs, GPUs, and specific hardware accelerators, where dataflow can be categorized into coarse and fine granularity. Coarse dataflow offers good spatial locality but suffers from low parallelism, while fine dataflow provides high parallelism but disrupts the spatial structure, leading to increased nodes and poor data reuse. This paper proposes a novel hardware accelerator for SpTRSV or SpTRSV-like DAG. The accelerator implements a medium granularity dataflow through hardware-software codesign and achieves both excellent spatial locality and high parallelism. Additionally, a partial sum caching mechanism is introduced to reduce the blocking frequency of processing elements (PEs), and a reordering algorithm of intra-node edges computation is developed to enhance data reuse. Experimental results on 264 benchmarks with node counts reaching up to 85,392 demonstrate that this work achieves average performance improvements of 12.2x (up to 874.5x) over CPU and 10.1x (up to 740.4x) over GPU. Compared to the state-of-the-art technique (DPU-v2), this work shows a 2.5x (up to 5.9x) average performance improvement and 1.8x (up to 4.1x) average energy efficiency enhancement.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2406.10511v1</guid>
       <category>cs.DC</category>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Linyan Mei, Koen Goetschalckx, Arne Symons, Marian Verhelst</dc:creator>
-    </item>
-    <item>
-      <title>SALSA: Simulated Annealing based Loop-Ordering Scheduler for DNN Accelerators</title>
-      <link>https://arxiv.org/abs/2304.12931</link>
-      <description>arXiv:2304.12931v2 Announce Type: replace 
-Abstract: To meet the growing need for computational power for DNNs, multiple specialized hardware architectures have been proposed. Each DNN layer should be mapped onto the hardware with the most efficient schedule, however, SotA schedulers struggle to consistently provide optimum schedules in a reasonable time across all DNN-HW combinations.
-  This paper proposes SALSA, a fast dual-engine scheduler to generate optimal execution schedules for both even and uneven mapping. We introduce a new strategy, combining exhaustive search with simulated annealing to address the dynamic nature of the loop ordering design space size across layers. SALSA is extensively benchmarked against two SotA schedulers, LOMA and Timeloop on 5 different DNNs, on average SALSA finds schedules with 11.9% and 7.6% lower energy while speeding up the search by 1.7x and 24x compared to LOMA and Timeloop, respectively.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2304.12931v2</guid>
       <category>cs.AR</category>
-      <category>cs.AI</category>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
-      <dc:creator>Victor J. B. Jung, Arne Symons, Linyan Mei, Marian Verhelst, Luca Benini</dc:creator>
-    </item>
-    <item>
-      <title>Walking Noise: On Layer-Specific Robustness of Neural Architectures against Noisy Computations and Associated Characteristic Learning Dynamics</title>
-      <link>https://arxiv.org/abs/2212.10430</link>
-      <description>arXiv:2212.10430v2 Announce Type: replace-cross 
-Abstract: Deep neural networks are extremely successful in various applications, however they exhibit high computational demands and energy consumption. This is exacerbated by stuttering technology scaling, prompting the need for novel approaches to handle increasingly complex neural architectures. At the same time, alternative computing technologies such as analog computing, which promise groundbreaking improvements in energy efficiency, are inevitably fraught with noise and inaccurate calculations. Such noisy computations are more energy efficient, and, given a fixed power budget, also more time efficient. However, like any kind of unsafe optimization, they require countermeasures to ensure functionally correct results.
-  This work considers noisy computations in an abstract form, and gears to understand the implications of such noise on the accuracy of neural network classifiers as an exemplary workload. We propose a methodology called Walking Noise which injects layer-specific noise to measure the robustness and to provide insights on the learning dynamics. In more detail, we investigate the implications of additive, multiplicative and mixed noise for different classification tasks and model architectures. While noisy training significantly increases robustness for all noise types, we observe in particular that it results in increased weight magnitudes and thus inherently improves the signal-to-noise ratio for additive noise injection. Contrarily, training with multiplicative noise can lead to a form of self-binarization of the model parameters, leading to extreme robustness. We conclude with a discussion of the use of this methodology in practice, among others, discussing its use for tailored multi-execution in noisy environments.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2212.10430v2</guid>
-      <category>cs.LG</category>
-      <category>cs.AR</category>
-      <category>cs.ET</category>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Hendrik Borras, Bernhard Klein, Holger Fr\"oning</dc:creator>
-    </item>
-    <item>
-      <title>Shedding the Bits: Pushing the Boundaries of Quantization with Minifloats on FPGAs</title>
-      <link>https://arxiv.org/abs/2311.12359</link>
-      <description>arXiv:2311.12359v2 Announce Type: replace-cross 
-Abstract: Post-training quantization (PTQ) is a powerful technique for model compression, reducing the numerical precision in neural networks without additional training overhead. Recent works have investigated adopting 8-bit floating-point formats(FP8) in the context of PTQ for model inference. However, floating-point formats smaller than 8 bits and their relative comparison in terms of accuracy-hardware cost with integers remains unexplored on FPGAs. In this work, we present minifloats, which are reduced-precision floating-point formats capable of further reducing the memory footprint, latency, and energy cost of a model while approaching full-precision model accuracy. We implement a custom FPGA-based multiply-accumulate operator library and explore the vast design space, comparing minifloat and integer representations across 3 to 8 bits for both weights and activations. We also examine the applicability of various integerbased quantization techniques to minifloats. Our experiments show that minifloats offer a promising alternative for emerging workloads such as vision transformers.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2311.12359v2</guid>
-      <category>cs.CV</category>
-      <category>cs.AI</category>
-      <category>cs.AR</category>
-      <category>cs.LG</category>
+      <category>cs.NA</category>
       <category>cs.PF</category>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <category>math.NA</category>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Qian Chen, Xiaofeng Yang, Shengli Lu</dc:creator>
+    </item>
+    <item>
+      <title>Optimization of Armv9 architecture general large language model inference performance based on Llama.cpp</title>
+      <link>https://arxiv.org/abs/2406.10816</link>
+      <description>arXiv:2406.10816v1 Announce Type: cross 
+Abstract: This article optimizes the inference performance of the Qwen-1.8B model by performing Int8 quantization, vectorizing some operators in llama.cpp, and modifying the compilation script to improve the compiler optimization level. On the Yitian 710 experimental platform, the prefill performance is increased by 1.6 times, the decoding performance is increased by 24 times, the memory usage is reduced to 1/5 of the original, and the accuracy loss is almost negligible.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2406.10816v1</guid>
+      <category>cs.PL</category>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <category>cs.PF</category>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Longhao Chen, Yina Zhao, Qiangjun Xie, Qinghua Sheng</dc:creator>
+    </item>
+    <item>
+      <title>Ara2: Exploring Single- and Multi-Core Vector Processing with an Efficient RVV 1.0 Compliant Open-Source Processor</title>
+      <link>https://arxiv.org/abs/2311.07493</link>
+      <description>arXiv:2311.07493v2 Announce Type: replace 
+Abstract: Vector processing is highly effective in boosting processor performance and efficiency for data-parallel workloads. In this paper, we present Ara2, the first fully open-source vector processor to support the RISC-V V 1.0 frozen ISA. We evaluate Ara2's performance on a diverse set of data-parallel kernels for various problem sizes and vector-unit configurations, achieving an average functional-unit utilization of 95% on the most computationally intensive kernels. We pinpoint performance boosters and bottlenecks, including the scalar core, memories, and vector architecture, providing insights into the main vector architecture's performance drivers. Leveraging the openness of the design, we implement Ara2 in a 22nm technology, characterize its PPA metrics on various configurations (2-16 lanes), and analyze its microarchitecture and implementation bottlenecks. Ara2 achieves a state-of-the-art energy efficiency of 37.8 DP-GFLOPS/W (0.8V) and 1.35GHz of clock frequency (critical path: ~40 FO4 gates). Finally, we explore the performance and energy-efficiency trade-offs of multi-core vector processors: we find that multiple vector cores help overcome the scalar core issue-rate bound that limits short-vector performance. For example, a cluster of eight 2-lane Ara2 (16 FPUs) achieves more than 3x better performance than a 16-lane single-core Ara2 (16 FPUs) when executing a 32x32x32 matrix multiplication, with 1.5x improved energy efficiency.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2311.07493v2</guid>
+      <category>cs.AR</category>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1109/TC.2024.3388896</arxiv:DOI>
+      <dc:creator>Matteo Perotti, Matheus Cavalcante, Renzo Andri, Lukas Cavigelli, Luca Benini</dc:creator>
+    </item>
+    <item>
+      <title>Selective Parallel Loading of Large-Scale Compressed Graphs with ParaGrapher</title>
+      <link>https://arxiv.org/abs/2404.19735</link>
+      <description>arXiv:2404.19735v2 Announce Type: replace 
+Abstract: Comprehensive evaluation is one of the basis of experimental science. In High-Performance Graph Processing, a thorough evaluation of contributions becomes more achievable by supporting common input formats over different frameworks. However, each framework creates its specific format, which may not support reading large-scale real-world graph datasets. This shows a demand for high-performance libraries capable of loading graphs to (i) accelerate designing new graph algorithms, (ii) to evaluate the contributions on a wide range of graph algorithms, and (iii) to facilitate easy and fast comparison over different graph frameworks.
+  To that end, we present ParaGrapher, a high-performance API and library for loading large-scale and compressed graphs. ParaGrapher supports different types of requests for accessing graphs in shared- and distributed-memory and out-of-core graph processing. We explain the design of ParaGrapher and present a performance model of graph decompression, which is used for evaluation of ParaGrapher over three storage types. Our evaluation shows that by decompressing compressed graphs in WebGraph format, ParaGrapher delivers up to 3.2 times speedup in loading and up to 5.2 times speedup in end-to-end execution in comparison to the binary and textual formats.
+  ParaGrapher is available online on https://blogs.qub.ac.uk/DIPSA/ParaGrapher/.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2404.19735v2</guid>
+      <category>cs.AR</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Shivam Aggarwal, Hans Jakob Damsgaard, Alessandro Pappalardo, Giuseppe Franco, Thomas B. Preu{\ss}er, Michaela Blott, Tulika Mitra</dc:creator>
+      <dc:creator>Mohsen Koohi Esfahani, Marco D'Antonio, Syed Ibtisam Tauhidi, Thai Son Mai, Hans Vandierendonck</dc:creator>
     </item>
   </channel>
 </rss>
