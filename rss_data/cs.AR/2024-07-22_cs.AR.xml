@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.AR updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.AR</link>
+    <description>cs.AR updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.AR" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Jul 2024 04:00:21 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 22 Jul 2024 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>LoAS: Fully Temporal-Parallel Datatflow for Dual-Sparse Spiking Neural Networks</title>
+      <link>https://arxiv.org/abs/2407.14073</link>
+      <description>arXiv:2407.14073v1 Announce Type: new 
+Abstract: Spiking Neural Networks (SNNs) have gained significant research attention in the last decade due to their potential to drive resource-constrained edge devices. Though existing SNN accelerators offer high efficiency in processing sparse spikes with dense weights, opportunities are less explored in SNNs with sparse weights, i.e., dual-sparsity. In this work, we study the acceleration of dual-sparse SNNs, focusing on their core operation, sparse-matrix-sparse-matrix multiplication (spMspM). We observe that naively running a dual-sparse SNN on existing spMspM accelerators designed for dual-sparse Artificial Neural Networks (ANNs) exhibits sub-optimal efficiency. The main challenge is that processing timesteps, a natural property of SNNs, introduces an extra loop to ANN spMspM, leading to longer latency and more memory traffic. To address the problem, we propose a fully temporal-parallel (FTP) dataflow, which minimizes both data movement across timesteps and the end-to-end latency of dual-sparse SNNs. To maximize the efficiency of FTP dataflow, we propose an FTP-friendly spike compression mechanism that efficiently compresses single-bit spikes and ensures contiguous memory access. We further propose an FTP-friendly inner-join circuit that can lower the cost of the expensive prefix-sum circuits with almost no throughput penalty. All the above techniques for FTP dataflow are encapsulated in LoAS, a Low-latency inference Accelerator for dual-sparse SNNs. With FTP dataflow, compression, and inner-join, running dual-sparse SNN workloads on LoAS demonstrates significant speedup (up to $8.51\times$) and energy reduction (up to $3.68\times$) compared to running it on prior dual-sparse accelerators.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2407.14073v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.NE</category>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ruokai Yin, Youngeun Kim, Di Wu, Priyadarshini Panda</dc:creator>
+    </item>
+    <item>
+      <title>Mixed-precision Neural Networks on RISC-V Cores: ISA extensions for Multi-Pumped Soft SIMD Operations</title>
+      <link>https://arxiv.org/abs/2407.14274</link>
+      <description>arXiv:2407.14274v1 Announce Type: new 
+Abstract: Recent advancements in quantization and mixed-precision approaches offers substantial opportunities to improve the speed and energy efficiency of Neural Networks (NN). Research has shown that individual parameters with varying low precision, can attain accuracies comparable to full-precision counterparts. However, modern embedded microprocessors provide very limited support for mixed-precision NNs regarding both Instruction Set Architecture (ISA) extensions and their hardware design for efficient execution of mixed-precision operations, i.e., introducing several performance bottlenecks due to numerous instructions for data packing and unpacking, arithmetic unit under-utilizations etc. In this work, we bring together, for the first time, ISA extensions tailored to mixed-precision hardware optimizations, targeting energy-efficient DNN inference on leading RISC-V CPU architectures. To this end, we introduce a hardware-software co-design framework that enables cooperative hardware design, mixed-precision quantization, ISA extensions and inference in cycle-accurate emulations. At hardware level, we firstly expand the ALU unit within our proof-of-concept micro-architecture to support configurable fine grained mixed-precision arithmetic operations. Subsequently, we implement multi-pumping to minimize execution latency, with an additional soft SIMD optimization applied for 2-bit operations. At the ISA level, three distinct MAC instructions are encoded extending the RISC-V ISA, and exposed up to the compiler level, each corresponding to a different mixed-precision operational mode. Our extensive experimental evaluation over widely used DNNs and datasets, such as CIFAR10 and ImageNet, demonstrates that our framework can achieve, on average, 15x energy reduction for less than 1% accuracy loss and outperforms the ISA-agnostic state-of-the-art RISC-V cores.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2407.14274v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Giorgos Armeniakos, Alexis Maras, Sotirios Xydis, Dimitrios Soudris</dc:creator>
+    </item>
+    <item>
+      <title>Missile: Fine-Grained, Hardware-Level GPU Resource Isolation for Multi-Tenant DNN Inference</title>
+      <link>https://arxiv.org/abs/2407.13996</link>
+      <description>arXiv:2407.13996v1 Announce Type: cross 
+Abstract: Colocating high-priority, latency-sensitive (LS) and low-priority, best-effort (BE) DNN inference services reduces the total cost of ownership (TCO) of GPU clusters. Limited by bottlenecks such as VRAM channel conflicts and PCIe bus contentions, existing GPU sharing solutions are unable to avoid resource conflicts among concurrently executing tasks, failing to achieve both low latency for LS tasks and high throughput for BE tasks. To bridge this gap, this paper presents Missile, a general GPU sharing solution for multi-tenant DNN inference on NVIDIA GPUs. Missile approximates fine-grained GPU hardware resource isolation between multiple LS and BE DNN tasks at software level. Through comprehensive reverse engineering, Missile first reveals a general VRAM channel hash mapping architecture of NVIDIA GPUs and eliminates VRAM channel conflicts using software-level cache coloring. It also isolates the PCIe bus and fairly allocates PCIe bandwidth using completely fair scheduler. We evaluate 12 mainstream DNNs with synthetic and real-world workloads on four GPUs. The results show that compared to the state-of-the-art GPU sharing solutions, Missile reduces tail latency for LS services by up to ~50%, achieves up to 6.1x BE job throughput, and allocates PCIe bus bandwidth to tenants on-demand for optimal performance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2407.13996v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AR</category>
+      <category>cs.PF</category>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yongkang Zhang, Haoxuan Yu, Chenxia Han, Cheng Wang, Baotong Lu, Yang Li, Xiaowen Chu, Huaicheng Li</dc:creator>
+    </item>
+    <item>
+      <title>SpAtten: Efficient Sparse Attention Architecture with Cascade Token and Head Pruning</title>
+      <link>https://arxiv.org/abs/2012.09852</link>
+      <description>arXiv:2012.09852v3 Announce Type: replace 
+Abstract: The attention mechanism is becoming increasingly popular in Natural Language Processing (NLP) applications, showing superior performance than convolutional and recurrent architectures. However, attention becomes the compution bottleneck because of its quadratic computational complexity to input length, complicated data movement and low arithmetic intensity. Moreover, existing NN accelerators mainly focus on optimizing convolutional or recurrent models, and cannot efficiently support attention. In this paper, we present SpAtten, an efficient algorithm-architecture co-design that leverages token sparsity, head sparsity, and quantization opportunities to reduce the attention computation and memory access. Inspired by the high redundancy of human languages, we propose the novel cascade token pruning to prune away unimportant tokens in the sentence. We also propose cascade head pruning to remove unessential heads. Cascade pruning is fundamentally different from weight pruning since there is no trainable weight in the attention mechanism, and the pruned tokens and heads are selected on the fly. To efficiently support them on hardware, we design a novel top-k engine to rank token and head importance scores with high throughput. Furthermore, we propose progressive quantization that first fetches MSBs only and performs the computation; if the confidence is low, it fetches LSBs and recomputes the attention outputs, trading computation for memory reduction.
+  Extensive experiments on 30 benchmarks show that, on average, SpAtten reduces DRAM access by 10.0x with no accuracy loss, and achieves 1.6x, 3.0x, 162x, 347x speedup, and 1,4x, 3.2x, 1193x, 4059x energy savings over A3 accelerator, MNNFast accelerator, TITAN Xp GPU, Xeon CPU, respectively.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2012.09852v3</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.LG</category>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1109/HPCA51647.2021.00018</arxiv:DOI>
+      <dc:creator>Hanrui Wang, Zhekai Zhang, Song Han</dc:creator>
+    </item>
+    <item>
+      <title>Low-overhead General-purpose Near-Data Processing in CXL Memory Expanders</title>
+      <link>https://arxiv.org/abs/2404.19381</link>
+      <description>arXiv:2404.19381v2 Announce Type: replace 
+Abstract: Emerging Compute Express Link (CXL) enables cost-efficient memory expansion beyond the local DRAM of processors. While its CXL.mem protocol provides minimal latency overhead through an optimized protocol stack, frequent CXL memory accesses can result in significant slowdowns for memory-bound applications whether they are latency-sensitive or bandwidth-intensive. The near-data processing (NDP) in the CXL controller promises to overcome such limitations of passive CXL memory. However, prior work on NDP in CXL memory proposes application-specific units that are not suitable for practical CXL memory-based systems that should support various applications. On the other hand, existing CPU or GPU cores are not cost-effective for NDP because they are not optimized for memory-bound applications. In addition, the communication between the host processor and CXL controller for NDP offloading should achieve low latency, but existing CXL.io/PCIe-based mechanisms incur $\mu$s-scale latency and are not suitable for fine-grained NDP.
+  To achieve high-performance NDP end-to-end, we propose a low-overhead general-purpose NDP architecture for CXL memory referred to as Memory-Mapped NDP (M$^2$NDP), which comprises memory-mapped functions (M$^2$func) and memory-mapped $\mu$threading (M$^2\mu$thr). M$^2$func is a CXL.mem-compatible low-overhead communication mechanism between the host processor and NDP controller in CXL memory. M$^2\mu$thr enables low-cost, general-purpose NDP unit design by introducing lightweight $\mu$threads that support highly concurrent execution of kernels with minimal resource wastage. Combining them, M$^2$NDP achieves significant speedups for various workloads by up to 128x (14.5x overall) and reduces energy by up to 87.9% (80.3% overall) compared to baseline CPU/GPU hosts with passive CXL memory.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2404.19381v2</guid>
+      <category>cs.AR</category>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Hyungkyu Ham, Jeongmin Hong, Geonwoo Park, Yunseon Shin, Okkyun Woo, Wonhyuk Yang, Jinhoon Bae, Eunhyeok Park, Hyojin Sung, Euicheol Lim, Gwangsun Kim</dc:creator>
+    </item>
+  </channel>
+</rss>
