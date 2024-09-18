@@ -7,27 +7,52 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Sep 2024 01:49:54 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Sep 2024 04:00:55 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Tue, 17 Sep 2024 00:00:00 -0400</pubDate>
+    <pubDate>Wed, 18 Sep 2024 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Sunday</day>
       <day>Saturday</day>
     </skipDays>
     <item>
-      <title>BULKHEAD: Secure, Scalable, and Efficient Kernel Compartmentalization with PKS</title>
-      <link>https://arxiv.org/abs/2409.09606</link>
-      <description>arXiv:2409.09606v1 Announce Type: cross 
-Abstract: The endless stream of vulnerabilities urgently calls for principled mitigation to confine the effect of exploitation. However, the monolithic architecture of commodity OS kernels, like the Linux kernel, allows an attacker to compromise the entire system by exploiting a vulnerability in any kernel component. Kernel compartmentalization is a promising approach that follows the least-privilege principle. However, existing mechanisms struggle with the trade-off on security, scalability, and performance, given the challenges stemming from mutual untrustworthiness among numerous and complex components.
-  In this paper, we present BULKHEAD, a secure, scalable, and efficient kernel compartmentalization technique that offers bi-directional isolation for unlimited compartments. It leverages Intel's new hardware feature PKS to isolate data and code into mutually untrusted compartments and benefits from its fast compartment switching. With untrust in mind, BULKHEAD introduces a lightweight in-kernel monitor that enforces multiple important security invariants, including data integrity, execute-only memory, and compartment interface integrity. In addition, it provides a locality-aware two-level scheme that scales to unlimited compartments. We implement a prototype system on Linux v6.1 to compartmentalize loadable kernel modules (LKMs). Extensive evaluation confirms the effectiveness of our approach. As the system-wide impacts, BULKHEAD incurs an average performance overhead of 2.44% for real-world applications with 160 compartmentalized LKMs. While focusing on a specific compartment, ApacheBench tests on ipv6 show an overhead of less than 2%. Moreover, the performance is almost unaffected by the number of compartments, which makes it highly scalable.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2409.09606v1</guid>
-      <category>cs.CR</category>
+      <title>Skip TLB flushes for reused pages within mmap's</title>
+      <link>https://arxiv.org/abs/2409.10946</link>
+      <description>arXiv:2409.10946v1 Announce Type: new 
+Abstract: Memory access efficiency is significantly enhanced by caching recent address translations in the CPUs' Translation Lookaside Buffers (TLBs). However, since the operating system is not aware of which core is using a particular mapping, it flushes TLB entries across all cores where the application runs whenever addresses are unmapped, ensuring security and consistency. These TLB flushes, known as TLB shootdowns, are costly and create a performance and scalability bottleneck. A key contributor to TLB shootdowns is memory-mapped I/O, particularly during mmap-munmap cycles and page cache evictions. Often, the same physical pages are reassigned to the same process post-eviction, presenting an opportunity for the operating system to reduce the frequency of TLB shootdowns. We demonstrate, that by slightly extending the mmap function, TLB shootdowns for these "recycled pages" can be avoided.
+  Therefore we introduce and implement the "fast page recycling" (FPR) feature within the mmap system call. FPR-mmaps maintain security by only triggering TLB shootdowns when a page exits its recycling cycle and is allocated to a different process. To ensure consistency when FPR-mmap pointers are used, we made minor adjustments to virtual memory management to avoid the ABA problem. Unlike previous methods to mitigate shootdown effects, our approach does not require any hardware modifications and operates transparently within the existing Linux virtual memory framework.
+  Our evaluations across a variety of CPU, memory, and storage setups, including persistent memory and Optane SSDs, demonstrate that FPR delivers notable performance gains, with improvements of up to 28% in real-world applications and 92% in micro-benchmarks. Additionally, we show that TLB shootdowns are a significant source of bottlenecks, previously misattributed to other components of the Linux kernel.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2409.10946v1</guid>
       <category>cs.OS</category>
-      <pubDate>Tue, 17 Sep 2024 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
+      <category>cs.DC</category>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.14722/ndss.2025.23328</arxiv:DOI>
-      <dc:creator>Yinggang Guo, Zicheng Wang, Weiheng Bai, Qingkai Zeng, Kangjie Lu</dc:creator>
+      <dc:creator>Frederic Schimmelpfennig, Andr\'e Brinkmann, Hossein Asadi, Reza Salkhordeh</dc:creator>
+    </item>
+    <item>
+      <title>eBPF-mm: Userspace-guided memory management in Linux with eBPF</title>
+      <link>https://arxiv.org/abs/2409.11220</link>
+      <description>arXiv:2409.11220v1 Announce Type: new 
+Abstract: We leverage eBPF in order to implement custom policies in the Linux memory subsystem. Inspired by CBMM, we create a mechanism that provides the kernel with hints regarding the benefit of promoting a page to a specific size. We introduce a new hook point in Linux page fault handling path for eBPF programs, providing them the necessary context to determine the page size to be used. We then develop a framework that allows users to define profiles for their applications and load them into the kernel. A profile consists of memory regions of interest and their expected benefit from being backed by 4KB, 64KB and 2MB pages. In our evaluation, we profiled our workloads to identify hot memory regions using DAMON.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2409.11220v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Konstantinos Mores, Stratos Psomadakis, Georgios Goumas</dc:creator>
+    </item>
+    <item>
+      <title>Analysis of Synchronization Mechanisms in Operating Systems</title>
+      <link>https://arxiv.org/abs/2409.11271</link>
+      <description>arXiv:2409.11271v1 Announce Type: new 
+Abstract: This research analyzed the performance and consistency of four synchronization mechanisms-reentrant locks, semaphores, synchronized methods, and synchronized blocks-across three operating systems: macOS, Windows, and Linux. Synchronization ensures that concurrent processes or threads access shared resources safely, and efficient synchronization is vital for maintaining system performance and reliability. The study aimed to identify the synchronization mechanism that balances efficiency, measured by execution time, and consistency, assessed by variance and standard deviation, across platforms. The initial hypothesis proposed that mutex-based mechanisms, specifically synchronized methods and blocks, would be the most efficient due to their simplicity. However, empirical results showed that reentrant locks had the lowest average execution time (14.67ms), making them the most efficient mechanism, but with the highest variability (standard deviation of 1.15). In contrast, synchronized methods, blocks, and semaphores exhibited higher average execution times (16.33ms for methods and 16.67ms for blocks) but with greater consistency (variance of 0.33). The findings indicated that while reentrant locks were faster, they were more platform-dependent, whereas mutex-based mechanisms provided more predictable performance across all operating systems. The use of virtual machines for Windows and Linux was a limitation, potentially affecting the results. Future research should include native testing and explore additional synchronization mechanisms and higher concurrency levels. These insights help developers and system designers optimize synchronization strategies for either performance or stability, depending on the application's requirements.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2409.11271v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Oluwatoyin Kode, Temitope Oyemade</dc:creator>
     </item>
   </channel>
 </rss>
