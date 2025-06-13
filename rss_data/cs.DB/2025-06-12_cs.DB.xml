@@ -7,118 +7,107 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Jun 2025 01:41:13 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jun 2025 04:00:12 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Thu, 12 Jun 2025 00:00:00 -0400</pubDate>
+    <pubDate>Fri, 13 Jun 2025 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Sunday</day>
       <day>Saturday</day>
+      <day>Sunday</day>
     </skipDays>
     <item>
-      <title>Terabyte-Scale Analytics in the Blink of an Eye</title>
-      <link>https://arxiv.org/abs/2506.09226</link>
-      <description>arXiv:2506.09226v1 Announce Type: new 
-Abstract: For the past two decades, the DB community has devoted substantial research to take advantage of cheap clusters of machines for distributed data analytics -- we believe that we are at the beginning of a paradigm shift. The scaling laws and popularity of AI models lead to the deployment of incredibly powerful GPU clusters in commercial data centers. Compared to CPU-only solutions, these clusters deliver impressive improvements in per-node compute, memory bandwidth, and inter-node interconnect performance. In this paper, we study the problem of scaling analytical SQL queries on distributed clusters of GPUs, with the stated goal of establishing an upper bound on the likely performance gains. To do so, we build a prototype designed to maximize performance by leveraging ML/HPC best practices, such as group communication primitives for cross-device data movements. This allows us to conduct thorough performance experimentation to point our community towards a massive performance opportunity of at least 60$\times$. To make these gains more relatable, before you can blink twice, our system can run all 22 queries of TPC-H at a 1TB scale factor!</description>
-      <guid isPermaLink="false">oai:arXiv.org:2506.09226v1</guid>
+      <title>GPU Acceleration of SQL Analytics on Compressed Data</title>
+      <link>https://arxiv.org/abs/2506.10092</link>
+      <description>arXiv:2506.10092v1 Announce Type: new 
+Abstract: GPUs are uniquely suited to accelerate (SQL) analytics workloads thanks to their massive compute parallelism and High Bandwidth Memory (HBM) -- when datasets fit in the GPU HBM, performance is unparalleled. Unfortunately, GPU HBMs remain typically small when compared with lower-bandwidth CPU main memory. Besides brute-force scaling across many GPUs, current solutions to accelerate queries on large datasets include leveraging data partitioning and loading smaller data batches in GPU HBM, and hybrid execution with a connected device (e.g., CPUs). Unfortunately, these approaches are exposed to the limitations of lower main memory and host-to-device interconnect bandwidths, introduce additional I/O overheads, or incur higher costs. This is a substantial problem when trying to scale adoption of GPUs on larger datasets. Data compression can alleviate this bottleneck, but to avoid paying for costly decompression/decoding, an ideal solution must include computation primitives to operate directly on data in compressed form.
+  This is the focus of our paper: a set of new methods for running queries directly on light-weight compressed data using schemes such as Run-Length Encoding (RLE), index encoding, bit-width reductions, and dictionary encoding. Our novelty includes operating on multiple RLE columns without decompression, handling heterogeneous column encodings, and leveraging PyTorch tensor operations for portability across devices. Experimental evaluations show speedups of an order of magnitude compared to state-of-the-art commercial CPU-only analytics systems, for real-world queries on a production dataset that would not fit into GPU memory uncompressed. This work paves the road for GPU adoption in a much broader set of use cases, and it is complementary to most other scale-out or fallback mechanisms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.10092v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zezhou Huang, Krystian Sakowski, Hans Lehnert, Wei Cui, Carlo Curino, Matteo Interlandi, Marius Dumitru, Rathijit Sen</dc:creator>
+    </item>
+    <item>
+      <title>A Unifying Algorithm for Hierarchical Queries</title>
+      <link>https://arxiv.org/abs/2506.10238</link>
+      <description>arXiv:2506.10238v1 Announce Type: new 
+Abstract: The class of hierarchical queries is known to define the boundary of the dichotomy between tractability and intractability for the following two extensively studied problems about self-join free Boolean conjunctive queries (SJF-BCQ): (i) evaluating a SJF-BCQ on a tuple-independent probabilistic database; (ii) computing the Shapley value of a fact in a database on which a SJF-BCQ evaluates to true. Here, we establish that hierarchical queries define also the boundary of the dichotomy between tractability and intractability for a different natural algorithmic problem, which we call the "bag-set maximization" problem. The bag-set maximization problem associated with a SJF-BCQ $Q$ asks: given a database $\cal D$, find the biggest value that $Q$ takes under bag semantics on a database $\cal D'$ obtained from $\cal D$ by adding at most $\theta$ facts from another given database $\cal D^r$.
+  For non-hierarchical queries, we show that the bag-set maximization problem is an NP-complete optimization problem. More significantly, for hierarchical queries, we show that all three aforementioned problems (probabilistic query evaluation, Shapley value computation, and bag-set maximization) admit a single unifying polynomial-time algorithm that operates on an abstract algebraic structure, called a "2-monoid". Each of the three problems requires a different instantiation of the 2-monoid tailored for the problem at hand.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.10238v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mahmoud Abo Khamis, Jesse Comer, Phokion Kolaitis, Sudeepa Roy, Val Tannen</dc:creator>
+    </item>
+    <item>
+      <title>A Hybrid Heuristic Framework for Resource-Efficient Querying of Scientific Experiments Data</title>
+      <link>https://arxiv.org/abs/2506.10422</link>
+      <description>arXiv:2506.10422v1 Announce Type: new 
+Abstract: Scientific experiments and modern applications are generating large amounts of data every day. Most organizations utilize In-house servers or Cloud resources to manage application data and workload. The traditional database management system (DBMS) and HTAP systems spend significant time &amp; resources to load the entire dataset into DBMS before starting query execution. On the other hand, in-situ engines may reparse required data multiple times, increasing resource utilization and data processing costs. Additionally, over or under-allocation of resources also increases application running costs. This paper proposes a lightweight Resource Availability &amp;Workload aware Hybrid Framework (RAW-HF) to optimize querying raw data by utilizing existing finite resources efficiently. RAW-HF includes modules that help optimize the resources required to execute a given workload and maximize the utilization of existing resources. The impact of applying RAW-HF to real-world scientific dataset workloads like Sloan Digital Sky Survey (SDSS) and Linked Observation Data (LOD) presented over 90% and 85% reduction in workload execution time (WET) compared to widely used traditional DBMS PostgreSQL. The overall CPU, IO resource utilization, and WET have been reduced by 26%, 25%, and 26%, respectively, while improving memory utilization by 33%, compared to the state-of-the-art workload-aware partial loading technique (WA) proposed for hybrid systems. A comparison of MUAR technique used by RAW-HF with machine learning based resource allocation techniques like PCC is also presented.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.10422v1</guid>
       <category>cs.DB</category>
       <category>cs.DC</category>
+      <category>cs.ET</category>
       <category>cs.PF</category>
-      <pubDate>Thu, 12 Jun 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Bowen Wu, Wei Cui, Carlo Curino, Matteo Interlandi, Rathijit Sen</dc:creator>
-    </item>
-    <item>
-      <title>ArcNeural: A Multi-Modal Database for the Gen-AI Era</title>
-      <link>https://arxiv.org/abs/2506.09467</link>
-      <description>arXiv:2506.09467v1 Announce Type: new 
-Abstract: ArcNeural introduces a novel multimodal database tailored for the demands of Generative AI and Large Language Models, enabling efficient management of diverse data types such as graphs, vectors, and documents. Its storage-compute separated architecture integrates graph technology, advanced vector indexing, and transaction processing to support real-time analytics and AI-driven applications. Key features include a unified storage layer, adaptive edge collection in MemEngine, and seamless integration of transaction and analytical processing. Experimental evaluations demonstrate ArcNeural's superior performance and scalability compared to state-of-the-art systems. This system bridges structured and unstructured data management, offering a versatile solution for enterprise-grade AI applications.
-  ArcNeural's design addresses the challenges of multimodal data processing, providing a robust framework for intelligent, data-driven solutions in the Gen AI era.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2506.09467v1</guid>
-      <category>cs.DB</category>
-      <pubDate>Thu, 12 Jun 2025 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Wu Min, Qiao Yuncong, Yu Tan, Chenghu Yang</dc:creator>
+      <dc:creator>Mayank Patel, Minal Bhise</dc:creator>
     </item>
     <item>
-      <title>Not all those who drift are lost: Drift correction and calibration scheduling for the IoT</title>
-      <link>https://arxiv.org/abs/2506.09186</link>
-      <description>arXiv:2506.09186v1 Announce Type: cross 
-Abstract: Sensors provide a vital source of data that link digital systems with the physical world. However, as sensors age, the relationship between what they measure and what they output changes. This is known as sensor drift and poses a significant challenge that, combined with limited opportunity for re-calibration, can severely limit data quality over time. Previous approaches to drift correction typically require large volumes of ground truth data and do not consider measurement or prediction uncertainty. In this paper, we propose a probabilistic sensor drift correction method that takes a fundamental approach to modelling the sensor response using Gaussian Process Regression. Tested using dissolved oxygen sensors, our method delivers mean squared error (MSE) reductions of up to 90% and more than 20% on average. We also propose a novel uncertainty-driven calibration schedule optimisation approach that builds on top of drift correction and further reduces MSE by up to 15.7%.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2506.09186v1</guid>
-      <category>eess.SP</category>
+      <title>S3 Mirror: S3Mirror: Making Genomic Data Transfers Fast, Reliable, and Observable with DBOS</title>
+      <link>https://arxiv.org/abs/2506.10886</link>
+      <description>arXiv:2506.10886v1 Announce Type: new 
+Abstract: To meet the needs of a large pharmaceutical organization, we set out to create S3Mirror - an application for transferring large genomic sequencing datasets between S3 buckets quickly, reliably, and observably. We used the DBOSTransact durable execution framework to achieve these goals and benchmarked the performance and cost of the application. S3Mirror is an open source DBOS Python application that can run in a variety of environments, including DBOS Cloud Pro where it runs as much as 40x faster than AWS DataSync at a fraction of the cost. Moreover, S3Mirror is resilient to failures and allows for real-time filewise observability of ongoing and past transfers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.10886v1</guid>
       <category>cs.DB</category>
-      <pubDate>Thu, 12 Jun 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Aaron Hurst, Andrey V. Kalinichev, Klaus Koren, Daniel E. Lucani</dc:creator>
-    </item>
-    <item>
-      <title>Linking Data Citation to Repository Visibility: An Empirical Study</title>
-      <link>https://arxiv.org/abs/2506.09530</link>
-      <description>arXiv:2506.09530v1 Announce Type: cross 
-Abstract: In today's data-driven research landscape, dataset visibility and accessibility play a crucial role in advancing scientific knowledge. At the same time, data citation is essential for maintaining academic integrity, acknowledging contributions, validating research outcomes, and fostering scientific reproducibility. As a critical link, it connects scholarly publications with the datasets that drive scientific progress. This study investigates whether repository visibility influences data citation rates. We hypothesize that repositories with higher visibility, as measured by search engine metrics, are associated with increased dataset citations. Using OpenAlex data and repository impact indicators (including the visibility index from Sistrix, the h-index of repositories, and citation metrics such as mean and median citations), we analyze datasets in Social Sciences and Economics to explore their relationship. Our findings suggest that datasets hosted on more visible web domains tend to receive more citations, with a positive correlation observed between web domain visibility and dataset citation counts, particularly for datasets with at least one citation. However, when analyzing domain-level citation metrics, such as the h-index, mean, and median citations, the correlations are inconsistent and weaker. While higher visibility domains tend to host datasets with greater citation impact, the distribution of citations across datasets varies significantly. These results suggest that while visibility plays a role in increasing citation counts, it is not the sole factor influencing dataset citation impact. Other elements, such as dataset quality, research trends, and disciplinary norms, also contribute significantly to citation patterns.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2506.09530v1</guid>
-      <category>cs.DL</category>
-      <category>cs.DB</category>
-      <pubDate>Thu, 12 Jun 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
+      <category>q-bio.GN</category>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Fakhri Momeni, Janete Saldanha Bach, Brigitte Mathiak, Peter Mutschke</dc:creator>
+      <dc:creator>Steven Vasquez-Grinnell, Alex Poliakov</dc:creator>
     </item>
     <item>
-      <title>Microservices and Real-Time Processing in Retail IT: A Review of Open-Source Toolchains and Deployment Strategies</title>
-      <link>https://arxiv.org/abs/2506.09938</link>
-      <description>arXiv:2506.09938v1 Announce Type: cross 
-Abstract: With the rapid pace of digital transformation, the retail industry is increasingly depending on real-time, scalable, and resilient systems to manage financial transactions, analyze customer behavior, and streamline order processing. This literature review explores how modern event-driven and microservices-based architectures, particularly those leveraging Apache Kafka, Spring Boot, MongoDB, and Kubernetes are transforming retail and financial systems. By systematically reviewing academic publications, technical white papers, and industry reports from recent years, this study synthesizes key themes and implementation strategies. The analysis reveals that technologies like Kafka and Spring Boot are instrumental in building low-latency, event-driven applications that support real-time analytics and fraud detection, while MongoDB, when deployed on Kubernetes, ensures fault tolerance and high availability in inventory and transaction systems. Kubernetes itself plays a crucial role in automating deployment and scaling of microservices. These findings provide valuable insights for industry practitioners aiming to design scalable infrastructures, identify research opportunities in hybrid deployment models, and offer educators a foundation to integrate modern system architectures into professional and technical communication training.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2506.09938v1</guid>
-      <category>cs.SE</category>
+      <title>Finding a Fair Scoring Function for Top-$k$ Selection: From Hardness to Practice</title>
+      <link>https://arxiv.org/abs/2503.11575</link>
+      <description>arXiv:2503.11575v2 Announce Type: replace 
+Abstract: Selecting a subset of the $k$ "best" items from a dataset of $n$ items, based on a scoring function, is a key task in decision-making. Given the rise of automated decision-making software, it is important that the outcome of this process, called top-$k$ selection, is fair. Here we consider the problem of identifying a fair linear scoring function for top-$k$ selection. The function computes a score for each item as a weighted sum of its (numerical) attribute values, and must ensure that the selected subset includes adequate representation of a minority or historically disadvantaged group. Existing algorithms do not scale efficiently, particularly in higher dimensions. Our hardness analysis shows that in more than two dimensions, no algorithm is likely to achieve good scalability with respect to dataset size, and the computational complexity is likely to increase rapidly with dimensionality. However, the hardness results also provide key insights guiding algorithm design, leading to our dual-algorithm solution: (1) For small values of $k$, our hardness analysis reveals a gap in the hardness barrier. By addressing various engineering challenges, including achieving efficient parallelism, we turn this potential of efficiency into an optimized algorithm delivering substantial practical performance gains. (2) For large values of $k$, where the hardness is robust, we employ a practically efficient algorithm which, despite being theoretically worse, achieves superior real-world performance. Experimental evaluations on real-world datasets then explore scenarios where worst-case behavior does not manifest, identifying areas critical to practical performance. Our solution achieves speed-ups of up to several orders of magnitude compared to SOTA, an efficiency made possible through a tight integration of hardness analysis, algorithm design, practical engineering, and empirical evaluation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2503.11575v2</guid>
       <category>cs.DB</category>
-      <pubDate>Thu, 12 Jun 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/publicdomain/zero/1.0/</dc:rights>
-      <dc:creator>Aaditaa Vashisht (Department of Information Science,Engineering, RV College of Engineering, India), Rekha B S (Department of Information Science,Engineering, RV College of Engineering, India)</dc:creator>
+      <category>cs.CC</category>
+      <category>cs.CY</category>
+      <category>cs.DC</category>
+      <category>cs.DS</category>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Guangya Cai</dc:creator>
     </item>
     <item>
-      <title>GenJoin: Conditional Generative Plan-to-Plan Query Optimizer that Learns from Subplan Hints</title>
-      <link>https://arxiv.org/abs/2411.04525</link>
-      <description>arXiv:2411.04525v2 Announce Type: replace 
-Abstract: Query optimization has become a research area where classical algorithms are being challenged by machine learning algorithms. At the same time, recent trends in learned query optimizers have shown that it is prudent to take advantage of decades of database research and augment classical query optimizers by shrinking the plan search space through different types of hints (e.g. by specifying the join type, scan type or the order of joins) rather than completely replacing the classical query optimizer with machine learning models. It is especially relevant for cases when classical optimizers cannot fully enumerate all logical and physical plans and, as an alternative, need to rely on less robust approaches like genetic algorithms. However, even symbiotically learned query optimizers are hampered by the need for vast amounts of training data, slow plan generation during inference and unstable results across various workload conditions. In this paper, we present GenJoin - a novel learned query optimizer that considers the query optimization problem as a generative task and is capable of learning from a random set of subplan hints to produce query plans that outperform the classical optimizer. GenJoin is the first learned query optimizer that significantly and consistently outperforms PostgreSQL as well as state-of-the-art methods on two well-known real-world benchmarks across a variety of workloads using rigorous machine learning evaluations.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2411.04525v2</guid>
+      <title>VSAG: An Optimized Search Framework for Graph-based Approximate Nearest Neighbor Search</title>
+      <link>https://arxiv.org/abs/2503.17911</link>
+      <description>arXiv:2503.17911v2 Announce Type: replace 
+Abstract: Approximate nearest neighbor search (ANNS) is a fundamental problem in vector databases and AI infrastructures. Recent graph-based ANNS algorithms have achieved high search accuracy with practical efficiency. Despite the advancements, these algorithms still face performance bottlenecks in production, due to the random memory access patterns of graph-based search and the high computational overheads of vector distance. In addition, the performance of a graph-based ANNS algorithm is highly sensitive to parameters, while selecting the optimal parameters is cost-prohibitive, e.g., manual tuning requires repeatedly re-building the index.
+  This paper introduces VSAG, an open-source framework that aims to enhance the in production performance of graph-based ANNS algorithms. VSAG has been deployed at scale in the services of Ant Group, and it incorporates three key optimizations: (i) efficient memory access: it reduces L3 cache misses with pre-fetching and cache-friendly vector organization; (ii) automated parameter tuning: it automatically selects performance-optimal parameters without requiring index rebuilding; (iii) efficient distance computation: it leverages modern hardware, scalar quantization, and smartly switches to low-precision representation to dramatically reduce the distance computation costs. We evaluate VSAG on real-world datasets. The experimental results show that VSAG achieves the state-of-the-art performance and provides up to 4x speedup over HNSWlib (an industry-standard library) while ensuring the same accuracy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2503.17911v2</guid>
       <category>cs.DB</category>
-      <category>cs.AI</category>
-      <pubDate>Thu, 12 Jun 2025 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Pavel Sulimov, Claude Lehmann, Kurt Stockinger</dc:creator>
+      <dc:creator>Xiaoyao Zhong, Haotian Li, Jiabao Jin, Mingyu Yang, Deming Chu, Xiangyu Wang, Zhitao Shen, Wei Jia, George Gu, Yi Xie, Xuemin Lin, Heng Tao Shen, Jingkuan Song, Peng Cheng</dc:creator>
     </item>
     <item>
-      <title>Reviewing Uses of Regulatory Compliance Monitoring</title>
-      <link>https://arxiv.org/abs/2501.10362</link>
-      <description>arXiv:2501.10362v3 Announce Type: replace-cross 
-Abstract: Organizations need to manage numerous business processes for delivering their services and products to customers. One important consideration thereby lies in the adherence to regulations such as laws, guidelines, or industry standards. In order to monitor adherence of their business processes to regulations -- in other words, their regulatory compliance -- organizations make use of various techniques that draw on process execution data of IT systems that support these processes. Previous research has investigated conformance checking, an operation of process mining, for the domains in which it is applied, its operationalization of regulations, the techniques being used, and the presentation of results produced. However, other techniques for regulatory compliance monitoring, which we summarize as compliance checking techniques, have not yet been investigated regarding these aspects in a structural manner. To this end, this work presents a systematic literature review on uses of regulatory compliance monitoring of business processes, thereby offering insights into the various techniques being used, their application and the results they generate. We highlight commonalities and differences between the approaches and find that various steps are performed manually; we also provide further impulses for research on compliance monitoring and its use in practice.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2501.10362v3</guid>
-      <category>cs.CY</category>
+      <title>OxO2 -- A SSSOM mapping browser for logically sound crosswalks</title>
+      <link>https://arxiv.org/abs/2506.04286</link>
+      <description>arXiv:2506.04286v2 Announce Type: replace 
+Abstract: EMBL-EBI created OxO to enable users to map between datasets that are annotated with different ontologies. Mappings identified by the first version of OxO were not necessarily logically sound, lacked important provenance information such as author and reviewer, and could timeout or crash for certain requests. In this paper we introduce OxO2 to address these concerns. Provenance is addressed by implementing SSSOM, a mapping standard that defines provenance for mappings. SSSOM defines the conditions under which logical sound mappings can be derived and is implemented in OxO2 using Nemo, a Datalog rule engine. To ensure reasoning is performant and memory efficient, Nemo implements a number of strategies that ensures OxO2 will be stable for all requests. Due to these changes, OxO2 users will be able to integrate between disparate datasets with greater confidence.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.04286v2</guid>
       <category>cs.DB</category>
-      <pubDate>Thu, 12 Jun 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <pubDate>Fri, 13 Jun 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Finn Klessascheck, Luise Pufahl</dc:creator>
-    </item>
-    <item>
-      <title>Griffin: Towards a Graph-Centric Relational Database Foundation Model</title>
-      <link>https://arxiv.org/abs/2505.05568</link>
-      <description>arXiv:2505.05568v2 Announce Type: replace-cross 
-Abstract: We introduce Griffin, the first foundation model attemptation designed specifically for Relational Databases (RDBs). Unlike previous smaller models focused on single RDB tasks, Griffin unifies the data encoder and task decoder to handle diverse tasks. Additionally, we enhance the architecture by incorporating a cross-attention module and a novel aggregator. Griffin utilizes pretraining on both single-table and RDB datasets, employing advanced encoders for categorical, numerical, and metadata features, along with innovative components such as cross-attention modules and enhanced message-passing neural networks (MPNNs) to capture the complexities of relational data. Evaluated on large-scale, heterogeneous, and temporal graphs extracted from RDBs across various domains (spanning over 150 million nodes), Griffin demonstrates superior or comparable performance to individually trained models, excels in low-data scenarios, and shows strong transferability with similarity and diversity in pretraining across new datasets and tasks, highlighting its potential as a universally applicable foundation model for RDBs. Code available at https://github.com/yanxwb/Griffin.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2505.05568v2</guid>
-      <category>cs.LG</category>
-      <category>cs.AI</category>
-      <category>cs.DB</category>
-      <pubDate>Thu, 12 Jun 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Yanbo Wang, Xiyuan Wang, Quan Gan, Minjie Wang, Qibin Yang, David Wipf, Muhan Zhang</dc:creator>
+      <dc:creator>Henriette Harmse, Haider Iqbal, Helen Parkinson, James McLaughlin</dc:creator>
     </item>
   </channel>
 </rss>
