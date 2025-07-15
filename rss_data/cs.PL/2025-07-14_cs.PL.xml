@@ -7,105 +7,173 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PL" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Jul 2025 02:18:14 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jul 2025 04:00:13 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Mon, 14 Jul 2025 00:00:00 -0400</pubDate>
+    <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Saturday</day>
       <day>Sunday</day>
+      <day>Saturday</day>
     </skipDays>
     <item>
-      <title>Dependent Multiplicities in Dependent Linear Type Theory</title>
-      <link>https://arxiv.org/abs/2507.08759</link>
-      <description>arXiv:2507.08759v1 Announce Type: new 
-Abstract: We present a novel dependent linear type theory in which the multiplicity of some variable - i.e., the number of times the variable can be used in a program - can depend on other variables. This allows us to give precise resource annotations to many higher-order functions that cannot be adequately typed in any other system. Inspired by the Dialectica translation, our typing discipline is obtained by embedding linear logic into dependent type theory and specifying how the embedded logic interacts with the host theory. We can then use a standard natural numbers type to obtain a quantitative typing system with dependent multiplicities. We characterise the semantics for our theory as a combination of standard models of dependent type theory and linear logic. Our system can be added to any dependently typed language, which we demonstrate with an implementation in Agda.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2507.08759v1</guid>
+      <title>Bounded Model Checking of RISC-V Machine Code with Context-Free-Language Ordered Binary Decision Diagrams</title>
+      <link>https://arxiv.org/abs/2507.09539</link>
+      <description>arXiv:2507.09539v1 Announce Type: new 
+Abstract: Symbolic execution is a powerful technique for analyzing the behavior of software yet scalability remains a challenge due to state explosion in control and data flow. Existing tools typically aim at managing control flow internally, often at the expense of completeness, while offloading reasoning over data flow to SMT solvers. Moreover, reasoning typically happens on source code or intermediate representation level to leverage structural information, making machine code generation part of the trust base. We are interested in changing the equation in two non-trivial ways: pushing reasoning down to machine code level, and then offloading reasoning entirely into SMT solvers and other, possibly more efficient solver technology. In more abstract terms, we are asking if bit-precise reasoning technology can be made scalable on software, and not just hardware. For this purpose, we developed two tools called rotor and bitme for model generation and bounded model checking, respectively. We chose RISC-V restricted to integer arithmetic as modeling target for rotor since RISC-V integer semantics is essentially equivalent to established SMT semantics over bitvectors and arrays of bitvectors. While state-of-the-art SMT solvers struggle in our experiments, we have evidence that there is potential for improvement. To show the potential, we have slightly generalized and then implemented in bitme two types of binary decision diagrams (BDDs): algebraic decision diagrams (ADDs) and context-free-language ordered binary decision diagrams (CFLOBDDs). Bitme uses BDDs to propagate program input through models, essentially generalizing constant propagation to domain propagation. SMT solvers only get involved when model input cannot be propagated, significanly speeding up SMT solving. We then study the impact on state explosion of CFLOBDDs, which are potentially more scalable than ADDs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2507.09539v1</guid>
       <category>cs.PL</category>
-      <category>cs.LO</category>
-      <pubDate>Mon, 14 Jul 2025 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Maximilian Dor\'e</dc:creator>
+      <dc:creator>Anna Bolotina, Christoph M. Kirsch, Stefanie Muroya Lei, Matthias Pleschinger</dc:creator>
     </item>
     <item>
-      <title>Filter Equivariant Functions: A symmetric account of length-general extrapolation on lists</title>
-      <link>https://arxiv.org/abs/2507.08796</link>
-      <description>arXiv:2507.08796v1 Announce Type: new 
-Abstract: What should a function that extrapolates beyond known input/output examples look like? This is a tricky question to answer in general, as any function matching the outputs on those examples can in principle be a correct extrapolant. We argue that a "good" extrapolant should follow certain kinds of rules, and here we study a particularly appealing criterion for rule-following in list functions: that the function should behave predictably even when certain elements are removed. In functional programming, a standard way to express such removal operations is by using a filter function. Accordingly, our paper introduces a new semantic class of functions -- the filter equivariant functions. We show that this class contains interesting examples, prove some basic theorems about it, and relate it to the well-known class of map equivariant functions. We also present a geometric account of filter equivariants, showing how they correspond naturally to certain simplicial structures. Our highlight result is the amalgamation algorithm, which constructs any filter-equivariant function's output by first studying how it behaves on sublists of the input, in a way that extrapolates perfectly.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2507.08796v1</guid>
+      <title>BeePL: Correct-by-compilation kernel extensions</title>
+      <link>https://arxiv.org/abs/2507.09883</link>
+      <description>arXiv:2507.09883v1 Announce Type: new 
+Abstract: eBPF is a technology that allows developers to safely extend kernel functionality without modifying kernel source code or developing loadable kernel modules. Since the kernel governs critical system operations and enforces isolation boundaries between user space and privileged data, any mechanism that modifies its behavior must meet the highest standards of safety and correctness. To this end, the eBPF toolchain includes a verifier, which statically checks safety properties such as memory access validity, bounded loops, and type correctness before loading the program into the kernel. However, the existing verifier is both overly conservative in some cases-rejecting valid programs-and unsound in others, permitting unsafe behavior that violates the intended semantics of the kernel interface.
+  To address these challenges, we introduce BeePL, a domain-specific language for eBPF with a formally verified type system. The BeePL type system, along with the language design, statically enforces key safety properties such as type-correct memory access, safe pointer usage, absence of unbounded loops, and structured control flow. These guarantees are backed by formal type soundness proofs, ensuring that well-typed programs satisfy the safety invariants required by the eBPF execution environment. BeePL also proves that well-typed source programs meet critical eBPF-specific properties related to memory safety, termination, and control flow, enabling high-level reasoning prior to compilation. For properties not fully enforceable statically-such as dynamic bounds and undefined behavior-BeePL inserts semantics-preserving runtime checks during compilation. We develop a verified compilation strategy that extends CompCert to generate BPF bytecode from BeePL programs, establishing a principled foundation for an end-to-end verifiable toolchain for safe kernel extensions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2507.09883v1</guid>
       <category>cs.PL</category>
-      <category>cs.LG</category>
-      <pubDate>Mon, 14 Jul 2025 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Swarn Priya, Fr\'ed\'eric Besson, Connor Sughrue, Tim Steenvoorden, Jamie Fulford, Freek Verbeek, Binoy Ravindran</dc:creator>
+    </item>
+    <item>
+      <title>Rows and Capabilities as Modal Effects</title>
+      <link>https://arxiv.org/abs/2507.10301</link>
+      <description>arXiv:2507.10301v1 Announce Type: new 
+Abstract: Effect handlers allow programmers to model and compose computational effects modularly. Effect systems statically guarantee that all effects are handled. Several recent practical effect systems are based on either row polymorphism or capabilities. However, there remains a gap in understanding the precise relationship between effect systems with such disparate foundations. The main difficulty is that in both row-based and capability-based systems, effect tracking is typically entangled with other features such as functions.
+  We propose a uniform framework for encoding, analysing, and comparing effect systems. Our framework exploits and generalises modal effect types, a recent novel effect system which decouples effect tracking from functions via modalities. Modalities offer fine-grained control over when and how effects are tracked, enabling us to express different strategies for effect tracking. We give encodings as macro translations from existing row-based and capability-based effect systems into our framework and show that these encodings preserve types and semantics. Our encodings reveal the essence of effect tracking mechanisms in different effect systems, enable a direct analysis on their differences, and provide valuable insights on language design.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2507.10301v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Owen Lewis, Neil Ghani, Andrew Dudzik, Christos Perivolaropoulos, Razvan Pascanu, Petar Veli\v{c}kovi\'c</dc:creator>
+      <dc:creator>Wenhao Tang, Sam Lindley</dc:creator>
     </item>
     <item>
-      <title>Heterogeneous Dynamic Logic: Provability Modulo Program Theories</title>
-      <link>https://arxiv.org/abs/2507.08581</link>
-      <description>arXiv:2507.08581v1 Announce Type: cross 
-Abstract: Formally specifying, let alone verifying, properties of systems involving multiple programming languages is inherently challenging. We introduce Heterogeneous Dynamic Logic (HDL), a framework for combining reasoning principles from distinct (dynamic) program logics in a modular and compositional way. HDL mirrors the architecture of satisfiability modulo theories (SMT): Individual dynamic logics, along with their calculi, are treated as dynamic theories that can be flexibly combined to reason about heterogeneous systems whose components are verified using different program logics. HDL provides two key operations: Lifting extends an individual dynamic theory with new program constructs (e.g., the havoc operation or regular programs) and automatically augments its calculus with sound reasoning principles for the new constructs; and Combination enables cross-language reasoning in a single modality via Heterogeneous Dynamic Theories, facilitating the reuse of existing proof infrastructure. We formalize dynamic theories, their lifting and combination in Isabelle, and prove the soundness of all proof rules. We also prove relative completeness theorems for lifting and combination: Under common assumptions, reasoning about lifted or combined theories is no harder than reasoning about the constituent dynamic theories and their common first-order structure (i.e., the "data theory"). We demonstrate HDL's utility by verifying an automotive case study in which a Java controller (formalized in Java dynamic logic) steers a plant model (formalized in differential dynamic logic).</description>
-      <guid isPermaLink="false">oai:arXiv.org:2507.08581v1</guid>
-      <category>cs.LO</category>
+      <title>Orthologic Type Systems</title>
+      <link>https://arxiv.org/abs/2507.10482</link>
+      <description>arXiv:2507.10482v1 Announce Type: new 
+Abstract: We propose to use orthologic as the basis for designing type systems supporting intersection, union, and negation types in the presence of subtyping assumptions. We show how to extend orthologic to support monotonic and antimonotonic functions, supporting the use of type constructors in such type systems. We present a proof system for orthologic with function symbols, showing that it admits partial cut elimination. Using these insights, we present an $\mathcal O(n^2(1+m))$ algorithm for deciding the subtyping relation under $m$ assumptions. We also show $O(n^2)$ polynomial-time normalization algorithm, allowing simplification of types to their minimal canonical form.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2507.10482v1</guid>
       <category>cs.PL</category>
-      <pubDate>Mon, 14 Jul 2025 00:00:00 -0400</pubDate>
+      <category>cs.LO</category>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Simon Guilloud, Viktor Kun\v{c}ak</dc:creator>
+    </item>
+    <item>
+      <title>Semantic Source Code Segmentation using Small and Large Language Models</title>
+      <link>https://arxiv.org/abs/2507.08992</link>
+      <description>arXiv:2507.08992v1 Announce Type: cross 
+Abstract: Source code segmentation, dividing code into functionally coherent segments, is crucial for knowledge retrieval and maintenance in software development. While enabling efficient navigation and comprehension of large codebases, manual and syntactic analysis approaches have become impractical as repositories grow, especially for low-resource languages like R and their research domains (e.g., social sciences, psychology).This paper introduces an automated, domain-specific approach for research R code segmentation using Large and Small Language Models (LLMs/SLMs). It presents two novel approaches and a human-annotated dataset, StatCodeSeg. We explore two distinct approaches: line-by-line analysis with context and range-based segment determination. We experiment with LLMs and fine-tuned SLMs. To support the generalizability of our approaches, we also include experiments on Python code from the computer science domain.Our results show that context-based line-by-line analysis is superior over range-based segmentation.Using smaller language models like CodeBERT and an encoder-only version of CodeT5+ are better than their LLM counterparts. Most notably, these two best-performing models did not see R code during pre-training versus the LLMs but were only fine-tuned on 4,130 lines of manually annotated code.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2507.08992v1</guid>
+      <category>cs.SE</category>
+      <category>cs.CL</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Abdelhalim Dahou, Ansgar Scherp, Sebastian Kurten, Brigitte Mathiak, Madhu Chauhan</dc:creator>
+    </item>
+    <item>
+      <title>ReDemon UI: Reactive Synthesis by Demonstration for Web UI</title>
+      <link>https://arxiv.org/abs/2507.10099</link>
+      <description>arXiv:2507.10099v1 Announce Type: cross 
+Abstract: ReDemon UI synthesizes React applications from user demonstrations, enabling designers and non-expert programmers to create UIs that integrate with standard UI prototyping workflows. Users provide a static mockup sketch with event handler holes and demonstrate desired runtime behaviors by interacting with the rendered mockup and editing the sketch. ReDemon UI identifies reactive data and synthesizes a React program with correct state update logic. We utilize enumerative synthesis for simple UIs and LLMs for more complex UIs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2507.10099v1</guid>
+      <category>cs.HC</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Samuel Teuber, Mattias Ulbrich, Andr\'e Platzer, Bernhard Beckert</dc:creator>
+      <dc:creator>Jay Lee, Gyuhyeok Oh, Joongwon Ahn, Xiaokang Qiu</dc:creator>
     </item>
     <item>
-      <title>Denotational Semantics of Gradual Typing using Synthetic Guarded Domain Theory (Extended Version)</title>
-      <link>https://arxiv.org/abs/2411.12822</link>
-      <description>arXiv:2411.12822v2 Announce Type: replace 
-Abstract: Gradually typed programming languages, which allow for soundly mixing static and dynamically typed programming styles, present a strong challenge for metatheorists. Even the simplest sound gradually typed languages feature at least recursion and errors, with realistic languages featuring furthermore runtime allocation of memory locations and dynamic type tags. Further, the desired metatheoretic properties of gradually typed languages have become increasingly sophisticated: validity of type-based equational reasoning as well as the relational property known as graduality. Many recent works have tackled verifying these properties, but the resulting mathematical developments are highly repetitive and tedious, with few reusable theorems persisting across different developments.
-  In this work, we present a new denotational semantics for gradual typing developed using guarded domain theory. Guarded domain theory combines the generality of step-indexed logical relations for modeling advanced programming features with the modularity and reusability of denotational semantics. We demonstrate the feasibility of this approach with a model of a simple gradually typed lambda calculus and prove the validity of beta-eta equality and the graduality theorem for the denotational model. This model should provide the basis for a reusable mathematical theory of gradually typed program semantics. Finally, we have mechanized most of the core theorems of our development in Guarded Cubical Agda, a recent extension of Agda with support for the guarded recursive constructions we use.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2411.12822v2</guid>
+      <title>Toolsuite for Implementing Multiagent Systems Based on Communication Protocols</title>
+      <link>https://arxiv.org/abs/2507.10324</link>
+      <description>arXiv:2507.10324v1 Announce Type: cross 
+Abstract: Interaction-Oriented Programming (IOP) is an approach to building a multiagent system by modeling the interactions between its roles via a flexible interaction protocol and implementing agents to realize the interactions of the roles they play in the protocol.
+  In recent years, we have developed an extensive suite of software that enables multiagent system developers to apply IOP. These include tools for efficiently verifying protocols for properties such as liveness and safety and middleware that simplifies the implementation of agents. This paper presents some of that software suite.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2507.10324v1</guid>
+      <category>cs.MA</category>
+      <category>cs.AI</category>
       <category>cs.PL</category>
-      <pubDate>Mon, 14 Jul 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
+      <category>cs.SE</category>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <arxiv:DOI>10.1145/3704863</arxiv:DOI>
-      <dc:creator>Eric Giovannini, Tingting Ding, Max S. New</dc:creator>
+      <dc:creator>Amit K. Chopra, Samuel H. Christie V, Munindar P. Singh</dc:creator>
     </item>
     <item>
-      <title>Abstraction Functions as Types</title>
-      <link>https://arxiv.org/abs/2502.20496</link>
-      <description>arXiv:2502.20496v2 Announce Type: replace 
-Abstract: Software development depends on the use of libraries whose specifications constrain the client's code and impose obligations on the implementation. It follows that any approach to verification at scale must also be modular, while permitting specification of both behavior and cost. Hoare's notion of an abstraction function provides an elegant and effective methodology for such verifications, separating the implementation from the abstraction, and using an abstraction function to demonstrate the behavioral correctness of the former relative to the latter.
-  For all of its influence, much of the Hoare methodology remains informal in that it relies on conventional separation between implementation and abstraction, and provides no linguistic support for ensuring that these conventions are obeyed. The purpose of this paper is to propose a synthetic account of Hoare's methodology within univalent dependent type theory based on the principle that all types have abstract and concrete aspects by regarding abstraction functions as types, and thus enjoy the full range of typing constructs found in dependent type theory. Achieving this relies crucially on the notion of a phase distinction in type theory which gives rise to modalities that isolate, or fracture, a type into its concrete and abstract parts, and that permit the definition of a type given these aspects using a technique called gluing. Moreover, this approach scales to permit the specification and verification of the cost of programs, as well as their behavior, allowing clients to verify their own cost relative to these specifications and permit the implementor to realize them with tighter bounds. The resulting theory supports modular development of programs and proofs in a manner that hides technical details of no concern to clients while permitting precise specifications of both the cost and behavior of programs.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2502.20496v2</guid>
+      <title>Oracular Programming: A Modular Foundation for Building LLM-Enabled Software</title>
+      <link>https://arxiv.org/abs/2502.05310</link>
+      <description>arXiv:2502.05310v2 Announce Type: replace 
+Abstract: Large Language Models have proven surprisingly effective at solving a wide range of tasks from just a handful of examples. However, their lack of reliability and modularity limits their capacity to tackle large problems that require many steps of reasoning. In response, researchers have proposed advanced pipelines that leverage domain-specific knowledge to chain smaller prompts, provide intermediate feedback and improve performance through search. However, the current complexity of writing, tuning, maintaining and improving such pipelines has limited their sophistication. We propose oracular programming, a foundational paradigm for building LLM-enabled applications that lets domain experts express high-level problem-solving strategies as programs with unresolved choice points. These choice points are resolved at runtime by LLMs, which generalize from user-provided examples of correct and incorrect decisions. An oracular program is composed of three orthogonal components: a strategy that consists in a nondeterministic program with choice points that can be reified into a search tree, a policy that specifies how to navigate this tree with the help of LLM oracles, and a set of demonstrations that describe successful and unsuccessful search tree navigation scenarios across diverse problem instances. Each component is expressed in a dedicated programming language and can be independently improved or substituted. We address the key programming language design challenges of modularly composing oracular programs and enforcing consistency between their components as they evolve.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2502.05310v2</guid>
       <category>cs.PL</category>
-      <pubDate>Mon, 14 Jul 2025 00:00:00 -0400</pubDate>
+      <category>cs.AI</category>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Harrison Grodin (Carnegie Mellon University), Runming Li (Carnegie Mellon University), Robert Harper (Carnegie Mellon University)</dc:creator>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jonathan Laurent, Andr\'e Platzer</dc:creator>
     </item>
     <item>
-      <title>SecRef*: Securely Sharing Mutable References Between Verified and Unverified Code in F*</title>
-      <link>https://arxiv.org/abs/2503.00404</link>
-      <description>arXiv:2503.00404v2 Announce Type: replace 
-Abstract: We introduce SecRef*, a secure compilation framework protecting stateful programs verified in F* against linked unverified code, with which the program dynamically shares ML-style mutable references. To ease program verification in this setting, we propose a way of tracking which references are shareable with the unverified code, and which ones are not shareable and whose contents are thus guaranteed to be unchanged after calling into unverified code. This universal property of non-shareable references is exposed in the interface on which the verified program can rely when calling into unverified code. The remaining refinement types and pre- and post-conditions that the verified code expects from the unverified code are converted into dynamic checks about the shared references by using higher-order contracts. We prove formally in F* that this strategy ensures sound and secure interoperability with unverified code. Since SecRef* is built on top of the Monotonic State effect of F*, these proofs rely on the first monadic representation for this effect, which is a contribution of our work that can be of independent interest. Finally, we use SecRef* to build a simple cooperative multi-threading scheduler that is verified and that securely interacts with unverified threads.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2503.00404v2</guid>
+      <title>Equality Saturation for Optimizing High-Level Julia IR</title>
+      <link>https://arxiv.org/abs/2502.17075</link>
+      <description>arXiv:2502.17075v2 Announce Type: replace 
+Abstract: Compilers are indispensable for transforming code written in high-level languages into performant machine code, but their general-purpose optimizations sometimes fall short. Domain experts might be aware of certain optimizations that the compiler is unable to apply or that are only valid in a particular domain. We have developed a system that allows domain experts to express rewrite rules to optimize code in the Julia programming language. Our system builds on e-graphs and equality saturation. It can apply optimizations in the presence of control flow and side effects. As Julia uses multiple dispatch, we allow users to constrain rewrite rules by argument types, and propagate type information through the e-graph representation. We propose an ILP formulation for optimal e-graph extraction taking into account dominance properties for code reuse and introduce CFG skeleton relaxation to rewrite calls to pure functions as well as those with side effects. Use cases demonstrate that our system can perform rewrites on high-level, domain-specific code, as well as on lower-level code such as Julia's broadcasting mechanism. Finally, we analyze the required compilation time.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2502.17075v2</guid>
       <category>cs.PL</category>
-      <category>cs.CR</category>
-      <pubDate>Mon, 14 Jul 2025 00:00:00 -0400</pubDate>
+      <category>cs.SE</category>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Cezar-Constantin Andrici, Danel Ahman, Catalin Hritcu, Ruxandra Icleanu, Guido Mart\'inez, Exequiel Rivas, Th\'eo Winterhalter</dc:creator>
+      <dc:creator>Jules Merckx, Tim Besard, Bjorn De Sutter</dc:creator>
     </item>
     <item>
-      <title>CCR 2.0: High-level Reasoning for Conditional Refinements</title>
-      <link>https://arxiv.org/abs/2507.04298</link>
-      <description>arXiv:2507.04298v2 Announce Type: replace 
-Abstract: In recent years, great progress has been made in the field of formal verification for low-level systems. Many of them are based on one of two popular approaches: refinement or unary separation logic. These two approaches are very different in nature and offer complementary benefits in compositionality.
-  Recently, to fuse these benefits into a single unified mechanism, a new approach called Conditional Contextual Refinement (CCR 1.0 for short) was proposed. In this paper, we advance CCR 1.0 and provide novel and intuitive reasoning principles, resulting in CCR 2.0. Achieving this goal was challenging due to non-trivial counterexamples which necessitated elegant changes to the model of CCR 1.0. On top of CCR 2.0, we show how to fuse the benefits of refinement, unary separation logic, and also relational separation logic.
-  Our results are formalized in Rocq.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2507.04298v2</guid>
+      <title>PHOENIX: Pauli-Based High-Level Optimization Engine for Instruction Execution on NISQ Devices</title>
+      <link>https://arxiv.org/abs/2504.03529</link>
+      <description>arXiv:2504.03529v5 Announce Type: replace-cross 
+Abstract: Variational quantum algorithms (VQA) based on Hamiltonian simulation represent a specialized class of quantum programs well-suited for near-term quantum computing applications due to its modest resource requirements in terms of qubits and circuit depth. Unlike the conventional single-qubit (1Q) and two-qubit (2Q) gate sequence representation, Hamiltonian simulation programs are essentially composed of disciplined subroutines known as Pauli exponentiations (Pauli strings with coefficients) that are variably arranged. To capitalize on these distinct program features, this study introduces PHOENIX, a highly effective compilation framework that primarily operates at the high-level Pauli-based intermediate representation (IR) for generic Hamiltonian simulation programs. PHOENIX exploits global program optimization opportunities to the greatest extent, compared to existing SOTA methods despite some of them also utilizing similar IRs. Experimental results demonstrate that PHOENIX outperforms SOTA VQA compilers across diverse program categories, backend ISAs, and hardware topologies.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2504.03529v5</guid>
+      <category>quant-ph</category>
+      <category>cs.AR</category>
       <category>cs.PL</category>
-      <pubDate>Mon, 14 Jul 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhaohui Yang, Dawei Ding, Chenghong Zhu, Jianxin Chen, Yuan Xie</dc:creator>
+    </item>
+    <item>
+      <title>On the Complexity of Checking Mixed Isolation Levels for SQL Transactions</title>
+      <link>https://arxiv.org/abs/2505.18409</link>
+      <description>arXiv:2505.18409v2 Announce Type: replace-cross 
+Abstract: Concurrent accesses to databases are typically grouped in transactions which define units of work that should be isolated from other concurrent computations and resilient to failures. Modern databases provide different levels of isolation for transactions that correspond to different trade-offs between consistency and throughput. Quite often, an application can use transactions with different isolation levels at the same time. In this work, we investigate the problem of testing isolation level implementations in databases, i.e., checking whether a given execution composed of multiple transactions adheres to the prescribed isolation level semantics. We particularly focus on transactions formed of SQL queries and the use of multiple isolation levels at the same time. We show that many restrictions of this problem are NP-complete and provide an algorithm which is exponential-time in the worst-case, polynomial-time in relevant cases, and practically efficient.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.18409v2</guid>
+      <category>cs.DB</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Youngju Song, Minki Cho</dc:creator>
+      <arxiv:journal_reference>CAV 2025 Full Version</arxiv:journal_reference>
+      <dc:creator>Ahmed Bouajjani, Constantin Enea, Enrique Rom\'an-Calvo</dc:creator>
+    </item>
+    <item>
+      <title>Can Large Language Models Help Students Prove Software Correctness? An Experimental Study with Dafny</title>
+      <link>https://arxiv.org/abs/2506.22370</link>
+      <description>arXiv:2506.22370v3 Announce Type: replace-cross 
+Abstract: Students in computing education increasingly use large language models (LLMs) such as ChatGPT. Yet, the role of LLMs in supporting cognitively demanding tasks, like deductive program verification, remains poorly understood. This paper investigates how students interact with an LLM when solving formal verification exercises in Dafny, a language that supports functional correctness, by allowing programmers to write formal specifications and automatically verifying that the implementation satisfies the specification. We conducted a mixed-methods study with master's students enrolled in a formal methods course. Each participant completed two verification problems, one with access to a custom ChatGPT interface that logged all interactions, and the other without. We identified strategies used by successful students and assessed the level of trust students place in LLMs. Our findings show that students perform significantly better when using ChatGPT; however, performance gains are tied to prompt quality. We conclude with practical recommendations for integrating LLMs into formal methods courses more effectively, including designing LLM-aware challenges that promote learning rather than substitution.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.22370v3</guid>
+      <category>cs.SE</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Carolina Carreira, \'Alvaro Silva, Alexandre Abreu, Alexandra Mendes</dc:creator>
     </item>
   </channel>
 </rss>
