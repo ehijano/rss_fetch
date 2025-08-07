@@ -7,187 +7,150 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PL" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Aug 2025 01:31:26 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Aug 2025 04:00:20 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
+    <pubDate>Thu, 07 Aug 2025 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Sunday</day>
       <day>Saturday</day>
     </skipDays>
     <item>
-      <title>Compositional Quantum Control Flow with Efficient Compilation in Qunity</title>
-      <link>https://arxiv.org/abs/2508.02857</link>
-      <description>arXiv:2508.02857v1 Announce Type: new 
-Abstract: Most existing quantum programming languages are based on the quantum circuit model of computation, as higher-level abstractions are particularly challenging to implement - especially ones relating to quantum control flow. The Qunity language, proposed by Voichick et al., offered such an abstraction in the form of a quantum control construct, with great care taken to ensure that the resulting language is still realizable. However, Qunity lacked a working implementation, and the originally proposed compilation procedure was very inefficient, with even simple quantum algorithms compiling to unreasonably large circuits.
-  In this work, we focus on the efficient compilation of high-level quantum control flow constructs, using Qunity as our starting point. We introduce a wider range of abstractions on top of Qunity's core language that offer compelling trade-offs compared to its existing control construct. We create a complete implementation of a Qunity compiler, which converts high-level Qunity code into the quantum assembly language OpenQASM 3. We develop optimization techniques for multiple stages of the Qunity compilation procedure, including both low-level circuit optimizations as well as methods that consider the high-level structure of a Qunity program, greatly reducing the number of qubits and gates used by the compiler.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.02857v1</guid>
+      <title>If-T: A Benchmark for Type Narrowing</title>
+      <link>https://arxiv.org/abs/2508.03830</link>
+      <description>arXiv:2508.03830v1 Announce Type: new 
+Abstract: **Context:**
+The design of static type systems that can validate dynamically-typed programs (**gradually**) is an ongoing challenge. A key difficulty is that dynamic code rarely follows datatype-driven design. Programs instead use runtime tests to narrow down the proper usage of incoming data. Type systems for dynamic languages thus need a **type narrowing** mechanism that refines the type environment along individual control paths based on dominating tests, a form of flow-sensitive typing. In order to express refinements, the type system must have some notion of sets and subsets. Since set-theoretic types are computationally and ergonomically complex, the need for type narrowing raises design questions about how to balance precision and performance.  
+**Inquiry:**
+To date, the design of type narrowing systems has been driven by intuition, past experience, and examples from users in various language communities. There is no standard that captures desirable and undesirable behaviors. Prior formalizations of narrowing are also significantly more complex than a standard type system, and it is unclear how the extra complexity pays off in terms of concrete examples. This paper addresses the problems through If-T, a language-agnostic **design benchmark** for type narrowing that characterizes the abilities of implementations using simple programs that draw attention to fundamental questions. Unlike a traditional performance-focused benchmark, If-T measures a narrowing system's ability to validate correct code and reject incorrect code. Unlike a test suite, systems are not required to fully conform to If-T. Deviations are acceptable provided they are justified by well-reasoned design considerations, such as compile-time performance.  
+**Approach:**
+If-T is guided by the literature on type narrowing, the documentation of gradual languages such as TypeScript, and experiments with typechecker implementations. We have identified a set of core technical dimensions for type narrowing. For each dimension, the benchmark contains a set of topics and (at least) two characterizing programs per topic: one that should typecheck and one that should not typecheck.  
+**Knowledge:**
+If-T provides a baseline to measure type narrowing systems. For researchers, it provides criteria to categorize future designs via its collection of positive and negative examples. For language designers, the benchmark demonstrates the payoff of typechecker complexity in terms of concrete examples. Designers can use the examples to decide whether supporting a particular example is worthwhile. Both the benchmark and its implementations are freely available online.  
+**Grounding:**
+We have implemented the benchmark for five typecheckers: TypeScript, Flow, Typed Racket, mypy, and Pyright. The results highlight important differences, such as the ability to track logical implications among program variables and typechecking for user-defined narrowing predicates.  
+**Importance:**
+Type narrowing is essential for gradual type systems, but the tradeoffs between systems with different complexity have been unclear. If-T clarifies these tradeoffs by illustrating the benefits and limitations of each level of complexity. With If-T as a way to assess implementations in a fair, cross-language manner, future type system designs can strive for a better balance among precision, annotation burden, and performance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.03830v1</guid>
       <category>cs.PL</category>
-      <category>quant-ph</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.22152/programming-journal.org/2025/10/17</arxiv:DOI>
+      <arxiv:journal_reference>The Art, Science, and Engineering of Programming, 2025, Vol. 10, Issue 2, Article 17</arxiv:journal_reference>
+      <dc:creator>Hanwen Guo (University of Utah, USA), Ben Greenman (University of Utah, USA)</dc:creator>
+    </item>
+    <item>
+      <title>A Type System for Data Privacy Compliance in Active Object Languages</title>
+      <link>https://arxiv.org/abs/2508.03831</link>
+      <description>arXiv:2508.03831v1 Announce Type: new 
+Abstract: Data protection laws such as GDPR aim to give users unprecedented control over their personal data. Compliance with these regulations requires systematically considering information flow and interactions among entities handling sensitive data. Privacy-by-design principles advocate embedding data protection into system architectures as a default. However, translating these abstract principles into concrete, explicit methods remains a significant challenge. This paper addresses this gap by proposing a language-based approach to privacy integration, combining static and runtime techniques. By employing type checking and type inference in an active object language, the framework enables the tracking of authorised data flows and the automatic generation of constraints checked at runtime based on user consent. This ensures that personal data is processed in compliance with GDPR constraints. The key contribution of this work is a type system that gather the compliance checks and the changes to users consent and integrates data privacy compliance verification into system execution. The paper demonstrates the feasibility of this approach through a soundness proof and several examples, illustrating how the proposed language addresses common GDPR requirements, such as user consent, purpose limitation, and data subject rights. This work advances the state of the art in privacy-aware system design by offering a systematic and automated method for integrating GDPR compliance into programming languages. This capability has implications for building trustworthy systems in domains such as healthcare or finance, where data privacy is crucial.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.03831v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.22152/programming-journal.org/2025/10/18</arxiv:DOI>
+      <arxiv:journal_reference>The Art, Science, and Engineering of Programming, 2025, Vol. 10, Issue 2, Article 18</arxiv:journal_reference>
+      <dc:creator>Chinmayi Prabhu Baramashetru (University of Oslo, Norway), Paola Giannini (Universita' del Piemonte Orientale, Italy), Silvia Lizeth Tapia Tarifa (University of Oslo, Norway), Olaf Owe (University of Oslo, Norway)</dc:creator>
+    </item>
+    <item>
+      <title>Generating Inputs for Grammar Mining using Dynamic Symbolic Execution</title>
+      <link>https://arxiv.org/abs/2508.03832</link>
+      <description>arXiv:2508.03832v1 Announce Type: new 
+Abstract: A vast number of software systems include components that parse and process structured input. In addition to programming languages, which are analyzed by compilers or interpreters, there are numerous components that process standardized or proprietary data formats of varying complexity. Even if such components were initially developed and tested based on a specification, such as a grammar, numerous modifications and adaptations over the course of software evolution can make it impossible to precisely determine which inputs they actually accept.  
+In this situation, grammar mining can be used to reconstruct the specification in the form of a grammar. Established approaches already produce useful results, provided that sufficient input data is available to fully cover the input language. However, achieving this completeness is a major challenge. In practice, only input data recorded during the operation of the software systems is available. If this data is used for grammar mining, the resulting grammar reflects only the actual processed inputs but not the complete grammar of the input language accepted by the software component. As a result, edge cases or previously supported features that no longer appear in the available input data are missing from the generated grammar.  
+This work addresses this challenge by introducing a novel approach for the automatic generation of inputs for grammar mining. Although input generators have already been used for fuzz testing, it remains unclear whether they are also suitable for grammar miners. Building on the grammar miner Mimid, this work presents a fully automated approach to input generation. The approach leverages Dynamic Symbolic Execution (DSE) and extends it with two mechanisms to overcome the limitations of DSE regarding structured input parsers. First, the search for new inputs is guided by an iterative expansion that starts with a single-character input and gradually extends it. Second, input generation is structured into a novel three-phase approach, which separates the generation of inputs for parser functions.  
+The proposed method was evaluated against a diverse set of eleven benchmark applications from the existing literature. Results demonstrate that the approach achieves precision and recall for extracted grammars close to those derived from state-of-the-art grammar miners such as Mimid. Notably, it successfully uncovers subtle features and edge cases in parsers that are typically missed by such grammar miners. The effectiveness of the method is supported by empirical evidence, showing that it can achieve high performance in various domains without requiring prior input samples.  
+This contribution is significant for researchers and practitioners in software engineering, offering an automated, scalable, and precise solution for grammar mining. By eliminating the need for manual input generation, the approach not only reduces workload but also enhances the robustness and comprehensiveness of the extracted grammars. Following this approach, software engineers can reconstruct specification from existing (legacy) parsers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.03832v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.22152/programming-journal.org/2025/10/16</arxiv:DOI>
+      <arxiv:journal_reference>The Art, Science, and Engineering of Programming, 2025, Vol. 10, Issue 2, Article 16</arxiv:journal_reference>
+      <dc:creator>Andreas Pointner (University of Applied Sciences Upper Austria, Austria), Josef Pichler (University of Applied Sciences Upper Austria, Austria), Herbert Pr\"ahofer (Johannes Kepler University Linz, Austria)</dc:creator>
+    </item>
+    <item>
+      <title>Weak Memory Model Formalisms: Introduction and Survey</title>
+      <link>https://arxiv.org/abs/2508.04115</link>
+      <description>arXiv:2508.04115v1 Announce Type: new 
+Abstract: Memory consistency models define the order in which accesses to shared memory in a concurrent system may be observed to occur. Such models are a necessity since program order is not a reliable indicator of execution order, due to microarchitectural features or compiler transformations. Concurrent programming, already a challenging task, is thus made even harder when weak memory effects must be addressed. A rigorous specification of weak memory models is therefore essential to make this problem tractable for developers of safety- and security-critical, low-level software.
+  In this paper we survey the field of formalisations of weak memory models, including their specification, their effects on execution, and tools and inference systems for reasoning about code. To assist the discussion we also provide an introduction to two styles of formal representation found commonly in the literature (using a much simplified version of Intel's x86 as the example): a step-by-step construction of traces of the system (operational semantics); and with respect to relations between memory events (axiomatic semantics). The survey covers some long-standing hardware features that lead to observable weak behaviours, a description of historical developments in practice and in theory, an overview of computability and complexity results, and outlines current and future directions in the field.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.04115v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Mikhail Mints, Finn Voichick, Leonidas Lampropoulos, Robert Rand</dc:creator>
+      <dc:creator>Roger C. Su, Robert J. Colvin</dc:creator>
     </item>
     <item>
-      <title>SAGE-HLS: Syntax-Aware AST-Guided LLM for High-Level Synthesis Code Generation</title>
-      <link>https://arxiv.org/abs/2508.03558</link>
-      <description>arXiv:2508.03558v1 Announce Type: new 
-Abstract: In today's rapidly evolving field of electronic design automation (EDA), the complexity of hardware designs is increasing, necessitating more sophisticated automation solutions. High-level synthesis (HLS), as a pivotal solution, automates hardware designs from high-level abstractions (e.g., C/C++). However, it faces significant challenges, particularly in design space exploration and optimization. While large language models (LLMs) have shown notable capabilities in code generation, their application to HLS has been limited due to the scarcity of (publicly) available HLS code datasets. Hence, research in this domain has primarily focused on techniques such as prompt engineering and retrieval-augmented generation (RAG). To overcome this limitation, this paper introduces SAGE-HLS, the first-of-its-kind fine-tuned LLM specifically for HLS code generation. Our method includes three key advancements: (i) We implement Verilog-to-C/C++ porting, converting verified and synthesizable Verilog codes into corresponding C, creating a dataset of 16.7K HLS codes; (ii) We implement a fine-tuning strategy, which is based on instruction prompting to code generation guided by abstract syntax tree (AST); (iii) We develop a semi-automated evaluation framework using VerilogEval to assess the functionality of the generated HLS code. Our experiments show that SAGE-HLS, fined-tuned on the QwenCoder (2.5) 7B model, achieves a near 100% success rate in code synthesizability and a 75% success rate in functional correctness.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.03558v1</guid>
+      <title>Raqlet: Cross-Paradigm Compilation for Recursive Queries</title>
+      <link>https://arxiv.org/abs/2508.03978</link>
+      <description>arXiv:2508.03978v1 Announce Type: cross 
+Abstract: We introduce Raqlet, a source-to-source compilation framework that addresses the fragmentation of recursive querying engines spanning relational (recursive SQL), graph (Cypher, GQL), and deductive (Datalog) systems. Recent standards such as SQL:2023's SQL/PGQ and the GQL standard provide a common foundation for querying graph data within relational and graph databases; however, real-world support remains inconsistent across systems. Raqlet bridges this gap by translating recursive queries across paradigms through leveraging intermediate representations (IRs) grounded in well-defined semantics; it translates Cypher or SQL/PGQ to PGIR (inspired by Cypher), then into DLIR (inspired by Datalog), and finally to SQIR (inspired by recursive SQL). Raqlet provides a shared semantic basis that can serve as a golden reference implementation for language standards, while supporting static analysis and transformations (e.g., magic-set transformation) for performance tuning. Our vision is to make Raqlet a robust platform that enables rapid cross-paradigm prototyping, portable recursive queries, and formal reasoning about recursion even when targeting diverse query execution engines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.03978v1</guid>
+      <category>cs.DB</category>
       <category>cs.PL</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>M Zafir Sadik Khan, Nowfel Mashnoor, Mohammad Akyash, Kimia Azar, Hadi Kamali</dc:creator>
-    </item>
-    <item>
-      <title>Teaching Introductory Functional Programming Using Haskelite</title>
-      <link>https://arxiv.org/abs/2508.03640</link>
-      <description>arXiv:2508.03640v1 Announce Type: new 
-Abstract: Learning functional programming requires learning a substitution-based computational model. While substitution should be a familiar concept from high-school algebra, students often have difficulty applying it to new settings, such as recursive definitions, algebraic data types and higher-order functions. Step-by-step interpreters have been shown to help beginners by clarifying misconceptions and improving understanding.
-  This paper reports on the experience of using a step-by-step tracing interpreter for a subset of Haskell while teaching an introductory functional programming course at the University of Porto.  We describe the use of the interpreter, present some feedback obtained from students, reflect on the lessons learned and point directions for further work.
-</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.03640v1</guid>
-      <category>cs.PL</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.4204/EPTCS.424.3</arxiv:DOI>
-      <arxiv:journal_reference>EPTCS 424, 2025, pp. 49-66</arxiv:journal_reference>
-      <dc:creator>Pedro Vasconcelos (University of Porto)</dc:creator>
-    </item>
-    <item>
-      <title>Blueprint First, Model Second: A Framework for Deterministic LLM Workflow</title>
-      <link>https://arxiv.org/abs/2508.02721</link>
-      <description>arXiv:2508.02721v1 Announce Type: cross 
-Abstract: While powerful, the inherent non-determinism of large language model (LLM) agents limits their application in structured operational environments where procedural fidelity and predictable execution are strict requirements. This limitation stems from current architectures that conflate probabilistic, high-level planning with low-level action execution within a single generative process. To address this, we introduce the Source Code Agent framework, a new paradigm built on the "Blueprint First, Model Second" philosophy. Our framework decouples the workflow logic from the generative model. An expert-defined operational procedure is first codified into a source code-based Execution Blueprint, which is then executed by a deterministic engine. The LLM is strategically invoked as a specialized tool to handle bounded, complex sub-tasks within the workflow, but never to decide the workflow's path. We conduct a comprehensive evaluation on the challenging tau-bench benchmark, designed for complex user-tool-rule scenarios. Our results demonstrate that the Source Code Agent establishes a new state-of-the-art, outperforming the strongest baseline by 10.1 percentage points on the average Pass^1 score while dramatically improving execution efficiency. Our work enables the verifiable and reliable deployment of autonomous agents in applications governed by strict procedural logic.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.02721v1</guid>
-      <category>cs.SE</category>
-      <category>cs.AI</category>
-      <category>cs.PL</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Libin Qiu, Yuhang Ye, Zhirong Gao, Xide Zou, Junfu Chen, Ziming Gui, Weizhi Huang, Xiaobo Xue, Wenkai Qiu, Kun Zhao</dc:creator>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Amir Shaikhha, Youning Xia, Meisam Tarabkhah, Jazal Saleem, Anna Herlihy</dc:creator>
     </item>
     <item>
-      <title>Automated Code Repair for C/C++ Static Analysis Alerts</title>
-      <link>https://arxiv.org/abs/2508.02820</link>
-      <description>arXiv:2508.02820v1 Announce Type: cross 
-Abstract: (Note: This work is a preprint.) Static analysis (SA) tools produce many diagnostic alerts indicating that source code in C or C++ may be defective and potentially vulnerable to security exploits. Many of these alerts are false positives. Identifying the true-positive alerts and repairing the defects in the associated code are huge efforts that automated program repair (APR) tools can help with. Our experience showed us that APR can reduce the number of SA alerts significantly and reduce the manual effort of analysts to review code. This engineering experience paper details the application of design, development, and performance testing to an APR tool we built that repairs C/C++ code associated with 3 categories of alerts produced by multiple SA tools. Its repairs are simple and local. Furthermore, our findings convinced the maintainers of the CERT Coding Standards to re-assess and update the metrics used to assess when violations of guidelines are detectable or repairable. We discuss engineering design choices made to support goals of trustworthiness and acceptability to developers. Our APR tool repaired 8718 out of 9234 alerts produced by one SA tool on one codebase. It can repair 3 flaw categories. For 2 flaw categories, 2 SA tools, and 2 codebases, our tool repaired or dismissed as false positives over 80% of alerts, on average. Tests showed repairs did not appreciably degrade the performance of the code or cause new alerts to appear (with the possible exception of sqlite3.c). This paper describes unique contributions that include a new empirical analysis of SA data, our selection method for flaw categories to repair, publication of our APR tool, and a dataset of SA alerts from open-source SA tools run on open-source codebases. It discusses positive and negative results and lessons learned.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.02820v1</guid>
-      <category>cs.SE</category>
+      <title>RTLCoder: Outperforming GPT-3.5 in Design RTL Generation with Our Open-Source Dataset and Lightweight Solution</title>
+      <link>https://arxiv.org/abs/2312.08617</link>
+      <description>arXiv:2312.08617v5 Announce Type: replace 
+Abstract: The automatic generation of RTL code (e.g., Verilog) using natural language instructions and large language models (LLMs) has attracted significant research interest recently. However, most existing approaches heavily rely on commercial LLMs such as ChatGPT, while open-source LLMs tailored for this specific design generation task exhibit notably inferior performance. The absence of high-quality open-source solutions restricts the flexibility and data privacy of this emerging technique. In this study, we present a new customized LLM solution with a modest parameter count of only 7B, achieving better performance than GPT-3.5 on all representative benchmarks for RTL code generation. Especially, it outperforms GPT-4 in VerilogEval Machine benchmark. This remarkable balance between accuracy and efficiency is made possible by leveraging our new RTL code dataset and a customized LLM algorithm, both of which have been made fully open-source.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2312.08617v5</guid>
       <category>cs.PL</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
+      <category>cs.AR</category>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
-      <dc:creator>David Svoboda, Lori Flynn, William Klieber, Michael Duggan, Nicholas Reimer, Joseph Sible</dc:creator>
+      <arxiv:DOI>10.1109/LAD62341.2024.10691788</arxiv:DOI>
+      <dc:creator>Shang Liu, Wenji Fang, Yao Lu, Qijun Zhang, Hongce Zhang, Zhiyao Xie</dc:creator>
     </item>
     <item>
-      <title>StoneDetector: Conventional and versatile code clone detection for Java</title>
-      <link>https://arxiv.org/abs/2508.03435</link>
-      <description>arXiv:2508.03435v1 Announce Type: cross 
-Abstract: Copy &amp; paste is a widespread practice when developing software and, thus, duplicated and subsequently modified code occurs frequently in software projects. Since such code clones, i.e., identical or similar fragments of code, can bloat software projects and cause issues like bug or vulnerability propagation, their identification is of importance. In this paper, we present the StoneDetector platform and its underlying method for finding code clones in Java source and Bytecode. StoneDetector implements a conventional clone detection approach based upon the textual comparison of paths derived from the code's representation by dominator trees. In this way, the tool does not only find exact and syntactically similar near-miss code clones, but also code clones that are harder to detect due to their larger variety in the syntax. We demonstrate StoneDetector's versatility as a conventional clone detection platform and analyze its various available configuration parameters, including the usage of different string metrics, hashing algorithms, etc. In our exhaustive evaluation with other conventional clone detectors on several state-of-the-art benchmarks, we can show StoneDetector's performance and scalability in finding code clones in both, Java source and Bytecode.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.03435v1</guid>
-      <category>cs.SE</category>
+      <title>Strong Priority and Determinacy in Timed CCS</title>
+      <link>https://arxiv.org/abs/2403.04618</link>
+      <description>arXiv:2403.04618v4 Announce Type: replace 
+Abstract: Building on the standard theory of process algebra with priorities, we identify a new scheduling mechanism, called "constructive reduction" which is designed to capture the essence of synchronous programming. The distinctive property of this evaluation strategy is to achieve determinacy-by-construction for multi-cast concurrent communication with shared memory. In the technical setting of CCS extended by clocks and priorities, we prove for a large class of "coherent" processes a confluence property for constructive reductions. We show that under some restrictions, called "pivotability", coherence is preserved by the operators of prefix, summation, parallel composition, restriction and hiding. Since this permits memory and sharing, we are able to cover a strictly larger class of processes compared to those in Milner's classical confluence theory for CCS without priorities.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2403.04618v4</guid>
       <category>cs.PL</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Thomas S. Heinze, Andr\'e Sch\"afer, Wolfram Amme</dc:creator>
-    </item>
-    <item>
-      <title>ReFuzzer: Feedback-Driven Approach to Enhance Validity of LLM-Generated Test Programs</title>
-      <link>https://arxiv.org/abs/2508.03603</link>
-      <description>arXiv:2508.03603v1 Announce Type: cross 
-Abstract: Existing LLM-based compiler fuzzers often produce syntactically or semantically invalid test programs, limiting their effectiveness in exercising compiler optimizations and backend components. We introduce ReFuzzer, a framework for refining LLM-generated test programs by systematically detecting and correcting compilation and runtime violations (e.g. division by zero or array out-of-bounds accesses). ReFuzzer employs a feedback loop with a local LLM to validate and filter erroneous programs before execution, improving fuzzing effectiveness beyond crash detection and enabling the generation of diverse yet valid test programs.
-  We evaluated ReFuzzer's effectiveness across black-, grey- and white-box fuzzing approaches targeting LLVM/Clang. ReFuzzer improved test programs' validity from 47.0-49.4% to 96.6-97.3%, with an average processing time of 2.9-3.5 s per test program on a dual-GPU machine. Further, refuzzing significantly increased code coverage in critical optimization and IR generation components. For example, vectorization coverage had an absolute improvement of 9.2%, 2.3%, and 7.1% in black-, grey-, and white-box fuzzing, enhancing testing effectiveness.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.03603v1</guid>
-      <category>cs.SE</category>
-      <category>cs.PL</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Iti Shree, Karine Even-Mendoz, Tomasz Radzik</dc:creator>
-    </item>
-    <item>
-      <title>Design Support for Multitape Turing Machines</title>
-      <link>https://arxiv.org/abs/2508.03638</link>
-      <description>arXiv:2508.03638v1 Announce Type: cross 
-Abstract: Many Formal Languages and Automata Theory courses introduce students to Turing machine extensions. One of the most widely-used extensions endows Turing machines with multiple tapes. Although multitape Turing machines are an abstraction to simplify Turing machine design, students find them no less challenging. To aid students in understanding these machines, the FSM programming language provides support for their definition and execution. This, however, has proven insufficient for many students to understand the operational semantics of such machines and to understand why such machines accept or reject a word. To address this problem, three visualization tools have been developed. The first is a dynamic visualization tool that simulates machine execution. The second is a static visualization tool that automatically renders a graphic for a multitape Turing machine's transition diagram. The third is a static visualization tool that automatically renders computation graphs for multitape Turing machines. This article presents these tools and illustrates how they are used to help students design and implement multitape Turing machines. In addition, empirical data is presented that suggests these tools are well-received and found useful by students.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.03638v1</guid>
-      <category>cs.FL</category>
-      <category>cs.HC</category>
-      <category>cs.PL</category>
-      <category>cs.SE</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.4204/EPTCS.424.1</arxiv:DOI>
-      <arxiv:journal_reference>EPTCS 424, 2025, pp. 1-24</arxiv:journal_reference>
-      <dc:creator>Marco T. Moraz\'an (Seton Hall University), Oliwia Kempinski (University of Maryland), Andr\'es M. Garced (Seton Hall University)</dc:creator>
-    </item>
-    <item>
-      <title>A Design Recipe and Recipe-Based Errors for Regular Expressions</title>
-      <link>https://arxiv.org/abs/2508.03639</link>
-      <description>arXiv:2508.03639v1 Announce Type: cross 
-Abstract: This article presents a novel framework to provide Formal Languages and Automata Theory students design support for the development of regular expressions. This framework includes a design recipe for regular expressions and a customized error messaging system. The error messaging system produces recipe-based errors that include the step of the design recipe not successfully completed. Furthermore, the error messages follow the established practices of being concise, succinct, jargon-free, and nonprescriptive. In addition, a shorthand syntax developed for writing unit tests is described. The in-class use of the design recipe is illustrated, two debugging sessions using the described system are discussed, and the implementation of the error messaging system is briefly sketched.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.03639v1</guid>
-      <category>cs.FL</category>
-      <category>cs.HC</category>
-      <category>cs.PL</category>
-      <category>cs.SE</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.4204/EPTCS.424.2</arxiv:DOI>
-      <arxiv:journal_reference>EPTCS 424, 2025, pp. 25-48</arxiv:journal_reference>
-      <dc:creator>Marco T. Moraz\'an (Seton Hall University), Shamil Dzhatdoyev (Axoni, USA), Josephine Des Rosiers (Penguin Random House), Tijana Mini\'c (University of Washington), Andr\'es M. Garced (Seton Hall University), David Anthony K. Fields (Seton Hall University)</dc:creator>
-    </item>
-    <item>
-      <title>Visual Execution and Validation of Finite-State Machines and Pushdown Automata</title>
-      <link>https://arxiv.org/abs/2508.03641</link>
-      <description>arXiv:2508.03641v1 Announce Type: cross 
-Abstract: In Formal Languages and Automata Theory courses, students find understanding nondeterministic finite-state and pushdown automata difficult. In many cases, this means that it is challenging for them to comprehend the operational semantics of such machines and, as a consequence, determine why a word is accepted or rejected. This is not entirely surprising, because students are mostly trained to design and implement deterministic programs. Comprehension of pushdown automata is further complicated, because reasoning about the stack is necessary. A common difficulty students face, for example, is understanding that two different computations on the same word may reach the same state with different stack values. To aid student understanding, we present two novel dynamic visualization tools for FSM -- a domain-specific programming language for the Automata Theory classroom -- to support the design of such machines. These tools visualize all computations that may be performed, respectively, by a nondeterministic finite-state machine or by a pushdown automata in a stepwise manner. In addition, these tools aid the machine verification process by allowing users to visually validate whether the properties a state represents hold when a machine transitions into it.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.03641v1</guid>
-      <category>cs.FL</category>
-      <category>cs.HC</category>
-      <category>cs.PL</category>
-      <category>cs.SE</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.4204/EPTCS.424.5</arxiv:DOI>
-      <arxiv:journal_reference>EPTCS 424, 2025, pp. 87-108</arxiv:journal_reference>
-      <dc:creator>Marco T. Moraz\'an (Seton Hall University), David Anthony K. Fields (Seton Hall University), Andr\'es M. Garced (Seton Hall University), Tijana Mini\'c (University of Washington)</dc:creator>
-    </item>
-    <item>
-      <title>More Than a Score: Probing the Impact of Prompt Specificity on LLM Code Generation</title>
-      <link>https://arxiv.org/abs/2508.03678</link>
-      <description>arXiv:2508.03678v1 Announce Type: cross 
-Abstract: State-of-the-art Large Language Models (LLMs) achieve high pass@1 on general benchmarks like HumanEval but underperform on specialized suites such as ParEval. Is this due to LLMs missing domain knowledge or insufficient prompt detail is given? To answer this, we introduce PartialOrderEval, which augments any code generation benchmark with a partial order of prompts from minimal to maximally detailed. Applying it to HumanEval and both serial and OpenMP subsets of ParEval, we measure how pass@1 scales with prompt specificity. Our experiments with Llama-3.x and Qwen2.5-Coder demonstrate varying degrees of prompt sensitivity across different tasks, and a qualitative analysis highlights explicit I/O specifications, edge-case handling, and stepwise breakdowns as the key drivers of prompt detail improvement.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.03678v1</guid>
       <category>cs.CL</category>
-      <category>cs.LG</category>
-      <category>cs.PL</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
-      <dc:creator>Yangtian Zi, Harshitha Menon, Arjun Guha</dc:creator>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Luigi Liquori, Michael Mendler</dc:creator>
     </item>
     <item>
-      <title>Cobblestone: A Divide-and-Conquer Approach for Automating Formal Verification</title>
-      <link>https://arxiv.org/abs/2410.19940</link>
-      <description>arXiv:2410.19940v3 Announce Type: replace-cross 
-Abstract: Formal verification using proof assistants, such as Coq, is an effective way of improving software quality, but requires significant effort and expertise. Machine learning can automatically synthesize proofs, but such tools are able to prove only a fraction of desired software properties. We introduce Cobblestone, a divide-and-conquer approach for proof synthesis. Cobblestone uses a large language model (LLM) to generate potential proofs, uses those proofs to break the problem into simpler parts, automatically identifies which of those parts were successfully proven, and iterates on the remaining parts to build a correct proof that is guaranteed to be sound, despite the reliance on unsound LLMs. We evaluate Cobblestone on four benchmarks of open-source Coq projects, controlling for training data leakage. Fully automatically, Cobblestone outperforms state-of-the-art non-LLM tools, and proves many theorems that other LLM-based tools cannot, and on many benchmarks, outperforms them. Each Cobblestone run costs only $1.25 and takes 14.7 minutes, on average. Cobblestone can also be used with external input, from a user or another tool, providing a proof structure or relevant lemmas. Evaluated with such an oracle, Cobblestone proves up to 58% of theorems. Overall, our research shows that tools can make use of partial progress and external input to more effectively automate formal verification.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2410.19940v3</guid>
-      <category>cs.LO</category>
-      <category>cs.AI</category>
+      <title>ALEA IACTA EST: A Declarative Domain-Specific Language for Manually Performable Random Experiments</title>
+      <link>https://arxiv.org/abs/2506.11794</link>
+      <description>arXiv:2506.11794v2 Announce Type: replace 
+Abstract: Random experiments that are simple and clear enough to be performed by human agents feature prominently in the teaching of elementary stochastics as well as in games.  We present Alea, a domain-specific language for the specification of random experiments.  Alea code can either be analyzed statically to obtain and inspect probability distributions of outcomes, or be executed with a source pseudo-randomness for simulation or as a game assistant.  The language is intended for ease of use by non-expert programmers, in particular students of elementary stochastics, and players and designers of games of chance, by focusing on concepts common to functional programming and basic mathematics.  Both the design of the language and the implementation of runtime environments are work in progress.
+</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.11794v2</guid>
       <category>cs.PL</category>
-      <pubDate>Wed, 06 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <category>math.PR</category>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <arxiv:DOI>10.4204/EPTCS.424.4</arxiv:DOI>
+      <arxiv:journal_reference>EPTCS 424, 2025, pp. 67-86</arxiv:journal_reference>
+      <dc:creator>Baltasar Tranc\'on y Widemann (Brandenburg University of Applied Sciences), Markus Lepper (semantics gGmbH)</dc:creator>
+    </item>
+    <item>
+      <title>IsaMini: Redesigned Isabelle Proof Language for Machine Learning</title>
+      <link>https://arxiv.org/abs/2507.18885</link>
+      <description>arXiv:2507.18885v2 Announce Type: replace 
+Abstract: Neural Theorem Proving (NTP) employs deep learning methods, particularly Large Language Models (LLMs), to automate formal proofs in proof assistants. This approach holds promise for reducing the dramatic labor costs or computation costs required in proof engineering, which is fundamental to formal verification and other software engineering methods. The paper explores the potential of improving NTP by redesigning the proof language, given that LLMs' capabilities depend highly on representations. We introduce \emph{MiniLang}, a redesigned proof language for Isabelle/HOL incorporating an improved version of Sledgehammer. Experiments show MiniLang benefits two fine-tuned LLMs by improving the success rate on the PISA benchmark by up to 29\% in comparison to generation of Isar proof script. The success rate under one attempt (so-called \emph{pass@1}) reaches 69.1\%, exceeding the previous Baldur's pass@64 (65.7\%); The pass@8 reaches 79.2\%, exceeding the state-of-the-art on PISA (71.0\%) achieved by Magnushammer.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2507.18885v2</guid>
+      <category>cs.PL</category>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Saketh Ram Kasibatla, Arpan Agarwal, Yuriy Brun, Sorin Lerner, Talia Ringer, Emily First</dc:creator>
+      <dc:creator>Qiyuan Xu, Renxi Wang, Haonan Li, David Sanan, Conrad Watt</dc:creator>
     </item>
   </channel>
 </rss>
