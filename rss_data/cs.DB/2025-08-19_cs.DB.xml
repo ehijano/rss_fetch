@@ -7,186 +7,124 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Aug 2025 01:23:37 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 Aug 2025 04:00:12 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
+    <pubDate>Wed, 20 Aug 2025 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Saturday</day>
       <day>Sunday</day>
     </skipDays>
     <item>
-      <title>LSM-OPD: Boosting Scan in LSM-Trees by Enabling Direct Computing on Compressed Data</title>
-      <link>https://arxiv.org/abs/2508.11862</link>
-      <description>arXiv:2508.11862v1 Announce Type: new 
-Abstract: Scan-based operations, such as backstage compaction and value filtering, have emerged as the main bottleneck for LSM-Trees in supporting contemporary data-intensive applications. For slower external storage devices, such as HDD and SATA SSD, the scan performance is primarily limited by the I/O bandwidth (i.e., I/O bound) due to the substantial read/write amplifications in LSM-Trees. Recent adoption of high-performance storage devices, such as NVMe SSD, has transformed the main limitation to be compute-bound, emerging the impact of computational resource consumption caused by inefficient compactions and filtering. However, when the value size increases, the bottleneck for scan performance in fast devices gradually shifts towards the I/O bandwidth as well, and the overall throughput across all types of devices undergo a dramatic reduction. This paper addresses the core issues by proposing LSM-OPD, a Log-S tructured M erge-O rder- Preserving Dictionary encoding scheme that enables direct computing on compressed data within LSM-Trees. It first enables key-value-separated data flushing to disk in a densely encoded columnar layout, ideally with few bytes for a large string value (e.g., 1024 bytes), thereby significantly alleviating the frequent I/O requests caused by intensive scans. Then, it is capable of offloading the costly scan-based operations on large values, including compaction and value filtering, to lightweight dictionaries due to the order-preserving property. And SIMD-based vectorization can now be employed to maximize the evaluating performance on modern multi-core processors, further breaking the compute-bound limitations in LSM-trees. Extensive experiments demonstrate the superior efficiency of LSM-OPD in processing various workloads that involve intensive scan-based operations on diverse modern storage devices.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.11862v1</guid>
+      <title>Scavenger: Better Space-Time Trade-Offs for Key-Value Separated LSM-trees</title>
+      <link>https://arxiv.org/abs/2508.13909</link>
+      <description>arXiv:2508.13909v1 Announce Type: new 
+Abstract: Key-Value Stores (KVS) implemented with log-structured merge-tree (LSM-tree) have gained widespread acceptance in storage systems. Nonetheless, a significant challenge arises in the form of high write amplification due to the compaction process. While KV-separated LSM-trees successfully tackle this issue, they also bring about substantial space amplification problems, a concern that cannot be overlooked in cost-sensitive scenarios. Garbage collection (GC) holds significant promise for space amplification reduction, yet existing GC strategies often fall short in optimization performance, lacking thorough consideration of workload characteristics. Additionally, current KV-separated LSM-trees also ignore the adverse effect of the space amplification in the index LSM-tree. In this paper, we systematically analyze the sources of space amplification of KV-separated LSM-trees and introduce Scavenger, which achieves a better trade-off between performance and space amplification. Scavenger initially proposes an I/O-efficient garbage collection scheme to reduce I/O overhead and incorporates a space-aware compaction strategy based on compensated size to minimize the space amplification of index LSM-trees. Extensive experiments show that Scavenger significantly improves write performance and achieves lower space amplification than other KV-separated LSM-trees (including BlobDB, Titan, and TerarkDB).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.13909v1</guid>
       <category>cs.DB</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Jianfeng Huang, Ziyao Wang, Lin Yuan, Jiajie Wen, Yihao Cao, Dongjing Miao, Yong Wang, Jiahao Zhang</dc:creator>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1109/ICDE60146.2024.00312</arxiv:DOI>
+      <arxiv:journal_reference>Year: 2024, Pages: 4072-4085</arxiv:journal_reference>
+      <dc:creator>Jianshun Zhang, Fang Wang, Sheng Qiu, Yi Wang, Jiaxin Ou, Junxun Huang, Baoquan Li, Peng Fang, Dan Feng</dc:creator>
     </item>
     <item>
-      <title>Carry the Tail in Consensus Protocols</title>
-      <link>https://arxiv.org/abs/2508.12173</link>
-      <description>arXiv:2508.12173v1 Announce Type: new 
-Abstract: We present Carry-the-Tail, the first deterministic atomic broadcast protocol in partial synchrony that, after GST, guarantees a constant fraction of commits by non-faulty leaders against tail-forking attacks, and maintains optimal, worst-case quadratic communication under a cascade of faulty leaders. The solution also guarantees linear amortized communication, i.e., the steady-state is linear.
-  Prior atomic broadcast solutions achieve quadratic word communication complexity in the worst case. However, they face a significant degradation in throughput under tail-forking attack. Existing solutions to tail-forking attacks require either quadratic communication steps or computationally-prohibitive SNARK generation.
-  The key technical contribution is Carry, a practical drop-in mechanism for streamlined protocols in the HotStuff family. Carry guarantees good performance against tail-forking and removes most leader-induced stalls, while retaining linear traffic and protocol simplicity.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.12173v1</guid>
+      <title>Scavenger+: Revisiting Space-Time Tradeoffs in Key-Value Separated LSM-trees</title>
+      <link>https://arxiv.org/abs/2508.13935</link>
+      <description>arXiv:2508.13935v1 Announce Type: new 
+Abstract: Key-Value Stores (KVS) based on log-structured merge-trees (LSM-trees) are widely used in storage systems but face significant challenges, such as high write amplification caused by compaction. KV-separated LSM-trees address write amplification but introduce significant space amplification, a critical concern in cost-sensitive scenarios. Garbage collection (GC) can reduce space amplification, but existing strategies are often inefficient and fail to account for workload characteristics. Moreover, current key-value (KV) separated LSM-trees overlook the space amplification caused by the index LSM-tree. In this paper, we systematically analyze the sources of space amplification in KV-separated LSM-trees and propose Scavenger+, which achieves a better performance-space trade-off. Scavenger+ introduces (1) an I/O-efficient garbage collection scheme to reduce I/O overhead, (2) a space-aware compaction strategy based on compensated size to mitigate index-induced space amplification, and (3) a dynamic GC scheduler that adapts to system load to make better use of CPU and storage resources. Extensive experiments demonstrate that Scavenger+ significantly improves write performance and reduces space amplification compared to state-of-the-art KV-separated LSM-trees, including BlobDB, Titan, and TerarkDB.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.13935v1</guid>
       <category>cs.DB</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Suyash Gupta, Dakai Kang, Dahlia Malkhi, Mohammad Sadoghi</dc:creator>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1109/TC.2025.3587513</arxiv:DOI>
+      <arxiv:journal_reference>Year 2025, pp. 1-14,</arxiv:journal_reference>
+      <dc:creator>Jianshun Zhang, Fang Wang, Jiaxin Ou, Yi Wang, Ming Zhao, Sheng Qiu, Junxun Huang, Baoquan Li, Peng Fang, Dan Feng</dc:creator>
     </item>
     <item>
-      <title>jXBW: Fast Substructure Search in Large-Scale JSONL Datasets for Foundation Model Applications</title>
-      <link>https://arxiv.org/abs/2508.12536</link>
-      <description>arXiv:2508.12536v1 Announce Type: new 
-Abstract: Substructure search in JSON Lines (JSONL) datasets is essential for modern applications such as prompt engineering in foundation models, but existing methods suffer from prohibitive computational costs due to exhaustive tree traversal and subtree matching. We present jXBW, a fast method for substructure search on large-scale JSONL datasets. Our method makes three key technical contributions: (i) a merged tree representation built by merging trees of multiple JSON objects while preserving individual identities, (ii) a succinct data structure based on the eXtended Burrows-Wheeler Transform that enables efficient tree navigation and subpath search, and (iii) an efficient three-step substructure search algorithm that combines path decomposition, ancestor computation, and adaptive tree identifier collection to ensure correctness while avoiding exhaustive tree traversal. Experimental evaluation on real-world datasets demonstrates that jXBW consistently outperforms existing methods, achieving speedups of 16$\times$ for smaller datasets and up to 4,700$\times$ for larger datasets over tree-based approaches, and more than 6$\times$10$^6$ over XML-based processing while maintaining competitive memory usage.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.12536v1</guid>
+      <title>Query Logs Analytics: A Aystematic Literature Review</title>
+      <link>https://arxiv.org/abs/2508.13949</link>
+      <description>arXiv:2508.13949v1 Announce Type: new 
+Abstract: In the digital era, user interactions with various resources such as databases, data warehouses, websites, and knowledge graphs (KGs) are increasingly mediated through digital platforms. These interactions leave behind digital traces, systematically captured in the form of logs. Logs, when effectively exploited, provide high value across industry and academia, supporting critical services (e.g., recovery and security), user-centric applications (e.g., recommender systems), and quality-of-service improvements (e.g., performance optimization). Despite their importance, research on log usage remains fragmented across domains, and no comprehensive study currently consolidates existing efforts. This paper presents a systematic survey of log usage, focusing on Database (DB), Data Warehouse (DW), Web, and KG logs. More than 300 publications were analyzed to address three central questions: (1) do different types of logs share common structural and functional characteristics? (2) are there standard pipelines for their usage? (3) which constraints and non-functional requirements (NFRs) guide their exploitation?. The survey reveals a limited number of end-to-end approaches, the absence of standardization across log usage pipelines, and the existence of shared structural elements among different types of logs. By consolidating existing knowledge, identifying gaps, and highlighting opportunities, this survey provides researchers and practitioners with a comprehensive overview of log usage and sheds light on promising directions for future research, particularly regarding the exploitation and democratization of KG logs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.13949v1</guid>
       <category>cs.DB</category>
-      <category>cs.DS</category>
-      <category>cs.IR</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
+      <category>cs.CL</category>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Yasuo Tabei</dc:creator>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Dihia Lanasri</dc:creator>
     </item>
     <item>
-      <title>Evaluating the Quality of Open Building Datasets for Mapping Urban Inequality: A Comparative Analysis Across 5 Cities</title>
-      <link>https://arxiv.org/abs/2508.12872</link>
-      <description>arXiv:2508.12872v1 Announce Type: new 
-Abstract: While informal settlements lack focused development and are highly dynamic, the quality of spatial data for these places may be uncertain. This study evaluates the quality and biases of AI-generated Open Building Datasets (OBDs) generated by Google and Microsoft against OpenStreetMap (OSM) data, across diverse global cities including Accra, Nairobi, Caracas, Berlin, and Houston. The Intersection over Union (IoU), overlap analysis and a positional accuracy algorithm are used to analyse the similarity and alignment of the datasets. The paper also analyses the size distribution of the building polygon area, and completeness using predefined but regular spatial units. The results indicate significant variance in data quality, with Houston and Berlin demonstrating high alignment and completeness, reflecting their structured urban environments. There are gaps in the datasets analysed, and cities like Accra and Caracas may be under-represented. This could highlight difficulties in capturing complex or informal regions. The study also notes different building size distributions, which may be indicative of the global socio-economic divide. These findings may emphasise the need to consider the quality of global building datasets to avoid misrepresentation, which is an important element of planning and resource distribution.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.12872v1</guid>
+      <title>Fitting Ontologies and Constraints to Relational Structures</title>
+      <link>https://arxiv.org/abs/2508.13176</link>
+      <description>arXiv:2508.13176v1 Announce Type: cross 
+Abstract: We study the problem of fitting ontologies and constraints to positive and negative examples that take the form of a finite relational structure. As ontology and constraint languages, we consider the description logics $\mathcal{E\mkern-2mu L}$ and $\mathcal{E\mkern-2mu LI}$ as well as several classes of tuple-generating dependencies (TGDs): full, guarded, frontier-guarded, frontier-one, and unrestricted TGDs as well as inclusion dependencies. We pinpoint the exact computational complexity, design algorithms, and analyze the size of fitting ontologies and TGDs. We also investigate the related problem of constructing a finite basis of concept inclusions / TGDs for a given set of finite structures. While finite bases exist for $\mathcal{E\mkern-2mu L}$, $\mathcal{E\mkern-2mu LI}$, guarded TGDs, and inclusion dependencies, they in general do not exist for full, frontier-guarded and frontier-one TGDs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.13176v1</guid>
+      <category>cs.AI</category>
       <category>cs.DB</category>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Simon Hosemann, Jean Christoph Jung, Carsten Lutz, Sebastian Rudolph</dc:creator>
+    </item>
+    <item>
+      <title>The Interpretability Analysis of the Model Can Bring Improvements to the Text-to-SQL Task</title>
+      <link>https://arxiv.org/abs/2508.13178</link>
+      <description>arXiv:2508.13178v1 Announce Type: cross 
+Abstract: To elevate the foundational capabilities and generalization prowess of the text-to-SQL model in real-world applications, we integrate model interpretability analysis with execution-guided strategy for semantic parsing of WHERE clauses in SQL queries. Furthermore, we augment this approach with filtering adjustments, logical correlation refinements, and model fusion, culminating in the design of the CESQL model that facilitates conditional enhancement. Our model excels on the WikiSQL dataset, which is emblematic of single-table database query tasks, markedly boosting the accuracy of prediction outcomes. When predicting conditional values in WHERE clauses, we have not only minimized our dependence on data within the condition columns of tables but also circumvented the impact of manually labeled training data. Our hope is that this endeavor to enhance accuracy in processing basic database queries will offer fresh perspectives for research into handling complex queries and scenarios featuring irregular data in real-world database environments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.13178v1</guid>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Cong Zhang</dc:creator>
+    </item>
+    <item>
+      <title>TabulaX: Leveraging Large Language Models for Multi-Class Table Transformations</title>
+      <link>https://arxiv.org/abs/2411.17110</link>
+      <description>arXiv:2411.17110v2 Announce Type: replace 
+Abstract: The integration of tabular data from diverse sources is often hindered by inconsistencies in formatting and representation, posing significant challenges for data analysts and personal digital assistants. Existing methods for automating tabular data transformations are limited in scope, often focusing on specific types of transformations or lacking interpretability. In this paper, we introduce TabulaX, a novel framework that leverages Large Language Models (LLMs) for multi-class column-level tabular transformations. TabulaX first classifies input columns into four transformation types (string-based, numerical, algorithmic, and general) and then applies tailored methods to generate human-interpretable transformation functions, such as numeric formulas or programming code. This approach enhances transparency and allows users to understand and modify the mappings. Through extensive experiments on real-world datasets from various domains, we demonstrate that TabulaX outperforms existing state-of-the-art approaches in terms of accuracy, supports a broader class of transformations, and generates interpretable transformations that can be efficiently applied.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2411.17110v2</guid>
+      <category>cs.DB</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.14778/3749646.3749657</arxiv:DOI>
+      <dc:creator>Arash Dargahi Nobari, Davood Rafiei</dc:creator>
+    </item>
+    <item>
+      <title>LEGO-GraphRAG: Modularizing Graph-based Retrieval-Augmented Generation for Design Space Exploration</title>
+      <link>https://arxiv.org/abs/2411.05844</link>
+      <description>arXiv:2411.05844v3 Announce Type: replace-cross 
+Abstract: GraphRAG integrates (knowledge) graphs with large language models (LLMs) to improve reasoning accuracy and contextual relevance. Despite its promising applications and strong relevance to multiple research communities, such as databases and natural language processing, GraphRAG currently lacks modular workflow analysis, systematic solution frameworks, and insightful empirical studies. To bridge these gaps, we propose LEGO-GraphRAG, a modular framework that enables: 1) fine-grained decomposition of the GraphRAG workflow, 2) systematic classification of existing techniques and implemented GraphRAG instances, and 3) creation of new GraphRAG instances. Our framework facilitates comprehensive empirical studies of GraphRAG on large-scale real-world graphs and diverse query sets, revealing insights into balancing reasoning quality, runtime efficiency, and token or GPU cost, that are essential for building advanced GraphRAG systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2411.05844v3</guid>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.14778/3748191.3748194</arxiv:DOI>
+      <dc:creator>Yukun Cao, Zengyi Gao, Zhiyang Li, Xike Xie, S. Kevin Zhou, Jianliang Xu</dc:creator>
+    </item>
+    <item>
+      <title>Harnessing Structured Knowledge: A Concept Map-Based Approach for High-Quality Multiple Choice Question Generation with Effective Distractors</title>
+      <link>https://arxiv.org/abs/2505.02850</link>
+      <description>arXiv:2505.02850v2 Announce Type: replace-cross 
+Abstract: Generating high-quality MCQs, especially those targeting diverse cognitive levels and incorporating common misconceptions into distractor design, is time-consuming and expertise-intensive, making manual creation impractical at scale. Current automated approaches typically generate questions at lower cognitive levels and fail to incorporate domain-specific misconceptions. This paper presents a hierarchical concept map-based framework that provides structured knowledge to guide LLMs in generating MCQs with distractors. We chose high-school physics as our test domain and began by developing a hierarchical concept map covering major Physics topics and their interconnections with an efficient database design. Next, through an automated pipeline, topic-relevant sections of these concept maps are retrieved to serve as a structured context for the LLM to generate questions and distractors that specifically target common misconceptions. Lastly, an automated validation is completed to ensure that the generated MCQs meet the requirements provided. We evaluate our framework against two baseline approaches: a base LLM and a RAG-based generation. We conducted expert evaluations and student assessments of the generated MCQs. Expert evaluation shows that our method significantly outperforms the baseline approaches, achieving a success rate of 75.20% in meeting all quality criteria compared to approximately 37% for both baseline methods. Student assessment data reveal that our concept map-driven approach achieved a significantly lower guess success rate of 28.05% compared to 37.10% for the baselines, indicating a more effective assessment of conceptual understanding. The results demonstrate that our concept map-based approach enables robust assessment across cognitive levels and instant identification of conceptual gaps, facilitating faster feedback loops and targeted interventions at scale.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.02850v2</guid>
+      <category>cs.CL</category>
+      <category>cs.AI</category>
       <category>cs.CY</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Franz Okyere, Meng Lu, Ansgar Brunn</dc:creator>
-    </item>
-    <item>
-      <title>SPARQL in N3: SPARQL CONSTRUCT as a rule language for the Semantic Web (Extended Version)</title>
-      <link>https://arxiv.org/abs/2508.13041</link>
-      <description>arXiv:2508.13041v1 Announce Type: new 
-Abstract: Reasoning in the Semantic Web (SW) commonly uses Description Logics (DL) via OWL2 DL ontologies, or SWRL for variables and Horn clauses. The Rule Interchange Format (RIF) offers more expressive rules but is defined outside RDF and rarely adopted. For querying, SPARQL is a well-established standard operating directly on RDF triples. We leverage SPARQL CONSTRUCT queries as logic rules, enabling (1) an expressive, familiar SW rule language, and (2) general recursion, where queries can act on the results of others. We translate these queries to the Notation3 Logic (N3) rule language, allowing use of existing reasoning machinery with forward and backward chaining. Targeting a one-to-one query-rule mapping improves exchangeability and interpretability. Benchmarks indicate competitive performance, aiming to advance the potential of rule-based reasoning in the SW.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.13041v1</guid>
       <category>cs.DB</category>
-      <category>cs.LO</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>D\"orthe Arndt, William Van Woensel, Dominik Tomaszuk</dc:creator>
-    </item>
-    <item>
-      <title>AegisBlock: A Privacy-Preserving Medical Research Framework using Blockchain</title>
-      <link>https://arxiv.org/abs/2508.11797</link>
-      <description>arXiv:2508.11797v1 Announce Type: cross 
-Abstract: Due to HIPAA and other privacy regulations, it is imperative to maintain patient privacy while conducting research on patient health records. In this paper, we propose AegisBlock, a patient-centric access controlled framework to share medical records with researchers such that the anonymity of the patient is maintained while ensuring the trustworthiness of the data provided to researchers. AegisBlock allows for patients to provide access to their medical data, verified by miners. A researcher submits a time-based range query to request access to records from a certain patient, and upon patient approval, access will be granted. Our experimental evaluation results show that AegisBlock is scalable with respect to the number of patients and hospitals in the system, and efficient with up to 50% of malicious miners.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.11797v1</guid>
-      <category>cs.CR</category>
-      <category>cs.DB</category>
-      <category>cs.DC</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Calkin Garg, Omar Rios Cruz, Tessa Andersen, Gaby G. Dagher, Donald Winiecki, Min Long</dc:creator>
-    </item>
-    <item>
-      <title>Cold-RL: Learning Cache Eviction with Offline Reinforcement Learning for NGINX</title>
-      <link>https://arxiv.org/abs/2508.12485</link>
-      <description>arXiv:2508.12485v1 Announce Type: cross 
-Abstract: Web proxies such as NGINX commonly rely on least-recently-used (LRU) eviction, which is size agnostic and can thrash under periodic bursts and mixed object sizes. We introduce Cold-RL, a learned eviction policy for NGINX that replaces LRU's forced-expire path with a dueling Deep Q-Network served by an ONNX sidecar within a strict microsecond budget. On each eviction, Cold-RL samples the K least-recently-used objects, extracts six lightweight features (age, size, hit count, inter-arrival time, remaining TTL, and last origin RTT), and requests a bitmask of victims; a hard timeout of 500 microseconds triggers immediate fallback to native LRU. Policies are trained offline by replaying NGINX access logs through a cache simulator with a simple reward: a retained object earns one point if it is hit again before TTL expiry. We compare against LRU, LFU, size-based, adaptive LRU, and a hybrid baseline on two adversarial workloads. With a 25 MB cache, Cold-RL raises hit ratio from 0.1436 to 0.3538, a 146 percent improvement over the best classical baseline; at 100 MB, from 0.7530 to 0.8675, a 15 percent gain; and at 400 MB it matches classical methods (about 0.918). Inference adds less than 2 percent CPU overhead and keeps 95th percentile eviction latency within budget. To our knowledge, this is the first reinforcement learning eviction policy integrated into NGINX with strict SLOs.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.12485v1</guid>
-      <category>cs.LG</category>
-      <category>cs.AI</category>
-      <category>cs.DB</category>
-      <category>cs.NI</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Aayush Gupta, Arpit Bhayani</dc:creator>
-    </item>
-    <item>
-      <title>An LLM Agent-Based Complex Semantic Table Annotation Approach</title>
-      <link>https://arxiv.org/abs/2508.12868</link>
-      <description>arXiv:2508.12868v1 Announce Type: cross 
-Abstract: The Semantic Table Annotation (STA) task, which includes Column Type Annotation (CTA) and Cell Entity Annotation (CEA), maps table contents to ontology entities and plays important roles in various semantic applications. However, complex tables often pose challenges such as semantic loss of column names or cell values, strict ontological hierarchy requirements, homonyms, spelling errors, and abbreviations, which hinder annotation accuracy. To address these issues, this paper proposes an LLM-based agent approach for CTA and CEA. We design and implement five external tools with tailored prompts based on the ReAct framework, enabling the STA agent to dynamically select suitable annotation strategies depending on table characteristics. Experiments are conducted on the Tough Tables and BiodivTab datasets from the SemTab challenge, which contain the aforementioned challenges. Our method outperforms existing approaches across various metrics. Furthermore, by leveraging Levenshtein distance to reduce redundant annotations, we achieve a 70% reduction in time costs and a 60% reduction in LLM token usage, providing an efficient and cost-effective solution for STA.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.12868v1</guid>
-      <category>cs.CL</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
-      <dc:creator>Yilin Geng, Shujing Wang, Chuan Wang, Keqing He, Yanfei Lv, Ying Wang, Zaiwen Feng, Xiaoying Bai</dc:creator>
-    </item>
-    <item>
-      <title>Efficient Discovery of Motif Transition Process for Large-Scale Temporal Graphs</title>
-      <link>https://arxiv.org/abs/2504.15979</link>
-      <description>arXiv:2504.15979v2 Announce Type: replace 
-Abstract: Understanding the dynamic transition of motifs in temporal graphs is essential for revealing how graph structures evolve over time, identifying critical patterns, and predicting future behaviors, yet existing methods often focus on predefined motifs, limiting their ability to comprehensively capture transitions and interrelationships. We propose a parallel motif transition process discovery algorithm, PTMT, a novel parallel method for discovering motif transition processes in large-scale temporal graphs. PTMT integrates a tree-based framework with the temporal zone partitioning (TZP) strategy, which partitions temporal graphs by time and structure while preserving lossless motif transitions and enabling massive parallelism. PTMT comprises three phases: growth zone parallel expansion, overlap-aware result aggregation, and deterministic encoding of motif transitions, ensuring accurate tracking of dynamic transitions and interactions. Results on 10 real-world datasets demonstrate that PTMT achieves speedups ranging from 12.0$\times$ to 50.3$\times$ compared to the SOTA method.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2504.15979v2</guid>
-      <category>cs.DB</category>
-      <category>cs.LG</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Zhiyuan Zheng, Jianpeng Qi, Jiantao Li, Guoqing Chao, Junyu Dong, Yanwei Yu</dc:creator>
-    </item>
-    <item>
-      <title>High-Fidelity And Complex Test Data Generation For Real-World SQL Code Generation Services</title>
-      <link>https://arxiv.org/abs/2504.17203</link>
-      <description>arXiv:2504.17203v2 Announce Type: replace 
-Abstract: The demand for high-fidelity test data is paramount in industrial settings where access to production data is largely restricted. Traditional data generation methods often fall short, struggling with low-fidelity and the ability to model complex data structures and semantic relationships that are critical for testing complex SQL code generation services like Natural Language to SQL (NL2SQL). In this paper, we address the critical need for generating syntactically correct and semantically ``meaningful'' mock data for complex schema that includes columns with nested structures that we frequently encounter in Google SQL code generation workloads. We highlight the limitations of existing approaches used in production, particularly their inability to handle large and complex schema, as well as the lack of semantically coherent test data that lead to limited test coverage. We demonstrate that by leveraging Large Language Models (LLMs) and incorporating strategic pre- and post-processing steps, we can generate realistic high-fidelity test data that adheres to complex structural constraints and maintains semantic integrity to the test targets (SQL queries/functions). This approach supports comprehensive testing of complex SQL queries involving joins, aggregations, and even deeply nested subqueries, ensuring robust evaluation of SQL code generation services, like NL2SQL and SQL Code Assistant services. Our results demonstrate the practical utility of an out-of-the-box LLM (\textit{gemini}) based test data generation for industrial SQL code generation services where generating realistic test data is essential due to the frequent unavailability of production datasets.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2504.17203v2</guid>
-      <category>cs.DB</category>
-      <category>cs.LG</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
-      <dc:creator>Shivasankari Kannan, Yeounoh Chung, Amita Gondi, Tristan Swadell, Fatma Ozcan</dc:creator>
-    </item>
-    <item>
-      <title>DARTH: Declarative Recall Through Early Termination for Approximate Nearest Neighbor Search</title>
-      <link>https://arxiv.org/abs/2505.19001</link>
-      <description>arXiv:2505.19001v2 Announce Type: replace 
-Abstract: Approximate Nearest Neighbor Search (ANNS) presents an inherent tradeoff between performance and recall (i.e., result quality). Each ANNS algorithm provides its own algorithm-dependent parameters to allow applications to influence the recall/performance tradeoff of their searches. This situation is doubly problematic. First, the application developers have to experiment with these algorithm-dependent parameters to fine-tune the parameters that produce the desired recall for each use case. This process usually takes a lot of effort. Even worse, the chosen parameters may produce good recall for some queries, but bad recall for hard queries. To solve these problems, we present DARTH, a method that uses target declarative recall. DARTH uses a novel method for providing target declarative recall on top of an ANNS index by employing an adaptive early termination strategy integrated into the search algorithm. Through a wide range of experiments, we demonstrate that DARTH effectively meets user-defined recall targets while achieving significant speedups, up to 14.6x (average: 6.8x; median: 5.7x) faster than the search without early termination for HNSW and up to 41.8x (average: 13.6x; median: 8.1x) for IVF. This paper appeared in ACM SIGMOD 2026.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2505.19001v2</guid>
-      <category>cs.DB</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <arxiv:DOI>10.1145/3749160</arxiv:DOI>
-      <dc:creator>Manos Chatzakis, Yannis Papakonstantinou, Themis Palpanas</dc:creator>
-    </item>
-    <item>
-      <title>Blockchain Data Analytics: Review and Challenges</title>
-      <link>https://arxiv.org/abs/2503.09165</link>
-      <description>arXiv:2503.09165v2 Announce Type: replace-cross 
-Abstract: The integration of blockchain technology with data analytics is essential for extracting insights in the cryptocurrency space. Although academic literature on blockchain data analytics is limited, various industry solutions have emerged to address these needs. This paper provides a comprehensive literature review, drawing from both academic research and industry applications. We classify blockchain analytics tools into categories such as block explorers, on-chain data providers, research platforms, and crypto market data providers. Additionally, we discuss the challenges associated with blockchain data analytics, including data accessibility, scalability, accuracy, and interoperability. Our findings emphasize the importance of bridging academic research and industry innovations to advance blockchain data analytics.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2503.09165v2</guid>
-      <category>cs.CR</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Rischan Mafrur</dc:creator>
-    </item>
-    <item>
-      <title>Feather-SQL: A Lightweight NL2SQL Framework with Dual-Model Collaboration Paradigm for Small Language Models</title>
-      <link>https://arxiv.org/abs/2503.17811</link>
-      <description>arXiv:2503.17811v3 Announce Type: replace-cross 
-Abstract: Natural Language to SQL (NL2SQL) has seen significant advancements with large language models (LLMs). However, these models often depend on closed-source systems and high computational resources, posing challenges in data privacy and deployment. In contrast, small language models (SLMs) struggle with NL2SQL tasks, exhibiting poor performance and incompatibility with existing frameworks. To address these issues, we introduce Feather-SQL, a new lightweight framework tailored for SLMs. Feather-SQL improves SQL executability and accuracy through 1) schema pruning and linking, 2) multi-path and multi-candidate generation. Additionally, we introduce the 1+1 Model Collaboration Paradigm, which pairs a strong general-purpose chat model with a fine-tuned SQL specialist, combining strong analytical reasoning with high-precision SQL generation. Experimental results on BIRD demonstrate that Feather-SQL improves NL2SQL performance on SLMs, with around 10% boost for models without fine-tuning. The proposed paradigm raises the accuracy ceiling of SLMs to 54.76%, highlighting its effectiveness.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2503.17811v3</guid>
-      <category>cs.CL</category>
-      <category>cs.AI</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 19 Aug 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Wenqi Pei, Hailing Xu, Hengyuan Zhao, Shizheng Hou, Han Chen, Zining Zhang, Pingyi Luo, Bingsheng He</dc:creator>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Nicy Scaria, Silvester John Joseph Kennedy, Diksha Seth, Ananya Thakur, Deepak Subramani</dc:creator>
     </item>
   </channel>
 </rss>
