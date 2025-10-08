@@ -7,149 +7,65 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Oct 2025 01:42:54 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Oct 2025 04:00:05 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
+    <pubDate>Wed, 08 Oct 2025 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Sunday</day>
       <day>Saturday</day>
     </skipDays>
     <item>
-      <title>Is it Bigger than a Breadbox: Efficient Cardinality Estimation for Real World Workloads</title>
-      <link>https://arxiv.org/abs/2510.03386</link>
-      <description>arXiv:2510.03386v1 Announce Type: new 
-Abstract: DB engines produce efficient query execution plans by relying on cost models. Practical implementations estimate cardinality of queries using heuristics, with magic numbers tuned to improve average performance on benchmarks. Empirically, estimation error significantly grows with query complexity. Alternatively, learning-based estimators offer improved accuracy, but add operational complexity preventing their adoption in-practice. Recognizing that query workloads contain highly repetitive subquery patterns, we learn many simple regressors online, each localized to a pattern. The regressor corresponding to a pattern can be randomly-accessed using hash of graph structure of the subquery. Our method has negligible overhead and competes with SoTA learning-based approaches on error metrics. Further, amending PostgreSQL with our method achieves notable accuracy and runtime improvements over traditional methods and drastically reduces operational costs compared to other learned cardinality estimators, thereby offering the most practical and efficient solution on the Pareto frontier. Concretely, simulating JOB-lite workload on IMDb speeds-up execution by 7.5 minutes (&gt;30%) while incurring only 37 seconds overhead for online learning.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.03386v1</guid>
+      <title>Redefining Cost Estimation in Database Systems: The Role of Execution Plan Features and Machine Learning</title>
+      <link>https://arxiv.org/abs/2510.05612</link>
+      <description>arXiv:2510.05612v1 Announce Type: new 
+Abstract: Accurate query runtime prediction is a critical component of effective query optimization in modern database systems. Traditional cost models, such as those used in PostgreSQL, rely on static heuristics that often fail to reflect actual query performance under complex and evolving workloads. This remains an active area of research, with recent work exploring machine learning techniques to replace or augment traditional cost estimators. In this paper, we present a machine learning-based framework for predicting SQL query runtimes using execution plan features extracted from PostgreSQL. Our approach integrates scalar and structural features from execution plans and semantic representations of SQL queries to train predictive models. We construct an automated pipeline for data collection and feature extraction using parameterized TPC-H queries, enabling systematic evaluation of multiple modeling techniques. Unlike prior efforts that focus either on cardinality estimation or on synthetic cost metrics, we model the actual runtimes using fine-grained plan statistics and query embeddings derived from execution traces, to improve the model accuracy. We compare baseline regressors, a refined XGBoost model, and a sequential LSTM-based model to assess their effectiveness in runtime prediction. Our dataset includes over 1000 queries generated from TPC-H query templates executed in PostgreSQL with EXPLAIN ANALYZE. Experimental results show that the XGBoost model significantly outperforms others, achieving a mean squared error of 0.3002 and prediction accuracy within 10% of the true runtime in over 65% of cases. The findings highlight the potential of tree-based learning combined with execution plan features for improving cost estimation in query optimizers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.05612v1</guid>
       <category>cs.DB</category>
+      <pubDate>Wed, 08 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Utsav Pathak, Amit Mankodi</dc:creator>
+    </item>
+    <item>
+      <title>Speeding up SQL subqueries via decoupling of non-correlated predicate (extended version)</title>
+      <link>https://arxiv.org/abs/2510.05907</link>
+      <description>arXiv:2510.05907v1 Announce Type: new 
+Abstract: In this paper, we discuss a novel technique for processing correlated subqueries in SQL. The core idea is to isolate the non-correlated part of the predicate and use it to reduce the number of evaluations of the correlated part. We begin by providing an overview of several classes of queries that may benefit from this technique. For each class, we propose a potential rewrite and discuss the conditions under which it is advantageous. Next, we address the evaluation aspects of the proposed rewrites: 1) we describe our approach to adapting the block-based Volcano query processing model, and 2) we discuss the benefits of implementing that technique within a position-enabled column-store with late materialization support. Finally, we present a simple cost model that allows estimation of the benefits of said rewrites.
+  Our evaluation has a quantitative part and a qualitative part. The former focuses on studying the impact of non-correlated predicate selectivity on our technique. The latter identifies the limitations of our approach by comparing it with alternative approaches available in existing systems. Overall, experiments conducted using PosDB (a position-enabled column-store) and PostgreSQL demonstrated that, under suitable conditions, our technique can achieve a 5x improvement.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.05907v1</guid>
+      <category>cs.DB</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Wed, 08 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Dmitrii Radivonchik, Yakov Kuzin, Anton Chizhov, Dmitriy Shcheka, Mikhail Firsov, Kirill Smirnov, George Chernishev</dc:creator>
+    </item>
+    <item>
+      <title>Improving Clinical Dataset Condensation with Mode Connectivity-based Trajectory Surrogates</title>
+      <link>https://arxiv.org/abs/2510.05805</link>
+      <description>arXiv:2510.05805v1 Announce Type: cross 
+Abstract: Dataset condensation (DC) enables the creation of compact, privacy-preserving synthetic datasets that can match the utility of real patient records, supporting democratised access to highly regulated clinical data for developing downstream clinical models. State-of-the-art DC methods supervise synthetic data by aligning the training dynamics of models trained on real and those trained on synthetic data, typically using full stochastic gradient descent (SGD) trajectories as alignment targets; however, these trajectories are often noisy, high-curvature, and storage-intensive, leading to unstable gradients, slow convergence, and substantial memory overhead. We address these limitations by replacing full SGD trajectories with smooth, low-loss parametric surrogates, specifically quadratic B\'ezier curves that connect the initial and final model states from real training trajectories. These mode-connected paths provide noise-free, low-curvature supervision signals that stabilise gradients, accelerate convergence, and eliminate the need for dense trajectory storage. We theoretically justify B\'ezier-mode connections as effective surrogates for SGD paths and empirically show that the proposed method outperforms state-of-the-art condensation approaches across five clinical datasets, yielding condensed datasets that enable clinically effective model development.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.05805v1</guid>
       <category>cs.LG</category>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Zixuan Yi, Sami Abu-el-Haija, Yawen Wang, Teja Vemparala, Yannis Chronis, Yu Gan, Michael Burrows, Carsten Binnig, Bryan Perozzi, Ryan Marcus, Fatma Ozcan</dc:creator>
-    </item>
-    <item>
-      <title>Dual Pruning and Sorting-Free Overestimation for Average-Utility Sequential Pattern Mining</title>
-      <link>https://arxiv.org/abs/2510.04014</link>
-      <description>arXiv:2510.04014v1 Announce Type: new 
-Abstract: In a quantitative sequential database, numerous efficient algorithms have been developed for high-utility sequential pattern mining (HUSPM). HUSPM establishes a relationship between frequency and significance in the real world and reflects more crucial information than frequent pattern mining. However, high average-utility sequential pattern mining (HAUSPM) is deemed fairer and more valuable than HUSPM. It provides a reasonable measure for longer patterns by considering their length. In contrast to scenarios in retail business analysis, some pattern mining applications, such as cybersecurity or artificial intelligence (AI), often involve much longer sequences. Consequently, pruning strategies can exert a more pronounced impact on efficiency. This paper proposes a novel algorithm named HAUSP-PG, which adopts two complementary strategies to independently process pattern prefixes and remaining sequences, thereby achieving a dual pruning effect. Additionally, the proposed method calculates average utility upper bounds without requiring item sorting, significantly reducing computational time and memory consumption compared to alternative approaches. Through experiments conducted on both real-life and synthetic datasets, we demonstrate that the proposed algorithm could achieve satisfactory performance.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.04014v1</guid>
+      <category>cs.CV</category>
       <category>cs.DB</category>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Kai Cao, Yucong Duan, Wensheng Gan</dc:creator>
-    </item>
-    <item>
-      <title>Ambidextrous Degree Sequence Bounds for Pessimistic Cardinality Estimation</title>
-      <link>https://arxiv.org/abs/2510.04249</link>
-      <description>arXiv:2510.04249v1 Announce Type: new 
-Abstract: In a large database system, upper-bounding the cardinality of a join query is a crucial task called $\textit{pessimistic cardinality estimation}$. Recently, Abo Khamis, Nakos, Olteanu, and Suciu unified related works into the following dexterous framework. Step 1: Let $(X_1, \dotsc, X_n)$ be a random row of the join, equating $H(X_1, \dotsc, X_n)$ to the log of the join cardinality. Step 2: Upper-bound $H(X_1, \dotsc, X_n)$ using Shannon-type inequalities such as $H(X, Y, Z) \le H(X) + H(Y|X) + H(Z|Y)$. Step 3: Upper-bound $H(X_i) + p H(X_j | X_i)$ using the $p$-norm of the degree sequence of the underlying graph of a relation.
-  While old bound in step 3 count "claws $\in$" in the underlying graph, we proposed $\textit{ambidextrous}$ bounds that count "claw pairs ${\ni}\!{-}\!{\in}$". The new bounds are provably not looser and empirically tighter: they overestimate by $x^{3/4}$ times when the old bounds overestimate by $x$ times. An example is counting friend triples in the $\texttt{com-Youtube}$ dataset, the best dexterous bound is $1.2 \cdot 10^9$, the best ambidextrous bound is $5.1 \cdot 10^8$, and the actual cardinality is $1.8 \cdot 10^7$.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.04249v1</guid>
-      <category>cs.DB</category>
-      <category>cs.IT</category>
-      <category>math.IT</category>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Yu-Ting Lin, Hsin-Po Wang</dc:creator>
-    </item>
-    <item>
-      <title>MetaMP: Seamless Metadata Enrichment and AI Application Framework for Enhanced Membrane Protein Visualization and Analysis</title>
-      <link>https://arxiv.org/abs/2510.04776</link>
-      <description>arXiv:2510.04776v1 Announce Type: cross 
-Abstract: Structural biology has made significant progress in determining membrane proteins, leading to a remarkable increase in the number of available structures in dedicated databases. The inherent complexity of membrane protein structures, coupled with challenges such as missing data, inconsistencies, and computational barriers from disparate sources, underscores the need for improved database integration. To address this gap, we present MetaMP, a framework that unifies membrane-protein databases within a web application and uses machine learning for classification. MetaMP improves data quality by enriching metadata, offering a user-friendly interface, and providing eight interactive views for streamlined exploration. MetaMP was effective across tasks of varying difficulty, demonstrating advantages across different levels without compromising speed or accuracy, according to user evaluations. Moreover, MetaMP supports essential functions such as structure classification and outlier detection.
-  We present three practical applications of Artificial Intelligence (AI) in membrane protein research: predicting transmembrane segments, reconciling legacy databases, and classifying structures with explainable AI support. In a validation focused on statistics, MetaMP resolved 77% of data discrepancies and accurately predicted the class of newly identified membrane proteins 98% of the time and overtook expert curation. Altogether, MetaMP is a much-needed resource that harmonizes current knowledge and empowers AI-driven exploration of membrane-protein architecture.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.04776v1</guid>
-      <category>cs.LG</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 08 Oct 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Ebenezer Awotoro, Chisom Ezekannagha, Florian Schwarz, Johannes Tauscher, Dominik Heider, Katharina Ladewig, Christel Le Bon, Karine Moncoq, Bruno Miroux, Georges Hattab</dc:creator>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Pafue Christy Nganjimi, Andrew Soltan, Danielle Belgrave, Lei Clifton, David A. Clifton, Anshul Thakur</dc:creator>
     </item>
     <item>
-      <title>Do LLMs Align with My Task? Evaluating Text-to-SQL via Dataset Alignment</title>
-      <link>https://arxiv.org/abs/2510.04919</link>
-      <description>arXiv:2510.04919v1 Announce Type: cross 
-Abstract: Supervised Fine-Tuning (SFT) is an effective method for adapting Large Language Models (LLMs) on downstream tasks. However, variability in training data can hinder a model's ability to generalize across domains. This paper studies the problem of dataset alignment for Natural Language to SQL (NL2SQL or text to SQL), examining how well SFT training data matches the structural characteristics of target queries and how this alignment impacts model performance. We hypothesize that alignment can be accurately estimated by comparing the distributions of structural SQL features across the training set, target data, and the model's predictions prior to SFT. Through comprehensive experiments on three large cross-domain NL2SQL benchmarks and multiple model families, we show that structural alignment is a strong predictor of fine-tuning success. When alignment is high, SFT yields substantial gains in accuracy and SQL generation quality; when alignment is low, improvements are marginal or absent. These findings highlight the importance of alignment-aware data selection for effective fine-tuning and generalization in NL2SQL tasks.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.04919v1</guid>
-      <category>cs.CL</category>
-      <category>cs.AI</category>
+      <title>Complexity of Evaluating GQL Queries</title>
+      <link>https://arxiv.org/abs/2407.06766</link>
+      <description>arXiv:2407.06766v2 Announce Type: replace 
+Abstract: GQL has recently emerged as the standard query language over graph databases (particularly, the property graph model). Indeed, this is analogous to the role of SQL for relational databases. Unlike SQL, however, fundamental problems regarding GQL are hitherto still unsolved, most notably the complexity of query evaluation. In this paper we provide a complete solution to this problem. In particular, we show that the data complexity of GQL is $\text{P}^{\text{NP}[\log]}$-complete in general, and is $\text{NL}$-complete, when the so-called ``restrictors'' are disallowed. Using techniques from embedded finite model theory, we show that this is true, even when the queries use data from infinite concrete domains (for example the domain of real numbers where arithmetic is allowed in the query). In proving these results, we establish and exploit tight connections between GQL and query languages over relational databases, especially the extension of relational calculus with transitive closure operators, and a fragment of second-order logic.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2407.06766v2</guid>
       <category>cs.DB</category>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Davood Rafiei, Morgan Lindsay Heisler, Weiwei Zhang, Mohammadreza Pourreza, Yong Zhang</dc:creator>
-    </item>
-    <item>
-      <title>Causality-Based Scores Alignment in Explainable Data Management</title>
-      <link>https://arxiv.org/abs/2503.14469</link>
-      <description>arXiv:2503.14469v3 Announce Type: replace 
-Abstract: Different attribution scores have been proposed to quantify the relevance of database tuples for query answering in databases; e.g. Causal Responsibility, the Shapley Value, the Banzhaf Power-Index, and the Causal Effect. They have been analyzed in isolation. This work is a first investigation of score alignment depending on the query and the database; i.e. on whether they induce compatible rankings of tuples. We concentrate mostly on causality-based scores; and provide a syntactic dichotomy result for queries: on one side, pairs of scores are always aligned, on the other, they are not always aligned. It turns out that the presence of exogenous tuples makes a crucial difference in this regard.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2503.14469v3</guid>
-      <category>cs.DB</category>
-      <category>cs.AI</category>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 08 Oct 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Felipe Azua, Leopoldo Bertossi</dc:creator>
-    </item>
-    <item>
-      <title>VDDP: Verifiable Distributed Differential Privacy under the Client-Server-Verifier Setup</title>
-      <link>https://arxiv.org/abs/2504.21752</link>
-      <description>arXiv:2504.21752v2 Announce Type: replace-cross 
-Abstract: Despite differential privacy (DP) often being considered the de facto standard for data privacy, its realization is vulnerable to unfaithful execution of its mechanisms by servers, especially in distributed settings. Specifically, servers may sample noise from incorrect distributions or generate correlated noise while appearing to follow established protocols. This work analyzes these malicious behaviours in a general differential privacy framework within a distributed client-server-verifier setup. To address these adversarial problems, we propose a novel definition called Verifiable Distributed Differential Privacy (VDDP) by incorporating additional verification mechanisms. We also explore the relationship between zero-knowledge proofs (ZKP) and DP, demonstrating that while ZKPs are sufficient for achieving DP under verifiability requirements, they are not necessary. Furthermore, we develop two novel and efficient mechanisms that satisfy VDDP: (1) the Verifiable Distributed Discrete Laplacian Mechanism (VDDLM), which offers up to a 400,000x improvement in proof generation efficiency with only 0.1-0.2x error compared to the previous state-of-the-art verifiable differentially private mechanism; (2) an improved solution to Verifiable Randomized Response (VRR) under local DP, a special case of VDDP, achieving up a reduction of up to 5,000x in communication costs and the verifier's overhead.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2504.21752v2</guid>
-      <category>cs.CR</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Haochen Sun, Xi He</dc:creator>
-    </item>
-    <item>
-      <title>Maximum Degree-Based Quasi-Clique Search via an Iterative Framework</title>
-      <link>https://arxiv.org/abs/2505.15118</link>
-      <description>arXiv:2505.15118v2 Announce Type: replace-cross 
-Abstract: Cohesive subgraph mining is a fundamental problem in graph theory with numerous real-world applications, such as social network analysis and protein-protein interaction modeling. Among various cohesive subgraphs, the $\gamma$-quasi-clique is widely studied for its flexibility in requiring each vertex to connect to at least a $\gamma$ proportion of other vertices in the subgraph. However, solving the maximum $\gamma$-quasi-clique problem is NP-hard and further complicated by the lack of the hereditary property, which makes designing efficient pruning strategies challenging. Existing algorithms, such as DDA and FastQC, either struggle with scalability or exhibit significant performance declines for small values of $\gamma$. In this paper, we propose a novel algorithm, IterQC, which reformulates the maximum $\gamma$-quasi-clique problem as a series of $k$-plex problems that possess the hereditary property. IterQC introduces a non-trivial iterative framework and incorporates two key optimization techniques: (1) the pseudo lower bound (pseudo LB) technique, which leverages information across iterations to improve the efficiency of branch-and-bound searches, and (2) the preprocessing technique that reduces problem size and unnecessary iterations. Extensive experiments demonstrate that IterQC achieves up to four orders of magnitude speedup and solves significantly more graph instances compared to state-of-the-art algorithms DDA and FastQC.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2505.15118v2</guid>
-      <category>cs.SI</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Hongbo Xia, Kaiqiang Yu, Shengxin Liu, Cheng Long, Xun Zhou</dc:creator>
-    </item>
-    <item>
-      <title>Flexible metadata harvesting for ecology using large language models</title>
-      <link>https://arxiv.org/abs/2508.20115</link>
-      <description>arXiv:2508.20115v2 Announce Type: replace-cross 
-Abstract: Large, open datasets can accelerate ecological research, particularly by enabling researchers to develop new insights by reusing datasets from multiple sources. However, to find the most suitable datasets to combine and integrate, researchers must navigate diverse ecological and environmental data provider platforms with varying metadata availability and standards. To overcome this obstacle, we have developed a large language model (LLM)-based metadata harvester that flexibly extracts metadata from any dataset's landing page, and converts these to a user-defined, unified format using existing metadata standards. We validate that our tool is able to extract both structured and unstructured metadata with equal accuracy, aided by our LLM post-processing protocol. Furthermore, we utilise LLMs to identify links between datasets, both by calculating embedding similarity and by unifying the formats of extracted metadata to enable rule-based processing. Our tool, which flexibly links the metadata of different datasets, can therefore be used for ontology creation or graph-based queries, for example, to find relevant ecological and environmental datasets in a virtual research environment.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.20115v2</guid>
-      <category>cs.DL</category>
-      <category>cs.AI</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <arxiv:DOI>10.1007/978-3-032-06136-2_32</arxiv:DOI>
-      <dc:creator>Zehao Lu, Thijs L van der Plas, Parinaz Rashidi, W Daniel Kissling, Ioannis N Athanasiadis</dc:creator>
-    </item>
-    <item>
-      <title>Scalable Disk-Based Approximate Nearest Neighbor Search with Page-Aligned Graph</title>
-      <link>https://arxiv.org/abs/2509.25487</link>
-      <description>arXiv:2509.25487v2 Announce Type: replace-cross 
-Abstract: Approximate Nearest Neighbor Search (ANNS), as the core of vector databases (VectorDBs), has become widely used in modern AI and ML systems, powering applications from information retrieval to bio-informatics. While graph-based ANNS methods achieve high query efficiency, their scalability is constrained by the available host memory. Recent disk-based ANNS approaches mitigate memory usage by offloading data to Solid-State Drives (SSDs). However, they still suffer from issues such as long I/O traversal path, misalignment with storage I/O granularity, and high in-memory indexing overhead, leading to significant I/O latency and ultimately limiting scalability for large-scale vector search.
-  In this paper, we propose PageANN, a disk-based approximate nearest neighbor search (ANNS) framework designed for high performance and scalability. PageANN introduces a page-node graph structure that aligns logical graph nodes with physical SSD pages, thereby shortening I/O traversal paths and reducing I/O operations. Specifically, similar vectors are clustered into page nodes, and a co-designed disk data layout leverages this structure with a merging technique to store only representative vectors and topology information, avoiding unnecessary reads. To further improve efficiency, we design a memory management strategy that combines lightweight indexing with coordinated memory-disk data allocation, maximizing host memory utilization while minimizing query latency and storage overhead. Experimental results show that PageANN significantly outperforms state-of-the-art (SOTA) disk-based ANNS methods, achieving 1.85x-10.83x higher throughput and 51.7%-91.9% lower latency across different datasets and memory budgets, while maintaining comparable high recall accuracy.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2509.25487v2</guid>
-      <category>cs.LG</category>
-      <category>cs.DB</category>
-      <category>cs.IR</category>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Dingyi Kang, Dongming Jiang, Hanshen Yang, Hang Liu, Bingzhe Li</dc:creator>
+      <dc:creator>Diego Figueira, Anthony W. Lin, Liat Peterfreund</dc:creator>
     </item>
   </channel>
 </rss>
