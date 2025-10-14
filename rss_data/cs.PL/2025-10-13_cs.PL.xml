@@ -7,146 +7,288 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PL" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Oct 2025 03:09:48 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Oct 2025 04:01:01 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
+    <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Saturday</day>
       <day>Sunday</day>
+      <day>Saturday</day>
     </skipDays>
     <item>
-      <title>Neptune: Advanced ML Operator Fusion for Locality and Parallelism on GPUs</title>
-      <link>https://arxiv.org/abs/2510.08726</link>
-      <description>arXiv:2510.08726v1 Announce Type: new 
-Abstract: Operator fusion has become a key optimization for deep learning, which combines multiple deep learning operators to improve data reuse and reduce global memory transfers. However, existing tensor compilers struggle to fuse complex reduction computations involving loop-carried dependencies, such as attention mechanisms.
-  The paper introduces Neptune, a tensor compiler for advanced operator fusion for sequences of reduction operators. Neptune presents a new approach for advanced operator fusion, which intentionally breaks some existing dependencies and compensates by constructing algebraic correction expressions that allow the kernel to produce the correct result.
-  On ten attention-based benchmarks, Neptune, starting from simple attention code and a high-level scheduling template, outperforms existing compilers like Triton, TVM, and FlexAttention, including Triton-based implementations of FlashAttention. Across four different GPU architectures from NVIDIA and AMD, Neptune-generated kernels have average speedup of $1.35\times$ over the next best alternative, demonstrating its effectiveness for deep learning workloads.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.08726v1</guid>
+      <title>Herb.jl: A Unifying Program Synthesis Library</title>
+      <link>https://arxiv.org/abs/2510.09726</link>
+      <description>arXiv:2510.09726v1 Announce Type: new 
+Abstract: Program synthesis -- the automatic generation of code given a specification -- is one of the most fundamental tasks in artificial intelligence (AI) and many programmers' dream. Numerous synthesizers have been developed to tackle program synthesis, manifesting different ideas to approach the exponentially growing program space. While numerous smart program synthesis tools exist, reusing and remixing previously developed methods is tedious and time-consuming. We propose Herb.jl, a unifying program synthesis library written in the Julia programming language, to address these issues. Since current methods rely on similar building blocks, we aim to modularize the underlying synthesis algorithm into communicating and fully extendable sub-compartments, allowing for straightforward reapplication of these modules. To demonstrate the benefits of using Herb.jl, we show three common use cases: 1. how to implement a simple problem and grammar, and how to solve it, 2. how to implement a previously developed synthesizer with just a few lines of code, and 3. how to run a synthesizer against a benchmark.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.09726v1</guid>
       <category>cs.PL</category>
-      <category>cs.LG</category>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Yifan Zhao, Egan Johnson, Prasanth Chatarasi, Vikram Adve, Sasa Misailovic</dc:creator>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Tilman Hinnerichs, Reuben Gardos Reid, Jaap de Jong, Bart Swinkels, Pamela Wochner, Nicolae Filat, Tudor Magurescu, Issa Hanou, Sebastijan Dumancic</dc:creator>
     </item>
     <item>
-      <title>Typestate via Revocable Capabilities</title>
-      <link>https://arxiv.org/abs/2510.08889</link>
-      <description>arXiv:2510.08889v1 Announce Type: new 
-Abstract: Managing stateful resources safely and expressively is a longstanding challenge in programming languages, especially in the presence of aliasing. While scope-based constructs such as Java's synchronized blocks offer ease of reasoning, they restrict expressiveness and parallelism. Conversely, imperative, flow-sensitive management enables fine-grained control but demands sophisticated typestate analyses and often burdens programmers with explicit state tracking.
-  In this work, we present a novel approach that unifies the strengths of both paradigms by extending flow-insensitive capability mechanisms into flow-sensitive typestate tracking. Our system decouples capability lifetimes from lexical scopes, allowing functions to provide, revoke, and return capabilities in a flow-sensitive manner, based on the existing mechanisms explored for the safety and ergonomics of scoped capability programming.
-  We implement our approach as an extension to the Scala 3 compiler, leveraging path-dependent types and implicit resolution to enable concise, statically safe, and expressive typestate programming. Our prototype generically supports a wide range of stateful patterns, including file operations, advanced locking protocols, DOM construction, and session types. This work demonstrates that expressive and safe typestate management can be achieved with minimal extensions to existing capability-based languages, paving the way for more robust and ergonomic stateful programming.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.08889v1</guid>
+      <title>ACT: Automatically Generating Compiler Backends from Tensor Accelerator ISA Descriptions</title>
+      <link>https://arxiv.org/abs/2510.09932</link>
+      <description>arXiv:2510.09932v1 Announce Type: new 
+Abstract: Tensor compilers play a key role in enabling high-performance implementations of deep learning workloads. These compilers rely on existing CPU and GPU code generation backends to generate device-specific code. Recently, many tensor accelerators (neural processing units) have been proposed to further accelerate these workloads. Compared to commodity hardware, however, most of the proposed tensor accelerators do not have compiler backends with code generation support. Moreover, the accelerator designs are subject to fast iteration cycles, making it difficult to manually develop compiler backends similar to commodity hardware platforms. Therefore, to increase adoption and enable faster software development cycles for novel tensor accelerator designs, we need to make the compiler backend construction process more agile.
+  To address this gap, we introduce ACT, a compiler backend generator that automatically generates compiler backends for tensor accelerators, given just the instruction set architecture (ISA) descriptions. We first formally specify the compiler backend generation problem that introduces a novel specification for describing tensor accelerator ISAs. Next, we design ACT such that it supports user-programmable memories and complex parameterized instructions that are prevalent in tensor accelerators. ACT uses a novel parameterized equality saturation-based instruction selection phase and a constraint programming-based memory allocation phase. We prove that compiler backends generated by ACT are sound and complete. Finally, we generate compiler backends for three accelerator platforms from industry and academia, and show that they match or outperform code written using hand-optimized kernel libraries while maintaining low compilation overheads.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.09932v1</guid>
       <category>cs.PL</category>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
+      <category>cs.AR</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Songlin Jia, Craig Liu, Siyuan He, Haotian Deng, Yuyan Bao, Tiark Rompf</dc:creator>
+      <dc:creator>Devansh Jain, Akash Pardeshi, Marco Frigo, Krut Patel, Kaustubh Khulbe, Jai Arora, Charith Mendis</dc:creator>
     </item>
     <item>
-      <title>Free to Move: Reachability Types with Flow-Sensitive Effects for Safe Deallocation and Ownership Transfer</title>
-      <link>https://arxiv.org/abs/2510.08939</link>
-      <description>arXiv:2510.08939v1 Announce Type: new 
-Abstract: We present a flow-sensitive effect system for reachability types that supports explicit memory management, including Rust-style move semantics, in higher-order impure functional languages. Our system refines the existing reachability qualifier with polymorphic \emph{use} and \emph{kill} effects that record how references are read, written, transferred, and deallocated. The effect discipline tracks operations performed on each resource using qualifiers, enabling the type system to express ownership transfer, contextual freshness, and destructive updates without regions or linearity. We formalize the calculus, its typing and effect rules, and a compositional operational semantics that validates use-after-free safety. All metatheoretic results, including preservation, progress, and effect soundness, are mechanized. The system models idioms such as reference deallocation, move semantics, reference swapping, while exposing precise safety guarantee. Together, these contributions integrate reachability-based reasoning with explicit resource control, advancing the state of the art in safe manual memory management for higher-order functional languages.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.08939v1</guid>
+      <title>End-to-end Compositional Verification of Program Safety through Verified and Verifying Compilation</title>
+      <link>https://arxiv.org/abs/2510.10015</link>
+      <description>arXiv:2510.10015v1 Announce Type: new 
+Abstract: Program safety (i.e., absence of undefined behaviors) is critical for correct operation of computer systems. It is usually verified at the source level (e.g., by separation logics) and preserved to the target by verified compilers (e.g., CompCert), thereby achieving end-to-end verification of safety. However, modern safe programming languages like Rust pose new problems in achieving end-to-end safety. Because not all functionalities can be implemented in the safe language, mixing safe and unsafe modules is needed. Therefore, verified compilation must preserve a modular notion of safety which can be composed at the target level. Furthermore, certain classes of errors (e.g., memory errors) are automatically excluded by verifying compilation (e.g., borrow checking) for modules written in safe languages. As a result, verified compilation needs to cooperate with verifying compilation to ensure end-to-end safety.
+  To address the above problems, we propose a modular and generic definition of safety called open safety based on program semantics described as open labeled transition systems (LTS). Open safety is composable at the boundary of modules and can be modularly preserved by verified compositional compilation. Those properties enable separate verification of safety for heterogeneous modules and composition of the safety results at the target level. Open safety can be generalized to partial safety (i.e., only a certain class of errors can occur). By this we formalized the correctness of verifying compilation as derivation of total safety from partial safety. We demonstrate how our framework can combine verified and verifying compilation by developing a verified compiler for an ownership language (called Owlang) inspired by Rust. We evaluate our approach on the compositional safety verification using a hash map implemented by Owlang and C.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.10015v1</guid>
       <category>cs.PL</category>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Haotian Deng, Siyuan He, Songlin Jia, Yuyan Bao, Tiark Rompf</dc:creator>
+      <dc:creator>Jinhua Wu, Yuting Wang, Liukun Yu, Linglong Meng</dc:creator>
     </item>
     <item>
-      <title>Concept-Based Generic Programming in C++</title>
-      <link>https://arxiv.org/abs/2510.08969</link>
-      <description>arXiv:2510.08969v1 Announce Type: new 
-Abstract: We present programming techniques to illustrate the facilities and principles of C++ generic programming using concepts. Concepts are C++'s way to express constraints on generic code. As an initial example, we provide a simple type system that eliminates narrowing conversions and provides range checking without unnecessary notational or run-time overheads. Concepts are used throughout to provide user-defined extensions to the type system. The aim is to show their utility and the fundamental ideas behind them, rather than to provide a detailed or complete explanation of C++'s language support for generic programming or the extensive support provided by the standard library. Generic programming is an integral part of C++, rather than an isolated sub-language. In particular, key facilities support general programming as well as generic programming (e.g., uniform notation for types, lambdas, variadic templates, and C++26 static reflection). Finally, we give design rationales and origins for key parts of the concept design, including use patterns, the relationship to Object-Oriented Programming, value arguments, notation, concept type-matching, and definition checking.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.08969v1</guid>
+      <title>LOOPerSet: A Large-Scale Dataset for Data-Driven Polyhedral Compiler Optimization</title>
+      <link>https://arxiv.org/abs/2510.10209</link>
+      <description>arXiv:2510.10209v1 Announce Type: new 
+Abstract: The advancement of machine learning for compiler optimization, particularly within the polyhedral model, is constrained by the scarcity of large-scale, public performance datasets. This data bottleneck forces researchers to undertake costly data generation campaigns, slowing down innovation and hindering reproducible research learned code optimization. To address this gap, we introduce LOOPerSet, a new public dataset containing 28 million labeled data points derived from 220,000 unique, synthetically generated polyhedral programs. Each data point maps a program and a complex sequence of semantics-preserving transformations (such as fusion, skewing, tiling, and parallelism)to a ground truth performance measurement (execution time). The scale and diversity of LOOPerSet make it a valuable resource for training and evaluating learned cost models, benchmarking new model architectures, and exploring the frontiers of automated polyhedral scheduling. The dataset is released under a permissive license to foster reproducible research and lower the barrier to entry for data-driven compiler optimization.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.10209v1</guid>
       <category>cs.PL</category>
-      <category>cs.SE</category>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
-      <dc:creator>Bjarne Stroustrup</dc:creator>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Massinissa Merouani, Afif Boudaoud, Riyadh Baghdadi</dc:creator>
     </item>
     <item>
-      <title>A Multilingual Python Programming Language</title>
-      <link>https://arxiv.org/abs/2510.09591</link>
-      <description>arXiv:2510.09591v1 Announce Type: new 
-Abstract: All widely used and useful programming languages have a common problem. They restrict entry on the basis of knowledge of the English language. The lack of knowledge of English poses a major hurdle to many newcomers who do not have the resources, in terms of time and money, to learn the English language. Studies show that people learn better in their own language. Therefore, we propose a language transpiler built on top of the Python programming language, called UniversalPython, which allows one to write Python in their own human language. We demonstrate the ability to create an "Urdu Python" with this transpiler. In the future, we aim to scale the language to encapsulate more human languages to increase the availability of programming. The source code for this transpiler is open-source, and available at https://github.com/universalpython/universalpython</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.09591v1</guid>
+      <title>Learning to Guarantee Type Correctness in Code Generation through Type-Guided Program Synthesis</title>
+      <link>https://arxiv.org/abs/2510.10216</link>
+      <description>arXiv:2510.10216v1 Announce Type: new 
+Abstract: Language models have shown remarkable proficiency in code generation; nevertheless, ensuring type correctness remains a challenge. Although traditional methods, such as constrained decoding, alleviate this problem by externally rejecting untypable code, the model itself does not effectively learn type reasoning internally, which ultimately limits its overall performance. This paper introduces TyFlow, a novel system that internalizes type reasoning within code generation to guide the model to learn the type system. The core of our approach is a novel type-guided program synthesis system that maintains an isomorphism between type derivation trees and synthesis derivation trees, enabling a new code representation based on synthesis decision sequences rather than traditional text-based token sequences. By offloading the complexity of type system learning to the representation itself, models can redirect their computational resources toward higher-level program semantics. Our evaluation shows that TyFlow not only eliminates type errors but also significantly improves functional correctness, highlighting the importance of aligning LMs with type systems internally.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.10216v1</guid>
       <category>cs.PL</category>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhechong Huang, Zhao Zhang, Ruyi Ji, Tingxuan Xia, Qihao Zhu, Qinxiang Cao, Zeyu Sun, Yingfei Xiong</dc:creator>
+    </item>
+    <item>
+      <title>Old is Gold: Optimizing Single-threaded Applications with Exgen-Malloc</title>
+      <link>https://arxiv.org/abs/2510.10219</link>
+      <description>arXiv:2510.10219v1 Announce Type: new 
+Abstract: Memory allocators hide beneath nearly every application stack, yet their performance footprint extends far beyond their code size. Even small inefficiencies in the allocators ripple through caches and the rest of the memory hierarchy, collectively imposing what operators often call a "datacenter tax". At hyperscale, even a 1% improvement in allocator efficiency can unlock millions of dollars in savings and measurable reductions in datacenter energy consumption. Modern memory allocators are designed to optimize allocation speed and memory fragmentation in multi-threaded environments, relying on complex metadata and control logic to achieve high performance. However, the overhead introduced by this complexity prompts a reevaluation of allocator design. Notably, such overhead can be avoided in single-threaded scenarios, which continue to be widely used across diverse application domains.
+  In this paper, we introduce Exgen-Malloc, a memory allocator purpose-built for single-threaded applications. By specializing for single-threaded execution, Exgen-Malloc eliminates unnecessary metadata, simplifies the control flow, thereby reducing overhead and improving allocation efficiency. Its core design features include a centralized heap, a single free-block list, and a balanced strategy for memory commitment and relocation. Additionally, Exgen-Malloc incorporates design principles in modern multi-threaded allocators, which do not exist in legacy single-threaded allocators such as dlmalloc. We evaluate Exgen-Malloc on two Intel Xeon platforms. Across both systems, Exgen-Malloc achieves a speedup of 1.17x, 1.10x, and 1.93x over dlmalloc on SPEC CPU2017, redis-benchmark, and mimalloc-bench, respectively. In addition to performance, Exgen-Malloc achieves 6.2%, 0.1%, and 25.2% memory savings over mimalloc on SPEC CPU2017, redis-benchmark, and mimalloc-bench, respectively.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.10219v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Saad Ahmed Bazaz, Mirza Omer Beg</dc:creator>
+      <dc:creator>Ruihao Li, Lizy K. John, Neeraja J. Yadwadkar</dc:creator>
     </item>
     <item>
-      <title>Which Is Better For Reducing Outdated and Vulnerable Dependencies: Pinning or Floating?</title>
-      <link>https://arxiv.org/abs/2510.08609</link>
-      <description>arXiv:2510.08609v1 Announce Type: cross 
-Abstract: Developers consistently use version constraints to specify acceptable versions of the dependencies for their project. \emph{Pinning} dependencies can reduce the likelihood of breaking changes, but comes with a cost of manually managing the replacement of outdated and vulnerable dependencies. On the other hand, \emph{floating} can be used to automatically get bug fixes and security fixes, but comes with the risk of breaking changes. Security practitioners advocate \emph{pinning} dependencies to prevent against software supply chain attacks, e.g., malicious package updates. However, since \emph{pinning} is the tightest version constraint, \emph{pinning} is the most likely to result in outdated dependencies. Nevertheless, how the likelihood of becoming outdated or vulnerable dependencies changes across version constraint types is unknown. The goal of this study is to aid developers in making an informed dependency version constraint choice by empirically evaluating the likelihood of dependencies becoming outdated or vulnerable across version constraint types at scale. In this study, we first identify the trends in dependency version constraint usage and the patterns of version constraint type changes made by developers in the npm, PyPI, and Cargo ecosystems. We then modeled the dependency state transitions using survival analysis and estimated how the likelihood of becoming outdated or vulnerable changes when using \emph{pinning} as opposed to the rest of the version constraint types. We observe that among outdated and vulnerable dependencies, the most commonly used version constraint type is \emph{floating-minor}, with \emph{pinning} being the next most common. We also find that \emph{floating-major} is the least likely to result in outdated and \emph{floating-minor} is the least likely to result in vulnerable dependencies.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.08609v1</guid>
-      <category>cs.SE</category>
-      <category>cs.CR</category>
-      <category>cs.LG</category>
+      <title>A Trace-based Approach for Code Safety Analysis</title>
+      <link>https://arxiv.org/abs/2510.10410</link>
+      <description>arXiv:2510.10410v1 Announce Type: new 
+Abstract: Rust is a memory-safe programming language that disallows undefined behavior. Its safety guarantees have been extensively examined by the community through empirical studies, which has led to its remarkable success. However, unsafe code remains a critical concern in Rust. By reviewing the safety design of Rust and analyzing real-world Rust projects, this paper establishes a systematic framework for understanding unsafe code and undefined behavior, and summarizes the soundness criteria for Rust code. It further derives actionable guidance for achieving sound encapsulation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.10410v1</guid>
       <category>cs.PL</category>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
+      <category>cs.SE</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hui Xu</dc:creator>
+    </item>
+    <item>
+      <title>ECO: Enhanced Code Optimization via Performance-Aware Prompting for Code-LLMs</title>
+      <link>https://arxiv.org/abs/2510.10517</link>
+      <description>arXiv:2510.10517v1 Announce Type: new 
+Abstract: Code runtime optimization-the task of rewriting a given code to a faster one-remains challenging, as it requires reasoning about performance trade-offs involving algorithmic and structural choices. Recent approaches employ code-LLMs with slow-fast code pairs provided as optimization guidance, but such pair-based methods obscure the causal factors of performance gains and often lead to superficial pattern imitation rather than genuine performance reasoning. We introduce ECO, a performance-aware prompting framework for code optimization. ECO first distills runtime optimization instructions (ROIs) from reference slow-fast code pairs; Each ROI describes root causes of inefficiency and the rationales that drive performance improvements. For a given input code, ECO in parallel employs (i) a symbolic advisor to produce a bottleneck diagnosis tailored to the code, and (ii) an ROI retriever to return related ROIs. These two outputs are then composed into a performance-aware prompt, providing actionable guidance for code-LLMs. ECO's prompts are model-agnostic, require no fine-tuning, and can be easily prepended to any code-LLM prompt. Our empirical studies highlight that ECO prompting significantly improves code-LLMs' ability to generate efficient code, achieving speedups of up to 7.81x while minimizing correctness loss.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.10517v1</guid>
+      <category>cs.PL</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Su-Hyeon Kim, Joonghyuk Hahn, Sooyoung Cha, Yo-Sub Han</dc:creator>
+    </item>
+    <item>
+      <title>A Verified High-Performance Composable Object Library for Remote Direct Memory Access (Extended Version)</title>
+      <link>https://arxiv.org/abs/2510.10531</link>
+      <description>arXiv:2510.10531v1 Announce Type: new 
+Abstract: Remote Direct Memory Access (RDMA) is a memory technology that allows remote devices to directly write to and read from each other's memory, bypassing components such as the CPU and operating system. This enables low-latency high-throughput networking, as required for many modern data centres, HPC applications and AI/ML workloads. However, baseline RDMA comprises a highly permissive weak memory model that is difficult to use in practice and has only recently been formalised. In this paper, we introduce the Library of Composable Objects (LOCO), a formally verified library for building multi-node objects on RDMA, filling the gap between shared memory and distributed system programming. LOCO objects are well-encapsulated and take advantage of the strong locality and the weak consistency characteristics of RDMA. They have performance comparable to custom RDMA systems (e.g. distributed maps), but with a far simpler programming model amenable to formal proofs of correctness. To support verification, we develop a novel modular declarative verification framework, called Mowgli, that is flexible enough to model multinode objects and is independent of a memory consistency model. We instantiate Mowgli with the RDMA memory model, and use it to verify correctness of LOCO libraries.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.10531v1</guid>
+      <category>cs.PL</category>
+      <category>cs.DC</category>
+      <category>cs.LO</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Imranur Rahman, Jill Marley, William Enck, Laurie Williams</dc:creator>
+      <dc:creator>Guillaume Ambal, George Hodgkins, Mark Madler, Gregory Chockler, Brijesh Dongol, Joseph Izraelevitz, Azalea Raad, Viktor Vafeiadis</dc:creator>
     </item>
     <item>
-      <title>Repairing Regex Vulnerabilities via Localization-Guided Instructions</title>
-      <link>https://arxiv.org/abs/2510.09037</link>
-      <description>arXiv:2510.09037v1 Announce Type: cross 
-Abstract: Regular expressions (regexes) are foundational to modern computing for critical tasks like input validation and data parsing, yet their ubiquity exposes systems to regular expression denial of service (ReDoS), a vulnerability requiring automated repair methods. Current approaches, however, are hampered by a trade-off. Symbolic, rule-based system are precise but fails to repair unseen or complex vulnerability patterns. Conversely, large language models (LLMs) possess the necessary generalizability but are unreliable for tasks demanding strict syntactic and semantic correctness. We resolve this impasse by introducing a hybrid framework, localized regex repair (LRR), designed to harness LLM generalization while enforcing reliability. Our core insight is to decouple problem identification from the repair process. First, a deterministic, symbolic module localizes the precise vulnerable subpattern, creating a constrained and tractable problem space. Then, the LLM invoked to generate a semantically equivalent fix for this isolated segment. This combined architecture successfully resolves complex repair cases intractable for rule-based repair while avoiding the semantic errors of LLM-only approaches. Our work provides a validated methodology for solving such problems in automated repair, improving the repair rate by 15.4%p over the state-of-the-art. Our code is available at https://github.com/cdltlehf/LRR.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.09037v1</guid>
+      <title>Abstract String Domain Defined with Word Equations as a Reduced Product (Extended Version)</title>
+      <link>https://arxiv.org/abs/2510.11007</link>
+      <description>arXiv:2510.11007v1 Announce Type: new 
+Abstract: We introduce a string-interval abstract domain, where string intervals are characterized by systems of word equations (encoding lower bounds on string values) and word disequalities (encoding upper bounds). Building upon the lattice structure of string intervals, we define an abstract string object as a reduced product on a string property semilattice, determined by length-non-increasing morphisms. We consider several reduction strategies for abstract string objects and show that upon these strategies the string object domain forms a lattice. We define basic abstract string operations on the domain, aiming to minimize computational overheads on the reduction, and show how the domain can be used to analyse properties of JavaScript string manipulating programs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.11007v1</guid>
+      <category>cs.PL</category>
+      <category>cs.FL</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Antonina Nepeivoda, Ilya Afanasyev</dc:creator>
+    </item>
+    <item>
+      <title>HUGR: A Quantum-Classical Intermediate Representation</title>
+      <link>https://arxiv.org/abs/2510.11420</link>
+      <description>arXiv:2510.11420v1 Announce Type: new 
+Abstract: We introduce the Hierarchical Unified Graph Representation (HUGR): a novel graph based intermediate representation for mixed quantum-classical programs. HUGR's design features high expressivity and extensibility to capture the capabilities of near-term and forthcoming quantum computing devices, as well as new and evolving abstractions from novel quantum programming paradigms. The graph based structure is machine-friendly and supports powerful pattern matching based compilation techniques. Inspired by MLIR, HUGR's extensibility further allows compilation tooling to reason about programs at multiple levels of abstraction, lowering smoothly between them. Safety guarantees in the structure including strict, static typing and linear quantum types allow rapid development of compilation tooling without fear of program invalidation. A full specification of HUGR and reference implementation are open-source and available online.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.11420v1</guid>
+      <category>cs.PL</category>
+      <category>quant-ph</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Mark Koch, Agust\'in Borgna, Seyon Sivarajah, Alan Lawrence, Alec Edgington, Douglas Wilson, Craig Roy, Luca Mondada, Lukas Heidemann, Ross Duncan</dc:creator>
+    </item>
+    <item>
+      <title>(Dis)Proving Spectre Security with Speculation-Passing Style</title>
+      <link>https://arxiv.org/abs/2510.11573</link>
+      <description>arXiv:2510.11573v1 Announce Type: new 
+Abstract: Constant-time (CT) verification tools are commonly used for detecting potential side-channel vulnerabilities in cryptographic libraries. Recently, a new class of tools, called speculative constant-time (SCT) tools, has also been used for detecting potential Spectre vulnerabilities. In many cases, these SCT tools have emerged as liftings of CT tools. However, these liftings are seldom defined precisely and are almost never analyzed formally. The goal of this paper is to address this gap, by developing formal foundations for these liftings, and to demonstrate that these foundations can yield practical benefits.
+  Concretely, we introduce a program transformation, coined Speculation-Passing Style (SPS), for reducing SCT verification to CT verification. Essentially, the transformation instruments the program with a new input that corresponds to attacker-controlled predictions and modifies the program to follow them. This approach is sound and complete, in the sense that a program is SCT if and only if its SPS transform is CT. Thus, we can leverage existing CT verification tools to prove SCT; we illustrate this by combining SPS with three standard methodologies for CT verification, namely reducing it to non-interference, assertion safety and dynamic taint analysis. We realize these combinations with three existing tools, EasyCrypt, BINSEC, and ctgrind, and we evaluate them on Kocher's benchmarks for Spectre-v1. Our results focus on Spectre-v1 in the standard CT leakage model; however, we also discuss applications of our method to other variants of Spectre and other leakage models.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.11573v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Santiago Arranz-Olmos, Gilles Barthe, Lionel Blatter, Xingyu Xie, Zhiyuan Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Hound: Relation-First Knowledge Graphs for Complex-System Reasoning in Security Audits</title>
+      <link>https://arxiv.org/abs/2510.09633</link>
+      <description>arXiv:2510.09633v1 Announce Type: cross 
+Abstract: Hound introduces a relation-first graph engine that improves system-level reasoning across interrelated components in complex codebases. The agent designs flexible, analyst-defined views with compact annotations (e.g., monetary/value flows, authentication/authorization roles, call graphs, protocol invariants) and uses them to anchor exact retrieval: for any question, it loads precisely the code that matters (often across components) so it can zoom out to system structure and zoom in to the decisive lines. A second contribution is a persistent belief system: long-lived vulnerability hypotheses whose confidence is updated as evidence accrues. The agent employs coverage-versus-intuition planning and a QA finalizer to confirm or reject hypotheses. On a five-project subset of ScaBench[1], Hound improves recall and F1 over a baseline LLM analyzer (micro recall 31.2% vs. 8.3%; F1 14.2% vs. 9.8%) with a modest precision trade-off. We attribute these gains to flexible, relation-first graphs that extend model understanding beyond call/dataflow to abstract aspects, plus the hypothesis-centric loop; code and artifacts are released to support reproduction.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.09633v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Bernhard Mueller</dc:creator>
+    </item>
+    <item>
+      <title>OBsmith: Testing JavaScript Obfuscator using LLM-powered sketching</title>
+      <link>https://arxiv.org/abs/2510.10066</link>
+      <description>arXiv:2510.10066v1 Announce Type: cross 
+Abstract: JavaScript obfuscators are widely deployed to protect intellectual property and resist reverse engineering, yet their correctness has been largely overlooked compared to performance and resilience. Existing evaluations typically measure resistance to deobfuscation, leaving the critical question of whether obfuscators preserve program semantics unanswered. Incorrect transformations can silently alter functionality, compromise reliability, and erode security-undermining the very purpose of obfuscation. To address this gap, we present OBsmith, a novel framework to systematically test JavaScript obfuscators using large language models (LLMs). OBsmith leverages LLMs to generate program sketches abstract templates capturing diverse language constructs, idioms, and corner cases-which are instantiated into executable programs and subjected to obfuscation under different configurations. Besides LLM-powered sketching, OBsmith also employs a second source: automatic extraction of sketches from real programs. This extraction path enables more focused testing of project specific features and lets developers inject domain knowledge into the resulting test cases. OBsmith uncovers 11 previously unknown correctness bugs. Under an equal program budget, five general purpose state-of-the-art JavaScript fuzzers (FuzzJIT, Jsfunfuzz, Superion, DIE, Fuzzilli) failed to detect these issues, highlighting OBsmith's complementary focus on obfuscation induced misbehavior. An ablation shows that all components except our generic MRs contribute to at least one bug class; the negative MR result suggests the need for obfuscator-specific metamorphic relations. Our results also seed discussion on how to balance obfuscation presets and performance cost. We envision OBsmith as an important step towards automated testing and quality assurance of obfuscators and other semantic-preserving toolchains.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.10066v1</guid>
+      <category>cs.SE</category>
       <category>cs.AI</category>
       <category>cs.PL</category>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Sicheol Sung, Joonghyuk Hahn, Yo-Sub Han</dc:creator>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Shan Jiang, Chenguang Zhu, Sarfraz Khurshid</dc:creator>
     </item>
     <item>
-      <title>Literate Tracing</title>
-      <link>https://arxiv.org/abs/2510.09073</link>
-      <description>arXiv:2510.09073v1 Announce Type: cross 
-Abstract: As computer systems grow ever larger and more complex, a crucial task in software development is for one person (the system expert) to communicate to another (the system novice) how a certain program works. This paper reports on the author's experiences with a paradigm for program documentation that we call literate tracing. A literate trace explains a software system using annotated, concrete execution traces of the system. Literate traces complement both in-code comments (which often lack global context) and out-of-band design docs (which often lack a concrete connection to the code). We also describe TReX, our tool for making literate traces that are interactive, visual, and guaranteed by construction to be faithful to the program semantics. We have used TReX to write literate traces explaining components of large systems software including the Linux kernel, Git source control system, and GCC compiler.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.09073v1</guid>
-      <category>cs.SE</category>
-      <category>cs.PL</category>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Matthew Sotoudeh</dc:creator>
-    </item>
-    <item>
-      <title>When Lifetimes Liberate: A Type System for Arenas with Higher-Order Reachability Tracking</title>
-      <link>https://arxiv.org/abs/2509.04253</link>
-      <description>arXiv:2509.04253v2 Announce Type: replace 
-Abstract: Static resource management in languages remains challenging due to tensions among control, expressiveness, and flexibility. Region-based systems [Grossman et al . 2002; Tofte et al. 2001] offer bulk deallocation via lexically scoped regions, where all allocations follow a stack discipline. However, both regions and their resources are second-class, and neither can escape its scope nor be freely returned. Ownership and linear type systems, exemplified by Rust [Clarke et al. 2013], offer non-lexical lifetimes and robust static guarantees, but rely on invariants that limit higher-order patterns and expressive sharing.
-  In this work, we propose a new type system that unifies these strengths. Our system treats all heap-allocated resources as first-class values, while allowing programmers to control lifetime and granularity through three allocation modes: (1) fresh allocation for individual, non-lexical references; (2) subsequent coallocation grouping resources collectively within shadow arenas; and (3) scoped allocation with lexically bounded lifetimes following stack discipline. Regardless of mode, all resources share a uniform type and have no distinction for generic abstractions, preserving the higher-order parametric nature of the language.
-  Obtaining static safety in higher-order languages with flexible sharing is nontrivial. We address this by extending reachability types [Wei et al. 2024] to collectively track first-class resources, and by adopting flow-insensitive deallocation reasoning for selective stack discipline. These mechanisms yield Aq&lt;: and {A}q&lt;: atop, both formalized and proven type safe and memory safe in Rocq.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2509.04253v2</guid>
-      <category>cs.PL</category>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Siyuan He, Songlin Jia, Yuyan Bao, Tiark Rompf</dc:creator>
-    </item>
-    <item>
-      <title>Cyclic Proofs in Hoare Logic and its Reverse</title>
-      <link>https://arxiv.org/abs/2504.14283</link>
-      <description>arXiv:2504.14283v2 Announce Type: replace-cross 
-Abstract: We examine the relationships between axiomatic and cyclic proof systems for the partial and total versions of Hoare logic and those of its dual, known as reverse Hoare logic (or sometimes incorrectness logic). In the axiomatic proof systems for these logics, the proof rules for looping constructs involve an explicit loop invariant, which in the case of the total versions additionally require a well-founded termination measure. In the cyclic systems, these are replaced by rules that simply unroll the loops, together with a principle allowing the formation of cycles in the proof, subject to a global soundness condition that ensures the well-foundedness of the circular reasoning. Interestingly, the cyclic soundness conditions for partial Hoare logic and its reverse are similar and essentially coinductive in character, while those for the total versions are also similar and essentially inductive. We show that these cyclic systems are sound, by direct argument, and relatively complete, by translation from axiomatic to cyclic proofs.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2504.14283v2</guid>
+      <title>Proceedings Twentieth International Workshop on Logical Frameworks and Meta-Languages: Theory and Practice</title>
+      <link>https://arxiv.org/abs/2510.11199</link>
+      <description>arXiv:2510.11199v1 Announce Type: cross 
+Abstract: These are the contributed papers presented at the 20th International Workshop on Logical Frameworks and Meta-Languages: Theory and Practice (LFMTP 2025), at Birmingham, UK on 19 July as a satellite event of the FSCD conference. The program committee for this edition of LFMTP was chaired by Kaustuv Chaudhuri and Daniele Nantes-Sobrinho. More information about LFMTP can be found on https://lfmtp.org.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.11199v1</guid>
       <category>cs.LO</category>
       <category>cs.PL</category>
-      <pubDate>Mon, 13 Oct 2025 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.4204/EPTCS.431</arxiv:DOI>
+      <arxiv:journal_reference>EPTCS 431, 2025</arxiv:journal_reference>
+      <dc:creator>Kaustuv Chaudhuri (Inria, France), Daniele Nantes-Sobrinho (Imperial College, UK)</dc:creator>
+    </item>
+    <item>
+      <title>PolyVer: A Compositional Approach for Polyglot System Modeling and Verification</title>
+      <link>https://arxiv.org/abs/2503.03207</link>
+      <description>arXiv:2503.03207v3 Announce Type: replace 
+Abstract: Several software systems are polyglot; that is, they comprise programs implemented in a combination of programming languages. Verifiers that directly run on mainstream programming languages are currently customized for single languages. Thus, to verify polyglot systems, one usually translates them into a common verification language or formalism on which the verifier runs. In this paper, we present an alternative approach, PolyVer, which employs abstraction, compositional reasoning, and synthesis to directly perform polyglot verification. PolyVer constructs a formal model of the original polyglot system as a transition system where the update functions associated with transitions are implemented in target languages such as C or Rust. To perform verification, PolyVer then connects a model checker for transition systems with language-specific verifiers (e.g., for C or Rust) using pre/post-condition contracts for the update functions. These contracts are automatically generated by synthesis oracles based on syntax-guided synthesis or large language models (LLMs), and checked by the language-specific verifiers. The contracts form abstractions of the update functions using which the model checker verifies the overall system-level property on the polyglot system model. PolyVer iterates between counterexample-guided abstraction-refinement (CEGAR) and counterexample-guided inductive synthesis (CEGIS) until the property is verified or a true system-level counterexample is found. We demonstrate the utility of PolyVer for verifying programs in the Lingua Franca polyglot language using the UCLID5 model checker connected with the CBMC and Kani verifiers for C and Rust respectively.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2503.03207v3</guid>
+      <category>cs.PL</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.34727/2025/isbn.978-3-85448-084-6_10</arxiv:DOI>
+      <dc:creator>Pei-Wei Chen, Shaokai Lin, Adwait Godbole, Ramneet Singh, Elizabeth Polgreen, Edward A. Lee, Sanjit A. Seshia</dc:creator>
+    </item>
+    <item>
+      <title>VeriFast's separation logic: a logic without laters for modular verification of fine-grained concurrent programs</title>
+      <link>https://arxiv.org/abs/2505.04500</link>
+      <description>arXiv:2505.04500v2 Announce Type: replace 
+Abstract: VeriFast is one of the leading tools for semi-automated modular formal program verification. A central feature of VeriFast is its support for higher-order ghost code, which enables its support for expressively specifying fine-grained concurrent modules, without the need for the later modality. We present the first formalization and soundness proof for this aspect of VeriFast's logic, and we compare it both to Iris, a state-of-the-art logic for fine-grained concurrency which features the later modality, as well as to some recent proposals for Iris-like reasoning without the later modality.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.04500v2</guid>
+      <category>cs.PL</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Bart Jacobs</dc:creator>
+    </item>
+    <item>
+      <title>ChipGPT: How far are we from natural language hardware design</title>
+      <link>https://arxiv.org/abs/2305.14019</link>
+      <description>arXiv:2305.14019v4 Announce Type: replace-cross 
+Abstract: As large language models (LLMs) like ChatGPT exhibited unprecedented machine intelligence, it also shows great performance in assisting hardware engineers to realize higher-efficiency logic design via natural language interaction. To estimate the potential of the hardware design process assisted by LLMs, this work attempts to demonstrate an automated design environment that explores LLMs to generate hardware logic designs from natural language specifications. To realize a more accessible and efficient chip development flow, we present a scalable four-stage zero-code logic design framework based on LLMs without retraining or finetuning. At first, the demo, ChipGPT, begins by generating prompts for the LLM, which then produces initial Verilog programs. Second, an output manager corrects and optimizes these programs before collecting them into the final design space. Eventually, ChipGPT will search through this space to select the optimal design under the target metrics. The evaluation sheds some light on whether LLMs can generate correct and complete hardware logic designs described by natural language for some specifications. It is shown that ChipGPT improves programmability, and controllability, and shows broader design optimization space compared to prior work and native LLMs alone.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2305.14019v4</guid>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>James Brotherston, Quang Loc Le, Gauri Desai, Yukihiro Oda</dc:creator>
+      <dc:creator>Kaiyan Chang, Ying Wang, Haimeng Ren, Mengdi Wang, Shengwen Liang, Yinhe Han, Huawei Li, Xiaowei Li</dc:creator>
+    </item>
+    <item>
+      <title>QiMeng-CodeV-R1: Reasoning-Enhanced Verilog Generation</title>
+      <link>https://arxiv.org/abs/2505.24183</link>
+      <description>arXiv:2505.24183v4 Announce Type: replace-cross 
+Abstract: Large language models (LLMs) trained via reinforcement learning with verifiable reward (RLVR) have achieved breakthroughs on tasks with explicit, automatable verification, such as software programming and mathematical problems. Extending RLVR to electronic design automation (EDA), especially automatically generating hardware description languages (HDLs) like Verilog from natural-language (NL) specifications, however, poses three key challenges: the lack of automated and accurate verification environments, the scarcity of high-quality NL-code pairs, and the prohibitive computation cost of RLVR. To this end, we introduce CodeV-R1, an RLVR framework for training Verilog generation LLMs. First, we develop a rule-based testbench generator that performs robust equivalence checking against golden references. Second, we propose a round-trip data synthesis method that pairs open-source Verilog snippets with LLM-generated NL descriptions, verifies code-NL-code consistency via the generated testbench, and filters out inequivalent examples to yield a high-quality dataset. Third, we employ a two-stage "distill-then-RL" training pipeline: distillation for the cold start of reasoning abilities, followed by adaptive DAPO, our novel RLVR algorithm that can reduce training cost by adaptively adjusting sampling rate. The resulting model, CodeV-R1-7B, achieves 68.6% and 72.9% pass@1 on VerilogEval v2 and RTLLM v1.1, respectively, surpassing prior state-of-the-art by 12~20%, while even exceeding the performance of 671B DeepSeek-R1 on RTLLM. We have released our model, training code, and dataset to facilitate research in EDA and LLM communities.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.24183v4</guid>
+      <category>cs.LG</category>
+      <category>cs.AR</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yaoyu Zhu, Di Huang, Hanqi Lyu, Xiaoyun Zhang, Chongxiao Li, Wenxuan Shi, Yutong Wu, Jianan Mu, Jinghua Wang, Yang Zhao, Pengwei Jin, Shuyao Cheng, Shengwen Liang, Xishan Zhang, Rui Zhang, Zidong Du, Qi Guo, Xing Hu, Yunji Chen</dc:creator>
+    </item>
+    <item>
+      <title>SaraCoder: Orchestrating Semantic and Structural Cues for Resource-Optimized Repository-Level Code Completion</title>
+      <link>https://arxiv.org/abs/2508.10068</link>
+      <description>arXiv:2508.10068v2 Announce Type: replace-cross 
+Abstract: Despite Retrieval-Augmented Generation improving code completion, traditional retrieval methods struggle with information redundancy and a lack of diversity within limited context windows. To solve this, we propose a resource-optimized retrieval augmentation method, SaraCoder. It maximizes information diversity and representativeness in a limited context window, significantly boosting the accuracy and reliability of repository-level code completion. Its core Hierarchical Feature Optimization module systematically refines candidates by distilling deep semantic relationships, pruning exact duplicates, assessing structural similarity with a novel graph-based metric that weighs edits by their topological importance, and reranking results to maximize both relevance and diversity. Furthermore, an External-Aware Identifier Disambiguator module accurately resolves cross-file symbol ambiguity via dependency analysis. Extensive experiments on the challenging CrossCodeEval and RepoEval-Updated benchmarks demonstrate that SaraCoder outperforms existing baselines across multiple programming languages and models. Our work proves that systematically refining retrieval results across multiple dimensions provides a new paradigm for building more accurate and resource-optimized repository-level code completion systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.10068v2</guid>
+      <category>cs.SE</category>
+      <category>cs.CL</category>
+      <category>cs.IR</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 14 Oct 2025 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Xiaohan Chen, Zhongying Pan, Quan Feng, Yu Tian, Shuqun Yang, Mengru Wang, Lina Gong, Yuxia Geng, Piji Li, Xiang Chen</dc:creator>
     </item>
   </channel>
 </rss>
