@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.AR updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.AR</link>
+    <description>cs.AR updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.AR" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Dec 2025 05:00:13 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Making Strong Error-Correcting Codes Work Effectively for HBM in AI Inference</title>
+      <link>https://arxiv.org/abs/2512.18152</link>
+      <description>arXiv:2512.18152v1 Announce Type: new 
+Abstract: LLM inference is increasingly memory bound, and HBM cost per GB dominates system cost. Current HBM stacks include short on-die ECC that tightens binning, raises price, and fixes reliability policy inside the device. This paper asks whether a system can tolerate a much higher raw HBM bit error rate and still keep end-to-end correctness and throughput, without changing the HBM PHY or the fixed 32 B transaction size. We propose REACH, a controller managed ECC design that keeps the HBM link and 32 B transfers unchanged. REACH uses a two level Reed-Solomon scheme: each 32 B chunk uses an inner code to check and correct most faults locally, while chunks that cannot be fixed are marked as erasures. An outer code spans kilobytes and runs in erasure only mode, repairing only flagged chunks and avoiding the expensive locator step. For small random writes, REACH updates outer parity with differential parity to avoid recomputing parity over the whole span, and an optional importance adaptive bit plane policy can protect only critical fields such as BF16 exponents to reduce ECC work and traffic. On three LLMs at 8K context, REACH keeps about 79 percent of on-die ECC throughput at zero BER and remains qualified up to a raw BER of 1e-3, extending tolerable device error rates by about three orders of magnitude while keeping tokens per second nearly flat. In ASAP7, a full REACH controller occupies 15.2 mm2 and consumes 17.5 W at 3.56 TB/s, and it reduces ECC area by 11.6x and power by about 60 percent compared to a naive long Reed-Solomon baseline. By moving strong ECC into the controller, REACH turns long code reliability into a system choice that can enable lower cost HBM under the same standard interface.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.18152v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Rui Xie, Yunhua Fang, Asad Ul Haq, Linsen Ma, Sanchari Sen, Swagath Venkataramani, Liu Liu, Tong Zhang</dc:creator>
+    </item>
+    <item>
+      <title>PIM-FW: Hardware-Software Co-Design of All-pairs Shortest Paths in DRAM</title>
+      <link>https://arxiv.org/abs/2512.18158</link>
+      <description>arXiv:2512.18158v1 Announce Type: new 
+Abstract: All-pairs shortest paths (APSP) is a fundamental algorithm used for routing, logistics, and network analysis, but the cubic time complexity and heavy data movement of the canonical Floyd-Warshall (FW) algorithm severely limits its scalability on conventional CPUs or GPUs. In this paper, we propose PIM-FW, a novel co-designed hardware architecture and dataflow that leverages processing in and near memory architecture designed to accelerate blocked FW algorithm on an HBM3 stack. To enable fine-grained parallelism, we propose a massively parallel array of specialized bit-serial bank PE and channel PE designed to accelerate the core min-plus operations. Our novel dataflow complements this hardware, employing an interleaved mapping policy for superior load balancing and hybrid in and near memory computing model for efficient computation and reduction. The novel in-bank computing approach allows all distance updates to be performed and stored in memory bank, a key contribution is that eliminates the data movement bottleneck inherent in GPU-based approaches. We implement a full software and hardware co-design using a cycle-accurate simulator to simulate an 8-channel, 4-Hi HBM3 PIM stack on real road-network traces. Experimental results show that, for a 8192 x 8192 graph, PIM-FW achieves a 18.7x speedup in end-to-end execution, and consumes 3200x less DRAM energy compared to a state-of-the-art GPU-only Floyd-Warshall.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.18158v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Tsung-Han Lu, Zheyu Li, Minxuan Zhou, Tajana Rosing</dc:creator>
+    </item>
+    <item>
+      <title>BARD: Reducing Write Latency of DDR5 Memory by Exploiting Bank-Parallelism</title>
+      <link>https://arxiv.org/abs/2512.18300</link>
+      <description>arXiv:2512.18300v1 Announce Type: new 
+Abstract: This paper studies the impact of DRAM writes on DDR5-based system. To efficiently perform DRAM writes, modern systems buffer write requests and try to complete multiple write operations whenever the DRAM mode is switched from read to write. When the DRAM system is performing writes, it is not available to service read requests, thus increasing read latency and reducing performance. We observe that, given the presence of on-die ECC in DDR5 devices, the time to perform a write operation varies significantly: from 1x (for writes to banks of different bankgroups) to 6x (for writes to banks within the same bankgroup) to 24x (for conflicting requests to the same bank). If we can orchestrate the write stream to favor write requests that incur lower latency, then we can reduce the stall time from DRAM writes and improve performance. However, for current systems, the write stream is dictated by the cache replacement policy, which makes eviction decisions without being aware of the variable latency of DRAM writes. The key insight of our work is to improve performance by modifying the cache replacement policy to increase bank-parallelism of DRAM writes.
+  Our paper proposes {\em BARD (Bank-Aware Replacement Decisions)}, which modifies the cache replacement policy to favor dirty lines that belong to banks without pending writes. We analyze two variants of BARD: BARD-E (Eviction-based), which changes the eviction policy to evict low-cost dirty lines, and BARD-C (Cleansing-Based), which proactively cleans low-cost dirty lines without modifying the eviction decisions. We develop a hybrid policy (BARD-H), which uses a selective combination of both eviction and writeback. Our evaluations across workloads from SPEC2017, LIGRA, STREAM, and Google server traces show that BARD-H improves performance by 4.3\% on average and up-to 8.5\%. BARD requires only 8 bytes of SRAM per LLC slice.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.18300v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Suhas Vittal, Moinuddin Qureshi</dc:creator>
+    </item>
+    <item>
+      <title>Weight Transformations in Bit-Sliced Crossbar Arrays for Fault Tolerant Computing-in-Memory: Design Techniques and Evaluation Framework</title>
+      <link>https://arxiv.org/abs/2512.18459</link>
+      <description>arXiv:2512.18459v1 Announce Type: new 
+Abstract: The deployment of deep neural networks (DNNs) on compute-in-memory (CiM) accelerators offers significant energy savings and speed-up by reducing data movement during inference. However, the reliability of CiM-based systems is challenged by stuck-at faults (SAFs) in memory cells, which corrupt stored weights and lead to accuracy degradation. While closest value mapping (CVM) has been shown to partially mitigate these effects for multibit DNNs deployed on bit-sliced crossbars, its fault tolerance is often insufficient under high SAF rates or for complex tasks. In this work, we propose two training-free weight transformation techniques, sign-flip and bit-flip, that enhance SAF tolerance in multi-bit DNNs deployed on bit-sliced crossbar arrays. Sign-flip operates at the weight-column level by selecting between a weight and its negation, whereas bit-flip provides finer granularity by selectively inverting individual bit slices. Both methods expand the search space for fault-aware mappings, operate synergistically with CVM, and require no retraining or additional memory. To enable scalability, we introduce a look-up-table (LUT)-based framework that accelerates the computation of optimal transformations and supports rapid evaluation across models and fault rates. Extensive experiments on ResNet-18, ResNet-50, and ViT models with CIFAR-100 and ImageNet demonstrate that the proposed techniques recover most of the accuracy lost under SAF injection. Hardware analysis shows that these methods incur negligible overhead, with sign-flip leading to negligible energy, latency, and area cost, and bit-flip providing higher fault resilience with modest overheads. These results establish sign-flip and bit-flip as practical and scalable SAF-mitigation strategies for CiM-based DNN accelerators.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.18459v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Akul Malhotra, Sumeet Kumar Gupta</dc:creator>
+    </item>
+    <item>
+      <title>Binary Neural Network Implementation for Handwritten Digit Recognition on FPGA</title>
+      <link>https://arxiv.org/abs/2512.19304</link>
+      <description>arXiv:2512.19304v1 Announce Type: new 
+Abstract: Binary neural networks provide a promising solution for low-power, high-speed inference by replacing expensive floating-point operations with bitwise logic. This makes them well-suited for deployment on resource-constrained platforms such as FPGAs. In this study, we present a fully custom BNN inference accelerator for handwritten digit recognition, implemented entirely in Verilog without the use of high-level synthesis tools. The design targets the Xilinx Artix-7 FPGA and achieves real-time classification at 80\,MHz with low power consumption and predictable timing. Simulation results demonstrate 84\% accuracy on the MNIST test set and highlight the advantages of manual HDL design for transparent, efficient, and flexible BNN deployment in embedded systems. The complete project including training scripts and Verilog source code are available at GitHub repo for reproducibility and future development.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.19304v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Emir Devlet Ert\"orer, Cem \"Unsalan</dc:creator>
+    </item>
+    <item>
+      <title>Sensitivity-Aware Mixed-Precision Quantization for ReRAM-based Computing-in-Memory</title>
+      <link>https://arxiv.org/abs/2512.19445</link>
+      <description>arXiv:2512.19445v1 Announce Type: new 
+Abstract: Compute-In-Memory (CIM) systems, particularly those utilizing ReRAM and memristive technologies, offer a promising path toward energy-efficient neural network computation. However, conventional quantization and compression techniques often fail to fully optimize performance and efficiency in these architectures. In this work, we present a structured quantization method that combines sensitivity analysis with mixed-precision strategies to enhance weight storage and computational performance on ReRAM-based CIM systems. Our approach improves ReRAM Crossbar utilization, significantly reducing power consumption, latency, and computational load, while maintaining high accuracy. Experimental results show 86.33% accuracy at 70% compression, alongside a 40% reduction in power consumption, demonstrating the method's effectiveness for power-constrained applications.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.19445v1</guid>
+      <category>cs.AR</category>
+      <category>cs.ET</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Guan-Cheng Chen, Chieh-Lin Tsai, Pei-Hsuan Tsai, Yuan-Hao Chang</dc:creator>
+    </item>
+    <item>
+      <title>PermuteV: A Performant Side-channel-Resistant RISC-V Core Securing Edge AI Inference</title>
+      <link>https://arxiv.org/abs/2512.18132</link>
+      <description>arXiv:2512.18132v1 Announce Type: cross 
+Abstract: Edge AI inference is becoming prevalent thanks to the emergence of small yet high-performance microprocessors. This shift from cloud to edge processing brings several benefits in terms of energy savings, improved latency, and increased privacy. On the downside, bringing computation to the edge makes them more vulnerable to physical side-channel attacks (SCA), which aim to extract the confidentiality of neural network models, e.g., architecture and weight. To address this growing threat, we propose PermuteV, a performant side-channel resistant RISC-V core designed to secure neural network inference. PermuteV employs a hardware-accelerated defense mechanism that randomly permutes the execution order of loop iterations, thereby obfuscating the electromagnetic (EM) signature associated with sensitive operations. We implement PermuteV on FPGA and perform evaluations in terms of side-channel security, hardware area, and runtime overhead. The experimental results demonstrate that PermuteV can effectively defend against EM SCA with minimal area and runtime overhead.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.18132v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AR</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Nuntipat Narkthong, Xiaolin Xu</dc:creator>
+    </item>
+    <item>
+      <title>Optimal Software Pipelining and Warp Specialization for Tensor Core GPUs</title>
+      <link>https://arxiv.org/abs/2512.18134</link>
+      <description>arXiv:2512.18134v1 Announce Type: cross 
+Abstract: GPU architectures have continued to grow in complexity, with recent incarnations introducing increasingly powerful fixed-function units for matrix multiplication and data movement to accompany highly parallel general-purpose cores. To fully leverage these machines, software must use sophisticated schedules that maximally utilize all hardware resources. Since realizing such schedules is complex, both programmers and compilers routinely employ program transformations, such as software pipelining (SWP) and warp specialization (WS), to do so in practice. However, determining how best to use SWP and WS in combination is a challenging problem that is currently handled through a mix of brittle compilation heuristics and fallible human intuition, with little insight into the space of solutions. To remedy this situation, we introduce a novel formulation of SWP and WS as a joint optimization problem that can be solved holistically by off-the-shelf constraint solvers. We reify our approach in Twill, the first system that automatically derives optimal SWP and WS schedules for a large class of iterative programs. Twill is heuristic-free, easily extensible to new GPU architectures, and guaranteed to produce optimal schedules. We show that Twill can rediscover, and thereby prove optimal, the SWP and WS schedules manually developed by experts for Flash Attention on both the NVIDIA Hopper and Blackwell GPU architectures.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.18134v1</guid>
+      <category>cs.PL</category>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Rupanshu Soi, Rohan Yadav, Fredrik Kjolstad, Alex Aiken, Maryam Mehri Dehnavi, Michael Garland, Michael Bauer</dc:creator>
+    </item>
+    <item>
+      <title>Theodosian: A Deep Dive into Memory-Hierarchy-Centric FHE Acceleration</title>
+      <link>https://arxiv.org/abs/2512.18345</link>
+      <description>arXiv:2512.18345v1 Announce Type: cross 
+Abstract: Fully homomorphic encryption (FHE) enables secure computation on encrypted data, mitigating privacy concerns in cloud and edge environments. However, due to its high compute and memory demands, extensive acceleration research has been pursued across diverse hardware platforms, especially GPUs. In this paper, we perform a microarchitectural analysis of CKKS, a popular FHE scheme, on modern GPUs. We focus on on-chip cache behavior, and show that the dominant kernels remain bound by memory bandwidth despite a high-bandwidth L2 cache, exposing a persistent memory wall. We further discover that the overall CKKS pipeline throughput is constrained by low per-kernel hardware utilization, caused by insufficient intra-kernel parallelism. Motivated by these findings, we introduce Theodosian, a set of complementary, memory-aware optimizations that improve cache efficiency and reduce runtime overheads. Our approach delivers consistent speedups across various CKKS workloads. On an RTX 5090, we reduce the bootstrapping latency for 32,768 complex numbers to 15.2ms with Theodosian, and further to 12.8ms with additional algorithmic optimizations, establishing new state-of-the-art GPU performance to the best of our knowledge.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.18345v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AR</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Wonseok Choi, Hyunah Yu, Jongmin Kim, Hyesung Ji, Jaiyoung Park, Jung Ho Ahn</dc:creator>
+    </item>
+    <item>
+      <title>DNA-HHE: Dual-mode Near-network Accelerator for Hybrid Homomorphic Encryption on the Edge</title>
+      <link>https://arxiv.org/abs/2512.18589</link>
+      <description>arXiv:2512.18589v1 Announce Type: cross 
+Abstract: Fully homomorphic encryption (FHE) schemes like RNS-CKKS enable privacy-preserving outsourced computation (PPOC) but suffer from high computational latency and ciphertext expansion, especially on the resource-constrained edge side. Hybrid Homomorphic Encryption (HHE) mitigates these issues on the edge side by replacing HE with lightweight symmetric encryption for plaintext encryption, such as the Rubato cipher for the HHE variant of RNS-CKKS, yet it introduces transciphering overhead on the cloud. The respective strengths and limitations of FHE and HHE call for a dual-mode HHE solution with flexible algorithm switching ability. This paper presents DNA-HHE, the first dual-mode HHE accelerator with near-network coupling for edge devices. DNA-HHE supports both edge-side RNS-CKKS and Rubato within a unified architecture driven by flexible custom instructions. To realize a compact implementation for the edge side, we propose a DSP-efficient modular reduction design, a compact multi-field-adaptive butterfly unit, and parallel scheduling schemes of Rubato with a high degree of resource sharing. DNA-HHE is designed with network protocol packaging and transmission capacities and directly coupled to the network interface controller, achieving reduced overall latency of edge-side PPOC by 1.09$\times$ to 1.56$\times$. Our evaluations on the ASIC and FPGA platforms demonstrate that DNA-HHE outperforms the state-of-the-art single-mode designs in both edge-side RNS-CKKS and symmetric cipher with better computation latency and area efficiency, while offering dual-mode functionality.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.18589v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AR</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yifan Zhao, Xinglong Yu, Yi Sun, Honglin Kuang, Jun Han</dc:creator>
+    </item>
+    <item>
+      <title>Q-Fly: An Optical Interconnect for Modular Quantum Computers</title>
+      <link>https://arxiv.org/abs/2412.09299</link>
+      <description>arXiv:2412.09299v4 Announce Type: replace-cross 
+Abstract: Much like classical supercomputers, scaling up quantum computers requires an optical interconnect. However, signal attenuation leads to irreversible qubit loss, making quantum interconnect design guidelines and metrics different from conventional computing. Inspired by the classical Dragonfly topology, we propose a multi-group structure where the group switch routes photons emitted by computational end nodes to the group's shared pool of Bell state analyzers (which conduct the entanglement swapping that creates end-to-end entanglement) or across a low-diameter path to another group. We present a full-stack analysis of system performance, a combination of distributed and centralized protocols, and a resource scheduler that plans qubit placement and communications for large-scale, fault-tolerant systems. We implement a prototype three-node switched interconnect to justify hardware-side scalability and to expose low-level architectural challenges. We create two-hop entanglement with fidelities of 0.6-0.76. Our design emphasizes reducing network hops and optical components to simplify system stabilization while flexibly adjusting optical path lengths. Based on evaluated loss and infidelity budgets, we find that moderate-radix switches enable systems meeting expected near-term needs, and large systems are feasible. Our design is expected to be effective for a variety of quantum computing technologies, including ion traps and neutral atoms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2412.09299v4</guid>
+      <category>quant-ph</category>
+      <category>cs.AR</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Daisuke Sakuma, Tomoki Tsuno, Hikaru Shimizu, Yuki Kurosawa, Monet Tokuyama Friedrich, Kentaro Teramoto, Amin Taherkhani, Andrew Todd, Yosuke Ueno, Michal Hajdu\v{s}ek, Rikizo Ikuta, Rodney Van Meter, Toshihiko Sasaki, Shota Nagayama</dc:creator>
+    </item>
+    <item>
+      <title>EEsizer: LLM-Based AI Agent for Sizing of Analog and Mixed Signal Circuit</title>
+      <link>https://arxiv.org/abs/2509.25510</link>
+      <description>arXiv:2509.25510v2 Announce Type: replace-cross 
+Abstract: The design of Analog and Mixed-Signal (AMS) integrated circuits (ICs) often involves significant manual effort, especially during the transistor sizing process. While Machine Learning techniques in Electronic Design Automation (EDA) have shown promise in reducing complexity and minimizing human intervention, they still face challenges such as numerous iterations and a lack of knowledge about AMS circuit design. Recently, Large Language Models (LLMs) have demonstrated significant potential across various fields, showing a certain level of knowledge in circuit design and indicating their potential to automate the transistor sizing process. In this work, we propose EEsizer, an LLM-based AI agent that integrates large language models with circuit simulators and custom data analysis functions, enabling fully automated, closed-loop transistor sizing without relying on external knowledge. By employing prompt engineering and Chain-of-Thought reasoning, the agent iteratively explores design directions, evaluates performance, and refines solutions with minimal human intervention. We first benchmarked 8 LLMs on six basic circuits and selected three high-performing models to optimize a 20-transistor CMOS operational amplifier, targeting multiple performance metrics, including rail-to-rail operation from 180 nm to 90 nm technology nodes. Notably, OpenAI o3 successfully achieved the user-intended target at 90 nm across three different test groups, with a maximum of 20 iterations, demonstrating adaptability and robustness at advanced nodes. To assess design robustness, we manually designed a bias circuit and performed a variation analysis using Gaussian-distributed variations on transistor dimensions and threshold voltages.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2509.25510v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AR</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1109/TCSI.2025.3646359</arxiv:DOI>
+      <arxiv:journal_reference>IEEE Transactions on Circuits and Systems I: Regular Papers, 2026</arxiv:journal_reference>
+      <dc:creator>Chang Liu, Danial Chitnis</dc:creator>
+    </item>
+    <item>
+      <title>Accurate Models of NVIDIA Tensor Cores</title>
+      <link>https://arxiv.org/abs/2512.07004</link>
+      <description>arXiv:2512.07004v2 Announce Type: replace-cross 
+Abstract: Matrix multiplication is a fundamental operation in for both training of neural networks and inference. To accelerate matrix multiplication, Graphical Processing Units (GPUs) provide it implemented in hardware. Due to the increased throughput over the software-based matrix multiplication, the multipliers are increasingly used outside of AI, to accelerate various applications in scientific computing. However, matrix multipliers targeted at AI are at present not compliant with IEEE 754 floating-point arithmetic behaviour, with different vendors offering different numerical features. This leads to non-reproducible results across different generations of GPU architectures, at the matrix multiply-accumulate instruction level. To study numerical characteristics of matrix multipliers-such as rounding behaviour, accumulator width, normalization points, extra carry bits, and others-test vectors are typically constructed. Yet, these vectors may or may not distinguish between different hardware models, and due to limited hardware availability, their reliability across many different platforms remains largely untested. We present software models for emulating the inner product behavior of low- and mixed-precision matrix multipliers in the V100, A100, H100 and B200 data center GPUs in most supported input formats of interest to mixed-precision algorithm developers: 8-, 16-, and 19-bit floating point.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.07004v2</guid>
+      <category>cs.MS</category>
+      <category>cs.AR</category>
+      <category>cs.NA</category>
+      <category>math.NA</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Faizan A. Khattak, Mantas Mikaitis</dc:creator>
+    </item>
+  </channel>
+</rss>

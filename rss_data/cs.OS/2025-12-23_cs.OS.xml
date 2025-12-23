@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Dec 2025 05:00:13 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>VeruSAGE: A Study of Agent-Based Verification for Rust Systems</title>
+      <link>https://arxiv.org/abs/2512.18436</link>
+      <description>arXiv:2512.18436v1 Announce Type: new 
+Abstract: Large language models (LLMs) have shown impressive capability to understand and develop code. However, their capability to rigorously reason about and prove code correctness remains in question. This paper offers a comprehensive study of LLMs' capability to develop correctness proofs for system software written in Rust. We curate a new system-verification benchmark suite, VeruSAGE-Bench, which consists of 849 proof tasks extracted from eight open-source Verus-verified Rust systems. Furthermore, we design different agent systems to match the strengths and weaknesses of different LLMs (o4-mini, GPT-5, Sonnet 4, and Sonnet 4.5). Our study shows that different tools and agent settings are needed to stimulate the system-verification capability of different types of LLMs. The best LLM-agent combination in our study completes over 80% of system-verification tasks in VeruSAGE-Bench. It also completes over 90% of a set of system proof tasks not part of VeruSAGE-Bench because they had not yet been finished by human experts. This result shows the great potential for LLM-assisted development of verified system software.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.18436v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AI</category>
+      <category>cs.FL</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Chenyuan Yang, Natalie Neamtu, Chris Hawblitzel, Jacob R. Lorch, Shan Lu</dc:creator>
+    </item>
+    <item>
+      <title>Continuum: Efficient and Robust Multi-Turn LLM Agent Scheduling with KV Cache Time-to-Live</title>
+      <link>https://arxiv.org/abs/2511.02230</link>
+      <description>arXiv:2511.02230v2 Announce Type: replace 
+Abstract: KV cache management is essential for efficient LLM inference. To maximize utilization, existing inference engines evict finished requests' KV cache if new requests are waiting. This policy breaks for agentic workloads, which interleave LLM calls with tools, introducing pauses that prevent effective KV reuse across turns. Since some tool calls have much shorter durations than human response multi-turn chatbot, it would be promising to retain the KV cache in during these tools. However, there are many challenges. First, we need to consider both the potential cost of recomputation or reloading (if CPU offloading enabled) and the increasing queueing delays after eviction from GPU. Second, due to the internal variance of tool call durations, we need the method to remain robust under limited predictability of tool call durations.
+  We present Continuum, a serving system to optimize job completion time for multi-turn agent workloads by introducing time-to-live mechanism for KV cache retaining. For LLM request that generates a tool call, Continuum selectively pins the KV cache in GPU memory with a time-to-live value determined by considering both the reload cost and ordering preserve benefit of retaining KV cache. Moreover, when the TTL expires, the KV cache can be automatically evicted to free up GPU memory, providing robust performance under edge cases. When combined with program-level first-come-first-serve, Continuum preserves multi-turn continuity, and reduces delay for complex agentic workflows. Our evaluation on real-world agentic workloads (SWE-Bench and BFCL) with Llama-3.1 8B/70B shows that Continuum significantly improves the average job completion times and its improvement scales with turn number increase. We release a preview version at: https://github.com/Hanchenli/vllm-continuum</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.02230v2</guid>
+      <category>cs.OS</category>
+      <category>cs.AI</category>
+      <category>cs.NI</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hanchen Li, Qiuyang Mang, Runyuan He, Qizheng Zhang, Huanzhi Mao, Xiaokun Chen, Hangrui Zhou, Alvin Cheung, Joseph Gonzalez, Ion Stoica</dc:creator>
+    </item>
+    <item>
+      <title>gpu_ext: Extensible OS Policies for GPUs via eBPF</title>
+      <link>https://arxiv.org/abs/2512.12615</link>
+      <description>arXiv:2512.12615v2 Announce Type: replace 
+Abstract: Performance in modern GPU-centric systems increasingly depends on resource management policies, including memory placement, scheduling, and observability. However, uniform policies typically yield suboptimal performance across diverse workloads. Existing approaches present a tradeoff: user-space runtimes provide programmability and flexibility but lack cross-tenant visibility and fine-grained control of hardware resources; meanwhile, modifications to the OS kernel introduce significant complexity and safety risks. To address this, we argue that the GPU driver and device layer should provide an extensible OS interface for policy enforcement. While the emerging eBPF technology shows potential, directly applying existing host-side eBPF is insufficient because they lack visibility and control into critical device-side events, and directly embedding policy code into GPU kernels could compromise safety and efficiency. We propose gpu_ext, an eBPF-based runtime that treats the GPU driver and device as a programmable OS subsystem. gpu_ext extends GPU drivers by exposing safe programmable hooks and introduces a device-side eBPF runtime capable of executing verified policy logic within GPU kernels, enabling coherent and transparent policies. Evaluation across realistic workloads including inference, training, and vector search demonstrates that gpu_ext improves throughput by up to 4.8x and reduces tail latency by up to 2x, incurring low overhead, without modifying or restarting applications</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.12615v2</guid>
+      <category>cs.OS</category>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yusheng Zheng, Tong Yu, Yiwei Yang, Minghui Jiang, Xiangyu Gao, Jianchang Su, Yanpeng Hu, Wenan Mao, Wei Zhang, Dan Williams, Andi Quinn</dc:creator>
+    </item>
+  </channel>
+</rss>
