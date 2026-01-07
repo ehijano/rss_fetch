@@ -7,7 +7,7 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.IR" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Jan 2026 05:00:16 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Jan 2026 02:32:29 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Tue, 06 Jan 2026 00:00:00 -0500</pubDate>
     <skipDays>
@@ -277,13 +277,14 @@ Abstract: We present a unified multi-objective model for targeting both advertis
       <dc:creator>Shivam Verma, Hannes Karlbom, Yu Zhao, Nick Topping, Vivian Chen, Kieran Stanley, Bharath Rengarajan</dc:creator>
     </item>
     <item>
-      <title>CogCanvas: Compression-Resistant Cognitive Artifacts for Long LLM Conversations</title>
+      <title>CogCanvas: Verbatim-Grounded Artifact Extraction for Long LLM Conversations</title>
       <link>https://arxiv.org/abs/2601.00821</link>
-      <description>arXiv:2601.00821v1 Announce Type: cross 
-Abstract: Large language models face a fundamental tension between context window limits and information fidelity in long conversations. Existing approaches--truncation and summarization--either discard early information or lose nuanced details. We introduce CogCanvas, a training-free framework that extracts verbatim-grounded cognitive artifacts (decisions, facts, reminders) from conversation turns and organizes them into a temporal-aware graph for compression-resistant retrieval.
-  On the LoCoMo benchmark, CogCanvas achieves 34.7% overall accuracy, outperforming RAG (25.6%, +9.1pp) and GraphRAG (13.7%, +21.0pp). The advantage is most pronounced on temporal reasoning: 31.5% vs. 9.3% (RAG) and 5.0% (GraphRAG)--a +530% relative improvement. On multi-hop causal reasoning, CogCanvas achieves 81.0% pass rate vs. 40.0% for GraphRAG (+41.0pp). Controlled benchmarks show 97.5% recall (+78.5pp vs. summarization) with 93.0% exact match preservation.
-  While heavily-optimized approaches achieve higher absolute scores through dedicated training (EverMemOS: approximately 92%), our training-free approach provides practitioners with an immediately-deployable alternative that significantly outperforms standard baselines. Code and data: https://github.com/tao-hpu/cog-canvas.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2601.00821v1</guid>
+      <description>arXiv:2601.00821v2 Announce Type: cross 
+Abstract: Conversation summarization loses nuanced details: when asked about coding preferences after 40 turns, summarization recalls "use type hints" but drops the critical constraint "everywhere" (19.0% exact match vs. 93.0% for our approach).
+  We present CogCanvas, a training-free framework inspired by how teams use whiteboards to anchor shared memory. Rather than compressing conversation history, CogCanvas extracts verbatim-grounded artifacts (decisions, facts, reminders) and retrieves them via temporal-aware graph.
+  On the LoCoMo benchmark (all 10 conversations from the ACL 2024 release), CogCanvas achieves the highest overall accuracy among training-free methods (32.4%), outperforming RAG (24.6%) by +7.8pp, with decisive advantages on complex reasoning tasks: +20.6pp on temporal reasoning (32.7% vs. 12.1% RAG) and +1.1pp on multi-hop questions (41.7% vs. 40.6% RAG). CogCanvas also leads on single-hop retrieval (26.6% vs. 24.6% RAG). Ablation studies reveal that BGE reranking contributes +7.7pp, making it the largest contributor to CogCanvas's performance.
+  While heavily-optimized approaches achieve higher absolute scores through dedicated training (EverMemOS: ~92%), our training-free approach provides practitioners with an immediately-deployable alternative that significantly outperforms standard baselines. Code and data: https://github.com/tao-hpu/cog-canvas</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.00821v2</guid>
       <category>cs.AI</category>
       <category>cs.CL</category>
       <category>cs.IR</category>
@@ -483,11 +484,11 @@ Abstract: Semantic Embedding Models (SEMs) have become a core component in infor
       <dc:creator>Mengze Hong, Di Jiang, Zichang Guo, Chen Jason Zhang</dc:creator>
     </item>
     <item>
-      <title>Adaptive Evidence Budgeting for Scalable Long-Document Reranking with LLMs</title>
+      <title>EviRerank: Adaptive Evidence Construction for Long-Document LLM Reranking</title>
       <link>https://arxiv.org/abs/2411.06254</link>
-      <description>arXiv:2411.06254v4 Announce Type: replace 
-Abstract: Decoder-only LLM rerankers are powerful but often struggle with long documents: inference is costly and relevance signals can be diluted as irrelevant text accumulates in the context window. Motivated by an attention analysis showing that relevance-aligned heads degrade when non-relevant text is appended, we propose EviRerank, a scalable framework that (i) scores document blocks with a lightweight selector (BM25, bi-encoder, or cross-encoder), (ii) constructs a compact evidence context under a strict token budget, and (iii) reranks with a decoder-only LLM. Our key contribution is Adaptive Evidence Budgeting (AEB), an information-density-aware dynamic stopping strategy that avoids low-utility tail blocks, and we further study Summary Augmentation (SA) within the same budget. Across TREC DL'19, DL'23, and MLDR-zh, EviRerank consistently improves over full-document LLM reranking and strong block-selection baselines while substantially reducing the required input length. On TREC DL'19, EviRerank achieves 0.743 nDCG@10 and 0.307 MAP, improving over RankLLaMA (0.701/0.288) by +0.042 nDCG@10 (+6.0%) and +0.019 MAP (+6.6%).</description>
-      <guid isPermaLink="false">oai:arXiv.org:2411.06254v4</guid>
+      <description>arXiv:2411.06254v5 Announce Type: replace 
+Abstract: Decoder-only LLM rerankers struggle with long documents: inference is costly and relevance signals can be diluted by irrelevant context. Motivated by an attention analysis indicating a consistent degradation trend when non-relevant text is appended, we propose EviRerank, an evidence-based long-document reranking framework for decoder-only LLMs. EviRerank (i) scores document blocks with a lightweight selector (BM25, bi-encoder, or cross-encoder), (ii) constructs a compact reranking context under a hard token cap by dynamically budgeting evidence blocks with Adaptive Evidence Budgeting (AEB) and adding a global summary cue via Summary Augmentation (SA), and (iii) reranks with a decoder-only LLM. Across TREC DL'19, DL'23, and MLDR-zh, EviRerank consistently outperforms full-document LLM reranking and strong block-selection baselines while substantially reducing the required input length. On TREC DL'19, EviRerank achieves 0.743 nDCG@10 and 0.307 MAP, establishing a new best result and improving over RankLLaMA (0.701/0.288) by +0.042 nDCG@10 (+6.0%) and +0.019 MAP (+6.6%).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2411.06254v5</guid>
       <category>cs.IR</category>
       <pubDate>Tue, 06 Jan 2026 00:00:00 -0500</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
