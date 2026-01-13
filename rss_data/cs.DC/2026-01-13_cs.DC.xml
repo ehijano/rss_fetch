@@ -1,0 +1,483 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Jan 2026 05:00:23 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Employ SmartNICs' Data Path Accelerators for Ordered Key-Value Stores</title>
+      <link>https://arxiv.org/abs/2601.06231</link>
+      <description>arXiv:2601.06231v1 Announce Type: new 
+Abstract: Remote in-memory key-value (KV) stores serve as a cornerstone for diverse modern workloads, and high-speed range scans are frequently a requirement. However, current architectures rarely achieve a simultaneous balance of peak efficiency, architectural simplicity, and native support for ordered operations. Conventional host-centric frameworks are restricted by kernel-space network stacks and internal bus latencies. While hash-based alternatives that utilize OS-bypass or run natively on SmartNICs offer high throughput, they lack the data structures necessary for range queries. Distributed RDMA-based systems provide performance and range functionality but often depend on stateful clients, which introduces complexity in scaling and error handling. Alternatively, SmartNIC implementations that traverse trees located in host memory are hampered by high DMA round-trip latencies.
+  This paper introduces a KV store that leverages the on-path Data Path Accelerators (DPAs) of the BlueField-3 SmartNIC to eliminate operating system overhead while facilitating stateless clients and range operations. These DPAs ingest network requests directly from NIC buffers to navigate a lock-free learned index residing in the accelerator's local memory. By deferring value retrieval from the host-side tree replica until the leaf level is reached, the design minimizes PCIe crossings. Write operations are staged in DPA memory and migrated in batches to the host, where structural maintenance is performed before being transactionally stitched back to the SmartNIC. Coupled with a NIC-resident read cache, the system achieves 33 million operations per second (MOPS) for point lookups and 13 MOPS for range queries. Our analysis demonstrates that this architecture matches or exceeds the performance of contemporary state-of-the-art solutions, while we identify hardware refinements that could further accelerate performance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06231v1</guid>
+      <category>cs.DC</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Frederic Schimmelpfennig, Jan Sass, Reza Salkhordeh, Martin Kr\"oning, Stefan Lankes, Andr\'e Brinkmann</dc:creator>
+    </item>
+    <item>
+      <title>HiDVFS: A Hierarchical Multi-Agent DVFS Scheduler for OpenMP DAG Workloads</title>
+      <link>https://arxiv.org/abs/2601.06425</link>
+      <description>arXiv:2601.06425v1 Announce Type: new 
+Abstract: With advancements in multicore embedded systems, leakage power, exponentially tied to chip temperature, has surpassed dynamic power consumption. Energy-aware solutions use dynamic voltage and frequency scaling (DVFS) to mitigate overheating in performance-intensive scenarios, while software approaches allocate high-utilization tasks across core configurations in parallel systems to reduce power. However, existing heuristics lack per-core frequency monitoring, failing to address overheating from uneven core activity, and task assignments without detailed profiling overlook irregular execution patterns. We target OpenMP DAG workloads. Because makespan, energy, and thermal goals often conflict within a single benchmark, this work prioritizes performance (makespan) while reporting energy and thermal as secondary outcomes. To overcome these issues, we propose HiDVFS (a hierarchical multi-agent, performance-aware DVFS scheduler) for parallel systems that optimizes task allocation based on profiling data, core temperatures, and makespan-first objectives. It employs three agents: one selects cores and frequencies using profiler data, another manages core combinations via temperature sensors, and a third sets task priorities during resource contention. A makespan-focused reward with energy and temperature regularizers estimates future states and enhances sample efficiency. Experiments on the NVIDIA Jetson TX2 using the BOTS suite (9 benchmarks) compare HiDVFS against state-of-the-art approaches. With multi-seed validation (seeds 42, 123, 456), HiDVFS achieves the best finetuned performance with 4.16 plus/minus 0.58s average makespan (L10), representing a 3.44x speedup over GearDVFS (14.32 plus/minus 2.61s) and 50.4% energy reduction (63.7 kJ vs 128.4 kJ). Across all BOTS benchmarks, HiDVFS achieves an average 3.95x speedup and 47.1% energy reduction.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06425v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mohammad Pivezhandi, Abusayeed Saifullah, Ali Jannesari</dc:creator>
+    </item>
+    <item>
+      <title>SkyNomad: On Using Multi-Region Spot Instances to Minimize AI Batch Job Cost</title>
+      <link>https://arxiv.org/abs/2601.06520</link>
+      <description>arXiv:2601.06520v1 Announce Type: new 
+Abstract: AI batch jobs such as model training, inference pipelines, and data analytics require substantial GPU resources and often need to finish before a deadline. Spot instances offer 3-10x lower cost than on-demand instances, but their unpredictable availability makes meeting deadlines difficult. Existing systems either rely solely on spot instances and risk deadline violations, or operate in simplified single-region settings. These approaches overlook substantial spatial and temporal heterogeneity in spot availability, lifetimes, and prices. We show that exploiting such heterogeneity to access more spot capacity is the key to reduce the job execution cost. We present SkyNomad, a multi-region scheduling system that maximizes spot usage and minimizes cost while guaranteeing deadlines. SkyNomad uses lightweight probing to estimate availability, predicts spot lifetimes, accounts for migration cost, and unifies regional characteristics and deadline pressure into a monetary cost model that guides scheduling decisions. Our evaluation shows that SkyNomad achieves 1.25-3.96x cost savings in real cloud deployments and performs within 10% cost differences of an optimal policy in simulation, while consistently meeting deadlines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06520v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zhifei Li, Tian Xia, Ziming Mao, Zihan Zhou, Ethan J. Jackson, Jamison Kerney, Zhanghao Wu, Pratik Mishra, Yi Xu, Yifan Qiao, Scott Shenker, Ion Stoica</dc:creator>
+    </item>
+    <item>
+      <title>Resource-Aware Task Allocator Design: Insights and Recommendations for Distributed Satellite Constellations</title>
+      <link>https://arxiv.org/abs/2601.06706</link>
+      <description>arXiv:2601.06706v1 Announce Type: new 
+Abstract: We present the design of a Resource-Aware Task Allocator (RATA) and an empirical analysis in handling real-time tasks for processing on Distributed Satellite Systems (DSS). We consider task processing performance across low Earth orbit (LEO) to Low-Medium Earth Orbit (Low-MEO) constellation sizes, under varying traffic loads. Using Single-Level Tree Network(SLTN)-based cooperative task allocation architecture, we attempt to evaluate some key performance metrics - blocking probabilities, response times, energy consumption, and resource utilization across several tens of thousands of tasks per experiment. Our resource-conscious RATA monitors key parameters such as arrival rate, resources (on-board compute, storage, bandwidth, battery) availability, satellite eclipses' influence in processing and communications. This study is an important step towards analyzing the performance under lighter to stress inducing levels of compute intense workloads to test the ultimate performance limits under the combined influence of the above-mentioned factors. Results show pronounced non-linear scaling: while capacity increases with constellation size, blocking and delay grow rapidly, whereas energy remains resilient under solar-aware scheduling. The analysis identifies a practical satellite-count limit for baseline SLTNs and demonstrates that CPU availability, rather than energy, is the primary cause of blocking. These findings provide quantitative guidance by identifying thresholds at which system performance shifts from graceful degradation to collapse.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06706v1</guid>
+      <category>cs.DC</category>
+      <category>cs.ET</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Bharadwaj Veeravalli</dc:creator>
+    </item>
+    <item>
+      <title>Learning-Augmented Performance Model for Tensor Product Factorization in High-Order FEM</title>
+      <link>https://arxiv.org/abs/2601.06886</link>
+      <description>arXiv:2601.06886v1 Announce Type: new 
+Abstract: Accurate performance prediction is essential for optimizing scientific applications on modern high-performance computing (HPC) architectures. Widely used performance models primarily focus on cache and memory bandwidth, which is suitable for many memory-bound workloads. However, it is unsuitable for highly arithmetic intensive cases such as the sum-factorization with tensor $n$-mode product kernels, which are an optimization technique for high-order finite element methods (FEM). On processors with relatively high single instruction multiple data (SIMD) instruction latency, such as the Fujitsu A64FX, the performance of these kernels is strongly influenced by loop-body splitting strategies. Memory-bandwidth-oriented models are therefore not appropriate for evaluating these splitting configurations, and a model that directly reflects instruction-level efficiency is required. To address this need, we develop a dependency-chain-based analytical formulation that links loop-splitting configurations to instruction dependencies in the tensor $n$-mode product kernel. We further use XGBoost to estimate key parameters in the analytical model that are difficult to model explicitly. Evaluations show that the learning-augmented model outperforms the widely used standard Roofline and Execution-Cache-Memory (ECM) models. On the Fujitsu A64FX processor, the learning-augmented model achieves mean absolute percentage errors (MAPE) between 1% and 24% for polynomial orders ($P$) from 1 to 15. In comparison, the standard Roofline and ECM models yield errors of 42%-256% and 5%-117%, respectively. On the Intel Xeon Gold 6230 processor, the learning-augmented model achieves MAPE values from 1% to 13% for $P$=1 to $P$=14, and 24% at $P$=15. In contrast, the standard Roofline and ECM models produce errors of 1%-73% and 8%-112% for $P$=1 to $P$=15, respectively.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06886v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Xuanzhengbo Ren, Yuta Kawai, Tetsuya Hoshino, Hirofumi Tomita, Takahiro Katagiri, Daichi Mukunoki, Seiya Nishizawa</dc:creator>
+    </item>
+    <item>
+      <title>Divergence-Based Adaptive Aggregation for Byzantine Robust Federated Learning</title>
+      <link>https://arxiv.org/abs/2601.06903</link>
+      <description>arXiv:2601.06903v1 Announce Type: new 
+Abstract: Inherent client drifts caused by data heterogeneity, as well as vulnerability to Byzantine attacks within the system, hinder effective model training and convergence in federated learning (FL). This paper presents two new frameworks, named DiveRgence-based Adaptive aGgregation (DRAG) and Byzantine-Resilient DRAG (BR-DRAG), to mitigate client drifts and resist attacks while expediting training. DRAG designs a reference direction and a metric named divergence of degree to quantify the deviation of local updates. Accordingly, each worker can align its local update via linear calibration without extra communication cost. BR-DRAG refines DRAG under Byzantine attacks by maintaining a vetted root dataset at the server to produce trusted reference directions. The workers' updates can be then calibrated to mitigate divergence caused by malicious attacks. We analytically prove that DRAG and BR-DRAG achieve fast convergence for non-convex models under partial worker participation, data heterogeneity, and Byzantine attacks. Experiments validate the effectiveness of DRAG and its superior performance over state-of-the-art methods in handling client drifts, and highlight the robustness of BR-DRAG in maintaining resilience against data heterogeneity and diverse Byzantine attacks.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06903v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Bingnan Xiao, Feng Zhu, Jingjing Zhang, Wei Ni, Xin Wang</dc:creator>
+    </item>
+    <item>
+      <title>SC-MII: Infrastructure LiDAR-based 3D Object Detection on Edge Devices for Split Computing with Multiple Intermediate Outputs Integration</title>
+      <link>https://arxiv.org/abs/2601.07119</link>
+      <description>arXiv:2601.07119v1 Announce Type: new 
+Abstract: 3D object detection using LiDAR-based point cloud data and deep neural networks is essential in autonomous driving technology. However, deploying state-of-the-art models on edge devices present challenges due to high computational demands and energy consumption. Additionally, single LiDAR setups suffer from blind spots. This paper proposes SC-MII, multiple infrastructure LiDAR-based 3D object detection on edge devices for Split Computing with Multiple Intermediate outputs Integration. In SC-MII, edge devices process local point clouds through the initial DNN layers and send intermediate outputs to an edge server. The server integrates these features and completes inference, reducing both latency and device load while improving privacy. Experimental results on a real-world dataset show a 2.19x speed-up and a 71.6% reduction in edge device processing time, with at most a 1.09% drop in accuracy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.07119v1</guid>
+      <category>cs.DC</category>
+      <category>cs.CV</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Taisuke Noguchi, Takayuki Nishio, Takuya Azumi</dc:creator>
+    </item>
+    <item>
+      <title>Bringing Computation to the data: Interoperable serverless function execution for astrophysical data analysis in the SRCNet</title>
+      <link>https://arxiv.org/abs/2601.07308</link>
+      <description>arXiv:2601.07308v1 Announce Type: new 
+Abstract: Serverless computing is a paradigm in which the underlying infrastructure is fully managed by the provider, enabling applications and services to be executed with elastic resource provisioning and minimal operational overhead. A core model within this paradigm is Function-as-a-Service (FaaS), where lightweight functions are deployed and triggered on demand, scaling seamlessly with workload. FaaS offers flexibility, cost-effectiveness, and fine-grained scalability, qualities particularly relevant for large-scale scientific infrastructures where data volumes are too large to centralise and computation must increasingly occur close to the data. The Square Kilometre Array Observatory (SKAO) exemplifies this challenge. Once operational, it will generate about 700~PB of data products annually, distributed across the SKA Regional Centre Network (SRCNet), a federation of international centres providing storage, computing, and analysis services. In such a context, FaaS offers a mechanism to bring computation to the data. We studied the principles of serverless and FaaS computing and explored their application to radio astronomy workflows. Representative functions for astrophysical data analysis were developed and deployed, including micro-functions derived from existing libraries and wrappers around domain-specific applications. In particular, a Gaussian convolution function was implemented and integrated within the SRCNet ecosystem. The use case demonstrates that FaaS can be embedded into the existing SRCNet ecosystem of services, allowing functions to run directly at sites where data replicas are stored. This reduces latency, minimises transfers, and improves efficiency, aligning with federated, data-proximate computation. The results show that serverless models provide a scalable and efficient pathway to address the data volumes of the SKA era.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.07308v1</guid>
+      <category>cs.DC</category>
+      <category>astro-ph.IM</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Manuel Parra-Roy\'on, Juli\'an Garrido-S\'anchez, Susana S\'anchez-Exp\'osito, Mar\'ia \'Angeles Mendoza, Rob Barnsley, Anthony Moraghan, Jes\'us S\'anchez, Laura Darriba, Carlos Ru\'iz-Monje, Edgar Joao, Javier Mold\'on, Jes\'us Salgado, Lourdes Verdes-Montenegro</dc:creator>
+    </item>
+    <item>
+      <title>MegaFlow: Large-Scale Distributed Orchestration System for the Agentic Era</title>
+      <link>https://arxiv.org/abs/2601.07526</link>
+      <description>arXiv:2601.07526v1 Announce Type: new 
+Abstract: The rapid development of interactive and autonomous AI systems signals our entry into the agentic era. Training and evaluating agents on complex agentic tasks such as software engineering and computer use requires not only efficient model computation but also sophisticated infrastructure capable of coordinating vast agent-environment interactions. However, no open-source infrastructure can effectively support large-scale training and evaluation on such complex agentic tasks. To address this challenge, we present MegaFlow, a large-scale distributed orchestration system that enables efficient scheduling, resource allocation, and fine-grained task management for agent-environment workloads. MegaFlow abstracts agent training infrastructure into three independent services (Model Service, Agent Service, and Environment Service) that interact through unified interfaces, enabling independent scaling and flexible resource allocation across diverse agent-environment configurations. In our agent training deployments, MegaFlow successfully orchestrates tens of thousands of concurrent agent tasks while maintaining high system stability and achieving efficient resource utilization. By enabling such large-scale agent training, MegaFlow addresses a critical infrastructure gap in the emerging agentic AI landscape.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.07526v1</guid>
+      <category>cs.DC</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Lei Zhang, Mouxiang Chen, Ruisheng Cao, Jiawei Chen, Fan Zhou, Yiheng Xu, Jiaxi Yang, Liang Chen, Changwei Luo, Kai Zhang, Fan Yan, KaShun Shum, Jiajun Zhang, Zeyu Cui, Hu Feng, Junyang Lin, Binyuan Hui, Min Yang</dc:creator>
+    </item>
+    <item>
+      <title>AIConfigurator: Lightning-Fast Configuration Optimization for Multi-Framework LLM Serving</title>
+      <link>https://arxiv.org/abs/2601.06288</link>
+      <description>arXiv:2601.06288v1 Announce Type: cross 
+Abstract: Optimizing Large Language Model (LLM) inference in production systems is increasingly difficult due to dynamic workloads, stringent latency/throughput targets, and a rapidly expanding configuration space. This complexity spans not only distributed parallelism strategies (tensor/pipeline/expert) but also intricate framework-specific runtime parameters such as those concerning the enablement of CUDA graphs, available KV-cache memory fractions, and maximum token capacity, which drastically impact performance. The diversity of modern inference frameworks (e.g., TRT-LLM, vLLM, SGLang), each employing distinct kernels and execution policies, makes manual tuning both framework-specific and computationally prohibitive. We present AIConfigurator, a unified performance-modeling system that enables rapid, framework-agnostic inference configuration search without requiring GPU-based profiling. AIConfigurator combines (1) a methodology that decomposes inference into analytically modelable primitives - GEMM, attention, communication, and memory operations while capturing framework-specific scheduling dynamics; (2) a calibrated kernel-level performance database for these primitives across a wide range of hardware platforms and popular open-weights models (GPT-OSS, Qwen, DeepSeek, LLama, Mistral); and (3) an abstraction layer that automatically resolves optimal launch parameters for the target backend, seamlessly integrating into production-grade orchestration systems. Evaluation on production LLM serving workloads demonstrates that AIConfigurator identifies superior serving configurations that improve performance by up to 40% for dense models (e.g., Qwen3-32B) and 50% for MoE architectures (e.g., DeepSeek-V3), while completing searches within 30 seconds on average. Enabling the rapid exploration of vast design spaces - from cluster topology down to engine specific flags.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06288v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Tianhao Xu, Yiming Liu, Xianglong Lu, Yijia Zhao, Xuting Zhou, Aichen Feng, Yiyi Chen, Yi Shen, Qin Zhou, Xumeng Chen, Ilya Sherstyuk, Haorui Li, Rishi Thakkar, Ben Hamm, Yuanzhe Li, Xue Huang, Wenpeng Wu, Anish Shanbhag, Harry Kim, Chuan Chen, Junjie Lai</dc:creator>
+    </item>
+    <item>
+      <title>Rethinking Inter-Process Communication with Memory Operation Offloading</title>
+      <link>https://arxiv.org/abs/2601.06331</link>
+      <description>arXiv:2601.06331v1 Announce Type: cross 
+Abstract: As multimodal and AI-driven services exchange hundreds of megabytes per request, existing IPC runtimes spend a growing share of CPU cycles on memory copies. Although both hardware and software mechanisms are exploring memory offloading, current IPC stacks lack a unified runtime model to coordinate them effectively.
+  This paper presents a unified IPC runtime suite that integrates both hardware- and software-based memory offloading into shared-memory communication. The system characterizes the interaction between offload strategies and IPC execution, including synchronization, cache visibility, and concurrency, and introduces multiple IPC modes that balance throughput, latency, and CPU efficiency.
+  Through asynchronous pipelining, selective cache injection, and hybrid coordination, the system turns offloading from a device-specific feature into a general system capability. Evaluations on real-world workloads show instruction count reductions of up to 22%, throughput improvements of up to 2.1x, and latency reductions of up to 72%, demonstrating that coordinated IPC offloading can deliver tangible end-to-end efficiency gains in modern data-intensive systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06331v1</guid>
+      <category>cs.OS</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Misun Park, Richi Dubey, Yifan Yuan, Nam Sung Kim, Ada Gavrilovska</dc:creator>
+    </item>
+    <item>
+      <title>BlazeAIoT: A Modular Multi-Layer Platform for Real-Time Distributed Robotics Across Edge, Fog, and Cloud Infrastructures</title>
+      <link>https://arxiv.org/abs/2601.06344</link>
+      <description>arXiv:2601.06344v1 Announce Type: cross 
+Abstract: The increasing complexity of distributed robotics has driven the need for platforms that seamlessly integrate edge, fog, and cloud computing layers while meeting strict real-time constraints. This paper introduces BlazeAIoT, a modular multi-layer platform designed to unify distributed robotics across heterogeneous infrastructures. BlazeAIoT provides dynamic data transfer, configurable services, and integrated monitoring, while ensuring resilience, security, and programming language flexibility. The architecture leverages Kubernetes-based clusters, broker interoperability (DDS, Kafka, Redis, and ROS2), and adaptive data distribution mechanisms to optimize communication and computation across diverse environments. The proposed solution includes a multi-layer configuration service, dynamic and adaptive data bridging, and hierarchical rate limiting to handle large messages. The platform is validated through robotics scenarios involving navigation and artificial intelligence-driven large-scale message processing, demonstrating robust performance under real-time constraints. Results highlight BlazeAIoT's ability to dynamically allocate services across incomplete topologies, maintain system health, and minimize latency, making it a cost-aware, scalable solution for robotics and broader IoT applications, such as smart cities and smart factories.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06344v1</guid>
+      <category>cs.RO</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Cedric Melancon, Julien Gascon-Samson, Maarouf Saad, Kuljeet Kaur, Simon Savard</dc:creator>
+    </item>
+    <item>
+      <title>Behavioral Analytics for Continuous Insider Threat Detection in Zero-Trust Architectures</title>
+      <link>https://arxiv.org/abs/2601.06708</link>
+      <description>arXiv:2601.06708v1 Announce Type: cross 
+Abstract: Insider threats are a particularly tricky cybersecurity issue, especially in zero-trust architectures (ZTA) where implicit trust is removed. Although the rule of thumb is never trust, always verify, attackers can still use legitimate credentials and impersonate the standard user activity. In response, behavioral analytics with machine learning (ML) can help monitor the user activity continuously and identify the presence of anomalies. This introductory framework makes use of the CERT Insider Threat Dataset for data cleaning, normalization, and class balance using the Synthetic Minority Oversampling Technique (SMOTE). It also employs Principal Component Analysis (PCA) for dimensionality reduction. Several benchmark models, including Support Vector Machine (SVM), Artificial Neural Network (ANN), and Bayesian Network (Bayes Net), were used to develop and evaluate the AdaBoost classifier. Compared to SVM (90.1%), ANN (94.7%), and Bayes Net (94.9), AdaBoost achieved higher performance with a 98.0% ACC, 98.3% PRE, 98.0% REC, and F1-score (F1). The Receiver Operating Characteristic (ROC) study, which provided further confirmation of its strength, yielded an Area Under the Curve (AUC) of 0.98. These results prove the effectiveness and dependability of AdaBoost-based behavioral analytics as a solution to reinforcing continuous insider threat detection in zero-trust settings.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06708v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:journal_reference>International Journal of Research and Analytical Reviews November 2021, Volume 8, Issue 4</arxiv:journal_reference>
+      <dc:creator>Gaurav Sarraf</dc:creator>
+    </item>
+    <item>
+      <title>Privacy-Preserving Data Processing in Cloud : From Homomorphic Encryption to Federated Analytics</title>
+      <link>https://arxiv.org/abs/2601.06710</link>
+      <description>arXiv:2601.06710v1 Announce Type: cross 
+Abstract: Privacy-preserving data processing refers to the methods and models that allow computing and analyzing sensitive data with a guarantee of confidentiality. As cloud computing and applications that rely on data continue to expand, there is an increasing need to protect personal, financial and healthcare information. Conventional centralized data processing methods expose sensitive data to risk of breaches, compelling the need to use decentralized and secure data methods. This paper gives a detailed review of privacy-saving mechanisms in the cloud platform, such as statistical approaches like differential privacy and cryptographic solutions like homomorphic encryption. Federated analytics and federated learning, two distributed learning frameworks, are also discussed. Their principles, applications, benefits, and limitations are reviewed, with roles of use in the fields of healthcare, finance, IoT, and industrial cases. Comparative analyses measure trade-offs in security, efficiency, scalability, and accuracy, and investigations are done of emerging hybrid frameworks to provide better privacy protection. Critical issues, including computational overhead, privacy-utility trade-offs, standardization, adversarial threats, and cloud integration are also addressed. This review examines in detail the recent privacy-protecting approaches in cloud computation and offers scholars and practitioners crucial information on secure and effective solutions to data processing.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06710v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:DOI>10.32628/IJSRCSEIT</arxiv:DOI>
+      <arxiv:journal_reference>International Journal of Scientific Research in Computer Science, Engineering and Information Technology Vol. 10 No. 6 (2024): November-December</arxiv:journal_reference>
+      <dc:creator>Gaurav Sarraf, Vibhor Pal</dc:creator>
+    </item>
+    <item>
+      <title>OpenTinker: Separating Concerns in Agentic Reinforcement Learning</title>
+      <link>https://arxiv.org/abs/2601.07376</link>
+      <description>arXiv:2601.07376v1 Announce Type: cross 
+Abstract: We introduce OpenTinker, an infrastructure for reinforcement learning (RL) of large language model (LLM) agents built around a separation of concerns across algorithm design, execution, and agent-environment interaction. Rather than relying on monolithic, end-to-end RL pipelines, OpenTinker decomposes agentic learning systems into lightweight, composable components with clearly defined abstraction boundaries. Users specify agents, environments, and interaction protocols, while inference and training are delegated to a managed execution runtime. OpenTinker introduces a centralized scheduler for managing training and inference workloads, including LoRA-based and full-parameter RL, supervised fine-tuning, and inference, over shared resources. We further discuss design principles for extending OpenTinker to multi-agent training. Finally, we present a set of RL use cases that demonstrate the effectiveness of the framework in practical agentic learning scenarios.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.07376v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Siqi Zhu, Jiaxuan You</dc:creator>
+    </item>
+    <item>
+      <title>Advanced computing for reproducibility of astronomy Big Data Science, with a showcase of AMIGA and the SKA Science prototype</title>
+      <link>https://arxiv.org/abs/2601.07439</link>
+      <description>arXiv:2601.07439v1 Announce Type: cross 
+Abstract: The Square Kilometre Array Observatory (SKAO) faces un- precedented technological challenges due to the vast scale and complexity of its data. This paper provides an overview of research by the AMIGA group to address these computing and reproducibility challenges. We present advancements in semantic data models, analysis services integrated into federated infrastructures, and the application to astronomy studies of techniques that enhance research transparency. By showcasing these astronomy work, we demonstrate that achieving reproducible science in the Big Data era is feasible. However, we conclude that for the SKAO to succeed, the development of the SKA Regional Centre Network (SRCNet) must explicitly incorporate these reproducibility requirements into its fundamental architectural design. Embedding these standards is crucial to enable the global community to conduct verifiable and sustainable research within a federated environment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.07439v1</guid>
+      <category>astro-ph.IM</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Juli\'an Garrido, Susana S\'anchez, Edgar Ribeiro Jo\~ao, Roger Ianjamasimanana, Manuel Parra, Lourdes Verdes-Montenegro</dc:creator>
+    </item>
+    <item>
+      <title>Peformance Isolation for Inference Processes in Edge GPU Systems</title>
+      <link>https://arxiv.org/abs/2601.07600</link>
+      <description>arXiv:2601.07600v1 Announce Type: cross 
+Abstract: This work analyzes the main isolation mechanisms available in modern NVIDIA GPUs: MPS, MIG, and the recent Green Contexts, to ensure predictable inference time in safety-critical applications using deep learning models. The experimental methodology includes performance tests, evaluation of partitioning impact, and analysis of temporal isolation between processes, considering both the NVIDIA A100 and Jetson Orin platforms. It is observed that MIG provides a high level of isolation. At the same time, Green Contexts represent a promising alternative for edge devices by enabling fine-grained SM allocation with low overhead, albeit without memory isolation. The study also identifies current limitations and outlines potential research directions to improve temporal predictability in shared GPUs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.07600v1</guid>
+      <category>cs.OS</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Juan Jos\'e Mart\'in, Jos\'e Flich, Carles Hern\'andez</dc:creator>
+    </item>
+    <item>
+      <title>Beyond Single-GPU: Scaling PDLP to Distributed Multi-GPU Systems</title>
+      <link>https://arxiv.org/abs/2601.07628</link>
+      <description>arXiv:2601.07628v1 Announce Type: cross 
+Abstract: In this work, we present a distributed implementation of the Primal-Dual Hybrid Gradient (PDHG) algorithm for solving massive-scale linear programming (LP) problems. Although PDHG-based solvers have shown strong performance on single-node GPU architectures, their applicability to industrial-scale instances is often limited by GPU memory capacity and computational throughput. To overcome these challenges, we extend the PDHG framework to a distributed-memory setting via a practical two-dimensional grid partitioning of the constraint matrix, enabling scalable execution across multiple GPUs. Our implementation leverages the NCCL communication backend to efficiently synchronize primal-dual updates across devices. To improve load balance and computational efficiency, we introduce a block-wise random shuffling strategy combined with nonzero-aware data distribution, and further accelerate computation through fused CUDA kernels. By distributing both memory and computation, the proposed framework not only overcomes the single-GPU memory bottleneck but also achieves substantial speedups by exploiting multi-GPU parallelism with relatively low communication overhead. Extensive experiments on standard LP benchmarks, including MIPLIB and Hans' instances, as well as large-scale real-world datasets, show that our distributed implementation, built upon cuPDLPx, achieves strong scalability and high performance while preserving full FP64 numerical accuracy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.07628v1</guid>
+      <category>math.OC</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hongpei Li, Yicheng Huang, Huikang Liu, Dongdong Ge, Yinyu Ye</dc:creator>
+    </item>
+    <item>
+      <title>ReinFog: A Deep Reinforcement Learning Empowered Framework for Resource Management in Edge and Cloud Computing Environments</title>
+      <link>https://arxiv.org/abs/2411.13121</link>
+      <description>arXiv:2411.13121v2 Announce Type: replace 
+Abstract: The growing IoT landscape requires effective server deployment strategies to meet demands including real-time processing and energy efficiency. This is complicated by heterogeneous, dynamic applications and servers. To address these challenges, we propose ReinFog, a modular distributed software empowered with Deep Reinforcement Learning (DRL) for adaptive resource management across edge/fog and cloud environments. ReinFog enables the practical development/deployment of various centralized and distributed DRL techniques for resource management in edge/fog and cloud computing environments. It also supports integrating native and library-based DRL techniques for diverse IoT application scheduling objectives. Additionally, ReinFog allows for customizing deployment configurations for different DRL techniques, including the number and placement of DRL Learners and DRL Workers in large-scale distributed systems. Besides, we propose a novel Memetic Algorithm for DRL Component (e.g., DRL Learners and DRL Workers) Placement in ReinFog named MADCP, which combines the strengths of Genetic Algorithm, Firefly Algorithm, and Particle Swarm Optimization. Experiments reveal that the DRL mechanisms developed within ReinFog have significantly enhanced both centralized and distributed DRL techniques implementation. These advancements have resulted in notable improvements in IoT application performance, reducing response time by 45%, energy consumption by 39%, and weighted cost by 37%, while maintaining minimal scheduling overhead. Additionally, ReinFog exhibits remarkable scalability, with a rise in DRL Workers from 1 to 30 causing only a 0.3-second increase in startup time and around 2 MB more RAM per Worker. The proposed MADCP for DRL component placement further accelerates the convergence rate of DRL techniques by up to 38%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2411.13121v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zhiyu Wang, Mohammad Goudarzi, Rajkumar Buyya</dc:creator>
+    </item>
+    <item>
+      <title>Feature-Aware Task-to-Core Allocation in Embedded Multi-core Platforms via Statistical Learning</title>
+      <link>https://arxiv.org/abs/2502.15716</link>
+      <description>arXiv:2502.15716v2 Announce Type: replace 
+Abstract: Optimizing task-to-core allocation can substantially reduce power consumption in multi-core platforms without degrading user experience. However, existing approaches overlook critical factors such as parallelism, compute intensity, and heterogeneous core types. In this paper, we introduce a statistical learning approach for feature selection that identifies the most influential features-such as core type, speed, temperature, and application-level parallelism or memory intensity-for accurate environment modeling and efficient energy minimization, a critical consideration for embedded systems. Our experiments, conducted with state-of-the-art Linux governors and thermal modeling techniques, show that correlation-aware task-to-core allocation lowers energy consumption by up to 10% and reduces core temperature by up to 5C compared to random core selection. Furthermore, our compressed, bootstrapped regression model improves thermal prediction accuracy by 6% while cutting model parameters by 16%, yielding an overall mean square error reduction of 61.6% relative to existing approaches. We provided results based on superscalar Intel Core i7 12th Gen processors with 14 cores, and validated our method across a diverse set of hardware platforms and effectively balanced performance, power, and thermal demands through statistical feature evaluation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2502.15716v2</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mohammad Pivezhandi, Abusayeed Saifullah, Prashant Modekurthy</dc:creator>
+    </item>
+    <item>
+      <title>Deep Learning Model Deployment in Multiple Cloud Providers: an Exploratory Study Using Low Computing Power Environments</title>
+      <link>https://arxiv.org/abs/2503.23988</link>
+      <description>arXiv:2503.23988v2 Announce Type: replace 
+Abstract: The deployment of Machine Learning models in the cloud has grown among tech companies. Hardware requirements are higher when these models involve Deep Learning techniques, and the cloud providers' costs may be a barrier. We explore deploying Deep Learning models, using for experiments the GECToR model, a Deep Learning solution for Grammatical Error Correction, across three of the major cloud providers (Amazon Web Services, Google Cloud Platform, and Microsoft Azure). We evaluate real-time latency, hardware usage, and cost at each cloud provider in 7 execution environments with 10 experiments reproduced. We found that while Graphics Processing Units (GPUs) excel in performance, they had an average cost 300% higher than solutions without a GPU. Our analysis also suggests that processor cache memory size is a key variable for CPU-only deployments, and setups with sufficient cache achieved a 50% cost reduction compared to GPU-based deployments. This study indicates the feasibility and affordability of cloud-based Deep Learning inference solutions without a GPU, benefiting resource-constrained users such as startups and small research groups.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2503.23988v2</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Elayne Lemos, Rodrigo Oliveira, Jairson Rodrigues, Rosalvo F. Oliveira Neto</dc:creator>
+    </item>
+    <item>
+      <title>FlowSpec: Continuous Pipelined Speculative Decoding for Efficient Distributed LLM Inference</title>
+      <link>https://arxiv.org/abs/2507.02620</link>
+      <description>arXiv:2507.02620v3 Announce Type: replace 
+Abstract: Distributed inference serves as a promising approach to enabling the inference of large language models (LLMs) at the network edge. It distributes the inference process to multiple devices to ensure that the LLMs can fit into the device memory. Recent pipeline-based approaches have the potential to parallelize communication and computation, which helps reduce inference latency. However, the benefit diminishes when the inference request at the network edge is sparse, where pipeline is typically at low utilization. To enable efficient distributed LLM inference at the edge, we propose \textbf{FlowSpec}, a pipeline-parallel tree-based speculative decoding framework. FlowSpec incorporates three key mechanisms to improve decoding efficiency: 1) score-based step-wise verification prioritizes more important draft tokens to bring earlier accepted tokens; 2) efficient draft management to prune invalid tokens while maintaining correct causal relationship during verification; 3) dynamic draft expansion strategies to supply high-quality speculative inputs. These techniques work in concert to enhance both pipeline utilization and speculative efficiency. We evaluate FlowSpec on a real-world testbed with other baselines. Experimental results demonstrate that our proposed framework significantly improves inference speed across diverse models and configurations, achieving speedup ratios 1.37$\times$-1.73$\times$ compared to baselines. Our code is publicly available at \href{https://github.com/Leosang-lx/FlowSpec#}{https://github.com/Leosang-lx/FlowSpec\#}.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2507.02620v3</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Xing Liu, Lizhuo Luo, Ming Tang, Chao Huang, Xu Chen</dc:creator>
+    </item>
+    <item>
+      <title>Hapax Locks : Value-Based Mutual Exclusion</title>
+      <link>https://arxiv.org/abs/2511.14608</link>
+      <description>arXiv:2511.14608v2 Announce Type: replace 
+Abstract: We present Hapax Locks, a novel locking algorithm that is simple, enjoys constant-time arrival and unlock paths, provides FIFO admission order, and which is also space efficient and generates relatively little coherence traffic under contention in the common case. Hapax Locks offer performance (both latency and scalability) that is comparable with the best state of the art locks, while at the same time Hapax Locks impose fewer constraints and dependencies on the ambient runtime environment, making them particularly easy to integrate or retrofit into existing systems or under existing application programming interfaces Of particular note, no pointers shift or escape ownership between threads in our algorithm.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.14608v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Dave Dice, Alex Kogan</dc:creator>
+    </item>
+    <item>
+      <title>MemFine: Memory-Aware Fine-Grained Scheduling for MoE Training</title>
+      <link>https://arxiv.org/abs/2511.21431</link>
+      <description>arXiv:2511.21431v3 Announce Type: replace 
+Abstract: The training of large-scale Mixture of Experts (MoE) models faces a critical memory bottleneck due to severe load imbalance caused by dynamic token routing. This imbalance leads to memory overflow on GPUs with limited capacity, constraining model scalability. Existing load balancing methods, which cap expert capacity, compromise model accuracy and fail on memory-constrained hardware. To address this, we propose MemFine, a memory-aware fine-grained scheduling framework for MoE training. MemFine decomposes the token distribution and expert computation into manageable chunks and employs a chunked recomputation strategy, dynamically optimized through a theoretical memory model to balance memory efficiency and throughput. Experiments demonstrate that MemFine reduces activation memory by 48.03% and improves throughput by 4.42% compared to full recomputation-based baselines, enabling stable large-scale MoE training on memory-limited GPUs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.21431v3</guid>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Lu Zhao, Rong Shi, Yue Sun, Shaoqing Zhang, Hongxing Niu, Yueqiang Chen, Baoguo He, Hongfeng Sun, Ziqing Yin, Shangchao Su, Zhiyan Cui, Liang Dong, Xiyuan Li, Lingbin Wang, Jianwei He, Jiesong Ma, Weikang Huang, Jianglei Tong, Dongdong Gao, Jian Zhang, Hong Tian, Hui Shen, Zongtai Luo, Zhaoqun Sun, Hongxing Niu, Yue Sun</dc:creator>
+    </item>
+    <item>
+      <title>Population Protocols Revisited: Parity and Beyond</title>
+      <link>https://arxiv.org/abs/2512.20163</link>
+      <description>arXiv:2512.20163v2 Announce Type: replace 
+Abstract: For nearly two decades, population protocols have been extensively studied, yielding efficient solutions for central problems in distributed computing, including leader election, and majority computation, a predicate type in Presburger Arithmetic closely tied to population protocols. Surprisingly, no protocols have achieved both time- and space-efficiency for congruency predicates, such as parity computation, which are complementary in this arithmetic framework. This gap highlights a significant challenge in the field. To address this gap, we explore the parity problem, where agents are tasked with computing the parity of the given sub-population size. Then we extend the solution for parity to compute congruences modulo an arbitrary $m$.
+  Previous research on efficient population protocols has focused on protocols that minimise both stabilisation time and state utilisation for specific problems. In contrast, this work slightly relaxes this expectation, permitting protocols to place less emphasis on full optimisation and more on universality, robustness, and probabilistic guarantees. This allows us to propose a novel computing paradigm that integrates population weights (or simply weights), a robust clocking mechanism, and efficient anomaly detection coupled with a switching mechanism (which ensures slow but always correct solutions). This paradigm facilitates universal design of efficient multistage stable population protocols. Specifically, the first efficient parity and congruence protocols introduced here use both $O(\log^3 n)$ states and achieve silent stabilisation in $O(\log^3 n)$ time. We conclude by discussing the impact of implicit conversion between unary and binary representations enabled by the weight system, with applications to other problems, including the computation and representation of (sub-)population sizes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.20163v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Leszek G\k{a}sieniec, Tytus Grodzicki, Tomasz Jurdzi\'nski, Jakub Kowalski, Grzegorz Stachowiak</dc:creator>
+    </item>
+    <item>
+      <title>Modern Middlewares for Automated Vehicles: A Tutorial</title>
+      <link>https://arxiv.org/abs/2412.07817</link>
+      <description>arXiv:2412.07817v2 Announce Type: replace-cross 
+Abstract: This paper offers a tutorial on current middlewares in automated vehicles. Our aim is to provide the reader with an overview of current middlewares and to identify open challenges in this field. We start by explaining the fundamentals of software architecture in distributed systems and the distinguishing requirements of Automated Vehicles. We then distinguish between communication middlewares and architecture platforms and highlight their key principles and differences. Next, we present five state-of-the-art middlewares as well as their capabilities and functions. We explore how these middlewares could be applied in the design of future vehicle software and their role in the automotive domain. Finally, we compare the five middlewares presented and discuss open research challenges.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2412.07817v2</guid>
+      <category>cs.SE</category>
+      <category>cs.DC</category>
+      <category>cs.RO</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1109/MITS.2026.3654011</arxiv:DOI>
+      <dc:creator>David Philipp Kl\"uner, Marius Molz, Alexandru Kampmann, Stefan Kowalewski, Bassam Alrifaee</dc:creator>
+    </item>
+    <item>
+      <title>Multi-dimensional Autoscaling of Processing Services: A Comparison of Agent-based Methods</title>
+      <link>https://arxiv.org/abs/2506.10420</link>
+      <description>arXiv:2506.10420v2 Announce Type: replace-cross 
+Abstract: Edge computing breaks with traditional autoscaling due to strict resource constraints, thus, motivating more flexible scaling behaviors using multiple elasticity dimensions. This work introduces an agent-based autoscaling framework that dynamically adjusts both hardware resources and internal service configurations to maximize requirements fulfillment in constrained environments. We compare four types of scaling agents: Active Inference, Deep Q Network, Analysis of Structural Knowledge, and Deep Active Inference, using two real-world processing services running in parallel: YOLOv8 for visual recognition and OpenCV for QR code detection. Results show all agents achieve acceptable SLO performance with varying convergence patterns. While the Deep Q Network benefits from pre-training, the structural analysis converges quickly, and the deep active inference agent combines theoretical foundations with practical scalability advantages. Our findings provide evidence for the viability of multi-dimensional agent-based autoscaling for edge environments and encourage future work in this research direction.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.10420v2</guid>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.ET</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Boris Sedlak, Alireza Furutanpey, Zihang Wang, V\'ictor Casamayor Pujol, Schahram Dustdar</dc:creator>
+    </item>
+    <item>
+      <title>Hierarchical Secure Aggregation with Heterogeneous Security Constraints and Arbitrary User Collusion</title>
+      <link>https://arxiv.org/abs/2507.14768</link>
+      <description>arXiv:2507.14768v2 Announce Type: replace-cross 
+Abstract: In hierarchical secure aggregation (HSA), a server communicates with clustered users through an intermediate layer of relays to compute the sum of users' inputs under two security requirements -- server security and relay security. Server security requires that the server learns nothing beyond the desired sum even when colluding with a subset of users, while relay security requires that each relay remains oblivious to the users' inputs under collusion. Existing work on HSA enforces homogeneous security where \tit{all} inputs must be protected against \tit{any} subset of potential colluding users with sizes up to a predefined threshold. Such a \homo formulation cannot capture scenarios with \tit{\het} \secty \reqs where \diff users may demand various levels of protection.
+  In this paper, we study hierarchical secure aggregation (HSA) with heterogeneous security requirements and arbitrary user collusion. Specifically, we consider scenarios where the inputs of certain groups of users must remain information-theoretically secure against inference by the server or any relay, even if the server or any relay colludes with an arbitrary subset of other users. Under server security, the server learns nothing about these protected inputs beyond the prescribed aggregate sum, despite any such collusion. Under relay security, each relay similarly obtains no information about the protected inputs under the same collusion model.
+  We characterize the optimal communication rates achievable across all layers for all parameter regimes. Furthermore, we study the minimum source keys required at the users to ensure security. For this source key requirement, we provide tight characterizations in two broad regimes determined by the security and collusion constraints, and establish a general information-theoretic lower bound together with a bounded-gap achievable scheme for the remaining regime.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2507.14768v2</guid>
+      <category>cs.IT</category>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>math.IT</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhou Li, Xiang Zhang, Jiawen Lv, Jihao Fan, Haiqiang Chen, Giuseppe Caire</dc:creator>
+    </item>
+    <item>
+      <title>Scalable hybrid quantum Monte Carlo simulation of U(1) gauge field coupled to fermions on GPU</title>
+      <link>https://arxiv.org/abs/2508.16298</link>
+      <description>arXiv:2508.16298v4 Announce Type: replace-cross 
+Abstract: We develop a GPU-accelerated hybrid quantum Monte Carlo (QMC) algorithm to solve the fundamental yet difficult problem of $U(1)$ gauge field coupled to fermions, which gives rise to a $U(1)$ Dirac spin liquid state under the description of (2+1)d quantum electrodynamics QED$_3$. The algorithm renders a good acceptance rate and, more importantly, nearly linear space-time volume scaling in computational complexity $O(N_{\tau} V_s)$, where $N_\tau$ is the imaginary time dimension and $V_s$ is spatial volume, which is much more efficient than determinant QMC with scaling behavior of $O(N_\tau V_s^3)$. Such acceleration is achieved via a collection of technical improvements, including (i) the design of the efficient problem-specific preconditioner, (ii) customized CUDA kernel for matrix-vector multiplication, and (iii) CUDA Graph implementation on the GPU. These advances allow us to simulate the $U(1)$ Dirac spin liquid state with unprecedentedly large system sizes, which is up to $N_\tau\times L\times L = 660\times66\times66$, and reveal its novel properties. With these technical improvements, we see the asymptotic convergence in the scaling dimensions of various fermion bilinear operators and the conserved current operator when approaching the thermodynamic limit. The scaling dimensions find good agreement with field-theoretical expectation, which provides supporting evidence for the conformal nature of the $U(1)$ Dirac spin liquid state in the QED$_3$. Our technical advancements open an avenue to study the Dirac spin liquid state and its transition towards symmetry-breaking phases at larger system sizes and with less computational burden.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.16298v4</guid>
+      <category>cond-mat.str-el</category>
+      <category>cs.DC</category>
+      <category>hep-th</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Kexin Feng, Chuang Chen, Zi Yang Meng</dc:creator>
+    </item>
+    <item>
+      <title>Paris: A Decentralized Trained Open-Weight Diffusion Model</title>
+      <link>https://arxiv.org/abs/2510.03434</link>
+      <description>arXiv:2510.03434v2 Announce Type: replace-cross 
+Abstract: We present Paris, the first publicly released diffusion model pre-trained entirely through decentralized computation. Paris demonstrates that high-quality text-to-image generation can be achieved without centrally coordinated infrastructure. Paris is open for research and commercial use. Paris required implementing our Distributed Diffusion Training framework from scratch. The model consists of 8 expert diffusion models (129M-605M parameters each) trained in complete isolation with no gradient, parameter, or intermediate activation synchronization. Rather than requiring synchronized gradient updates across thousands of GPUs, we partition data into semantically coherent clusters where each expert independently optimizes its subset while collectively approximating the full distribution. A lightweight transformer router dynamically selects appropriate experts at inference, achieving generation quality comparable to centrally coordinated baselines. Eliminating synchronization enables training on heterogeneous hardware without specialized interconnects. Empirical validation confirms that Paris's decentralized training maintains generation quality while removing the dedicated GPU cluster requirement for large-scale diffusion models. Paris achieves this using 14$\times$ less training data and 16$\times$ less compute than the prior decentralized baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.03434v2</guid>
+      <category>cs.GR</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zhiying Jiang, Raihan Seraj, Marcos Villagra, Bidhan Roy</dc:creator>
+    </item>
+    <item>
+      <title>A-3PO: Accelerating Asynchronous LLM Training with Staleness-aware Proximal Policy Approximation</title>
+      <link>https://arxiv.org/abs/2512.06547</link>
+      <description>arXiv:2512.06547v2 Announce Type: replace-cross 
+Abstract: Decoupled PPO has been a successful reinforcement learning (RL) algorithm to deal with the high data staleness under the asynchronous RL setting. Decoupled loss used in decoupled PPO improves coupled-loss style of algorithms' (e.g., standard PPO, GRPO) learning stability by introducing a proximal policy to decouple the off-policy correction (importance weight) from the policy update constraint (trust region). However, the proximal policy requires an extra forward pass through the model at each training step, creating a computational overhead for large language models training. We observe that since the proximal policy only serves as a trust region anchor between the behavior and target policies, we can approximate it through simple interpolation without explicit computation. We call this approach A-3PO (APproximated Proximal Policy Optimization). A-3PO eliminates this overhead, accelerating training by 1.8x speedup while maintaining comparable performance. Code \&amp; off-the-shelf example are available at: https://github.com/inclusionAI/AReaL/blob/main/docs/algorithms/prox_approx.md</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.06547v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Xiaocan Li, Shiliang Wu, Zheng Shen</dc:creator>
+    </item>
+    <item>
+      <title>Fail Fast, Win Big: Rethinking the Drafting Strategy in Speculative Decoding via Diffusion LLMs</title>
+      <link>https://arxiv.org/abs/2512.20573</link>
+      <description>arXiv:2512.20573v2 Announce Type: replace-cross 
+Abstract: Diffusion Large Language Models (dLLMs) offer fast, parallel token generation, but their standalone use is plagued by an inherent efficiency-quality tradeoff. We show that, if carefully applied, the attributes of dLLMs can actually be a strength for drafters in speculative decoding with autoregressive (AR) verifiers. Our core insight is that dLLM's speed from parallel decoding drastically lowers the risk of costly rejections, providing a practical mechanism to effectively realize the (elusive) lengthy drafts that lead to large speedups with speculative decoding. We present FailFast, a dLLM-based speculative decoding framework that realizes this approach by dynamically adapting its speculation length. It "fails fast" by spending minimal compute in hard-to-speculate regions to shrink speculation latency and "wins big" by aggressively extending draft lengths in easier regions to reduce verification latency (in many cases, speculating and accepting 70 tokens at a time!). Without any fine-tuning, FailFast delivers lossless acceleration of AR LLMs and achieves up to 4.9$\times$ speedup over vanilla decoding, 1.7$\times$ over the best naive dLLM drafter, and 2.0$\times$ over EAGLE-3 across diverse models and workloads. We open-source FailFast at https://github.com/ruipeterpan/failfast.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.20573v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Rui Pan, Zhuofu Chen, Hongyi Liu, Arvind Krishnamurthy, Ravi Netravali</dc:creator>
+    </item>
+    <item>
+      <title>Benchmarking Quantum Data Center Architectures: A Performance and Scalability Perspective</title>
+      <link>https://arxiv.org/abs/2601.01353</link>
+      <description>arXiv:2601.01353v2 Announce Type: replace-cross 
+Abstract: Scalable distributed quantum computing (DQC) has motivated the design of multiple quantum data-center (QDC) architectures that overcome the limitations of single quantum processors through modular interconnection. While these architectures adopt fundamentally different design philosophies, their relative performance under realistic quantum hardware constraints remains poorly understood.
+  In this paper, we present a systematic benchmarking study of four representative QDC architectures-QFly, BCube, Clos, and Fat-Tree-quantifying their impact on distributed quantum circuit execution latency, resource contention, and scalability. Focusing on quantum-specific effects absent from classical data-center evaluations, we analyze how optical-loss-induced Einstein-Podolsky-Rosen (EPR) pair generation delays, coherence-limited entanglement retry windows, and contention from teleportation-based non-local gates shape end-to-end execution performance. Across diverse circuit workloads, we evaluate how architectural properties such as path diversity and path length, and shared BSM (Bell State Measurement) resources interact with optical-switch insertion loss and reconfiguration delay. Our results show that distributed quantum performance is jointly shaped by topology, scheduling policies, and physical-layer parameters, and that these factors interact in nontrivial ways. Together, these insights provide quantitative guidance for the design of scalable and high-performance quantum data-center architectures for DQC.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.01353v2</guid>
+      <category>quant-ph</category>
+      <category>cs.DC</category>
+      <category>cs.NI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shahrooz Pouryousef, Eneet Kaur, Hassan Shapourian, Don Towsley, Ramana Kompella, Reza Nejabati</dc:creator>
+    </item>
+    <item>
+      <title>Deciding Serializability in Network Systems</title>
+      <link>https://arxiv.org/abs/2601.02251</link>
+      <description>arXiv:2601.02251v3 Announce Type: replace-cross 
+Abstract: We present the SER modeling language for automatically verifying serializability of concurrent programs, i.e., whether every concurrent execution of the program is equivalent to some serial execution. SER programs are suitably restricted to make this problem decidable, while still allowing for an unbounded number of concurrent threads of execution, each potentially running for an unbounded number of steps. Building on prior theoretical results, we give the first automated end-to-end decision procedure that either proves serializability by producing a checkable certificate, or refutes it by producing a counterexample trace. We also present a network-system abstraction to which SER programs compile. Our decision procedure then reduces serializability in this setting to a Petri net reachability query. Furthermore, in order to scale, we curtail the search space via multiple optimizations, including Petri net slicing, semilinear-set compression, and Presburger-formula manipulation. We extensively evaluate our framework and show that, despite the theoretical hardness of the problem, it can successfully handle various models of real-world programs, including stateful firewalls, BGP routers, and more.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.02251v3</guid>
+      <category>cs.FL</category>
+      <category>cs.DC</category>
+      <category>cs.LO</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Guy Amir, Mark Barbone, Nicolas Amat, Jules Jacobs</dc:creator>
+    </item>
+  </channel>
+</rss>
