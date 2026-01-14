@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Jan 2026 05:00:18 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Where to Split? A Pareto-Front Analysis of DNN Partitioning for Edge Inference</title>
+      <link>https://arxiv.org/abs/2601.08025</link>
+      <description>arXiv:2601.08025v1 Announce Type: new 
+Abstract: The deployment of deep neural networks (DNNs) on resource-constrained edge devices is frequently hindered by their significant computational and memory requirements. While partitioning and distributing a DNN across multiple devices is a well-established strategy to mitigate this challenge, prior research has largely focused on single-objective optimization, such as minimizing latency or maximizing throughput. This paper challenges that view by reframing DNN partitioning as a multi-objective optimization problem. We argue that in real-world scenarios, a complex trade-off between latency and throughput exists, which is further complicated by network variability. To address this, we introduce ParetoPipe, an open-source framework that leverages Pareto front analysis to systematically identify optimal partitioning strategies that balance these competing objectives.
+  Our contributions are threefold: we benchmark pipeline partitioned inference on a heterogeneous testbed of Raspberry Pis and a GPU-equipped edge server; we identify Pareto-optimal points to analyze the latency-throughput trade-off under varying network conditions; and we release a flexible, open-source framework to facilitate distributed inference and benchmarking. This toolchain features dual communication backends, PyTorch RPC and a custom lightweight implementation, to minimize overhead and support broad experimentation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08025v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Adiba Masud, Nicholas Foley, Pragathi Durga Rajarajan, Palden Lama</dc:creator>
+    </item>
+    <item>
+      <title>Hierarchical Precision and Recursion for Accelerating Symmetric Linear Solves on MXUs</title>
+      <link>https://arxiv.org/abs/2601.08082</link>
+      <description>arXiv:2601.08082v1 Announce Type: new 
+Abstract: Symmetric linear solves are fundamental to a wide range of scientific and engineering applications, from climate modeling and structural analysis to machine learning and optimization. These workloads often rely on Cholesky (POTRF) decomposition and its supporting operations, triangular solves (TRSM) and symmetric rank-k updates (SYRK), which together form the computational core for solving symmetric positive-definite systems. To accelerate these kernels, we present a portable, mixed-precision solver designed for Matrix Processing Units (MXUs), including NVIDIA Tensor Cores (H200) and AMD Matrix Cores (MI300X). Our algorithm builds on a nested recursive formulation in which Cholesky exposes parallelism through recursive decomposition of its TRSM and SYRK sub-problems. This structure yields a hierarchical recursion that maximizes GEMM throughput while enabling fine-grained control over numerical precision. We introduce a custom recursive data structure that assigns low-precision FP16 arithmetic to large off-diagonal blocks, while preserving high precision on diagonal blocks to ensure numerical stability. The solver is implemented in Julia, leveraging array programming, multiple dispatch, and dynamic type inference to enable seamless expression of mixed-precision computation. This design provides a high-level, hardware-agnostic interface while efficiently interfacing with low-level vendor libraries for backend portability. On H200, our recursive FP64 SYRK achieves a 14x speedup over cuBLAS, while mixed-precision delivers up to 27x speedup in SYRK and 5x in TRSM over full-precision baselines. This results in a 5x overall speedup for Cholesky versus cuSOLVER FP64, with 100x better accuracy than pure FP16 while retaining 88% of its peak speedup. Comparable performance and accuracy trends are observed on MI300X, demonstrating broad applicability across GPUs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08082v1</guid>
+      <category>cs.DC</category>
+      <category>cs.ET</category>
+      <category>cs.MS</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Vicki Carrica, Rabab Alomairy, Evelyne Ringoot, Alan Edelman</dc:creator>
+    </item>
+    <item>
+      <title>Matrix-PIC: Harnessing Matrix Outer-product for High-Performance Particle-in-Cell Simulations</title>
+      <link>https://arxiv.org/abs/2601.08277</link>
+      <description>arXiv:2601.08277v1 Announce Type: new 
+Abstract: Particle-in-Cell (PIC) simulations spend most of their execution time on particle--grid interactions, where fine-grained atomic updates become a major bottleneck on traditional many-core CPUs. Recent CPU architectures integrate specialized Matrix Processing Units (MPUs) that efficiently support matrix outer-product operations, offering new opportunities to overcome this limitation. Leveraging this architectural shift, this work focuses on redesigning the current deposition step of PIC simulations under a matrix-centric execution model.
+  We present MatrixPIC, the first holistic co-design of the deposition kernel, data layout, and incremental particle sorting tailored to the hybrid MPU--VPU SIMD model on modern CPUs. MatrixPIC introduces: (i)~a block-matrix formulation of the current deposition algorithm that maps naturally to MPU outer-product primitives; (ii)~a hybrid execution pipeline that combines MPU-based high-density accumulation with VPU-based data preparation and control flow; and (iii)~an $O(1)$-amortized incremental sorter based on a gapped packed-memory array to preserve data locality for efficient MPU execution.
+  Evaluated on a next-generation HPC platform, MatrixPIC achieves significant performance gains. In Laser-Wakefield Acceleration (LWFA) simulations, it delivers up to $2.63\times$ speedup in total runtime. For third-order deposition, the core kernel is accelerated by $8.7\times$ over the baseline and $2.0\times$ over the best hand-optimized VPU implementation. Moreover, MatrixPIC reaches $83.08\%$ of theoretical CPU peak performance, nearly $2.8\times$ higher than a highly optimized CUDA kernel on a data center GPU. These results demonstrate the effectiveness of matrix-oriented co-design for accelerating PIC simulations on emerging CPU architectures.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08277v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3767295.3769378</arxiv:DOI>
+      <dc:creator>Yizhuo Rao, Xingjian Cui, Jiabin Xie, Shangzhi Pang, Guangnan Feng, Jinhui Wei, Zhiguang Chen, Yutong Lu</dc:creator>
+    </item>
+    <item>
+      <title>Shifting the Sweet Spot: High-Performance Matrix-Free Method for High-Order Elasticity</title>
+      <link>https://arxiv.org/abs/2601.08374</link>
+      <description>arXiv:2601.08374v1 Announce Type: new 
+Abstract: In high-order finite element analysis for elasticity, matrix-free (PA) methods are a key technology for overcoming the memory bottleneck of traditional Full Assembly (FA). However, existing implementations fail to fully exploit the special structure of modern CPU architectures and tensor-product elements, causing their performance "sweet spot" to anomalously remain at the low order of $p \approx 2$, which severely limits the potential of high-order methods. To address this challenge, we design and implement a highly optimized PA operator within the MFEM framework, deeply integrated with a Geometric Multigrid (GMG) preconditioner. Our multi-level optimization strategy includes replacing the original $O(p^6)$ generic algorithm with an efficient $O(p^4)$ one based on tensor factorization, exploiting Voigt symmetry to reduce redundant computations for the elasticity problem, and employing macro-kernel fusion to enhance data locality and break the memory bandwidth bottleneck. Extensive experiments on mainstream x86 and ARM architectures demonstrate that our method successfully shifts the performance "sweet spot" to the higher-order region of $p \ge 6$. Compared to the MFEM baseline, the optimized core operator (kernel) achieves speedups of 7x to 83x, which translates to a 3.6x to 16.8x end-to-end performance improvement in the complete solution process. This paper provides a validated and efficient practical path for conducting large-scale, high-order elasticity simulations on mainstream CPU hardware.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08374v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Dali Chang, Chong Zhang, Kaiqi Zhang, Mingguan Yang, Huiyuan Li, Weiqiang Kong</dc:creator>
+    </item>
+    <item>
+      <title>MixServe: An Automatic Distributed Serving System for MoE Models with Hybrid Parallelism Based on Fused Communication Algorithm</title>
+      <link>https://arxiv.org/abs/2601.08800</link>
+      <description>arXiv:2601.08800v1 Announce Type: new 
+Abstract: The Mixture of Experts (MoE) models are emerging as the latest paradigm for Large Language Models (LLMs). However, due to memory constraints, MoE models with billions or even trillions of parameters can only be deployed in multi-GPU or even multi-node &amp; multi-GPU based serving systems. Thus, communication has became a major bottleneck in distributed serving systems, especially inter-node communication. Contemporary distributed MoE models are primarily implemented using all-reduce (AR) based tensor parallelism (TP) and all-to-all (A2A) based expert parallelism (EP). However, TP generally exhibits low inter-node efficiency and is thus confined to high-speed intra-node bandwidth. In contrast, EP tends to suffer from load imbalance, especially when the parallel degree is high.
+  In this work, we introduce MixServe, a novel automatic distributed serving system for efficient deployment of MoE models by a novel TP-EP hybrid parallelism based on fused AR-A2A communication algorithm. MixServe begins by evaluating the communication overhead associated with various parallel strategies, taking into account the model hyperparameters and the configurations of network and hardware resources, and then automatically selects the most efficient parallel strategy. Then, we propose the TP-EP hybrid parallelism based on fused AR-A2A communication algorithm that overlaps intra-node AR communication and inter-node A2A communication. Extensive experiments on DeepSeek-R1 and Qwen3 models demonstrate that MixServe achieves superior inference performance, with 1.08~3.80x acceleration in time to first token (TTFT), 1.03~1.66x acceleration in inter-token latency (ITL), and 5.2%~50.3% throughput improvement compared to existing approaches.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08800v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Bowen Zhou, Jinrui Jia, Wenhao He, Yong Zhang, Fang Dong</dc:creator>
+    </item>
+    <item>
+      <title>Coordinated Cooling and Compute Management for AI Datacenters</title>
+      <link>https://arxiv.org/abs/2601.08113</link>
+      <description>arXiv:2601.08113v1 Announce Type: cross 
+Abstract: The AI datacenters are currently being deployed on a large scale to support the training and deployment of power-intensive large-language models (LLMs). Extensive amount of computation and cooling required in datacenters increase concerns about the energy use and carbon emissions of AI datacenters. Although current state-of-the-art has examined the energy efficiency of LLM inference, most prior research focused on optimizing compute-side scheduling without considering thermal objectives or constraints. Since GPU-intensive inference generates substantial heat that can degrade datacenter performance, ignoring thermal effects can increase total energy consumption and reduce the efficiency of LLM serving. To fill this gap, we profile the characteristics of GPU servers under varying cooling and AI jobs, and develop a joint cooling and computing modeling approach for AI datacenters. Built upon such workload and thermal dynamics models, a novel hierarchical control framework is proposed to co-optimize computing and thermal management by identifying the optimal GPU parallelism, frequency (DVFS), and cooling control knobs. Using real Azure inference traces and detailed GPU profiling, our model balances serving latency and thermal constraints in AI datacenters while significantly improving AI datacenters' energy efficiency.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08113v1</guid>
+      <category>eess.SY</category>
+      <category>cs.DC</category>
+      <category>cs.SY</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Nardos Belay Abera, Yize Chen</dc:creator>
+    </item>
+    <item>
+      <title>Hierarchical Online-Scheduling for Energy-Efficient Split Inference with Progressive Transmission</title>
+      <link>https://arxiv.org/abs/2601.08135</link>
+      <description>arXiv:2601.08135v1 Announce Type: cross 
+Abstract: Device-edge collaborative inference with Deep Neural Networks (DNNs) faces fundamental trade-offs among accuracy, latency and energy consumption. Current scheduling exhibits two drawbacks: a granularity mismatch between coarse, task-level decisions and fine-grained, packet-level channel dynamics, and insufficient awareness of per-task complexity. Consequently, scheduling solely at the task level leads to inefficient resource utilization. This paper proposes a novel ENergy-ACcuracy Hierarchical optimization framework for split Inference, named ENACHI, that jointly optimizes task- and packet-level scheduling to maximize accuracy under energy and delay constraints. A two-tier Lyapunov-based framework is developed for ENACHI, with a progressive transmission technique further integrated to enhance adaptivity. At the task level, an outer drift-plus-penalty loop makes online decisions for DNN partitioning and bandwidth allocation, and establishes a reference power budget to manage the long-term energy-accuracy trade-off. At the packet level, an uncertainty-aware progressive transmission mechanism is employed to adaptively manage per-sample task complexity. This is integrated with a nested inner control loop implementing a novel reference-tracking policy, which dynamically adjusts per-slot transmit power to adapt to fluctuating channel conditions. Experiments on ImageNet dataset demonstrate that ENACHI outperforms state-of-the-art benchmarks under varying deadlines and bandwidths, achieving a 43.12\% gain in inference accuracy with a 62.13\% reduction in energy consumption under stringent deadlines, and exhibits high scalability by maintaining stable energy consumption in congested multi-user scenarios.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08135v1</guid>
+      <category>cs.NI</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zengzipeng Tang, Yuxuan Sun, Wei Chen, Jianwen Ding, Bo Ai, Yulin Shao</dc:creator>
+    </item>
+    <item>
+      <title>Improving Zero-shot ADL Recognition with Large Language Models through Event-based Context and Confidence</title>
+      <link>https://arxiv.org/abs/2601.08241</link>
+      <description>arXiv:2601.08241v1 Announce Type: cross 
+Abstract: Unobtrusive sensor-based recognition of Activities of Daily Living (ADLs) in smart homes by processing data collected from IoT sensing devices supports applications such as healthcare, safety, and energy management. Recent zero-shot methods based on Large Language Models (LLMs) have the advantage of removing the reliance on labeled ADL sensor data. However, existing approaches rely on time-based segmentation, which is poorly aligned with the contextual reasoning capabilities of LLMs. Moreover, existing approaches lack methods for estimating prediction confidence. This paper proposes to improve zero-shot ADL recognition with event-based segmentation and a novel method for estimating prediction confidence. Our experimental evaluation shows that event-based segmentation consistently outperforms time-based LLM approaches on complex, realistic datasets and surpasses supervised data-driven methods, even with relatively small LLMs (e.g., Gemma 3 27B). The proposed confidence measure effectively distinguishes correct from incorrect predictions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08241v1</guid>
+      <category>cs.CV</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Michele Fiori, Gabriele Civitarese, Marco Colussi, Claudio Bettini</dc:creator>
+    </item>
+    <item>
+      <title>Multivariate Polynomial Codes for Efficient Matrix Chain Multiplication in Distributed Systems</title>
+      <link>https://arxiv.org/abs/2601.08708</link>
+      <description>arXiv:2601.08708v1 Announce Type: cross 
+Abstract: We study the problem of computing matrix chain multiplications in a distributed computing cluster. In such systems, performance is often limited by the straggler problem, where the slowest worker dominates the overall computation latency. To resolve this issue, several coded computing strategies have been proposed, primarily focusing on the simplest case: the multiplication of two matrices. These approaches successfully alleviate the straggler effect, but they do so at the expense of higher computational complexity and increased storage needs at the workers. However, in many real-world applications, computations naturally involve long chains of matrix multiplications rather than just a single two-matrix product. Extending univariate polynomial coding to this setting has been shown to amplify the costs -- both computation and storage overheads grow significantly, limiting scalability. In this work, we propose two novel multivariate polynomial coding schemes specifically designed for matrix chain multiplication in distributed environments. Our results show that while multivariate codes introduce additional computational cost at the workers, they can dramatically reduce storage overhead compared to univariate extensions. This reveals a fundamental trade-off between computation and storage efficiency, and highlights the potential of multivariate codes as a practical solution for large-scale distributed linear algebra tasks.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08708v1</guid>
+      <category>cs.IT</category>
+      <category>cs.DC</category>
+      <category>math.IT</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jes\'us G\'omez-Vilardeb\`o</dc:creator>
+    </item>
+    <item>
+      <title>Optimal Deterministic Rendezvous in Labeled Lines</title>
+      <link>https://arxiv.org/abs/2505.04564</link>
+      <description>arXiv:2505.04564v2 Announce Type: replace 
+Abstract: In a rendezvous task, some mobile agents dispersed in a network have to gather at an arbitrary common site. We consider the rendezvous problem on the infinite labeled line, with $2$ agents, without communication, and a synchronous notion of time. Each node on the line is labeled with a unique positive integer. The initial distance between the agents is denoted by $D$. Time is divided into rounds and measured from the moment an agent first wakes up. We denote by $\tau$ the delay between the two agents' wake up times. If awake in a given round $T$, an agent at a node $v$ has three options: stay at the node $v$, take port $0$, or take port $1$. If it decides to stay, the agent will still be at node $v$ in round $T+1$. Otherwise, it will be at one of the two neighbors of $v$ on the infinite line, depending on the port it chose. The agents achieve rendezvous in $T$ rounds if they are at the same node in round $T$. We aim for a deterministic algorithm for this problem.
+  The problem was recently considered by Miller and Pelc [Distributed Computing 2025]. With $\ell_{\max}$ the largest label of the two starting nodes, they showed that no algorithm can guarantee rendezvous in $o(D \log^* \ell_{\max})$ rounds. The lower bound follows from a connection with the LOCAL model of distributed computing, and holds even if the agents are guaranteed simultaneous wake-up ($\tau = 0$) and are told their initial distance $D$. Miller and Pelc also gave an algorithm of optimal matching complexity $O(D \log^* \ell_{\max})$ when the agents know $D$, but only obtained the higher bound of $O(D^2 (\log^* \ell_{\max})^3)$ when $D$ is unknown to the agents.
+  We improve this complexity to a tight $O(D \log^* \ell_{\max})$. In fact, our algorithm achieves rendezvous in $O(D \log^* \ell_{\min})$ rounds, where $\ell_{\min}$ is the smallest label within distance $O(D)$ of the two starting positions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.04564v2</guid>
+      <category>cs.DC</category>
+      <category>cs.DS</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.4230/LIPIcs.STACS.2026.62 10.1145/3732772.3733537</arxiv:DOI>
+      <dc:creator>Yann Bourreau, Ananth Narayanan, Alexandre Nolin</dc:creator>
+    </item>
+    <item>
+      <title>Taming Cold Starts: Proactive Serverless Scheduling with Model Predictive Control</title>
+      <link>https://arxiv.org/abs/2508.07640</link>
+      <description>arXiv:2508.07640v2 Announce Type: replace 
+Abstract: Serverless computing has transformed cloud application deployment by introducing a fine-grained, event-driven execution model that abstracts away infrastructure management. Its on-demand nature makes it especially appealing for latency-sensitive and bursty workloads. However, the cold start problem, i.e., where the platform incurs significant delay when provisioning new containers, remains the Achilles' heel of such platforms.
+  This paper presents a predictive serverless scheduling framework based on Model Predictive Control to proactively mitigate cold starts, thereby improving end-to-end response time. By forecasting future invocations, the controller jointly optimizes container prewarming and request dispatching, improving latency while minimizing resource overhead.
+  We implement our approach on Apache OpenWhisk, deployed on a Kubernetes-based testbed. Experimental results using real-world function traces and synthetic workloads demonstrate that our method significantly outperforms state-of-the-art baselines, achieving up to 85% lower tail latency and a 34% reduction in resource usage.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.07640v2</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1109/MASCOTS67699.2025.11283271</arxiv:DOI>
+      <arxiv:journal_reference>33rd International Symposium on the Modeling, Analysis, and Simulation of Computer and Telecommunication System (MASCOTS 2025)</arxiv:journal_reference>
+      <dc:creator>Chanh Nguyen, Monowar Bhuyan, Erik Elmroth</dc:creator>
+    </item>
+    <item>
+      <title>Accelerating Bidiagonalization of Banded Matrices through Memory-Aware Bulge-Chasing on GPUs</title>
+      <link>https://arxiv.org/abs/2510.12705</link>
+      <description>arXiv:2510.12705v2 Announce Type: replace 
+Abstract: The reduction of a banded matrix to bidiagonal form is a critical step in the calculation of Singular Values, a cornerstone of scientific computing and AI. Although inherently parallel, this step has traditionally been considered unsuitable for GPUs due to its memory-bound nature. However, recent advances in GPU architectures, such as increased L1 memory per Streaming Multiprocessor or Compute Unit and larger L2 caches, have shifted this paradigm. In this work, we present the first GPU-accelerated algorithm for reducing a banded matrix to bidiagonal form, integrated into open-source software package NextLA.jl. Our algorithm builds on prior multicore CPU cache-efficient bulge chasing methods, adapted to modern GPU architecture to optimize throughput. Leveraging Julia's high-level array abstractions and KernelAbstractions, we implement a single function that is both hardware-agnostic and data-precision-aware, running efficiently across NVIDIA, AMD, Intel, and Apple Metal GPUs. We develop a hardware-aware performance model to guide tuning and identify key hyperparameters that govern optimal GPU performance for memory-bound workloads. We show that such workloads, when carefully optimized, can achieve substantial speed-ups on modern GPUs: our implementation outperforms multithreaded CPU libraries PLASMA and SLATE starting from matrix sizes as small as 1024 x 1024, and achieves over 100x speed-up on 32k x 32k matrices. Moreover, the algorithm's performance scales linearly with the matrix bandwidth, enabling efficient reduction of matrices with larger bandwidths - previously considered impractical.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.12705v2</guid>
+      <category>cs.DC</category>
+      <category>cs.MS</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Evelyne Ringoot, Rabab Alomairy, Alan Edelman</dc:creator>
+    </item>
+    <item>
+      <title>Hapax Locks : Value-Based Mutual Exclusion</title>
+      <link>https://arxiv.org/abs/2511.14608</link>
+      <description>arXiv:2511.14608v3 Announce Type: replace 
+Abstract: We present Hapax Locks, a novel locking algorithm that is simple, enjoys constant-time arrival and unlock paths, provides FIFO admission order, and which is also space efficient and generates relatively little coherence traffic under contention in the common case. Hapax Locks offer performance (both latency and scalability) that is comparable with the best state of the art locks, while at the same time Hapax Locks impose fewer constraints and dependencies on the ambient runtime environment, making them particularly easy to integrate or retrofit into existing systems or under existing application programming interfaces Of particular note, no pointers shift or escape ownership between threads in our algorithm.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.14608v3</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Dave Dice, Alex Kogan</dc:creator>
+    </item>
+    <item>
+      <title>MemFine: Memory-Aware Fine-Grained Scheduling for MoE Training</title>
+      <link>https://arxiv.org/abs/2511.21431</link>
+      <description>arXiv:2511.21431v4 Announce Type: replace 
+Abstract: The training of large-scale Mixture of Experts (MoE) models faces a critical memory bottleneck due to severe load imbalance caused by dynamic token routing. This imbalance leads to memory overflow on GPUs with limited capacity, constraining model scalability. Existing load balancing methods, which cap expert capacity, compromise model accuracy and fail on memory-constrained hardware. To address this, we propose MemFine, a memory-aware fine-grained scheduling framework for MoE training. MemFine decomposes the token distribution and expert computation into manageable chunks and employs a chunked recomputation strategy, dynamically optimized through a theoretical memory model to balance memory efficiency and throughput. Experiments demonstrate that MemFine reduces activation memory by 48.03% and improves throughput by 4.42% compared to full recomputation-based baselines, enabling stable large-scale MoE training on memory-limited GPUs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.21431v4</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Lu Zhao, Rong Shi, Shaoqing Zhang, Yueqiang Chen, Baoguo He, Hongfeng Sun, Ziqing Yin, Shangchao Su, Zhiyan Cui, Liang Dong, Xiyuan Li, Lingbin Wang, Jianwei He, Jiesong Ma, Weikang Huang, Jianglei Tong, Dongdong Gao, Jian Zhang, Hong Tian, Hui Shen, Zongtai Luo, Zhaoqun Sun, Hongxing Niu, Yue Sun</dc:creator>
+    </item>
+    <item>
+      <title>MegaFlow: Large-Scale Distributed Orchestration System for the Agentic Era</title>
+      <link>https://arxiv.org/abs/2601.07526</link>
+      <description>arXiv:2601.07526v2 Announce Type: replace 
+Abstract: The rapid development of interactive and autonomous AI systems signals our entry into the agentic era. Training and evaluating agents on complex agentic tasks such as software engineering and computer use requires not only efficient model computation but also sophisticated infrastructure capable of coordinating vast agent-environment interactions. However, no open-source infrastructure can effectively support large-scale training and evaluation on such complex agentic tasks. To address this challenge, we present MegaFlow, a large-scale distributed orchestration system that enables efficient scheduling, resource allocation, and fine-grained task management for agent-environment workloads. MegaFlow abstracts agent training infrastructure into three independent services (Model Service, Agent Service, and Environment Service) that interact through unified interfaces, enabling independent scaling and flexible resource allocation across diverse agent-environment configurations. In our agent training deployments, MegaFlow successfully orchestrates tens of thousands of concurrent agent tasks while maintaining high system stability and achieving efficient resource utilization. By enabling such large-scale agent training, MegaFlow addresses a critical infrastructure gap in the emerging agentic AI landscape.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.07526v2</guid>
+      <category>cs.DC</category>
+      <category>cs.SE</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Lei Zhang, Mouxiang Chen, Ruisheng Cao, Jiawei Chen, Fan Zhou, Yiheng Xu, Jiaxi Yang, Zeyao Ma, Liang Chen, Changwei Luo, Kai Zhang, Fan Yan, KaShun Shum, Jiajun Zhang, Zeyu Cui, Feng Hu, Junyang Lin, Binyuan Hui, Min Yang</dc:creator>
+    </item>
+    <item>
+      <title>Efficient and Scalable Implementation of Differentially Private Deep Learning without Shortcuts</title>
+      <link>https://arxiv.org/abs/2406.17298</link>
+      <description>arXiv:2406.17298v3 Announce Type: replace-cross 
+Abstract: Differentially private stochastic gradient descent (DP-SGD) is the standard algorithm for training machine learning models under differential privacy (DP). The most common DP-SGD privacy accountants rely on Poisson subsampling to ensure the theoretical DP guarantees. Implementing computationally efficient DP-SGD with Poisson subsampling is not trivial, which leads many implementations to taking a shortcut by using computationally faster subsampling. We quantify the computational cost of training deep learning models under DP by implementing and benchmarking efficient methods with the correct Poisson subsampling. We find that using the naive implementation of DP-SGD with Opacus in PyTorch has a throughput between 2.6 and 8 times lower than that of SGD. However, efficient gradient clipping implementations like Ghost Clipping can roughly halve this cost. We propose an alternative computationally efficient implementation of DP-SGD with JAX that uses Poisson subsampling and performs comparably with efficient clipping optimizations based on PyTorch. We study the scaling behavior using up to 80 GPUs and find that DP-SGD scales better than SGD. We share our library at https://github.com/DPBayes/Towards-Efficient-Scalable-Training-DP-DL.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2406.17298v3</guid>
+      <category>cs.LG</category>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Sebastian Rodriguez Beltran, Marlon Tobaben, Joonas J\"alk\"o, Niki Loppi, Antti Honkela</dc:creator>
+    </item>
+    <item>
+      <title>Incentivizing Multi-Tenant Split Federated Learning for Foundation Models at the Network Edge</title>
+      <link>https://arxiv.org/abs/2503.04971</link>
+      <description>arXiv:2503.04971v2 Announce Type: replace-cross 
+Abstract: Foundation models (FMs) such as GPT-4 exhibit exceptional generative capabilities across diverse downstream tasks through fine-tuning. Split Federated Learning (SFL) facilitates privacy-preserving FM fine-tuning on resource-constrained local devices by offloading partial FM computations to edge servers, enabling device-edge synergistic fine-tuning. Practical edge networks often host multiple SFL tenants to support diversified downstream tasks. However, existing research primarily focuses on single-tenant SFL scenarios, and lacks tailored incentive mechanisms for multi-tenant settings, which are essential to effectively coordinate self-interested local devices for participation in various downstream tasks, ensuring that each SFL tenant's distinct FM fine-tuning requirements (e.g., FM types, performance targets, and fine-tuning deadlines) are met. To address this gap, we propose a novel Price-Incentive Mechanism (PRINCE) that guides multiple SFL tenants to offer strategic price incentives, which solicit high-quality device participation for efficient FM fine-tuning. Specifically, we first develop a bias-resilient global SFL model aggregation scheme to eliminate model biases caused by independent device participation. We then derive a rigorous SFL convergence bound to evaluate the contributions of heterogeneous devices to FM performance improvements, guiding the incentive strategies of SFL tenants. Furthermore, we model inter-tenant device competition as a congestion game for Stackelberg equilibrium (SE) analysis, deriving each SFL tenant's optimal incentive strategy. Extensive simulations involving four representative SFL tenant types (ViT, BERT, Whisper, and LLaMA) across diverse data modalities (text, images, and audio) demonstrate that PRINCE accelerates FM fine-tuning by up to 3.07x compared to state-of-the-art approaches, while consistently meeting fine-tuning performance targets.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2503.04971v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.MA</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1109/TON.2026.3654114 10.1109/TON.2026.3654114https://doi.org/10.1109/TMC.2025.3647531</arxiv:DOI>
+      <dc:creator>Songyuan Li, Jia Hu, Geyong Min, Haojun Huang</dc:creator>
+    </item>
+    <item>
+      <title>SoK: Speedy Secure Finality</title>
+      <link>https://arxiv.org/abs/2512.20715</link>
+      <description>arXiv:2512.20715v2 Announce Type: replace-cross 
+Abstract: While Ethereum has successfully achieved dynamic availability together with safety, a fundamental delay remains between transaction execution and immutable finality. In Ethereum's current Gasper protocol, this latency is on the order of 15 minutes, exposing the network to ex ante reorganization attacks, enabling MEV extraction, and limiting the efficiency of economic settlement. These limitations have motivated a growing body of work on Speedy Secure Finality (SSF), which aims to minimize confirmation latency without weakening formal security guarantees.
+  This paper surveys the state of the art in fast finality protocol design. We introduce the core theoretical primitives underlying this space, including reorganization resilience and the generalized sleepy model, and trace their development from Goldfish to RLMD-GHOST. We then analyze the communication and aggregation bottlenecks faced by single-slot finality protocols in large validator settings. Finally, we survey the 3-slot finality (3SF) protocol as a practical synthesis that balances fast finality with the engineering constraints of the Ethereum network.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.20715v2</guid>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Yash Saraswat, Abhimanyu Nag</dc:creator>
+    </item>
+  </channel>
+</rss>

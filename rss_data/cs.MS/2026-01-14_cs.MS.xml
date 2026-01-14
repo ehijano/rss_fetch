@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.MS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.MS</link>
+    <description>cs.MS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.MS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Jan 2026 05:00:31 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Hierarchical Precision and Recursion for Accelerating Symmetric Linear Solves on MXUs</title>
+      <link>https://arxiv.org/abs/2601.08082</link>
+      <description>arXiv:2601.08082v1 Announce Type: cross 
+Abstract: Symmetric linear solves are fundamental to a wide range of scientific and engineering applications, from climate modeling and structural analysis to machine learning and optimization. These workloads often rely on Cholesky (POTRF) decomposition and its supporting operations, triangular solves (TRSM) and symmetric rank-k updates (SYRK), which together form the computational core for solving symmetric positive-definite systems. To accelerate these kernels, we present a portable, mixed-precision solver designed for Matrix Processing Units (MXUs), including NVIDIA Tensor Cores (H200) and AMD Matrix Cores (MI300X). Our algorithm builds on a nested recursive formulation in which Cholesky exposes parallelism through recursive decomposition of its TRSM and SYRK sub-problems. This structure yields a hierarchical recursion that maximizes GEMM throughput while enabling fine-grained control over numerical precision. We introduce a custom recursive data structure that assigns low-precision FP16 arithmetic to large off-diagonal blocks, while preserving high precision on diagonal blocks to ensure numerical stability. The solver is implemented in Julia, leveraging array programming, multiple dispatch, and dynamic type inference to enable seamless expression of mixed-precision computation. This design provides a high-level, hardware-agnostic interface while efficiently interfacing with low-level vendor libraries for backend portability. On H200, our recursive FP64 SYRK achieves a 14x speedup over cuBLAS, while mixed-precision delivers up to 27x speedup in SYRK and 5x in TRSM over full-precision baselines. This results in a 5x overall speedup for Cholesky versus cuSOLVER FP64, with 100x better accuracy than pure FP16 while retaining 88% of its peak speedup. Comparable performance and accuracy trends are observed on MI300X, demonstrating broad applicability across GPUs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08082v1</guid>
+      <category>cs.DC</category>
+      <category>cs.ET</category>
+      <category>cs.MS</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Vicki Carrica, Rabab Alomairy, Evelyne Ringoot, Alan Edelman</dc:creator>
+    </item>
+    <item>
+      <title>Accelerating Bidiagonalization of Banded Matrices through Memory-Aware Bulge-Chasing on GPUs</title>
+      <link>https://arxiv.org/abs/2510.12705</link>
+      <description>arXiv:2510.12705v2 Announce Type: replace-cross 
+Abstract: The reduction of a banded matrix to bidiagonal form is a critical step in the calculation of Singular Values, a cornerstone of scientific computing and AI. Although inherently parallel, this step has traditionally been considered unsuitable for GPUs due to its memory-bound nature. However, recent advances in GPU architectures, such as increased L1 memory per Streaming Multiprocessor or Compute Unit and larger L2 caches, have shifted this paradigm. In this work, we present the first GPU-accelerated algorithm for reducing a banded matrix to bidiagonal form, integrated into open-source software package NextLA.jl. Our algorithm builds on prior multicore CPU cache-efficient bulge chasing methods, adapted to modern GPU architecture to optimize throughput. Leveraging Julia's high-level array abstractions and KernelAbstractions, we implement a single function that is both hardware-agnostic and data-precision-aware, running efficiently across NVIDIA, AMD, Intel, and Apple Metal GPUs. We develop a hardware-aware performance model to guide tuning and identify key hyperparameters that govern optimal GPU performance for memory-bound workloads. We show that such workloads, when carefully optimized, can achieve substantial speed-ups on modern GPUs: our implementation outperforms multithreaded CPU libraries PLASMA and SLATE starting from matrix sizes as small as 1024 x 1024, and achieves over 100x speed-up on 32k x 32k matrices. Moreover, the algorithm's performance scales linearly with the matrix bandwidth, enabling efficient reduction of matrices with larger bandwidths - previously considered impractical.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.12705v2</guid>
+      <category>cs.DC</category>
+      <category>cs.MS</category>
+      <pubDate>Wed, 14 Jan 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Evelyne Ringoot, Rabab Alomairy, Alan Edelman</dc:creator>
+    </item>
+  </channel>
+</rss>
