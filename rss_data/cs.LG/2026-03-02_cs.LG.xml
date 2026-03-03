@@ -7,7 +7,7 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.LG" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Mar 2026 05:00:03 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2026 04:37:02 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Mon, 02 Mar 2026 00:00:00 -0500</pubDate>
     <skipDays>
@@ -56,9 +56,9 @@ Abstract: Quantum machine learning models using angle encoding naturally represe
     <item>
       <title>Brain-OF: An Omnifunctional Foundation Model for fMRI, EEG and MEG</title>
       <link>https://arxiv.org/abs/2602.23410</link>
-      <description>arXiv:2602.23410v1 Announce Type: new 
-Abstract: Brain foundation models have achieved remarkable advances across a wide range of neuroscience tasks. However, most existing models are limited to a single functional modality, restricting their ability to exploit complementary spatiotemporal dynamics and the collective data scale across imaging techniques. To address this limitation, we propose Brain-OF, the first omnifunctional brain foundation model jointly pretrained on fMRI, EEG and MEG, capable of handling both unimodal and multimodal inputs within a unified framework. To reconcile heterogeneous spatiotemporal resolutions, we introduce the Any-Resolution Neural Signal Sampler, which projects diverse brain signals into a shared semantic space.To further manage semantic shifts, the Brain-OF backbone integrates DINT attention with a Sparse Mixture of Experts, where shared experts capture modality-invariant representations and routed experts specialize in modality-specific semantics. Furthermore, we propose Masked Temporal-Frequency Modeling, a dual-domain pretraining objective that jointly reconstructs brain signals in both the time and frequency domains. Brain-OF is pretrained on a large-scale corpus comprising around 40 datasets and demonstrates superior performance across diverse downstream tasks, highlighting the benefits of joint multimodal integration and dual-domain pretraining.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.23410v1</guid>
+      <description>arXiv:2602.23410v2 Announce Type: new 
+Abstract: Brain foundation models have achieved remarkable advances across a wide range of neuroscience tasks. However, most existing models are limited to a single functional modality, restricting their ability to exploit complementary spatiotemporal dynamics and the collective data scale across imaging techniques. To address this limitation, we propose Brain-OF, the first omnifunctional brain foundation model jointly pretrained on fMRI, EEG and MEG, capable of handling both unimodal and multimodal inputs within a unified framework. To reconcile heterogeneous spatiotemporal resolutions, we introduce the Any-Resolution Neural Signal Sampler, which projects diverse brain signals into a shared semantic space. To further manage semantic shifts, the Brain-OF backbone integrates DINT attention with a Sparse Mixture of Experts, where shared experts capture modality-invariant representations and routed experts specialize in modality-specific semantics. Furthermore, we propose Masked Temporal-Frequency Modeling, a dual-domain pretraining objective that jointly reconstructs brain signals in both the time and frequency domains. Brain-OF is pretrained on a large-scale corpus comprising around 40 datasets and demonstrates superior performance across diverse downstream tasks, highlighting the benefits of joint multimodal integration and dual-domain pretraining.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.23410v2</guid>
       <category>cs.LG</category>
       <category>cs.AI</category>
       <category>eess.SP</category>
@@ -347,9 +347,11 @@ Abstract: Multi-mode tensor time series (TTS) can be found in many domains, such
     <item>
       <title>Optimizer-Induced Low-Dimensional Drift and Transverse Dynamics in Transformer Training</title>
       <link>https://arxiv.org/abs/2602.23696</link>
-      <description>arXiv:2602.23696v1 Announce Type: new 
-Abstract: We study the geometry of training trajectories in small transformer models and find that parameter updates organize into a dominant drift direction with transverse residual dynamics. Using uncentered, row-normalized trajectory PCA, we show that a single direction captures a large fraction of cumulative parameter movement early in training, while remaining components encode oscillatory behavior in auxiliary probe performance. Instantaneous gradients exhibit little alignment with this dominant direction, indicating that it arises from accumulated optimizer updates rather than per-batch gradient structure. Comparing AdamW with SGD variants at matched loss levels reveals substantial differences in trajectory geometry: AdamW develops multi-dimensional drift structure, whereas SGD-family optimizers produce nearly colinear parameter evolution and weaker probe dynamics. Reheating selectively perturbs transverse components with minimal effect on the dominant drift coordinate. These findings suggest that optimizer choice shapes the effective dimensionality and structure of learning trajectories beyond what is apparent from loss values alone.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.23696v1</guid>
+      <description>arXiv:2602.23696v2 Announce Type: new 
+Abstract: We analyze cumulative parameter trajectories of transformer training under AdamW and identify a dominant low-dimensional drift direction ("backbone") that captures 60--80% of long-horizon displacement from initialization. This direction is highly stable over rolling training windows yet reorients gradually across phases, particularly following objective reweighting. Per-batch gradients exhibit near-noise-floor alignment with the backbone, whereas optimizer-integrated updates align strongly with it, indicating that the structure emerges from accumulated optimizer dynamics rather than instantaneous gradient geometry.
+  Replacing AdamW with SGD-family optimizers eliminates this structure, and reducing $\beta_2$ smoothly degrades backbone dominance and reheating recoverability. Reheating experiments show that transverse probe modes can be transiently re-excited without substantially altering accumulated backbone drift.
+  These results provide a trajectory-level characterization of optimizer-induced geometric structure in transformer training and shift attention from instantaneous gradient properties to cumulative update dynamics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.23696v2</guid>
       <category>cs.LG</category>
       <category>cs.AI</category>
       <pubDate>Mon, 02 Mar 2026 00:00:00 -0500</pubDate>
@@ -438,9 +440,9 @@ Abstract: The performance of search algorithms for grid-based pathfinding, e.g. 
     <item>
       <title>GRAIL: Post-hoc Compensation by Linear Reconstruction for Compressed Networks</title>
       <link>https://arxiv.org/abs/2602.23795</link>
-      <description>arXiv:2602.23795v1 Announce Type: new 
-Abstract: Structured deep model compression methods are hardware-friendly and substantially reduce memory and inference costs. However, under aggressive compression, the resulting accuracy degradation often necessitates post-compression finetuning, which can be impractical due to missing labeled data or high training cost. We propose post-hoc blockwise compensation, called GRAIL, a simple zero-finetuning step applied after model compression that restores each block's input-output behavior using a small calibration set. The method summarizes hidden activations via a Gram matrix and applies ridge regression to linearly reconstruct the original hidden representation from the reduced one. The resulting reconstruction map is absorbed into the downstream projection weights, while the upstream layer is compressed. The approach is selector-agnostic (Magnitude, Wanda, Gram-based selection, or folding), data-aware (requiring only a few forward passes without gradients or labels), and recovers classic pruning or folding when the Gram matrix is near identity, indicating weak inter-channel correlations. Across ResNets, ViTs, and decoder-only LLMs, GRAIL consistently improves accuracy or perplexity over data-free and data-aware pruning or folding baselines in practical compression regimes, with manageable overhead and no backpropagation. The code is available at https://github.com/TWWinde/GRAIL.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.23795v1</guid>
+      <description>arXiv:2602.23795v2 Announce Type: new 
+Abstract: Structured deep model compression methods are hardware-friendly and substantially reduce memory and inference costs. However, under aggressive compression, the resulting accuracy degradation often necessitates post-compression finetuning, which can be impractical due to missing labeled data or high training cost. We propose post-hoc blockwise compensation, called GRAIL, a simple zero-finetuning step applied after model compression that restores each block's input-output behavior using a small calibration set. The method summarizes hidden activations via a Gram matrix and applies ridge regression to linearly reconstruct the original hidden representation from the reduced one. The resulting reconstruction map is absorbed into the downstream projection weights, while the upstream layer is compressed. The approach is selector-agnostic (Magnitude, Wanda, Gram-based selection, or folding), data-aware (requiring only a few forward passes without gradients or labels), and recovers classic pruning or folding when the Gram matrix is near identity, indicating weak inter-channel correlations. Across ResNets, ViTs, and decoder-only LLMs, GRAIL consistently improves accuracy or perplexity over data-free and data-aware pruning or folding baselines in practical compression regimes, with manageable overhead and no backpropagation. The code is available at https://github.com/TWWinde/GRAIL_Compensation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.23795v2</guid>
       <category>cs.LG</category>
       <pubDate>Mon, 02 Mar 2026 00:00:00 -0500</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
@@ -1119,9 +1121,9 @@ Abstract: Deep generative models (DGMs) compress high-dimensional data but often
     <item>
       <title>V-MORALS: Visual Morse Graph-Aided Estimation of Regions of Attraction in a Learned Latent Space</title>
       <link>https://arxiv.org/abs/2602.23524</link>
-      <description>arXiv:2602.23524v1 Announce Type: cross 
-Abstract: Reachability analysis has become increasingly important in robotics to distinguish safe from unsafe states. Unfortunately, existing reachability and safety analysis methods often fall short, as they typically require known system dynamics or large datasets to estimate accurate system models, are computationally expensive, and assume full state information. A recent method, called MORALS, aims to address these shortcomings by using topological tools to estimate3DR-eEgnciodnesr of Attraction (ROA) in a low-dimensional latent space. However, MORALS still relies on full state knowledge and has not been studied when only sensor measurements are available. This paper presents Visual Morse Graph-Aided Estimation of Regions of Attraction in a Learned Latent Space (V- MORALS). V-MORALS takes in a dataset of image-based trajectories of a system under a given controller, and learns a latent space for reachability analysis. Using this learned latent space, our method is able to generate well-defined Morse Graphs, from which we can compute ROAs for various systems and controllers. V-MORALS provides capabilities similar to the original MORALS architecture without relying on state knowledge, and using only high-level sensor data. Our project website is at: https://v-morals.onrender.com.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.23524v1</guid>
+      <description>arXiv:2602.23524v2 Announce Type: cross 
+Abstract: Reachability analysis has become increasingly important in robotics to distinguish safe from unsafe states. Unfortunately, existing reachability and safety analysis methods often fall short, as they typically require known system dynamics or large datasets to estimate accurate system models, are computationally expensive, and assume full state information. A recent method, called MORALS, aims to address these shortcomings by using topological tools to estimate Regions of Attraction (ROA) in a low-dimensional latent space. However, MORALS still relies on full state knowledge and has not been studied when only sensor measurements are available. This paper presents Visual Morse Graph-Aided Estimation of Regions of Attraction in a Learned Latent Space (V-MORALS). V-MORALS takes in a dataset of image-based trajectories of a system under a given controller, and learns a latent space for reachability analysis. Using this learned latent space, our method is able to generate well-defined Morse Graphs, from which we can compute ROAs for various systems and controllers. V-MORALS provides capabilities similar to the original MORALS architecture without relying on state knowledge, and using only high-level sensor data. Our project website is at: https://v-morals.onrender.com.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.23524v2</guid>
       <category>cs.RO</category>
       <category>cs.CV</category>
       <category>cs.LG</category>
@@ -1282,9 +1284,9 @@ Abstract: Algorithmic decisions about individuals require predictions that are n
     <item>
       <title>Multivariate Spatio-Temporal Neural Hawkes Processes</title>
       <link>https://arxiv.org/abs/2602.23629</link>
-      <description>arXiv:2602.23629v1 Announce Type: cross 
+      <description>arXiv:2602.23629v2 Announce Type: cross 
 Abstract: We propose a Multivariate Spatio-Temporal Neural Hawkes Process for modeling complex multivariate event data with spatio-temporal dynamics. The proposed model extends continuous-time neural Hawkes processes by integrating spatial information into latent state evolution through learned temporal and spatial decay dynamics, enabling flexible modeling of excitation and inhibition without predefined triggering kernels. By analyzing fitted intensity functions of deep learning-based temporal Hawkes process models, we identify a modeling gap in how fitted intensity behavior is captured beyond likelihood-based performance, which motivates the proposed spatio-temporal approach. Simulation studies show that the proposed method successfully recovers sensible temporal and spatial intensity structure in multivariate spatio-temporal point patterns, while existing temporal neural Hawkes process approach fails to do so. An application to terrorism data from Pakistan further demonstrates the proposed model's ability to capture complex spatio-temporal interaction across multiple event types.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.23629v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2602.23629v2</guid>
       <category>stat.ML</category>
       <category>cs.LG</category>
       <category>math.ST</category>
@@ -1593,9 +1595,9 @@ Abstract: Protein function relies on dynamic conformational ensembles, yet curre
     <item>
       <title>Jailbreak Foundry: From Papers to Runnable Attacks for Reproducible Benchmarking</title>
       <link>https://arxiv.org/abs/2602.24009</link>
-      <description>arXiv:2602.24009v1 Announce Type: cross 
+      <description>arXiv:2602.24009v2 Announce Type: cross 
 Abstract: Jailbreak techniques for large language models (LLMs) evolve faster than benchmarks, making robustness estimates stale and difficult to compare across papers due to drift in datasets, harnesses, and judging protocols. We introduce JAILBREAK FOUNDRY (JBF), a system that addresses this gap via a multi-agent workflow to translate jailbreak papers into executable modules for immediate evaluation within a unified harness. JBF features three core components: (i) JBF-LIB for shared contracts and reusable utilities; (ii) JBF-FORGE for the multi-agent paper-to-module translation; and (iii) JBF-EVAL for standardizing evaluations. Across 30 reproduced attacks, JBF achieves high fidelity with a mean (reproduced-reported) attack success rate (ASR) deviation of +0.26 percentage points. By leveraging shared infrastructure, JBF reduces attack-specific implementation code by nearly half relative to original repositories and achieves an 82.5% mean reused-code ratio. This system enables a standardized AdvBench evaluation of all 30 attacks across 10 victim models using a consistent GPT-4o judge. By automating both attack integration and standardized evaluation, JBF offers a scalable solution for creating living benchmarks that keep pace with the rapidly shifting security landscape.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.24009v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2602.24009v2</guid>
       <category>cs.CR</category>
       <category>cs.AI</category>
       <category>cs.CL</category>
@@ -2131,9 +2133,9 @@ Abstract: Sparse attention mechanisms aim to reduce computational overhead with 
     <item>
       <title>PAPN: Proximity Attention Encoder and Pointer Network Decoder for Parcel Pickup Route Prediction</title>
       <link>https://arxiv.org/abs/2505.03776</link>
-      <description>arXiv:2505.03776v2 Announce Type: replace 
+      <description>arXiv:2505.03776v3 Announce Type: replace 
 Abstract: Optimization of the last-mile delivery and first-mile pickup of parcels is integral to the logistics optimization pipeline as it entails both cost and resource efficiency and a heightened service quality. Such optimization requires accurate route and time prediction systems to adapt to different scenarios in advance. This work tackles the first building block, namely route prediction. The novel Proximity Attention (PA) mechanism is coupled to a Pointer Network (PN) decoder to leverage the underlying connections between the different visitable pickup positions at each timestep of the parcel pickup process. This local attention is coupled with global context computing via a multi-head attention transformer encoder. Both attentions are then mixed for complete and comprehensive modeling of the problems. PA is also used in the decoding process to skew predictions towards the locations with the highest visit likeliness, thus using inter-connectivity of nodes for next-location prediction. This method is trained, validated and tested on a large industry-level dataset of real-world, last-mile delivery and first-mile pickup named LaDE (2024). This approach outperforms all state-of-the-art supervised methods in terms of most metrics used for benchmarking on this dataset while still being competitive with the best-performing reinforcement learning framework named DRL4Route (2023).</description>
-      <guid isPermaLink="false">oai:arXiv.org:2505.03776v2</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2505.03776v3</guid>
       <category>cs.LG</category>
       <pubDate>Mon, 02 Mar 2026 00:00:00 -0500</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
@@ -2236,9 +2238,9 @@ Abstract: Adapting generative Multimodal Large Language Models (MLLMs) into univ
     <item>
       <title>DisTaC: Conditioning Task Vectors via Distillation for Robust Model Merging</title>
       <link>https://arxiv.org/abs/2508.01148</link>
-      <description>arXiv:2508.01148v2 Announce Type: replace 
+      <description>arXiv:2508.01148v3 Announce Type: replace 
 Abstract: Model merging has emerged as an efficient and flexible paradigm for multi-task learning, with numerous methods being proposed in recent years. However, these state-of-the-art techniques are typically evaluated on benchmark suites that are highly favorable to model merging, and their robustness in more realistic settings remains largely unexplored. In this work, we first investigate the vulnerabilities of model-merging methods and pinpoint the source-model characteristics that critically underlie them. Specifically, we identify two factors that are particularly harmful to the merging process: (1) disparities in task vector norms, and (2) the low confidence of the source models. To address this issue, we propose DisTaC (Distillation for Task vector Conditioning), a novel method that pre-conditions these problematic task vectors before the merge. DisTaC leverages knowledge distillation to adjust a task vector's norm and increase source-model confidence while preserving its essential task-specific knowledge. Our extensive experiments demonstrate that by pre-conditioning task vectors with DisTaC, state-of-the-art merging techniques can successfully integrate models exhibiting the harmful traits -- where they would otherwise fail -- achieving significant performance gains.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.01148v2</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2508.01148v3</guid>
       <category>cs.LG</category>
       <pubDate>Mon, 02 Mar 2026 00:00:00 -0500</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
@@ -2298,9 +2300,9 @@ Abstract: Real-world forecasting requires models to integrate not only historica
     <item>
       <title>Federated Nonlinear System Identification</title>
       <link>https://arxiv.org/abs/2508.15025</link>
-      <description>arXiv:2508.15025v3 Announce Type: replace 
+      <description>arXiv:2508.15025v4 Announce Type: replace 
 Abstract: We consider federated learning of linearly-parameterized nonlinear systems. We establish theoretical guarantees on the effectiveness of federated nonlinear system identification compared to centralized approaches, demonstrating that the convergence rate improves as the number of clients increases. Although the convergence rates in the linear and nonlinear cases differ only by a constant, this constant depends on the feature map $\phi$, which can be carefully chosen in the nonlinear setting to increase excitation and improve performance. We experimentally validate our theory in physical settings where client devices are driven by i.i.d. control inputs and control policies exhibiting i.i.d. random perturbations, ensuring non-active exploration. Experiments use trajectories from nonlinear dynamical systems characterized by real-analytic feature functions, including polynomial and trigonometric components, representative of physical systems including pendulum and quadrotor dynamics. We analyze the convergence behavior of the proposed method under varying noise levels and data distributions. Results show that federated learning consistently improves convergence of any individual client as the number of participating clients increases.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.15025v3</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2508.15025v4</guid>
       <category>cs.LG</category>
       <category>cs.SY</category>
       <category>eess.SY</category>
@@ -2839,15 +2841,15 @@ Abstract: Modern offline Reinforcement Learning (RL) methods find performant act
     <item>
       <title>Capabilities Ain't All You Need: Measuring Propensities in AI</title>
       <link>https://arxiv.org/abs/2602.18182</link>
-      <description>arXiv:2602.18182v3 Announce Type: replace 
+      <description>arXiv:2602.18182v4 Announce Type: replace 
 Abstract: AI evaluation has primarily focused on measuring capabilities, with formal approaches inspired from Item Response Theory (IRT) being increasingly applied. Yet propensities - the tendencies of models to exhibit particular behaviours - play a central role in determining both performance and safety outcomes. However, traditional IRT describes a model's success on a task as a monotonic function of model capabilities and task demands, an approach unsuited to propensities, where both excess and deficiency can be problematic. Here, we introduce the first formal framework for measuring AI propensities by using a bilogistic formulation for model success, which attributes high success probability when the model's propensity is within an "ideal band". Further, we estimate the limits of the ideal band using LLMs equipped with newly developed task-agnostic rubrics. Applying our framework to six families of LLM models whose propensities are incited in either direction, we find that we can measure how much the propensity is shifted and what effect this has on the tasks. Critically, propensities estimated using one benchmark successfully predict behaviour on held-out tasks. Moreover, we obtain stronger predictive power when combining propensities and capabilities than either separately. More broadly, our framework showcases how rigorous propensity measurements can be conducted and how it yields gains over solely using capability evaluations to predict AI behaviour.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.18182v3</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2602.18182v4</guid>
       <category>cs.LG</category>
       <category>cs.AI</category>
       <pubDate>Mon, 02 Mar 2026 00:00:00 -0500</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Daniel Romero-Alvarado, Fernando Mart\'inez-Plumed, Lorenzo Pacchiardi, Hugo Save, Siddhesh Milind Pawar, Behzad Mehrbakhsh, Pablo Antonio Moreno Casares, Ben Slater, Paolo Bova, Peter Romero, Zachary R. Tyler, Jonathan Prunty, Luning Sun, Jose Hernandez-Orallo</dc:creator>
+      <dc:creator>Daniel Romero-Alvarado, Fernando Mart\'inez-Plumed, Lorenzo Pacchiardi, Hugo Save, Siddhesh Milind Pawar, Behzad Mehrbakhsh, Pablo Antonio Moreno Casares, Ben Slater, Paolo Bova, Peter Romero, Zachary R. Tidler, Jonathan Prunty, Luning Sun, Jose Hernandez-Orallo</dc:creator>
     </item>
     <item>
       <title>Exponential Convergence of (Stochastic) Gradient Descent for Separable Logistic Regression</title>
@@ -3326,9 +3328,9 @@ Abstract: Effective robotic systems for long-horizon human-robot collaboration m
     <item>
       <title>CLIFF: Continual Learning for Incremental Flake Features in 2D Material Identification</title>
       <link>https://arxiv.org/abs/2508.17261</link>
-      <description>arXiv:2508.17261v2 Announce Type: replace-cross 
-Abstract: Identifying quantum flakes is crucial for scalable quantum hardware; however, automated layer classification from optical microscopy remains challenging due to substantial appearance shifts across different materials. In this paper, we propose a new Continual-Learning Framework for Flake Layer Classification (CLIFF). To our knowledge, this is the first systematic study of continual learning in the domain of two-dimensional (2D) materials. Our method enables the model to differentiate between materials and their physical and optical properties by freezing a backbone and base head trained on a reference material. For each new material, it learns a material-specific prompt, embedding, and a delta head. A prompt pool and a cosine-similarity gate modulate features and compute material-specific corrections. Additionally, we incorporate memory replay with knowledge distillation. CLIFF achieves competitive accuracy with significantly lower forgetting than naive fine-tuning and a prompt-based baseline.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2508.17261v2</guid>
+      <description>arXiv:2508.17261v3 Announce Type: replace-cross 
+Abstract: Identifying quantum flakes is crucial for scalable quantum hardware; however, automated layer classification from optical microscopy remains challenging due to substantial appearance shifts across different materials. This paper proposes a new Continual-Learning Framework for Flake Layer Classification (CLIFF). To the best of our knowledge, this work represents the first systematic study of continual learning in two-dimensional (2D) materials. The proposed framework enables the model to distinguish materials and their physical and optical properties by freezing the backbone and base head, which are trained on a reference material. For each new material, it learns a material-specific prompt, embedding, and a delta head. A prompt pool and a cosine-similarity gate modulate features and compute material-specific corrections. Additionally, memory replay with knowledge distillation is incorporated. CLIFF achieves competitive accuracy with significantly lower forgetting than naive fine-tuning and a prompt-based baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.17261v3</guid>
       <category>cs.CV</category>
       <category>cs.LG</category>
       <pubDate>Mon, 02 Mar 2026 00:00:00 -0500</pubDate>
