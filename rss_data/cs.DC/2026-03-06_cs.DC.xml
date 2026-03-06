@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Mar 2026 05:00:10 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>AMV-L: Lifecycle-Managed Agent Memory for Tail-Latency Control in Long-Running LLM Systems</title>
+      <link>https://arxiv.org/abs/2603.04443</link>
+      <description>arXiv:2603.04443v1 Announce Type: new 
+Abstract: Long-running LLM agents require persistent memory to preserve state across interactions, yet most deployed systems manage memory with age-based retention (e.g., TTL). While TTL bounds item lifetime, it does not bound the computational footprint of memory on the request path: as retained items accumulate, retrieval candidate sets and vector similarity scans can grow unpredictably, yielding heavy-tailed latency and unstable throughput. We present AMV-L (Adaptive Memory Value Lifecycle), a memory-management framework that treats agent memory as a managed systems resource. AMV-L assigns each memory item a continuously updated utility score and uses value-driven promotion, demotion, and eviction to maintain lifecycle tiers; retrieval is restricted to a bounded, tier-aware candidate set that decouples the request-path working set from total retained memory. We implement AMV-L in a full-stack LLM serving system and evaluate it under identical long-running workloads against two baselines: TTL and an LRU working-set policy, with fixed prompt-injection caps. Relative to TTL, AMV-L improves throughput by 3.1x and reduces latency by 4.2x (median), 4.7x (p95), and 4.4x (p99), while reducing the fraction of requests exceeding 2s from 13.8% to 0.007%. Compared to LRU, AMV-L trades a small regression in median/p95 latency (+26% / +3%) for improved extreme-tail behavior (-15% p99; -98% &gt;2s) and lower token overhead (approximately 6% fewer tokens/request), while matching retrieval quality (value means within approximately 0-2%). The gains arise primarily from bounding retrieval-set size and vector-search work, not from shortening prompts. Our results show that predictable performance for long-running LLM agents requires explicit control of memory working-set size and value-driven lifecycle management, rather than retention time alone.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04443v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Emmanuel Bamidele</dc:creator>
+    </item>
+    <item>
+      <title>Overcoming Latency-bound Limitations of Distributed Graph Algorithms using the HPX Runtime System</title>
+      <link>https://arxiv.org/abs/2603.04583</link>
+      <description>arXiv:2603.04583v1 Announce Type: new 
+Abstract: Graph processing at scale presents many challenges, including the irregular structure of graphs, the latency-bound nature of graph algorithms, and the overhead associated with distributed execution. While existing frameworks such as Spark GraphX and the Parallel Boost Graph Library (PBGL) have introduced abstractions for distributed graph processing, they continue to struggle with inherent issues like load imbalance and synchronization overhead. In this work, we present a distributed library prototype and a distributed implementation of three key graph algorithms - Breadth-First Search (BFS), PageRank, and Triangle Counting, using C++ mechanisms from the NWgraph library and leveraging HPX's distributed containers and asynchronous constructs. These algorithms span the categories of Traversal, centrality, and Pattern matching, and are selected to represent diverse computational characteristics. We evaluate our HPX-based implementations against GraphX, and PBGL, showing that a high-performance runtime such as HPX enables the construction of algorithms that significantly outperform conventional frameworks by exploiting asynchronous execution, latency hiding, and fine-grained parallelism in shared memory. All algorithms in our prototype follow a unified execution model in which local and remote computations are expressed using the same programming abstractions, with asynchrony managed transparently by the runtime. This design explicitly leverages shared-memory parallelism within each locality while overlapping communication and computation across localities, providing a practical foundation for extending this approach to a broader class of distributed graph algorithms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04583v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Karame Mohammadiporshokooh, Panagiotis Syskakis, Andrew Lumsdaine, Hartmut Kaiser</dc:creator>
+    </item>
+    <item>
+      <title>DuaLip-GPU Technical Report</title>
+      <link>https://arxiv.org/abs/2603.04621</link>
+      <description>arXiv:2603.04621v1 Announce Type: new 
+Abstract: Large-scale linear programs (LPs) arise in many decision systems, including ranking, allocation, and matching problems that must be solved repeatedly at massive scale. Prior work such as ECLIPSE and LinkedIn's open-source DuaLip showed that ridge-regularized dual ascent with first-order methods can scale to these settings. However, the original implementation was tightly coupled to a small number of schemas and built on a CPU-centric Scala/Spark stack, limiting extensibility and preventing effective use of modern accelerators.
+  We present a redesigned solver architecture that decouples problem specification from the optimization engine and targets GPU execution. The system uses an operator-centric programming model in which LP formulations are expressed through composable primitives for dual objective evaluation and blockwise projection operators for decomposable constraint families. This design allows new formulations to be added locally while reusing a shared optimization loop, diagnostics, and distributed infrastructure.
+  To realize the available parallelism, we develop GPU execution techniques tailored to sparse matching constraints, including constraint-aligned sparse layouts, batched projection kernels, and a distributed design that communicates only dual variables. Further, we improve the underlying ridge-regularized dual ascent method with Jacobi-style row normalization, primal scaling, and a continuation scheme for the regularization parameter.
+  On extreme-scale matching workloads, the GPU implementation achieves at least a 10x wall-clock speedup over the prior distributed CPU DuaLip solver under matched stopping criteria, while maintaining convergence guarantees.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04621v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Gregory Dexter, Aida Rahmattalabi, Sanjana Garg, Qinquan Song, Ruby Tu, Yuan Gao, Yi Zhang, Zhipeng Wang, Rahul Mazumder</dc:creator>
+    </item>
+    <item>
+      <title>SLO-Aware Compute Resource Allocation for Prefill-Decode Disaggregated LLM Inference</title>
+      <link>https://arxiv.org/abs/2603.04716</link>
+      <description>arXiv:2603.04716v1 Announce Type: new 
+Abstract: Prefill-Decode (P/D) disaggregation has emerged as a widely adopted optimization strategy for Large Language Model (LLM) inference. However, there currently exists no well-established methodology for determining the optimal number of P/D hardware resources, subject to constraints on total throughput, service level objectives (SLOs), and request characteristics - specifically input and output lengths. To address this gap, we propose a hybrid approach that combines theoretical modeling with empirical benchmarking. First, we present a theoretical model for calculating P/D resource counts, which is based on total throughput requirements, request input and output lengths, as well as prefill and decode throughput. Then, to obtain the actual prefill and decode throughput under SLO constraints, we model the prefill process using M/M/1 queuing theory, deriving the achieved prefill throughput from the benchmarked maximum prefill throughput and Time-To-First-Token (TTFT). For the decode phase, we determine the decode batch sizes that meet Time-Per-Output-Token (TPOT) requirements and obtain the corresponding decode throughput through empirical measurements. Our experimental results demonstrate that the proposed method can accurately predict optimal P/D resource allocation in real-world LLM inference scenarios.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04716v1</guid>
+      <category>cs.DC</category>
+      <category>cs.IT</category>
+      <category>cs.LG</category>
+      <category>math.IT</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Luchang Li, Dongfang Li, Bozhao Gong, Yu Zhang</dc:creator>
+    </item>
+    <item>
+      <title>The Semantic Arrow of Time, Part III: RDMA and the Completion Fallacy</title>
+      <link>https://arxiv.org/abs/2603.04774</link>
+      <description>arXiv:2603.04774v1 Announce Type: new 
+Abstract: This is the third of five papers comprising The Semantic Arrow of Time. Parts I and II identified computing's hidden semantic arrow of time, the FITO category mistake, and presented the constructive alternative: the OAE link state machine with its mandatory reflecting phase.
+  This paper examines what happens when those principles are violated at industrial scale. Remote Direct Memory Access (RDMA) is the highest-performance data movement technology in production, deployed across Meta's 24,000-GPU clusters, Google's data centers, and Microsoft's Azure infrastructure. We argue that RDMA's completion semantics contain a category mistake: they guarantee placement (data written to a remote NIC buffer) but not commitment (data semantically integrated by the receiving application). We call this the completion fallacy.
+  We document the fallacy through seven temporal stages of an RDMA Write operation, showing that the gap between completion signal and application semantic satisfaction can be arbitrarily large. We trace consequences through four case studies: Meta's RoCE fabric, Google's 1RMA redesign, Microsoft's DCQCN failures, and SDR-RDMA partial completions.
+  A comparative analysis shows CXL 3.0, NVLink, and UALink each address parts of the completion fallacy but none eliminates it entirely. Only a protocol architecture with a mandatory reflecting phase can close the gap between delivery and commitment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04774v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Paul Borrill</dc:creator>
+    </item>
+    <item>
+      <title>Unlocking Python's Cores: Hardware Usage and Energy Implications of Removing the GIL</title>
+      <link>https://arxiv.org/abs/2603.04782</link>
+      <description>arXiv:2603.04782v1 Announce Type: new 
+Abstract: Python's Global Interpreter Lock prevents execution on more than one CPU core at the same time, even when multiple threads are used. However, starting with Python 3.13 an experimental build allows disabling the GIL. While prior work has examined speedup implications of this disabling, the effects on energy consumption and hardware utilization have received less attention. This study measures execution time, CPU utilization, memory usage, and energy consumption using four workload categories: NumPy-based, sequential kernels, threaded numerical workloads, and threaded object workloads, comparing GIL and free-threaded builds of Python 3.14.2.
+  The results highlight a trade-off. For parallelizable workloads operating on independent data, the free-threaded build reduces execution time by up to 4 times, with a proportional reduction in energy consumption, and effective multi-core utilization, at the cost of an increase in memory usage. In contrast, sequential workloads do not benefit from removing the GIL and instead show a 13-43% increase in energy consumption. Similarly, workloads where threads frequently access and modify the same objects show reduced improvements or even degradation due to lock contention. Across all workloads, energy consumption is proportional to execution time, indicating that disabling the GIL does not significantly affect power consumption, even when CPU utilization increases. When it comes to memory, the no-GIL build shows a general increase, more visible in virtual memory than in physical memory. This increase is primarily attributed to per-object locking, additional thread-safety mechanisms in the runtime, and the adoption of a new memory allocator.
+  These findings suggest that Python's no-GIL build is not a universal improvement. Developers should evaluate whether their workload can effectively benefit from parallel execution before adoption.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04782v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jos\'e Daniel Montoya Salazar</dc:creator>
+    </item>
+    <item>
+      <title>The Semantic Arrow of Time, Part IV: Why Transactions Fail</title>
+      <link>https://arxiv.org/abs/2603.04810</link>
+      <description>arXiv:2603.04810v1 Announce Type: new 
+Abstract: This is the fourth of five papers comprising The Semantic Arrow of Time. Parts I-III established that computing's hidden arrow of time is semantic rather than thermodynamic, that bilateral transaction protocols create causal order through a mandatory reflecting phase, and that RDMA's completion semantics implement the FITO category mistake at industrial scale.
+  This paper traces the consequences of the FITO category mistake beyond the data center, into systems people use every day. We examine three domains where forward-only temporal assumptions destroy meaning: file synchronization, where cloud platforms silently delete user content because last-writer-wins cannot represent distributed causality; email, where timestamp-based ordering produces phantom messages, causality violations, and stuck synchronization; and memory--both human and artificial--where reconstructive processes that operate without transactional guarantees produce systematic semantic corruption.
+  In each domain, we identify the same structural pattern: a system that commits state changes forward in time without a reflecting phase, and that therefore cannot distinguish between successful semantic integration and mere temporal succession. The pattern is not coincidental. It is the FITO category mistake operating at different scales: bytes in a NIC buffer, files in a cloud, messages in an inbox, engrams in a hippocampus, tokens in a transformer.
+  We conclude that the semantic arrow of time is violated whenever a system treats the forward flow of information as sufficient evidence of meaning. Part V will show how the Leibniz Bridge provides a unified framework for closing this gap across all five domains.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04810v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Paul Borrill</dc:creator>
+    </item>
+    <item>
+      <title>The Semantic Arrow of Time, Part V: The Leibniz Bridge -- Toward a Unified Theory of Semantic Time</title>
+      <link>https://arxiv.org/abs/2603.04826</link>
+      <description>arXiv:2603.04826v1 Announce Type: new 
+Abstract: This is the final paper in the five-part series The Semantic Arrow of Time. Part I identified the FITO category mistake -- treating forward temporal flow as sufficient for establishing meaning. Part II presented the constructive alternative: the OAE link state machine with its mandatory reflecting phase. Part III showed the FITO fallacy operating at industrial scale in RDMA completion semantics. Part IV traced the same pattern through file synchronization, email, human memory, and language model hallucination.
+  This paper closes the series by constructing the Leibniz Bridge: a unified framework that connects the philosophical foundations (Leibniz's Identity of Indiscernibles, as formalized by Spekkens), the protocol engineering (OAE's bilateral transaction structure), and the physical substrate (indefinite causal order in quantum mechanics). The bridge rests on a single principle: mutual information conservation -- the requirement that every causal exchange preserve the total information accessible to both endpoints, with the direction of time emerging not from axiom but from entropy production when a reversible exchange commits.
+  We show that this principle dissolves the apparent impossibility of the FLP, Two Generals, and CAP theorems by revealing them as theorems about FITO systems, not about physics. We present the triangle network as the minimal topology for semantic consistency without centralized coordination. We conclude with open questions and a reflection on what distributed computing looks like when the FITO assumption is dropped.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04826v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Paul Borrill</dc:creator>
+    </item>
+    <item>
+      <title>PromptTuner: SLO-Aware Elastic System for LLM Prompt Tuning</title>
+      <link>https://arxiv.org/abs/2603.05087</link>
+      <description>arXiv:2603.05087v1 Announce Type: new 
+Abstract: Prompt tuning has become a prominent strategy for enhancing the performance of Large Language Models (LLMs) on downstream tasks. Many IT enterprises now offer Prompt-Tuning-as-a-Service to fulfill the growing demand for prompt tuning LLMs on downstream tasks. Their primary objective is to satisfy users Service Level Objectives (SLOs) while reducing resource provisioning costs. Nevertheless, our characterization analysis for existing deep learning resource management systems reveals that they are insufficient to optimize these objectives for LLM prompt tuning workloads.
+  In this paper, we introduce PromptTuner, an SLO-aware elastic system to optimize LLM prompt tuning. It contains two innovations. (1) We design a Prompt Bank to identify efficient initial prompts to expedite the convergence of prompt tuning. (2) We develop aWorkload Scheduler to enable fast resource allocation to reduce the SLO violation and resource costs. In our evaluation, PromptTuner reduces SLO violations by 4.0x and 7.9x, and lowers costs by 1.6x and 4.5x, compared to INFless and ElasticFlow respectively.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.05087v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Wei Gao, Peng Sun, Dmitrii Ustiugov, Tianwei Zhang, Yonggang Wen</dc:creator>
+    </item>
+    <item>
+      <title>Leveraging Structural Knowledge for Solving Election in Anonymous Networks with Shared Randomness</title>
+      <link>https://arxiv.org/abs/2603.05118</link>
+      <description>arXiv:2603.05118v1 Announce Type: new 
+Abstract: We study the classical Election problem in anonymous net- works, where solutions can rely on the use of random bits, which may be either shared or unshared among nodes. We provide a complete char- acterization of the conditions under which a randomized Election algo- rithm exists, for arbitrary structural knowledge. Our analysis considers both Las Vegas and Monte Carlo randomized algorithms, under the as- sumptions of shared and unshared randomness. In our setting, random sources are considered shared if the output bits are identical across spe- cific subsets of nodes. The algorithms and impossibility proofs are extensions of those of [5] for the deterministic setting. Our results are a complete generalization of those from [8]. Moreover, as applications, we consider many specific knowledge: no knowledge, a bound on the size, a bound on the number of nodes sharing a source, the size, or the full topology of the network. For each of them, we show how the general characterizations apply, showing they actually correspond to classes of structural knowledge. We also de- scribe also how randomized Election algorithms from the literature fits in this landscape. We therefore provide a comprehensive picture illustrating how knowledge influences the computability of the Election problem in arbitrary anonymous graphs with shared randomness.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.05118v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>J\'er\'emie Chalopin, Emmanuel Godard</dc:creator>
+    </item>
+    <item>
+      <title>Scaling Real-Time Traffic Analytics on Edge-Cloud Fabrics for City-Scale Camera Networks</title>
+      <link>https://arxiv.org/abs/2603.05217</link>
+      <description>arXiv:2603.05217v1 Announce Type: new 
+Abstract: Real-time city-scale traffic analytics requires processing 100s-1000s of CCTV streams under strict latency, bandwidth, and compute limits. We present a scalable AI-driven Intelligent Transportation System (AIITS) designed to address multi-dimensional scaling on an edge-cloud fabric. Our platform transforms live multi-camera video feeds into a dynamic traffic graph through a DNN inferencing pipeline, complemented by real-time nowcasting and short-horizon forecasting using Spatio-Temporal GNNs. Using a testbed to validate in a Bengaluru neighborhood, we ingest 100+ RTSP feeds from Raspberry Pis, while Jetson Orin edge accelerators perform high-throughput detection and tracking, producing lightweight flow summaries for cloud-based GNN inference. A capacity-aware scheduler orchestrates load-balancing across heterogeneous devices to sustain real-time performance as stream counts increase. To ensure continuous adaptation, we integrate SAM3 foundation-model assisted labeling and Continuous Federated Learning to update DNN detectors on the edge. Experiments show stable ingestion up to 2000 FPS on Jetson Orins, low-latency aggregation, and accurate and scalable ST-GNN forecasts for up to 1000 streams. A planned live demonstration will scale the full pipeline to 1000 streams, showcasing practical, cross-fabric scalability.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.05217v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Akash Sharma, Pranjal Naman, Roopkatha Banerjee, Priyanshu Pansari, Sankalp Gawali, Mayank Arya, Sharath Chandra, Arun Josephraj, Rakshit Ramesh, Punit Rathore, Anirban Chakraborty, Raghu Krishnapuram, Vijay Kovvali, Yogesh Simmhan</dc:creator>
+    </item>
+    <item>
+      <title>A monitoring system for collecting and aggregating metrics from distributed clouds</title>
+      <link>https://arxiv.org/abs/2603.05241</link>
+      <description>arXiv:2603.05241v1 Announce Type: new 
+Abstract: Applications requiring real-time processing of large volumes of data have been the main driver for rethinking the traditional cloud, giving rise to novel cloud models. Distributed cloud (DC) is a model that allows users to dynamically create and dispose of strategically located ad-hoc clouds that contain resources best tailored to their needs. It is essential for this model to provide a high degree of observability for it to be viable in real-world scenarios. In this paper, we present the design and implementation of a monitoring system that collects metrics from DCs and makes them accessible to diverse clients. Agents running on nodes are responsible for collecting machine-, container-, and application-level metrics. During the health-check protocol, that data is transferred from the node to the DC's control plane running inside the cloud. There, it is persisted and served via multiple APIs, including a streaming API. Moreover, node metrics are aggregated for every DC in order to provide a more comprehensive view of the system's state.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.05241v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1109/SISY67000.2025.11205413</arxiv:DOI>
+      <arxiv:journal_reference>2025 IEEE 23rd Jubilee International Symposium on Intelligent Systems and Informatics (SISY)</arxiv:journal_reference>
+      <dc:creator>Tamara Rankovi\'c, Mateja Rilak, Janko Rakonjac, Milo\v{s} Simi\'c</dc:creator>
+    </item>
+    <item>
+      <title>Radiation Hydrodynamics at Scale: Comparing MPI and Asynchronous Many-Task Runtimes with FleCSI</title>
+      <link>https://arxiv.org/abs/2603.05366</link>
+      <description>arXiv:2603.05366v1 Announce Type: new 
+Abstract: Writing efficient distributed code remains a labor-intensive and complex endeavor. To simplify application development, the Flexible Computational Science Infrastructure (FleCSI) framework offers a user-oriented, high-level programming interface that is built upon a task-based runtime model. Internally, FleCSI integrates state-of-the-art parallelization backends, including MPI and the asynchronous many-task runtimes (AMTRs) Legion and HPX, enabling applications to fully leverage asynchronous parallelism. In this work, we benchmark two applications using FleCSI's three backends on up to 1024 nodes, intending to quantify the advantages and overheads introduced by the AMTR backends. As representative applications, we select a simple Poisson solver and the multidimensional radiation hydrodynamics code HARD. In the communication-focused Poisson solver benchmark, FleCSI achieves over 97% parallel efficiency using the MPI backend under weak scaling on up to 131072 cores, indicating that only minimal overhead is introduced by its abstraction layer. While the Legion backend exhibits notable overheads and scaling limitations, the HPX backend introduces only marginal overhead compared to MPI+Kokkos. However, the scalability of the HPX backend is currently limited due to the usage of non-optimized HPX collective operations. In the computation-focused radiation hydrodynamics benchmarks, the performance gap between the MPI and HPX backends fades. On fewer than 64 nodes, the HPX backend outperforms MPI+Kokkos, achieving an average speedup of 1.31 under weak scaling and up to 1.27 under strong scaling. For the hydrodynamics-only HARD benchmark, the HPX backend demonstrates superior performance on fewer than 32 nodes, achieving speedups of up to 1.20 relative to MPI and up to 1.64 relative to MPI+Kokkos.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.05366v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Alexander Strack, Hartmut Kaiser, Dirk Pfl\"uger</dc:creator>
+    </item>
+    <item>
+      <title>FedEMA-Distill: Exponential Moving Average Guided Knowledge Distillation for Robust Federated Learning</title>
+      <link>https://arxiv.org/abs/2603.04422</link>
+      <description>arXiv:2603.04422v1 Announce Type: cross 
+Abstract: Federated learning (FL) often degrades when clients hold heterogeneous non-Independent and Identically Distributed (non-IID) data and when some clients behave adversarially, leading to client drift, slow convergence, and high communication overhead. This paper proposes FedEMA-Distill, a server-side procedure that combines an exponential moving average (EMA) of the global model with ensemble knowledge distillation from client-uploaded prediction logits evaluated on a small public proxy dataset. Clients run standard local training, upload only compressed logits, and may use different model architectures, so no changes are required to client-side software while still supporting model heterogeneity across devices. Experiments on CIFAR-10, CIFAR-100, FEMNIST, and AG News under Dirichlet-0.1 label skew show that FedEMA-Distill improves top-1 accuracy by several percentage points (up to +5% on CIFAR-10 and +6% on CIFAR-100) over representative baselines, reaches a given target accuracy in 30-35% fewer communication rounds, and reduces per-round client uplink payloads to 0.09-0.46 MB, i.e., roughly an order of magnitude less than transmitting full model weights. Using coordinate-wise median or trimmed-mean aggregation of logits at the server further stabilizes training in the presence of up to 10-20% Byzantine clients and yields well-calibrated predictions under attack. These results indicate that coupling temporal smoothing with logits-only aggregation provides a communication-efficient and attack-resilient FL pipeline that is deployment-friendly and compatible with secure aggregation and differential privacy, since only aggregated or obfuscated model outputs are exchanged.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04422v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.CE</category>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hamza Reguieg, Mohamed El Kamili, Essaid Sabir</dc:creator>
+    </item>
+    <item>
+      <title>FluxSieve: Unifying Streaming and Analytical Data Planes for Scalable Cloud Observability</title>
+      <link>https://arxiv.org/abs/2603.04937</link>
+      <description>arXiv:2603.04937v1 Announce Type: cross 
+Abstract: Despite many advances in query optimization, indexing techniques, and data storage, modern data platforms still face difficulties in delivering robust query performance under high concurrency and computationally intensive queries. This challenge is particularly pronounced in large-scale observability platforms handling high-volume, high-velocity data records. For instance, recurrent, expensive filtering queries at query time impose substantial computational and storage overheads in the analytical data plane. In this paper, we propose FluxSieve, a unified architecture that reconciles traditional pull-based query processing with push-based stream processing by embedding a lightweight in-stream precomputation and filtering layer directly into the data ingestion path. This avoids the complexity and operational burden of running queries in dedicated stream processing frameworks. Concretely, this work (i) introduces a foundational architecture that unifies streaming and analytical data planes via in-stream filtering and records enrichment, (ii) designs a scalable multi-pattern matching mechanism that supports concurrent evaluation and on-the-fly updates of filtering rules with minimal per-record overhead, (iii) demonstrates how to integrate this ingestion-time processing with two open-source analytical systems -- Apache Pinot as a Real-Time Online Analytical Processing (RTOLAP) engine and DuckDB as an embedded analytical database, and (iv) performs comprehensive experimental evaluation of our approach. Our evaluation across different systems, query types, and performance metrics shows up to orders-of-magnitude improvements in query performance at the cost of negligible additional storage and very low computational overhead.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04937v1</guid>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Adriano Vogel, S\"oren Henning, Otmar Ertl</dc:creator>
+    </item>
+    <item>
+      <title>Concurrent Deterministic Skiplist and Other Data Structures</title>
+      <link>https://arxiv.org/abs/2309.09359</link>
+      <description>arXiv:2309.09359v2 Announce Type: replace 
+Abstract: Skiplists are used in a variety of applications for storing data subject to order criteria. In this article we discuss the design, analysis and performance of a concurrent deterministic skiplist on many-core NUMA nodes. We also evaluate the performance of concurrent lock-free unbounded queue implementation and two concurrent multi-reader,multi-writer(MWMR) hash table implementations and compare them with those from Intel's Thread Building Blocks(TBB) library. We introduce strategies for memory management that reduce page faults and cache misses for the memory access patterns in these data structures. This paper proposes hierarchical usage of concurrent data structures in programs to improve memory latencies by reducing memory accesses from remote NUMA nodes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2309.09359v2</guid>
+      <category>cs.DC</category>
+      <category>cs.DS</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Aparna Sasidharan</dc:creator>
+    </item>
+    <item>
+      <title>Universal Pattern Formation by Oblivious Robots Under Sequential Schedulers</title>
+      <link>https://arxiv.org/abs/2412.10733</link>
+      <description>arXiv:2412.10733v2 Announce Type: replace 
+Abstract: We study the computational power that oblivious robots operating in the plane have under sequential schedulers. We show that this power is much stronger than the obvious capacity these schedulers offer of breaking symmetry, and thus to create a leader. In fact, we prove that under any sequential scheduler, robots are capable of solving problems that are unsolvable even with a leader under the fully synchronous scheduler FSYNC. More precisely, we consider the class of pattern formation problems, and focus on the most general problem in this class, Universal Pattern Formation (UPF), which requires the robots to form every pattern given in input, starting from any initial configuration (where some robots may occupy the same point, hence forming a multiplicity). We first show that UPF is unsolvable under FSYNC, even if the robots are endowed with additional strong capabilities (multiplicity detection, rigid movement, agreement on coordinate systems, presence of a unique leader). On the other hand, we prove that, except for point formation (Gathering), UPF is solvable under any sequential scheduler without any additional assumptions. We then turn our attention to the Gathering problem, and prove that weak multiplicity detection (the ability to detect a multiplicity but not the exact number of robots forming it) is necessary and sufficient for solvability under sequential schedulers. The results obtained show that the computational power of the robots under FSYNC (where Gathering is solvable without any multiplicity detection) and that under sequential schedulers are orthogonal.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2412.10733v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Paola Flocchini, Alfredo Navarra, Debasish Pattanayak, Francesco Piselli, Nicola Santoro</dc:creator>
+    </item>
+    <item>
+      <title>Combining Serverless and High-Performance Computing Paradigms to support ML Data-Intensive Applications</title>
+      <link>https://arxiv.org/abs/2511.12185</link>
+      <description>arXiv:2511.12185v3 Announce Type: replace 
+Abstract: Data is found everywhere, from health and human infrastructure to the surge of sensors and the proliferation of internet-connected devices. To meet this challenge, the data engineering field has expanded significantly in recent years in both research and industry. Traditionally, data engineering, Machine Learning, and AI workloads have been run on large clusters within data center environments, requiring substantial investment in hardware and maintenance. With the rise of the public cloud, it is now possible to run large applications across nodes without owning or maintaining hardware. Serverless functions such as AWS Lambda provide horizontal scaling and precise billing without the hassle of managing traditional cloud infrastructure. However, when processing large datasets, users often rely on external storage options that are significantly slower than direct communication typical of HPC clusters. We introduce Cylon, a high-performance distributed data frame solution that has shown promising results for data processing using Python. We describe how we took inspiration from the FMI library and designed a serverless communicator to tackle communication and performance issues associated with serverless functions.
+  With our design, we demonstrate that the scaling efficiency of AWS Lambda achieves within 6.5% of serverful AWS (EC2) at 64 nodes, based on implementing direct communication via NAT Traversal TCP Hole Punching.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.12185v3</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mills Staylor, Arup Kumar Sarker, Gregor von Laszewski, Geoffrey Fox, Yue Cheng, Judy Fox</dc:creator>
+    </item>
+    <item>
+      <title>Modality Inflation: Energy Characterization and Optimization Opportunities for MLLM Inference</title>
+      <link>https://arxiv.org/abs/2512.22695</link>
+      <description>arXiv:2512.22695v2 Announce Type: replace 
+Abstract: Multimodal large language models (MLLMs) are built on text-only LLMs by incorporating additional modalities, enabling multimodal understanding and a broader range of applications. However, these additions introduce a previously unexplored energy trade-off across modalities that remains poorly understood, as most prior work focuses on text-only models. In this paper, we examine modality inflation, a key source of inefficiency in which multimodal inputs increase inference workloads through extra encoding stages and expanded token sequences. We provide the first detailed, stage-level analysis of energy consumption in MLLM inference by breaking the pipeline into vision encoding, prefill, and decoding stages. Using four representative MLLMs evaluated on NVIDIA A100 GPU, we quantify the additional energy required for multimodal inference compared to text-only baselines, observing overheads ranging from 17% to 94% across models for identical inputs. Our results show that energy bottlenecks differ widely across model architectures, stemming either from compute-heavy vision encoders or from the downstream impact of large visual token sequences during prefill. By examining GPU power traces, we further uncover substantial GPU underutilization during multimodal execution and show that input complexity leads to markedly different energy scaling behaviors across models. Finally, we demonstrate that stage-wise dynamic voltage and frequency scaling (DVFS) is an effective optimization, allowing energy savings with only modest performance impact. Together, these findings offer practical insights and concrete guidance for designing more energy-efficient multimodal LLM serving systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.22695v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mona Moghadampanah, Adib Rezaei Shahmirzadi, Farhana Amin, Dimitrios S. Nikolopoulos</dc:creator>
+    </item>
+    <item>
+      <title>Classification of Local Optimization Problems in Directed Cycles</title>
+      <link>https://arxiv.org/abs/2602.13046</link>
+      <description>arXiv:2602.13046v2 Announce Type: replace 
+Abstract: We present a complete classification of the distributed computational complexity of local optimization problems in directed cycles for both the deterministic and the randomized LOCAL model. We show that for any local optimization problem $\Pi$ (that can be of the form min-sum, max-sum, min-max, or max-min, for any local cost or utility function over some finite alphabet), and for any constant approximation ratio $\alpha$, the task of finding an $\alpha$-approximation of $\Pi$ in directed cycles has one of the following complexities:
+  1. $O(1)$ rounds in deterministic LOCAL, $O(1)$ rounds in randomized LOCAL,
+  2. $\Theta(\log^* n)$ rounds in deterministic LOCAL, $O(1)$ rounds in randomized LOCAL,
+  3. $\Theta(\log^* n)$ rounds in deterministic LOCAL, $\Theta(\log^* n)$ rounds in randomized LOCAL,
+  4. $\Theta(n)$ rounds in deterministic LOCAL, $\Theta(n)$ rounds in randomized LOCAL.
+  Moreover, for any given $\Pi$ and $\alpha$, we can determine the complexity class automatically, with an efficient (centralized, sequential) meta-algorithm, and we can also efficiently synthesize an asymptotically optimal distributed algorithm.
+  Before this work, similar results were only known for local search problems (e.g., locally checkable labeling problems). The family of local optimization problems is a strict generalization of local search problems, and it contains numerous commonly studied distributed tasks, such as the problems of finding approximations of the maximum independent set, minimum vertex cover, minimum dominating set, and minimum vertex coloring.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.13046v2</guid>
+      <category>cs.DC</category>
+      <category>cs.CC</category>
+      <category>cs.FL</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Thomas Boudier, Fabian Kuhn, Augusto Modanese, Ronja Stimpert, Jukka Suomela</dc:creator>
+    </item>
+    <item>
+      <title>Co-Design and Evaluation of a CPU-Free MPI GPU Communication Abstraction and Implementation</title>
+      <link>https://arxiv.org/abs/2602.15356</link>
+      <description>arXiv:2602.15356v2 Announce Type: replace 
+Abstract: Removing the CPU from the communication fast path is essential to efficient GPU-based ML and HPC application performance. However, existing GPU communication APIs either continue to rely on the CPU for communication or rely on APIs that place significant synchronization burdens on programmers. In this paper we describe the design, implementation, and evaluation of an MPI-based GPU communication API enabling easy-to-use, high-performance, CPU-free communication. This API builds on previously proposed MPI extensions and leverages HPE Slingshot 11 network card capabilities. We demonstrate the utility and performance of the API by showing how the API naturally enables CPU-free gather/scatter halo exchange communication primitives in the Cabana/Kokkos performance portability framework, and through a performance comparison with Cray MPICH on the Frontier and Tuolumne supercomputers. Results from this evaluation show up to a 50% reduction in medium message latency in simple GPU ping-pong exchanges and a 28% speedup improvement when strong scaling a halo-exchange benchmark to 8,192 GPUs of the Frontier supercomputer.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.15356v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Patrick G. Bridges (University of New Mexico), Derek Schafer (University of New Mexico), Jack Lange (Oak Ridge National Laboratory), James B. White III (Oak Ridge National Laboratory), Anthony Skjellum (Tennessee Technological University), Evan Suggs (Tennessee Technological University), Thomas Hines (Tennessee Technological University), Purushotham Bangalore (University of Alabama), Matthew G. F. Dosanjh (Sandia National Laboratories), Whit Schonbein (Sandia National Laboratories)</dc:creator>
+    </item>
+    <item>
+      <title>2-Coloring Cycles in One Round</title>
+      <link>https://arxiv.org/abs/2603.04235</link>
+      <description>arXiv:2603.04235v2 Announce Type: replace 
+Abstract: We show that there is a one-round randomized distributed algorithm that can 2-color cycles such that the expected fraction of monochromatic edges is less than 0.24118. We also show that a one-round algorithm cannot achieve a fraction less than 0.23879. Before this work, the best upper and lower bounds were 0.25 and 0.2. Our proof was largely discovered and developed by large language models, and both the upper and lower bounds have been formalized in Lean 4.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04235v2</guid>
+      <category>cs.DC</category>
+      <category>cs.FL</category>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Maxime Flin, Alesya Raevskaya, Ronja Stimpert, Jukka Suomela, Qingxin Yang</dc:creator>
+    </item>
+  </channel>
+</rss>
