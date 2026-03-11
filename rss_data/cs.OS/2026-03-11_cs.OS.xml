@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Mar 2026 04:00:31 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 11 Mar 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>The Missing Memory Hierarchy: Demand Paging for LLM Context Windows</title>
+      <link>https://arxiv.org/abs/2603.09023</link>
+      <description>arXiv:2603.09023v1 Announce Type: new 
+Abstract: The context window of a large language model is not memory. It is L1 cache: a small, fast, expensive resource that the field treats as the entire memory system. There is no L2, no virtual memory, no paging. Every tool definition, every system prompt, and every stale tool result occupies context for the lifetime of the session. The result is measurable: across 857 production sessions and 4.45 million effective input tokens, 21.8% is structural waste.
+  We present Pichay, a demand paging system for LLM context windows. Implemented as a transparent proxy between client and inference API, Pichay interposes on the message stream to evict stale content, detect page faults when the model re-requests evicted material, and pin working-set pages identified by fault history. In offline replay across 1.4 million simulated evictions, the fault rate is 0.0254%. In live production deployment over 681turns, the system reduces context consumption by up to 93% (5,038KB to 339KB); under extreme sustained pressure, the system remains operational but exhibits the expected thrashing pathology, with repeated fault-in of evicted content.
+  The key observation is that the problems the field faces, such as context limits, attention degradation, cost scaling, lost state across sessions, are virtual memory problems wearing different clothes. The solutions exist: working set theory (Denning, 1968), demand paging, fault-driven replacement policies, and memory hierarchies with multiple eviction-managed levels. We describe the architecture of a full memory hierarchy for LLM systems (L1 through persistent storage), report on the first three levels deployed in production use (L1 eviction, L2 fault-driven pinning, L3 model-initiated conversation compaction), and identify cross-session memory as the remaining frontier.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.09023v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Tony Mason</dc:creator>
+    </item>
+    <item>
+      <title>Ensuring Data Freshness in Multi-Rate Task Chains Scheduling</title>
+      <link>https://arxiv.org/abs/2603.09738</link>
+      <description>arXiv:2603.09738v1 Announce Type: new 
+Abstract: In safety-critical autonomous systems, data freshness presents a fundamental design challenge. While the Logical Execution Time (LET) paradigm ensures compositional determinism, it often does so at the cost of injected latency, degrading the phase margin of high-frequency control loops. Furthermore, mapping heterogeneous, multi-rate sensor fusion requirements onto rigid task-centric schedules typically implies in resource-inefficient oversampling. This paper proposes a Task-based scheduling framework extended with data freshness constraints. Unlike traditional models, scheduling decisions are driven by the lifespan of data. We introduce task offset based on the data freshness constraint to order data production in a Just-in-Time (JIT) fashion: the completion of the production of data with strictest data freshness constraint is delayed to the instant its consumers will be ready to use it. This allows for flexible task release offsets. We introduce a formal methodology to decompose Data Dependency Graphs into Dominant Paths by tracing the strictest data freshness constraints backward from the actuators. Based on this decomposition, we propose a Consensus Offset Search algorithm that synchronizes shared producers and private predecessors. This approach enforces end-to-end data freshness without the artificial latency of LET buffering. We formally prove that this offset-based alignment preserves the 100\% schedulability capacity of Global EDF, ensuring data freshness while eliminating the computational overhead of redundant sampling.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.09738v1</guid>
+      <category>cs.OS</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jos\'e Luis Conradi Hoffmann, Ant\^onio Augusto Fr\"ohlich</dc:creator>
+    </item>
+    <item>
+      <title>FlexServe: A Fast and Secure LLM Serving System for Mobile Devices with Flexible Resource Isolation</title>
+      <link>https://arxiv.org/abs/2603.09046</link>
+      <description>arXiv:2603.09046v1 Announce Type: cross 
+Abstract: Device-side Large Language Models (LLMs) have witnessed explosive growth, offering higher privacy and availability compared to cloud-side LLMs. During LLM inference, both model weights and user data are valuable, and attackers may even compromise the OS kernel to steal them. ARM TrustZone is the de facto hardware-based isolation technology on mobile devices, used to protect sensitive applications from a compromised OS. However, protecting LLM inference with TrustZone incurs significant overhead due to its inflexible isolation of memory and the NPU. To address these challenges, this paper introduces FlexServe, a fast and secure LLM serving system for mobile devices. It first introduces a Flexible Resource Isolation mechanism to construct Flexible Secure Memory (Flex-Mem) and Flexible Secure NPU (Flex-NPU). Both memory pages and the NPU can be efficiently switched between unprotected and protected modes. Based on these mechanisms, FlexServe designs a fast and secure LLM inference framework within TrustZone's secure world. The LLM-Aware Memory Management and Secure Inference Pipeline are introduced to accelerate inference. A Multi-Model Scheduler is proposed to optimize multi-model workflows. We implement a prototype of FlexServe and compare it with two TrustZone-based strawman designs. The results show that FlexServe achieves an average $10.05\times$ speedup in Time to First Token (TTFT) compared to the strawman, and an average $2.44\times$ TTFT speedup compared to an optimized strawman with pipeline and secure NPU enabled. For multi-model agent workflows, the end-to-end speedup is up to $24.30\times$ and $4.05\times$ compared to the strawman and optimized strawman, respectively.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.09046v1</guid>
+      <category>cs.CR</category>
+      <category>cs.LG</category>
+      <category>cs.OS</category>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yinpeng Wu, Yitong Chen, Lixiang Wang, Jinyu Gu, Zhichao Hua, Yubin Xia</dc:creator>
+    </item>
+  </channel>
+</rss>
