@@ -7,12 +7,12 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Mar 2026 04:00:06 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2026 02:13:25 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Tue, 17 Mar 2026 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Sunday</day>
       <day>Saturday</day>
+      <day>Sunday</day>
     </skipDays>
     <item>
       <title>Querying Everything Everywhere All at Once: Supervaluationism for the Agentic Lakehouse</title>
@@ -224,11 +224,11 @@ Abstract: This work presents a highly optimized implementation of PAC-DB, a rece
     <item>
       <title>Open Biomedical Knowledge Graphs at Scale: Construction, Federation, and AI Agent Access with Samyama Graph Database</title>
       <link>https://arxiv.org/abs/2603.15080</link>
-      <description>arXiv:2603.15080v1 Announce Type: new 
-Abstract: Biomedical knowledge is fragmented across siloed databases -- Reactome for pathways, STRING for protein interactions, Gene Ontology for functional annotations, ClinicalTrials.gov for study registries, and dozens more. Researchers routinely download flat files from each source and write bespoke scripts to cross-reference them, a process that is slow, error-prone, and not reproducible. We present two open-source biomedical knowledge graphs -- Pathways KG (118,686 nodes, 834,785 edges from 5 sources) and Clinical Trials KG (7,774,446 nodes, 26,973,997 edges from 5 sources) -- built on Samyama, a high-performance graph database written in Rust.
-  Our contributions are threefold. First, we describe a reproducible ETL pattern for constructing large-scale KGs from heterogeneous public data sources, with cross-source deduplication, batch Cypher loading, and portable snapshot export. Second, we demonstrate cross-KG federation: loading both snapshots into a single graph tenant enables property-based joins across datasets, answering questions like ``Which biological pathways are disrupted by drugs currently in Phase~3 trials for breast cancer?'' -- a query that neither KG can answer alone. Third, we introduce schema-driven MCP server generation: each KG automatically exposes typed tools for LLM agents via the Model Context Protocol, enabling natural-language access to graph queries without manual tool authoring.
-  All data sources are open-license (CC~BY~4.0, CC0, OBO). Snapshots, ETL code, and MCP configurations are publicly available. The combined federated graph (7.89M nodes, 27.8M edges) loads in 76 seconds on commodity hardware (Mac Mini M4, 16GB RAM), and the signature cross-KG query -- ``which pathways are disrupted by drugs in Phase~3 breast cancer trials?'' -- returns validated results in 2.1 seconds.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2603.15080v1</guid>
+      <description>arXiv:2603.15080v2 Announce Type: new 
+Abstract: Biomedical knowledge is fragmented across siloed databases -- Reactome for pathways, STRING for protein interactions, ClinicalTrials.gov for study registries, DrugBank for drug vocabularies, DGIdb for drug-gene interactions, SIDER for side effects. We present three open-source biomedical knowledge graphs -- Pathways KG (118,686 nodes, 834,785 edges from 5 sources), Clinical Trials KG (7,774,446 nodes, 26,973,997 edges from 5 sources), and Drug Interactions KG (32,726 nodes, 191,970 edges from 3 sources) -- built on Samyama, a high-performance graph database written in Rust.
+  Our contributions are threefold. First, we describe a reproducible ETL pattern for constructing large-scale KGs from heterogeneous public data sources, with cross-source deduplication, batch loading (Python Cypher and Rust native loaders), and portable snapshot export. Second, we demonstrate cross-KG federation: loading all three snapshots into a single graph tenant enables property-based joins across datasets. Third, we introduce schema-driven MCP server generation for LLM agent access, evaluated on a new BiomedQA benchmark (40 pharmacology questions): domain-specific MCP tools achieve 98% accuracy vs. 0% for text-to-Cypher and 75% for standalone GPT-4o.
+  All data sources are open-license. The combined federated graph (7.9M nodes, 28M edges) loads in approximately 3 minutes on commodity cloud hardware, and cross-KG queries complete in 80ms-4s.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.15080v2</guid>
       <category>cs.DB</category>
       <category>cs.AI</category>
       <category>q-bio.QM</category>
@@ -336,9 +336,9 @@ Abstract: As database deployments shift toward cloud platforms and edge devices,
     <item>
       <title>LUMINA: A Multi-Vendor Mammography Benchmark with Energy Harmonization Protocol</title>
       <link>https://arxiv.org/abs/2603.14644</link>
-      <description>arXiv:2603.14644v1 Announce Type: cross 
-Abstract: Publicly available full-field digital mammography (FFDM) datasets remain limited in size, clinical labels, and vendor diversity, which hinders the training of robust models. We present LUMINA, a curated, multi-vendor FFDM dataset that explicitly encodes acquisition energy and vendor metadata to expose clinically relevant appearance shifts that current benchmarks overlook. This innovative resource comprises 1824 images from 468 patients (960 benign, 864 malignant) with pathology-confirmed outcomes, BI-RADS assessments, and breast-density annotations. LUMINA spans six acquisition systems and both high- and low-energy styles, exposing vendor- and energy-driven appearance shifts. To reduce cross-vendor/energy drift while preserving lesion morphology, we introduce a foreground-only, pixel-space alignment (''energy harmonization'') that aligns each image to a low-energy reference style, leaving the zero-valued background unchanged. By benchmarking modern CNN and transformer baselines on three clinically meaningful tasks -- diagnosis (benign vs. malignant), BI-RADS risk grouping, and density -- we unify single-vs-two-view evaluation and show that two-view models consistently outperform single-view; in our benchmark, EfficientNet-B0 attains AUC 93.54% for diagnosis, and Swin-T yields the best macro-AUC 89.43% for density. Harmonization improves AUC/ACC across backbones and yields more focal Grad-CAM localization around suspicious regions. Being a richly annotated resource, LUMINA thus provides (a) a vendor-diverse, energy-labeled benchmark and (b) a model-agnostic harmonization protocol that together catalyze reliable, deployable mammography AI.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2603.14644v1</guid>
+      <description>arXiv:2603.14644v2 Announce Type: cross 
+Abstract: Publicly available full-field digital mammography (FFDM) datasets remain limited in size, clinical annotations, and vendor diversity, hindering the development of robust models. We introduce LUMINA, a curated, multi-vendor FFDM dataset that explicitly encodes acquisition energy and vendor metadata to capture clinically relevant appearance variations often overlooked in existing benchmarks. This dataset contains 1824 images from 468 patients (960 benign, 864 malignant), with pathology-confirmed labels, BI-RADS assessments, and breast-density annotations. LUMINA spans six acquisition systems and includes both high- and low-energy imaging styles, enabling systematic analysis of vendor- and energy-induced domain shifts. To address these variations, we propose a foreground-only pixel-space alignment method (''energy harmonization'') that maps images to a low-energy reference while preserving lesion morphology. We benchmark CNN and transformer models on three clinically relevant tasks: diagnosis (benign vs. malignant), BI-RADS classification, and density estimation. Two-view models consistently outperform single-view models. EfficientNet-B0 achieves an AUC of 93.54% for diagnosis, while Swin-T achieves the best macro-AUC of 89.43% for density prediction. Harmonization improves performance across architectures and produces more localized Grad-CAM responses. Overall, LUMINA provides (1) a vendor-diverse benchmark and (2) a model-agnostic harmonization framework for reliable and deployable mammography AI.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.14644v2</guid>
       <category>eess.IV</category>
       <category>cs.CV</category>
       <category>cs.DB</category>
