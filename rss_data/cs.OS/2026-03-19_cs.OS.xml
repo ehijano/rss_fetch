@@ -7,25 +7,40 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Mar 2026 02:04:18 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 04:00:33 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Thu, 19 Mar 2026 00:00:00 -0400</pubDate>
+    <pubDate>Fri, 20 Mar 2026 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Saturday</day>
       <day>Sunday</day>
     </skipDays>
     <item>
-      <title>AppFlow: Memory Scheduling for Cold Launch of Large Apps on Mobile and Vehicle Systems</title>
-      <link>https://arxiv.org/abs/2603.17259</link>
-      <description>arXiv:2603.17259v1 Announce Type: new 
-Abstract: GB-scale large apps like on-device LLMs and rich media editors are becoming the next-generation trend, but their heavy memory and I/O demands, especially during multitasking, cause devices to reclaim or kill processes, turning warm apps into cold launches. The challenge lies not in storing them, but in fast, accurate launching. For users, 1s is the usability cliff, yet our measurements show 86.6\% of GB-scale cold launches exceed it. Also, Android Vitals flags only $\geq$ 5s as slow, exposing a large satisfaction gap. Existing optimizations are designed in isolation and conflict. For example, preloading reduces I/O stalls but consumes scarce memory and is undone by reclamation, while reclamation and killing free memory but sacrifice background survivability, leading to repeated cold relaunches. Our key insight is that, although multitasking makes runtime behavior complex, each app's file access pattern remains predictable. The challenge lies in exploiting this predictability, i.e., preloading without exhausting memory, reclaiming without undoing gains, and killing selectively to preserve background survivability. We introduce AppFlow, a prediction-based system-wide scheduler that integrates a Selective File Preloader, an Adaptive Memory Reclaimer, and a Context-Aware Process Killer. Implemented across the Android framework and Linux kernel without app changes, AppFlow cuts GB-scale cold-launch latency by 66.5\% (e.g., 2s$\rightarrow$690ms) and sustains 95\% of launches within 1s over a 100-day test, significantly improving responsiveness and multitasking experience.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2603.17259v1</guid>
+      <title>Quine: Realizing LLM Agents as Native POSIX Processes</title>
+      <link>https://arxiv.org/abs/2603.18030</link>
+      <description>arXiv:2603.18030v1 Announce Type: new 
+Abstract: Current LLM agent frameworks often implement isolation, scheduling, and communication at the application layer, even though these mechanisms are already provided by mature operating systems. Instead of introducing another application-layer orchestrator, this paper presents Quine, a runtime architecture and reference implementation that realizes LLM agents as native POSIX processes. The mapping is explicit: identity is PID, interface is standard streams and exit status, state is memory, environment variables, and filesystem, and lifecycle is fork/exec/exit. A single executable implements this model by recursively spawning fresh instances of itself. By grounding the agent abstraction in the OS process model, Quine inherits isolation, composition, and resource control directly from the kernel, while naturally supporting recursive delegation, context renewal via exec, and shell-native composition. The design also exposes where the POSIX process model stops: processes provide a robust substrate for execution, but not a complete runtime model for cognition. In particular, the analysis points toward two immediate extensions beyond process semantics: task-relative worlds and revisable time. A reference implementation of Quine is publicly available on GitHub.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.18030v1</guid>
       <category>cs.OS</category>
-      <pubDate>Thu, 19 Mar 2026 00:00:00 -0400</pubDate>
+      <category>cs.AI</category>
+      <category>cs.PL</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.1145/3795866.3796690</arxiv:DOI>
-      <dc:creator>Xiaochen Li, Sicong Liu, Bin Guo, Yu Ouyang, Fengmin Wu, Yuan Xu, Zhiwen Yu</dc:creator>
+      <dc:creator>Hao Ke</dc:creator>
+    </item>
+    <item>
+      <title>Fork, Explore, Commit: OS Primitives for Agentic Exploration</title>
+      <link>https://arxiv.org/abs/2602.08199</link>
+      <description>arXiv:2602.08199v2 Announce Type: replace 
+Abstract: AI agents increasingly perform agentic exploration: pursuing multiple solution paths in parallel and committing only the successful one. Because each exploration path may modify files and spawn processes, agents require isolated environments with atomic commit and rollback semantics for both filesystem state and process state. We introduce the branch context, a new OS abstraction that provides: (1) copy-on-write state isolation with independent filesystem views and process groups, (2) a structured lifecycle of fork, explore, and commit/abort, (3) first-commit-wins resolution that automatically invalidates sibling branches, and (4) nestable contexts for hierarchical exploration. We realize branch contexts in Linux through two complementary components. First, BranchFS is a FUSE-based filesystem that gives each branch context an isolated copy-on-write workspace, with O(1) creation, atomic commit to the parent, and automatic sibling invalidation, all without root privileges. BranchFS is open sourced in https://github.com/multikernel/branchfs, along with a Python integration library, BranchContext, that provides ready-to-use agent exploration patterns. Second, branch() is a proposed Linux syscall that spawns processes into branch contexts with reliable termination, kernel-enforced sibling isolation, and first-commit-wins coordination. Preliminary evaluation of BranchFS shows sub-350 us branch creation independent of base filesystem size, and modification-proportional commit overhead (under 1 ms for small changes).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.08199v2</guid>
+      <category>cs.OS</category>
+      <category>cs.DC</category>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Cong Wang, Yusheng Zheng</dc:creator>
     </item>
   </channel>
 </rss>
