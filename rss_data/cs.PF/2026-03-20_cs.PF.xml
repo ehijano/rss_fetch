@@ -7,66 +7,12 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Mar 2026 04:00:34 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2026 04:00:03 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Fri, 20 Mar 2026 00:00:00 -0400</pubDate>
+    <pubDate>Sat, 21 Mar 2026 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Saturday</day>
       <day>Sunday</day>
     </skipDays>
-    <item>
-      <title>TurboMem: High-Performance Lock-Free Memory Pool with Transparent Huge Page Auto-Merging for DPDK</title>
-      <link>https://arxiv.org/abs/2603.18690</link>
-      <description>arXiv:2603.18690v1 Announce Type: new 
-Abstract: High-speed packet processing on multicore CPUs places extreme demands on memory allocators. In systems like DPDK, fixed-size memory pools back packet buffers (mbufs) to avoid costly dynamic allocation. However, even DPDK's optimized mempool faces scalability limits: lock contention on the shared ring, cache-coherence ping-pong between cores, and heavy TLB pressure from thousands of small pages. To mitigate these issues, DPDK typically uses explicit huge pages (2 MB or 1 GB) for its memory pools. This reduces TLB misses but requires manual configuration and can lead to fragmentation and inflexibility. We propose TurboMem, a novel C++ template-based memory pool that addresses these challenges. TurboMem combines a fully lock-free design (using atomic stacks and per-core local caches) with Transparent Huge Page (THP) auto merging. By automatically promoting pools to 2 MB pages via madvise(MADV_HUGEPAGE), TurboMem achieves the benefits of huge pages without manual setup. We also enforce strict NUMA locality and CPU affinity, so each core allocates and frees objects from its local node. Using Intel VTune on a single-socket 100 Gbps testbed, we show that TurboMem boosts packet throughput by up to 28% while reducing TLB misses by 41% compared to a standard DPDK mempool with explicit huge pages. These results demonstrate that THP auto-merging can outperform manually reserved huge pages in low-fragmentation scenarios, and that modern C++ lock-free programming yields practical gains in data-plane software. Note: The performance claims reported in this preliminary version (up to 28% higher throughput and 41% fewer TLB misses) are based on mock benchmarks. Comprehensive real-system evaluations using Intel VTune are currently underway and will be presented in a future revision.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2603.18690v1</guid>
-      <category>cs.PF</category>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Junyi Yang</dc:creator>
-    </item>
-    <item>
-      <title>High-Performance Portable GPU Primitives for Arbitrary Types and Operators in Julia</title>
-      <link>https://arxiv.org/abs/2603.18695</link>
-      <description>arXiv:2603.18695v1 Announce Type: cross 
-Abstract: Portable GPU frameworks such as Kokkos and RAJA reduce the burden of cross-architecture development but typically incur measurable overhead on fundamental parallel primitives relative to vendor-optimized libraries. We present KernelForge.jl, a Julia library that implements scan, mapreduce, and matrix-vector primitives through a two-layer portable architecture: KernelIntrinsics.jl provides backend-agnostic abstractions for warp-level shuffles, memory fences, and vectorized memory access, while KernelForge.jl builds high-performance algorithms exclusively on top of these interfaces. Evaluated on an NVIDIA A40 and an AMD MI300X, KernelForge.jl matches or exceeds CUB kernel execution time on scan and mapreduce on the A40, and matches cuBLAS throughput on matrix-vector operations across most tested configurations-demonstrating, as a proof of concept, that portable JIT-compiled abstractions can achieve vendor-level throughput without sacrificing generality.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2603.18695v1</guid>
-      <category>cs.DC</category>
-      <category>cs.PF</category>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Emmanuel Pilliat (ENSAI)</dc:creator>
-    </item>
-    <item>
-      <title>Hierarchical Precision and Recursion for Accelerating Symmetric Linear Solves on MXUs</title>
-      <link>https://arxiv.org/abs/2601.08082</link>
-      <description>arXiv:2601.08082v2 Announce Type: replace-cross 
-Abstract: Symmetric linear solves are fundamental to a wide range of scientific and engineering applications, from climate modeling and structural analysis to machine learning and optimization. These workloads often rely on Cholesky (POTRF) decomposition and its supporting operations, triangular solves (TRSM) and symmetric rank-k updates (SYRK), which together form the computational core for solving symmetric positive-definite systems. To accelerate these kernels, we present a portable, mixed-precision solver designed for Matrix Processing Units (MXUs), including NVIDIA Tensor Cores (H200) and AMD Matrix Cores (MI300X). Our algorithm builds on a nested recursive formulation in which Cholesky exposes parallelism through recursive decomposition of its TRSM and SYRK sub-problems. This structure yields a hierarchical recursion that maximizes GEMM throughput while enabling fine-grained control over numerical precision. We introduce a custom recursive data structure that assigns low-precision FP16 arithmetic to large off-diagonal blocks, while preserving high precision on diagonal blocks to ensure numerical stability. The solver is implemented in Julia, leveraging array programming, multiple dispatch, and dynamic type inference to enable seamless expression of mixed-precision computation. This design provides a high-level, hardware-agnostic interface while efficiently interfacing with low-level vendor libraries for backend portability. On H200, our recursive FP64 SYRK achieves a 14x speedup over cuBLAS, while mixed-precision delivers up to 27x speedup in SYRK and 5x in TRSM over full-precision baselines. This results in a 5x overall speedup for Cholesky versus cuSOLVER FP64, with 100x better accuracy than pure FP16 while retaining 88% of its peak speedup. Comparable performance and accuracy trends are observed on MI300X, demonstrating broad applicability across GPUs.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2601.08082v2</guid>
-      <category>cs.DC</category>
-      <category>cs.ET</category>
-      <category>cs.MS</category>
-      <category>cs.PF</category>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Vicki Carrica, Rabab Alomairy, Evelyne Ringoot, Alan Edelman</dc:creator>
-    </item>
-    <item>
-      <title>Tail Bounds for Queues with Abandonment: Constant, Moderate, Large Deviations, and Efficient Concentration</title>
-      <link>https://arxiv.org/abs/2603.14163</link>
-      <description>arXiv:2603.14163v2 Announce Type: replace-cross 
-Abstract: We study a heavily overloaded single-server queue with abandonment and derive bounds on stationary tail probabilities of the queue length. As the abandonment rate $\gamma \downarrow 0$, the centered-scaled queue length $\tilde{q}$ is known to converge in distribution to a Gaussian. However, such asymptotic limits do not quantify the pre-limit tail $\mathbb{P}(\tilde{q}&gt;a)$ for fixed $\gamma&gt;0$. Our goal is to obtain pre-limit bounds that are \emph{efficient} across different deviation regimes. For constant deviations, efficiency means Gaussian-type decay in $a$ together with a pre-limit error that vanishes as $\gamma\downarrow 0$, yielding the correct Gaussian tail in the limit. We establish such an efficient bound that is best-of-both-worlds. For larger deviations when $a$ is a function of $\gamma$, efficiency translates into exponentially tight, matching upper and lower bounds. For moderate deviation, we obtain sub-Gaussian tails, while in the large deviation regime the decay becomes sub-Poisson. Our bounds are obtained using a combination of Stein's method for Wasserstein-$p$ distance and the transform method.
-  We then consider a load-balancing system of abandonment queues with heterogeneous servers, operating under the join-the-shortest-queue (JSQ) policy in the heavily overloaded regime. As in the case of single-server queue, we again obtain Wasserstein-$p$ bounds w.r.t.\ a Gaussian, and efficient concentration for constant and moderate deviations. For larger deviations, our JSQ upper bounds exhibit a transition from Gaussian-type decay to sub-Weibull decay. All these results are obtained using Stein's method. In addition, a key ingredient here is establishing a state space collapse (SSC) where all queues become equal. We establish a $p$-th moment bound on the orthogonal component of the queue length vector that is essential for our Wasserstein-$p$ bound.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2603.14163v2</guid>
-      <category>math.PR</category>
-      <category>cs.PF</category>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Zedong Wang, Siva Theja Maguluri</dc:creator>
-    </item>
   </channel>
 </rss>
