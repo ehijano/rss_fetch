@@ -7,12 +7,12 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Mar 2026 04:00:06 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2026 01:55:25 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Tue, 31 Mar 2026 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Sunday</day>
       <day>Saturday</day>
+      <day>Sunday</day>
     </skipDays>
     <item>
       <title>A Density-Delay Law for Stable Event-Driven State Progression in Open Distributed Systems</title>
@@ -262,11 +262,12 @@ Abstract: Multimodal federated learning (FL) is essential for real-world applica
     <item>
       <title>ITQ3_S: High-Fidelity 3-bit LLM Inference via Interleaved Ternary Quantization with Rotation-Domain Smoothing</title>
       <link>https://arxiv.org/abs/2603.27914</link>
-      <description>arXiv:2603.27914v1 Announce Type: cross 
-Abstract: We present \textbf{ITQ3\_S} (Interleaved Ternary Quantization -- Specialized), a novel 3-bit weight quantization format for large language models (LLMs) that integrates \textbf{TurboQuant (TQ)}, a rotation-domain adaptive quantization strategy based on the Fast Walsh-Hadamard Transform (FWHT). Conventional 3-bit quantization methods suffer from catastrophic precision loss caused by heavy-tailed weight distributions and inter-channel outliers. ITQ3\_S addresses this fundamental limitation by pre-rotating the weight space via FWHT prior to quantization, effectively spreading outlier energy across the entire vector and inducing a near-Gaussian distribution amenable to uniform ternary coding.
-  Critically, we derive a mathematically rigorous dequantization procedure that inverts the FWHT exactly using a 256-point Inverse Walsh-Hadamard Transform fused into the CUDA shared-memory loading stage, ensuring zero-error round-trip fidelity between offline quantization and online inference. We prove that for any weight vector $\mathbf{w} \in \mathbb{R}^{256}$ processed by our pipeline, the reconstruction satisfies $\|\hat{\mathbf{w}} - \mathbf{w}\|_2 \leq \epsilon_q$, where $\epsilon_q$ is determined solely by the ternary quantization grid and is strictly smaller than any uniform 3-bit baseline under equal bit-budget constraints.
-  Empirically, on the NVIDIA RTX 5090 (Blackwell architecture), ITQ3\_S achieves perplexity competitive with FP16 baselines while delivering throughput exceeding 1.5$\times$ that of 4-bit alternatives, owing to optimized DP4A and Tensor Core scheduling in the interleaved memory layout. Our results establish ITQ3\_S as a practical, mathematically grounded solution for high-fidelity LLM deployment on consumer-grade hardware.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2603.27914v1</guid>
+      <description>arXiv:2603.27914v2 Announce Type: cross 
+Abstract: We present ITQ3_S (Interleaved Ternary Quantization -- Specialized), a novel 3-bit weight quantization format for LLMs integrating TurboQuant (TQ), a rotation-domain strategy based on the Fast Walsh-Hadamard Transform (FWHT). Conventional 3-bit methods suffer precision loss from heavy-tailed weight distributions and inter-channel outliers. ITQ3_S pre-rotates the weight space via FWHT before quantization, spreading outlier energy across the vector and inducing a near-Gaussian distribution amenable to uniform ternary coding.
+  We derive a rigorous dequantization procedure fusing a 256-point Inverse FWHT into the CUDA shared-memory loading stage, ensuring reconstruction error is bounded exclusively by the ternary quantization grid with no additional error from the transform inversion. For any weight vector $\mathbf{w} \in \mathbb{R}^{256}$, the reconstruction satisfies $\|\hat{\mathbf{w}} - \mathbf{w}\|_2 \leq \epsilon_q$, strictly smaller than uniform 3-bit baselines that do not exploit rotation-induced distribution normalization.
+  TurboQuant lacks a native CUDA kernel, precluding direct deployment; naively composing TQ with existing weight quantizers introduces domain mismatch errors that accumulate across layers, degrading quality below standard 3-bit baselines. ITQ3_S resolves this by co-designing the FWHT rotation and quantization kernel as a unified pipeline grounded in the IQ3_S weight format, with the inverse transform fused into the CUDA MMQ kernel.
+  Empirically, on the NVIDIA RTX 5090 (Blackwell), ITQ3_S achieves perplexity competitive with FP16 while delivering throughput exceeding 1.5x that of 4-bit alternatives via optimized DP4A and Tensor Core scheduling. Our results establish ITQ3_S as a practical, mathematically grounded solution for high-fidelity LLM deployment on consumer hardware.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.27914v2</guid>
       <category>cs.LG</category>
       <category>cs.AI</category>
       <category>cs.DC</category>
