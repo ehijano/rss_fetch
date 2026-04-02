@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Apr 2026 04:00:07 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Source Known Identifiers: A Three-Tier Identity System for Distributed Applications</title>
+      <link>https://arxiv.org/abs/2604.00151</link>
+      <description>arXiv:2604.00151v1 Announce Type: new 
+Abstract: Distributed applications need identifiers that satisfy storage efficiency, chronological sortability, origin metadata embedding, zero-lookup verifiability, confidentiality for external consumers, and multi-century addressability. Based on our literature survey, no existing scheme provides all six of these identifier properties within a unified system.
+  This paper introduces Source Known Identifiers (SKIDs), a three-tier identity system that projects a single entity identity across trust boundaries, addressing all six properties. The first tier, Source Known ID (SKID), is a 64-bit signed integer embedding a timestamp with a 250-millisecond precision, application topology, and a per-entity-type sequence counter. It serves as the database primary key, providing compact storage (8 bytes) and natural B-tree ordering for optimized database indexing. The second tier, Source Known Entity ID (SKEID), extends the SKID into a 128-bit Universally Unique Identifier (UUID) compatible value by adding an entity type discriminator, an epoch selector, and a BLAKE3 keyed message authentication code (MAC). SKEIDs enable zero-lookup verification of identifier origin, integrity, and entity type within trusted environments, with a big-endian byte layout that preserves chronological ordering in lexicographic UUID string comparisons. The third tier, Secure SKEID, encrypts the entire SKEID using AES-256 symmetric encryption as a single-block pseudorandom permutation, producing ciphertext indistinguishable from random bytes while remaining compatible with standard UUID data-type parsers in string representation. Deterministic bidirectional transformations connect all three tiers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00151v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Duran Serkan K{\i}l{\i}\c{c}</dc:creator>
+    </item>
+    <item>
+      <title>From Skew to Symmetry: Node-Interconnect Multi-Path Balancing with Execution-time Planning for Modern GPU Clusters</title>
+      <link>https://arxiv.org/abs/2604.00317</link>
+      <description>arXiv:2604.00317v1 Announce Type: new 
+Abstract: Modern GPU-based high-performance computing clusters offer unprecedented communication bandwidth through heterogeneous intra-node interconnects and inter-node networks. However, despite this high aggregate bandwidth, many real-world communication patterns fail to fully utilize the available hardware. Traffic skew often leads to situations where a small subset of links becomes oversaturated while others remain underutilized, resulting in congestion, latency spikes, and poor scalability. Existing communication frameworks such as NCCL and MPI with UCX typically rely on static fastest-path routing or hashing-based multi-rail striping, which leaves significant bandwidth unused when runtime traffic deviates from expected distributions. To address these limitations, we propose NIMBLE (Node-Interconnect Multi-path Balancing with Execution-time orchestration), a runtime communication orchestration system that dynamically redistributes traffic to balance link utilization across all available intra-node and inter-node paths. NIMBLE formulates this as a capacity-normalized minimum-congestion optimization problem and solves it efficiently using a multiplicative-weights algorithm. It further employs CUDA-aware GPU kernel-based RDMA pipelining to route traffic through intermediate GPUs and rail-matched NICs. The system is endpoint-driven, integrates transparently with existing communication libraries without requiring application changes, and preserves ordering, determinism, and low overhead. On H100-SXM4 nodes with fully connected NVLink and four NDR400 rails, NIMBLE achieves up to 2.3x higher intra-node bandwidth and 3.8x higher inter-node throughput compared to single-path baselines. It outperforms NCCL and MPI by up to 5.2x on skewed All-to-Allv workloads and 1.35x on end-to-end LLM MoE workloads, while matching baseline performance under balanced traffic.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00317v1</guid>
+      <category>cs.DC</category>
+      <category>cs.NI</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Jinghan Yao, Kaushik Kandadi, Bharath Ramesh, Hari Subramoni, Dhabaleswar K. Panda</dc:creator>
+    </item>
+    <item>
+      <title>TENT: A Declarative Slice Spraying Engine for Performant and Resilient Data Movement in Disaggregated LLM Serving</title>
+      <link>https://arxiv.org/abs/2604.00368</link>
+      <description>arXiv:2604.00368v1 Announce Type: new 
+Abstract: Modern GPU clusters are built upon a complex hierarchy of heterogeneous interconnects, ranging from multi-rail RDMA to proprietary fabrics such as Multi-Node NVLink and Ascend UB. Orchestrating these diverse links effectively remains a critical challenge in disaggregated LLM serving. Operating Mooncake TE on thousands of GPUs exposed a critical limitation shared by existing frameworks: imperative, statically bound path selection. This rigidity forces engines to rely on state-blind striping that ignores congestion signals, creating communication silos, wasting multi-rail bandwidth due to head-of-line blocking, and leading to operational fragility where routine faults require manual intervention. We present TENT, a data-movement engine that decouples transfer intent from physical execution. Instead of locking workloads to fixed backends, TENT unifies heterogeneous interconnects into a single dynamic resource pool. Applications simply declare transfer intents, while TENT dynamically decomposes elephant flows into fine-grained slices and "sprays" them across links based on instantaneous link quality. This telemetry-driven orchestration eliminates head-of-line blocking and enables transparent, sub-50 ms self-healing by rerouting slices around failures without application logic. TENT serves as the production data plane for LLM inference and RL pipelines at multiple industrial sites. Our evaluation on H800 HGX clusters shows that TENT outperforms state-of-the-art baselines, including Mooncake TE, NIXL, and UCCL. In LLM inference with SGLang HiCache, TENT achieves up to 1.36x higher throughput and 26% lower P90 TTFT than Mooncake TE. In RL pipelines, TENT accelerates parameter updates in Moonshot Checkpoint Engine by 20-26%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00368v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Feng Ren, Ruoyu Qin, Teng Ma, Shangming Cai, Zheng Liu, Chao Lei, Dejiang Zhu, Ke Yang, Zheming Li, Jialei Cui, Weixiao Huang, Yikai Zhao, Yineng Zhang, Hao Wu, Xiang Gao, Yuhao Fu, Jinlei Jiang, Yongwei Wu, Mingxing Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Reclaiming Idle CPU Cycles on Kubernetes: Sparse-Domain Multiplexing for Concurrent MPI-CFD Simulations</title>
+      <link>https://arxiv.org/abs/2604.00377</link>
+      <description>arXiv:2604.00377v1 Announce Type: new 
+Abstract: When MPI-parallel simulations run on shared Kubernetes clusters, conventional CPU scheduling leaves the vast majority of provisioned cycles idle at synchronization barriers. This paper presents a multiplexing framework that reclaims this idle capacity by co-locating multiple simulations on the same cluster. PMPI-based duty-cycle profiling quantifies the per-rank idle fraction; proportional CPU allocation then allows a second simulation to execute concurrently with minimal overhead, yielding 1.77x throughput. A Pareto sweep to N=5 concurrent simulations shows throughput scaling to 3.74x, with a knee at N=3 offering the best efficiency-cost trade-off. An analytical model with a single fitted parameter predicts these gains within +/-4%. A dynamic controller automates the full pipeline, from profiling through In-Place Pod Vertical Scaling (KEP-1287) to packing and fairness monitoring, achieving 3.25x throughput for four simulations without manual intervention or pod restarts. To our knowledge, this is the first CPU application of In-Place Pod Vertical Scaling to running MPI processes. Experiments on an AWS cluster with OpenFOAM CFD confirm that the results hold under both concentric and standard graph-based (Scotch) mesh partitioning.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00377v1</guid>
+      <category>cs.DC</category>
+      <category>cs.CE</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Tianfang Xie</dc:creator>
+    </item>
+    <item>
+      <title>MPI-Q: A Message Communication Library for Large-Scale Classical-Quantum Heterogeneous Hybrid Distributed Computing</title>
+      <link>https://arxiv.org/abs/2604.00600</link>
+      <description>arXiv:2604.00600v1 Announce Type: new 
+Abstract: The classical-quantum system heterogeneity (different data characteristics, execution paradigms and synchronization mechanism etc.) renders existing distributed communication mechanisms (e.g. MPI, NCCL etc.) inadequate. This bottleneck severely impairs operational synergy and programming efficiency. Thus, the performance of hybrid applications on classical-quantum heterogeneous infrastructures is directly limited.
+  To address these challenges, this paper proposes a message-passing library tailored for large-scale classical-quantum heterogeneous distributed computing, referred to as MPI-Q. The design centers on three mechanisms. First, it defines a heterogeneous hybrid communication domain that achieves unified management of classical and quantum processes in heterogeneous hybrid systems. Second, it uses a lightweight communication path that allows classical control nodes to send device-ready waveform data directly to quantum MonitorProcesses, avoiding unnecessary relay stages. Third, it establishes a heterogeneous hybrid synchronization mechanism to tackle the problem of timing control for multi-node quantum operations. While retaining the traditional MPI programming model, MPI-Q achieves extension toward quantum subsystems. Experiments on distributed GHZ state preparation demonstrate that this model exhibits near-linear scalability, achieving a maximum speedup of 18.76 times on 24 quantum nodes. This proves that the library can effectively support large-scale heterogeneous hybrid distributed computing applications, filling the technical gap in this field.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00600v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Feng Wang, Junchao Wang, Zeyuan Wang, Lei Li, Yangyang Fei, Jinyang Yao, Xuyan Qi, Fudong Liu, Yifan Hou, Shibo Liang, Zheng Shan</dc:creator>
+    </item>
+    <item>
+      <title>Is RISC-V Ready for Machine Learning? Portable Gaussian Processes Using Asynchronous Tasks</title>
+      <link>https://arxiv.org/abs/2604.00736</link>
+      <description>arXiv:2604.00736v1 Announce Type: new 
+Abstract: Gaussian processes are widely used in machine learning domains but remain computationally demanding, limiting their efficient scalability across diverse hardware platforms. The GPRat library targets these challenges with the help of the asynchronous many-task runtime system HPX. In this work, we extend GPRat to enable portability across multiple hardware architectures and evaluate its performance on representative x86-64, ARM, and RISC-V chips. We conduct node-level strong-scaling and problem-size-scaling benchmarks for Gaussian Process prediction and hyperparameter optimization to assess single-core performance, parallel scalability, and architectural efficiency.
+  Our results show that while the x86-64 Zen 2 chip achieves a 58% single-core performance advantage over the ARM-based Fujitsu A64FX, superior parallel scaling allows the 48-core ARM chip to outperform the 64-core Zen 2 by 9% at full node utilization. The evaluated SOPHON SG2042 RISC-V chip exhibits substantially lower performance and weaker scalability, with single-core performance lagging by up to a factor of 14 and large-scale parallel workloads showing slowdowns of up to a factor of 25. For problem-size scaling, ARM and x86-64 systems demonstrate comparable performance within 25%. These findings highlight the growing competitiveness of ARM-based processors and emphasize the importance of wide-register vectorization support and memory subsystem improvements for upcoming RISC-V platforms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00736v1</guid>
+      <category>cs.DC</category>
+      <category>cs.ET</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Alexander Strack, Patrick Diehl, Dirk Pfl\"uger</dc:creator>
+    </item>
+    <item>
+      <title>Sequence-Aware Split Heuristic to Mitigate SM Underutilization in FlashAttention-3 Low-Head-Count Decoding</title>
+      <link>https://arxiv.org/abs/2604.00028</link>
+      <description>arXiv:2604.00028v1 Announce Type: cross 
+Abstract: The standard FlashAttention-3 heuristic exhibits a GPU occupancy bottleneck in low-head-count decoding configurations because it disables sequence splitting based on sequence length alone, underutilizing the Streaming Multiprocessors of Hopper GPUs. Our proposed sequence-aware split policy mitigates this by allowing sequence-level parallelism in low-head-count regimes, improving hardware utilization to deliver roughly a 21 to 24% improvement in decoder kernel efficiency on metadata-enabled inference paths, with no observed regressions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00028v1</guid>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mart\'i Llopart Font, Javier Hernando, Cristina Espa\~na-Bonet</dc:creator>
+    </item>
+    <item>
+      <title>MAC-Attention: a Match-Amend-Complete Scheme for Fast and Accurate Attention Computation</title>
+      <link>https://arxiv.org/abs/2604.00235</link>
+      <description>arXiv:2604.00235v1 Announce Type: cross 
+Abstract: Long-context decoding in LLMs is IO-bound: each token re-reads an ever-growing KV cache. Prior accelerations cut bytes via compression, which lowers fidelity, or selection/eviction, which restricts what remains accessible, and both can degrade delayed recall and long-form generation. We introduce MAC-Attention, a fidelity- and access-preserving alternative that accelerates decoding by reusing prior attention computations for semantically similar recent queries. It starts with a match stage that performs pre-RoPE L2 matching over a short local window; an amend stage rectifies the reused attention by recomputing a small band near the match boundary; and a complete stage fuses the rectified results with fresh attention computed on the KV tail through a numerically stable merge. On a match hit, the compute and bandwidth complexity is constant regardless of context length. The method is model-agnostic and composes with IO-aware kernels, paged-KV managers, and MQA/GQA. Across LongBench v2 (120K), RULER (120K), and LongGenBench (16K continuous generation), compared to the latest FlashInfer library, MAC-Attention reduces KV accesses by up to 99%, cuts token generation latency by over 60% at 128K, and achieves over 14.3x attention-phase speedups, up to 2.6x end-to-end, while maintaining full-attention quality. By reusing computation, MAC-Attention delivers long-context inference that is both fast and faithful. Code is available here: https://github.com/YJHMITWEB/MAC-Attention.git</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00235v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Jinghan Yao, Sam Ad\'e Jacobs, Walid Krichene, Masahiro Tanaka, Dhabaleswar K Panda</dc:creator>
+    </item>
+    <item>
+      <title>Fast Deterministic Distributed Degree Splitting</title>
+      <link>https://arxiv.org/abs/2604.00724</link>
+      <description>arXiv:2604.00724v1 Announce Type: cross 
+Abstract: We obtain better algorithms for computing more balanced orientations and degree splits in LOCAL.
+  Important to our result is a connection to the hypergraph sinkless orientation problem [BMNSU, SODA'25]
+  We design an algorithm of complexity $\mathcal{O}(\varepsilon^{-1} \cdot \log n)$ for computing a balanced orientation with discrepancy at most $\varepsilon \cdot \mathrm{deg}(v)$ for every vertex $v \in V$.
+  This improves upon a previous result by [GHKMSU, Distrib. Comput. 2020] of complexity $\mathcal{O}(\varepsilon^{-1} \cdot \log \varepsilon^{-1} \cdot (\log \log \varepsilon^{-1})^{1.71} \cdot \log n)$.
+  Further, we show that this result can also be extended to compute undirected degree splits with the same discrepancy and in the same runtime.
+  As as application we show that $(3 / 2 + \varepsilon)\Delta$-edge coloring can now be solved in $\mathcal{O}(\varepsilon^{-1} \cdot \log^2 \Delta \cdot \log n + \varepsilon^{-2} \cdot \log n)$ rounds in LOCAL.
+  Note that for constant $\varepsilon$ and $\Delta = \mathcal{O}(2^{\log^{1/3} n})$ this runtime matches the current state-of-the-art for $(2\Delta - 1)$-edge coloring in [Ghaffari &amp; Kuhn, FOCS'21].</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00724v1</guid>
+      <category>cs.DS</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yannic Maus, Alexandre Nolin, Florian Schager</dc:creator>
+    </item>
+    <item>
+      <title>Scalable Pretraining of Large Mixture of Experts Language Models on Aurora Super Computer</title>
+      <link>https://arxiv.org/abs/2604.00785</link>
+      <description>arXiv:2604.00785v1 Announce Type: cross 
+Abstract: Pretraining Large Language Models (LLMs) from scratch requires massive amount of compute. Aurora super computer is an ExaScale machine with 127,488 Intel PVC (Ponte Vechio) GPU tiles. In this work, we showcase LLM pretraining on Aurora at the scale of 1000s of GPU tiles. Towards this effort, we developed Optimus, an inhouse training library with support for standard large model training techniques. Using Optimus, we first pretrained Mula-1B, a 1 Billion dense model and Mula-7B-A1B, a 7 Billion Mixture of Experts (MoE) model from scratch on 3072 GPU tiles for the full 4 trillion tokens of the OLMoE-mix-0924 dataset. We then demonstrated model scaling by pretraining three large MoE models Mula-20B-A2B, Mula-100B-A7B, and Mula-220B-A10B till 100 Billion tokens on the same dataset. On our largest model Mula-220B-A10B, we pushed the compute scaling from 384 to 12288 GPU tiles and observed scaling efficiency of around 90% at 12288 GPU tiles. We significantly improved the runtime performance of MoE models using custom GPU kernels for expert computation, and a novel EP-Aware sharded optimizer resulting in training speedups up to 1.71x. As part of the Optimus library, we also developed a robust set of reliability and fault tolerant features to improve training stability and continuity at scale.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00785v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Dharma Teja Vooturi, Dhiraj Kalamkar, Dipankar Das, Bharat Kaul</dc:creator>
+    </item>
+    <item>
+      <title>EmbedPart: Embedding-Driven Graph Partitioning for Scalable Graph Neural Network Training</title>
+      <link>https://arxiv.org/abs/2604.01000</link>
+      <description>arXiv:2604.01000v1 Announce Type: cross 
+Abstract: Graph Neural Networks (GNNs) are widely used for learning on graph-structured data, but scaling GNN training to massive graphs remains challenging. To enable scalable distributed training, graphs are divided into smaller partitions that are distributed across multiple machines such that inter-machine communication is minimized and computational load is balanced. In practice, existing partitioning approaches face a fundamental trade-off between partitioning overhead and partitioning quality. We propose EmbedPart, an embedding-driven partitioning approach that achieves both speed and quality. Instead of operating directly on irregular graph structures, EmbedPart leverages node embeddings produced during the actual GNN training workload and clusters these dense embeddings to derive a partitioning. EmbedPart achieves more than 100x speedup over Metis while maintaining competitive partitioning quality and accelerating distributed GNN training. Moreover, EmbedPart naturally supports graph updates and fast repartitioning, and can be applied to graph reordering to improve data locality and accelerate single-machine GNN training. By shifting partitioning from irregular graph structures to dense embeddings, EmbedPart enables scalable and high-quality graph data optimization.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.01000v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Nikolai Merkel, Ruben Mayer, Volker Markl, Hans-Arno Jacobsen</dc:creator>
+    </item>
+    <item>
+      <title>Navigating the Energy Doldrums: Can We Exploit Energy-Price Volatility To Lower the Cost of Computing?</title>
+      <link>https://arxiv.org/abs/2509.07567</link>
+      <description>arXiv:2509.07567v2 Announce Type: replace 
+Abstract: Energy costs are a major factor in the total cost of ownership (TCO) for high-performance computing (HPC) systems. The rise of intermittent green energy sources and reduced reliance on fossil fuels have introduced volatility into electricity markets, complicating energy budgeting. This paper explores variable capacity as a strategy for managing HPC energy costs -- dynamically adjusting compute resources in response to fluctuating electricity prices. While this approach can lower energy expenses, it risks underutilizing costly hardware. To evaluate this trade-off, we present a simple model that helps operators estimate the TCO impact of variable capacity strategies using key system parameters. We apply this model to real data from a university HPC cluster and assess how different scenarios could affect the cost-effectiveness of this approach in the future.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2509.07567v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Peter Arzt, Felix Wolf</dc:creator>
+    </item>
+    <item>
+      <title>OSGym: Scalable OS Infra for Computer Use Agents</title>
+      <link>https://arxiv.org/abs/2511.11672</link>
+      <description>arXiv:2511.11672v4 Announce Type: replace 
+Abstract: Training computer use agents requires full-featured OS sandboxes with GUI environments, which consume substantial hardware resources as the number of sandboxes scales. Stochastic errors arising from diverse software execution within these sandboxes further demand robust infrastructure design and reliable error recovery. We present OSGym, a scalable OS environment infrastructure for computer use agents, built around these key optimization strategies: (1) Decentralized OS state management, which isolates failures to individual replicas and significantly enhances overall system reliability; (2) Hardware-aware OS replica orchestration, which addresses CPU-bounded scaling bottlenecks and substantially reduces compute overhead; (3) KVM virtualization with copy-on-write disk management, which shares a common bootable disk across VM instances and provisions only instance-specific modifications, reducing physical disk consumption by 88% and increasing disk provisioning speed by 37 times; and (4) Robust container pool with multi-layer fault recovery. Together, these optimizations yield strong scalability and resource efficiency: OSGym manages over a thousand OS replicas under constrained resources, supports parallel trajectory generation at 1420 multi-turn trajectories per minute, and reduces per-replica cost to 0.2-0.3 USD per day, a 90% reduction over standard deployment. Our experiments validate OSGym across end-to-end pipelines for data collection and training for computer use agents. We believe OSGym establishes a new foundation for scalable, general-purpose computer use agent research.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.11672v4</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zengyi Qin, Jinyuan Chen, Yunze Man, Shengcao Cao, Ziqi Pang, Zhuoyuan Wang, Han Fang, Ling Zhu, Zixin Xie, Zibu Wei, Tianshu Ran, Haoran Geng, Ray Pan, Qizhen Sun, Zachary Bright, Yuyang Cai, Chongye Yang, Jiace Zhao, Tianrui Liu, Han Cao, Yeyang Zhou, Rui Wang, Song Wang, Xiang Ren, Bo Zhang, Yutong Ban, Pieter Abbeel, Brian Anthony</dc:creator>
+    </item>
+    <item>
+      <title>Twinning for Space-Air-Ground-Sea Integrated Networks: Beyond Conventional Digital Twin Towards Goal-Oriented Semantic Twin</title>
+      <link>https://arxiv.org/abs/2512.16058</link>
+      <description>arXiv:2512.16058v2 Announce Type: replace 
+Abstract: A space-air-ground-sea integrated network (SAGSIN) has emerged as a cornerstone of 6G systems, establishing a unified global architecture by integrating multi-domain network resources. Motivated by the demand for real-time situational awareness and intelligent operational maintenance, digital twin (DT) technology was initially regarded as a promising solution, owing to its capability to create virtual replicas and emulate physical system behaviors. However, in the context of SAGSIN, the high-fidelity, full-scale modeling paradigm inherent to conventional DTs encounters fundamental limitations, including prohibitive computational overhead, delayed model synchronization, and cross-system semantic gaps. To address these limitations, this survey paper proposes a novel twinning framework: goal-oriented semantic twin (GOST). Unlike DTs that pursue physical mirroring, GOST prioritizes ``utility'' over ``fidelity,'' leveraging semantic technologies and goal-oriented principles to construct lightweight, task-specific representations. This paper systematically articulates the GOST framework through three layers: knowledge-based semantics, data-driven semantics, and goal-oriented principles. Furthermore, we provide a comprehensive tutorial on constructing GOST by detailing its core enabling technologies and introduce a multidimensional evaluation framework for GOST. We present a case study targeting collaborative tracking tasks in remote satellite-UAV networks, demonstrating that GOST significantly outperforms conventional DTs in timeliness of perceptual data and collaborative tracking. Finally, we outline research directions, establishing GOST as a transformative twinning paradigm to guide the development of SAGSIN.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.16058v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yifei Qiu, Tianle Liao, Xin Jin, Qinyu Zhang, Shaohua Wu</dc:creator>
+    </item>
+    <item>
+      <title>Decidability of Livelock Detection for Parameterized Self-Disabling Unidirectional Rings</title>
+      <link>https://arxiv.org/abs/2603.21443</link>
+      <description>arXiv:2603.21443v2 Announce Type: replace 
+Abstract: We prove that livelock detection is \emph{decidable in polynomial time} for parameterized symmetric unidirectional rings of self-disabling processes with bounded domain $\mathbb{Z}_m$. Given a protocol specified by its set of local transitions $T$, the algorithm decides whether a livelock exists for \emph{some} ring size $K\!\geq\!2$, running in $O(|T|^3)$ time independent of $K$. The algorithm computes the greatest fixed point of a deflationary monotone operator on the finite set $T$ and returns \emph{livelock} iff the fixed point is non-empty. The livelock freedom argument rests on maximality: the fix-point is the largest set of transitions that can together sustain a pseudolivelock at every process; its emptiness certifies freedom for all $K$ without any search over ring sizes. The work is grounded in the algebraic characterization of livelocks from Farahat~\citep{farahat2012}, which establishes necessary and sufficient conditions for livelock existence but does not address decidability. We also handle the $(1,1)$-asymmetric case in which one distinguished process $P_0$ differs from the remaining $K\!-\!1$ identical processes. Code and algebraic foundation are at the URL: https://github.com/cosmoparadox/mathematical-tools.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.21443v2</guid>
+      <category>cs.DC</category>
+      <category>cs.DM</category>
+      <category>cs.FL</category>
+      <category>cs.LO</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Aly Farahat</dc:creator>
+    </item>
+    <item>
+      <title>CarbonEdge: Carbon-Aware Deep Learning Inference Framework for Sustainable Edge Computing</title>
+      <link>https://arxiv.org/abs/2603.27420</link>
+      <description>arXiv:2603.27420v2 Announce Type: replace 
+Abstract: Deep learning applications at the network edge lead to a significant growth in AI-related carbon emissions, presenting a critical sustainability challenge. The existing edge computing frameworks optimize for latency and throughput, but they largely ignore the environmental impact of inference workloads. This paper introduces CarbonEdge, a carbon-aware deep learning inference framework that extends adaptive model partitioning with carbon footprint estimation and green scheduling apabilities. We propose a carbon-aware scheduling algorithm that extends traditional weighted scoring with a carbon efficiency metric, supporting a tunable performance--carbon trade-off (demonstrated via weight sweep). Experimental evaluations on Docker-simulated heterogeneous edge environments show that CarbonEdge-Green mode achieves a 22.9% reduction in carbon emissions compared to monolithic execution. The framework achieves 1.3x improvement in carbon efficiency (245.8 vs 189.5 inferences per gram CO2) with negligible scheduling overhead (0.03ms per task). These results highlight the framework's potential for sustainable edge AI deployment, providing researchers and practitioners a tool to quantify and minimize the environmental footprint of distributed deep learning inference.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.27420v2</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Guilin Zhang, Wulan Guo, Ziqi Tan, Chuanyi Sun, Hailong Jiang</dc:creator>
+    </item>
+    <item>
+      <title>EvalNet: A Practical Toolchain for Generation and Analysis of Extreme-Scale Interconnects</title>
+      <link>https://arxiv.org/abs/2105.12663</link>
+      <description>arXiv:2105.12663v4 Announce Type: replace-cross 
+Abstract: The diversity of communication paths in a network, especially non-minimal paths, is a key enabler of performance at extreme scales. We present EvalNet, a toolchain for scalable generation and analysis of over 25 important network topologies, such as Slim Fly, PolarFly, and Orthogonal Fat Trees, with a strong focus on path diversity metrics. EvalNet provides an extensive and fine-grained analysis of shortest and non-shortest paths, including their multiplicities, lengths, and interference. It supports exact measurement and visualization of bandwidth and throughput between every router pair, enabling unprecedented insight into routing potential. EvalNet also includes detailed models for construction cost and power consumption, and interfaces seamlessly with established simulators, which we tune to support large-scale evaluations on low-cost hardware. Using EvalNet, we deliver the widest and most comprehensive path diversity study to date, demonstrating how path diversity underpins throughput and scalability, and facilitating progress towards new frontiers in extreme-scale network design.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2105.12663v4</guid>
+      <category>cs.NI</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:journal_reference>Proceedings of the 40th IEEE International Parallel &amp; Distributed Processing Symposium (2026)</arxiv:journal_reference>
+      <dc:creator>Maciej Besta, Patrick Iff, Marcel Schneider, Nils Blach, Alessandro Maissen, Salvatore Di Girolamo, Jens Domke, Jascha Krattenmacher, Kartik Lakhotia, Laura Monroe, Fabrizio Petrini, Robert Gerstenberger, Torsten Hoefler</dc:creator>
+    </item>
+    <item>
+      <title>A Survey on Graph Neural Network Acceleration: Algorithms, Systems, and Customized Hardware</title>
+      <link>https://arxiv.org/abs/2306.14052</link>
+      <description>arXiv:2306.14052v2 Announce Type: replace-cross 
+Abstract: Graph neural networks (GNNs) are emerging for machine learning research on graph-structured data. GNNs achieve state-of-the-art performance on many tasks, but they face scalability challenges when it comes to real-world applications that have numerous data and strict latency requirements. Many studies have been conducted on how to accelerate GNNs in an effort to address these challenges. These acceleration techniques touch on various aspects of the GNN pipeline, from smart training and inference algorithms to efficient systems and customized hardware. As the amount of research on GNN acceleration has grown rapidly, there lacks a systematic treatment to provide a unified view and address the complexity of relevant works. In this survey, we provide a taxonomy of GNN acceleration, review the existing approaches, and suggest future research directions. Our taxonomic treatment of GNN acceleration connects the existing works and sets the stage for further development in this area.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2306.14052v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Shichang Zhang (Celine), Atefeh Sohrabizadeh (Celine), Cheng Wan (Celine), Zijie Huang (Celine), Ziniu Hu (Celine), Yewen Wang (Celine),  Yingyan (Celine),  Lin, Jason Cong, Yizhou Sun</dc:creator>
+    </item>
+    <item>
+      <title>A Hitchhiker's Guide to Privacy-Preserving Digital Payment Systems: A Survey on Anonymity, Confidentiality, and Auditability</title>
+      <link>https://arxiv.org/abs/2505.21008</link>
+      <description>arXiv:2505.21008v3 Announce Type: replace-cross 
+Abstract: Crypto-assets and central bank digital currencies (CBDCs) are reshaping how value is exchanged in distributed computing environments. These systems combine cryptographic primitives, protocol design, and system architectures to provide transparency and efficiency while raising critical challenges around privacy and regulatory compliance. This survey offers a comprehensive overview of privacy-preserving digital payment systems, covering both decentralized ledger systems and CBDCs. We present a taxonomy of privacy goals -- including anonymity, confidentiality, unlinkability, and auditability -- and map them to the cryptographic primitives, protocols, and system architectures that implement them. Our work adopts a design-oriented perspective, linking high-level privacy objectives to concrete implementations. We also trace the evolution of privacy-preserving digital payment systems through three generations, highlighting shifts from basic anonymity guarantees toward more nuanced privacy-accountability trade-offs. Finally, we identify open challenges, motivating further research into architectures and solutions that balance strong privacy with real-world auditability needs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.21008v3</guid>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3801555</arxiv:DOI>
+      <dc:creator>Matteo Nardelli, Francesco De Sclavis, Michela Iezzi</dc:creator>
+    </item>
+  </channel>
+</rss>
