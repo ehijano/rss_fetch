@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Apr 2026 04:00:31 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 08 Apr 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>MegaTrain: Full Precision Training of 100B+ Parameter Large Language Models on a Single GPU</title>
+      <link>https://arxiv.org/abs/2604.05091</link>
+      <description>arXiv:2604.05091v1 Announce Type: cross 
+Abstract: We present MegaTrain, a memory-centric system that efficiently trains 100B+ parameter large language models at full precision on a single GPU. Unlike traditional GPU-centric systems, MegaTrain stores parameters and optimizer states in host memory (CPU memory) and treats GPUs as transient compute engines. For each layer, we stream parameters in and compute gradients out, minimizing persistent device state. To battle the CPU-GPU bandwidth bottleneck, we adopt two key optimizations. 1) We introduce a pipelined double-buffered execution engine that overlaps parameter prefetching, computation, and gradient offloading across multiple CUDA streams, enabling continuous GPU execution. 2) We replace persistent autograd graphs with stateless layer templates, binding weights dynamically as they stream in, eliminating persistent graph metadata while providing flexibility in scheduling. On a single H200 GPU with 1.5TB host memory, MegaTrain reliably trains models up to 120B parameters. It also achieves 1.84$\times$ the training throughput of DeepSpeed ZeRO-3 with CPU offloading when training 14B models. MegaTrain also enables 7B model training with 512k token context on a single GH200.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.05091v1</guid>
+      <category>cs.CL</category>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhengqing Yuan, Hanchi Sun, Lichao Sun, Yanfang Ye</dc:creator>
+    </item>
+    <item>
+      <title>Qurator: Scheduling Hybrid Quantum-Classical Workflows Across Heterogeneous Cloud Providers</title>
+      <link>https://arxiv.org/abs/2604.05505</link>
+      <description>arXiv:2604.05505v1 Announce Type: cross 
+Abstract: As quantum computing moves from isolated experiments toward integration with large-scale workflows, the integration of quantum devices into HPC systems has gained much interest. Quantum cloud providers expose shared devices through first-come first-serve queues where a circuit that executes in 3 seconds can spend minutes to an entire day waiting. Minimizing this overhead while maintaining execution fidelity is the central challenge of quantum cloud scheduling, and existing approaches treat the two as separate concerns. We present Qurator, an architecture-agnostic quantum-classical task scheduler that jointly optimizes queue time and circuit fidelity across heterogeneous providers. Qurator models hybrid workloads as dynamic DAGs with explicit quantum semantics, including entanglement dependencies, synchronization barriers, no-cloning constraints, and circuit cutting and merging decisions, all of which render classical scheduling techniques ineffective. Fidelity is estimated through a unified logarithmic success score that reconciles incompatible calibration data from IBM, IonQ, IQM, Rigetti, AQT, and QuEra into a canonical set of gate error, readout fidelity, and decoherence terms. We evaluate Qurator on a simulator driven by four months of real queue data using circuits from the Munich Quantum Toolkit benchmark suite. Across load conditions from 5 to 35,000 quantum tasks, Qurator stays within 1% of the highest-fidelity baseline at low load while achieving 30-75% queue time reduction at high load, at a fidelity cost bounded by a user-specified target.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.05505v1</guid>
+      <category>quant-ph</category>
+      <category>cs.OS</category>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Sinan Pehlivanoglu, Ulrik de Muelenaere, Peter Kogge, Amr Sabry</dc:creator>
+    </item>
+    <item>
+      <title>Horizon-LM: A RAM-Centric Architecture for LLM Training</title>
+      <link>https://arxiv.org/abs/2602.04816</link>
+      <description>arXiv:2602.04816v3 Announce Type: replace 
+Abstract: The rapid growth of large language models (LLMs) has outpaced the evolution of single-GPU hardware, making model scale increasingly constrained by memory capacity rather than computation. While modern training systems extend GPU memory through distributed parallelism and offloading across CPU and storage tiers, they fundamentally retain a GPU-centric execution paradigm in which GPUs host persistent model replicas and full autograd graphs. As a result, scaling large models remains tightly coupled to multi-GPU clusters, complex distributed runtimes, and unpredictable host memory consumption, creating substantial barriers for node-scale post-training workloads such as instruction tuning, alignment, and domain adaptation. We present Horizon-LM, a memory-centric training system that redefines the roles of CPU and GPU for large-model optimization. Horizon-LM treats host memory as the authoritative parameter store and uses GPUs solely as transient compute engines through a CPU-master, GPU-template execution model. By eliminating persistent GPU-resident modules and autograd graphs, employing explicit recomputation with manual gradient propagation, and introducing a pipelined double-buffered execution engine, Horizon-LM decouples model scale from GPU count and bounds memory usage to the theoretical parameter footprint. On a single H200 GPU with 1.5\,TB host RAM, Horizon-LM reliably trains models up to 120B parameters. On a standard single A100 machine, Horizon-LM achieves up to 12.2$\times$ higher training throughput than DeepSpeed ZeRO-3 with CPU offloading while preserving numerical correctness. Across platforms and scales, Horizon-LM sustains high device utilization and predictable memory growth, demonstrating that host memory, not GPU memory, defines the true feasibility boundary for node-scale large-model training.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.04816v3</guid>
+      <category>cs.OS</category>
+      <category>cs.CL</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhengqing Yuan, Lichao Sun, Yanfang Ye</dc:creator>
+    </item>
+  </channel>
+</rss>
