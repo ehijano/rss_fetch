@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Apr 2026 04:00:22 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 21 Apr 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Proxics: an efficient programming model for far memory accelerators</title>
+      <link>https://arxiv.org/abs/2604.18120</link>
+      <description>arXiv:2604.18120v1 Announce Type: new 
+Abstract: The use of disaggregated or far memory systems such as CXL memory pools has renewed interest in Near-Data Processing (NDP): situating cores close to memory to reduce bandwidth requirements to and from the CPU. Hardware designs for such accelerators are appearing, but there lack clean, portable OS abstractions for programming them.
+  We propose a programming model for NDP devices based on familiar OS abstractions: virtual processors (processes) and inter-process communication channels (like Unix pipes).
+  While appealing from a user perspective, a naive implementation of such abstractions is inappropriate for NDP accelerators: the paucity of processing power in some hardware designs makes classical processes overly heavyweight, and IPC based on shared buffers makes no sense in a system designed to reduce memory bandwidth.
+  Accordingly, we show how to implement these abstractions in a lightweight and efficient manner by exploiting compilation and interconnect protocols. We demonstrate them with a real hardware platform runing applications with a range of memory access patterns, including bulk memory operations, in-memory databases and graph applications.
+  Crucially, we show not only the benefits over CPU-only implementations, but also the critical importance of efficient, low-latency communication channels between CPU and NDP accelerators, a feature largely neglected in existing proposals.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.18120v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AR</category>
+      <category>cs.ET</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zikai Liu, Niels Pressel, Jasmin Schult, Roman Meier, Pengcheng Xu, Timothy Roscoe</dc:creator>
+    </item>
+    <item>
+      <title>Governed MCP: Kernel-Level Tool Governance for AI Agents via Logit-Based Safety Primitives</title>
+      <link>https://arxiv.org/abs/2604.16870</link>
+      <description>arXiv:2604.16870v1 Announce Type: cross 
+Abstract: AI agents increasingly call external tools (file system, network, APIs) through the Model Context Protocol (MCP). These tool calls are the agent's syscalls -- privileged operations with side effects on shared state -- yet today's safety enforcement lives entirely in userspace, where a 10-line script can bypass it. I propose Governed MCP, a kernel-resident tool governance gateway built on a logit-based safety primitive (ProbeLogits, companion paper: arXiv:2604.11943). The gateway interposes on every MCP tool call in a 6-layer pipeline: schema validation, trust tier check, rate limit, adversarial pre-filter, ProbeLogits gate (the load-bearing semantic check), and constitutional policy match, with a Blake3-hashed audit chain.
+  I implement Governed MCP in Anima OS, a bare-metal x86_64 OS in approximately 86,000 lines of Rust. The five non-inference layers add 65.3 microseconds of overhead per call; ProbeLogits adds 65 ms (per-token-class semantic decision) on 7B Q4_0. A 4-config ablation on a 101-prompt MCP-domain benchmark shows that removing the ProbeLogits layer collapses F1 from 0.773 to 0.327 (Delta F1 = -0.446) -- hand-rule firewalling alone is insufficient. All 15 WASM-to-system host functions in the runtime route through the gateway (complete mediation of the WASM ABI surface; the scope and caveats of this claim are stated in Section 4.6); a 10-LoC userspace bypass that defeats existing guardrail libraries is structurally impossible against the kernel-resident gate.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.16870v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.OS</category>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.5281/zenodo.19639122</arxiv:DOI>
+      <dc:creator>Daeyeon Son</dc:creator>
+    </item>
+    <item>
+      <title>GPUOS: A GPU Operating System Primitive for Transparent Operation Fusion</title>
+      <link>https://arxiv.org/abs/2604.17861</link>
+      <description>arXiv:2604.17861v1 Announce Type: cross 
+Abstract: Modern deep learning workloads often consist of many small tensor operations, especially in inference, attention, and micro-batched training. In these settings, kernel launch overhead can become a major bottleneck, sometimes exceeding the actual computation time.
+  We present GPUOS, a GPU runtime JIT system that reduces launch overhead using a persistent kernel architecture with runtime operator injection. GPUOS runs a single long-lived GPU kernel that continuously processes tasks from a host-managed work queue, eliminating repeated kernel launches. To support diverse operations, GPUOS uses NVIDIA NVRTC to just-in-time compile operators at runtime and inject them into the running kernel through device function pointer tables. This design enables operator updates without restarting the kernel or recompiling the system.
+  GPUOS introduces four key ideas: (1) a persistent worker kernel with atomic task queues, (2) a runtime operator injection mechanism based on NVRTC and relocatable device code, (3) a dual-slot aliasing scheme for safe concurrent operator updates, and (4) transparent PyTorch integration through TorchDispatch that batches micro-operations into unified submissions. The system supports arbitrary tensor shapes, strides, data types, and broadcasting through a generic tensor abstraction.
+  Experiments show that GPUOS achieves up to 15.3x speedup over standard PyTorch on workloads dominated by small operations, including micro-batched inference and attention patterns. GPUOS improves utilization while remaining compatible with the PyTorch ecosystem.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.17861v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yiwei Yang, Xiangyu Gao, Yuan Zhou, Yuhang Gan, Yusheng Zheng, Andi Quinn</dc:creator>
+    </item>
+    <item>
+      <title>AgenTEE: Confidential LLM Agent Execution on Edge Devices</title>
+      <link>https://arxiv.org/abs/2604.18231</link>
+      <description>arXiv:2604.18231v1 Announce Type: cross 
+Abstract: Large Language Model (LLM) agents provide powerful automation capabilities, but they also create a substantially broader attack surface than traditional applications due to their tight integration with non-deterministic models and third-party services. While current deployments primarily rely on cloud-hosted services, emerging designs increasingly execute agents directly on edge devices to reduce latency and enhance user privacy. However, securely hosting such complex agent pipelines on edge devices remains challenging. These deployments must protect proprietary assets (e.g., system prompts and model weights) and sensitive runtime state on heterogeneous platforms that are vulnerable to software attacks and potentially controlled by malicious users.
+  To address these challenges, we present AgenTEE, a system for deploying confidential agent pipelines on edge devices. AgenTEE places the agent runtime, inference engine, and third-party applications into independently attested confidential virtual machines (cVMs) and mediates their interaction through explicit, verifiable communication channels. Built on Arm Confidential Compute Architecture (CCA), a recent extension to Arm platforms, AgenTEE enforces strong system-level isolation of sensitive assets and runtime state. Our evaluation shows that such multi-cVMs system is practical, achieving near-native performance with less than 5.15% runtime overhead compared to commodity OS multi-process deployments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.18231v1</guid>
+      <category>cs.CR</category>
+      <category>cs.OS</category>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3805621.3807660</arxiv:DOI>
+      <dc:creator>Sina Abdollahi, Mohammad M Maheri, Javad Forough, Amir Al Sadi, Josh Millar, David Kotz, Marios Kogias, Hamed Haddadi</dc:creator>
+    </item>
+    <item>
+      <title>NetCAS: Dynamic Cache and Backend Device Management in Networked Environments</title>
+      <link>https://arxiv.org/abs/2510.02323</link>
+      <description>arXiv:2510.02323v2 Announce Type: replace 
+Abstract: Modern storage systems often combine fast cache with slower backend devices to accelerate I/O. As performance gaps narrow, concurrently accessing both devices, rather than relying solely on cache hits, can improve throughput. However, in data centers, remote backend storage accessed over networks suffers from unpredictable contention, complicating this split. We present NetCAS, a framework that dynamically splits I/O between cache and backend devices based on real-time network feedback and a precomputed Perf Profile. Unlike traditional hit-rate-based policies, NetCAS adapts split ratios to workload configuration and networking performance. NetCAS employs a low-overhead batched round-robin scheduler to enforce splits, avoiding per-request costs. It achieves up to 174% higher performance than traditional caching in remote storage environments and outperforms converging schemes like Orthus by up to 3.5X under fluctuating network conditions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.02323v2</guid>
+      <category>cs.OS</category>
+      <category>cs.NI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Joon Yong Hwang, Chanseo Park, Younghoon Kim</dc:creator>
+    </item>
+    <item>
+      <title>Equilibria: Fair Multi-Tenant CXL Memory Tiering At Scale</title>
+      <link>https://arxiv.org/abs/2602.08800</link>
+      <description>arXiv:2602.08800v2 Announce Type: replace 
+Abstract: Memory dominates datacenter system cost and power. Memory expansion via Compute Express Link (CXL) is an effective way to provide additional memory at lower cost and power, but its effective use requires software-level tiering for hyperscaler workloads. Existing tiering solutions, including current Linux support, face fundamental limitations in production deployments. First, they lack multi-tenancy support, failing to handle stacked homogeneous or heterogeneous workloads. Second, limited control-plane flexibility leads to fairness violations and performance variability. Finally, insufficient observability prevents operators from diagnosing performance pathologies at scale.
+  We present Equilibria, an OS framework enabling fair, multi-tenant CXL tiering at datacenter scale. Equilibria provides per-container controls for memory fair-share allocation and fine-grained observability of tiered-memory usage and operations. It further enforces flexible, user-specified fairness policies through regulated promotion and demotion, and mitigates noisy-neighbor interference by suppressing thrashing.
+  Evaluated in a large hyperscaler fleet using production workloads and benchmarks, Equilibria helps workloads meet service level objectives (SLOs) while avoiding performance interference. It improves performance over the state-of-the-art Linux solution, TPP, by up to 52% for production workloads and 1.7x for benchmarks. All Equilibria patches have been released to the Linux community.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.08800v2</guid>
+      <category>cs.OS</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Kaiyang Zhao, Neha Gholkar, Hasan Maruf, Abhishek Dhanotia, Johannes Weiner, Gregory Price, Ning Sun, Bhavya Dwivedi, Stuart Clark, Dimitrios Skarlatos</dc:creator>
+    </item>
+    <item>
+      <title>ProbeLogits: Kernel-Level LLM Inference Primitives for AI-Native Operating Systems</title>
+      <link>https://arxiv.org/abs/2604.11943</link>
+      <description>arXiv:2604.11943v2 Announce Type: replace 
+Abstract: An OS kernel that runs LLM inference internally can read logit distributions before any text is generated and act on them as a governance primitive. This paper presents ProbeLogits, a kernel-level operation that performs a single forward pass and reads specific token logits to classify agent actions as safe or dangerous, with zero learned parameters.
+  I evaluate ProbeLogits across three base models (Qwen 2.5-7B, Llama 3 8B, Mistral 7B) on three external benchmarks: HarmBench, XSTest, and ToxicChat. On HarmBench non-copyright (n=300), all three models reach 97-99% block rate with the right verbalizer. On ToxicChat (n=1,000), ProbeLogits achieves F1 parity-or-better against Llama Guard 3 in the same hosted environment: the strongest configuration (Qwen 2.5-7B Safe/Dangerous, alpha=0.0) reaches F1=0.812 with bootstrap 95% CIs disjoint from LG3 (+13.7pp significant); Llama 3 S/D matches LG3 within CI (+0.4pp, parity); Mistral Y/N exceeds by +4.4pp. Latency is approximately 2.5x faster than LG3 in the same hosted environment because the primitive reads a single logit position instead of generating tokens; in the bare-metal native runtime ProbeLogits drops to 65 ms.
+  A key design contribution is the calibration strength alpha, which serves as a deployment-time policy knob rather than a learned hyperparameter. Contextual calibration corrects verbalizer prior asymmetry, with bias magnitude varying by (model, verbalizer) pair.
+  I implement ProbeLogits within Anima OS, a bare-metal x86_64 OS written in approximately 86,000 lines of Rust. Because agent actions must pass through 15 kernel-mediated host functions, ProbeLogits enforcement operates below the WASM sandbox boundary, making it significantly harder to circumvent than application-layer classifiers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.11943v2</guid>
+      <category>cs.OS</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:DOI>10.5281/zenodo.19639032</arxiv:DOI>
+      <dc:creator>Daeyeon Son</dc:creator>
+    </item>
+    <item>
+      <title>Tail Contagion: Sub-microsecond Time Protection in Shared Software Network Datapaths</title>
+      <link>https://arxiv.org/abs/2309.14016</link>
+      <description>arXiv:2309.14016v5 Announce Type: replace-cross 
+Abstract: Shared software datapaths underpin modern datacentre networking. They implement mechanisms such as virtual switching, network virtualisation tunneling, or reliable transport, and enforce policies, such as tenant rate limits, virtual network isolation, or congestion control. However, because multiple applications, containers, or VMs share them, often across tenants, they pose a tail latency isolation challenge. Current isolation approaches either sacrifice efficiency via coarse-grained core partitioning or provide weak tail latency isolation when sharing cores with basic rate limits.
+  This paper presents Virtuoso, a time protection mechanism for shared software datapaths that provides strong cross-tenant tail latency isolation while preserving low overhead and microsecond-scale latency. Our key insight is that tail latency is fundamentally a time metric, so byte or packet throughput is the wrong metric for controlling interference when packet processing costs vary. Our design instead enforces isolation through per-tenant CPU-time budgets at datapath intervention points within run-to-completion loops, without relying on preemption. In a case study, we instantiate Virtuoso in the TAS TCP stack and demonstrate a 7.8X reduction in victim tail latency under adversarial interference while keeping throughput within 5% of unmodified TAS. We also observe a 3X per-core efficiency improvement compared to siloed datapaths under bursty workloads.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2309.14016v5</guid>
+      <category>cs.NI</category>
+      <category>cs.OS</category>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Matheus Stolet, Liam Arzola, Simon Peter, Antoine Kaufmann</dc:creator>
+    </item>
+    <item>
+      <title>Sockeye: a language for analyzing hardware documentation</title>
+      <link>https://arxiv.org/abs/2510.27485</link>
+      <description>arXiv:2510.27485v2 Announce Type: replace-cross 
+Abstract: The ever increasing complexity of hardware platforms poses a challenge to systems programmers. Correctly programming a multitude of components, providing functionality and security, is difficult: semantics of individual units are described in prose, underspecified, and prone to inaccuracies. Rigorous statements about platform security are often impossible.
+  We introduce a domain-specific language to describe hardware semantics, assumptions about software behavior, and desired security properties. We then create machine-readable specifications for a diverse set of eight platforms from their reference manuals, and formally prove their (in-)security. In addition to security proofs about memory confidentiality and integrity, we discover a handful of documentation errors. Finally, our analysis also revealed a vulnerability on a real-world server chip, which was confirmed by the vendor to apply to a wide family of deployed network appliances. Our tooling offers system integrators a way of formally describing security properties for whole platforms, and the means to find counterexamples, or proving them correct.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.27485v2</guid>
+      <category>cs.CR</category>
+      <category>cs.OS</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ben Fiedler, Samuel Gruetter, Timothy Roscoe</dc:creator>
+    </item>
+  </channel>
+</rss>
