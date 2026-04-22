@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Apr 2026 04:00:13 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>HadAgent: Harness-Aware Decentralized Agentic AI Serving with Proof-of-Inference Blockchain Consensus</title>
+      <link>https://arxiv.org/abs/2604.18614</link>
+      <description>arXiv:2604.18614v1 Announce Type: new 
+Abstract: Proof-of-Work (PoW) blockchain consensus consumes vast computational resources without producing useful output, while the rapid growth of large language model (LLM) agents has created unprecedented demand for GPU computation. We present HadAgent, a decentralized agentic AI serving system that replaces hash-based mining with Proof-of-Inference (PoI), a consensus mechanism in which nodes earn block-creation rights by executing deterministic LLM inference tasks. Because verification requires only re-executing a single forward pass under identical conditions, cross-node verification operates at consensus speed. HadAgent organizes validated records into a three-lane block body with dedicated DATA, MODEL, and PROOF channels, each protected by an independent Merkle root for fine-grained tamper detection. A two-tier node architecture classifies secondary nodes as trusted or non-trusted based on historical behavior: trusted nodes serve inference results in real time through optimistic execution, while non-trusted nodes must undergo full consensus verification. A harness layer monitors node behavior through heartbeat probes, anomaly detection via deterministic recomputation, and automated trust management, creating a self-correcting feedback loop that isolates malicious or unreliable participants. Experiments on a prototype implementation demonstrate 100% detection rate and 0% false positive rate for tampered records, sub-millisecond validation latency for record and hub operations, and effective harness convergence that excludes adversarial nodes within two rounds while promoting honest nodes to trusted status within five rounds.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.18614v1</guid>
+      <category>cs.DC</category>
+      <category>cs.CR</category>
+      <category>cs.ET</category>
+      <category>cs.MA</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Landy Jimenez, Mariah Weatherspoon, Bingyu Shen, Yi Sheng, Jianming Liu, Boyang Li</dc:creator>
+    </item>
+    <item>
+      <title>Locality, Not Spectral Mixing, Governs Direct Propagation in Distributed Offline Dynamic Programming</title>
+      <link>https://arxiv.org/abs/2604.18615</link>
+      <description>arXiv:2604.18615v1 Announce Type: new 
+Abstract: We study the communication complexity of distributed offline dynamic programming, where a fixed batch dataset is partitioned across (M) machines connected by the data-induced dependency graph. We compare two paradigms: direct boundary-value propagation, which follows Bellman dependencies, and gossip averaging, which mixes local estimates. Our results show that **locality** is the fundamental driver of round complexity. In particular, we prove that no method can achieve (\varepsilon)-accuracy in fewer than (L_\varepsilon = \left\lfloor \log(1/2\varepsilon) / \log(1/\gamma) \right\rfloor) rounds on graphs of diameter at least (L_\varepsilon), and we show that direct propagation matches this scaling up to constants, attaining error (O(\gamma^T/(1-\gamma) + \delta/(1-\gamma))) after (T) rounds. In contrast, gossip-style fitted value iteration incurs an additional (1/\mathrm{gap}(W)) dependence in both convergence rate and asymptotic error. We also prove bandwidth-sensitive lower bounds on path topologies and extend the analysis to asynchronous systems with bounded delays. Together, these results show that spectral dependence is an artifact of gossip-based algorithms, whereas locality is the intrinsic barrier in distributed offline dynamic programming.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.18615v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ibne Farabi Shihab</dc:creator>
+    </item>
+    <item>
+      <title>ARGUS: Agentic GPU Optimization Guided by Data-Flow Invariants</title>
+      <link>https://arxiv.org/abs/2604.18616</link>
+      <description>arXiv:2604.18616v1 Announce Type: new 
+Abstract: LLM-based coding agents can generate functionally correct GPU kernels, yet their performance remains far below hand-optimized libraries on critical computations such as matrix multiplication, attention, and Mixture-of-Experts (MoE). Peak GPU performance requires coordinated reasoning over tightly coupled optimizations, including tiling, shared-memory staging, software pipelining, and instruction scheduling, while existing agents rely on sparse pass/fail feedback, leaving them unable to diagnose global constraint violations.
+  We present Argus, an agentic framework that addresses this through data-flow invariants: compile-time specifications encoding how data must be choreographed throughout kernel execution. Argus introduces a tile-based, Pythonic DSL exposing hardware instructions and compiler policies while hiding low-level representations. The DSL provides tag functions to propagate symbolic annotations through data and control flow, and tag assertions to enforce relational constraints at use sites. When violations occur, the compiler returns concrete counterexamples identifying the thread, data element, and program point, enabling dense, structured feedback for targeted fixes. Invariants are verified at compile time via abstract interpretation over a layout algebra and SMT solving, with zero runtime overhead. An in-context reinforcement learning planner learns to select optimizations and synthesize effective invariants, supported by a curated knowledge base of GPU optimization techniques.
+  We evaluate Argus on the AMD MI300X GPU across GEMM, flash attention, and MoE kernels accounting for over 90% of GPU time in LLM inference. Generated kernels achieve 99-104% of state-of-the-art hand-optimized assembly throughput and are 2-1543x faster than existing agentic systems. Argus further generalizes to 200 KernelBench tasks, solving 100% of Level 1 and 90% of Level 2 problems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.18616v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.PL</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Haohui Mai, Xiaoyan Guo, Xiangyun Ding, Daifeng Li, Qiuchu Yu, Chenzhun Guo, Cong Wang, Jiacheng Zhao, Christos Kozyrakis, Binhang Yuan</dc:creator>
+    </item>
+    <item>
+      <title>Unlocking the Edge deployment and ondevice acceleration of multi-LoRA enabled one-for-all foundational LLM</title>
+      <link>https://arxiv.org/abs/2604.18655</link>
+      <description>arXiv:2604.18655v1 Announce Type: new 
+Abstract: Deploying large language models (LLMs) on smartphones poses significant engineering challenges due to stringent constraints on memory, latency, and runtime flexibility. In this work, we present a hardware-aware framework for efficient on-device inference of a LLaMA-based multilingual foundation model supporting multiple use cases on Samsung Galaxy S24 and S25 devices with SM8650 and SM8750 Qualcomm chipsets respectively. Our approach integrates application-specific LoRAs as runtime inputs to a single frozen inference graph, enabling dynamic task switching without recompilation or memory overhead. We further introduce a multi-stream decoding mechanism that concurrently generates stylistic variations - such as formal, polite, or jovial responses - within a single forward pass, reducing latency by up to 6x. To accelerate token generation, we apply Dynamic Self-Speculative Decoding (DS2D), a tree-based strategy that predicts future tokens without requiring a draft model, yielding up to 2.3x speedup in decode time. Combined with quantization to INT4 and architecture-level optimizations, our system achieves 4-6x overall improvements in memory and latency while maintaining accuracy across 9 languages and 8 tasks. These results demonstrate practical feasibility of deploying multi-use-case LLMs on edge devices, advancing the commercial viability of Generative AI in mobile platforms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.18655v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Sravanth Kodavanti, Sowmya Vajrala, Srinivas Miriyala, Utsav Tiwari, Uttam Kumar, Utkarsh Kumar Mahawar, Achal Pratap Singh, Arya D, Narendra Mutyala, Vikram Nelvoy Rajendiran, Sharan Kumar Allur, Euntaik Lee, Dohyoung Kim, HyeonSu Lee, Gyusung Cho, JungBae Kim</dc:creator>
+    </item>
+    <item>
+      <title>Ocean: Fast Estimation-Based Sparse General Matrix-Matrix Multiplication on GPU</title>
+      <link>https://arxiv.org/abs/2604.19004</link>
+      <description>arXiv:2604.19004v1 Announce Type: new 
+Abstract: In computational science and data analytics, many workloads involve irregular and sparse computations that are inherently difficult to optimize for modern hardware. A key kernel is Sparse General Matrix-Matrix Multiplication (SpGEMM), which underpins simulations, graph analytics, and machine learning applications. SpGEMM exhibits irregular memory access patterns and workload imbalance, making it challenging to achieve high performance on GPUs. Current GPU SpGEMM solutions typically rely on a two-pass workflow to address load imbalance and reduce memory access. The symbolic pass, which determines the number of output elements per row, accounts for roughly 28% of the total runtime on average. In this work, we question the necessity of exact symbolic computation and introduce an estimation-based SpGEMM workflow. Our approach replaces the costly symbolic step with lightweight HyperLogLog estimators, combined with an analysis strategy that dynamically selects the optimal workflow and guides accumulator configuration. In addition, we introduce a hybrid accumulator design, including a novel hash-based accumulator that leverages both shared and global memory. Our approach consistently outperforms leading GPU SpGEMM implementations across a wide range of both square and rectangular matrices, achieving speedups of 1.4x-2.8x on NVIDIA A100 and H100 architectures.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19004v1</guid>
+      <category>cs.DC</category>
+      <category>cs.MS</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3797905.3807868</arxiv:DOI>
+      <arxiv:journal_reference>2026 International Conference on Supercomputing (ICS '26), July 06--09, 2026, Belfast, United Kingdom</arxiv:journal_reference>
+      <dc:creator>Yifan Li, Giulia Guidi</dc:creator>
+    </item>
+    <item>
+      <title>YAIFS: Yet (not) Another Intelligent Fog Simulator: A Framework for Agent-Driven Computing Continuum Modeling &amp; Simulation</title>
+      <link>https://arxiv.org/abs/2604.19181</link>
+      <description>arXiv:2604.19181v1 Announce Type: new 
+Abstract: Simulation plays a key role in the design and evaluation of distributed systems, yet it is often treated as a static tool with limited interaction capabilities. In this work, we present Yet (not) Another Intelligent Fog Simulator (YAIFS), and evolution of YAFS that redefines simulation as an interactive, service-oriented environment. YAIFS introduce a layered architecture that exposes the simulation through a unified API and service interface, enabling external entities to observe, control, and modify its execution. A central contribution is the integration of the Model Context Protocol (MCP) as a standardized interaction layer between agents and the simulation. Through MCP, heterogeneous agents can access state, invoke actions and coordinate behavior using a common set of tools, decoupling agent experimentation workflows. We illustrate these capabilities through two scenarios: an LLM-based assistant that enable natural language control of simulations, and a multi-agent setting where agents monitor system conditions and adapt placement decisions at runtime. These scenarios demonstrate how MCP structures agent-simulation interaction and enable adaptive behavior under dynamic workloads. The proposed approach transforms simulation into an interactive and programmable environment, opening new directions for AI-driven experimentation in cloud-edge systems. The implementation is publicly available at: http://github.com/acsicuib/YAIFS</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19181v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Isaac Lera, Carlos Guerrero</dc:creator>
+    </item>
+    <item>
+      <title>UniEP: Unified Expert-Parallel MoE MegaKernel for LLM Training</title>
+      <link>https://arxiv.org/abs/2604.19241</link>
+      <description>arXiv:2604.19241v1 Announce Type: new 
+Abstract: The exponential growth in Large Language Model (LLM) parameters has transformed model training into an increasingly resource-intensive endeavor. With the stagnation of Moore's Law and the widening disparity between computation throughput and communication bandwidth, expert parallelism (EP) has emerged as a critical strategy for scaling mixture-of-experts (MoE) models. However, despite numerous proposals for optimizing EP, ranging from communication compression to computation-communication overlap, adoption within production-grade frameworks like Megatron-LM remains conservative. Existing solutions often rely on ad-hoc, complex kernels that lack adaptability across diverse optimization configurations and frequently neglect numerical stability, failing to meet the strict precision requirements of large-scale training.
+  In this paper, we introduce UniEP, a novel system that unifies diverse EP optimization strategies into a cohesive abstraction. UniEP fuses the MoE communication and computation into MegaKernels, effectively transforming complex architectural tuning into a unified parameter search space for automated adaptability. Crucially, UniEP incorporates a deterministic token ordering mechanism that guarantees numerical consistency with sequential execution, even under aggressive overlap schedules. We evaluate UniEP on GPU clusters equipped with NVIDIA Hopper GPUs. Our results demonstrate that UniEP achieves 1.03$\times$-1.38$\times$ speedups over state-of-the-art work, effectively mitigating communication bottlenecks while maintaining the rigorous accuracy standards required for production LLM training.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19241v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Size Zheng, Xuegui Zheng, Li-wen Chang, Jidong Zhai</dc:creator>
+    </item>
+    <item>
+      <title>A Simple Communication Scheme for Distributed Fast Multipole Methods</title>
+      <link>https://arxiv.org/abs/2604.19243</link>
+      <description>arXiv:2604.19243v1 Announce Type: new 
+Abstract: We present a simple hierarchical communication scheme for distributed Fast Multipole Methods (FMMs) based on MPI neighborhood collectives and uniform trees. The method targets the common case of extending an existing high-performance shared-memory uniform-tree FMM implementation to distributed memory with minimal redesign while preserving any shared memory optimizations optimizations. Benchmarks on the ARCHER2 supercomputer demonstrate that our method can scale to very large problem sizes, we demonstrate weak-scaling up to 3.2e10 uniformly distributed points on 512 nodes of the machine in our largest runs. Our simplifications based on uniform trees result in worse asymptotic scaling for non-uniform points, however we still obtain practically useful runtimes due to the ability to retain our shared memory optimizations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19243v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Srinath Kailasa</dc:creator>
+    </item>
+    <item>
+      <title>POLAR-PIC: A Holistic Framework for Matrixized PIC with Co-Designed Compute, Layout, and Communication</title>
+      <link>https://arxiv.org/abs/2604.19337</link>
+      <description>arXiv:2604.19337v1 Announce Type: new 
+Abstract: Particle-in-Cell (PIC) simulations are fundamental to plasma physics but often suffer from limited scalability due to particle-grid interaction bottlenecks and particle redistribution costs. Specifically, the particle-grid interaction computations have not taken full advantage of the emerging Matrix Processing Units (MPUs), the particle motion introduces irregular memory accesses, and the bulk-synchronous redistribution further destroys long-term data locality thereby limiting parallel efficiency. To address these inefficiencies, we present POLAR-PIC, a co-designed framework for large-scale PIC simulations that (i) reformulates Field Interpolation into an MPU-friendly outer-product form, (ii) maintains a physically ordered particle layout to preserve memory contiguity, and (iii) overlaps particle communication with Deposition to hide redistribution overhead. The evaluation on the pilot system of an Exascale supercomputer demonstrates that POLAR-PIC accelerates the entire particle-processing phase by up to 10.9x in uniform plasma and 4.4x in real-world laser-ion acceleration scenarios compared to the native WarpX reference pipeline on LX2. Ablation studies reveal that the speedups achieved by Interpolation and Deposition are 8.0x and 13.2x, respectively, and the asynchronous communication design sustains a 99.1% overlap ratio. In cross-platform comparisons, POLAR-PIC achieves 13.2% of theoretical peak efficiency on the CPU-based LS system, while WarpX reaches 9.6% on NVIDIA A800 GPUs. Notably, the scalability evaluation demonstrates that POLAR-PIC maintains 67.5% weak scaling efficiency on over 2 million cores under high-migration dynamic workloads, highlighting the importance of holistic co-design for future matrix-centric HPC systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19337v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3806645.3807574</arxiv:DOI>
+      <arxiv:journal_reference>The 35th International Symposium on High-Performance Parallel and Distributed Computing (HPDC '26), July 13--16, 2026, Cleveland, OH, USA</arxiv:journal_reference>
+      <dc:creator>Yizhuo Rao, Xingjian Cui, Shangzhi Pang, Jiabin Xie, Guangnan Feng, Jinhui Wei, Ziyan Zhang, Languang Gao, Zhenyu Wang, Zhiguang Chen, Yutong Lu</dc:creator>
+    </item>
+    <item>
+      <title>CROWDio: A Practical Mobile Crowd Computing Framework with Developer-Oriented Design, Adaptive Scheduling, and Fault Resilience</title>
+      <link>https://arxiv.org/abs/2604.19363</link>
+      <description>arXiv:2604.19363v1 Announce Type: new 
+Abstract: Mobile Crowd Computing (MCdC) leverages the idle computational capacity of consumer smartphones to enable distributed task processing at scale; however, widespread real-world adoption remains constrained by the absence of developer-oriented frameworks capable of transparently managing device heterogeneity, fault tolerance, and connectivity volatility. This paper introduces CROWDio, a centralized MCdC platform comprising three tightly integrated subsystems: (i) a declarative SDK that abstracts distributed execution to a single function annotation, eliminating the need for explicit parallelism management; (ii) a tiered checkpointing mechanism that enables fault-tolerant task resumption under the memory and execution constraints inherent to mobile runtimes; and (iii) a pluggable multi-criteria scheduling framework driven by continuous live device telemetry, supporting interchangeable decision strategies without modification to the dispatch core. Empirical evaluation across six heterogeneous Android devices spanning CPU-bound, AI/NLP inference, and data-parallel workloads demonstrates that capability-aware adaptive scheduling reduces total execution time by up to 56.9% relative to naive round-robin dispatch, while the checkpointing subsystem incurs a bounded overhead of only 2-3 s per task regardless of checkpoint frequency. A system-wide Jain's Fairness Index of 0.889 confirms equitable and stable workload distribution across heterogeneous worker devices.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19363v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Lakshani Manamperi, Disumi Pathirana, Thiwanka Pathirana, Nipun Premarathna, Kutila Gunasekara</dc:creator>
+    </item>
+    <item>
+      <title>Minimizing Intellectual Property Risks via Self-Stabilizing Algorithms</title>
+      <link>https://arxiv.org/abs/2604.19454</link>
+      <description>arXiv:2604.19454v1 Announce Type: new 
+Abstract: In this paper, we examine the use of self-stabilizing algorithms, operating in a hierarchical manner, to determine intellectual property risks at a macro level. We are both interested in finding a solution that will support all defined intellectual property dimensions as well as suboptimal solutions in order to minimize risk.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19454v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ken Kennedy, Iman Evazzade</dc:creator>
+    </item>
+    <item>
+      <title>DPC: A Distributed Page Cache over CXL</title>
+      <link>https://arxiv.org/abs/2604.19494</link>
+      <description>arXiv:2604.19494v1 Announce Type: new 
+Abstract: Modern distributed file systems rely on uncoordinated, per node page caches that replicate hot data locally across the cluster. While ensuring fast local access, this architecture underutilizes aggregate cluster DRAM capacity through massive data redundancy and incurs prohibitive coherence overhead via heavyweight, lock-based protocols. In this paper, we focus on the design of a distributed page cache that treats the entire cluster's main memory as a single cache budget while preserving standard file-system interfaces and semantics. We present Distributed Page Cache (DPC), an OS-level, distributed page cache built on top of Compute Express Link (CXL) 3.0 memory semantics. DPC enforces a single-copy invariant at page granularity: each file page has exactly one owner node holding the sole resident DRAM copy, and other nodes access it via CXL-based remote mappings rather than creating replicas of the page. DPC is implemented end-to-end on a CXL-based emulation framework that models multi-host CXL 3.0 memory fabrics, enabling detailed evaluation in the absence of widespread hardware. Across real-world and representative data-sharing workloads, DPC delivers speedups of up to 12.4X, with a geometric-mean speedup of 5.6X.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19494v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Shai Bergman, Zhe Yang, Julien Eudine, Giorgio Negro, Onur Mutlu, Arash Tavakkol, Ji Zhang</dc:creator>
+    </item>
+    <item>
+      <title>ReaLB: Real-Time Load Balancing for Multimodal MoE Inference</title>
+      <link>https://arxiv.org/abs/2604.19503</link>
+      <description>arXiv:2604.19503v1 Announce Type: new 
+Abstract: Mixture-of-Experts (MoE) architectures are widely used in modern large language models and multimodal models. However, inference efficiency is often limited by highly dynamic and skewed expert workloads across different modalities. During the prefill stage with large batch sizes, vision tokens frequently dominate the input sequences. Under expert parallelism (EP), this leads to severe load imbalance, where a subset of devices becomes overloaded, reducing overall system throughput.
+  We propose ReaLB, a real-time load balancing method for multimodal MoE (MMoE) inference that introduces zero scheduling overhead. ReaLB dynamically adjusts the computation precision of MoE experts at runtime on a per-EP-rank basis. For ranks dominated by vision-heavy experts, ReaLB assigns lower-precision computation to improve execution efficiency by exploiting FP4 Tensor Cores. ReaLB does not require redundant experts or additional memory allocation. Instead, it performs layer-wise expert precision transformation on the fly and hides the associated overhead within the dispatch phase before MoE computation. Experiments on representative MMoE models show that ReaLB achieves 1.29x layer-level speedup while limiting accuracy loss to within 1.2%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19503v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yingping Wang, Yi Wu, Xiangyu Wu, Junwei Cui, Weilin Cai, Zhijiang Guo, Jiayi Huang</dc:creator>
+    </item>
+    <item>
+      <title>FEPLB: Exploiting Copy Engines for Nearly Free MoE Load Balancing in Distributed Training</title>
+      <link>https://arxiv.org/abs/2604.19654</link>
+      <description>arXiv:2604.19654v1 Announce Type: new 
+Abstract: Fine-grained, per-micro-batch load balancing is essential for efficient Mixture-of-Experts (MoE) training, yet every prior dynamic scheduling scheme pays for it with extra communication that is hard to hide. Especially on modern bulk-transfer backends such as DeepEP. We make a simple but consequential observation: on the NVIDIA Hopper architecture the NVLink Copy Engine can move data between intra-node GPUs without consuming any SM cycles, effectively providing a nearly free communication channel that runs in parallel with compute kernels. FEPLB turns this idle hardware into a new parallel dimension for MoE load rebalancing. Its Two-Phase Dispatch first routes tokens across nodes via the standard EP backend, then redistributes dynamic-expert tokens and weights within the NVLink domain through the Copy Engine at nearly zero cost, while a lightweight CPU scheduler runs concurrently with static expert computation. Because FEPLB uses only Copy Engine and CPU that are orthogonal to those consumed by EP and PP, it coexists with existing parallel strategies without reconfiguration.
+  On GLM-5's MoE layers (128 experts, no auxiliary loss, up to 16 H100 GPUs), FEPLB reduces the token straggler by 51-70% and the GEMM straggler by 50-68% with no measurable EP communication overhead. Its advantage grows with the EP degree: at EP=8, it achieves 2x lower token straggler than FasterMoE.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19654v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shuyao Qi, Haoyuan Liu, Shizhen Zhao</dc:creator>
+    </item>
+    <item>
+      <title>Preserving Clusters in Error-Bounded Lossy Compression of Particle Data</title>
+      <link>https://arxiv.org/abs/2604.18801</link>
+      <description>arXiv:2604.18801v1 Announce Type: cross 
+Abstract: Lossy compression is widely used to reduce storage and I/O costs for large-scale particle datasets in scientific applications such as cosmology, molecular dynamics, and fluid dynamics, where clustering structures (e.g., single-linkage or Friends-of-Friends) are critical for downstream analysis; however, existing compressors typically provide only pointwise error bounds on particle positions and offer no guarantees on preserving clustering outcomes, and even small perturbations can alter cluster connectivity and compromise scientific validity. We propose a correction-based technique to preserve single-linkage clustering under lossy compression, operating on decompressed data from off-the-shelf compressors such as SZ3 and Draco. Our key contributions are threefold: (1) a clustering-aware correction algorithm that identifies vulnerable particle pairs via spatial partitioning and local neighborhood search; (2) an optimization-based formulation that enforces clustering consistency using projected gradient descent with a loss that encodes pairwise distance violations; and (3) a scalable GPU-accelerated and distributed implementation for large-scale datasets. Experiments on cosmology and molecular dynamics datasets show that our method effectively preserves clustering results while maintaining competitive compression performance compared with SZ3, ZFP, Draco, LCP, and space-filling-curve-based schemes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.18801v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Congrong Ren, Sheng Di, Katrin Heitmann, Franck Cappello, Hanqi Guo</dc:creator>
+    </item>
+    <item>
+      <title>CHRONOS: A Hardware-Assisted Phase-Decoupled Framework for Secure Federated Learning in IoT</title>
+      <link>https://arxiv.org/abs/2604.19053</link>
+      <description>arXiv:2604.19053v1 Announce Type: cross 
+Abstract: We propose CHRONOS, a hardware-assisted framework that decouples the cryptographic setup required for private gradient aggregation from the active training phase. CHRONOS executes a once-per-epoch server-relayed Diffie-Hellman key exchange during a device's idle window. It generates ephemeral keypairs and derives PRG keys entirely within an ARM TrustZone enclave, ensuring private keys never exist in Normal World memory. Pairwise secrets are sealed in the enclave, and Shamir secret shares of the ephemeral private key are distributed to peers. During training, clients mask gradients with a single stream-cipher evaluation and transmit them in one communication round. A hardware-backed round counter enforces single-use freshness. If clients drop out mid-round, the server reconstructs their masks from peer-held Shamir shares, preserving correct aggregation without repeating the round.
+  Evaluation on Rock Pi 4 devices using OP-TEE demonstrates that CHRONOS achieves OS-level compromise resistance and thwarts state-of-the-art gradient inversion attacks. It reduces active-phase aggregation latency by up to 74% compared to synchronous secure aggregation for 20 clients. The system maintains a persistent Secure World storage footprint of fewer than 700 bytes per device, scaling independently of model dimension.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19053v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Hung Dang</dc:creator>
+    </item>
+    <item>
+      <title>Heuristic Search Space Partitioning for Low-Latency Multi-Tenant Cloud Queries</title>
+      <link>https://arxiv.org/abs/2604.19057</link>
+      <description>arXiv:2604.19057v1 Announce Type: cross 
+Abstract: Large-scale cloud security platforms must continuously query millions of structured cloud resource records distributed across thousands of tenant accounts. Broad, account-spanning queries saturate database infrastructure, producing P95 latencies exceeding 60 seconds. We identify buffer cache pressure as the dominant latency driver: in a controlled experiment, the same query executing with the same plan completed in 3.7 seconds when its working set was memory-resident and 94 seconds when concurrent load had evicted those pages. No query plan optimization can address this; the only effective intervention is reducing the number of pages each query must touch. We present the Heuristic Search Space Partitioning System (HSSPS), a query-time optimization layer that logically partitions the search space through dynamic predicate injection, without schema modification. A two-phase heuristic engine selects partition key values and scores candidate query plans before execution. A client-side page token maintains cross-partition traversal state without server-side sessions, enabling horizontal scalability. Controlled evaluation across representative query types demonstrates 50-97% P95 latency reduction (95-97% on high-cardinality queries), 8-10x throughput improvement, and 41x reduction in average active sessions. Production rollout across live multi-tenant traffic reduced P95 latency from 61s to 2s across successive releases, sustained over 14,000 eligible queries per measurement window. The technique generalizes to any multi-tenant system where broad queries execute against large shared databases and physical schema modification is impractical.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19057v1</guid>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Prashant Kumar Pathak, Chandra Biksheswaran Mouleeswaran, Rama Teja Repaka</dc:creator>
+    </item>
+    <item>
+      <title>Sherpa.ai Privacy-Preserving Multi-Party Entity Alignment without Intersection Disclosure for Noisy Identifiers</title>
+      <link>https://arxiv.org/abs/2604.19219</link>
+      <description>arXiv:2604.19219v1 Announce Type: cross 
+Abstract: Federated Learning (FL) enables collaborative model training among multiple parties without centralizing raw data. There are two main paradigms in FL: Horizontal FL (HFL), where all participants share the same feature space but hold different samples, and Vertical FL (VFL), where parties possess complementary features for the same set of samples. A prerequisite for VFL training is privacy-preserving entity alignment (PPEA), which establishes a common index of samples across parties (alignment) without revealing which samples are shared between them. Conventional private set intersection (PSI) achieves alignment but leaks intersection membership, exposing sensitive relationships between datasets. The standard private set union (PSU) mitigates this risk by aligning on the union of identifiers rather than the intersection. However, existing approaches are often limited to two parties or lack support for typo-tolerant matching.
+  In this paper, we introduce the Sherpa.ai multi-party PSU protocol for VFL, a PPEA method that hides intersection membership and enables both exact and noisy matching. The protocol generalizes two-party approaches to multiple parties with low communication overhead and offers two variants: an order-preserving version for exact alignment and an unordered version tolerant to typographical and formatting discrepancies. We prove correctness and privacy, analyze communication and computational (exponentiation) complexity, and formalize a universal index mapping from local records to a shared index space. This multi-party PSU offers a scalable, mathematically grounded protocol for PPEA in real-world VFL deployments, such as multi-institutional healthcare disease detection, collaborative risk modeling between banks and insurers, and cross-domain fraud detection between telecommunications and financial institutions, while preserving intersection privacy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19219v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Daniel M. Jimenez-Gutierrez, Enrique Zuazua, Georgios Kellaris, Joaquin Del Rio, Oleksii Sliusarenko, Xabi Uribe-Etxebarria</dc:creator>
+    </item>
+    <item>
+      <title>Mass Matrix Assembly on Tensor Cores for Implicit Particle-In-Cell Methods</title>
+      <link>https://arxiv.org/abs/2604.19286</link>
+      <description>arXiv:2604.19286v1 Announce Type: cross 
+Abstract: Matrix-multiply-accumulate (MMA) units, or tensor cores, are now widespread across modern computing architectures. Yet, their use for particle-grid operators remains limited. In implicit particle methods, mass-matrix assembly is a reduction-dominated kernel in which weighted outer products of interpolation weights are accumulated over particle support. We show that this operation can be reformulated exactly, cell by cell, as a sequence of matrix products matched to hardware MMA tiles. The formulation is general with respect to interpolation order and hardware platform, and applies to both scalar mass matrices and the tensorial block mass matrix arising in implicit in the Energy-Conserving Semi-Implicit Method (ECSIM) for Particle-in-Cell simulations. We introduce particle batching and a support-group decomposition for higher-order shape functions whose stencil extends beyond a single cell, specialize the method to first- and second-order B-spline interpolation, and implement it on NVIDIA tensor cores. The resulting kernels achieve up to 3x over optimized conventional implementations and reduce end-to-end ECSIM runtime by 15%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19286v1</guid>
+      <category>cs.CE</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Luca Pennati, Stefano Markidis</dc:creator>
+    </item>
+    <item>
+      <title>Optimal Routing for Federated Learning over Dynamic Satellite Networks: Tractable or Not?</title>
+      <link>https://arxiv.org/abs/2604.19399</link>
+      <description>arXiv:2604.19399v1 Announce Type: cross 
+Abstract: Federated learning (FL) is a key paradigm for distributed model learning across decentralized data sources. Communication in each FL round typically consists of two phases: (i) distributing the global model from a server to clients, and (ii) collecting updated local models from clients to the server for aggregation. This paper focuses on a type of FL where communication between a client and the server is relay-based over dynamic networks, making routing optimization essential. A typical scenario is in-orbit FL, where satellites act as clients and communicate with a server (which can be a satellite, ground station, or aerial platform) via multi-hop inter-satellite links. This paper presents a comprehensive tractability analysis of routing optimization for in-orbit FL under different settings. For global model distribution, these include the number of models, the objective function, and routing schemes (unicast versus multicast, and splittable versus unsplittable flow). For local model collection, the settings consider the number of models, client selection, and flow splittability. For each case, we rigorously prove whether the global optimum is obtainable in polynomial time or the problem is NP-hard. Together, our analysis draws clear boundaries between tractable and intractable regimes for a broad spectrum of routing problems for in-orbit FL. For tractable cases, the derived efficient algorithms are directly applicable in practice. For intractable cases, we provide fundamental insights into their inherent complexity. These contributions fill a critical yet unexplored research gap, laying a foundation for principled routing design, evaluation, and deployment in satellite-based FL or similar distributed learning systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19399v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Yi Zhao, Di Yuan, Tao Deng, Suzhi Cao, Ying Dong</dc:creator>
+    </item>
+    <item>
+      <title>Predictive Autoscaling for Node.js on Kubernetes: Lower Latency, Right-Sized Capacity</title>
+      <link>https://arxiv.org/abs/2604.19705</link>
+      <description>arXiv:2604.19705v1 Announce Type: cross 
+Abstract: Kubernetes offers two default paths for scaling Node.js workloads, and both have structural limitations. The Horizontal Pod Autoscaler scales on CPU utilization, which does not directly measure event loop saturation: a Node.js pod can queue requests and miss latency SLOs while CPU reports moderate usage. KEDA extends HPA with richer triggers, including event-loop metrics, but inherits the same reactive control loop, detecting overload only after it has begun. By the time new pods start and absorb traffic, the system may already be degraded. Lowering thresholds shifts the operating point but does not change the dynamic: the scaler still reacts to a value it has already crossed, at the cost of permanent over-provisioning.
+  We propose a predictive scaling algorithm that forecasts where load will be by the time new capacity is ready and scales proactively based on that forecast. Per-instance metrics are corrupted by the scaler's own actions: adding an instance redistributes load and changes every metric, even if external traffic is unchanged. We observe that operating on a cluster-wide aggregate that is approximately invariant under scaling eliminates this feedback loop, producing a stable signal suitable for short-term extrapolation.
+  We define a metric model (a set of three functions that encode how a specific metric relates to scaling) and a five-stage pipeline that transforms raw, irregularly-timed, partial metric data into a clean prediction signal. In benchmarks against HPA and KEDA under steady ramp and sudden spike, the algorithm keeps per-instance load near the target threshold throughout. Under the steady ramp, median latency is 26ms, compared to 154ms for KEDA and 522ms for HPA.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.19705v1</guid>
+      <category>cs.SE</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Ivan Tymoshenko, Luca Maraschi, Matteo Collina</dc:creator>
+    </item>
+    <item>
+      <title>Interactive Safety Verification of Distributed Protocols by Inductive Proof Decomposition</title>
+      <link>https://arxiv.org/abs/2404.18048</link>
+      <description>arXiv:2404.18048v2 Announce Type: replace 
+Abstract: Many techniques for the automated verification of distributed protocols have been developed over the past several years, but their performance is still unpredictable and their failure modes can be opaque for industrial scale verification tasks. Thus, in practice, large-scale verification efforts typically require some amount of human guidance. In this paper, we present inductive proof decomposition, a new methodology for interactive safety verification that provides a compositional, interactive approach to inductive invariant development. Our approach guides the human-aided development of inductive invariants via a novel structure, an inductive proof graph, which is built incrementally by a human verifier, working backwards from a target safety property. A user is guided by induction counterexamples that are localized to specific nodes of this graph, and nodes of this proof graph are further decomposed based on logical actions that appear in a protocol's transition relation. Our decomposition also enables a localized variable slicing technique that hides irrelevant protocol state at each sub-component of an inductive proof, allowing a user to focus on fine-grained sub-problems rather than a large, monolithic inductive invariant. We present our technique and experience applying it to develop inductive safety proofs of several complex distributed protocols, including the Raft consensus protocol, which is beyond the capabilities of modern automated verification tools. We also demonstrate how the developed proof graphs provide additional insight into the structure of a protocol proof and its correctness.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2404.18048v2</guid>
+      <category>cs.DC</category>
+      <category>cs.LO</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>William Schultz, Edward Ashton, Heidi Howard, Stavros Tripakis</dc:creator>
+    </item>
+    <item>
+      <title>Bitcoin-IPC Whitepaper: Scaling Bitcoin with a Network of Proof-of-Stake Subnets</title>
+      <link>https://arxiv.org/abs/2512.23439</link>
+      <description>arXiv:2512.23439v2 Announce Type: replace 
+Abstract: We introduce Bitcoin-IPC, a software stack and protocol that scales Bitcoin towards helping it become the universal Medium of Exchange (MoE) by enabling the permissionless creation of fully programmable Proof-of-Stake (PoS) Layer-2 chains, called subnets, whose stake is denominated in L1 BTC. Bitcoin-IPC subnets rely on Bitcoin L1 for the communication of critical information, settlement, and security.
+  Our design, inspired by SWIFT messaging and embedded within Bitcoin's SegWit mechanism, enables seamless value transfer across L2 subnets, routed through Bitcoin L1. Uniquely, this mechanism reduces the virtual-byte cost per transaction (vB per tx) by up to 23x, compared to transacting natively on Bitcoin L1, effectively increasing monetary transaction throughput from 7 tps to over 160 tps, without requiring any modifications to Bitcoin L1.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.23439v2</guid>
+      <category>cs.DC</category>
+      <category>cs.CR</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Marko Vukoli\'c, Orestis Alpos, Jakov Mitrovski, Themis Papameletiou, Nikola Risti\'c, Dionysis Zindros</dc:creator>
+    </item>
+    <item>
+      <title>Verifying In-Network Computing Systems for Design Risks</title>
+      <link>https://arxiv.org/abs/2604.10186</link>
+      <description>arXiv:2604.10186v3 Announce Type: replace 
+Abstract: The emergence of programmable switches has brought in-network computing (INC) into the spotlight in recent years. By offloading computation directly onto the data transmission process, INC improves network utilization, reduces latency to sub-RTT levels, saves link bandwidth, and maintains throughput. However, INC disrupts the transparency of traditional networks, forcing developers to consider network exceptions like packet loss and out-of-order. If not properly handled, these exceptions can lead to violations of application properties, such as cache consistency and lock exclusion. Usual testing cannot exhaustively cover these exceptions, raising doubts about the correctness of INC systems and hindering their deployment in the industry. This paper presents INCGuard, the first general-purpose tool for verifying INC systems. INCGuard provides a high-level specification language and saves developers 67.2% lines of code on average. To help better understand the behavior of the system, INCGuard offers configurable network environments. INCGuard enables developers to express INC-specific correctness properties. INCGuard translates developer-specified systems into state transition representations, performs model checking to detect potential design risks, and reports violation traces to developers. We propose optimizations for INC-specific scenarios to address the challenge of state space explosion. We modeled seven INC systems and identified their risks with INCGuard in seconds. We further reproduce them in real systems to confirm the validity of our verification result.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.10186v3</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Tianyu Bai, Ying Zhang, Xiaoxi Zhang, Wenfei Wu</dc:creator>
+    </item>
+    <item>
+      <title>Event Tensor: A Unified Abstraction for Compiling Dynamic Megakernel</title>
+      <link>https://arxiv.org/abs/2604.13327</link>
+      <description>arXiv:2604.13327v2 Announce Type: replace 
+Abstract: Modern GPU workloads, especially large language model (LLM) inference, suffer from kernel launch overheads and coarse synchronization that limit inter-kernel parallelism. Recent megakernel techniques fuse multiple operators into a single persistent kernel to eliminate launch gaps and expose inter-kernel parallelism, but struggle to handle dynamic shapes and data-dependent computation in real workloads. We present Event Tensor, a unified compiler abstraction for dynamic megakernels. Event Tensor encodes dependencies between tiled tasks, and enables first-class support for both shape and data-dependent dynamism. Built atop this abstraction, our Event Tensor Compiler (ETC) applies static and dynamic scheduling transformations to generate high-performance persistent kernels. Evaluations show that ETC achieves state-of-the-art LLM serving latency while significantly reducing system warmup overhead.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.13327v2</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PL</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Hongyi Jin, Bohan Hou, Guanjie Wang, Ruihang Lai, Jinqi Chen, Zihao Ye, Yaxing Cai, Yixin Dong, Xinhao Cheng, Zhihao Zhang, Yilong Zhao, Yingyi Huang, Lijie Yang, Jinchen Jiang, Gabriele Oliaro, Jianan Ji, Xupeng Miao, Vinod Grover, Todd C. Mowry, Zhihao Jia, Tianqi Chen</dc:creator>
+    </item>
+    <item>
+      <title>CoCoDiff: Optimizing Collective Communications for Distributed Diffusion Transformer Inference Under Ulysses Sequence Parallelism</title>
+      <link>https://arxiv.org/abs/2604.14561</link>
+      <description>arXiv:2604.14561v2 Announce Type: replace 
+Abstract: Diffusion Transformers (DiTs) are increasingly adopted in scientific computing, yet growing model sizes and resolutions make distributed multi-GPU inference essential. Ulysses sequence parallelism scales DiT inference but introduces frequent all-to-all collectives that dominate latency. Overlapping these with computation is difficult due to tight data dependencies, large message volumes, and asymmetric interconnect bandwidths.
+  We introduce CoCoDiff, a distributed DiT inference engine exploiting two observations: (1) V requires only linear projection while Q/K need additional normalization and RoPE, creating opportunities to overlap V's communication with Q/K computation; (2) adjacent denoising steps produce similar tensors, yielding temporal redundancy. CoCoDiff introduces three mechanisms: Tile-Aware Parallel All-to-all (TAPA) decomposes collectives into topology-aligned phases; V-First scheduling hides V's communication behind Q/K computation; and V-Major selective communication transmits only active projections on slow interconnects. On the Aurora supercomputer with four DiT models across 1-8 nodes (up to 96 Intel GPU tiles), CoCoDiff achieves an average speedup of 3.6x, peaking at 8.4x.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.14561v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Bin Ma, Xingjian Ding, Tekin Bicer, Pengfei Su, Dong Li</dc:creator>
+    </item>
+    <item>
+      <title>Continuous benchmarking: Keeping pace with an evolving ecosystem of models and technologies</title>
+      <link>https://arxiv.org/abs/2604.15919</link>
+      <description>arXiv:2604.15919v2 Announce Type: replace 
+Abstract: Drawing on ideas from continuous integration, we present concepts of an automated benchmarking pipeline for high performance applications. Customization and collaboration have been key design goals owing to the requirements of research-software development as a continuous community effort. We have extended our previous conceptual work on systematic benchmarking workflows with the functionality of user-agnostic operations as well as continuous benchmarking. This fosters reproducibility and re-use of benchmarking results to ensure sustainable technological progress. We provide software-engineering solutions to keep pace with the rapid evolution of both large-scale models and high-performance computing systems with a view towards the scientific domains of neuroscience and artificial intelligence.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.15919v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jan Vogelsang, Melissa Lober, Catherine Mia Sch\"ofmann, Jos\'e Villamar, Dennis Terhorst, Johanna Senk, Hans Ekkehard Plesser, Markus Diesmann, Susanne Kunkel, Anno C. Kurth</dc:creator>
+    </item>
+    <item>
+      <title>RESFL: An Uncertainty-Aware Framework for Responsible Federated Learning by Balancing Privacy, Fairness and Utility</title>
+      <link>https://arxiv.org/abs/2503.16251</link>
+      <description>arXiv:2503.16251v2 Announce Type: replace-cross 
+Abstract: Federated Learning (FL) has gained prominence in machine learning applications across critical domains by enabling collaborative model training without centralized data aggregation. However, FL frameworks that protect privacy often sacrifice fairness and reliability. Differential privacy can reduce data leakage, but it may also obscure sensitive attributes needed for bias correction, thereby worsening performance gaps across demographic groups. This work studies the privacy-fairness trade-off in FL-based object detection and introduces RESFL, an integrated framework that jointly improves both objectives. RESFL combines adversarial privacy disentanglement with uncertainty-guided fairness-aware aggregation. The adversarial component uses a gradient reversal layer to suppress sensitive attribute information, reducing privacy risks while preserving fairness-relevant structure. The uncertainty-aware aggregation component uses an evidential neural network to adaptively weight client updates, prioritizing contributions with lower fairness disparities and higher confidence. This produces robust and equitable FL model updates. Experiments in high-stakes autonomous vehicle settings show that RESFL achieves high mAP on FACET and CARLA, reduces membership-inference attack success by 37%, reduces the equality-of-opportunity gap by 17% relative to the FedAvg baseline, and maintains stronger adversarial robustness. Although evaluated in autonomous driving, RESFL is domain-agnostic and can be applied to a broad range of application domains beyond this setting.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2503.16251v2</guid>
+      <category>cs.LG</category>
+      <category>cs.CV</category>
+      <category>cs.DC</category>
+      <category>cs.ET</category>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Dawood Wasif, Terrence J. Moore, Jin-Hee Cho</dc:creator>
+    </item>
+  </channel>
+</rss>
