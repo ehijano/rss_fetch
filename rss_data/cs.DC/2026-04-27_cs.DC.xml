@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Apr 2026 04:00:14 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Shard the Gradient, Scale the Model: Serverless Federated Aggregation via Gradient Partitioning</title>
+      <link>https://arxiv.org/abs/2604.22072</link>
+      <description>arXiv:2604.22072v1 Announce Type: new 
+Abstract: Federated learning (FL) aggregation on serverless platforms faces a hard scalability ceiling: existing architectures (lambda-FL, LIFL) partition clients across aggregators, but every aggregator must hold the complete model gradient in memory. When gradients exceed the per-function memory limit (e.g., 10 GB on AWS Lambda), aggregation becomes infeasible regardless of tree depth or branching factor. We propose GradsSharding, which instead partitions the gradient tensor into M shards, each averaged independently by a serverless function that receives contributions from all clients. Because FedAvg averaging is element-wise, this produces bit-identical results to tree-based approaches, so model accuracy is invariant by construction. Per-function memory is bounded at O(|{\theta}|/M), independent of client count, enabling aggregation of arbitrarily large models. We evaluate GradsSharding against lambda-FL and LIFL through HPC experiments and real AWS Lambda deployments across model sizes from 43 MB to 5 GB. Results show a cost crossover at approximately 500 MB gradient size, 2.7x cost reduction at VGG-16 scale, and that GradsSharding is the only architecture that remains deployable beyond the serverless memory ceiling.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.22072v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/publicdomain/zero/1.0/</dc:rights>
+      <dc:creator>Amine Barrak</dc:creator>
+    </item>
+    <item>
+      <title>FlashSpread: IO-Aware GPU Simulation of Non-Markovian Epidemic Dynamics via Kernel Fusion</title>
+      <link>https://arxiv.org/abs/2604.22092</link>
+      <description>arXiv:2604.22092v1 Announce Type: new 
+Abstract: Non-Markovian (renewal) epidemic simulation on multi-million-node contact networks is essential for realistic forecasting under general age-dependent holding-time distributions (log-normal, Weibull, Erlang, and similar), but the age-dependent hazard forces dense per-step updates that render the sparse event-queue strategies of standard CPU methods ineffective. We present FlashSpread, a GPU framework that consolidates the per-step renewal pipeline (CSR traversal, numerically stable erfcx-based hazard evaluation, Bernoulli tau-leaping, state transition, and next-step infectivity write-back) into a single fused Triton kernel whose intermediates never leave streaming-multiprocessor registers, with block-scalar skips that preserve CUDA Graph capture and a degree-aware CSR dispatch (thread / warp / edge-merge) that keeps the peak throughput on scale-free graphs. On an NVIDIA A100 the fused CUDA-Graph engine reaches 8.09 Giga-NUPS at N = 10^6 on a uniform-degree graph, a 217x strict hardware speedup over optimised CPU tau-leaping at the same N; on a Barabasi-Albert graph of the same size the merge-based dispatch recovers 4.5x (0.45 to 2.0 Giga-NUPS) over the default kernel, and the framework scales to N = 10^8 on a single A100 (40 GB), with a mixed-precision storage path that extends the L2-reachable scale by roughly 3x and delivers a 1.15x throughput lift at the far bandwidth-bound end. Validation against an exact non-Markovian Gillespie reference shows a structural-bias floor of approximately 6% on peak infection and approximately 7% on final attack rate that does not detectably decrease as epsilon nears 0 across two decades of tolerance, comfortably within typical epidemiological parameter uncertainty. Code: https://github.com/Shakeri-Lab/FlashSpread.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.22092v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Heman Shakeri, Behnaz Moradi-Jamei, Aram Vajdi, Ehsan Ardjmand</dc:creator>
+    </item>
+    <item>
+      <title>GICC: A High-Performance Runtime for GPU-Initiated Communication and Coordination in Modern HPC Systems</title>
+      <link>https://arxiv.org/abs/2604.22126</link>
+      <description>arXiv:2604.22126v1 Announce Type: new 
+Abstract: Distributed GPU applications increasingly rely on kernel-level, cross-node coordination to reduce launch overheads and improve compute-communication overlap, but such support is lacking. On OFI-based interconnects such as HPE Slingshot, which powers six of the top ten systems in the November 2025 Top500, including the top three, GPU kernels cannot autonomously drive distributed coordination: existing runtimes rely on host-driven progress and lack a bounded mechanism for recycling pre-staged NIC work across repeated GPU-triggered operations. On InfiniBand, GPU-initiated communication is possible, but current implementations incur unnecessary synchronization and locking overheads.
+  This paper presents GICC, a framework that enables GPU kernels to directly trigger NIC-level operations without host involvement on the fast path. In stencils, GPU threads initiate halo exchanges as soon as boundary regions are computed, enabling fine-grained overlap between interior computation and boundary transfer. GICC decouples coordination semantics from data movement and introduces asynchronous resource reclamation: the NIC signals completion to both GPU and host memory, letting a lightweight host thread recycle NIC resources concurrently with GPU execution without injecting latency into the coordination path. This sustains GPU-driven coordination under finite NIC state, absent from existing OFI-based runtimes.
+  We implement GICC on NVIDIA and AMD GPUs over InfiniBand and Slingshot. On Slingshot, GICC reduces per-coordination latency by up to 229x and improves weak scaling efficiency by up to 25%. On InfiniBand, it achieves up to 1.95x lower put latency than NVSHMEM by eliminating unnecessary locking and synchronization. On an industrial stencil proxy on 64 AMD MI250X GCDs, GPU-aware MPI incurs over 52% higher communication time than GICC, which achieves 42% parallel efficiency versus MPI's 35.4%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.22126v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3806645.3807576</arxiv:DOI>
+      <dc:creator>Baodi Shan, Mauricio Araya-Polo, Barbara Chapman</dc:creator>
+    </item>
+    <item>
+      <title>$O(K)$-Approximation Coflow Scheduling in $K$-Core Optical Circuit Switching Networks</title>
+      <link>https://arxiv.org/abs/2604.22146</link>
+      <description>arXiv:2604.22146v1 Announce Type: new 
+Abstract: Coflow has emerged as a fundamental application-layer abstraction in distributed systems, representing communication dependencies and enabling collaborative management of related flows to enhance job completion efficiency. To meet the increasing bandwidth demands of modern data center networks (DCNs), optical circuit switches are widely deployed due to their high capacity and energy efficiency. Simultaneously, DCN deployments are evolving towards heterogeneous parallel architectures, where multiple independent optical circuit switching (OCS) cores operate concurrently to facilitate bandwidth expansion and incremental upgrades. However, existing research on coflow scheduling in multi-core switching fabrics primarily focuses on electrical packet switching (EPS) networks, with a few known results on OCS networks without or with a poor performance guarantee.
+  This paper studies the coflow scheduling problem in multi-core OCS networks under the not-all-stop (i.e., asynchronous) reconfiguration model, focusing on two major challenges of overcoming cross-core coupling for inter-core traffic allocation and satisfying the constraints of port exclusivity and reconfiguration overhead for intra-core circuit scheduling. To minimize total weighted coflow completion time (CCT), we propose an efficient algorithm by integrating linear programming-guided (LP-guided) global coflow ordering, inter-core flow allocation and intra-core circuit scheduling that achieves approximation ratios of 8K and 8K+1 for zero and arbitrary release times of coflows, respectively, where K is the number of OCS cores. This framework is also applicable to H-core EPS networks, providing approximation guarantees of 4H and 4H+1 for zero-time and arbitrary-time release, respectively.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.22146v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Xin Wang, Hong Shen, Hui Tian, Ye Tao</dc:creator>
+    </item>
+    <item>
+      <title>Accelerating Intra-Node GPU-to-GPU Communication Through Multi-Path Transfers with CUDA Graphs</title>
+      <link>https://arxiv.org/abs/2604.22228</link>
+      <description>arXiv:2604.22228v1 Announce Type: new 
+Abstract: Effective intra-node GPU communication is essential for optimizing performance in MPI-based HPC applications, especially when leveraging multiple communication paths. In this study, we propose a novel approach that integrates CUDA Graphs into the UCX framework to enhance intra-node multi-path point-to-point GPU communication. By concurrently leveraging multiple paths, including NVLink and PCIe through the host, and optimizing communication workflows using CUDA Graph, we achieve significant reductions in communication overhead and improve execution efficiency. To the best of our knowledge, our proposed approach is the first to seamlessly integrate CUDA Graphs into UCX. Through extensive experiments on a four-GPU node, our proposed CUDA Graph-based multi-path communication approach achieves up to a 2.95x bandwidth improvement, compared to the single-path UCX (UCT::CUDA-IPC), in GPU-to-GPU OMB bandwidth test when utilizing the host path and two other GPU paths, at message sizes up to 512MB.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.22228v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Amirhossein Sojoodi, Yiltan Hassan Temucin, Amirreza Baratisedeh, Hamed Sharifian, Ahmad Afsahi</dc:creator>
+    </item>
+    <item>
+      <title>Guess-Verify-Refine: Data-Aware Top-K for Sparse-Attention Decoding on Blackwell via Temporal Correlation</title>
+      <link>https://arxiv.org/abs/2604.22312</link>
+      <description>arXiv:2604.22312v1 Announce Type: new 
+Abstract: Sparse-attention decoders rely on exact Top-K selection to choose the most important key-value entries for each query token. In long-context LLM serving, this Top-K stage runs once per decode query and becomes a meaningful latency bottleneck even when the indexer and attention kernels are already highly optimized. We present \textbf{Guess-Verify-Refine (GVR)}, a data-aware exact Top-K algorithm for sparse-attention decoding on NVIDIA Blackwell. GVR exploits temporal correlation across consecutive decode steps: it uses the previous step's Top-K as a prediction signal, computes pre-indexed statistics, narrows to a valid threshold by secant-style counting in 1-2 global passes, verifies candidates with a ballot-free collector, and finishes exact selection in shared memory. We connect this behavior to the Toeplitz / RoPE structure of DeepSeek Sparse Attention (DSA) indexer scores and validate the design on real DeepSeek-V3.2 workloads integrated into TensorRT-LLM. GVR achieves an average \textbf{1.88x} single-operator speedup over the production radix-select kernel, with up to \textbf{2.42x} per layer per step, while preserving bit-exact Top-K outputs. In controlled TEP8 min-latency deployment, it improves end-to-end TPOT by up to \textbf{7.52%} at 100K context, with larger gains at longer contexts and smaller but still positive gains under speculative decoding. While implemented and validated in the current TensorRT-LLM DSA stack on Blackwell, the same principle may extend to sparse-attention decoders whose decode-phase Top-K exhibits temporal stability.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.22312v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AR</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Long Cheng, Ritchie Zhao, Timmy Liu, Mindy Li, Xianjie Qiao, Kefeng Duan, Yu-Jung Chen, Xiaoming Chen, Bita Darvish Rouhani, June Yang</dc:creator>
+    </item>
+    <item>
+      <title>A comprehensive evaluation of spatial co-execution on GPUs using MPS and MIG technologies</title>
+      <link>https://arxiv.org/abs/2604.22430</link>
+      <description>arXiv:2604.22430v1 Announce Type: new 
+Abstract: To mitigate the increasingly common underutilization of computational resources in modern GPUs, spatial sharing methods enable multiple applications to use them simultaneously. This work presents a comprehensive evaluation of NVIDIA's primary technologies to achieve that goal: Multi-Process Service (MPS) and Multi-Instance GPU (MIG). Our findings reveal a crucial trade-off between MPS's flexibility and MIG's isolation, and provide many key insights for improving the co-execution strategy according to job profiles. In the most favorable scenarios, MPS improves performance by up to 30% and reduces energy by about 20%, using its provisioning option to avoid resource monopolization. However, under memory contention, it suffers severe degradation, worsening performance by around 30%. Conversely, MIG's full hardware isolation resolves memory contention, leading to more consistent improvements, but these gains are tempered by higher overhead, and its rigid scheme can degrade performance in certain cases.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.22430v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AR</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <arxiv:DOI>10.1007/s11227-026-08312-z</arxiv:DOI>
+      <arxiv:journal_reference>The Journal of Supercomputing, 82(4), 175 (2026)</arxiv:journal_reference>
+      <dc:creator>Jorge Villarrubia, Luis Costero, Francisco D. Igual, Katzalin Olcoz</dc:creator>
+    </item>
+    <item>
+      <title>LaissezCloud: Continuous Resource Renegotiation for the Public Cloud</title>
+      <link>https://arxiv.org/abs/2604.22509</link>
+      <description>arXiv:2604.22509v1 Announce Type: new 
+Abstract: Public clouds increasingly expose heterogeneous hardware, but their allocation interface remains built around rigid on-demand and spot service classes. This makes it hard to satisfy time-varying tenant objectives and operator constraints in oversubscribed, heterogeneous clusters without exposing internal application or infrastructure state. We present LaissezCloud, a cloud resource management platform for continuous re-negotiation of running allocations. Unlike spot instances, which use launch-time bids and unilateral preemption, LaissezCloud keeps allocations continuously contestable during execution: tenants and operators update bids online, and a running tenant keeps a resource only as long as its bid exceeds competing demand. Pricing serves both as a narrow waist and as an incentive-alignment mechanism between mutually untrusted participants: tenants express utility through bids, while operators price in power, cooling, or carbon constraints without exposing internal telemetry. Across a diverse set of accelerator workloads, LaissezCloud reduces performance degradation under contention by 8-23% versus on-demand and spot baselines, and scales to clusters of at least 10,000 nodes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.22509v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Tejas Harith, Antoine Kaufmann</dc:creator>
+    </item>
+    <item>
+      <title>Data-Free Contribution Estimation in Federated Learning using Gradient von Neumann Entropy</title>
+      <link>https://arxiv.org/abs/2604.22562</link>
+      <description>arXiv:2604.22562v1 Announce Type: cross 
+Abstract: Client contribution estimation in Federated Learning is necessary for identifying clients' importance and for providing fair rewards. Current methods often rely on server-side validation data or self-reported client information, which can compromise privacy or be susceptible to manipulation. We introduce a data-free signal based on the matrix von Neumann (spectral) entropy of the final-layer updates, which measures the diversity of the information contributed. We instantiate two practical schemes: (i) SpectralFed, which uses normalized entropy as aggregation weights, and (ii) SpectralFuse, which fuses entropy with class-specific alignment via a rank-adaptive Kalman filter for per-round stability. Across CIFAR-10/100 and the naturally partitioned FEMNIST and FedISIC benchmarks, entropy-derived scores show a consistently high correlation with standalone client accuracy under diverse non-IID regimes - without validation data or client metadata. We compare our results with data-free contribution estimation baselines and show that spectral entropy serves as a useful indicator of client contribution.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.22562v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.CV</category>
+      <category>cs.DC</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Asim Ukaye, Mubarak Abdu-Aguye, Nurbek Tastan, Karthik Nandakumar</dc:creator>
+    </item>
+    <item>
+      <title>HFX: Joint Design of Algorithms and Systems for Multi-SLO Serving and Fast Scaling</title>
+      <link>https://arxiv.org/abs/2508.15919</link>
+      <description>arXiv:2508.15919v3 Announce Type: replace 
+Abstract: Large language model (LLM) serving faces the dual challenge of meeting strict user-specific service-level objectives (SLOs) while minimizing computational cost under dynamic, multi-task workloads. Existing approaches either rely on static scheduling policies or focus on single-task settings, limiting their applicability in real-world deployments with heterogeneous requests, variable prompt lengths, and elastic scaling requirements.
+  We present HFX, a production LLM serving system that jointly optimizes request scheduling and elastic scaling across model replicas to satisfy diverse SLOs. HFX introduces a \textbf{scheduler} that performs proactive budget estimation and prioritization to ensure SLO compliance for both new and in-flight requests. HFX also integrates a \textbf{scaler} that supports fast device-to-device (D2D) weight transfer, reducing cold-start latency. Additionally, the system supports both colocated and disaggregated prefill/decode deployments, enabling adaptation to diverse workload patterns and cloud environments.
+  Through extensive experiments on multi-task workloads, we demonstrate consistently higher SLO attainment, lower end-to-end latency, and lower NPU usage cost by up to 4.44$\times$, 65.82\%, and 49.81\%, respectively, compared to state-of-the-art systems. Our results highlight the effectiveness of SLO-aware scheduling and scaling in practical LLM serving, providing a robust framework for cost-efficient and SLO-compliant deployments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.15919v3</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Zahra Yousefijamarani, Xinglu Wang, Qian Wang, Morgan Lindsay Heisler, Taha Shabani, Niloofar Gholipour, Parham Yassini, Hong Chang, Kan Chen, Qiantao Zhang, Xiaolong Bai, Jiannan Wang, Ying Xiong, Yong Zhang, Zhenan Fan</dc:creator>
+    </item>
+    <item>
+      <title>Unlocking the Edge deployment and ondevice acceleration of multi-LoRA enabled one-for-all foundational LLM</title>
+      <link>https://arxiv.org/abs/2604.18655</link>
+      <description>arXiv:2604.18655v2 Announce Type: replace 
+Abstract: Deploying large language models (LLMs) on smartphones poses significant engineering challenges due to stringent constraints on memory, latency, and runtime flexibility. In this work, we present a hardware-aware framework for efficient on-device inference of a LLaMA-based multilingual foundation model supporting multiple use cases on Samsung Galaxy S24 and S25 devices with SM8650 and SM8750 Qualcomm chipsets respectively. Our approach integrates application-specific LoRAs as runtime inputs to a single frozen inference graph, enabling dynamic task switching without recompilation or memory overhead. We further introduce a multi-stream decoding mechanism that concurrently generates stylistic variations - such as formal, polite, or jovial responses - within a single forward pass, reducing latency by up to 6x. To accelerate token generation, we apply Dynamic Self-Speculative Decoding (DS2D), a tree-based strategy that predicts future tokens without requiring a draft model, yielding up to 2.3x speedup in decode time. Combined with quantization to INT4 and architecture-level optimizations, our system achieves 4-6x overall improvements in memory and latency while maintaining accuracy across 9 languages and 8 tasks. These results demonstrate practical feasibility of deploying multi-use-case LLMs on edge devices, advancing the commercial viability of Generative AI in mobile platforms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.18655v2</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Sravanth Kodavanti, Sowmya Vajrala, Srinivas Miriyala, Utsav Tiwari, Uttam Kumar, Utkarsh Kumar Mahawar, Achal Pratap Singh, Arya D, Narendra Mutyala, Vikram Nelvoy Rajendiran, Sharan Kumar Allur, Euntaik Lee, Dohyoung Kim, HyeonSu Lee, Gyusung Cho, JungBae Kim</dc:creator>
+    </item>
+    <item>
+      <title>Moser-Tardos Algorithm with small number of random bits</title>
+      <link>https://arxiv.org/abs/2203.05888</link>
+      <description>arXiv:2203.05888v3 Announce Type: replace-cross 
+Abstract: We study a variant of the parallel Moser-Tardos Algorithm. We prove that if we restrict attention to a class of problems whose dependency graphs have subexponential growth, then the expected total number of random bits used by the algorithm is constant; in particular, it is independent from the number of variables. This is achieved by using the same random bits to resample variables which are far enough in the dependency graph.
+  There are two corollaries. First, we obtain a deterministic algorithm for finding a satisfying assignment, which for any class of problems as in the previous paragraph runs in time O(n), where n is the number of variables. Second, we present a Borel version of the Lov\'asz Local Lemma.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2203.05888v3</guid>
+      <category>math.CO</category>
+      <category>cs.DC</category>
+      <category>cs.DS</category>
+      <category>math.LO</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Endre Cs\'oka, {\L}ukasz Grabowski, Andr\'as M\'ath\'e, Oleg Pikhurko, Konstantinos Tyros</dc:creator>
+    </item>
+    <item>
+      <title>Legitimate Overrides in Decentralized Protocols</title>
+      <link>https://arxiv.org/abs/2602.12260</link>
+      <description>arXiv:2602.12260v2 Announce Type: replace-cross 
+Abstract: Decentralized protocols claim immutable, rule-based execution, yet many embed emergency mechanisms such as chain-level freezes, protocol pauses, and account quarantines. These overrides are crucial for responding to exploits and systemic failures, but they expose a core tension: when does intervention preserve trust and when is it perceived as illegitimate discretion? With approximately \$10 billion in technical exploit losses potentially addressable by onchain intervention (2016-2026), the design of these mechanisms has high practical stakes, but current approaches remain ad hoc and ideologically charged. We address this gap by developing a Scope $\times$ Authority taxonomy that maps the design space of emergency architectures along two dimensions: the precision of the intervention and the concentration of trigger authority. We formalize the resulting tradeoffs of standing centralization cost, containment speed, and collateral disruption as a stochastic decision support framework, and derive three empirical hypotheses from it. Assessing the framework against 705 documented exploit incidents, we find that containment time varies systematically by authority type, that losses follow a heavy-tailed distribution ($\alpha \approx 1.33$) concentrating risk in rare catastrophic events, and that community sentiment plausibly modulates the effective cost of maintaining intervention capability. Using scope breadth as a practical proxy for blast potential, we also find that narrower interventions (Account/Module) do not underperform broader ones (Protocol/Network) on containment success and are slightly faster at the median, giving partial empirical support to the scope-blast hypothesis. The analysis yields design guidance for emergency governance and reframes the problem as one of engineering tradeoffs rather than ideological debate.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.12260v2</guid>
+      <category>cs.CR</category>
+      <category>cs.CY</category>
+      <category>cs.DC</category>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Oghenekaro Elem, Nimrod Talmon</dc:creator>
+    </item>
+  </channel>
+</rss>
