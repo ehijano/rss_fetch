@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 May 2026 04:00:27 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 01 May 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>MARS: Efficient, Adaptive Co-Scheduling for Heterogeneous Agentic Systems</title>
+      <link>https://arxiv.org/abs/2604.26963</link>
+      <description>arXiv:2604.26963v1 Announce Type: new 
+Abstract: Large language models (LLMs) are increasingly deployed as the execution core of autonomous agents rather than as standalone text generators. Agentic workloads induce a temporal shift from single-turn inference to multi-turn LLM-tool loops, and a spatial shift from chat-scale, GPU-only execution to repository-scale, GPU-CPU co-located execution. Consequently, coordinating heterogeneous resource demands of agentic execution has emerged as a critical system challenge.
+  We design and implement MARS, an efficient and adaptive co-scheduling system that globally coordinates heterogeneous agentic workloads under coupled GPU-CPU resource pressure. By establishing holistic visibility across GPU inference and CPU tool execution via a unified information stream, an external control plane in MARS decouples admission from execution to prevent heterogeneous resource oversubscription. An internal agent-centric scheduler further minimizes the end-to-end critical path by prioritizing latency-sensitive continuations and adaptively retaining KV cache state only when warm resumption yields a latency benefit. Our evaluations show that MARS reduces end-to-end latency by up to 5.94x while maintaining nearly maximal system throughput. We further integrate MARS as the serving backend for the OpenHands coding agent framework, demonstrating its real-world effectiveness by accelerating end-to-end task completion time by up to 1.87x.
+  Our source code will be publicly available soon.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.26963v1</guid>
+      <category>cs.OS</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.MA</category>
+      <pubDate>Fri, 01 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yifei Wang, Hancheng Ye, Yechen Xu, Cong Guo, Chiyue Wei, Qinsi Wang, Dongting Li, Tingjun Chen, Hai "Helen" Li, Danyang Zhuo, Yiran Chen</dc:creator>
+    </item>
+    <item>
+      <title>treVM: Tiny Rust Embedded Virtual Machines with WASM on Variable Resource-Constrained Hardware</title>
+      <link>https://arxiv.org/abs/2604.27570</link>
+      <description>arXiv:2604.27570v1 Announce Type: new 
+Abstract: Software stacks embedded on microcontroller-based hardware typically provide rudimentary APIs programmed in C/C++, basic connectivity and, sometimes, a firmware update mechanism. Such coarse mechanisms contrast with widely used APIs and more advanced networked interaction expected from software stacks deployed on less resource-constrained hardware (microprocessor-based). In this paper, we aim to bridge this gap by designing treVM, a generic scheme to host high-level WebAssembly code capsules, bolted on a general-purpose Rust embedded software platform, able to run on a large variety of 32-bit microcontrollers. Not only can treVM capsules host highly customizable business logic, but capsules can also be securely updated on demand over the network, on devices already deployed in the field. We implement treVM in Rust, on top of Ariel OS, a general-purpose RTOS, and we publish the code as open source. Based on our implementation, we validate the feasibility of treVM on commonly available boards, and we report on extensive benchmarks we performed on heterogeneous hardware including Arm Cortex-M, RISC-V, and Xtensa microcontroller architectures. As such, treVM provides a promising new framework to secure continuous deployment of embedded software on low-power networked devices.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.27570v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Fri, 01 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Antoine Lavandier, Bastien Buil, Chrystel Gaber, Emmanuel Baccelli</dc:creator>
+    </item>
+    <item>
+      <title>Affinity Tailor: Dynamic Locality-Aware Scheduling at Scale</title>
+      <link>https://arxiv.org/abs/2604.27915</link>
+      <description>arXiv:2604.27915v1 Announce Type: new 
+Abstract: Modern large multicore systems often run multiple workloads that share CPUs under schedulers such as Linux CFS. To keep CPUs busy, these schedulers load-balance runnable work, causing each workload to execute on many cores. This weakens locality at the microarchitectural level: workloads lose reuse in caches, branch predictors, and prefetchers, and interfere more with one another - especially on chiplet-based systems, where spreading execution across cores also spreads it across LLC boundaries. A natural alternative is strict CPU partitioning, but hard partitions leave capacity idle when workloads do not fully use their reserved CPUs.
+  We present Affinity Tailor, a userspace-guided kernel scheduling system built on a key insight: the kernel can preserve locality for workloads that share CPUs by treating demand-sized, topologically compact CPU sets as affinity hints rather than hard partitions. A userspace controller estimates each workload's CPU demand online and assigns a preferred CPU set sized to that demand, chosen to be as disjoint as possible from other workloads while spanning as few LLC domains as possible. The kernel then uses this set as an affinity hint, steering threads toward those CPUs while still allowing execution elsewhere when needed to preserve utilization. Deployed at Google, Affinity Tailor delivers geometric-mean per-CPU throughput gains of 12% on chiplet-based systems and 3% on non-chiplet systems over Linux CFS. Furthermore, faster execution reduces memory residency, yielding per-GB throughput gains of 3-7%. Our findings suggest that future schedulers should treat spatial locality as a first-class objective, even at the expense of work-conservation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.27915v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <pubDate>Fri, 01 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jin Xin Ng, Ori Livneh, Richard O'Grady, Josh Don, Peng Ding, Samuel Grossman, Luis Otero, Chris Kennelly, David Lo, Carlos Villavieja</dc:creator>
+    </item>
+    <item>
+      <title>Crab: A Semantics-Aware Checkpoint/Restore Runtime for Agent Sandboxes</title>
+      <link>https://arxiv.org/abs/2604.28138</link>
+      <description>arXiv:2604.28138v1 Announce Type: new 
+Abstract: Autonomous agents act through sandboxed containers and microVMs whose state spans filesystems, processes, and runtime artifacts. Checkpoint and restore (C/R) of this state is needed for fault tolerance, spot execution, RL rollout branching, and safe rollback-yet existing approaches fall into two extremes: application-level recovery preserves chat history but misses OS-side effects, while full per-turn checkpointing is correct but too expensive under dense co-location. The root cause is an agent-OS semantic gap: agent frameworks see tool calls but not their OS effects; the OS sees state changes but lacks turn-level context to judge recovery relevance. This gap hides massive sparsity: over 75% of agent turns produce no recovery-relevant state, so most checkpoints are unnecessary. Crab (Checkpoint-and-Restore for Agent SandBoxes) is a transparent host-side runtime that bridges this gap without modifying agents or C/R backends. An eBPF-based inspector classifies each turn's OS-visible effects to decide checkpoint granularity; a coordinator aligns checkpoints with turn boundaries and overlaps C/R with LLM wait time; and a host-scoped engine schedules checkpoint traffic across co-located sandboxes. On shell-intensive and code-repair workloads, Crab raises recovery correctness from 8% (chat-only) to 100%, cuts checkpoint traffic by up to 87%, and stays within 1.9% of fault-free execution time.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.28138v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 01 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Tianyuan Wu, Chaokun Chang, Lunxi Cao, Wei Gao, Wei Wang</dc:creator>
+    </item>
+  </channel>
+</rss>
