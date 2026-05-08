@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PF updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PF</link>
+    <description>cs.PF updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 May 2026 04:00:19 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 08 May 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>When Quantization Is Free: An int4 KV Cache That Outruns fp16 on Apple Silicon</title>
+      <link>https://arxiv.org/abs/2605.05699</link>
+      <description>arXiv:2605.05699v1 Announce Type: new 
+Abstract: KV-cache quantization is framed as a quality--latency trade-off. We show it is \emph{inverted} on Apple Silicon's unified memory: a single fused Metal kernel (sign-randomized FFT $+$ per-channel $\lambda$ $+$ per-group abs-max $+$ int4 nibble pack), exposed as a HuggingFace \texttt{Cache} subclass, runs \emph{faster than fp16} across $256$--$4096$-token prefixes on Gemma-3 1B ($-3$ to $-8\%$ ms/tok) and at short context on Qwen2.5-1.5B ($-0.7$ to $-2.6\%$ through $1$K), with $3\times$ persistent memory compression and quality preserved ($\dPPL = 0.000$ Qwen short-prompt; $+3.6$ hook $\dPPL$ Gemma). The kernel's $\sim\!25$\,ns/vec overhead is below the bandwidth savings from $3\times$ compression. The fused kernel also closes Qwen's 4-bit per-token catastrophe ($\dPPL = +7975 \to +638.6$, $12.5\times$ reduction) at $182$\,GFLOPS / $D{=}128$. Supporting findings: $\SRFT$ and $\SRHT$ are statistically indistinguishable for KV quality (we pick $\SRFT$ for mixed-radix and matrix-multiply alignment); a learned-rotation ablation surfaces a regularization role for the fixed random SRFT base (learning $R+\lambda$ without SRFT lowers calibration MSE $84.9\%$ vs $50.3\%$ but yields worse PPL); Householder rotations at $k{=}d/2$ reflectors are effectively lossless at $d{=}256$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.05699v1</guid>
+      <category>cs.PF</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 08 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mohamed Amine Bergach</dc:creator>
+    </item>
+    <item>
+      <title>LLM-Driven Design Space Exploration of FPGA-based Accelerators</title>
+      <link>https://arxiv.org/abs/2605.05920</link>
+      <description>arXiv:2605.05920v1 Announce Type: cross 
+Abstract: Designing field-programmable gate array (FPGA)-based accelerators for modern artificial intelligence workloads requires navigating a large and complex hardware design space encompassing architectural parameters, dataflow strategies, and memory hierarchies, making the process time-consuming and resource-intensive. While the SECDA methodology enables rapid hardware-software co-design of accelerators through SystemC simulation and FPGA execution, identifying optimal accelerator configurations still requires substantial manual effort and domain expertise. This work presents SECDA-DSE, a framework that integrates Large Language Models (LLMs) into the SECDA ecosystem, comprising tools built around SECDA to automate the design space exploration (DSE) of FPGA-based accelerators. SECDA-DSE combines a structured DSE Explorer for generating accelerator configurations with an LLM Stack that performs reasoning-guided exploration using retrieval-augmented generation and chain-of-thought prompting, alongside a feedback loop that enables reinforced fine-tuning for continuous improvement. We demonstrate the feasibility of SECDA-DSE through an initial high-level synthesis based evaluation of a generated accelerator design that meets synthesis timing and resource constraints on an Zynq-7000 FPGA.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.05920v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 08 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Vinamra Sharma, Xingjian Fu, Jude Haris, Jos\'e Cano</dc:creator>
+    </item>
+    <item>
+      <title>PoTAcc: A Pipeline for End-to-End Acceleration of Power-of-Two Quantized DNNs</title>
+      <link>https://arxiv.org/abs/2605.06082</link>
+      <description>arXiv:2605.06082v1 Announce Type: cross 
+Abstract: Power-of-two (PoT) quantization significantly reduces the size of deep neural networks (DNNs) and replaces multiplications with bit-shift operations for inference. Prior work has shown that PoT-quantized DNNs can preserve accuracy for tasks such as image classification; however, their performance on resource-constrained edge devices remains insufficiently understood. While general-purpose edge CPUs and GPUs do not provide optimized backends for bit-shift operations, custom hardware accelerators can better exploit PoT quantization by implementing dedicated shift-based processing elements. However, deploying PoT-quantized models on such accelerators is challenging due to limited support in existing inference frameworks. In addition, the impact of different PoT quantization strategies on hardware design, performance, and energy efficiency during full inference has not been systematically explored.
+  To address these challenges, we propose PoTAcc, an open-source end-to-end pipeline for accelerating and evaluating PoT-quantized DNNs on resource-constrained edge devices. PoTAcc enables seamless preparation and deployment of PoT-quantized models via TensorFlow Lite (TFLite) across heterogeneous platforms, including CPU-only systems and hybrid CPU-FPGA systems with custom accelerators. We design shift-based processing element (shift-PE) accelerators for three PoT quantization methods and implement them on two FPGA platforms. We evaluate accuracy, performance, energy efficiency, and resource utilization across a range of models, including CNNs and Transformer-based architectures. Results show that our CPU-accelerator design achieves up to 3.6x speedup and 78% energy reduction compared to CPU-only execution for PoT-quantized DNNs on PYNQ-Z2 and Kria boards. The code will be publicly released at https://github.com/gicLAB/PoTAcc</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.06082v1</guid>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 08 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Rappy Saha, Jude Haris, Nicolas Bohm Agostini, David Kaeli, Jos\'e Cano</dc:creator>
+    </item>
+    <item>
+      <title>ADELIA: Automatic Differentiation for Efficient Laplace Inference Approximations</title>
+      <link>https://arxiv.org/abs/2605.06392</link>
+      <description>arXiv:2605.06392v1 Announce Type: cross 
+Abstract: Spatio-temporal Bayesian inference drives environmental and health sciences using latent Gaussian models. Integrated Nested Laplace Approximations (INLA) enable inference for these models at HPC scale but rely on derivative-based optimization over $d$ hyperparameters. State-of-the-art INLA implementations approximate derivatives via central finite differences (FD), requiring $2d{+}1$ evaluations. These evaluations are embarrassingly parallel, but total work and energy grow with $d$, limiting time-to-solution under fixed budgets. Reverse-mode automatic differentiation (AD) computes exact gradients independently of $d$, but its efficient application to INLA's structured-sparse kernels is an open challenge. We present ADELIA, the first AD-enabled INLA implementation with a structure-exploiting multi-GPU backward pass leveraging model sparsity. We evaluate ADELIA on ten benchmark models, including real-world air-pollution monitoring. We achieve $4.2$--$7.9\times$ per-gradient speedups and reliable convergence on production-scale models with up to 1.9M latent variables, where FD struggles. Even when scaled to 16--32 GPUs to match ADELIA's wall-clock time, FD consumes $5$--$8\times$ more energy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.06392v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 08 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Afif Boudaoud, Lisa Gaedke-Merzh\"auser, Alexandros Nikolaos Ziogas, Vincent Maillou, Alexandru Calotoiu, Marcin Copik, H{\aa}vard Rue, Mathieu Luisier, Torsten Hoefler</dc:creator>
+    </item>
+    <item>
+      <title>When Is the Same Model Not the Same Service? A Measurement Study of Hosted Open-Weight LLM APIs</title>
+      <link>https://arxiv.org/abs/2605.02821</link>
+      <description>arXiv:2605.02821v3 Announce Type: replace 
+Abstract: Open-weight large language models (LLMs) are usually named as model artifacts, but production users often consume them as hosted API services. This paper argues that the operational unit is a service object: a provider-specific, time-varying endpoint defined by model variant, protocol behavior, context capacity, listed price, latency and throughput distribution, reliability, and task feasibility. Using sampled request logs, provider metadata, compatibility probes, pricing snapshots, and continuous latency measurements collected by AI Ping during Q4 2025, we study how this service layer changes the meaning of "the same model." Three empirical patterns emerge. First, observed demand is concentrated but persistent across versions: in the displayed family aggregate, the largest family carries 32.0% of relative demand and the top five carry 87.4%, with a Gini coefficient of 0.693, while older variants remain active after newer releases. Second, supply and use separate: provider listing breadth does not imply realized adoption, and listed prices are more anchored than latency, throughput, context length, protocol support, and error semantics. Third, task mix matters: applications induce different token-length regimes, so provider choice is a constrained decision over provider-model-task-time tuples rather than a lookup by model name. In two representative counterfactuals under observed feasibility constraints, routing lowers Qwen3-32B cost by 37.8% and raises DeepSeek-V3.2 average throughput by about 90% relative to direct official access. The results support a measurement view of hosted open-weight LLMs as heterogeneous services, not static catalog entries. We open-source the measurement methodology and reproduction artifacts at https://github.com/haoruilee/llm_api_measurement_study to support result reproduction.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.02821v3</guid>
+      <category>cs.PF</category>
+      <pubDate>Fri, 08 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Haorui Li, Zhenghui He, Xuanzi Liu, Yang Xu, Dongsheng Liu, Jiakang Ma, Lupan Wu, Yangjie Wu, Xiongchao Tang, Tianhui Shi</dc:creator>
+    </item>
+    <item>
+      <title>SPEC CPU2026: Characterization, Representativeness, and Cross-Suite Comparison</title>
+      <link>https://arxiv.org/abs/2605.03713</link>
+      <description>arXiv:2605.03713v2 Announce Type: replace-cross 
+Abstract: Specialized accelerators dominate AI workloads, but CPUs remain critical for orchestrating these accelerators and running datacenter services. As a result, CPU performance increasingly shapes end-to-end system efficiency, making it necessary for benchmarks to reflect modern workloads and bottlenecks. However, it remains unclear how emerging CPU benchmark suites reflect these shifts. To address this, we present the first comprehensive characterization of SPEC CPU2026 across nine platforms spanning recent Intel, AMD, Ampere, and Nvidia processors. We find that, compared to SPEC CPU2017, SPEC CPU2026 increases instruction volume and memory footprint, and shifts pressure toward emerging bottlenecks, most notably higher instruction-cache stress. We next examine whether the full suite is necessary for architectural evaluation. Using clustering-based representativeness analysis, we identify that compact subsets of 4-5 workloads per group preserve 96.4-99.9% of full-suite behavior, substantially reducing evaluation costs without sacrificing fidelity. To better position SPEC CPU2026, we compare it against SPEC CPU2017, DCPerf, and MLPerf using cross-suite microarchitectural metrics. SPEC CPU2026 remains a general-purpose suite with complementary characteristics: it is less vector-intensive than MLPerf and has lower frontend pressure than DCPerf, yet moves closer to real-world CPU behavior than prior SPEC CPU generations. Finally, we show that SPEC CPU2026 supports practical architectural studies beyond aggregate scores through case studies on page sizes and allocators, prefetching, compiler optimizations, ISA sensitivity, and many-core scaling. The new round-robin stagger mode generates proxy workloads that approximate DCPerf, reducing the IPC gap to 13.7%. Overall, SPEC CPU2026 sets a new foundation for rigorous and cost-effective CPU evaluation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.03713v2</guid>
+      <category>cs.AR</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 08 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ruihao Li, Andrew Jacob, Neeraja J. Yadwadkar, Lizy K. John</dc:creator>
+    </item>
+  </channel>
+</rss>
