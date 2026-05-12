@@ -7,42 +7,264 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 May 2026 04:00:18 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 04:00:34 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Mon, 11 May 2026 00:00:00 -0400</pubDate>
+    <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Sunday</day>
       <day>Saturday</day>
+      <day>Sunday</day>
     </skipDays>
     <item>
-      <title>An Efficient Hybrid Sparse Attention with CPU-GPU Parallelism for Long-Context Inference</title>
-      <link>https://arxiv.org/abs/2605.07719</link>
-      <description>arXiv:2605.07719v1 Announce Type: cross 
-Abstract: Long-context inference increasingly operates over CPU-resident KV caches, either because decoding-time KV states exceed GPU memory capacity or because disaggregated prefill-decode systems place KV data in host memory. Although block-sparse attention reduces attention cost in this setting, sparsity alone is insufficient for end-to-end efficiency. GPU-only designs remain constrained by PCIe bandwidth and metadata memory overhead, while CPU-GPU hybrid designs still suffer from substantial GPU idle time and bottlenecks in CPU-side top-k selection and sparse attention computation.
-  Fluxion is built on three key insights: output-aware KV budgeting, head-specific and granularity-aware sparse configuration, and cross-device coordinated execution for sparse attention over CPU-resident KV caches. Guided by these insights, Fluxion combines a lightweight head-property predictor, a granularity-budget selector, and a priority-based scheduler to jointly optimize budget allocation, sparse configuration, and CPU-GPU execution overlap. This co-design enables hybrid sparse attention to achieve both accuracy and system efficiency in long-context inference. Across 2 models, 3 benchmarks, and 40 tasks, Fluxion preserves quality well -- the worst average degradation is only -0.26 relative to FULL, while delivering 1.5$\times$-3.7$\times$ speedup over the strongest fixed sparse hybrid baseline, whose KV budget is only 0.05.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.07719v1</guid>
+      <title>Single-Thread JPEG Decoder Benchmarks Mis-Evaluate ML Data Loaders</title>
+      <link>https://arxiv.org/abs/2605.08731</link>
+      <description>arXiv:2605.08731v1 Announce Type: new 
+Abstract: JPEG decode is routine ML infrastructure, but Python decoder choices are often justified by single-process, single-thread microbenchmarks. We audit this evaluation assumption with twelve Python-accessible JPEG decode paths on five matched 16 vCPU Google Cloud CPUs: Intel Emerald Rapids, AMD Zen 4, AMD Zen 5, ARM Neoverse V2, and ARM Neoverse N1. ImageNet validation is the workload, not a new dataset contribution: each run decodes the full 50,000-image split from memory and reports single-thread throughput for all decoders, PyTorch DataLoader throughput for eligible decoders at worker counts {0,2,4,8}, and decoder skip behavior. The evaluation protocol changes the supported conclusion. On Neoverse V2, imageio is ninth in single-thread throughput yet lands in the top DataLoader tier with torchvision; on Zen 4, torchvision rises from seventh single-thread to the top measured DataLoader tier; on Neoverse N1, imagecodecs is the single-thread leader but fourth at peak DataLoader throughput. We also find that worker-count conclusions differ between Zen 4 and Zen 5, TensorFlow has a large single-thread ARM penalty, and strict libjpeg-turbo-family wrappers reject the same rare ImageNet JPEG. For PyTorch DataLoader workloads, torchvision and simplejpeg form the strongest measured zero-skip tier: torchvision has the highest mean normalized throughput, while simplejpeg has the highest minimum. OpenCV remains a robust general-purpose fallback above 90% of the platform-local winner on every tested CPU. We release raw JSON, generated tables/figures, and an executable local/cloud benchmark framework.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.08731v1</guid>
+      <category>cs.PF</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vladimir Iglovikov</dc:creator>
+    </item>
+    <item>
+      <title>A Controlled Study of Memory Hierarchy Transitions in Quantum Circuit Simulation on Apple M4 Pro Unified Memory Architecture</title>
+      <link>https://arxiv.org/abs/2605.08792</link>
+      <description>arXiv:2605.08792v1 Announce Type: new 
+Abstract: State-vector quantum circuit simulation is memory-bandwidth bound, yet the interaction between memory hierarchy, access pattern, and hardware parallelism remains incompletely characterized. We address this using the Apple M4 Pro Unified Memory Architecture (UMA), where CPU and GPU share identical physical LPDDR5X DRAM ($\sim$224 GB/s STREAM bandwidth for both), eliminating memory-technology and interconnect confounds. Using a thermally isolated, multi-trial methodology across 11 simulation backends on GHZ and QFT circuits from 3 to 30 qubits, we make three central contributions. First, a Roofline analysis confirms all gate implementations have arithmetic intensity $\leq$0.38 FLOP/byte, well below the ridge point for any plausible peak compute on modern hardware, establishing structural memory-boundedness. Second, we identify a reproducible 4.46$\times$ timing discontinuity at the 28$\rightarrow$29 qubit transition, confirmed under thermally isolated conditions and cross-validated across GHZ and QFT circuits; tensordot backends exhibit the full discontinuity while direct-index backends maintain $\sim$2$\times$ per-qubit scaling throughout. Third, despite STREAM predicting only 1.85$\times$ GPU speedup (MLX CPU 119.9 GB/s vs. MLX GPU 221.9 GB/s), all three algorithm classes exceed this prediction: tensordot 3.1--4.1$\times$, flat-index 3.5--5.9$\times$, and direct-index 6--10$\times$, demonstrating that peak streaming bandwidth does not predict simulation speedup for non-contiguous memory access patterns, with the gap widening as access irregularity increases. These findings provide a hardware-characterization framework for quantum simulation workloads on UMA.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.08792v1</guid>
+      <category>cs.PF</category>
+      <category>quant-ph</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Gyan Pratipat</dc:creator>
+    </item>
+    <item>
+      <title>LLMSYS-HPOBench: Hyperparameter Optimization Benchmark Suite for Real-World LLM Systems</title>
+      <link>https://arxiv.org/abs/2605.08305</link>
+      <description>arXiv:2605.08305v1 Announce Type: cross 
+Abstract: Large Language Model (LLM) systems have been the frontier of AI in many application domains, leading to new challenges and opportunities for hyperparameter optimization (HPO) for the AutoML community. However, this type of system exhibits an unprecedented compound space of hyperparameter configuration from both the AI and non-AI components; rich and nonlinear implications from the fidelity factors; and diverse costs of measuring hyperparameter configurations, none of which have been fully captured in existing benchmarks. This paper presents the first (live) benchmark suite and datasets for HPO of real-world LLM systems, dubbed LLMSYS-HPOBench, covering data related to the inference objective values of hyperparameter configurations profiled from running the LLM systems. Currently, LLMSYS-HPOBench contains 364,450 hyperparameter configurations with a dimensionality of 12-23, 3-5 dimensions of fidelity factor leading to 932 settings, 3-9 inference objective metrics, and 2-10 cost metrics, together with generated logs from measuring the LLM systems. What we seek to advocate is not only a revalidation of the existing HPO algorithms over the frontier LLM systems, but also to provide an evolving platform for the AutoML community to explore new directions of research in this regard. The benchmark suite has been made available at: https://github.com/ideas-labo/llmsys-hpobench</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.08305v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Siyu Wu, Yulong Ye, Zezhen Xiang, Pengzhou Chen, Gangda Xiong, Tao Chen</dc:creator>
+    </item>
+    <item>
+      <title>FlashSVD v1.5: Making Low-Rank Transformers Inference Actually Fast</title>
+      <link>https://arxiv.org/abs/2605.08314</link>
+      <description>arXiv:2605.08314v1 Announce Type: cross 
+Abstract: SVD-based Low-rank compression reduces transformer parameters and nominal FLOPs, but these savings often translate poorly into real LLM serving speedups. We show that this gap is largely a runtime problem: factorized checkpoints fragment execution paths, and the resulting overhead differs substantially between prefill and autoregressive decode. We present FlashSVD v1.5, a unified inference runtime for serving SVD-compressed transformers. FlashSVD v1.5 maps diverse public SVD compression families to a common factorized representation and combines phase-specific kernels with dense-KV decode, packed MLP execution, and per-layer CUDA-graph replay to reorganize the low-rank serving path into a thin runtime. Across representative decoder-serving settings, FlashSVD v1.5 achieves up to 2.55x decode and 2.39x end-to-end speedup, and it attains 1.48x average decode and 1.44x average end-to-end speedup across multiple popular SVD compression families. These results suggest that practical low-rank acceleration requires runtime co-design, not compression algorithms alone. Our code is available at: https://github.com/Zishan-Shao/FlashSVD.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.08314v1</guid>
       <category>cs.LG</category>
       <category>cs.AI</category>
       <category>cs.PF</category>
-      <pubDate>Mon, 11 May 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Feiyu Yao, Zhixiong Niu, Xiaqing Li, Yongqiang Xiong, Juan Fang, Qian Wang</dc:creator>
+      <dc:creator>Wenhao Wu, Zishan Shao, Kangning Cui, Jinhee Kim, Yixiao Wang, Hancheng Ye, Danyang Zhuo, Yiran Chen</dc:creator>
     </item>
     <item>
-      <title>Cleaning up the Mess: Re-Evaluating the Real-System Modeling Accuracy of Ramulator 2.0</title>
-      <link>https://arxiv.org/abs/2510.15744</link>
-      <description>arXiv:2510.15744v4 Announce Type: replace-cross 
-Abstract: A MICRO 2024 best paper runner-up publication (the Mess paper) with all three artifact badges awarded (including ``Reproducible'') proposes a new benchmark to evaluate real and simulated memory system performance. The publication contends that Ramulator 2.0 and DAMOV (ZSim+Ramulator) (along with other existing memory system simulators) ``poorly resemble the actual system performance'' and asserts that their simulator is better.
-  In this paper, we show that the Mess paper has 1) demonstrable technical misconfigurations, 2) methodological errors in interpreting simulation statistics, and 3) an incomplete artifact that makes its key results irreproducible. We demonstrate that the Ramulator 2.0 simulation results reported in the Mess paper are incorrect due to multiple configuration errors instead of inherent simulation inaccuracy claimed by the Mess paper. We show that by correctly configuring Ramulator 2.0, Ramulator 2.0's simulated memory system performance actually resembles real system characteristics well, and thus a key claimed contribution of the Mess paper is factually incorrect. We also identify that the DAMOV simulation results in the Mess paper use wrong simulation statistics that are unrelated to the simulated DRAM performance. We show that DAMOV's simulated DRAM latency is not constant, in contrast to the Mess paper's claim. Moreover, the Mess paper's artifact repository lacks the necessary sources to fully reproduce all the Mess paper's results. We find that the experiment scripts use simulator executables and other resources that are neither described in the Mess paper nor found in the artifact repository.
-  We strongly encourage the computer architecture community to consider our corrections to the Ramulator 2.0 and DAMOV results of the Mess paper to prevent the propagation of inaccurate and misleading results and to maintain the reliability of the scientific record.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.15744v4</guid>
+      <title>CDS4RAG: Cyclic Dual-Sequential Hyperparameter Optimization for RAG</title>
+      <link>https://arxiv.org/abs/2605.08333</link>
+      <description>arXiv:2605.08333v1 Announce Type: cross 
+Abstract: Retrieval-Augmented Generation (RAG) is sensitive to the vast hyperparameters of the retriever and generator, yet optimizing them using given queries is a challenging task due to the complex interactions and expensive evaluation costs. Existing algorithms are ineffective and slow in convergence, since they often treat RAG as a monolithic black box or only optimize partial hyperparameters. In this paper, we propose CDS4RAG, a framework that optimizes the full RAG hyperparameters using given queries via a new cyclic dual-sequential formulation. CDS4RAG is special in the sense that it distinguishes the hyperparameters of the retriever and generator, cyclically optimizing them in turn. Such a paradigm allows us to design fine-grained within-cycle budget provision and expedite the optimization via cross-cycle seeding when optimizing the generator. CDS4RAG is also an algorithm-agnostic framework that can be paired with diverse general algorithms. Through experiments on four common benchmarks and two backbone LLMs, we reveal that CDS4RAG considerably boosts the vanilla algorithms in 21/24 cases while significantly outperforming state-of-the-art algorithms in all cases with up to 1.54x improvements of generation quality and better speedup.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.08333v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Pengzhou Chen, Tao Chen</dc:creator>
+    </item>
+    <item>
+      <title>Single 32-bit Sub-Channel DDR5 DIMMs: Architecture, Performance Bounds, and Standardisation</title>
+      <link>https://arxiv.org/abs/2605.08725</link>
+      <description>arXiv:2605.08725v1 Announce Type: cross 
+Abstract: DDR5 SDRAM partitions each 64-bit memory channel into two independent 32-bit sub-channels. A DIMM populating only one sub-channel halves the die count required for a given module, enabling 8 GB modules with current 16 Gbit dies that the standard topology cannot achieve. The configuration has been used by the enthusiast overclocking community since 2021 to set DDR5 frequency world records on three successive Intel platform generations, and has recently received attention as a candidate for cost-reduced volume modules under the contemporaneous DRAM supply constraints. We derive the transaction-width identity grounding the JEDEC sub-channel design: 32-bit x BL16 transfers exactly one 64-byte x86 cache line per burst. Using a roofline model we quantify performance impact across workload classes (40-60% throughput degradation in bandwidth-bound workloads, &lt; 10% in latency-dominated workloads), and identify a bandwidth inversion at DDR5-4800 below DDR4-3200. Platform analysis shows architectural incompatibility with AMD AM5 as a consequence of the unified 64-bit UMC training model. We further show that the JEDEC SPD specification (JESD400-5D.01) already encodes single sub-channel modules natively in Byte 235, and identify the surrounding ecosystem standardisation gap.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.08725v1</guid>
       <category>cs.AR</category>
       <category>cs.PF</category>
-      <pubDate>Mon, 11 May 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Chih-Hua Ke</dc:creator>
+    </item>
+    <item>
+      <title>Non-Monotonic Latency in Apple MPS Decoding: KV Cache Interactions and Execution Regimes</title>
+      <link>https://arxiv.org/abs/2605.08913</link>
+      <description>arXiv:2605.08913v1 Announce Type: cross 
+Abstract: Autoregressive inference is typically assumed to scale predictably with decoding length, and key-value (KV) caching is widely regarded as a universally beneficial optimization for accelerating decoding. In this work, we identify unexpected non-monotonic latency behavior in the Apple MPS backend, where latency changes abruptly across nearby decoding configurations. Using transformer models from multiple families (GPT-2, BLOOM, and OPT), we observe latency spikes of up to 21x within specific decoding-budget intervals, followed by recovery at neighboring configurations. Controlled experiments show that these anomalies are not explained by memory pressure or prefill cost, but are instead consistent with backend execution dynamics, while CPU and NVIDIA T4 (CUDA) exhibit smooth monotonic scaling under identical conditions. Our findings highlight the importance of hardware-aware evaluation for autoregressive inference and caution against relying on aggregated decoding-budget benchmarks, as performance can vary discontinuously across nearby configurations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.08913v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AR</category>
+      <category>cs.CL</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Willy Fitra Hendria</dc:creator>
+    </item>
+    <item>
+      <title>Adaptive DNN Partitioning and Offloading in Heterogeneous Edge-Cloud Continuum</title>
+      <link>https://arxiv.org/abs/2605.09623</link>
+      <description>arXiv:2605.09623v1 Announce Type: cross 
+Abstract: In recent years, the use of artificial intelligence on resource-constrained IoT devices has grown significantly. However, existing approaches to DNN partitioning and offloading across the edge-cloud continuum typically rely on static methods that ignore runtime dynamics. Furthermore, they are often evaluated in simulated environments rather than on real hardware. To address this gap, we propose a framework that dynamically splits neural network layers across the heterogeneous continuum. The framework profiles the model at startup, measures network link conditions between nodes, and periodically re-evaluates the partition to adapt to environmental changes. We created a physical testbed comprising a Raspberry Pi edge device, a laptop fog, and a high-performance desktop PC as the cloud. We evaluated the framework over three widely adopted convolutional neural networks: VGG16, AlexNet, and MobileNetV2. Our results show that the framework achieves reductions in energy and end-to-end latency of 27.09--35.82% and 6.34--22.92%, respectively, compared to a static partitioning baseline. These findings confirm the superiority of adaptive to static partitioning.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.09623v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.NI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Akuen Akoi Deng, Eimantas Butkus, Alfreds Lapkovskis, Praveen Kumar Donta</dc:creator>
+    </item>
+    <item>
+      <title>Cloud Performance Decomposition for Long-Term Performance Engineering: A Case Study</title>
+      <link>https://arxiv.org/abs/2605.09787</link>
+      <description>arXiv:2605.09787v1 Announce Type: cross 
+Abstract: Cloud performance fluctuates due to factors such as resource contention and workload changes. These factors can be short-term, seasonal, or long-term. Their effects are often intertwined in performance traces, making performance management difficult. Prior work on cloud performance engineering used time-series decomposition to separate these factors. However, existing approaches rely on basic decomposition methods that may miss key variation patterns and fail on traces with complex or intermittent patterns, limiting their usefulness across diverse cloud deployments.
+  To address this limitation, we propose two time-series decomposition techniques for cloud performance engineering: a hybrid/manual method and a fully automatic method. Through a case study of 11 serverless functions, we show that both approaches can successfully and consistently reveal trends and seasonal cycles, such as weekly and quarterly patterns, which are otherwise obscured.
+  As an evaluation and application of the decomposition, we used the decomposed components to predict future performance, yielding mean absolute percentage error (MAPE) values of only 1.8\% (hybrid) and 2.1\% (automatic), significantly outperforming basic time-series methods and deep learning. We further show that decomposition insights can guide practical resource allocation. Using decomposition-informed scaling on AWS, we reduced latency variability by over 60\% and maximum latency by 10\%. Similar experiments on benchmarks on AWS confirmed that seasonal patterns and performance gains generalize beyond our case study. Notably, our findings demonstrate that even a single performance trace contains rich actionable information for guiding cloud management decisions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.09787v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shimul Debnath, William Hart, Lori Pollock, Donald Lien, Wei Wang</dc:creator>
+    </item>
+    <item>
+      <title>Muninn: Your Trajectory Diffusion Model But Faster</title>
+      <link>https://arxiv.org/abs/2605.09999</link>
+      <description>arXiv:2605.09999v1 Announce Type: cross 
+Abstract: Diffusion-based trajectory planners can synthesize rich, multimodal robot motions, but their iterative denoising makes online planning and control prohibitively slow. Existing accelerations either modify the sampler or compress the network--sacrificing plan quality or requiring retraining without accounting for downstream control risk. We address the problem of making diffusion-based trajectory planners fast enough for real-time robot use without retraining the model or sacrificing trajectory quality, and in a way that works across diverse state-space diffusion architectures. Our key insight is that diffusion trajectory planners expose two signals we can exploit: a cheap probe of how their internal trajectory representation changes across steps, and analytic coefficients that describe how denoiser errors affect the sampler's state update. By calibrating the first signal against the second on offline runs, we obtain a per-step score that upper-bounds how far the final trajectory can deviate when we reuse a cached denoiser output, and we treat this bound as an uncertainty budget that we can spend over the denoising process. Building on this insight, we present Muninn, a training-free caching wrapper that tracks this uncertainty budget during sampling and, at each diffusion step, chooses between reusing a cached denoiser output when the predicted deviation is small and recomputing the denoiser when it is not. Across standard benchmarks Muninn delivers up to 4.6x wall-clock speedups across several trajectory diffusion models by reducing denoiser evaluations, while preserving task performance and safety metrics. Muninn further certifies that cached rollouts remain within a specified distance of their full-compute counterparts, and we validate these gains in real-time closed-loop navigation and manipulation hardware deployments. Project page: https://github.com/gokulp01/Muninn.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.09999v1</guid>
+      <category>cs.RO</category>
+      <category>cs.PF</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Gokul Puthumanaillam, Hao Jiang, Ruben Hernandez, Jose Fuentes, Paulo Padrao, Leonardo Bobadilla, Melkior Ornik</dc:creator>
+    </item>
+    <item>
+      <title>Key Encapsulation Mechanism-Based Integrated Encryption Scheme (KEM-IES)</title>
+      <link>https://arxiv.org/abs/2605.10175</link>
+      <description>arXiv:2605.10175v1 Announce Type: cross 
+Abstract: The Elliptic Curve Integrated Encryption Scheme (ECIES) is widely regarded as a practical method and has been adopted by multiple standards. However, the advancement of quantum computing technologies poses potential security risks to ECIES. Therefore, this study proposes a Key Encapsulation Mechanism-Based Integrated Encryption Scheme (KEM-IES), which enhances resistance to quantum attacks by incorporating a Post-Quantum Cryptography (PQC)-based Key Encapsulation Mechanism (KEM). Furthermore, the study integrates the Ascon algorithm, released by the National Institute of Standards and Technology (NIST) in August 2025, to further improve computational efficiency and enable applicability to embedded systems. The proposed KEM-IES and its Ascon-based variant are implemented on a Raspberry Pi 4, and evaluations are conducted to compare the performance of ECIES and KEM-IES.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.10175v1</guid>
+      <category>cs.CR</category>
+      <category>cs.NI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Abel C. H. Chen</dc:creator>
+    </item>
+    <item>
+      <title>Geometrically Approximated Modeling for Emitter-Centric Ray-Triangle Filtering in Arbitrarily Dynamic LiDAR Simulation</title>
+      <link>https://arxiv.org/abs/2605.10457</link>
+      <description>arXiv:2605.10457v1 Announce Type: cross 
+Abstract: Real-time Light Detection And Ranging (LiDAR) simulation must find, per emitted ray, the closest intersecting triangle even in dynamic scenes containing large numbers of moving and deformable objects. Dominant acceleration-structure approaches require rebuilding each frame for dynamic geometry -- a cost that compounds directly with scene dynamics and cannot be amortized regardless of how little actually changed.
+  This paper presents the Gajmer Ray-Casting Algorithm (GRCA), which inverts the question: instead of asking what does each ray hit? it asks which rays can each triangle possibly hit? GRCA geometrically models spinning LiDAR emitters as rotation-traced cones or planes and uses each triangle's emitter-centric apparent area to cull, per triangle, which channels and the rays within those channels can possibly reach it -- without any acceleration structure. GRCA is compute-based and vendor-agnostic by design, targeting highly dynamic, high-resolution simultaneous multi-sensor simulation. At its core, GRCA is a general-purpose ray-casting algorithm: the emitter-centric inversion applies to any setting where rays originate from a known position, not only LiDAR.
+  Benchmarks evaluate 2-8 simultaneous 128x4096-ray LiDARs (360deg/180deg) over complex dynamic scenes -- with just two sensors casting ~1M rays per frame. With range culling inactive, GRCA reaches up to 7.97x over hardware-accelerated OptiX (GPU) and 14.55x over Embree (CPU).
+  Two independent extensions further boost performance even in the most complex scene (~22M triangles, ~9M of which are dynamic, 8 LiDARs): range culling at realistic deployment ranges (10-100m) reaches up to 7.02x GPU and 9.33x CPU; a hybrid pipeline -- GRCA for dynamic geometry, OptiX/Embree for static -- reaches up to 10.5x GPU and 19.2x CPU.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.10457v1</guid>
+      <category>cs.GR</category>
+      <category>cs.PF</category>
+      <category>cs.RO</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Rabin Gajmer, Joonas Haapala, Zoltan Beck</dc:creator>
+    </item>
+    <item>
+      <title>An Uncertainty-Aware Resilience Micro-Agent for Causal Observability in the Computing Continuum</title>
+      <link>https://arxiv.org/abs/2605.10718</link>
+      <description>arXiv:2605.10718v1 Announce Type: cross 
+Abstract: Grey failures in the computing continuum produce ambiguous overlapping symptoms that existing approaches fail to diagnose reliably, either due to a lack of causal awareness or acting under high epistemic uncertainty, risking destructive interventions. This paper presents an uncertainty-aware resilience micro-agent for causal observability (AURORA), a lightweight framework for diagnosing and mitigating grey failures in edge-tier environments. The framework employs parallel micro-agents that integrate the free-energy principle, causal do-calculus, and localized causal state-graphs to support counterfactual root-cause analysis within each fault's Markov blanket. Restricting inference to causally relevant variables reduces computational overhead while preserving diagnostic fidelity. AURORA further introduces a dual-gated execution mechanism that authorizes remediation only when causal confidence is high and predicted epistemic uncertainty is bounded; otherwise, it abstains from local intervention and escalates the diagnostic payload to the fog tier. Our experiments demonstrate that AURORA outperforms baselines, achieving a 0% destructive action rate, while maintaining 62.0% repair accuracy and a 3ms mean time to repair.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.10718v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Suvi De Silva, Alfreds Lapkovskis, Alaa Saleh, Sasu Tarkoma, Praveen Kumar Donta</dc:creator>
+    </item>
+    <item>
+      <title>Energy Consumption of Dataframe Libraries for End-to-End Deep Learning Pipelines:A Comparative Analysis</title>
+      <link>https://arxiv.org/abs/2511.08644</link>
+      <description>arXiv:2511.08644v3 Announce Type: replace-cross 
+Abstract: This paper presents a detailed comparative analysis of the performance of three major Python data manipulation libraries - Pandas, Polars, and Dask - specifically when embedded within complete deep learning (DL) training and inference pipelines. The research bridges a gap in existing literature by studying how these libraries interact with substantial GPU workloads during critical phases like data loading, preprocessing, and batch feeding. The authors measured key performance indicators including runtime, memory usage, disk usage, and energy consumption (both CPU and GPU) across various machine learning models and datasets.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.08644v3</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>F. Nisa Bostanci, Haocong Luo, Ataberk Olgun, Maria Makeenkova, Geraldo F. Oliveira, A. Giray Yaglikci, Onur Mutlu</dc:creator>
+      <dc:creator>Punit Kumar, Asif Imran, Tevfik Kosar</dc:creator>
+    </item>
+    <item>
+      <title>A Case for CATS: A Conductor-driven Asymmetric Transport Scheme for Semantic Prioritization</title>
+      <link>https://arxiv.org/abs/2603.13945</link>
+      <description>arXiv:2603.13945v2 Announce Type: replace-cross 
+Abstract: Standard transport protocols like TCP operate as a blind, FIFO conveyor belt for data, a model that is increasingly suboptimal for latency-sensitive and interactive applications. This paper challenges this model by introducing CATS (Conductor-driven Asymmetric Transport Scheme), a framework that provides TCP with the semantic awareness necessary to prioritize critical content. By centralizing scheduling intelligence in a transport-native "Conductor", CATS significantly improves user-perceived performance by delivering essential data first. This architecture directly confronts a cascade of historical performance workarounds and their limitations, including the high overhead of parallel connections in HTTP/1.1, the transport-layer Head-of-Line blocking in HTTP/2, and the observed implementation heterogeneity of prioritization in HTTP/3 over QUIC. Built upon TCP BBR, our ns-3 implementation demonstrates this principle by reducing the First Contentful Paint by over 78% in a representative webpage download configured as a deliberate worst-case scenario, with no penalty to total page load time compared to the baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.13945v2</guid>
+      <category>cs.NI</category>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1109/ICIC68258.2025.11413235</arxiv:DOI>
+      <arxiv:journal_reference>2025 6th International Conference on Innovative Computing (ICIC)</arxiv:journal_reference>
+      <dc:creator>Syed Muhammad Aqdas Rizvi</dc:creator>
+    </item>
+    <item>
+      <title>Enhancing Performance Insight at Scale: A Heterogeneous Framework for Exascale Diagnostics</title>
+      <link>https://arxiv.org/abs/2605.03561</link>
+      <description>arXiv:2605.03561v2 Announce Type: replace-cross 
+Abstract: As exascale systems reach unprecedented concurrency, traditional performance analysis tools struggle with the overhead of massive-scale telemetry. We present an accelerated infrastructure for the hpcanalysis framework that leverages a high-performance C++ API and GPU parallelism to enable high-throughput diagnostics. Our C++ API achieves a 9.69-second ingestion time for 100,000 MPI ranks on Aurora. Furthermore, our GPU-accelerated layer achieves up to 314x speedup over CPU-based processing when analyzing 100,000 execution traces. Finally, we implement a topology-aware workflow that maps logical performance outliers to physical Slingshot interconnect coordinates, localizing network congestion across 22 distinct racks on Aurora.
+  We also demonstrate how the framework's advanced interface seamlessly integrates with external tools to provide sophisticated analytical models. We introduce a novel tri-dimensional performance model that "re-materializes" iterative behavior from execution traces; using this model, we identified a 32.28% potential speedup for a GAMESS workload on Frontier.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.03561v2</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Dragana Grbic (Department of Computer Science, Rice University)</dc:creator>
+    </item>
+    <item>
+      <title>KernelBenchX: A Comprehensive Benchmark for Evaluating LLM-Generated GPU Kernels</title>
+      <link>https://arxiv.org/abs/2605.04956</link>
+      <description>arXiv:2605.04956v2 Announce Type: replace-cross 
+Abstract: LLM-based Triton kernel generation has attracted significant interest, yet a fundamental empirical question remains unanswered: where does this capability break down, and why? We present KernelBenchX, a benchmark designed to answer this question through category-aware evaluation of correctness and hardware efficiency across 176 tasks in 15 categories. Our systematic comparison of five representative methods yields three main findings. First, task structure determines correctness more than method design. Category explains nearly three times more variance in semantic correctness than method (9.4% vs 3.3% explained deviance), and 72% of Fusion tasks fail across all five methods while Math tasks are solved consistently. Second, iterative refinement improves correctness, but not performance. Across GEAK iterations, compile rate rises from 52.3% to 68.8% while average speedup declines from $1.58\times$ to $1.44\times$; newly rescued kernels consistently underperform persistently correct ones ($1.16\times$ vs $1.58\times$ speedup in round~0$\to$1). Third, correctness does not imply efficiency. 46.6% of correct kernels are slower than the PyTorch eager baseline, and cross-hardware speedup variance reaches $21.4\times$. Besides, quantization remains completely unsolved (0/30 successes) despite non-trivial compilation rates, revealing systematic misunderstanding of numerical computation contracts rather than surface-level syntax errors. These findings suggest that future progress depends on handling global coordination, explicitly modeling numerical precision, and incorporating hardware efficiency into generation. The code is available at https://github.com/BonnieW05/KernelBenchX</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.04956v2</guid>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 12 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Han Wang, Jintao Zhang, Kai Jiang, Haoxu Wang, Jianfei Chen, Jun Zhu</dc:creator>
     </item>
   </channel>
 </rss>
