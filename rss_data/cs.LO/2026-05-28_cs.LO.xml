@@ -7,279 +7,238 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.LO" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 May 2026 04:00:08 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2026 04:00:18 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
+    <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Sunday</day>
       <day>Saturday</day>
     </skipDays>
     <item>
-      <title>Automating Formal Verification with Agent-Guided Tree Search</title>
-      <link>https://arxiv.org/abs/2605.27485</link>
-      <description>arXiv:2605.27485v1 Announce Type: new 
-Abstract: Formal verification offers a path to provably correct software, but writing verified code remains expensive enough that the technique is rarely used in production. Recent large language models can accelerate this work, and recent benchmarks measure their ability to translate specifications into code and machine-checked proofs of correctness. This thesis evaluates the state of such LLM-driven verified-code generation ("vericoding") in Lean and develops search-based methods for improving verification performance. We first reproduce a subset of the vericoding-benchmark Lean leaderboard on a current cross-vendor model pool, finding that non-reasoning performance remains roughly steady on US closed-source models while open-weight models have slightly improved. We update the iterative methodology of vericoding-benchmark with an agentic loop equipped with mathlib search, finding that model performance greatly improves and scales with agent budget. GPT-5.4 nearly saturates the benchmark at 95.0% on 423 specs with $K=50$ LLM calls. We then design two agent-directed tree-search formulations: a state-based orchestrator that branches on partial-proof states, and a context-based orchestrator that branches on full subagent contexts. Compared against the agent baseline, the context-based design solves a wider range of intermediate-difficulty specs at lower token cost, while the agent baseline retains an advantage on the hardest specs, where uninterrupted iteration matters most. We conclude that search structure has selective advantages over a strong agent baseline, and that more challenging benchmarks drawn from modern code are important to measure and drive further progress in automated formal verification.
-  Code available upon request by contacting the author at leoy@mit.edu.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.27485v1</guid>
+      <title>Unifying Semantic Path Order and Weighted Path Order</title>
+      <link>https://arxiv.org/abs/2605.29393</link>
+      <description>arXiv:2605.29393v1 Announce Type: new 
+Abstract: Monotonic semantic path orders and weighted path orders are powerful reduction orders for proving termination of term rewrite systems. In this paper we present their simple unification as reduction orders and reduction pairs. We also discuss the use of it as ground total reduction orders.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.29393v1</guid>
       <category>cs.LO</category>
-      <category>cs.LG</category>
-      <category>cs.SE</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Teppei Saito, Nao Hirokawa</dc:creator>
+    </item>
+    <item>
+      <title>Strong (D)QBF Dependency Schemes via Pure Paths with Applications to Proof Checking</title>
+      <link>https://arxiv.org/abs/2605.29763</link>
+      <description>arXiv:2605.29763v1 Announce Type: new 
+Abstract: Certification for Quantified Boolean Formulas (QBF) and Dependency Quantified Boolean Formulas (DQBF) is an ongoing challenge. Recent proof complexity work has shown that the majority of QBF and DQBF techniques can be p-simulated by using the independent extension rule.
+  In propositional logic, extension rules are supported by proof checkers using a more general RAT (Resolution Asymmetric Tautology) rule. The next step in (D)QBF certification would be to update these modern RAT formats to match the strength of this independent extension rule.
+  In this paper we first introduce a new dependency scheme called Dpure. This rule is the missing ingredient that when added to Blinkhorn's proof system DQRAT allows it to be provably p-equivalent to the Independent Extended QU-Res, the most powerful of the known QBF and DQBF proof systems. Up until now, DQRAT has only existed in theory, so we implement a prototype checker DQRAT-check which includes our extra rule. In addition to its inclusion in our proof checker we show Dpure has other properties that have been found for previous dependency schemes, and each of these observations has potential in solving/checking including the sound integration into the dependency learning solver Qute.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.29763v1</guid>
+      <category>cs.LO</category>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Leroy Chew, Tom\'a\v{s} Peitl</dc:creator>
+    </item>
+    <item>
+      <title>A Rust-to-Lean Verification Pipeline with AI Provers: An Experience Report</title>
+      <link>https://arxiv.org/abs/2605.30106</link>
+      <description>arXiv:2605.30106v1 Announce Type: new 
+Abstract: We describe a verification pipeline that takes production Rust cryptographic code and produces machine-checked correctness proofs in Lean 4. The pipeline combines three components: symbolic extraction tools (Charon and Aeneas, or Hax) that lift Rust into Lean 4; formal cryptographic specification libraries (ArkLib and CompPoly, from the Verified zkEVM project) that provide the mathematical targets; and AI provers (Aristotle from Harmonic AI and Aleph from Logical Intelligence) that close the resulting proof obligations. Every proof is checked by the Lean kernel, so AI output cannot compromise soundness.
+  Within the scope of the Ethereum Foundation's zkEVM Verification Project, we applied the pipeline to cryptographic primitives in Plonky3 (FRI folding, Mersenne31 and KoalaBear field arithmetic, Horner polynomial evaluation) and RISC Zero (Merkle inclusion verification). In addition, Aleph authored proofs of two bounds-style theorems in Plonky3's compute_log_arity_for_round that previously stood as sorry.
+  The paper describes the architecture, walks through a running example based on Aleph's two proofs, reports which classes of proof obligations AI closed and which required manual work, and discusses the engineering gaps we encountered: Lean 4 toolchain drift across tools and specific Aeneas/Hax extraction limits. We also document concrete missing lemmas, tactic gaps, and code-generation friction points discovered during proof development. We hope this contribution lowers the barrier to adoption of formal verification and facilitates more effective use of AI in this pipeline. The result is a working pipeline for formal verification of Rust, with kernel-checked proofs and reproducible artefacts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.30106v1</guid>
+      <category>cs.LO</category>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Natalia Klaus, Palina Tolmach, Juan Conejero</dc:creator>
+    </item>
+    <item>
+      <title>Neural Network Verification using Partial Multi-Neuron Relaxation</title>
+      <link>https://arxiv.org/abs/2605.30155</link>
+      <description>arXiv:2605.30155v1 Announce Type: new 
+Abstract: The increasing integration of deep neural networks in critical systems has spawned a theoretical and practical interest in formally guaranteeing safety properties about their behavior. To achieve this, contemporary verification algorithms rely on computing linear relaxations for a network's non-linear activation functions. Existing approaches for linear relaxations typically fall into one of two categories: single-neuron relaxation, in which each activation neuron is bounded in terms of its sources; and multi-neuron relaxation, in which linear bounds involving multiple activation neurons and their sources are calculated. However, existing methods might fail to balance tightness and scalability, as single-neuron bounds might not derive sufficiently tight bounds necessary for verification to complete, whereas generating multi-neuron relaxation for all activation neurons is computationally expensive. In this paper, we present a middle-ground approach featuring partial multi-neuron relaxation, in which we generate multi-neuron bounds for only a small, heuristically selected subset of neurons. To achieve this, we build upon existing branching heuristics for selecting neurons and for optimizing bounding hyper-planes for multi-neuron bounds. We integrated our proposed method within the Marabou verifier, and obtained favorable results in comparison to existing bound tightening methods. Our experiments showcase the potential of our technique for neural network verification.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.30155v1</guid>
+      <category>cs.LO</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Leo Yao</dc:creator>
+      <dc:creator>Ido Shmuel, Guy Katz</dc:creator>
     </item>
     <item>
-      <title>Four Paradoxes and a Proof Assistant: Burali-Forti, Diaconescu, Reynolds, and Hurkens in the coq-paradoxes library</title>
-      <link>https://arxiv.org/abs/2605.27633</link>
-      <description>arXiv:2605.27633v1 Announce Type: new 
-Abstract: This article reads the four paradoxes mechanised in the coq-paradoxes package, namely the Burali-Forti paradox in system U, the Diaconescu paradox that the axiom of choice entails excluded middle, the Reynolds paradox that System F has no set-theoretic model, and the Hurkens paradox for impredicative Set. The package collects four pieces of mechanised mathematics that, taken together, draw the boundary of the Calculus of Inductive Constructions from the outside: each file formalises a derivation of False in a system close to CIC, and each shows where the kernel of Rocq has been designed to refuse to compile the construction. The article walks through the shared machinery of well-foundedness in Logics.v, reads the Burali-Forti construction in BuraliForti.v against Coquand's analysis of Girard's paradox, sets out the Diaconescu argument in diaconescu.v, reconstructs the Reynolds argument in Reynolds.v via the preinitial PHI-algebra and Lawvere's fixed-point theorem, and follows Geuvers's adaptation of Hurkens in Hurkens_Set.v. The four together establish three boundary conditions on the kernel of Rocq: the placement of impredicativity, the restriction of large elimination, and the discipline of universe constraints. The article argues that the package is best read not as a collection of curiosities but as a negative specification of what Rocq's kernel had to be designed to refuse, and as evidence that the refusal is being made for the right reasons.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.27633v1</guid>
+      <title>Cone-Induced Observation Congruences for Vector-Valued Quantitative Languages</title>
+      <link>https://arxiv.org/abs/2605.28884</link>
+      <description>arXiv:2605.28884v1 Announce Type: cross 
+Abstract: We study the observation congruences induced by rational polyhedral cones on vector-valued quantitative languages. The extreme rays of the dual cone define intrinsic covectors, and these covectors classify every incremental residual future by a finite sign cell: negative, tight, or positive along each extremal Farkas direction. The resulting carrier is the right-stable carrier of this cone-induced observation family, whose source is canonical: the restricted covector geometry of the order cone on the residual span of the language. We organize this construction through an observation-refinement correspondence, a cone-refinement calculus, and a separation between the qualitative conic observation quotient and the numerical residual carrier needed for potential certificates. A bounded-horizon fragment is fully computable by enumeration of accumulated futures, and reproducible evaluation runs show how the conic layer detects qualitative obstruction cells before numerical refinement.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.28884v1</guid>
+      <category>cs.FL</category>
       <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Bernardo Alonso</dc:creator>
-    </item>
-    <item>
-      <title>Generalizing CDCL with Graph Backtracking</title>
-      <link>https://arxiv.org/abs/2605.28220</link>
-      <description>arXiv:2605.28220v1 Announce Type: new 
-Abstract: We present graph backtracking, a novel, fine-grained backtracking scheme for CDCL-based SAT solving, parametrized by a user-defined weight function. For conflict repair, we challenge the decision level abstraction and use the implication graph as a precise guiding structure to minimize the weight of literals that are unassigned. Graph backtracking is sound and complete. We show that it is a generalization of chronological and non-chronological backtracking by simulating them with specific weight functions. Our approach is implemented in the experimental solver NapSAT. Empirical results show that graph backtracking requires fewer literal propagations than standard approaches, leading to improved solver runtime.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.28220v1</guid>
-      <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Robin Coutelier, Thomas Hader, Laura Kov\'acs</dc:creator>
-    </item>
-    <item>
-      <title>Token Optimization Strategies for LLM-Based Oracle-to-PostgreSQL Migration</title>
-      <link>https://arxiv.org/abs/2605.28557</link>
-      <description>arXiv:2605.28557v1 Announce Type: new 
-Abstract: LLMs are increasingly used for software modernization, code translation, and database migration. However, LLM-based Oracle2PostgreSQL migration remains constrained by high token consumption, long-context degradation, dialect-specific semantic differences, and the risk of semantic drift during query transformation. Direct inclusion of large Oracle SQL/PL-SQL artefacts, schema definitions, procedural logic, and migration instructions into the model context increases cost and may reduce generation quality. This paper shows token optimization as a constrained transformation problem in LLM-based Oracle2PostgreSQL migration. The study formalizes and evaluates twelve token optimization strategies: baseline representation, context pruning, minification, DSL-based semantic compression, metadata augmentation, context refactoring, schema distillation, adaptive routing, AST-based minification, identifier masking, output constraint enforcement, and hybrid optimization. The strategies are evaluated on samples of 10 and 100 Oracle SQL queries using Valid Syntax Rate, Exact Match, Semantic Match, CodeBLEU, and Token Efficiency. The results show that mild context pruning preserves semantic quality almost at the baseline level, achieving 89.75% Semantic Match on the 100-query sample compared with 89.80% for the unoptimized baseline. Adaptive routing provides the best practical trade-off, reducing input tokens by 8.72% and output tokens by 5.49% while maintaining 88.40% Semantic Match and increasing Token Efficiency by 6.67%. Aggressive schema distillation increases Token Efficiency by 132.22% but results in a 44.50-percentage-point decrease in Semantic Match. The findings demonstrate that token optimization cannot be treated as simple prompt shortening; it must be evaluated as a multi-objective migration problem balancing cost, syntactic validity, semantic preservation, and structural fidelity.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.28557v1</guid>
-      <category>cs.LO</category>
-      <category>cs.AI</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Oleg Grynets, Dmytro Babarytskyi, Vasyl Lyashkevych</dc:creator>
-    </item>
-    <item>
-      <title>Explaining is Harder Than Predicting Alone: Evaluating Concept-based Explanations of MLLMs as ICL Visual Classifiers</title>
-      <link>https://arxiv.org/abs/2605.28215</link>
-      <description>arXiv:2605.28215v1 Announce Type: cross 
-Abstract: In-context learning (ICL) enables multimodal large language models (MLLMs) to classify images from a few labelled examples. Yet, how these models use the provided context remains opaque. While Chain-of-Thought prompting is widely used, recent work argues that it may not reflect true internal computation.
-  In this paper, we systematically evaluate the concept-based explainability of frozen MLLMs under few-shot ICL using five conditions of increasing formal rigour, ranging from baseline classification to Description Logics (DL) axiom generation.
-  Evaluating four state-of-the-art MLLMs via an independent LLM-as-a-judge pipeline, we demonstrate that explaining is genuinely harder than predicting alone. Surprisingly, forcing models to generate formally structured, concept-based explanations degrades predictive accuracy monotonically (from 93.8% to 90.1%), contradicting the assumption that explicit reasoning universally aids performance.
-  However, when models successfully articulate class-discriminative visual features, explanation quality strongly correlates with correct predictions. Our findings suggest that while MLLMs excel at visual classification, they lack the specific instruction-tuning required for formal, machine-verifiable explainability.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.28215v1</guid>
-      <category>cs.AI</category>
-      <category>cs.CL</category>
-      <category>cs.LG</category>
-      <category>cs.LO</category>
-      <category>cs.MA</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Carmen Quiles-Ram\'irez, Leticia L. Rodr\'iguez, Nicol\'as Martorell, Natalia D\'iaz-Rodr\'iguez</dc:creator>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Faruk Alpay, Baris Basaran</dc:creator>
     </item>
     <item>
-      <title>Risk-Controlled Lean-as-Judge for Natural-Language Mathematical Reasoning</title>
-      <link>https://arxiv.org/abs/2605.28365</link>
-      <description>arXiv:2605.28365v1 Announce Type: cross 
-Abstract: Lean is increasingly used to judge natural-language mathematical answers, but its signal is partial: many answers never formalize, and a failed proof may reflect an ill-typed statement or a missing library fact, not a wrong answer. On MATH-500 we show this signal is (i) sharply coverage-dependent, that is the proof-winning answer is correct 96% of the time at high proved coverage but 20% at low, and (ii) sparse and often unfaithful: a 7B autoformalizer proves a class for only 28% of problems, and a manual audit finds only approximately 43% of those proofs faithful. We propose COVCAL, a selector over Lean-trace diagnostics that certifies a finite-sample selective-risk bound on accepted answers or abstains, under two regimes (a conservative Bonferroni bound and a tighter dev-then-cal rule). Feasibility depends on autoformalization coverage: with the 7B formalizer the signal is too sparse and Bonferroni abstains on all 20 bootstrap partitions, whereas a prover-specialized formalizer reaches 79% coverage and flips it to feasible on 17 of 20, accepting approximately 48% of problems at 0.98 accepted accuracy. Since self-consistency alone is already 91% accurate, our contribution is a precise account of when, and with which formalizer, a partial formal signal can be trusted under risk control.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.28365v1</guid>
-      <category>cs.AI</category>
-      <category>cs.CL</category>
+      <title>The Complexity of Verifying Feedforward Neural Networks in Quantised Settings</title>
+      <link>https://arxiv.org/abs/2605.29537</link>
+      <description>arXiv:2605.29537v1 Announce Type: cross 
+Abstract: We investigate the computational complexity of neural network verification in quantised settings. We distinguish three classes of Feedforward Neural Networks (FNNs): rational FNNs with exact rational weights, quantised FNNs whose weights come from a finite-width arithmetic, and dynamically quantised FNNs in which rational networks are evaluated with respect to a given finite-width arithmetic. We consider two types of specifications used in the literature. Linear programming (LP) specifications are conjunctions of linear constraints, while bit-vector (BV) specifications allow reasoning at the bit level and can express non-linear constraints. Our results give a complexity landscape of these verification problems. For quantised FNNs with fixed arithmetic precision, we show that verification under both LP and BV specifications remains NP-complete, matching the complexity of the rational case. For dynamically quantised FNNs with BV specifications, we establish upper bounds, complementing a previously known PSPACE-hardness result.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.29537v1</guid>
+      <category>cs.CC</category>
+      <category>cs.LG</category>
       <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Pauline Bourigault, Xiaotong Ji, Matthieu Zimmer, Rasul Tutunov, Haitham Bou Ammar</dc:creator>
+      <dc:creator>Eric Alsmann, Martin Lange, Marco S\"alzer</dc:creator>
     </item>
     <item>
-      <title>Satisfiability Solving with LLMs: A Matched-Pair Evaluation of Reasoning Capability</title>
-      <link>https://arxiv.org/abs/2605.28602</link>
-      <description>arXiv:2605.28602v1 Announce Type: cross 
-Abstract: Large language models (LLMs) are increasingly used for tasks that implicitly reduce to Boolean satisfiability (SAT), yet their reasoning ability on SAT remains unclear. We present a systematic study of LLMs on 2-SAT and 3-SAT, together with two canonical reductions, Vertex Cover and discrete 3D packing, to probe representation-invariant reasoning. We first evaluate models using conventional metrics, including accuracy, precision, recall, and F1, as well as the SAT phase-transition setting. We find that these metrics can be misleading: many models obtain high scores by over-predicting satisfiable formulas, fail to reproduce the classical easy-hard-easy signature around the 3-SAT threshold, and degrade sharply as the number of variables grows.
-  To address this problem, we introduce a paired-formula protocol based on minimally different satisfiable and unsatisfiable instances, together with Accurate Differentiation Rate (ADR), which requires both members of each pair to be classified correctly. ADR separates reasoning-oriented models from heuristic ones and correlates with witness validity. Beyond CNF, we test cross-representation consistency by converting CNF to Vertex Cover and 3-SAT to discrete 3D packing. Model decisions on CNF and on the corresponding graph or packing instances agree for most models on more than 80 percent of instances, suggesting stable decision rules across representations. Overall, our results show that SAT is a conservative probe for LLM reasoning, and that paired evaluation with ADR provides a more faithful and representation-robust assessment than conventional metrics.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.28602v1</guid>
+      <title>Reliable Reasoning with Large Language Models via Preference-Based Maximum Satisfiability</title>
+      <link>https://arxiv.org/abs/2605.29687</link>
+      <description>arXiv:2605.29687v1 Announce Type: cross 
+Abstract: Large Language Models (LLMs) excel at understanding natural language but struggle with optimisation tasks involving multiple constraints and user-defined preferences, which commonly arise in domains such as robotics. We propose a hybrid reasoning approach in which LLMs externalise reasoning through code generation. Given a natural language problem description, an LLM generates Python code that encodes user-defined constraints and preferences as a preference-based Maximum Satisfiability (MaxSAT) problem, which is then solved by an exact MaxSAT solver. To ensure correctness, solutions returned by the model-generated code are independently verified for feasibility and optimality against a canonical MaxSAT encoding, allowing for different encodings and multiple optimal solutions. We evaluate our approach using both open-source and closed-access LLMs on three families of preference-based reasoning tasks, and compare it against direct-answer, chain-of-thought, and program-of-thought baselines using the same models. While these baselines rarely produce feasible solutions, the MaxSAT-based pipeline achieves substantially higher acceptance rates, in some cases exceeding 80%. Our results demonstrate that LLM-driven code generation combined with preference-based MaxSAT enables solver-verifiable optimisation with respect to generated encodings, and substantially improves correctness under independently verified reference semantics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.29687v1</guid>
       <category>cs.AI</category>
-      <category>cs.CL</category>
       <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Leizhen Zhang, Shuhan Chen, Sheng Chen</dc:creator>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Pedro Orvalho, Marta Kwiatkowska, Guillem Aleny\`a, Felip Many\`a</dc:creator>
     </item>
     <item>
-      <title>MathlibLemma: Folklore Lemma Generation and Benchmark for Formal Mathematics</title>
-      <link>https://arxiv.org/abs/2602.02561</link>
-      <description>arXiv:2602.02561v3 Announce Type: replace 
-Abstract: While the ecosystem of Lean and Mathlib has enjoyed celebrated success in formal mathematical reasoning with the help of large language models (LLMs), the absence of many folklore lemmas in Mathlib remains a persistent barrier that limits Lean's usability as an everyday tool for mathematicians like \LaTeX{} or Maple. To address this, we introduce MathlibLemma, a modular LLM-based pipeline for automated folklore-lemma mining: the discovery, formalization, and proving of reusable intermediate facts that mathematicians often take for granted but that are not always present in formal libraries. At its core, MathlibLemma proactively mines the missing connective tissue of mathematics. The pipeline produces a verified library of folklore-style lemmas, including 1,506 Lean-checked proofs that pass a proof-bypass screen; a small curated pilot subset has also been merged into Mathlib, providing external evidence that selected outputs can meet expert library standards. Leveraging this pipeline, we further construct the MathlibLemma benchmark, a suite of 4,028 non-trivial type-checked Lean statements spanning a broad range of mathematical domains. By transforming the role of LLMs from passive consumers to active contributors, this work takes a step toward AI-assisted expansion of formal mathematical libraries.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.02561v3</guid>
+      <title>Quadratic Sums-of-Powers for Fixed-Parameter Tractable Quantum-Circuit Simulation</title>
+      <link>https://arxiv.org/abs/2605.29944</link>
+      <description>arXiv:2605.29944v1 Announce Type: cross 
+Abstract: Strongly simulating a quantum circuit, that is, computing an output amplitude, amounts to summing the circuit's Feynman paths, a weighted count over assignments to the Boolean ``path'' variables. The circuit's gates induce correlations among these variables, forming a graph whose structure determines the hardness of the simulation task. This sum-of-powers viewpoint underlies recent simulators built on knowledge-representation tools from artificial intelligence, namely binary decision diagrams and weighted model counting. We show that the structural quantity most accurately governing the difficulty is the rank-width of the path-variable graph, and we give an algorithm that evaluates the amplitude in time that is exponential only in this rank-width and polynomial in the circuit size. Rank-width can be far smaller than the widths that control competing methods: as corollaries, our algorithm reproduces a recent decision-diagram simulation breakthrough as a special case and matches the Markov--Shi tensor-network contraction bound. To complement this, we exhibit circuit families on which our algorithm provably beats both competing methods. The new method applies to every circuit built from Hadamard and diagonal gates, in particular to circuits over Clifford+T. In practical terms, general-purpose decision-diagram and model-counting tools can serve as the workhorse, with our specialized algorithm dispatched to exploit a small rank-width of the associated graph when it is present.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.29944v1</guid>
+      <category>quant-ph</category>
+      <category>cs.DS</category>
+      <category>cs.LO</category>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Alexis de Colnet, Floris Geerts, Rihan Hai, Alfons Laarman, Joon Hyung Lee, Guillermo A. P\'erez</dc:creator>
+    </item>
+    <item>
+      <title>Synthesis of Infinite State Systems</title>
+      <link>https://arxiv.org/abs/2501.08713</link>
+      <description>arXiv:2501.08713v2 Announce Type: replace 
+Abstract: The classical Church synthesis problem, solved by Buchi and Landweber, treats the synthesis of finite state systems. The synthesis of infinite state systems, on the other hand, has only been investigated few times since then, with no complete or systematic solution.
+  We present a systematic study of the synthesis of infinite state systems. The main step involves the synthesis of MSO-definable parity games, which is, finding MSO-definable uniform memoryless winning strategies for these games.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2501.08713v2</guid>
+      <category>cs.LO</category>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ohad Drucker, Alexander Rabinovich</dc:creator>
+    </item>
+    <item>
+      <title>Random Models and the Guarded Fragment</title>
+      <link>https://arxiv.org/abs/2601.05247</link>
+      <description>arXiv:2601.05247v2 Announce Type: replace 
+Abstract: Building on ideas of Gurevich and Shelah for the G\"odel Class, we present a new probabilistic proof of the finite model property for the Guarded Fragment of First-Order Logic. Our proof is conceptually simple and yields the optimal doubly-exponential upper bound on the size of minimal models. We precisely analyse the obtained bound, up to constant factors in the exponents, and construct sentences that enforce models of tightly matching size. The probabilistic approach adapts naturally to the Triguarded Fragment, an extension of the Guarded Fragment that also subsumes the Two-Variable Fragment. Finally, we derandomise the probabilistic proof by providing an explicit model construction which replaces randomness with deterministic hash functions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.05247v2</guid>
+      <category>cs.LO</category>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Oskar Fiuk</dc:creator>
+    </item>
+    <item>
+      <title>Disproving (Positive) Almost-Sure Termination of Probabilistic Term Rewriting via Random Walks</title>
+      <link>https://arxiv.org/abs/2602.16522</link>
+      <description>arXiv:2602.16522v2 Announce Type: replace 
+Abstract: In recent years, numerous techniques were developed to automatically prove termination of different kinds of probabilistic programs. However, there are only few automated methods to disprove their termination. In this paper, we present the first techniques to automatically disprove (positive) almost-sure termination of probabilistic term rewrite systems. Disproving termination of non-probabilistic systems requires finding a finite representation of an infinite computation, e.g., a loop of the rewrite system. We extend such qualitative techniques to probabilistic term rewriting, where a quantitative analysis is required. In addition to the existence of a loop, we have to count the number of such loops in order to embed suitable random walks into a computation, thereby disproving termination. To evaluate their power, we implemented all our techniques in the tool AProVE.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.16522v2</guid>
+      <category>cs.LO</category>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jan-Christoph Kassing, Henri Nagel, Alexander Schlecht, J\"urgen Giesl</dc:creator>
+    </item>
+    <item>
+      <title>A Linear Temporal Logic of Frequencies on Series of Events</title>
+      <link>https://arxiv.org/abs/2604.10669</link>
+      <description>arXiv:2604.10669v2 Announce Type: replace 
+Abstract: This paper introduces LTLF, a temporal logic designed to express the frequency properties of event series in a natural but rigorous manner. By introducing novel, measure-sensitive operators, LTLF allows for the evaluation of frequencies and the prediction of future occurrences, thus providing a formal framework to monitor and control quantitative systems, such as machine learning classifiers. The core novelty lies in the introduction of original modal quantifiers associated with a standard Kripke-style semantics. These quantifiers enable the explicit formalization of event series properties and the investigation of the relationship between actual observed frequencies and ideal distributions within a single logical structure. This framework bridges the gap between formal logical reasoning and empirical observation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.10669v2</guid>
+      <category>cs.LO</category>
+      <category>math.LO</category>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Melissa Antonelli, Leonardo Ceragioli, Alessandro Giuseppe Buda, Giuseppe Primiero</dc:creator>
+    </item>
+    <item>
+      <title>Keep the Proof State Live: Snapshotting for Efficient Tactic Search in Lean 4</title>
+      <link>https://arxiv.org/abs/2605.25556</link>
+      <description>arXiv:2605.25556v2 Announce Type: replace 
+Abstract: Automated theorem proving systems built on Lean 4 increasingly rely on parallel tactic search over partially specified proofs, such as those generated by Draft-Sketch-Prove (DSP) pipelines. In current systems, each search branch reconstructs a proof state by re-running elaboration, leading to substantial per-branch overhead. In Lean 4 with Mathlib, this cost has two components: (1) import loading, which deserializes pre-compiled libraries (~60 s per branch); and (2) theorem-body elaboration, which re-checks the theorem context up to the target goal (estimated 18-735 s depending on proof complexity). Together, these account for &gt;99% of per-branch wall time, making portfolio-based search impractical at scale.
+  We observe that this overhead arises from a mismatch between the structure of proof search and its execution model: branching is implemented via repeated reconstruction of proof states rather than direct reuse. To address this, we introduce proof-state snapshotting, which captures the elaborated proof state once and reuses it across branches via a small extension to the Lean 4 language server.
+  Across 48 miniF2F-v2 problems (45 prove-phase benchmarks and 3 full end-to-end runs), our approach achieves a 5.6-50x wall-time speedup over the standard fallback (average 14x, median 9.7x). Speedup increases with the number of proof branches.
+  Our method is orthogonal to import-level caching (e.g., Kimina Lean Server), which avoids import loading but not theorem-body elaboration. The patched Lean binary and the Snapshot-DSP pipeline will be released as open source upon publication.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.25556v2</guid>
       <category>cs.LO</category>
       <category>cs.AI</category>
-      <category>cs.LG</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Xinyu Liu, Zixuan Xie, Amir Moeini, Claire Chen, Shuze Daniel Liu, Yu Meng, Aidong Zhang, Shangtong Zhang</dc:creator>
+      <dc:creator>Austin Shen, Yunong Shi</dc:creator>
     </item>
     <item>
-      <title>Pitts and Intuitionistic Multi-Succedent: Uniform Interpolation for KM</title>
-      <link>https://arxiv.org/abs/2602.16445</link>
-      <description>arXiv:2602.16445v2 Announce Type: replace 
-Abstract: Pitts' proof-theoretic technique for uniform interpolation, which generates uniform interpolants from terminating sequent calculi, has only been applied to logics on an intuitionistic basis through single-succedent sequent calculi. We adapt the technique to the intuitionistic multi-succedent setting by focusing on the intuitionistic modal logic KM. To do this, we design a novel multi-succedent sequent calculus for this logic which terminates, eliminates cut, and provides a decidability argument for KM. Then, we adapt Pitts' technique to our calculus to construct uniform interpolants for KM, while highlighting the hurdles we overcame. Finally, by (re)proving the algebraisability of KM, we deduce the coherence of the class of KM-algebras. All our results are fully mechanised in the Rocq proof assistant, ensuring correctness and enabling effective computation of interpolants.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.16445v2</guid>
+      <title>mstlo: Efficient Online Monitoring of Signal Temporal Logic</title>
+      <link>https://arxiv.org/abs/2605.26847</link>
+      <description>arXiv:2605.26847v2 Announce Type: replace 
+Abstract: We present mstlo (mistletoe), a Rust library for high-performance online monitoring of signal temporal logic (STL), with Python bindings. The library provides: (i) a unified interface for multiple STL semantics, including Robust Satisfaction Intervals (RoSI) and Boolean evaluation with early verdicts; (ii) an incremental monitoring algorithm based on bottom-up dynamic programming with per-operator caching and streaming extremum computation for temporal operators; and (iii) an embedded STL domain-specific language for both Rust and Python implementations, with procedural macros in Rust for static syntax checking. Benchmarks show scalability and performance improvements over state-of-the-art tools, especially for formulas with large temporal depth and deep nesting.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.26847v2</guid>
       <category>cs.LO</category>
-      <category>math.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Hugo F\'er\'ee, Ian Shillito</dc:creator>
-    </item>
-    <item>
-      <title>Uniform interpolation with constructive diamond</title>
-      <link>https://arxiv.org/abs/2602.16880</link>
-      <description>arXiv:2602.16880v2 Announce Type: replace 
-Abstract: Uniform interpolation is a strong form of interpolation providing an interpretation of propositional quantifiers within a propositional logic. Pitts' seminal work establishes this property for intuitionistic propositional logic relying on a sequent calculus in which na\"ive backward proof-search terminates. This constructive approach has been adapted to a wide range of logics, including intuitionistic modal logics. Surprisingly, no intuitionistic modal logic with independent box and diamond has yet been shown to satisfy uniform interpolation. We fill in this gap by proving the uniform interpolation property for Constructive K (CK) and Wijesekera's K (WK). We build on Pitts' technique by exploiting existing terminating calculi for CK and WK, which we prove to eliminate cut, and formalise all our results in the proof assistant Rocq. Together, our results constitute the first positive uniform interpolation results for intuitionistic modal logics with diamond.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.16880v2</guid>
-      <category>cs.LO</category>
-      <category>math.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Iris van der Giessen, Ian Shillito</dc:creator>
-    </item>
-    <item>
-      <title>Complete $\omega$-Regular Supermartingale Certificates</title>
-      <link>https://arxiv.org/abs/2605.21134</link>
-      <description>arXiv:2605.21134v2 Announce Type: replace 
-Abstract: We introduce a general methodology for the construction of sound and complete proof rules for the almost-sure and quantitative acceptance of reactivity properties on time-homogeneous Markov chains with general state spaces. Reactivity captures the $\omega$-regular properties and subsumes linear temporal logic. Our core technical result establishes that every reactivity property admits decomposition into multiple obligations of almost-sure termination into absorbing regions, and that appropriate absorbing regions always exist on general state spaces. This enables the extension of every complete proof rule for almost-sure termination into a proof rule for reactivity that is complete in the almost-sure case, and complete up to an arbitrarily small $\varepsilon$-approximation in the quantitative case. We apply our new methodology to recent results on sound and complete supermartingale certificates for almost-sure termination in the special case of countably infinite state spaces, alongside standard results on quantitative safety. As a result, we obtain the first sound and complete supermartingale certificates for almost-sure $\omega$-regular properties and the first sound and $\varepsilon$-complete supermartingale certificates for quantitative $\omega$-regular properties on time-homogeneous Markov chains with countably infinite state spaces.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.21134v2</guid>
-      <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Alessandro Abate, Mirco Giacobbe, Sergey Ichtchenko, Diptarko Roy</dc:creator>
-    </item>
-    <item>
-      <title>MerLean-Prover: A Recursive Looping Harness for Lean 4 Theorem Proving</title>
-      <link>https://arxiv.org/abs/2605.26959</link>
-      <description>arXiv:2605.26959v2 Announce Type: replace 
-Abstract: MerLean-Prover is an end-to-end Lean4 theorem prover that replaces sorry declarations with kernel-checkable proofs. It is built from three agent types (Planning, Check, and Lean) composed by a recursive outer loop whose unit of revision is the proof plan itself, and uses no fine-tuning, no custom RL objective, and no theorem-specific scaffolding. On FormalQualBench, a benchmark of 23 PhD-qualifying-exam theorems, MerLean-Prover solves 10/23, surpassing the strongest published open-source baseline (OpenGauss, 8/23). On Putnam2025, the same harness closes 12/12 with substantially lower total wall-clock than the next-best system that closes the full set. The harness also transfers to smaller models: Sonnet closes all four tested FormalQualBench problems, and Haiku closes the two short ones. These results suggest that harness design is a central factor in end-to-end Lean4 theorem proving, alongside raw model capability, and that a relatively simple harness can already be effective.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.26959v2</guid>
-      <category>cs.LO</category>
-      <category>cs.CL</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Jinzheng Li, Zeru Zhu, Yuanjie Ren</dc:creator>
-    </item>
-    <item>
-      <title>Domain size asymptotics for Markov logic networks</title>
-      <link>https://arxiv.org/abs/2509.04192</link>
-      <description>arXiv:2509.04192v2 Announce Type: replace-cross 
-Abstract: A Markov logic network (MLN) $\mathbb{M}$ determines a probability distribution $\mathbb{P}_n^\mathbb{M}$ on the set $\mathbf{W}_n$ of structures, or ``possible worlds'', with domain $\{1, \ldots, n\}$. We study the properties of such distributions as $n$ tends to infinity.
-  We show that with mild assumptions on an MLN $\mathbb{M}$ with one soft constraint with an arbitrary positive weight the distribution $\mathbb{P}_n^\mathbb{M}$ will behave quite differently from the uniform distribution $\mathbb{P}_n^{uni}$ on $\mathbf{W}_n$ for all sufficiently large $n$.
-  For a language with only one relation symbol $R$ which has arity 1 we give an almost complete characterization of the possible asymptotic behaviours of $\mathbb{P}_n^\mathbb{M}$ as $n \to \infty$, where $\mathbb{M}$ may be any MLN for this language. The asymptotic behaviour depends on the soft constraints and weights of the MLN. This characterization is used to show that if the language under consideration contains at least one relation symbol of arity 1 then the following holds: (a) There is an MLN $\mathbb{M}$ such that for every lifted Bayesian network (LBN) $\mathbb{G}$ there are infinitely many $n$ such that $\mathbb{M}$ and $\mathbb{G}$ determine different distributions on $\mathbf{W}_n$. (b) There is an LBN $\mathbb{G}$ such that for every MLN $\mathbb{M}$ there are infinitely many $n$ such that $\mathbb{G}$ and $\mathbb{M}$ determine different distributions on $\mathbf{W}_n$.
-  We also show that, in the limit, the weight dimension and the domain size dimension may behave completely differently.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2509.04192v2</guid>
-      <category>cs.AI</category>
-      <category>cs.LO</category>
-      <category>math.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Vera Koponen</dc:creator>
-    </item>
-    <item>
-      <title>Satisfiability in {\L}ukasiewicz logic and its unbounded relative</title>
-      <link>https://arxiv.org/abs/2601.00817</link>
-      <description>arXiv:2601.00817v2 Announce Type: replace-cross 
-Abstract: Unbounded {\L}ukasiewicz logic is a substructural logic that combines features of infinite-valued {\L}ukasiewicz logic with those of abelian logic. The logic is finitely strongly complete w.r.t.~the additive $\ell$-group on the reals expanded with a distinguished element $-1$. We show that the existential theory of this structure is NP-complete. This provides a complexity upper bound for the set of theorems and the finite consequence relation of unbounded {\L}ukasiewicz logic. The result is obtained by reducing the problem to the existential theory of the MV-algebra on the reals, the standard semantics of {\L}ukasiewicz logic. This provides a new connection between both logics. The result entails a translation of the existential theory of the standard MV-algebra into itself.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2601.00817v2</guid>
-      <category>math.LO</category>
-      <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <arxiv:DOI>10.4230/LIPIcs.CSL.2026.14</arxiv:DOI>
-      <arxiv:journal_reference>34th EACSL Annual Conference on Computer Science Logic (CSL 2026), LIPIcs vol. 363, pp. 14:1--14:18, 2026</arxiv:journal_reference>
-      <dc:creator>Zuzana Hanikov\'a, Filip Jankovec</dc:creator>
+      <dc:creator>Andreas Kaag Thomsen, Niels Viggo Stark Madsen, Valdemar Tang Evans, Thomas David Wright, Lukas Esterle, Peter Gorm Larsen</dc:creator>
     </item>
     <item>
       <title>Well-quasi-ordered classes of bounded clique-width</title>
       <link>https://arxiv.org/abs/2601.18571</link>
-      <description>arXiv:2601.18571v2 Announce Type: replace-cross 
-Abstract: We study classes of graphs with bounded clique-width that are well-quasi-ordered by the induced subgraph relation, in the presence of labels on the vertices. We prove that, given a finite presentation of a class of graphs, one can decide whether the class is labelled-well-quasi-ordered. This solves an open problem raised by Daligault, Rao and Thomass\'e in 2010, and answers positively to two conjectures of Pouzet in the restricted case of bounded clique-width classes. Namely, we prove that being labelled-well-quasi-ordered by a set of size 2 or by a well-quasi-ordered infinite set are equivalent conditions, and that in such cases, one can freely assume that the graphs are equipped with a total ordering on their vertices. Finally, we provide a structural characterization of those classes as those that are of bounded clique-width and do not existentially transduce the class of all finite paths.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2601.18571v2</guid>
+      <description>arXiv:2601.18571v3 Announce Type: replace-cross 
+Abstract: We study classes of graphs with bounded clique-width that are well-quasi-ordered by the induced subgraph relation, in the presence of labels on the vertices. We prove that, given a finite presentation of a class of graphs, one can decide whether the class is labelled-well-quasi-ordered. This answers positively to two conjectures of Pouzet in the restricted case of bounded clique-width classes. Namely, we prove that being labelled-well-quasi-ordered by a set of size 2 or by a well-quasi-ordered infinite set are equivalent conditions, and that in such cases, one can freely assume that the graphs are equipped with a total ordering on their vertices. Finally, we provide a structural characterization of those classes as those that are of bounded clique-width and do not existentially transduce the class of all finite paths.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.18571v3</guid>
       <category>math.CO</category>
       <category>cs.FL</category>
       <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
       <dc:creator>Ma\"el Dumas, Aliaume Lopez</dc:creator>
     </item>
     <item>
-      <title>The complexity of downward closures of indexed languages</title>
-      <link>https://arxiv.org/abs/2601.19466</link>
-      <description>arXiv:2601.19466v2 Announce Type: replace-cross 
-Abstract: Indexed languages are a classical notion in formal language theory, which has attracted attention in recent decades due to its role in higher-order model checking: They are precisely the languages accepted by order-2 pushdown automata.
-  The downward closure of an indexed language -- the set of all (scattered) subwords of its members -- is well-known to be a regular over-approximation. It is known since 2015 that the downward closure of a given indexed language is effectively computable. However, the algorithm comes with no complexity bounds, and it has remained open whether a primitive-recursive construction exists.
-  We settle this question and provide a triply (resp. quadruply) exponential construction of a non-deterministic (resp. deterministic) automaton. We also prove (asymptotically) matching lower bounds. For the upper bounds, we rely on recent advances in semigroup theory, which let us compute bounded-size summaries of words with respect to a finite semigroup. By replacing stacks with their summaries, we are able to transform an indexed grammar into a context-free one with the same downward closure, and then apply existing bounds for context-free grammars.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2601.19466v2</guid>
+      <title>Rate-Distortion Theory for Deductive Sources under Closure Fidelity</title>
+      <link>https://arxiv.org/abs/2604.15698</link>
+      <description>arXiv:2604.15698v4 Announce Type: replace-cross 
+Abstract: We study lossy compression of a finite statement source generated in a fixed deductive environment. The source symbols are statements in a knowledge base endowed with a shared proof system, and reconstruction fidelity is measured by preservation of deductive closure rather than by symbolwise equality. Fixing the proof system and a canonical scan order yields a decomposition of the source alphabet into an irredundant core and redundant stored consequences. At zero distortion, each core symbol induces a set of distortion-free reconstructions. In the nonconfusable (disjoint-core) regime, we show that the minimum zero-distortion rate equals the source mass of the core times the entropy of the source conditioned on that core. In the general confusable-core regime, we characterise the exact zero-distortion rate via a hypergraph-entropy quantity induced by jointly realisable core subsets, with a reduction to Korner-style graph entropy under a natural pairwise realisability condition. For reconstruction alphabets contained in the deductive closure of the source knowledge base, we further prove that the full rate-distortion function depends only on the core, so redundant states are invisible to both rate and distortion. Finally, when the decoder is limited to a bounded inference-depth budget (a bounded number of iterations of the immediate-consequence operator), we obtain an exact rate-depth-distortion characterisation. Under an additional order-robustness assumption identifying the chosen core with the order-free essential set, this characterisation interpolates between classical symbolwise compression and unconstrained deductive compression.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.15698v4</guid>
+      <category>cs.IT</category>
+      <category>cs.LO</category>
+      <category>math.IT</category>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jianfeng Xu</dc:creator>
+    </item>
+    <item>
+      <title>Extending QuAK with Nested Quantitative Automata</title>
+      <link>https://arxiv.org/abs/2605.12418</link>
+      <description>arXiv:2605.12418v4 Announce Type: replace-cross 
+Abstract: Quantitative automata (QAs) extend finite-state automata on infinite words with weighted transitions to specify quantitative system properties. However, their finite weight sets rule out properties like average response time, where response times can be arbitrarily large. Nested quantitative automata (NQAs) overcome this limitation: a parent automaton spawns child automata to compute unbounded values over finite infixes and aggregates them into a final result. Despite this expressiveness, NQAs have lacked practical tool support to date. We close this gap by extending the Quantitative Automata Kit (QuAK), a software tool for QA analysis, to support NQAs. Our core contribution is implementing a suite of flattening procedures that reduce NQAs to QAs, leveraging QuAK's existing decision procedures. These reductions preserve the answers to threshold decision problems, while allowing users to specify properties in the more expressive NQA formalism. The tool handles all combinations of parent aggregators (including limits and averages) and child functions (extrema and monotonic or bounded summations) for which emptiness and universality are known to be decidable. Experiments on response-time and resource-consumption benchmarks demonstrate QuAK's effectiveness.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.12418v4</guid>
       <category>cs.FL</category>
       <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 29 May 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Richard Mandel, Corto Mascle, Georg Zetzsche</dc:creator>
-    </item>
-    <item>
-      <title>Compositional Consistency-Guided Decoding for Three-Way Logical Question Answering</title>
-      <link>https://arxiv.org/abs/2604.06196</link>
-      <description>arXiv:2604.06196v2 Announce Type: replace-cross 
-Abstract: Three-way logical question answering (QA) assigns one of $\text{True}$, $\text{False}$, or $\text{Unknown}$ to a hypothesis $H$ given a premise set $S$. We study this task as a compact compositional inference problem: predictions for $H$ and for a mechanically negated hypothesis $\neg H$ should agree under a deterministic negation map. Despite this simple structure, large language models (LLMs) can exhibit two practical failure modes: (i) negation inconsistency, where answers to $H$ and $\neg H$ violate the required label mapping, and (ii) epistemic $\text{Unknown}$, where the model abstains even when one side is entailed. We introduce CGD-PD, a lightweight, training-free test-time layer that combines neural 3-way classification, symbolic negation-consistency projection, and targeted binary entailment probes. On one validation split of FOLIO's first-order logic fields, CGD-PD improves accuracy by 4.4 points on GPT-5.2 and 6.8 points on Claude Sonnet 4.5, while reducing $\text{Unknown}$ predictions and epistemic abstention. These results provide a controlled proof of concept that simple logical composition at inference time can help evaluate and improve LLM reasoning reliability; they do not, by themselves, establish robustness beyond this formal benchmark setting.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2604.06196v2</guid>
-      <category>cs.CL</category>
-      <category>cs.AI</category>
-      <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
-      <dc:creator>Tianyi Huang, Ming Hou, Jiaheng Su, Yutong Zhang, Ziling Zhang</dc:creator>
-    </item>
-    <item>
-      <title>Adaptive Teacher Exposure for Self-Distillation in LLM Reasoning</title>
-      <link>https://arxiv.org/abs/2605.11458</link>
-      <description>arXiv:2605.11458v2 Announce Type: replace-cross 
-Abstract: On-policy self-distillation has become a strong recipe for LLM reasoning, where a privileged teacher supervises the student's own rollouts while conditioning on the reference solution. A design choice shared by nearly all such methods, however, has gone unquestioned: the teacher always sees the full reference reasoning. We argue that this default itself is part of the problem and identify a teacher-side exposure mismatch: when the teacher conditions on reasoning far beyond the student's current competence, the resulting token targets become too strong to absorb. A controlled fixed-exposure sweep makes this concrete on two fronts: 1) full exposure is not reliably the best choice, and 2) student-teacher mismatch grows monotonically as the teacher sees more privileged reasoning. This motivates treating teacher exposure not as a fixed hyperparameter but as a learnable training-time control variable. We therefore propose Adaptive Teacher Exposure for Self-Distillation (ATESD). ATESD models the reveal ratio with a lightweight Beta-policy controller conditioned on compact training-state statistics, and uses one sampled exposure for a short hold window of student updates. To make this exposure controller learnable, we optimize it with a discounted learning-progress reward that scores each held decision by its effect on the student's future improvement rather than its immediate loss change, addressing the delayed credit assignment induced by on-policy distillation. Experiments on AIME 24, AIME 25, and HMMT 25 across Qwen3-{1.7B, 4B, 8B} show that ATESD consistently outperforms competitive self-distillation and RL baselines, improving over OPSD by +0.95, +2.05, and +2.33 Average@12 points respectively, and establishing adaptive teacher exposure as an effective new axis for reasoning self-distillation.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.11458v2</guid>
-      <category>cs.AI</category>
-      <category>cs.CL</category>
-      <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Zihao Han, Tiangang Zhang, Huaibin Wang, Yilun Sun</dc:creator>
-    </item>
-    <item>
-      <title>Optimal LTLf Synthesis</title>
-      <link>https://arxiv.org/abs/2605.11544</link>
-      <description>arXiv:2605.11544v2 Announce Type: replace-cross 
-Abstract: Strategy synthesis typically follows an all-or-nothing paradigm, returning unrealisable whenever a specification cannot be guaranteed in an uncertain environment. In this paper, we introduce optimal LTLf synthesis, where the goal is to realise as many objectives as possible from a given specification consisting of multiple objectives, especially for the case that they are not all jointly realisable. We first consider max-guarantee synthesis, which commits to a maximal set of objectives that we can a priori guarantee to realise. We then introduce max-observation synthesis, which maximises a posteriori realised objectives that may be incomparable on different executions. Finally, we present incremental max-observation synthesis, which further improves strategies by exploiting opportunities for stronger guarantees when they arise during an execution. Experimental results show that different variations of optimal synthesis scale broadly equally well, solving a large fraction of the benchmark instances within the given timeout, demonstrating the practical feasibility of the approach.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.11544v2</guid>
-      <category>cs.AI</category>
-      <category>cs.LO</category>
-      <pubDate>Thu, 28 May 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Yujian Cao, Sven Schewe, Qiyi Tang, Shufang Zhu</dc:creator>
+      <dc:creator>Thomas A. Henzinger, Nicolas Mazzocchi, N. Ege Sara\c{c}, Harun Y{\i}lmaz</dc:creator>
     </item>
   </channel>
 </rss>
