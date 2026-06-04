@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Jun 2026 04:00:09 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>UltraEP: Unleash MoE Training and Inference on Rack-Scale Nodes with Near-Optimal Load Balancing</title>
+      <link>https://arxiv.org/abs/2606.04101</link>
+      <description>arXiv:2606.04101v1 Announce Type: new 
+Abstract: Large-scale expert parallelism (EP) is becoming pivotal for training and serving frontier MoE models, but it also amplifies device-level expert load imbalance into compute stragglers, token all-to-all bottlenecks, and activation-memory spikes. Existing balancers redistribute experts periodically based on historical load, which becomes unreliable for production deployments with non-stationary load patterns.
+  We present UltraEP, the first exact-load, real-time balancer for large-EP MoE training and serving prefill on rack-scale nodes (RSNs). Built upon the extended scale-up connectivity of RSNs, UltraEP rebalances every microbatch and layer on critical paths, which requires nontrivial co-design of plan solving and expert replication communication to minimize exposed overhead. To this end, UltraEP eagerly reacts to post-gating load with efficient quota-driven planning, and executes the resulting irregular expert-state transfers with RSN-native persistent tile streaming and relay-based fan-out mitigation. Averaged across MoE models from 106B to 671B parameters in training and prefill, UltraEP achieves 94.3% of the force-balanced ideal throughput, delivering 1.49$\times$ improvement over non-balancing, while reducing the final inter-rank imbalance from 1.30$-$4.01 to 1.01$-$1.04. Additionally, we validate UltraEP's scalability and robustness in production MoE training with 2560 GPUs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04101v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Xinming Wei, Chao Jin, Tuo Dai, Yinmin Zhong, Shan Yu, Chengxu Yang, Bingyang Wu, Zili Zhang, Jing Mai, Qianchao Zhu, Zhouyang Li, Yuliang Liu, Guojie Luo</dc:creator>
+    </item>
+    <item>
+      <title>ACEAPEX: Parallel LZ77 Decoding via Encode-Time Absolute Offset Resolution</title>
+      <link>https://arxiv.org/abs/2606.04268</link>
+      <description>arXiv:2606.04268v1 Announce Type: new 
+Abstract: LZ77-based codecs exhibit a fundamental sequential bottleneck in decoding: each back-reference depends on previously decompressed data, preventing multi-core scaling. We present ACEAPEX, a parallel LZ77 codec that stores all back-references as absolute positions in the decompressed output and organizes data into self-contained 1 MB blocks, enabling embarrassingly parallel block-level decoding. Integrated into lzbench, ACEAPEX achieves 10,160 MB/s on EPYC 4344P (8 cores) and 10,869 MB/s on EPYC 9575F for FASTQ genomic data -- up to 3.1x faster than zstd -3 at comparable compression ratios. We further implement a GPU wavefront decoder on NVIDIA H100 SXM, measuring 44.0 GB/s on enwik9 and 20.3 GB/s on FASTQ (wavefront match phase, BIT-PERFECT verified). With a depth-limited encoder variant (-1.5% ratio on enwik9), GPU throughput reaches 77.2 GB/s on a single H100 and 249.9 GB/s on two H100s in NVLink configuration. To our knowledge, this is the first reported GPU LZ77 decode with near-standard compression ratio verified byte-for-byte.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04268v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.5281/zenodo.20440965</arxiv:DOI>
+      <dc:creator>Yakiv Shavidze</dc:creator>
+    </item>
+    <item>
+      <title>FlexNPU: Transparent NPU Virtualization for Dynamic LLM Prefill-Decode Co-location</title>
+      <link>https://arxiv.org/abs/2606.04415</link>
+      <description>arXiv:2606.04415v1 Announce Type: new 
+Abstract: Modern AI serving increasingly relies on NPUs for conventional inference and large language model serving. However, current NPU deployments commonly expose physical devices directly to applications, which limits runtime control over scheduling and makes it difficult to adapt execution to phase-level workload behavior. This limitation is particularly evident in LLM serving, where the prefill phase is compute-intensive while the decode phase is often constrained by memory bandwidth and KV-cache accesses. Static prefill-decode (PD) disaggregation reduces phase interference, but can introduce resource imbalance and unnecessary data movement. We present FlexNPU, a transparent user-space virtualization layer for Ascend NPUs. FlexNPU interposes on AscendCL APIs and routes NPU operations through per-device daemons, decoupling unmodified from physical NPU devices without modifying model code, AI frameworks, or NPU drivers. This runtime boundary allows FlexNPU to virtualize NPU objects, control operator dispatch, and support phase-aware scheduling for LLM serving. In particular, FlexNPU enables dynamic PD co-location, which adapts scheduling between prefill and decode according to their complementary resource characteristics. We implement FlexNPU on Huawei Ascend NPUs and evaluate it with typical LLM workloads. Compared with direct NPU passthrough, FlexNPU introduces no measurable inference overhead and slightly improves throughput in some scenarios. On a 384-card Ascend 910C deployment of DeepSeek-R1, FlexNPU improves throughput over static PD disaggregation by 5.15% and 26.33%. On Qwen2.5-7B, compared with static PD co-location, FlexNPU maintains comparable throughput while reducing TTFT by over 92% across tested workloads with nearly unchanged TPOT. These results show that transparent NPU virtualization is a practical substrate for efficient and responsive LLM serving.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04415v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jiongjiong Gu, Jianfeng Wang, Zidong Han, Yongqiao Wang, Pengfei Xia, Mingjie Zhang, Hong Liu, Yuanyi Xia, Jiajia Chu, Yifeng Tang, Hui Zang, Xin Yao, Qijie Qiu, Yuzhao Wang, Chuanfei Xu, Lin Zhang, Zhuonan Lai, Hongming Huang, Jiawei Qiu, Gong Zhang, Zhong Ming, Weipeng Cao</dc:creator>
+    </item>
+    <item>
+      <title>D^2SD: Accelerating Speculative Decoding with Dual Diffusion Draft Models</title>
+      <link>https://arxiv.org/abs/2606.04446</link>
+      <description>arXiv:2606.04446v1 Announce Type: new 
+Abstract: Speculative decoding accelerates autoregressive large language model inference by drafting multiple tokens and verifying them in a single target-model forward pass. Recent diffusion-based drafters generate an entire block of tokens in parallel but usually commit to a single draft sequence per verification: once the first mismatch occurs, all subsequent draft tokens are discarded, resulting in a limited acceptance rate. Naively batching more draft candidate sequences only introduces a marginal improvement, as redundant or poorly placed branches increase the cost of drafting and verification without proportionally increasing the number of accepted tokens.
+  We propose D^2SD, a dual diffusion draft speculative decoding framework that organizes candidates into a confidence-guided prefix tree, where the first diffusion drafter generates a block along with per-position confidence scores that are used to identify the most likely rejection boundary and select the top-K prefix ranges for recovery; the second variable-prefix diffusion drafter re-anchors at each selected prefix and proposes alternative continuations in one batched pass; the resulting shared-prefix candidates are jointly verified via cascade attention. Empirically, D^2SD shows clear improvements over both the underlying diffusion approach and strong autoregressive speculative decoding baselines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04446v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Liyuan Zhang, Jiarui Zhang, Jinwei Yao, Ran Yan, Yuchen Yang, Jiahao Zhang, Tongkai Yang, Yi Wu, Binhang Yuan</dc:creator>
+    </item>
+    <item>
+      <title>Multi-SPIN: Multi-Access Speculative Inference for Cooperative Token Generation at the Edge</title>
+      <link>https://arxiv.org/abs/2606.04581</link>
+      <description>arXiv:2606.04581v1 Announce Type: new 
+Abstract: Speculative inference (SPIN) was originally developed as an efficient architecture to accelerate Large Language Models (LLMs). In this work, we propose its distributed deployment to enable cooperative token generation in a multiuser edge system; its advantage is to effectively balance computational loads between resource-constrained devices and servers. The resulting architecture, termed Multi-access SPIN (Multi-SPIN), utilizes on-device small language models to generate and upload candidate token drafts, while an edge server operates the LLM to verify them in parallel batches. Given the severe heterogeneity in users' computation and communication capabilities, the draft length emerges as a critical control variable that influences node-level computation loads and multi-access latency, thereby governing the sum token goodput. Consequently, considering frequency-division multiple access, we investigate the problem of multi-access draft control, a joint optimization of draft-length control and bandwidth allocation to maximize sum token goodput. We examine two cases: (1) homogeneous draft lengths across users to facilitate server-side batching, and (2) heterogeneous draft lengths to introduce a new dimension for goodput enhancement. By developing decomposition methods, we reduce these complex optimizations into tractable sub-problems, which allow efficient draft control algorithms to be derived in closed form. Our analysis shows that the optimal bandwidth allocation compensates users with weaker computation-and-communication capabilities in the homogeneous case due to the batching synchronization requirements, whereas its heterogeneous-case counterpart rewards users with higher acceptance rates by relaxing such requirements. Experiments using Llama-2 and Qwen3.5 model pairs across diverse tasks demonstrate that Multi-SPIN improves goodput by up to 88% over heterogeneity-agnostic baselines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04581v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.NI</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Haotian Zheng, Zhanwei Wang, Mingyao Cui, Chang Cai, Hongyang Du, Kaibin Huang</dc:creator>
+    </item>
+    <item>
+      <title>Ekka: Automated Diagnosis of Silent Errors in LLM Inference</title>
+      <link>https://arxiv.org/abs/2606.04594</link>
+      <description>arXiv:2606.04594v1 Announce Type: new 
+Abstract: LLM serving frameworks are quickly evolving with a complex software stack and a vast number of optimizations. The rapid development process can introduce silent errors where output quality silently degrades without any explicit error signals. Diagnosing silent errors is notoriously difficult due to the substantial semantic gap between the high-level symptoms and the low-level root causes. We observe that diagnosis of silent errors can be effectively framed as a differential debugging problem by leveraging the existence of semantically correct reference implementations. We propose Ekka, an automated diagnosis system that identifies root causes by systematically aligning and comparing intermediate execution states between a target and a reference framework. We constructed a benchmark of real-world silent errors from popular serving frameworks, where Ekka shows 80% pass@1 diagnosis accuracy and 88% pass@5 diagnosis accuracy, outperforming state-of-the-art systems. Ekka also diagnoses 4 new silent errors from serving frameworks, all of which have been confirmed by the developers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04594v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yile Gu, Zhen Zhang, Shaowei Zhu, Xinwei Fu, Jun Wu, Yida Wang, Baris Kasikci</dc:creator>
+    </item>
+    <item>
+      <title>Rectangular Matrix Multiplication in the Low-Bandwidth Model</title>
+      <link>https://arxiv.org/abs/2606.04652</link>
+      <description>arXiv:2606.04652v1 Announce Type: new 
+Abstract: We study rectangular matrix multiplication in the low-bandwidth model of distributed computing. There are $n$ computers; initially the input matrices are distributed evenly between computers, and in each communication round every computer can send and receive an $O(\log n)$-bit message. Eventually each computer must output its designated part of the product matrix.
+  While prior work has focused primarily on square $n \times n$ multiplication under various sparsity assumptions, we study rectangular instances with no sparsity assumption. We denote by $\langle a,b,c\rangle$ the task of multiplying an $a\times b$ matrix by a $b\times c$ matrix in this model. We concentrate on two natural aspect ratios, $\langle n,d,n\rangle$ and $\langle d,n,d\rangle$, for $d \le n$, and we study how the round complexity depends on $n$ and $d$.
+  When $d \to n$, both $\langle n,d,n\rangle$ and $\langle d,n,d\rangle$ approach $\langle n,n,n\rangle$, which is the usual task of multiplying square matrices. If we consider multiplication over semirings, the current best upper bound in that case is $O(n^{4/3})$ rounds, and there is a trivial unconditional lower bound of $\Omega(n)$.
+  We show that for $\langle d,n,d\rangle$, we can achieve the complexity of $\tilde O(d^{4/3})$, which seems like a natural generalization of the upper bound $\tilde O(n^{4/3})$ when $d=n$. However, the case of $\langle n,d,n\rangle$ is fundamentally different, and also exhibits a phase transition. We show that for $d \le \sqrt{n}$, the complexity of $\langle n,d,n\rangle$ is $\Theta(d \sqrt{n})$; we have matching upper and lower bounds. However, the behavior is genuinely different in the region $d \ge \sqrt{n}$, where the upper bound is $O(d^{2/3} n^{2/3})$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04652v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Chetan Gupta, Jukka Suomela, Hossein Vahidi</dc:creator>
+    </item>
+    <item>
+      <title>Clownfish: Scaling DAG-based BFT Consensus via Sparse Edges</title>
+      <link>https://arxiv.org/abs/2606.04687</link>
+      <description>arXiv:2606.04687v1 Announce Type: new 
+Abstract: Directed Acyclic Graph (DAG) based BFT protocols have demonstrated the capability to achieve significantly high throughput in practice. Recent advancements focused on minimizing the good-case latency of these protocols, approaching the theoretical lower bound. However, the high communication complexity inherent in existing DAG-based protocols limits their scalability. This primarily arises because each vertex in the DAG must include a linear number of edges (references) to vertices from previous rounds.
+  We present Clownfish, a partially synchronous DAG-based BFT protocol designed to address the scalability bottleneck. Clownfish achieves lower communication complexity by selectively reducing the number of edges in DAG vertices. When using a communication-optimal consistent broadcast, Clownfish attains quadratic total communication complexity per round, outperforming prior DAG-based protocols. Clownfish also reduces the additional latency in failure cases by optimizing the round advancement rule. Additionally, Clownfish supports multiple leaders per round to reduce average latency while maintaining its lower communication complexity. Our experimental evaluation demonstrates that Clownfish provides significantly better scalability than existing DAG-based protocols.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04687v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Feifan Wang, Jingfan Yu, Zixi Cai, Zhixuan Fang</dc:creator>
+    </item>
+    <item>
+      <title>The local complexity of certifying parity</title>
+      <link>https://arxiv.org/abs/2606.04934</link>
+      <description>arXiv:2606.04934v1 Announce Type: new 
+Abstract: In this paper, we consider the problem of locally certifying that the size of a network is even, or more generally, congruent to some fixed number. The parity property is one of the simplest global properties, and it plays an intriguing role in local certification. On the one hand, it is one of the simplest properties in cycles because it is equivalent to 2-colorability, and hence can be certified with a single bit. On the other hand, in general graphs, no non-trivial lower bound on the size of the certificates is known, and the known upper bound basically consists in certifying the \emph{exact} value of $n$. In addition, the nature of the problem makes all the known lower bound approaches fail.
+  We uncover a surprising landscape for parity across different models and graph structures:
+  * In general graphs equipped with identifiers, when allowing verification radius 2, parity can be certified with a constant number of bits.
+  * But in the model of anonymous graphs and allowing verification radius only 1, parity requires $\Omega(\log \log^*n)$ bits.
+  * Finally, in bounded expansion graph classes (such as bounded-degree graphs and planar graphs), the lower bound does not apply: in the same restricted model we can design a constant-size certification.
+  We introduce several new tools that we expect to be useful in other contexts, in particular ways to \emph{encode a parent at each node with a constant number of bits} (via implicit use of the IDs and conflict-free colorings) and a new lower bound technique, with complex topologies and higher-order Ramsey-type arguments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04934v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Nicolas Bousquet, Laurent Feuilloley, Jorge Valenzuela, S\'ebastien Zeitoun</dc:creator>
+    </item>
+    <item>
+      <title>Graph Traversal on Tensor Cores: A BFS Framework for Modern GPUs</title>
+      <link>https://arxiv.org/abs/2606.05081</link>
+      <description>arXiv:2606.05081v1 Announce Type: new 
+Abstract: Modern GPUs have Tensor Cores (TCs) capable of extremely high-throughput matrix operations, yet graph algorithms remain difficult to accelerate because of their irregular and data-dependent execution patterns. This work presents BLEST, a TC-accelerated framework that reformulates Breadth-First Search (BFS) as a bit-level sparse matrix-vector computation while addressing the load imbalance, memory inefficiency, and synchronization overheads that limit prior approaches. BLEST introduces Binarized Virtual Slice Sets (BVSS), a graph representation that partitions work into balanced warp-level units and schedules only frontier-relevant regions of the graph. It further employs an optimized TC layout that maps neighbour checks onto binary MMA instructions without wasted outputs, reducing the number of required MMA calls by 8$\times$ compared with prior layouts. To mitigate atomic and cache bottlenecks, BLEST incorporates a lazy vertex-update scheme. We revisit the switching terminology for BFS and propose a mechanism that dynamically transitions from TCs to CUDA cores when it becomes more efficient. We also extend BLEST to multi-source BFS and closeness centrality workloads. Finally, we introduce a scalable graph reordering method that improves compression for scale-free-like graphs, while using RCM to improve locality for others. Across a broad set of real-world graphs, BLEST achieves average speedups of 22.0$\times$, 7.7$\times$, 8.1$\times$, and 5.9$\times$ over GAP, Gunrock, GSWITCH, and BerryBees, respectively, establishing a new BFS baseline on GPUs. Thanks to its high performance, BLEST can compute the exact closeness centralities of 65.6M vertices in a social network with 3.6B edges in an hour using 100 H100 GPUs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.05081v1</guid>
+      <category>cs.DC</category>
+      <category>cs.DS</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Deniz Elbek, Kamer Kaya</dc:creator>
+    </item>
+    <item>
+      <title>CADET: A Modular Platform for Evaluating Distributed Cooperative Autonomy in Connected Autonomous Vehicles</title>
+      <link>https://arxiv.org/abs/2606.04072</link>
+      <description>arXiv:2606.04072v1 Announce Type: cross 
+Abstract: Deep learning models are increasingly central to autonomous vehicle (AV) pipelines, yet their integration has traditionally followed a monolithic design where perception, planning, and control execute on a single onboard computer. This design overlooks the emerging paradigm of cooperative autonomy, where vehicles interact with roadside units (RSUs), edge servers, and cloud-hosted intelligence through vehicle-to-everything (V2X) connectivity. Cooperative perception and control improve safety and efficiency, but also introduce systems-level challenges: network latency, compute heterogeneity, and multi-tenant contention, all critically affect real-time decision-making. These challenges are further amplified by the increasing reliance on large foundation models, whose scale necessitates cloud deployment.
+  We present CADET (Cooperative Autonomy through Distributed Experimentation Toolkit), a modular platform for systematic and reproducible evaluation of distributed cooperative autonomy systems under realistic deployment conditions. CADET decouples the AV stack into composable modules that can be flexibly deployed across vehicles, infrastructure, and edge/cloud tiers. The framework integrates state-of-the-art models, incorporates trace-driven network and workload emulation, and provides synchronized model-, system-, and task-level instrumentation. Through V2V and V2I experiments, we show that distributed deployment choices fundamentally shape safety, with V2V intent packets outperforming cloud-based perception and RSU-assisted perception sustaining safety until overloaded by concurrent requests. Although designed for AV pipelines, CADET also supports dataset-driven experimentation, enabling systems and ML researchers to benchmark distributed inference workloads independently of full vehicle simulation. CADET is open source, with code and demo available at https://nesl.github.io/cadet-web.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04072v1</guid>
+      <category>cs.RO</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:journal_reference>ICRA 2026</arxiv:journal_reference>
+      <dc:creator>Pragya Sharma, Brian Wang, Mani Srivastava</dc:creator>
+    </item>
+    <item>
+      <title>EvalStop: Using World Feedback to Detect and Correct Reward Overoptimization in Multi-Tenant RLHF Platforms</title>
+      <link>https://arxiv.org/abs/2606.04145</link>
+      <description>arXiv:2606.04145v1 Announce Type: cross 
+Abstract: Cloud LLM fine-tuning platforms increasingly serve RLHF workloads, where a learned reward model is optimized as a proxy for human quality. As Gao et al. (2023) showed, this proxy diverges from world feedback (downstream eval metrics) under sustained optimization pressure, a phenomenon known as reward overoptimization. Existing platform schedulers ignore this divergence: non-clairvoyant schedulers optimize JCT without any quality signal, SLAQ-style quality-aware schedulers use training loss (a weaker proxy that drops monotonically through hacking), and classical per-job early stopping requires human monitoring and does not free shared GPUs. We propose EvalStop, a composable scheduling primitive that terminates jobs on k consecutive eval-score declines, releases GPUs, preserves the best checkpoint, and delegates to any base scheduler. We frame scheduler-level early stopping as a detection problem and evaluate it in a discrete-event simulator whose RLHF workload mixes reward-hacking and structurally healthy runs, with ground-truth labels hidden from schedulers. On RLHF-heavy workloads (80% RLHF, 64 GPUs), EvalStop achieves precision 98% / recall 99% / FPR 1.5% while improving JCT by 9% and cutting wasted compute by 22% over SRTF-Est (p&lt;0.05). Trivial fixed-progress and loss-plateau competitors either incur 65% FPR on healthy RLHF or miss over half of true hacking cases. Gains compose across every base scheduler tested (9-25% JCT) and detection quality stays stable under eval noise (precision at least 91% at noise std &lt;= 0.05) and hacking base rate (precision at least 89% across 20-80% hacking fractions).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04145v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Guilin Zhang, Chuanyi Sun, Shahryar Sarkani, John M. Fossaceca</dc:creator>
+    </item>
+    <item>
+      <title>Notarized Agents: Receiver-Attested Confidential Receipts for AI Agent Actions</title>
+      <link>https://arxiv.org/abs/2606.04193</link>
+      <description>arXiv:2606.04193v1 Announce Type: cross 
+Abstract: Current AI agent observability is structurally compromised: the entity producing the activity log is the same entity whose activity is being logged. A compromised or buggy agent can omit, alter, or fabricate its own traces, and the operator running the agent has no independent way to detect tampering. We propose a class of protocols that resolves this by inverting the trust boundary: the service that receives an agent's call signs a receipt of what it observed using its own key, encrypts the receipt to the agent's owner, and publishes it to a public transparency log. The owner reconstructs a tamper-evident trail without trusting the agent or its operator. We instantiate the class as Sello, a protocol combining four properties absent in any current system: (P1) receiver-side signing, (P2) HPKE encryption to an owner public key bound to the authorization token via JWS, (P3) publication to a witness-cosigned Merkle log, and (P4) owner-side discovery by token reference. We describe the protocol, analyze its security under an adversary that controls the agent and its operator, present microbenchmarks of the cryptographic operations, and situate Sello among adjacent receipt-protocol work (Signet, AgentROA, Agent Passport System, draft-farley-acta, SCITT). We discuss known limitations including the suppression attack, service collusion, and the adoption-incentive problem.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04193v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Juan Figuera</dc:creator>
+    </item>
+    <item>
+      <title>The Usefulness Gap in Proof-of-Useful-Work: An Empirical Study of Pearl's cuPOW Protocol</title>
+      <link>https://arxiv.org/abs/2606.04819</link>
+      <description>arXiv:2606.04819v1 Announce Type: cross 
+Abstract: Pearl, a Layer-1 blockchain with high-profile AI industry endorsements, markets its Proof-of-Useful-Work (PoUW) protocol as simultaneously securing the network and performing AI inference. We present the first systematic empirical measurement of a deployed PoUW system, finding that Pearl's 24 EH/s network -- representing approximately 320,000 GPU-equivalents consuming an estimated 112 MW -- produces zero useful AI computation. Budget GPU rental prices rose 38% and utilization surged from 57% to 94% following the mining software's public release, displacing legitimate research workloads.
+  Our measurements span five dimensions: (1) network composition analysis of 8,012 workers shows all have inference-capable hardware, yet the dominant mining software contains no inference code; (2) the verification protocol accepts random matrices by design, confirmed by 44 pool-accepted shares from our open-source miner across NVIDIA, AMD, CPU, and Apple Silicon hardware; (3) statistical distribution checks are trivially defeated by adversarial Gaussian sampling; (4) mining is unprofitable at current PRL prices ($0.21) across all GPU tiers (-54% to -72% ROI); and (5) the mining computation is commodity integer arithmetic portable to any hardware platform, offering no vendor lock-in. These findings quantify the verifiability-usefulness tension identified theoretically by Leinweber et al., providing concrete measurements of its magnitude and economic consequences in a deployed system.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.04819v1</guid>
+      <category>cs.CR</category>
+      <category>cs.CY</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Abhinaba Basu</dc:creator>
+    </item>
+    <item>
+      <title>Fides: Secure and Scalable Asynchronous DAG Consensus via Trusted Components</title>
+      <link>https://arxiv.org/abs/2501.01062</link>
+      <description>arXiv:2501.01062v4 Announce Type: replace 
+Abstract: DAG-based BFT consensus has attracted growing interest in distributed data management systems for consistent replication in untrusted settings due to its high throughput and resilience to asynchrony. However, existing protocols still suffer from high communication overhead and long commit latency. In parallel, introducing minimal hardware trust has proven effective in reducing the complexity of BFT consensus.
+  Inspired by these works, we present Fides, an asynchronous DAG-based BFT consensus protocol that, to our knowledge, is among the first to leverage TEEs to enhance both scalability and efficiency. Fides tolerates a minority of Byzantine replicas and achieves $O(\kappa n^2 + n^3)$ metadata communication complexity through a customized TEE-assisted Reliable Broadcast (T-RBC) primitive with linear communication complexity in one-step broadcast. Building on T-RBC, Fides redefines the DAG construction rules by reducing the reference requirement from $2f+1$ to $f+1$ between consecutive vertices. This new structure weakens DAG connectivity and invalidates traditional commit rules, so we formally abstract the problem and derive new theoretical bounds of liveness. We further propose a four-round commit rule that achieves the theoretically minimal commit latency. Besides, we design two additional primitives, T-RoundCert and T-Coin, to efficiently certify DAG references and replace the costly cryptographic common coin used in prior protocols. Comprehensive evaluations on geo-distributed and local testbeds show that Fides substantially outperforms state-of-the-art protocols, including Tusk, Bullshark, Mysticeti, RCC, Damysus, Achilles and HybridSet, achieving lower latency and higher throughput while preserving strong safety and liveness guarantees.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2501.01062v4</guid>
+      <category>cs.DC</category>
+      <category>cs.DB</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shaokang Xie, Dakai Kang, Hanzheng Lyu, Jianyu Niu, Mohammad Sadoghi</dc:creator>
+    </item>
+    <item>
+      <title>Design Space Exploration of DMA based Finer-Grain Compute Communication Overlap</title>
+      <link>https://arxiv.org/abs/2512.10236</link>
+      <description>arXiv:2512.10236v3 Announce Type: replace 
+Abstract: Modern ML workloads demand distributing training and inference across multiple GPUs. However, these parallelization techniques often suffer from exposed critical-path communication, leaving a potential 1.7x speedup on the table through compute-communication overlap. Prior overlapping methods harness the fact that ML model state and inputs are already sharded into the number of GPUs, and overlap the compute and communication at shard granularity. However, such coarse-grained overlap suffers from limited network topology support, and suboptimal dataflows. In this work, we instead make a case for finer-grain compute-communication overlap which we term FiCCO. FiCCO operates one level deeper than traditional sharding, and unlocks overlap for a wider set of network topologies and enables finer-grain dataflow.
+  We show that FiCCO opens up a wider design space of execution schedules than possible at shard-level alone. To walk the design space of schedules, we study and characterize the performance inefficiencies on doing overlap and overlay the schedules with the associated inefficiency signatures. Our characterization reveals decomposition and contention based slowdowns to be the major performance limiters, and we correlate the slowdown factors with the static compute/communication operator sizes. This helps us design heuristics (that frameworks and runtimes can harness) to select bespoke FiCCO schedules based on the nature of underlying ML operations. Finally, to further minimize contention inefficiencies inherent with operation overlap, we offload communication to GPU DMA engines. We evaluate several scenarios from realistic ML deployments and demonstrate that our proposed heuristics driven bespoke schedules deliver up to 1.6x speedup. Further, our heuristics provide accurate guidance to pick the optimal schedule in 81% of unseen scenarios.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.10236v3</guid>
+      <category>cs.DC</category>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shagnik Pal, Shaizeen Aga, Suchita Pati, Mahzabeen Islam, Lizy K. John</dc:creator>
+    </item>
+    <item>
+      <title>Schedule-Level Shared-Prefix Reuse for LLM RL Training</title>
+      <link>https://arxiv.org/abs/2606.01143</link>
+      <description>arXiv:2606.01143v3 Announce Type: replace 
+Abstract: GRPO-based LLM post-training commonly samples multiple trajectories from the same prompt and then trains on the resulting group. In long-context GRPO workloads, this shared prompt-side prefix can contain retrieved passages, visual tokens, tool schemas, system instructions, or task context, while the full rollout group is still too large to pack into one training microbatch. Standard dense trainers therefore recompute the same prefix forward and backward for every trajectory. We present a schedule-level reuse mechanism that decouples prefix and suffix computation. The schedule runs prefix forward once, executes suffixes as ordinary microbatches while reading prefix K/V and accumulating prefix-side gK/gV , and then runs prefix backward once on the accumulated gradient cache. This reordered schedule is equivalent to baseline training over real arithmetic and aligns numerically within finite-precision tolerance. Because only K/V and gK/gV are hot during suffix computation, the approach offloads dormant prefix activations, integrates with TP/EP/CP/PP and DP-style placement at the execution level, and preserves aux-loss-based MoE router semantics through logical prefix-token accounting. On dense Llama3-8B, Qwen3-8B, and MoE Qwen3-MoE-30B-A3B configurations, the schedule matches optimizer updates across TP/CP/PP/EP combinations, aligns on a 100-step real GRPO actor-update trace replay, reaches up to 4.395x speedup (2.930x under a conservative compile-on comparison) as prefix ratio and GRPO group size grow, and reduces Phase-B peak HBM by up to 59.1%, extending the Llama3-8B capacity frontier from 17,920 to 29,696 total tokens.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.01143v3</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Pengbo Li, Feiyuan Zhang, Guangming Sheng, Guangxin He, Di Chai, Ziniu Li, Taiqiang Wu, Wenyu Mao, Binhang Yuan, Kai Chen</dc:creator>
+    </item>
+    <item>
+      <title>Benchmarking Quantum Computers via Protocols, Comparing Superconducting and Ion-Trap Quantum Technology</title>
+      <link>https://arxiv.org/abs/2603.27397</link>
+      <description>arXiv:2603.27397v3 Announce Type: replace-cross 
+Abstract: Both Superconducting and Ion-Trap are leading quantum architectures common in the current landscape of the quantum computing field, each with distinct characteristics and operational constraints. Understanding and measuring the underlying \underline{quantumness} of these devices is essential for assessing their readiness for practical applications and guiding future progress and research. Building on earlier work (Meirom, Mor and Weinstein Arxiv 2505.12441), we utilize a benchmarking strategy applicable for comparing these two architectures by measuring "quantumness" directly on optimal sub-chips. Distinct from existing metrics, our approach employs rigorous binary fidelity thresholds derived from the classical limits of state transfer. This enables us to definitively establish quantum advantage of a designated sub-region. Here we apply this quality assurance methodology to platforms from both technologies. This comparison provides a protocol-based evaluation of quantumness advantage, revealing not only the strengths and weaknesses of each tested chip and its sub-chips but also offering a common language for their assessment. By abstracting away technical differences in the final result, we demonstrate a benchmarking strategy that bridges the gap between disparate quantum-circuit technologies, enabling fair performance comparisons and establishing a critical foundation for evaluating future claims of quantum advantage. This work was made possible by policies of two companies who enable independent and objective assessment on their quantum computers and sub-chips. In the name of science, we encourage other companies to emulate the independent qubit availability and the fair pricing which allow researchers to preform such assessments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.27397v3</guid>
+      <category>quant-ph</category>
+      <category>cs.DC</category>
+      <category>cs.ET</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Nitay Mayo, Tal Mor, Yossi Weinstein</dc:creator>
+    </item>
+    <item>
+      <title>DeInfer: Efficient Parallel Inferencing for Decomposed Large Language Models</title>
+      <link>https://arxiv.org/abs/2604.17709</link>
+      <description>arXiv:2604.17709v2 Announce Type: replace-cross 
+Abstract: Existing works on large language model (LLM) decomposition mainly focus on improving performance on downstream tasks, but they ignore the poor parallel inference performance when trying to scale up the model size. To mitigate this important performance issue, this paper introduces DeInfer, a high-performance inference system dedicated to parallel inference of decomposed LLMs. It consists of multiple optimizations to maximize performance and be compatible with state-of-the-art optimization techniques. Extensive experiments are carried out to evaluate DeInfer's performance, where the results demonstrate its superiority, suggesting it can greatly facilitate the parallel inference of decomposed LLMs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.17709v2</guid>
+      <category>cs.CL</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3770743.3804360</arxiv:DOI>
+      <dc:creator>You-Liang Huang, Xinhao Huang, Chengxi Liao, Zeyi Wen</dc:creator>
+    </item>
+    <item>
+      <title>Stochastic Sparse Attention for Memory-Bound Inference</title>
+      <link>https://arxiv.org/abs/2605.01910</link>
+      <description>arXiv:2605.01910v2 Announce Type: replace-cross 
+Abstract: Autoregressive decoding becomes bandwidth-limited at long contexts, as generating each token requires reading all $n_k$ key and value vectors from KV cache. We present Stochastic Additive No-mulT Attention (SANTA), a method that sparsifies value-cache access by sampling $S \ll n_k$ indices from the post-softmax distribution and aggregates only those value rows. This yields an unbiased estimator of the post-softmax value aggregation while replacing value-stage multiply-accumulates with gather-and-add. We introduce stratified and systematic sampling to design variance-reduced, GPU-friendly variants. Evaluated on Llama-3.1-8B-Instruct at 32k-token contexts, S$^2$ANTA matches baseline accuracy while achieving up to $1.5\times$ decode-step attention-kernel speedup over FlashInfer and FlashDecoding on an NVIDIA RTX 6000 Ada. In batched long-context generation, these kernel gains translate to up to $1.25\times$ end-to-end decode-latency speedup. Finally, we propose Bernoulli $qK^\mathsf{T}$ sampling as a complementary technique to sparsify the score stage, reducing key-feature access through stochastic ternary queries. Both methods are complementary to upstream quantization, low-rank projection, KV-cache compression, and KV-cache selection methods. Together, they point toward sparse, multiplier-free, and energy-efficient inference. We open-source our kernels at: https://github.com/OPUSLab/SANTA.git</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.01910v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:journal_reference>ICML 2026</arxiv:journal_reference>
+      <dc:creator>Kyle Lee, Corentin Delacour, Kevin Callahan-Coray, Kyle Jiang, Can Yaras, Samet Oymak, Tathagata Srimani, Kerem Y. Camsari</dc:creator>
+    </item>
+    <item>
+      <title>memorywire: A Vendor-Neutral Wire Format for Agent Memory Operations</title>
+      <link>https://arxiv.org/abs/2606.01138</link>
+      <description>arXiv:2606.01138v2 Announce Type: replace-cross 
+Abstract: Agent-memory frameworks -- mem0, Letta/MemGPT, Cognee, Zep/Graphiti, MemoryOS, MemTensor -- each ship their own SDK, storage layout, and operational vocabulary. There is no shared wire format: every integration is bespoke, every migration rebuilds memory from scratch, and no framework ships a governance surface that lets a human review writes before they enter long-term storage. We present memorywire, a JSON-Schema 2020-12 wire format for five memory operations (remember, recall, forget, merge, expire) over four memory types (semantic, episodic, procedural, emotional), with a MemoryStore interface, a fan-out router, and an optional HITL governance channel. We describe an open-source reference implementation with five backend adapters (sqlite-vec, mem0, Letta, Cognee, pgvector); a microbenchmark on a 100-fact / 50-query labelled corpus (42 with non-empty gold ids + 8 no-match probes) achieving recall@5 = 1.000 on the 42 gold-id queries with ingest p50 = 37.8 ms and recall p50 = 40.6 ms; an adversarial-fusion experiment showing Reciprocal Rank Fusion holds recall@5 = 1.000 across a 1-of-N rank-0 injection sweep (K in {0, 5, ..., 50}) where max fusion collapses to 0.500 with 80% leak at K &gt;= 5; and a 16-scenario cross-adapter conformance suite passing 68 of 80 cells with zero failures. The contribution is not a new algorithm; it is a packaging of established components (RRF, FSMs, STM/LTM consolidation, diff-and-approve workflows) into a venue-neutral protocol with an empirically validated reference, positioned to compose with the Model Context Protocol rather than compete with it.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.01138v2</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Thamilvendhan Munirathinam</dc:creator>
+    </item>
+    <item>
+      <title>OpenAgenet/OAN: Technical Architecture for Trust-Governed Agent Identity and Discovery</title>
+      <link>https://arxiv.org/abs/2606.03163</link>
+      <description>arXiv:2606.03163v2 Announce Type: replace-cross 
+Abstract: This paper describes the technical architecture of OpenAgenet / OAN. OAN is a protocol-neutral trust layer for open Agent interconnection. It specifies the role architecture, identity objects, registration workflow, Root-governed lifecycle, Root-verified package model, authorization-aware Discovery, signed trusted invocation, verification requirements, state transitions, security properties, implementation boundaries, and deployment considerations. The design is intended to support heterogeneous Agent frameworks and interaction protocols, including MCP, A2A, ANP-like systems, and domain-specific Agent protocols. OAN does not define the entire business conversation among Agents; it defines how Agent identities become admissible, discoverable, verifiable, and safe to approach before protocol-specific interaction begins.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.03163v2</guid>
+      <category>cs.MA</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jinliang Xu</dc:creator>
+    </item>
+  </channel>
+</rss>
