@@ -7,165 +7,174 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jun 2026 04:00:09 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 04:00:21 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+    <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Saturday</day>
       <day>Sunday</day>
+      <day>Saturday</day>
     </skipDays>
     <item>
-      <title>Puffin-Backed Vector Indexes: Attaching Approximate Nearest Neighbor Indexes to Apache Iceberg Snapshots for Compute-Disaggregated Query Engines</title>
-      <link>https://arxiv.org/abs/2606.04196</link>
-      <description>arXiv:2606.04196v1 Announce Type: new 
-Abstract: We describe a design pattern and concrete implementation for embedding distributed approximate nearest neighbor indexes inside the Apache Iceberg table format, using the Puffin sidecar file as the storage container and the snapshot summary as the binding mechanism. Modern analytical query engines increasingly adopt a compute disaggregated architecture: executors are stateless, scale elastically, and read all data from object storage. Adding vector similarity search to such an engine traditionally requires a dedicated index storage layer with its own lifecycle, consistency model, and operational surface breaking the disaggregation in variant. We show that the Puffin format, originally introduced portable level statistics and deletion vectors, is sufficient to carry full Vamana graphs at billion vector scale, and that linking these blobs through the existing statistics file snapshot summary property reduces ANN index management to standard Iceberg snapshot operations. We present a binary layout for sharded graph indexes inside Puffin, a coordinator executor protocol for distributed index build, probe, and incremental refresh, the integration into the existing optimistic-concurrency commit path of an Iceberg REST catalog, and a tiered probe strategy that places small centroid indexes on the coordinator and large DiskANN graphs on executor SSDs. The pattern inherits atomicity, time travel, multi engine read ability, and orphan file garbage collection from the table format at zero implementation cost. We discuss the recall/latency trade-offs introduced by the independent-shard design and quantify projected query and build performance for tables up to 109 vectors. Our implementation extends FlockDB, a distributed MPP engine built on DuckDB.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.04196v1</guid>
+      <title>QDAG: Declarative Composition of Reusable Analytics Methodologies at LinkedIn</title>
+      <link>https://arxiv.org/abs/2606.05662</link>
+      <description>arXiv:2606.05662v1 Announce Type: new 
+Abstract: Production analytics products often depend on reusable methodologies: multi-step definitions such as headcount growth, top-skill growth, or differentially-private impression distributions. Although these methodologies define business-critical numbers, they are commonly implemented as imperative glue around OLAP queries, service calls, joins, transformations, and conditional logic. As a result, teams duplicate orchestration code, definitions drift across products, and methodologies are difficult to test or analyze.
+  We present QDAG, a production system at LinkedIn that represents an analytics methodology as a declarative directed acyclic graph of typed steps. Nodes may execute Apache Pinot queries, downstream service calls, in-memory SQLite joins, jq transformations, conditionals, differentially-private aggregations, or calls to other QDAGs. The engine evaluates graphs demand-driven, memoized, pruned, and parallelized in the per-request analytics mid-tier. QDAG is deployed across more than 500 hosts and over 100 production use cases, adding roughly 10 ms median orchestration overhead and under 50 ms at the 99th percentile. Our experience shows that making methodologies declarative improves reuse, testability, and cross-product consistency while preserving interactive latency.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.05662v1</guid>
       <category>cs.DB</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Artur Borycki</dc:creator>
-    </item>
-    <item>
-      <title>GraftDB: Dynamic Folding of Concurrent Analytical Queries</title>
-      <link>https://arxiv.org/abs/2606.04303</link>
-      <description>arXiv:2606.04303v1 Announce Type: new 
-Abstract: Analytical database systems serve as foundational infrastructure for knowledge discovery across many domains. Day after day, researchers, practitioners, and increasingly AI-driven agents issue analytical queries, inspect their results, and refine their inquiries. An analytical database system thus receives and processes diverse analytical queries that arrive over time and execute concurrently. Such workloads can create redundant execution work across independently issued queries. Exploiting this overlap to optimize query processing as a whole is a critical technical challenge. This paper presents GraftDB, a multi-query execution engine that dynamically folds a later-arriving query into a running execution, reusing previously performed work and sharing subsequently performed work. GraftDB achieves dynamic folding with state-centric execution, which treats operator state accumulated during execution not as owned by a single query, but as shared state that any compatible query can observe or contribute to. Each query observes shared state through a per-query state lens, which lets the query observe that state only after the relevant input has been incorporated and receive only rows or state fragments valid under the query's semantics. For an arriving query, query grafting identifies operator state that already satisfies part of the query's requirements and work that can still be shared to satisfy the rest. Together, these mechanisms let GraftDB share work across overlapping analytical queries and reduce redundant execution work. Experiments using TPC-H-derived instances of dynamic concurrent workloads show that GraftDB achieves up to 2.17 times higher throughput than a same-engine isolated-execution baseline. Under overloaded open-loop arrivals, GraftDB reduces P95 response time to as low as 0.17 times the same baseline's P95 response time.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.04303v1</guid>
-      <category>cs.DB</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Genki Kimura, Kazuo Goda</dc:creator>
+      <dc:creator>Peter Ho, Praveen Chaganlal, Tianle Zhang, Endong Zhu</dc:creator>
     </item>
     <item>
-      <title>Selectivity Estimation for Semantic Filters on Image Data</title>
-      <link>https://arxiv.org/abs/2606.04610</link>
-      <description>arXiv:2606.04610v1 Announce Type: new 
-Abstract: Semantic data systems integrate Large Language Models (LLMs) and Vision-Language Models (VLMs) directly into database query execution, enabling expressive queries on multi-modal data. However, optimizing these queries requires accurate selectivity estimates to determine the most efficient operator execution order. Contemporary systems rely on online sample-based profiling, a process that incurs severe latency overheads and struggles with low-selectivity queries. In this paper, we introduce Semantic Histograms, a novel selectivity estimator for semantic filters on image data that leverages shared embedding spaces to bypass traditional profiling. We realize that all semantic filters are implicit range queries, as they match a range of different images. Some filter predicates are more general, yielding a wide range, while others are more specific, yielding a smaller range. To address the challenge of implicit ranges, we propose two approaches to estimate the queries' specificity, with an ensemble of the two performing best. The evaluation shows that Semantic Histograms can reduce the end-to-end runtime overhead of query optimization and execution by up to 86%.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.04610v1</guid>
+      <title>Data Flow Control: Data Safety Policies for AI Agents</title>
+      <link>https://arxiv.org/abs/2606.05679</link>
+      <description>arXiv:2606.05679v1 Announce Type: new 
+Abstract: Agents increasingly generate SQL, orchestrate pipelines, and automate data analysis on behalf of users. While recent work improves query correctness, correctness is not safety. A query may be semantically valid yet violate regulatory, privacy, or business constraints that govern how data may be combined and released. We argue that enforcing such constraints is fundamentally a data infrastructure problem.
+  This paper introduces Data Flow Control (DFC), a framework to declaratively specify and guarantee policy enforcement over tuple-level data flows within a DBMS query. A key challenge is defining a policy language that is optimizer-invariant yet efficient to enforce at scale. We formalize data safety as aggregate predicates over provenance monomials and present Passant, a portable query rewriting layer that enforces DFC policies without materializing provenance. Across five DBMS engines -- DuckDB, Umbra, PostgreSQL, DataFusion, and SQLServer -- Passant achieves ~0% overhead and outperforms alternatives by orders of magnitude. As a result, Data Flow Control is the first step towards moving data safety from prompts and post-hoc checks into the data infrastructure. Data Flow Control is available open source at https://github.com/dataflowcontrol/data-flow-control.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.05679v1</guid>
       <category>cs.DB</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <category>cs.AI</category>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Matthias Urban, Vu Huy Nguyen, Gabriele Sanmartino, Paolo Papotti, Carsten Binnig</dc:creator>
+      <dc:creator>Charlie Summers, Eugene Wu</dc:creator>
     </item>
     <item>
-      <title>Bridge the Last-Mile Gap to Semantic Analytics: Compiling Natural-Language Queries into Semantic Operator Pipelines</title>
-      <link>https://arxiv.org/abs/2606.04641</link>
-      <description>arXiv:2606.04641v1 Announce Type: new 
-Abstract: Automated AI workflows increasingly rely on natural-language reasoning over heterogeneous data, but lack a practical way to execute it through optimized semantic data systems. Recent semantic operator systems, such as Palimpzest and LOTUS, expose declarative operators for filtering, joining, mapping, and aggregating over tables, text, and images using natural-language predicates. However, these systems require users to manually choose operators, order them, write predicates, and adapt the pipeline to backend-specific APIs. This is difficult for non-experts, brittle across backends, and infeasible for automated workflows where queries and data vary at runtime. We present NL2Pipe, a middleware system that compiles natural-language questions into executable semantic operator pipelines, treating this as a three-phase compilation problem. First, a Query-Data Linker grounds question entities against the actual data and discovers implicit bridge entities needed to connect tables, text, and images. Second, a Semantic Planner produces a backend-agnostic action plan of semantic operators and natural-language predicates. Third, a Code Generator translates the plan into executable code for a target backend using an auto-generated reference document capturing operator signatures, example pipelines, and backend constraints. This separates data-aware reasoning from backend-specific code generation, letting the same planning logic support multiple backends. Evaluation shows NL2Pipe substantially outperforms baselines on complex cross-source workloads (e.g., up to 60% higher F1) while maintaining bounded cost and competitive latency. This demonstrates that automatic compilation from natural language to semantic operator pipelines is both practical and effective for bringing semantic analytics to non-expert users and automated AI workflows.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.04641v1</guid>
+      <title>Causal Scaffolding for Physical Reasoning: A Benchmark for Causally-Informed Physical World Understanding in VLMs</title>
+      <link>https://arxiv.org/abs/2606.05966</link>
+      <description>arXiv:2606.05966v1 Announce Type: new 
+Abstract: Understanding and reasoning about the physical world is the foundation of intelligent behavior, yet state-of-the-art vision-language models (VLMs) still fail at causal physical reasoning, often producing plausible but incorrect answers. To address this gap, we introduce CausalPhys, a benchmark of over 3,000 carefully curated video- and image-based questions spanning four domains: Perception, Anticipation, Intervention, and Goal Orientation. Each question is paired with an expert-annotated causal graph capturing object-attribute-event dependencies, enabling interpretable and fine-grained evaluation of causal understanding. Building on this, we formulate a causal-graph-grounded metric that quantitatively measures how well a model's chain-of-thought reasoning aligns with the correct causal relations, moving beyond answer-only accuracy and enabling systematic diagnosis of VLMs' causal reasoning failures. Using this metric, we conduct a comprehensive analysis of leading VLMs, revealing systematic gaps in capturing causal dependencies and underscoring the need for causality-aware learning. To address these limitations, we further propose Causal Rationale-informed Fine-Tuning (CRFT), which explicitly aligns VLM reasoning with causal structures. Extensive experiments demonstrate that CRFT substantially enhances both reasoning accuracy and interpretability across multiple model backbones. By unifying dataset curation, causal evaluation, and causality-informed learning, CausalPhys establishes a strong foundation for advancing modern VLMs toward causally grounded physical reasoning.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.05966v1</guid>
       <category>cs.DB</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <category>cs.AI</category>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Wenkai Dong, Ruyu Li, Sairam Gurajada, Yifan Wang</dc:creator>
+      <dc:creator>Tianyi Tang, Zhuoyi Lin, Zeyu Feng, Tianyi Ma, Yew-Soon Ong, Ivor Tsang, Haiyan Yin</dc:creator>
     </item>
     <item>
-      <title>Indexicon: A Spatial Indexing Library</title>
-      <link>https://arxiv.org/abs/2606.04676</link>
-      <description>arXiv:2606.04676v1 Announce Type: new 
-Abstract: Spatial indexing is foundational to Geographic Information Systems (GIS) and multi-dimensional data management, yet the current open-source landscape poses a significant barrier to research that employs or benchmarks spatial access methods. We observe that most of the existing open-source libraries include a single index. Some are hindered by complex dependencies, missing critical functionalities, inconsistent APIs, and rigid constraints regarding the support of spatial data types. To address this issue, we introduce Indexicon: a unified, highly portable, extendable, open-source spatial indexing library, designed specifically for rapid integration and ease of modification of main-memory spatial access methods. Indexicon provides a comprehensive suite of popular tree-based spatial access methods, including the R-tree, Quad-tree variants, and the KD-tree. Each structure is meticulously implemented as a self-contained, single-file, header-only C++ template with zero external dependencies beyond the standard library. Crucially, every index features a uniform interface, natively supporting bulk-loading, dynamic insertions/deletions, range queries, $k$-nearest neighbor ($k$NN) search, and structural statistics tracking. We also present an extensive performance evaluation of Indexicon against well-established and widely used implementations of these structures (including Boost Geometry, PCL, and Nanoflann) across six real-world geographic datasets. Our results demonstrate that Indexicon's lightweight design matches or outperforms existing state-of-the-art implementations while offering unmatched architectural flexibility. To foster reproducible spatial research, we open-source the complete library alongside our datasets and query workloads.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.04676v1</guid>
+      <title>Validation of graph databases against PG-Schema</title>
+      <link>https://arxiv.org/abs/2606.06127</link>
+      <description>arXiv:2606.06127v1 Announce Type: new 
+Abstract: The problem of validating a given graph database instance against a given PG-Schema graph type without integrity constraints is NP- complete in terms of combined complexity and in PTIME in terms of data complexity. The combined complexity drops to PTIME when the alternation between type combinations and unions is suitably restricted</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.06127v1</guid>
       <category>cs.DB</category>
-      <category>cs.CG</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
-      <dc:creator>Panagiotis Simatis, Panagiotis Bouros, Nikos Mamoulis</dc:creator>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jacek Ciszewski, Jakub K{\l}os, Maxime Jakubowski, Dominik Tomaszuk, Filip Murlak</dc:creator>
     </item>
     <item>
-      <title>GraphAlg Playground: An Online Platform for Learning and Experimenting with the GraphAlg Language</title>
-      <link>https://arxiv.org/abs/2606.04813</link>
-      <description>arXiv:2606.04813v1 Announce Type: new 
-Abstract: The GraphAlg language for graph algorithms enables native support for user-defined graph analytics workloads in databases. In this demonstration, we present a web-based playground for writing and executing GraphAlg programs in the web browser, including an interactive tutorial explaining its key concepts. The playground runs inside the user's web browser without any installation, and is freely available under a permissive license as a reusable library. We present two demonstration scenarios of the publicly available playground website, showing how new users can learn to program in GraphAlg using the tutorial, while expert users can use the playground to prototype and validate their algorithms.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.04813v1</guid>
+      <title>TOKI: A Bitemporal Operator Algebra for Contradiction Resolution in LLM-Agent Persistent Memory</title>
+      <link>https://arxiv.org/abs/2606.06240</link>
+      <description>arXiv:2606.06240v1 Announce Type: new 
+Abstract: Persistent memory for an LLM agent is a write-heavy substrate: every belief update is a versioned write, and a new claim may contradict a stored one. Production systems use four resolution heuristics (last-writer-wins, evidence-weighted merge, await-confirmation, per-rule policy), yet none declares the isolation level it assumes or the write-time anomalies it admits. We show that contradiction resolution is write-time concurrency control and make the missing contract explicit. TOKI types the four heuristics as one family of bitemporal operators over a dual-row schema, each with an isolation precondition and a provenance annotation that preserves the losing fact in an audit row. Four soundness theorems close the contract across isolation, schema, and provenance, lift the guarantees to operator pipelines, and extend the fold operators to n-ary conflict sets. A tightness companion proves that, within the relational schedule model, keyed logging of the adjudicating judge is necessary for replay consistency, which every audited baseline omits. A verdict matrix over eight systems localizes the gap: every baseline that keeps a language-model judge on the write path admits at least one of three write-time anomalies (replay inconsistency, belief-drift skew, audit erasure); a content-addressed engine-layer comparator avoids them only by removing the judge, and TOKI alone excludes all three while keeping it. On its one natural-workload slice the audit-row defence moves LoCoMo by 0.86, and ablating the typed memory layer removes 0.49 accuracy on 1,444 answerable LoCoMo questions; the cross-system comparison stays underpowered and claims no superiority. The contribution is the contract: a write-time correctness specification, proved sound across isolation, schema, and provenance, pinning the guarantee every production heuristic assumes but no deployed system makes explicit.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.06240v1</guid>
       <category>cs.DB</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ziming Wang</dc:creator>
+    </item>
+    <item>
+      <title>Policy-Compliant Cloud Storage Systems</title>
+      <link>https://arxiv.org/abs/2606.05423</link>
+      <description>arXiv:2606.05423v1 Announce Type: cross 
+Abstract: Privacy regulations such as the General Data Protection Regulation (GDPR) impose strict requirements on how personal data is stored, processed, and audited. While key-value stores (KVS) are widely used in latency-sensitive applications, their simple data model and untrusted cloud deployment environments make GDPR compliance particularly challenging. Existing approaches require invasive code modifications, impose high performance overheads, or overlook the integrity of compliance mechanisms themselves.
+  This paper presents GDPRuler, a trusted middleware system that enables verifiable GDPR compliance for KVS on untrusted clouds without modifying their codebase. GDPRuler deploys a trusted GDPR monitor inside a Confidential Virtual Machine (CVM), which enforces GDPR policies, manages compliance metadata, and maintains tamper-evident audit logs. A declarative policy language translates core GDPR obligations into enforceable runtime rules. To ensure efficiency, GDPRuler encodes metadata compactly within KV records, builds dedicated metadata indexes for GDPR-specific queries, and logs only compliance-relevant events in a space-efficient format. We implement GDPRuler as a transparent proxy for unmodified Redis and RocksDB deployments. Evaluation with YCSB and GDPR-inspired workloads shows that GDPRuler enforces core compliance guarantees with low overheads: GDPRuler achieves ~61% of native KVS throughput with the CVM environment contributing 28%-32% of it, metadata storage overhead remains below 20%, and GDPR queries benefit from 13-182x speedup through metadata indexing. By embedding verifiable policy enforcement into a trusted middleware layer, GDPRuler offers a practical path toward GDPR-compliant KVS on untrusted cloud infrastructures.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.05423v1</guid>
+      <category>cs.CR</category>
+      <category>cs.CY</category>
+      <category>cs.DB</category>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Dimitrios Stavrakakis, Masanori Misono, Julian Pritzi, Harshavardhan Unnibhavi, Nuno Santos, Pramod Bhatotia</dc:creator>
+    </item>
+    <item>
+      <title>LLM-Guided ANN Index Optimization for Human-Object Interaction Retrieval</title>
+      <link>https://arxiv.org/abs/2606.05489</link>
+      <description>arXiv:2606.05489v1 Announce Type: cross 
+Abstract: Retrieval systems underpin modern AI applications -- spanning visual search, recommendation engines, and multi-modal question answering. Modern multi-stage retrieval systems require the joint optimization of highly coupled parameters, yet traditional hyperparameter optimization (HPO) methods -- including Tree-structured Parzen Estimators (TPE) and Gaussian Process Bayesian Optimization -- rely on an independence assumption that fundamentally prevents them from navigating these coupled configuration spaces. We address this limitation with a phase-aware large language model (LLM) agent that conditions each proposal on its full optimization history, navigating the coupled parameter space across phase-partitioned exploration, exploitation, and fine-tuning stages. Evaluated on the HICO-DET human-object interaction retrieval benchmark using Intel VDMS (Visual Data Management System), our agent outperforms Optuna TPE by +33.3% and VDTuner by +34.2% under SIEVE (Safeguarded Index Evaluation of Vector-search Efficiency, a quality-constrained throughput metric), delivering a 15.3x throughput gain over UniIR. Validation across three benchmarks confirms that the agent's advantage grows with the degree of parameter coupling: +33.3% on HICO-DET (high coupling), methods converge within 1% on GLDv2 (moderate coupling) and within 3.6% on SIFT1M (near-independent control). Cross-system validation on Milvus confirms the optimizer ranks first on all three datasets without modification, demonstrating transferability across vector database management system (VDBMS) platforms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.05489v1</guid>
+      <category>cs.CV</category>
+      <category>cs.DB</category>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Shahrzad Esmat, Chaunte W. Lacewell, Sameh Gobriel, Nilesh Jain, Ali Jannesari</dc:creator>
+    </item>
+    <item>
+      <title>QCFuse: Query-Aware Cache Fusion via Compressed View for Efficient RAG Serving</title>
+      <link>https://arxiv.org/abs/2606.05875</link>
+      <description>arXiv:2606.05875v1 Announce Type: cross 
+Abstract: Retrieval-augmented generation (RAG) improves large language model (LLM) answer quality by grounding generation in external evidence, but processing retrieved contexts makes the prefill stage a dominant serving cost. RAG cache fusion reduces this cost by reusing precomputed key-value (KV) caches for retrieved chunks and selectively recomputing tokens under the current prompt. Existing selectors, however, face a dilemma between quality and efficiency: fast query-agnostic or final-layer query-to-context selectors can miss request-relevant evidence, whereas full-view query-aware selectors require broad context and layer visibility before recomputation and therefore stall the layer-wise cache-fusion pipeline. We present QCFuse, a compressed-view query-aware selector for RAG cache fusion. QCFuse uses chunk-anchor query probing to condition user-query states on compact per-chunk anchors and critical-layer profiling to identify recomputation tokens without all-layer inspection. We implement QCFuse in SGLang and evaluate it on four open-weight LLMs across six datasets. QCFuse reaches full-prefill-level quality. At matched quality, QCFuse achieves an average prefill-time speedup of 1.7x over full prefill and 1.5x over ProphetKV, the strongest quality-preserving baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.05875v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jianxin Yan, Wangze Ni, Zhenxin Li, Jiabao Jin, Zhitao Shen, Haoyang Li, Jia Zhu, Peng Cheng, Xuemin Lin, Lei Chen, Kui Ren</dc:creator>
+    </item>
+    <item>
+      <title>Adaptive Oscillatory-State Alignment for Time Series Forecasting</title>
+      <link>https://arxiv.org/abs/2606.06010</link>
+      <description>arXiv:2606.06010v1 Announce Type: cross 
+Abstract: Long-term time series forecasting benefits from inductive biases that expose recurring temporal structure. Existing periodic forecasting methods typically model recurrence through predefined periods, global spectral components, or fixed learnable templates. However, real-world temporal dynamics are rarely rigidly periodic: oscillatory behavior often evolves through amplitude modulation, phase drift, and local frequency variation. Under these conditions, fixed-template periodic modeling can become fundamentally mismatched to the underlying temporal states. We propose AOSNET, a Hilbert-guided forecasting framework that reformulates periodic forecasting from fixed template matching to adaptive oscillatory-state alignment. AOSNET extracts analytic-signal descriptors from both the observed sequence and a learnable global oscillatory prior, then adaptively aligns local states through a descriptor-conditioned gate that selectively preserves reliable observations while softly correcting mismatched regions. The learned prior serves not as a rigid repeated template but as a flexible oscillatory reference interpreted through local state dynamics. Experiments on eight benchmarks demonstrate state-of-the-art or highly competitive accuracy with fast inference speed. Controlled synthetic studies isolating amplitude modulation, phase drift, and local frequency variation confirm that the advantage of oscillatory-state alignment consistently increases as non-stationarity intensifies.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.06010v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DB</category>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zhangyao Song, Ziqiong Li, Xiangfei Qiu, Chao Zha, Yinfei Xu, Tao Guo</dc:creator>
+    </item>
+    <item>
+      <title>Bonsai: Compiling Queries to Pruned Tree Traversals</title>
+      <link>https://arxiv.org/abs/2511.15000</link>
+      <description>arXiv:2511.15000v3 Announce Type: replace-cross 
+Abstract: Trees can accelerate queries that search or aggregate values over large collections. They achieve this by storing metadata that enables quick pruning (or inclusion) of subtrees when predicates on that metadata can prove that none (or all) of the data in a subtree affect the query result. Existing systems implement this pruning logic manually for each query predicate and data structure. We generalize and mechanize this class of optimization. Our method derives conditions for when subtrees can be pruned (or included wholesale), expressed in terms of the metadata available at each node. We efficiently generate these conditions using symbolic interval analysis, extended with new rules to handle geometric predicates (e.g., intersection, containment). Additionally, our compiler fuses compound queries (e.g., reductions on filters) into a single tree traversal. These techniques enable the automatic derivation of generalized single-index and dual-index tree joins that support a wide class of join predicates beyond standard equality and range predicates. The generated traversals match the behavior of expert-written code that implements query-specific traversals, and can asymptotically outperform the linear scans and nested-loop joins that existing systems fall back to when hand-written cases do not apply.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.15000v3</guid>
       <category>cs.PL</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Daan de Graaf, Robert Brijder, Soham Chakraborty, George Fletcher, Bram van de Wall, Nikolay Yakovets</dc:creator>
+      <category>cs.DB</category>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3808256</arxiv:DOI>
+      <arxiv:journal_reference>Proc. ACM Program. Lang. 10, PLDI, Article 178 (June 2026)</arxiv:journal_reference>
+      <dc:creator>Alexander J Root, Christophe Gyurgyik, Purvi Goel, Kayvon Fatahalian, Jonathan Ragan-Kelley, Andrew Adams, Fredrik Kjolstad</dc:creator>
     </item>
     <item>
-      <title>ANN Search: Recall What Matters</title>
-      <link>https://arxiv.org/abs/2606.04522</link>
-      <description>arXiv:2606.04522v1 Announce Type: cross 
-Abstract: Approximate nearest neighbor (ANN) search has become a core primitive in information retrieval and modern machine learning tasks, from classification to retrieval-augmented generation. The community evaluates and tunes ANN algorithms primarily on their throughput at a given Recall@k, the fraction of true exact neighbors retrieved. We argue that what really matters in ANN search is the quality of the retrieved results and not their overlap with the true kNN set. We show that using Recall@k to assess retrieval quality forces unnecessary computational overhead and investigate replacing it by 1/Ratio@k, the inverse approximation ratio. 1/Ratio@k evaluates the differences between the distances of the retrieved and true neighbors. It is judge-free, hyperparameter-free, and computable from standard ANN benchmark inputs alone. We benchmark state-of-the-art ANN algorithms across diverse datasets spanning a wide range of intrinsic dimensionalities, evaluating the two metrics comprehensively across efficiency, downstream classification, and retrieval-augmented generation. On the efficiency axis, optimizing for 1/Ratio@k reaches operational quality thresholds at a substantially lower computational cost than Recall@k. In downstream tasks, performance indicators (label precision, semantic similarity, BERTScore, and LLM-graded quality) remain highly stable even when Recall@k drops significantly. The inverse approximation ratio, on the other hand, closely mirrors this stability, tracking true utility much better than Recall@k. Ultimately, while Recall@k overstates the true cost of approximation, 1/Ratio@k offers a more accurate, deployable proxy for actual ANN quality.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.04522v1</guid>
+      <title>A2RAG: Adaptive Agentic Graph Retrieval for Cost-Aware and Reliable Reasoning</title>
+      <link>https://arxiv.org/abs/2601.21162</link>
+      <description>arXiv:2601.21162v2 Announce Type: replace-cross 
+Abstract: Graph Retrieval-Augmented Generation (Graph-RAG) enhances multihop question answering by organizing corpora into knowledge graphs and routing evidence through relational structure. However, practical deployments face two persistent bottlenecks: (i) mixed-difficulty workloads where one-size-fits-all retrieval either wastes cost on easy queries or fails on hard multihop cases, and (ii) extraction loss, where graph abstraction omits fine-grained qualifiers that remain only in source text. We present A2RAG, an adaptive-and-agentic GraphRAG framework for cost-aware and reliable reasoning. A2RAG couples an adaptive controller that verifies evidence sufficiency and triggers targeted refinement only when necessary, with an agentic retriever that progressively escalates retrieval effort and maps graph signals back to provenance text to remain robust under extraction loss and incomplete graphs. Experiments on HotpotQA and 2WikiMultiHopQA demonstrate that A2RAG achieves +9.9/+11.8 absolute gains in Recall@2, while cutting token consumption and end-to-end latency by about 50% relative to iterative multihop baselines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.21162v2</guid>
       <category>cs.IR</category>
       <category>cs.AI</category>
       <category>cs.DB</category>
-      <category>cs.LG</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Dimitris Dimitropoulos, Nikos Mamoulis</dc:creator>
-    </item>
-    <item>
-      <title>CYGNET: Cypher Gate for Neural Execution Triage and Cost Containment</title>
-      <link>https://arxiv.org/abs/2606.04645</link>
-      <description>arXiv:2606.04645v1 Announce Type: cross 
-Abstract: Language models acting as agents over knowledge graphs generate Cypher queries that fail structurally (crashing at the database) or semantically (executing but returning wrong results). We place a pre-execution gate between query generation and a production Neo4j database. The gate validates structure through a four-backend chain culminating in execution against a mirror graph at 5.6 ms median latency. Structurally broken queries are routed to a corrector that iterates structured error feedback through a language model. On seven CypherBench schemas (2348 questions, ACL 2025) the pipeline maintains generation accuracy on every model tested, confirming it operates as a safe defensive layer. The corrector achieves 81% to 95% success across five models (mean 89%). On a template-generated corpus across nine schemas the gate catches 100% of parse errors, 100% of constraint violations, and 100% of schema-reference errors in path queries with labelled endpoints, at zero false positives across 1135 queries. Property sibling-swaps where the substituted name is valid on the target label score 0%, marking the formal boundary where structural validation ends and semantic validation must begin. A planner-based cost gate flags catastrophic plan structures before execution.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.04645v1</guid>
-      <category>cs.CL</category>
-      <category>cs.DB</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Nikodem Tomczak</dc:creator>
-    </item>
-    <item>
-      <title>Be Fair! Can Machine Learning Engineering Agents Adhere to Fairness Constraints?</title>
-      <link>https://arxiv.org/abs/2606.04971</link>
-      <description>arXiv:2606.04971v1 Announce Type: cross 
-Abstract: Machine learning engineering (MLE) agents promise to automate end-to-end ML pipeline development from raw data and natural language instructions, potentially making ML accessible to non-technical domain experts. However, in sensitive and regulated domains, this abstraction creates a responsibility gap: end-users may lack visibility into design choices that affect correctness, robustness, fairness, and regulatory compliance. We argue that existing benchmarks are insufficient to assess whether MLE agents can be safely applied in such settings. We propose desiderata for a responsibility-centered evaluation framework and conduct an exploratory study on melanoma classification, focusing on fairness across skin tones as a responsibility constraint. When evaluating two recent MLE agents, we find that agent-generated pipelines show high variance and consistently underperform manually designed baselines in both predictive quality and fairness, despite fairness-oriented prompts. These preliminary results suggest that further research is needed towards redesigning MLE agents to allow humans to guide the search process and reliably assess the compliance and quality of the generated ML pipelines.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.04971v1</guid>
-      <category>cs.LG</category>
-      <category>cs.DB</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Anna Richter, Julia Stoyanovich, Sebastian Schelter</dc:creator>
-    </item>
-    <item>
-      <title>Don't Stir the Pot! Authorized Vector Data Retrieval via Access-Aware Indexing</title>
-      <link>https://arxiv.org/abs/2605.01342</link>
-      <description>arXiv:2605.01342v3 Announce Type: replace 
-Abstract: Vector databases increasingly enforce role-based access control, where each top-k approximate nearest neighbor query must return only vectors the querying role is authorized to access. Two extremes bracket the design space. A single global index built over all vectors avoids duplication but wastes search effort on unauthorized vectors and degrades recall, while an oracle index, built with all authorized vectors to the query roles, searches only authorized vectors but duplicates every shared vector between roles or queries. We present Veda and its efficient variant EffVeda, two indexing strategies built on an access-aware lattice to address access control in vector databases. The methods first partitions the dataset into disjoint data blocks by role combination, then leverage the structure of the access-aware lattice to apply copy and merge operations to group co-accessed blocks under a user-specified storage budget. Large nodes in the lattice are then indexed with HNSW, while small nodes are retained for linear scan. To facilitate query processing on the lattice, our methods construct a query plan that selects the minimal set of nodes that covers all authorized data for each role. At query time, coordinated search first queries pure (authorized-only) nodes to populate a global top-k heap, then leverages the resulting distance bound of the k-th data in the heap to prune exploration on impure nodes. Evaluations show that our methods deliver higher throughput at high recall while closely tracking the storage budget.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.01342v3</guid>
-      <category>cs.DB</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Shanshan Han, Vishal Chakraborty, Sharad Mehrotra</dc:creator>
-    </item>
-    <item>
-      <title>Real-world and simulated thermal data from 960 residential multi-zone buildings in Central Europe</title>
-      <link>https://arxiv.org/abs/2606.01994</link>
-      <description>arXiv:2606.01994v2 Announce Type: replace 
-Abstract: This paper presents the ThermBuild dataset, which comprises real-world measurements from two single-family homes and simulations of 958 TRNSYS building models. The buildings cover diverse combinations of air-source heat pump systems, numbers of thermal zones, occupancy profiles, building ages, thermal masses, sizes, orientations, window glazings, five European climates, and ventilation configurations. The dataset contains 15-minute-resolution operational data spanning 15 months for the real-world buildings and 3 years for the simulated buildings. Each building time series includes detailed measurements of heat pump operation, the heating distribution system, the domestic hot water system, weather conditions, and zone-level indoor climate variables. The ThermBuild dataset is designed for data-driven thermal dynamics modeling, thereby supporting the deployment of energy-efficient control, as well as fault detection and diagnosis in buildings. It is particularly suited for transfer learning, generalization modeling, benchmarking, simulation-to-reality transfer, and reproducible thermal modeling research.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.01994v2</guid>
-      <category>cs.DB</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Fabian Raisch, Matthias Kersken, Markus Male, Benjamin Tischler</dc:creator>
-    </item>
-    <item>
-      <title>Fides: Secure and Scalable Asynchronous DAG Consensus via Trusted Components</title>
-      <link>https://arxiv.org/abs/2501.01062</link>
-      <description>arXiv:2501.01062v4 Announce Type: replace-cross 
-Abstract: DAG-based BFT consensus has attracted growing interest in distributed data management systems for consistent replication in untrusted settings due to its high throughput and resilience to asynchrony. However, existing protocols still suffer from high communication overhead and long commit latency. In parallel, introducing minimal hardware trust has proven effective in reducing the complexity of BFT consensus.
-  Inspired by these works, we present Fides, an asynchronous DAG-based BFT consensus protocol that, to our knowledge, is among the first to leverage TEEs to enhance both scalability and efficiency. Fides tolerates a minority of Byzantine replicas and achieves $O(\kappa n^2 + n^3)$ metadata communication complexity through a customized TEE-assisted Reliable Broadcast (T-RBC) primitive with linear communication complexity in one-step broadcast. Building on T-RBC, Fides redefines the DAG construction rules by reducing the reference requirement from $2f+1$ to $f+1$ between consecutive vertices. This new structure weakens DAG connectivity and invalidates traditional commit rules, so we formally abstract the problem and derive new theoretical bounds of liveness. We further propose a four-round commit rule that achieves the theoretically minimal commit latency. Besides, we design two additional primitives, T-RoundCert and T-Coin, to efficiently certify DAG references and replace the costly cryptographic common coin used in prior protocols. Comprehensive evaluations on geo-distributed and local testbeds show that Fides substantially outperforms state-of-the-art protocols, including Tusk, Bullshark, Mysticeti, RCC, Damysus, Achilles and HybridSet, achieving lower latency and higher throughput while preserving strong safety and liveness guarantees.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2501.01062v4</guid>
-      <category>cs.DC</category>
-      <category>cs.DB</category>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 -0400</pubDate>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Shaokang Xie, Dakai Kang, Hanzheng Lyu, Jianyu Niu, Mohammad Sadoghi</dc:creator>
+      <dc:creator>Jiate Liu, Zebin Chen, Shaobo Qiao, Mingchen Ju, Danting Zhang, Bocheng Han, Shuyue Yu, Xin Shu, Jinglin Wu, Dong Wen, Xin Cao, Guanfeng Liu, Zhengyi Yang</dc:creator>
+    </item>
+    <item>
+      <title>No Need to Train Your RDB Foundation Model</title>
+      <link>https://arxiv.org/abs/2602.13697</link>
+      <description>arXiv:2602.13697v2 Announce Type: replace-cross 
+Abstract: Relational databases (RDBs) contain vast amounts of heterogeneous tabular information that can be exploited for predictive modeling purposes. But since the space of potential targets is vast across enterprise settings, how can we avoid retraining a new model each time we wish to predict a new quantity of interest? Foundation models based on in-context learning (ICL) offer a convenient option, but so far are largely restricted to single-table operability. In generalizing to multiple interrelated tables, it is essential to compress variably-sized RDB neighborhoods into fixed-length ICL samples for consumption by the decoder. However, the details here are critical: unlike existing supervised learning RDB pipelines, we provide theoretical and empirical evidence that ICL-specific compression should be constrained within high-dimensional RDB columns where all entities share units and roles, not across columns where the relevance of heterogeneous data types cannot be determined without extensive label information. Conditioned on this restriction, we then demonstrate that encoder expressiveness is actually not compromised by excluding trainable parameters. Hence we arrive at a principled family of RDB encoders that can be seamlessly paired with already-existing single-table ICL foundation models, whereby no training or fine-tuning is required. From a practical standpoint, we develop scalable SQL primitives to implement the encoder stage, resulting in the easy-to-use open-source RDBLearn foundation model capable of robust performance on unseen datasets out of the box.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.13697v2</guid>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Linjie Xu, Yanlin Zhang, Quan Gan, Minjie Wang, David Wipf</dc:creator>
     </item>
   </channel>
 </rss>
