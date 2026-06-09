@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PF updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PF</link>
+    <description>cs.PF updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 09 Jun 2026 04:00:15 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Attention at the Theoretical Minimum: A Mathematics of Arrays Framework for Memory-Optimal Transformer Kernels</title>
+      <link>https://arxiv.org/abs/2606.07713</link>
+      <description>arXiv:2606.07713v1 Announce Type: cross 
+Abstract: The attention mechanism is the dominant computational bottleneck in modern transformer-based AI. Its standard implementation incurs quadratic memory traffic in the sequence length~$n$, and DRAM accesses cost 100--1000$\times$ more energy than arithmetic operations on contemporary hardware, so any analysis focused solely on FLOP counts fundamentally mischaracterises the bottleneck.
+  We present a Mathematics of Arrays (MoA) reformulation of scaled dot-product attention and its numerically stable softmax, deriving a Denotational Normal Form (DNF) that eliminates all intermediate arrays -- including the implicit transposed-key buffer and every softmax temporary -- by algebraic construction rather than empirical tuning. The DNF achieves $O(n_{dk} + n{_{dv}})$ data movement versus $O(n^2 + n_{dk} + n_{dv})$ for the standard implementation, where $n$ is the sequence length, $dk$ is the key dimensionality and $dv$ the value dimensionality, and is verified numerically against PyTorch at full double-precision floating-point on concrete inputs.
+  Unlike hardware-specific accelerators or empirical tiling schemes such as FlashAttention, MoA simultaneously provides array fusion, shape-transformation correctness, and predictive cost models from a single algebraic framework. Memory minimality is a theorem established before any code is written. A predictive performance model projects $2$--$100\times$ speedup and $2$--$50\times$ energy reduction, with the advantage widening at exascale. The derivation establishes a formally verified pipeline from Python specification through (ONF) Operational Normal Form, and dimension-lifted hardware mapping, providing performance-portable AI kernels of direct relevance to DARPA edge-deployment and DOE exascale priorities.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.07713v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Lenore Mullin, Gaetan Hains</dc:creator>
+    </item>
+    <item>
+      <title>An Empirical Comparison of General Context-Free Parsers</title>
+      <link>https://arxiv.org/abs/2606.08465</link>
+      <description>arXiv:2606.08465v1 Announce Type: cross 
+Abstract: Parsing underpins a vast range of software engineering tasks, from compilers and static analyzers to language servers and fuzz testing tools. Yet most parsers deployed in practice are deterministic (LL or LR), forcing developers not only to contort their grammars to fit the parser, but to simplify the very languages they design sacrificing expressiveness for the sake of parseability. General context-free parsers eliminate this constraint. Yet, despite decades of algorithmic development, no rigorous head-to-head comparison exists across the major families of parsing algorithms.
+  We present the first unified, controlled benchmark of six generalized parsing algorithms: CYK, Valiant, Earley, GLL, RNGLR, and BRNGLR, plus deterministic LL(1) and LR(1) baselines, all implemented in Rust with shared data structures and parse-tree extraction, and evaluated across 22 grammars ranging from simple expressions to full C++ and Java. Our results show that the cost of generality is lower than widely assumed. On deterministic grammars, the GLR family incurs only a 3x median slowdown over LR(1), with a narrow and predictable variance. GLR is the clear performance winner among generalized parsers and a practical default choice for software engineering tools.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.08465v1</guid>
+      <category>cs.FL</category>
+      <category>cs.PF</category>
+      <category>cs.PL</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Huan Vo, Danushka Liyanage, Hong Jin Kang, Sasha Rubin, Rahul Gopinath</dc:creator>
+    </item>
+    <item>
+      <title>Fairness-Aware and Latency-Controllable Scheduling for Chunked-Prefill LLM Serving</title>
+      <link>https://arxiv.org/abs/2606.09061</link>
+      <description>arXiv:2606.09061v1 Announce Type: cross 
+Abstract: As large language models (LLMs) are increasingly deployed with highly heterogeneous workloads, chunked-prefill execution has emerged as a mainstream serving architecture. Balancing scheduling fairness and latency stability in such environments is critical; otherwise, severe head-of-line blocking and request starvation will degrade user experience. However, existing systems rely on rigid First-Come, First-Served (FCFS) policies and static token budgets, leading to fairness degradation and unpredictable latency jitter. To address these issues, we propose a fairness-aware and latency-controllable scheduling framework for chunked-prefill LLM engines. Specifically, we design a lightweight aging-based scheduling policy that dynamically calculates priorities using accumulated waiting time and remaining prefill work. Furthermore, we develop Latency-Prediction-Based Request Scheduling (LPRS) and Active Prefill Control (APC) to replace static budgets with target-time constraints and actively regulate prefill concurrency. We evaluated our scheduling framework on NVIDIA GPUs and Ascend accelerators using real-world workloads. Results show the aging policy reduces mean end-to-end latency by over 10\% compared to FCFS. Moreover, LPRS and APC significantly reduce P99 tail latency and suppress prefill fragmentation, confirming that the structural prefill control and the temporal latency constraints are fundamentally complementary. All codes have been released in Github.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.09061v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Haoxin Liu, Jiayi Wang, Yueshen Xu, Rui Li</dc:creator>
+    </item>
+    <item>
+      <title>Correlation Is Not Enough: Embedding Human Metadata for Individual Causal Discovery</title>
+      <link>https://arxiv.org/abs/2606.09672</link>
+      <description>arXiv:2606.09672v1 Announce Type: cross 
+Abstract: Ask a pretrained biomedical language model whether "cortisol 28 ug/dL" and "stock-market volatility" are related, and it returns a cosine similarity of 0.83 on a scale where 1.0 means identical. The two share no mechanism. This is not a corner case: every off-the-shelf biomedical encoder we tested (BioBERT, PubMedBERT, BioM-ELECTRA) scores unrelated cross-domain pairs between 0.76 and 0.92 when the answer should be near zero. Accuracy on cross-domain discrimination is 0%.
+  Retrieval systems survive this, because a language model downstream filters the noise. A Large Behavioural Model (LBM), a foundation model whose subject is a person rather than a sentence, does not: it reasons over a graph of a user's life and treats embedding proximity as evidence that two events are causally linked. False proximity writes a false causal edge, and everything downstream inherits the error. Here, embedding geometry is not a tuning knob; it is correctness.
+  We report the fix. A contrastive pass over 72,034 pairs raises PubMedBERT BIOSSES correlation from 0.633 to 0.828 and within-vs-across-domain separation from 1.05x to 1.63x. A second pass, BODHI, mines hard negatives from edges absent in a biomedical knowledge graph and lifts separation to 2.30x and the discrimination gap to +0.392, at a 4.5% BIOSSES cost. On an Intel Xeon 6737P with AMX, OpenVINO cuts single-query latency from 1367 ms to 10 ms (133x) and reaches 555 sentences/sec. One finding contradicts standard advice: FP16 beats INT8 on this silicon at every serving batch size, and we explain why. The same model on a no-AMX Ice Lake instance runs 13-27x slower. We release the benchmark suite, training corpora, the BODHI generator, and the OpenVINO scripts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.09672v1</guid>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <category>q-bio.QM</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Suraj Biswas, Saurabh Gupta, Pritam Mukherjee</dc:creator>
+    </item>
+    <item>
+      <title>AutoMegaKernel: A Statically-Checked Agent Harness for Self-Retargeting Megakernel Synthesis</title>
+      <link>https://arxiv.org/abs/2606.09682</link>
+      <description>arXiv:2606.09682v1 Announce Type: cross 
+Abstract: AutoMegaKernel (AMK) compiles a HuggingFace Llama-family model into a single persistent cooperative CUDA kernel that runs the whole forward pass in one launch, with no per-model hand-written CUDA. The contribution is the system, not raw speed.
+  A frozen schedule-IR validator statically certifies deadlock-freedom and race-freedom via static graph checks (not a mechanized proof), so an unsafe agent-proposed schedule is rejected before launch: across 7,160 adversarial schedules (6,091 unsafe) it had zero false-accepts and accepted all 360 real lowerings. The same source retargets sm_80/sm_90/sm_120 from one codebase, auto-generates correct megakernels for 10 of 10 supported models, and on a real SmolLM2-135M checkpoint reproduces HuggingFace greedy decode token-for-token (perplexity match 2.5e-7). An unattended, agent-drivable autoresearch loop self-improves the megakernel over its own baseline (1.25-1.72x).
+  A search-found int8 (W8A16) megakernel beats CUDA-graphed cuBLAS bf16 at batch-1 decode across NVIDIA's datacenter inference fleet: L4 up to 1.33x, the current-gen L40S 1.25-1.27x, A10G up to 1.08x at scale, and the consumer RTX 5090 1.19-1.23x. The ordering is not a clean function of bandwidth (the 864 GB/s L40S beats the 600 GB/s A10G); the divide is inference-class vs training-class. AMK trails cuBLAS on the high-bandwidth training-class A100/H100, where the harness localizes the cross-SM-sync bottleneck; we report the gap plainly. This is a precision-asymmetric (W8A16 vs bf16) comparison at decode position 0; the largest real checkpoint is TinyLlama-1.1B. Code and the harness: https://github.com/RightNow-AI/AutoMegaKernel</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.09682v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jaber Jaber, Osama Jaber</dc:creator>
+    </item>
+    <item>
+      <title>An 84-Format Numeric Catalog with Bit-Exact Conformance Vectors: A Vendor-Neutral Reference for FP8, BF16, MXFP4, and Microscaling Formats</title>
+      <link>https://arxiv.org/abs/2606.09686</link>
+      <description>arXiv:2606.09686v1 Announce Type: cross 
+Abstract: Numeric format proliferation in machine learning hardware -- FP8 (E4M3 and E5M2), BF16, MXFP4, microscaling block formats, and dozens of research variants -- has outpaced the availability of vendor-neutral, bit-exact reference material. Engineers porting models across accelerators encounter silent divergences that are difficult to diagnose without a shared ruler.
+  This paper describes a catalog of 84 numeric formats spanning 13 families, a suite of six bit-exact conformance packs covering GF16, MXFP4 element, BF16, FP8 E4M3, FP8 E5M2, and E8M0 block scale, and an IEEE P3109 v3.2.0 cross-walk that maps each pack to its corresponding standards-track configured format. Each pack is a self-contained JSON document with a SHA-256 fingerprint, a shared row schema, and an anchor vector that encodes 3.0 -- the identity phi^2 + 1/phi^2 = 3 -- as a cross-pack sanity check. Packs are cross-validated against ml_dtypes 0.5.4 (Google/JAX); any divergence is documented explicitly and interpreted as a spec-permitted interpretation gap rather than hidden. The work is framed as registry filling: it does not propose new formats, make model-accuracy claims, or assert superiority over any vendor's implementation. All artifacts are publicly available at https://github.com/gHashTag/t27 under an open license.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.09686v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.MS</category>
+      <category>cs.NA</category>
+      <category>cs.PF</category>
+      <category>math.NA</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Dmitrii Vasilev</dc:creator>
+    </item>
+    <item>
+      <title>SparseX: Efficient Segment-Level KV Cache Sharing for Interleaved LLM Serving</title>
+      <link>https://arxiv.org/abs/2606.01751</link>
+      <description>arXiv:2606.01751v2 Announce Type: replace 
+Abstract: In long-context LLM serving, the prefill stage often dominates time-to-first-token and computational cost. Although Prefix Cache in vLLM/PagedAttention has been widely used to reuse identical prompt prefixes, repeated content in practical applications frequently appears as non-prefix, cross-request, cross-turn, and cross-agent segments, which makes conventional cache mechanisms insufficient. This paper presents SparseX, a segment-level KV Cache sharing method for common serving scenarios. SparseX uses contiguous token segments as reuse units and exploits Sparse-Q indices that naturally arise in KV Cache reuse workloads to estimate the key tokens that require correction. Based on this estimate, SparseX performs Sparse-KV Recomputation within a single forward pass, thereby restoring cross-segment contextual interactions under complex interleaved reuse patterns while avoiding additional models or separate preprocessing stages for token selection. SparseX further implements a full+sparse hybrid attention mode based on a layer-specific threshold: early layers retain full attention to obtain a more stable token-importance signal, and later layers switch to sparse recomputation to improve reuse quality on complex long-context tasks. We implement SparseX-vLLM on top of vLLM, integrating segment-level cache lookup, PagedAttention management, RoPE alignment, Sparse-Q token selection, and FlashAttention backends into a unified execution path. SparseX is model-agnostic, training-free, and compatible with Prefix Cache, and it provides unified support for common online serving scenarios including multi-round chat, retrieval-augmented generation (RAG), and agent workflows.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.01751v2</guid>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Quqing Zhang, Kai Chen, Ning Liao, Zehao Lin, Bo Tang, Feiyu Xiong, Zhiyu Li, Xiaoxing Wang</dc:creator>
+    </item>
+    <item>
+      <title>Emergence-as-Code as a Foundation for Self-Governing Reliable Systems</title>
+      <link>https://arxiv.org/abs/2602.05458</link>
+      <description>arXiv:2602.05458v2 Announce Type: replace-cross 
+Abstract: Service-level objective (SLO)-as-code tools make per-service reliability declarative, but users experience journeys: end-to-end executions whose availability and tail latency emerge from topology, routing, redundancy, timeouts/fallbacks, shared failure domains, and tail amplification. Journey objectives are therefore often maintained outside code and drift away from the effective runtime graph.
+  We propose Emergence-as-Code (EmaC), a declarative contract that compiles journey-level SLI bounds and governance artifacts for declared SLOs from intent and evidence. An EmaC specification defines a typed journey expression, leaf bindings to atomic SLOs and telemetry, failure-domain assumptions, and guarded actions. Model Discovery proposes evidence-backed deltas for edges, branch probabilities, redundancy groups, and failure-domain hypotheses; each delta carries provenance and confidence. The compiler derives optimistic and pessimistic journey bounds and emits reviewable governance artifacts. An executable checkout replay shows that local SLOs can remain green while evidence-backed discovery changes the failure-domain model, collapses the pessimistic payment-race bound, and changes the rollout decision from pass to fail or review.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.05458v2</guid>
+      <category>cs.SE</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Anatoly A. Krasnovsky</dc:creator>
+    </item>
+    <item>
+      <title>Multi-GPU Hybrid Particle-in-Cell Monte Carlo Simulations for Exascale Computing Systems</title>
+      <link>https://arxiv.org/abs/2603.24508</link>
+      <description>arXiv:2603.24508v3 Announce Type: replace-cross 
+Abstract: Particle-in-Cell (PIC) Monte Carlo (MC) simulations are central to plasma physics but face increasing challenges on heterogeneous HPC systems due to excessive data movement, synchronization overheads, and inefficient utilization of multiple accelerators. In this work, we present a portable, multi-GPU hybrid MPI+OpenMP implementation of BIT1 that enables scalable execution on both Nvidia and AMD accelerators through OpenMP target tasks with explicit dependencies to overlap computation and communication across devices. Portability is achieved through persistent device-resident memory, an optimized contiguous one-dimensional data layout, and a transition from unified to pinned host memory to improve large data-transfer efficiency, together with GPU Direct Memory Access (DMA) and runtime interoperability for direct device-pointer access. Standardized and scalable I/O is provided using openPMD and ADIOS2, supporting high-performance file I/O, in-memory data streaming, and in-situ analysis and visualization. Performance results on pre-exascale and exascale systems, including Frontier (OLCF-5) for up to 16,000 GPUs, demonstrate significant improvements in run time, scalability, and resource utilization for large-scale PIC MC simulations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.24508v3</guid>
+      <category>physics.plasm-ph</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jeremy J. Williams, Jordy Trilaksono, Stefan Costea, Yi Ju, Luca Pennati, Jonah Ekelund, David Tskhakaya, Leon Kos, Ales Podolnik, Jakub Hromadka, Allen D. Malony, Sameer Shende, Tilman Dannert, Frank Jenko, Erwin Laure, Stefano Markidis</dc:creator>
+    </item>
+    <item>
+      <title>Ghosted Layers: Unconstrained Activation Alignment for Recovering Layer-Pruned LLMs</title>
+      <link>https://arxiv.org/abs/2605.15491</link>
+      <description>arXiv:2605.15491v2 Announce Type: replace-cross 
+Abstract: Layer pruning removes entire Transformer decoder blocks from large language models, but introduces a mismatch between the hidden state received by the next surviving layer and the distribution it was trained to process, leading to significant performance degradation. We propose Ghosted Layers, a training-free recovery module that addresses this issue by solving a boundary activation alignment problem. Our method derives a closed-form optimal linear operator from a small calibration set to reconstruct the activation discrepancy introduced by the pruned layers. We show that this solution corresponds to the unconstrained optimum of the alignment objective, whereas existing methods are restricted to constrained solutions over limited operator subspaces. Experiments across multiple LLM backbones and pruning strategies demonstrate that our method consistently improves accuracy and perplexity over prior training-free baselines, while preserving the efficiency gains of layer pruning. Official code repository: https://github.com/daniel-eai/ghosted_layers_official_repository/.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.15491v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vincent-Daniel Yun, Junhyuk Jo, Sai Praneeth Karimireddy, Sunwoo Lee</dc:creator>
+    </item>
+    <item>
+      <title>Causal Unlearning in Collaborative Optimization: Exact and Approximate Influence Reversal under Adversarial Contributions</title>
+      <link>https://arxiv.org/abs/2605.20341</link>
+      <description>arXiv:2605.20341v2 Announce Type: replace-cross 
+Abstract: Federated learning systems must support data deletion requests to comply with privacy regulations, yet retraining from scratch after each deletion is computationally prohibitive. We present HF-KCU, a method that removes a client's contribution by approximating the influence function through conjugate gradient iterations in Krylov subspaces, reducing complexity from O(d^3) to O(kd) where k&lt;&lt;d.A causal weighting mechanism ensures that only clients holding the deleted data receive parameter updates, preventing spurious changes to unaffected clients. Our method is designed to handle bounded adversarial perturbations to the Hessian and gradient, providing graceful degradation under realistic threat models. We validate HF-KCU across convolutional (ResNet-18, SimpleCNN) and transformer (ViT-Lite) architectures on CIFAR-10, MNIST, and Fashion-MNIST. On CIFAR-10 under Dirichlet (alpha=0.5) partitioning, HF-KCU achieves 47.75 times speedup over retraining while maintaining test accuracy within 0.60% of the rational baseline(71.16 vs 71.76 %). Membership inference attacks on the forget set yield success rates of 0.499 matching the retrained model and confirming effective privacy restoration. We provide convergence guarantees showing that the Krylov approximation error decreases as O((k ^1/2-1)/(k^1/2+1)) where k is the Hessian condition number. The causal weighting mechanism ensures surgical updates, where only clients holding deleted data are modified, preserving model quality for unaffected participants and avoiding the instability of gradient-based approaches in asynchronous federated settings. This design provides interpretability as each update is directly traceable to the influence of the deleted data. The method's efficiency and precision make it suitable for production federated systems where deletion requests arrive asynchronously and computational budgets are constrained.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.20341v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.CR</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ali Mahdavi, Azadeh Zamanifar, Amirfarhad Farhadi, Omid Kashefi</dc:creator>
+    </item>
+    <item>
+      <title>Learning to Evaluate: Cost-Effective Model Evaluation on Unlabeled Data with Meta-Learning</title>
+      <link>https://arxiv.org/abs/2605.23595</link>
+      <description>arXiv:2605.23595v3 Announce Type: replace-cross 
+Abstract: The rapid advancement of machine learning has led to an unprecedented expansion of model ecosystems, making it increasingly difficult to assess the reliability of newly released models on unseen and unlabeled data. Existing evaluation pipelines typically rely on costly annotation, repeated fine-tuning, or assumptions that do not generalize well to new models. We introduce MetaEvaluator, a cost-effective, model-agnostic framework for fast, label-free evaluation of unseen models across diverse architectures and modalities. MetaEvaluator meta-learns over a pool of reference models to acquire an effective initialization for accurate assessment of unseen models, thereby amortizing evaluation cost and eliminating the need for per-model retraining. To the best of our knowledge, this is the first model-agnostic framework that evaluates new models on unlabeled datasets. Extensive experiments demonstrate that MetaEvaluator delivers stable and accurate performance estimates at substantially lower cost than conventional approaches, enabling scalable benchmarking on unlabeled datasets for emerging models. The code is available at: https://github.com/phkhanhtrinh23/MetaEvaluator.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.23595v3</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.CV</category>
+      <category>cs.ET</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Trinh Pham, Viet Huynh, Hongzhi Yin, Quoc Viet Hung Nguyen, Thanh Tam Nguyen</dc:creator>
+    </item>
+  </channel>
+</rss>
