@@ -7,110 +7,197 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jun 2026 04:00:10 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 04:00:15 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Mon, 08 Jun 2026 00:00:00 -0400</pubDate>
+    <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Saturday</day>
       <day>Sunday</day>
     </skipDays>
     <item>
-      <title>Dependencies and Dataflow in Seed-Filter-Extend Pipelines</title>
-      <link>https://arxiv.org/abs/2606.06811</link>
-      <description>arXiv:2606.06811v1 Announce Type: new 
-Abstract: Comparing genomes is critical for discovering mutations, tracking evolutionary lineages, and advancing cross-species genomics. Fundamentally, this reduces to an O(n^2) string-matching dynamic programming (DP) problem, a challenge that has driven decades of performance research. However, executing a strict O(n^2) DP algorithm is computationally intractable for genomes spanning millions to billions of base pairs. Consequently, modern aligners rely on global heuristics to identify thousands of candidate similarity regions between species. Unfortunately, these methods are burdened by complex serial dependencies. Once candidate regions are identified, the pipeline executes localized DP alignments, which introduce their own non-trivial heuristics and irregular data dependencies. While parallelizing dense, two-dimensional DP is a well-studied problem, accelerating this end-to-end pipeline is significantly more challenging. Parallelizing across candidate regions and offloading irregular, heuristic-laden local alignments to modern hardware (such as GPUs) remains a major hurdle. In this work, we address the challenge of overcoming these serial bottlenecks by optimizing the global pipeline across regions. We take inspiration from four papers: LASTZ, SegAlign, Darwin-WGA, and SNAP, synthesizing findings across each to inform optimizations, which we either prototype or implement directly in LASTZ.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.06811v1</guid>
-      <category>cs.PF</category>
-      <category>q-bio.GN</category>
-      <pubDate>Mon, 08 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Shiv Sundram</dc:creator>
-    </item>
-    <item>
-      <title>ANNS-AMP: Accelerating Approximate Nearest Neighbor Search via Adaptive Mixed-Precision Computing</title>
-      <link>https://arxiv.org/abs/2606.07156</link>
-      <description>arXiv:2606.07156v1 Announce Type: new 
-Abstract: Approximate nearest neighbor search(ANNS) is a critical kernel in modern applications such as LLM and recommendation systems.However,its efficiency is fundamentally limited by the need to compute distances between a query and a massive number of high-dimensional vectors,most of which are non-neighbors.Existing approaches reduce redundancy via index optimization or early termination,but remain constrained by fixed-precision computation,leading to unnecessary arithmetic and memory bandwidth overhead.This paper presents ANNS-AMP,an adaptive mixed-precision framework and accelerator that adapts the precision of distance computation to the characteristics of queries and data distribution.The key insight is that different regions of the vector space require different levels of precision to preserve top-k accuracy.ANNS-AMP leverages the clustered structure of PQ-based indices and introduces a lightweight predictor to determine cluster-level precision at runtime based on features such as scale,radius,and query distance.To efficiently realize variable-precision execution,we design a bit-serial accelerator with a bit-interleaved data layout,enabling throughput to scale with reduced precision while mitigating memory bandwidth bottlenecks and load imbalance through a greedy scheduling strategy.Moreover,the runtime predictor can also reuse the bit-serial computing array for efficient runtime prediction and can be fitted to the ANNS pipeline without performance penalty.According to our experiments on representative datasets,ANNS-AMP achieves 163.76x,10.57x,and 2.06x performance speedups on average,and reduces average energy consumption by 1100.00x,39.41x,and 6.66x compared to CPU,GPU,and customized ANNS accelerator baselines,respectively,while maintaining accuracy loss below 2.7%.These results demonstrate that adaptive mixed-precision computing is a promising direction for efficient large-scale ANNS.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.07156v1</guid>
-      <category>cs.PF</category>
-      <pubDate>Mon, 08 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Mingkai Chen, Cheng Liu, Shengwen Liang, Lei Zhang, Xiaowei Li, Huawei Li</dc:creator>
-    </item>
-    <item>
-      <title>FP8 is All You Need (Part 1): Debunking Hardware FP64 as the HPC Holy Grail</title>
-      <link>https://arxiv.org/abs/2606.06510</link>
-      <description>arXiv:2606.06510v1 Announce Type: cross 
-Abstract: Conventional HPC dogma holds that native hardware FP64 silicon is the irreducible foundation of scientific computing -- the "holy grail" of double-precision simulation. This paper argues the dogma is wrong: on AI-optimised GPUs of the B300 generation and beyond, abundant FP8 tensor throughput combined with the Chinese Remainder Theorem-based Ozaki Scheme II recovers memory-roof execution at full FP64 accuracy across the canonical HPC kernel spectrum. NVIDIA's Blackwell Ultra (B300) collapses native FP64 to ~1.3 TFLOPS -- a 31x regression from the B200 -- rendering even memory-bound kernels (SpMV, GEMV, stencils) compute-bound. We make four contributions. First, a unified analytic model, the Tensor-Memory Equilibrium (TME) model, augmenting the Roofline with a compute multiplier alpha, a bandwidth multiplier beta, and a reconstruction latency gamma. Second, we identify register-level fusion as the mechanism driving beta -&gt; 1, making emulation essentially free behind the memory wall. Third, we project that Ozaki II vaults emulated FP64 from the ~1 TFLOPS native floor to ~500 TFLOPS (B300) and ~400 TFLOPS (Rubin R200), exceeding even B200's native FP64 ceiling by over an order of magnitude in the compute-bound regime while matching the memory roof in the bandwidth-bound regime. Fourth, against an H100 baseline, Ozaki II matches or exceeds H100 on every workload studied, versus the up-to-50x regression that B300 native FP64 imposes. Combined with a companion FFT analysis (Kulisch fixed-point reconstruction on the surviving INT32 pipe) and FP32+Kahan reductions reported in the companion Part(2) paper, every surveyed kernel class on B300 reaches the memory roof at full FP64. The evidence supports the title's claim: FP8, with Ozaki II and Kulisch escape routes, is all one needs for production HPC; native FP64 silicon is no longer the holy grail it has been taken to be.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.06510v1</guid>
-      <category>cs.AR</category>
-      <category>cs.AI</category>
-      <category>cs.DC</category>
-      <category>cs.PF</category>
-      <pubDate>Mon, 08 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Satoshi Matsuoka</dc:creator>
-    </item>
-    <item>
-      <title>P-Cast Precision in FP8 Attention: Sink-Induced Collapse and the Optimality of S=2^8</title>
-      <link>https://arxiv.org/abs/2606.06521</link>
-      <description>arXiv:2606.06521v1 Announce Type: cross 
-Abstract: FP8 (E4M3) acceleration for attention computation offers significant throughput gains, but the 3-bit mantissa introduces precision challenges when the softmax probability matrix P is cast to FP8 before the P*V matrix multiplication. We analyze two implementation choices that affect output precision under the Attention Sink phenomenon: (1) the KV block iteration order, and (2) the static scaling factor applied to P before casting. We show that forward KV iteration causes "P-collapse" -- to leading order, a fraction Phi(Delta + delta_k - 6.93 - ln S) of non-sink P values underflow to zero, where the small shift delta_k ~ 1 (for k_sink = 4) is the expected within-sink-block score maximum -- and that reverse iteration removes it, with a zero-underflow guarantee when reverse is combined with S = 256. We further give a constructive characterization of S = 256 = 2^8 as the static scale that simultaneously satisfies (i) bit-exact IEEE 754 scaling, (ii) the lower envelope of a sawtooth function dp(S) over the E4M3 number line (dp = 2^-4, the minimum worst-case quantization step), and (iii) the maximum normal-range coverage among bit-exact (2^k) scales (a non-bit-exact scale such as 448 attains slightly higher coverage). Both optimizations are already deployed in FlashAttention-3/4 on engineering grounds; our contribution is a quantitative account of why these choices are good and a closed-form threshold Delta_c = 6.93 + ln S - delta_k for predicting kernel-level precision loss. Kernel-faithful experiments (Q, K, V in FP32 to isolate the P-cast effect) show 3-10x MSE improvement at moderate sink strengths, and paired tests confirm both fixes saturate to the same precision floor when combined.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.06521v1</guid>
-      <category>cs.AR</category>
-      <category>cs.AI</category>
-      <category>cs.DC</category>
+      <title>Attention at the Theoretical Minimum: A Mathematics of Arrays Framework for Memory-Optimal Transformer Kernels</title>
+      <link>https://arxiv.org/abs/2606.07713</link>
+      <description>arXiv:2606.07713v1 Announce Type: cross 
+Abstract: The attention mechanism is the dominant computational bottleneck in modern transformer-based AI. Its standard implementation incurs quadratic memory traffic in the sequence length~$n$, and DRAM accesses cost 100--1000$\times$ more energy than arithmetic operations on contemporary hardware, so any analysis focused solely on FLOP counts fundamentally mischaracterises the bottleneck.
+  We present a Mathematics of Arrays (MoA) reformulation of scaled dot-product attention and its numerically stable softmax, deriving a Denotational Normal Form (DNF) that eliminates all intermediate arrays -- including the implicit transposed-key buffer and every softmax temporary -- by algebraic construction rather than empirical tuning. The DNF achieves $O(n_{dk} + n{_{dv}})$ data movement versus $O(n^2 + n_{dk} + n_{dv})$ for the standard implementation, where $n$ is the sequence length, $dk$ is the key dimensionality and $dv$ the value dimensionality, and is verified numerically against PyTorch at full double-precision floating-point on concrete inputs.
+  Unlike hardware-specific accelerators or empirical tiling schemes such as FlashAttention, MoA simultaneously provides array fusion, shape-transformation correctness, and predictive cost models from a single algebraic framework. Memory minimality is a theorem established before any code is written. A predictive performance model projects $2$--$100\times$ speedup and $2$--$50\times$ energy reduction, with the advantage widening at exascale. The derivation establishes a formally verified pipeline from Python specification through (ONF) Operational Normal Form, and dimension-lifted hardware mapping, providing performance-portable AI kernels of direct relevance to DARPA edge-deployment and DOE exascale priorities.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.07713v1</guid>
       <category>cs.LG</category>
+      <category>cs.AI</category>
       <category>cs.PF</category>
-      <pubDate>Mon, 08 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Reed Lau</dc:creator>
-    </item>
-    <item>
-      <title>Quantized AI Inference on Constrained Embedded Platforms for Small-Satellite Settings</title>
-      <link>https://arxiv.org/abs/2606.06528</link>
-      <description>arXiv:2606.06528v1 Announce Type: cross 
-Abstract: In resource-constrained small-satellite settings, AI inference must operate under tight size, power, and payload budgets, which tend to limit onboard compute capability and data handling. These conditions motivate establishing a clear baseline for quantized AI inference under bounded compute and memory resources. To instantiate this baseline, a representative embedded-vision neural-network workload serves as the reference case. With this motivation, this paper presents a measurement-based characterization of quantized execution for this AI workload on highly constrained embedded platforms (for instance, Cortex-M), grounded as a lower-bound operating point. In this regime, scaling tends to rely on explicit orchestration rather than OS-managed, transparent multicore scheduling, and timing behavior is shaped by instruction efficiency and memory movement. As a result, the characterization provides a structured reference for estimating execution time across orchestrated configurations (e.g., multiple cores and/or devices), treating orchestration and architectural variation as explicit design choices. We report latency metrics alongside data-movement observations, and interpret these measurements in light of ALU/SIMD utilization under quantized arithmetic for the Cortex-M. Finally, we outline how this baseline provides a reference point for positioning the results against more space-typical embedded processor classes (e.g., LEON/NOEL-V).</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.06528v1</guid>
-      <category>cs.AR</category>
-      <category>cs.PF</category>
-      <pubDate>Mon, 08 Jun 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Carlos Rafael Tordoya Taquichiri, Hans Dermot Doran, Pablo Ghiglino</dc:creator>
+      <dc:creator>Lenore Mullin, Gaetan Hains</dc:creator>
     </item>
     <item>
-      <title>AEGIS: A Backup Reflex for Physical AI</title>
-      <link>https://arxiv.org/abs/2606.06660</link>
-      <description>arXiv:2606.06660v1 Announce Type: cross 
-Abstract: Long-horizon robot manipulation tends to fail gradually: one bad step degrades the state, and the policy spirals into a basin from which it cannot recover. The failure is often visible before it happens. We introduce AEGIS (Activation-probe Early-warning, Gated Inference Switching), a selective escalation method that uses a lightweight probe on a weak policy's frozen activations to detect high-risk steps while there is still time to act. When the probe flags a step, control switches to a stronger separate policy, but only for the steps that need it. On LIBERO-Spatial, AEGIS recovers 10.1% of the trajectories the weak policy alone loses, versus 4.6% for budget-matched blind escalation and 5.1% for a random-trigger placebo. These gains are significant under one-sided exact paired McNemar tests with Holm-Bonferroni adjustment over three pre-registered contrasts: +5.4pp over blind escalation, p=8.5e-6; +5.0pp over random triggering, p=1.0e-4; paired-trajectory bootstrap CIs exclude zero. AEGIS activates the stronger policy on only 38% of steps, so the lever is timing rather than compute. The probe clears its precondition with an early-window AUROC of 0.764, 95% CI [0.70, 0.84], read from the weak-policy path over the first 30% of trajectory steps before any handoff. We pre-register the full analysis plan, including a conditional recovered-task-rate estimand and explicit kill criteria, and confirm the result on 700 common-random-number episodes per arm, with nA-fail=646.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.06660v1</guid>
-      <category>cs.AI</category>
+      <title>An Empirical Comparison of General Context-Free Parsers</title>
+      <link>https://arxiv.org/abs/2606.08465</link>
+      <description>arXiv:2606.08465v1 Announce Type: cross 
+Abstract: Parsing underpins a vast range of software engineering tasks, from compilers and static analyzers to language servers and fuzz testing tools. Yet most parsers deployed in practice are deterministic (LL or LR), forcing developers not only to contort their grammars to fit the parser, but to simplify the very languages they design sacrificing expressiveness for the sake of parseability. General context-free parsers eliminate this constraint. Yet, despite decades of algorithmic development, no rigorous head-to-head comparison exists across the major families of parsing algorithms.
+  We present the first unified, controlled benchmark of six generalized parsing algorithms: CYK, Valiant, Earley, GLL, RNGLR, and BRNGLR, plus deterministic LL(1) and LR(1) baselines, all implemented in Rust with shared data structures and parse-tree extraction, and evaluated across 22 grammars ranging from simple expressions to full C++ and Java. Our results show that the cost of generality is lower than widely assumed. On deterministic grammars, the GLR family incurs only a 3x median slowdown over LR(1), with a narrow and predictable variance. GLR is the clear performance winner among generalized parsers and a practical default choice for software engineering tools.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.08465v1</guid>
+      <category>cs.FL</category>
       <category>cs.PF</category>
-      <category>cs.RO</category>
-      <pubDate>Mon, 08 Jun 2026 00:00:00 -0400</pubDate>
+      <category>cs.PL</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Josef Chen</dc:creator>
+      <dc:creator>Huan Vo, Danushka Liyanage, Hong Jin Kang, Sasha Rubin, Rahul Gopinath</dc:creator>
     </item>
     <item>
-      <title>The World's Fastest Matching Engine Algorithm</title>
-      <link>https://arxiv.org/abs/2606.01183</link>
-      <description>arXiv:2606.01183v2 Announce Type: replace-cross 
-Abstract: A single CPU core sustains 32 million order messages per second at sub-microsecond median wire-to-wire latency, up to 11 times faster than the best open-source matching engines on identical hardware. Scaled out, a single 96-core commodity server (~$1,630/month) sustains ~640 million messages per second across 10,000 symbols, over 20 times the provisioned capacity of the U.S. consolidated quote feed. We reach these numbers by attacking the storage layer that sets matching latency. The dominant order-book implementation, linked lists chained through a balanced tree, imposes two costs on every operation: pointer-chased traversal to the insertion point, and root-to-leaf search to locate the target price level. Under micro-bursts these costs produce tail-latency spikes that degrade market quality precisely when liquidity is most needed. We present two data-structure contributions that eliminate them. The first is the Priority-Indicated Node (PIN), a priority queue in which entries occupy fixed-capacity, contiguously addressable slots, with indicators encoding each entry's global priority status. Unlike heaps, which require O(log n) comparisons per operation, the PIN resolves insertion position directly from the indicators without comparing entries; indicator updates are O(1), independent of queue size. A depth-aware capacity model sizes each PIN so hot entries fit within L1 residency. The second targets a broader inefficiency: balanced search trees search from root to leaf on every insertion and deletion, even when the caller already knows the key's in-order neighbors, which in ordered event streams and electronic trading are available at zero cost. Neighbor-aware insertion and deletion use known neighbor references to attach or remove a node with O(1) reference writes, followed by single-path rebalancing, across red-black, AVL, and B+-tree variants.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.01183v2</guid>
+      <title>Fairness-Aware and Latency-Controllable Scheduling for Chunked-Prefill LLM Serving</title>
+      <link>https://arxiv.org/abs/2606.09061</link>
+      <description>arXiv:2606.09061v1 Announce Type: cross 
+Abstract: As large language models (LLMs) are increasingly deployed with highly heterogeneous workloads, chunked-prefill execution has emerged as a mainstream serving architecture. Balancing scheduling fairness and latency stability in such environments is critical; otherwise, severe head-of-line blocking and request starvation will degrade user experience. However, existing systems rely on rigid First-Come, First-Served (FCFS) policies and static token budgets, leading to fairness degradation and unpredictable latency jitter. To address these issues, we propose a fairness-aware and latency-controllable scheduling framework for chunked-prefill LLM engines. Specifically, we design a lightweight aging-based scheduling policy that dynamically calculates priorities using accumulated waiting time and remaining prefill work. Furthermore, we develop Latency-Prediction-Based Request Scheduling (LPRS) and Active Prefill Control (APC) to replace static budgets with target-time constraints and actively regulate prefill concurrency. We evaluated our scheduling framework on NVIDIA GPUs and Ascend accelerators using real-world workloads. Results show the aging policy reduces mean end-to-end latency by over 10\% compared to FCFS. Moreover, LPRS and APC significantly reduce P99 tail latency and suppress prefill fragmentation, confirming that the structural prefill control and the temporal latency constraints are fundamentally complementary. All codes have been released in Github.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.09061v1</guid>
       <category>cs.DC</category>
-      <category>cs.DB</category>
-      <category>cs.DS</category>
       <category>cs.PF</category>
-      <pubDate>Mon, 08 Jun 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Haoxin Liu, Jiayi Wang, Yueshen Xu, Rui Li</dc:creator>
+    </item>
+    <item>
+      <title>Correlation Is Not Enough: Embedding Human Metadata for Individual Causal Discovery</title>
+      <link>https://arxiv.org/abs/2606.09672</link>
+      <description>arXiv:2606.09672v1 Announce Type: cross 
+Abstract: Ask a pretrained biomedical language model whether "cortisol 28 ug/dL" and "stock-market volatility" are related, and it returns a cosine similarity of 0.83 on a scale where 1.0 means identical. The two share no mechanism. This is not a corner case: every off-the-shelf biomedical encoder we tested (BioBERT, PubMedBERT, BioM-ELECTRA) scores unrelated cross-domain pairs between 0.76 and 0.92 when the answer should be near zero. Accuracy on cross-domain discrimination is 0%.
+  Retrieval systems survive this, because a language model downstream filters the noise. A Large Behavioural Model (LBM), a foundation model whose subject is a person rather than a sentence, does not: it reasons over a graph of a user's life and treats embedding proximity as evidence that two events are causally linked. False proximity writes a false causal edge, and everything downstream inherits the error. Here, embedding geometry is not a tuning knob; it is correctness.
+  We report the fix. A contrastive pass over 72,034 pairs raises PubMedBERT BIOSSES correlation from 0.633 to 0.828 and within-vs-across-domain separation from 1.05x to 1.63x. A second pass, BODHI, mines hard negatives from edges absent in a biomedical knowledge graph and lifts separation to 2.30x and the discrimination gap to +0.392, at a 4.5% BIOSSES cost. On an Intel Xeon 6737P with AMX, OpenVINO cuts single-query latency from 1367 ms to 10 ms (133x) and reaches 555 sentences/sec. One finding contradicts standard advice: FP16 beats INT8 on this silicon at every serving batch size, and we explain why. The same model on a no-AMX Ice Lake instance runs 13-27x slower. We release the benchmark suite, training corpora, the BODHI generator, and the OpenVINO scripts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.09672v1</guid>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <category>q-bio.QM</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Suraj Biswas, Saurabh Gupta, Pritam Mukherjee</dc:creator>
+    </item>
+    <item>
+      <title>AutoMegaKernel: A Statically-Checked Agent Harness for Self-Retargeting Megakernel Synthesis</title>
+      <link>https://arxiv.org/abs/2606.09682</link>
+      <description>arXiv:2606.09682v1 Announce Type: cross 
+Abstract: AutoMegaKernel (AMK) compiles a HuggingFace Llama-family model into a single persistent cooperative CUDA kernel that runs the whole forward pass in one launch, with no per-model hand-written CUDA. The contribution is the system, not raw speed.
+  A frozen schedule-IR validator statically certifies deadlock-freedom and race-freedom via static graph checks (not a mechanized proof), so an unsafe agent-proposed schedule is rejected before launch: across 7,160 adversarial schedules (6,091 unsafe) it had zero false-accepts and accepted all 360 real lowerings. The same source retargets sm_80/sm_90/sm_120 from one codebase, auto-generates correct megakernels for 10 of 10 supported models, and on a real SmolLM2-135M checkpoint reproduces HuggingFace greedy decode token-for-token (perplexity match 2.5e-7). An unattended, agent-drivable autoresearch loop self-improves the megakernel over its own baseline (1.25-1.72x).
+  A search-found int8 (W8A16) megakernel beats CUDA-graphed cuBLAS bf16 at batch-1 decode across NVIDIA's datacenter inference fleet: L4 up to 1.33x, the current-gen L40S 1.25-1.27x, A10G up to 1.08x at scale, and the consumer RTX 5090 1.19-1.23x. The ordering is not a clean function of bandwidth (the 864 GB/s L40S beats the 600 GB/s A10G); the divide is inference-class vs training-class. AMK trails cuBLAS on the high-bandwidth training-class A100/H100, where the harness localizes the cross-SM-sync bottleneck; we report the gap plainly. This is a precision-asymmetric (W8A16 vs bf16) comparison at decode position 0; the largest real checkpoint is TinyLlama-1.1B. Code and the harness: https://github.com/RightNow-AI/AutoMegaKernel</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.09682v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jaber Jaber, Osama Jaber</dc:creator>
+    </item>
+    <item>
+      <title>An 84-Format Numeric Catalog with Bit-Exact Conformance Vectors: A Vendor-Neutral Reference for FP8, BF16, MXFP4, and Microscaling Formats</title>
+      <link>https://arxiv.org/abs/2606.09686</link>
+      <description>arXiv:2606.09686v1 Announce Type: cross 
+Abstract: Numeric format proliferation in machine learning hardware -- FP8 (E4M3 and E5M2), BF16, MXFP4, microscaling block formats, and dozens of research variants -- has outpaced the availability of vendor-neutral, bit-exact reference material. Engineers porting models across accelerators encounter silent divergences that are difficult to diagnose without a shared ruler.
+  This paper describes a catalog of 84 numeric formats spanning 13 families, a suite of six bit-exact conformance packs covering GF16, MXFP4 element, BF16, FP8 E4M3, FP8 E5M2, and E8M0 block scale, and an IEEE P3109 v3.2.0 cross-walk that maps each pack to its corresponding standards-track configured format. Each pack is a self-contained JSON document with a SHA-256 fingerprint, a shared row schema, and an anchor vector that encodes 3.0 -- the identity phi^2 + 1/phi^2 = 3 -- as a cross-pack sanity check. Packs are cross-validated against ml_dtypes 0.5.4 (Google/JAX); any divergence is documented explicitly and interpreted as a spec-permitted interpretation gap rather than hidden. The work is framed as registry filling: it does not propose new formats, make model-accuracy claims, or assert superiority over any vendor's implementation. All artifacts are publicly available at https://github.com/gHashTag/t27 under an open license.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.09686v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.MS</category>
+      <category>cs.NA</category>
+      <category>cs.PF</category>
+      <category>math.NA</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Dmitrii Vasilev</dc:creator>
+    </item>
+    <item>
+      <title>SparseX: Efficient Segment-Level KV Cache Sharing for Interleaved LLM Serving</title>
+      <link>https://arxiv.org/abs/2606.01751</link>
+      <description>arXiv:2606.01751v2 Announce Type: replace 
+Abstract: In long-context LLM serving, the prefill stage often dominates time-to-first-token and computational cost. Although Prefix Cache in vLLM/PagedAttention has been widely used to reuse identical prompt prefixes, repeated content in practical applications frequently appears as non-prefix, cross-request, cross-turn, and cross-agent segments, which makes conventional cache mechanisms insufficient. This paper presents SparseX, a segment-level KV Cache sharing method for common serving scenarios. SparseX uses contiguous token segments as reuse units and exploits Sparse-Q indices that naturally arise in KV Cache reuse workloads to estimate the key tokens that require correction. Based on this estimate, SparseX performs Sparse-KV Recomputation within a single forward pass, thereby restoring cross-segment contextual interactions under complex interleaved reuse patterns while avoiding additional models or separate preprocessing stages for token selection. SparseX further implements a full+sparse hybrid attention mode based on a layer-specific threshold: early layers retain full attention to obtain a more stable token-importance signal, and later layers switch to sparse recomputation to improve reuse quality on complex long-context tasks. We implement SparseX-vLLM on top of vLLM, integrating segment-level cache lookup, PagedAttention management, RoPE alignment, Sparse-Q token selection, and FlashAttention backends into a unified execution path. SparseX is model-agnostic, training-free, and compatible with Prefix Cache, and it provides unified support for common online serving scenarios including multi-round chat, retrieval-augmented generation (RAG), and agent workflows.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.01751v2</guid>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Quqing Zhang, Kai Chen, Ning Liao, Zehao Lin, Bo Tang, Feiyu Xiong, Zhiyu Li, Xiaoxing Wang</dc:creator>
+    </item>
+    <item>
+      <title>Emergence-as-Code as a Foundation for Self-Governing Reliable Systems</title>
+      <link>https://arxiv.org/abs/2602.05458</link>
+      <description>arXiv:2602.05458v2 Announce Type: replace-cross 
+Abstract: Service-level objective (SLO)-as-code tools make per-service reliability declarative, but users experience journeys: end-to-end executions whose availability and tail latency emerge from topology, routing, redundancy, timeouts/fallbacks, shared failure domains, and tail amplification. Journey objectives are therefore often maintained outside code and drift away from the effective runtime graph.
+  We propose Emergence-as-Code (EmaC), a declarative contract that compiles journey-level SLI bounds and governance artifacts for declared SLOs from intent and evidence. An EmaC specification defines a typed journey expression, leaf bindings to atomic SLOs and telemetry, failure-domain assumptions, and guarded actions. Model Discovery proposes evidence-backed deltas for edges, branch probabilities, redundancy groups, and failure-domain hypotheses; each delta carries provenance and confidence. The compiler derives optimistic and pessimistic journey bounds and emits reviewable governance artifacts. An executable checkout replay shows that local SLOs can remain green while evidence-backed discovery changes the failure-domain model, collapses the pessimistic payment-race bound, and changes the rollout decision from pass to fail or review.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.05458v2</guid>
+      <category>cs.SE</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Anatoly A. Krasnovsky</dc:creator>
+    </item>
+    <item>
+      <title>Multi-GPU Hybrid Particle-in-Cell Monte Carlo Simulations for Exascale Computing Systems</title>
+      <link>https://arxiv.org/abs/2603.24508</link>
+      <description>arXiv:2603.24508v3 Announce Type: replace-cross 
+Abstract: Particle-in-Cell (PIC) Monte Carlo (MC) simulations are central to plasma physics but face increasing challenges on heterogeneous HPC systems due to excessive data movement, synchronization overheads, and inefficient utilization of multiple accelerators. In this work, we present a portable, multi-GPU hybrid MPI+OpenMP implementation of BIT1 that enables scalable execution on both Nvidia and AMD accelerators through OpenMP target tasks with explicit dependencies to overlap computation and communication across devices. Portability is achieved through persistent device-resident memory, an optimized contiguous one-dimensional data layout, and a transition from unified to pinned host memory to improve large data-transfer efficiency, together with GPU Direct Memory Access (DMA) and runtime interoperability for direct device-pointer access. Standardized and scalable I/O is provided using openPMD and ADIOS2, supporting high-performance file I/O, in-memory data streaming, and in-situ analysis and visualization. Performance results on pre-exascale and exascale systems, including Frontier (OLCF-5) for up to 16,000 GPUs, demonstrate significant improvements in run time, scalability, and resource utilization for large-scale PIC MC simulations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.24508v3</guid>
+      <category>physics.plasm-ph</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Jake Yoon</dc:creator>
+      <dc:creator>Jeremy J. Williams, Jordy Trilaksono, Stefan Costea, Yi Ju, Luca Pennati, Jonah Ekelund, David Tskhakaya, Leon Kos, Ales Podolnik, Jakub Hromadka, Allen D. Malony, Sameer Shende, Tilman Dannert, Frank Jenko, Erwin Laure, Stefano Markidis</dc:creator>
+    </item>
+    <item>
+      <title>Ghosted Layers: Unconstrained Activation Alignment for Recovering Layer-Pruned LLMs</title>
+      <link>https://arxiv.org/abs/2605.15491</link>
+      <description>arXiv:2605.15491v2 Announce Type: replace-cross 
+Abstract: Layer pruning removes entire Transformer decoder blocks from large language models, but introduces a mismatch between the hidden state received by the next surviving layer and the distribution it was trained to process, leading to significant performance degradation. We propose Ghosted Layers, a training-free recovery module that addresses this issue by solving a boundary activation alignment problem. Our method derives a closed-form optimal linear operator from a small calibration set to reconstruct the activation discrepancy introduced by the pruned layers. We show that this solution corresponds to the unconstrained optimum of the alignment objective, whereas existing methods are restricted to constrained solutions over limited operator subspaces. Experiments across multiple LLM backbones and pruning strategies demonstrate that our method consistently improves accuracy and perplexity over prior training-free baselines, while preserving the efficiency gains of layer pruning. Official code repository: https://github.com/daniel-eai/ghosted_layers_official_repository/.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.15491v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vincent-Daniel Yun, Junhyuk Jo, Sai Praneeth Karimireddy, Sunwoo Lee</dc:creator>
+    </item>
+    <item>
+      <title>Causal Unlearning in Collaborative Optimization: Exact and Approximate Influence Reversal under Adversarial Contributions</title>
+      <link>https://arxiv.org/abs/2605.20341</link>
+      <description>arXiv:2605.20341v2 Announce Type: replace-cross 
+Abstract: Federated learning systems must support data deletion requests to comply with privacy regulations, yet retraining from scratch after each deletion is computationally prohibitive. We present HF-KCU, a method that removes a client's contribution by approximating the influence function through conjugate gradient iterations in Krylov subspaces, reducing complexity from O(d^3) to O(kd) where k&lt;&lt;d.A causal weighting mechanism ensures that only clients holding the deleted data receive parameter updates, preventing spurious changes to unaffected clients. Our method is designed to handle bounded adversarial perturbations to the Hessian and gradient, providing graceful degradation under realistic threat models. We validate HF-KCU across convolutional (ResNet-18, SimpleCNN) and transformer (ViT-Lite) architectures on CIFAR-10, MNIST, and Fashion-MNIST. On CIFAR-10 under Dirichlet (alpha=0.5) partitioning, HF-KCU achieves 47.75 times speedup over retraining while maintaining test accuracy within 0.60% of the rational baseline(71.16 vs 71.76 %). Membership inference attacks on the forget set yield success rates of 0.499 matching the retrained model and confirming effective privacy restoration. We provide convergence guarantees showing that the Krylov approximation error decreases as O((k ^1/2-1)/(k^1/2+1)) where k is the Hessian condition number. The causal weighting mechanism ensures surgical updates, where only clients holding deleted data are modified, preserving model quality for unaffected participants and avoiding the instability of gradient-based approaches in asynchronous federated settings. This design provides interpretability as each update is directly traceable to the influence of the deleted data. The method's efficiency and precision make it suitable for production federated systems where deletion requests arrive asynchronously and computational budgets are constrained.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.20341v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.CR</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ali Mahdavi, Azadeh Zamanifar, Amirfarhad Farhadi, Omid Kashefi</dc:creator>
+    </item>
+    <item>
+      <title>Learning to Evaluate: Cost-Effective Model Evaluation on Unlabeled Data with Meta-Learning</title>
+      <link>https://arxiv.org/abs/2605.23595</link>
+      <description>arXiv:2605.23595v3 Announce Type: replace-cross 
+Abstract: The rapid advancement of machine learning has led to an unprecedented expansion of model ecosystems, making it increasingly difficult to assess the reliability of newly released models on unseen and unlabeled data. Existing evaluation pipelines typically rely on costly annotation, repeated fine-tuning, or assumptions that do not generalize well to new models. We introduce MetaEvaluator, a cost-effective, model-agnostic framework for fast, label-free evaluation of unseen models across diverse architectures and modalities. MetaEvaluator meta-learns over a pool of reference models to acquire an effective initialization for accurate assessment of unseen models, thereby amortizing evaluation cost and eliminating the need for per-model retraining. To the best of our knowledge, this is the first model-agnostic framework that evaluates new models on unlabeled datasets. Extensive experiments demonstrate that MetaEvaluator delivers stable and accurate performance estimates at substantially lower cost than conventional approaches, enabling scalable benchmarking on unlabeled datasets for emerging models. The code is available at: https://github.com/phkhanhtrinh23/MetaEvaluator.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.23595v3</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.CV</category>
+      <category>cs.ET</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Trinh Pham, Viet Huynh, Hongzhi Yin, Quoc Viet Hung Nguyen, Thanh Tam Nguyen</dc:creator>
     </item>
   </channel>
 </rss>
