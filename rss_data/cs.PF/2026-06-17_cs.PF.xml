@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PF updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PF</link>
+    <description>cs.PF updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Jun 2026 04:00:04 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>The Right Call for Software Benchmarking: Consistent Decisions in Stateful Environments</title>
+      <link>https://arxiv.org/abs/2606.17261</link>
+      <description>arXiv:2606.17261v1 Announce Type: new 
+Abstract: In the perpetual pursuit of performance, modern computing systems rely ever more on stateful mechanisms to accommodate the dynamics of workloads and physical environments, bolstering efficiency but confounding benchmarking and thereby the optimization of software. Indeed, by their nature, adaptive mechanisms introduce temporal dependencies between measurements and render naive estimators of individual program performance biased. Observing that rectifying such biases necessitates speculative assumptions about system dynamics, we call for prioritizing performance differentials over absolute measures and formalize software benchmarking as the decision problem of identifying the fastest program, for which relative knowledge suffices. To this end, we propose simple experiment designs admitting consistent estimators of contrasts, whereby program-specific biases cancel under tenable assumptions. These designs asymptotically yield the correct decision and afford a robust methodology for finite-budget benchmarking in stateful environments, bearing broad implications for the development of performance-sensitive software.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.17261v1</guid>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <category>stat.AP</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>G\'abor Melis</dc:creator>
+    </item>
+    <item>
+      <title>The Price of Anarchy in Disaggregated Inference</title>
+      <link>https://arxiv.org/abs/2606.17081</link>
+      <description>arXiv:2606.17081v1 Announce Type: cross 
+Abstract: Disaggregated inference architectures physically separate prefill and decode phases onto distinct GPU pools, creating competing "agents" that share a fixed hardware budget. We provide, to our knowledge, the first formal game-theoretic analysis of this architecture, using NVIDIA Dynamo as a concrete case study. We model disaggregated serving as three coupled games: a two-player resource game between prefill and decode pools, a selfish caching game over the hierarchical KV cache, and a congestion game with positive externalities for request routing. We empirically validate the latter two; the P/D resource game is treated analytically (Section 9.2). We characterize how GPU saturation induces regime transitions that shift the game's payoff structure: below saturation, selfish behavior has bounded Price of Anarchy (PoA); at saturation, superlinear latency and cache externalities drive our empirical estimator PoA-hat (defined in Section 6.4) upward. Based on this analysis, we design an adaptive controller that detects saturation transitions in real time and adjusts routing parameters accordingly, shifting from cache-affinity exploitation to load-balanced congestion avoidance. We instantiate our framework on a 3-node NVIDIA B200 cluster running Dynamo with two models, Nemotron-4-340B (TP=8, full-node workers with cross-InfiniBand KV transfers) and Llama-3.1-70B (TP=4), and find the same three-regime PoA-hat structure with the same first post-knee grid point (C=128) on both models. Adaptive routing shifts each model to a better operating point. Our strongest result is on the 70B 1P/5D topology, where PoA-hat drops 3.1x (66.4 to 21.5) in the saturated phase at a 13% throughput cost. On the 70B 1P/2D, PoA-hat drops 2.2x and TTFT P99 drops 7.6x (see Section 8.5).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.17081v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.GT</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Athos Georgiou (NCA)</dc:creator>
+    </item>
+    <item>
+      <title>Fractional Verkle Trees: A Hypertree Decomposition and Verified Proof Serialization Architecture for High-Performance Blockchain State Accumulators</title>
+      <link>https://arxiv.org/abs/2606.17111</link>
+      <description>arXiv:2606.17111v1 Announce Type: cross 
+Abstract: Modern blockchain state management faces a critical scalability bottleneck: maintaining cryptographic commitments over hundreds of millions of entries becomes computationally prohibitive. Ethereum's transition to Verkle Trees: polynomial commitment accumulators reducing proof sizes from O(width * depth) to O(depth) via constant-size IPA vector commitments, is a critical step toward stateless operation. Yet, current implementations exhibit pathological characteristics that burden home validators.
+  We identify four inefficiencies in the reference go-verkle implementation \cite{kaur2025goverkle, kaur2025goethereum}: (1) phantom node creation during non-existent account deletion; (2) 64-byte database keys triggering excessive LSM-tree compaction; (3) redundant memory copying in proof deserialization; (4) a Proof of Absence wire format incompatibility causing non-deterministic serialization.
+  We present Fractional Verkle Trees (FVT), a hypertree decomposition partitioning global state into N independent sub-accumulators coordinated by a Merkle commitment tree, achieving improved cache locality, zero-lock-contention goroutine-parallel commitment computation, and faster root recomputation (91 $\mu$s vs $\sim$500 ms). We address each inefficiency via existence checks, 32-byte SHA256 node references, zero-copy reference-counted buffers, and HashMap-based lexicographic deduplication.
+  Benchmarks on Apple M1 Pro show 57\% heap allocation reduction (566,760 to 242,004 bytes per 10K proofs), parallel insertion at 2,433 ns/op, and network-wide elimination of 4.85 PB/year across 6,000 full nodes, advancing the Ethereum stateless roadmap.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.17111v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Ekleen Kaur, Everton Fraga</dc:creator>
+    </item>
+    <item>
+      <title>OpenGadget3 GPU solver tests</title>
+      <link>https://arxiv.org/abs/2606.17145</link>
+      <description>arXiv:2606.17145v1 Announce Type: cross 
+Abstract: We present an in-depth evaluation of the scalability and accuracy of the GPU porting of the N-body code for hydrodynamic cosmological simulations \og. While technical details of our GPU porting were presented in Ragagnin et al. (2020), in this work we focus on assessing the accuracy of the ported modules: the short range gravity integrator, the different components of the hydrodynamic solver, and the conjugate gradient solver for thermal conduction. We ran several tests that gradually increase the number of physical modules included: a gravity-only cosmological simulation; a hydrodynamical shock tube test; a non-radiative zoom-in simulation of a galaxy cluster in a cosmological box; and a full-physics zoom-in simulation of a galaxy in a cosmological box. Comparing the results obtained with the GPU implementation to those from the classical CPU version, we find excellent agreement across all tests, with small differences on very small scales. For the individual physical modules, we find a GPU chip-to-chip speedup ranging from $\approx3-5$. For more complex cosmological and hydrodynamical setups, where a large number of physical processes and overheads contribute to the total workload, the observed total chip-to-chip speedup (with the same number of nodes and CPUs per node) is $\approx2-3$. We ran our tests on four different supercomputers: Leonardo Booster (CINECA), MareNostrum-V (BSC), SuperMUC-NG2 (LRZ), and the CIP cluster of the Faculty of Physics at the Ludwig-Maximilians-Universit\"at (LMU).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.17145v1</guid>
+      <category>astro-ph.IM</category>
+      <category>astro-ph.CO</category>
+      <category>astro-ph.GA</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1016/j.ascom.2026.101131</arxiv:DOI>
+      <arxiv:journal_reference>Astronomy and Computing, Volume 57, 2026, 101131, ISSN 2213-1337</arxiv:journal_reference>
+      <dc:creator>A. Ragagnin, G. S. Karademir, F. Groth, K. Dolag, L. M. B\"oss, T. Castro, N. Hariharan, M. Aiello, L. Tornatore</dc:creator>
+    </item>
+    <item>
+      <title>Optimal Calibration of Quantum Network Links</title>
+      <link>https://arxiv.org/abs/2606.18167</link>
+      <description>arXiv:2606.18167v1 Announce Type: cross 
+Abstract: The reliable distribution of entanglement is essential for the effective operation of quantum networks. Due to fundamental differences between quantum and classical communication systems, it is necessary to develop specialised algorithms and protocols that also account for quantum-specific constraints. In this work, we focus on the issue of recalibration. As suggested by recent experimental studies, the process of local entanglement generation in a quantum link degrades over time due to environmental changes that have to be estimated and compensated via a calibration operation, during which the link is not available. Therefore, in such a quantum network, every link alternates between an activation period, during which it operates normally, and a calibration period, during which it cannot participate in the end-to-end entanglement distribution, thereby creating a trade-off between link quality (the fidelity of generated pairs, which decays during activation) and availability (the fraction of time the link is usable, which calibration reduces). We develop analytically a protocol for optimally assigning activation periods to each link in linear quantum repeater chains, subject to any general end-to-end fidelity requirements and local initial fidelity thresholds. Building on this foundation, we extend to general quantum networks, where multiple paths may cross at common links, proposing a heuristic approach evaluated in simulations and compared with a benchmark, numerical approach, and theoretical bounds.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.18167v1</guid>
+      <category>quant-ph</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Vinay Kumar, Claudio Cicconetti, Marco Conti, Andrea Passarella</dc:creator>
+    </item>
+    <item>
+      <title>Group Commit Self-Clocks: Why Tuning Is Unnecessary Above a Device-Set Load Threshold</title>
+      <link>https://arxiv.org/abs/2606.18187</link>
+      <description>arXiv:2606.18187v1 Announce Type: cross 
+Abstract: Group commit amortizes the fixed cost of a durable log flush across many committing transactions; the release rule - a timer, a batch size, or an adaptive policy - is a classic tuning knob. The textbook theory is open-loop: for Poisson arrivals the optimal timer is the EOQ square-root rule, and the wait-or-flush decision is ski-rental 2-competitive. We ask when that tuning is worth its machinery, and show that in closed-loop OLTP it usually is not. Real commit arrivals are closed-loop: a client issues its next transaction only after its last commits, so the arrival rate is induced by the policy's own latency. Modeling this as a closed queueing network, the parameter-free greedy-pipelined policy (flush the instant the device is free) self-clocks to a computable fixed point and is within about 0.1% of the best oracle-tuned timer at every load. The square-root rule prescribes waiting $T^\star=\sqrt{2F_0/\lambda}$, but $T^\star&lt;F_0$ exactly when $\lambda&gt;\lambda^\star=2/F_0$; above this device-set load threshold the timer collapses onto greedy and tuning is vacuous. The clean theory only bites below $\lambda^\star$ and in the open-loop world, where a parameter-free ski policy still beats a fixed tuned timer under rate shifts. We instantiate $\lambda^\star$ with measured fsync distributions on two AWS storage classes (EBS gp3 versus instance NVMe, a $25\times$ range), and confirm on PostgreSQL that commit_delay=0 is competitive with any tuned value. The contribution is a characterization that explains deployed practice; we add no new logger.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.18187v1</guid>
+      <category>cs.DB</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Madhulatha Mandarapu, Sandeep Kunkunuru</dc:creator>
+    </item>
+    <item>
+      <title>Regression Language Models for Code</title>
+      <link>https://arxiv.org/abs/2509.26476</link>
+      <description>arXiv:2509.26476v3 Announce Type: replace-cross 
+Abstract: We study code-to-metric regression: predicting numeric outcomes of code executions, a challenging task due to the open-ended nature of programming languages. While prior methods have resorted to heavy and domain-specific feature engineering, we show that a single unified Regression Language Model (RLM) using a frozen LLM encoder can simultaneously predict directly from text, (i) the memory footprint of code across multiple high-level languages such as Python and C++, (ii) the latency of Triton GPU kernels, and (iii) the accuracy and speed of trained neural networks represented in ONNX. In particular, a relatively small 300M parameter RLM based on T5Gemma, obtains &gt;0.9 Spearman-rank on competitive programming submissions from APPS, and a single unified model achieves &gt;0.5 average Spearman-rank across 24 different programming languages from CodeNet. Furthermore, the RLM can obtain the highest average Kendall-Tau of 0.46 on five classic NAS design spaces previously dominated by graph neural networks, and simultaneously predict architecture latencies on numerous hardware platforms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2509.26476v3</guid>
+      <category>cs.CL</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yash Akhauri, Xingyou Song, Arissa Wongpanich, Bryan Lewandowski, Mohamed S. Abdelfattah</dc:creator>
+    </item>
+  </channel>
+</rss>

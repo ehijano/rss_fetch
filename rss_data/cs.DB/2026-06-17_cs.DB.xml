@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DB updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DB</link>
+    <description>cs.DB updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Jun 2026 04:00:08 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Collaborative Large and Small Language Models for Accurate and Scalable Data Repair</title>
+      <link>https://arxiv.org/abs/2606.17582</link>
+      <description>arXiv:2606.17582v1 Announce Type: new 
+Abstract: We study the problem of data repair, a key task in data cleaning that corrects erroneous entries in raw datasets to improve overall data quality. Although recent data-driven methods, especially those based on large language models (LLMs), achieve remarkable performance, we observe that: (i) they directly repair data in the raw and low-quality context, which may compromise learning signals, and (ii) they directly use uncertain model outputs as repairs, potentially introducing unreliable corrections and compromising repair quality. Motivated by the efficiency of small language models (SLMs) and the capabilities of LLMs, and aiming to address the above limitations, we propose LasRepair, a framework that collaborates Large and small language models for data repair. LasRepair employs an LLM as an instructor, which selects a global repair context to guide the SLM. The SLM acts as a corrector, using the selected context to repair erroneous data more efficiently. Moreover, to further improve context quality, we extend LasRepair to LasRepair+, which formulates data repair as an Expectation-Maximisation (EM) procedure that alternates between an E-step for updating the corrector parameters and an M-step for refining the repair context. Furthermore, to mitigate model uncertainty, we propose LasRepair++, which uses column-calibrated model confidence to down-weight unreliable repaired rows when updating the corrector, thereby enhancing repair quality. Theoretical analysis and empirical evaluation demonstrate the superiority of our methods. We theoretically prove the effectiveness of the EM-style procedure and the confidence-based weighting. Experiments on real-world datasets show that LasRepair++~ achieves an average F1-score improvement of 18.1% over the strongest baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.17582v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Qian Chen, Jianwei Wang, Wenjie Zhang</dc:creator>
+    </item>
+    <item>
+      <title>The Value of Adaptivity in LSM Bloom-Filter Tuning: A Log-Law and a Two-Clock Frontier</title>
+      <link>https://arxiv.org/abs/2606.18138</link>
+      <description>arXiv:2606.18138v1 Announce Type: new 
+Abstract: Log-structured merge (LSM) trees attach an approximate-membership filter to every run and must split a fixed memory budget across them. The static optimum is known (Monkey); a large systems literature then makes the allocation adaptive, tracking shifting hotness online. We ask a prior question: when is that adaptivity worth its machinery? We give three analytical answers and validate them on synthetic sweeps, real Twitter production cache traces, and a real RocksDB engine. First, a log-law: optimal bits-per-key is affine in the logarithm of access frequency, at a fixed slope. Second, a robustness law: because the workload enters only logarithmically, the excess read cost from a hotness misestimate is half the size-weighted variance of the log error, and a common-factor misestimate is absorbed by the budget multiplier, so coarse estimates lose little. Third, an adaptivity-value frontier: since compaction rebuilds filters for free on its own clock, the value of continuous tracking over an allocation recomputed only at compaction grows quadratically in the within-epoch drift, with a closed-form scale. This yields a three-regime policy (coarse-at-compaction suffices, then track, then at extreme drift fall back to uniform) and predicts that more skew makes fine tracking matter less. On a real cluster, reallocating only at compaction captures 96-99% of tracking's benefit; on RocksDB the false-positive primitive holds within four percent to eight bits per key. The contribution is a characterization of when adaptive tuning pays; we add no new filter and no engine fork. Code and pre-registration are public.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.18138v1</guid>
+      <category>cs.DB</category>
+      <category>cs.DS</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Madhulatha Mandarapu, Sandeep Kunkunuru</dc:creator>
+    </item>
+    <item>
+      <title>Group Commit Self-Clocks: Why Tuning Is Unnecessary Above a Device-Set Load Threshold</title>
+      <link>https://arxiv.org/abs/2606.18187</link>
+      <description>arXiv:2606.18187v1 Announce Type: new 
+Abstract: Group commit amortizes the fixed cost of a durable log flush across many committing transactions; the release rule - a timer, a batch size, or an adaptive policy - is a classic tuning knob. The textbook theory is open-loop: for Poisson arrivals the optimal timer is the EOQ square-root rule, and the wait-or-flush decision is ski-rental 2-competitive. We ask when that tuning is worth its machinery, and show that in closed-loop OLTP it usually is not. Real commit arrivals are closed-loop: a client issues its next transaction only after its last commits, so the arrival rate is induced by the policy's own latency. Modeling this as a closed queueing network, the parameter-free greedy-pipelined policy (flush the instant the device is free) self-clocks to a computable fixed point and is within about 0.1% of the best oracle-tuned timer at every load. The square-root rule prescribes waiting $T^\star=\sqrt{2F_0/\lambda}$, but $T^\star&lt;F_0$ exactly when $\lambda&gt;\lambda^\star=2/F_0$; above this device-set load threshold the timer collapses onto greedy and tuning is vacuous. The clean theory only bites below $\lambda^\star$ and in the open-loop world, where a parameter-free ski policy still beats a fixed tuned timer under rate shifts. We instantiate $\lambda^\star$ with measured fsync distributions on two AWS storage classes (EBS gp3 versus instance NVMe, a $25\times$ range), and confirm on PostgreSQL that commit_delay=0 is competitive with any tuned value. The contribution is a characterization that explains deployed practice; we add no new logger.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.18187v1</guid>
+      <category>cs.DB</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Madhulatha Mandarapu, Sandeep Kunkunuru</dc:creator>
+    </item>
+    <item>
+      <title>A benchmark suite of intracellular Boolean model variants and multiscale simulations for computational biology</title>
+      <link>https://arxiv.org/abs/2606.18215</link>
+      <description>arXiv:2606.18215v1 Announce Type: new 
+Abstract: We present PhysiBench, an open resource for developing and evaluating computational methods in systems biology including a benchmark suite of 612 executable intracellular Boolean regulatory network variants and a dataset of 120,000 time-resolved multiscale stochastic simulations. The benchmark models are derived from seven published Boolean networks spanning cell-cycle control, developmental patterning, cancer signaling, immune response, and cell-fate decisions, and are executable in the PhysiBoSS/PhysiCell multiscale simulation framework. Model variants are generated through mutation-based model construction, online behavioral filtering, and offline sensitivity evaluation. The simulation dataset is produced from 60 selected models under systematically sampled stimulation protocols and fixed model-level initial configurations. Each trajectory is linked to its model identifier, input-parameter file, stochastic seed, and cell-level output file. PhysiBench supports direct simulation, surrogate modeling, data-driven inference, simulation-based optimization, and comparative benchmarking. Technical validation includes file-integrity and executability checks, graph-based structural diversity analyses, and behavioral heterogeneity assessment from multiscale simulation outputs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.18215v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Marco Masera, Riccardo Smeriglio, Roberta Bardini, Alessandro Savino, Stefano Di Carlo</dc:creator>
+    </item>
+    <item>
+      <title>ARES: A Platform for Adaptive Role-Based Evaluation of Social Engineering Risks in Human--AI Games</title>
+      <link>https://arxiv.org/abs/2606.17793</link>
+      <description>arXiv:2606.17793v1 Announce Type: cross 
+Abstract: This work introduces ARES, a platform and open pilot dataset for auditing adaptive social engineering risks in LLM-mediated social decision-making through controlled social games. ARES supports human--human, human--AI, and AI--AI settings, combining configurable game templates, role-conditioned LLM agents, psychology-informed participant profiling, structured interaction trees, and synchronised behavioural and biometric acquisition, filtering, and deep-learning-based feature extraction. The pilot dataset was collected from 15 participants interacting with a role-conditioned GPT-5.4 agent in two concatenated games: an adapted Prisoner's Dilemma and an Ultimatum Game. It comprises 340 GB of raw and processed multimodal data across six streams: interaction logs, video, screen recordings, gaze logs, smartwatch signals, and game/questionnaire metadata. These data include interaction paths, written justifications, psychological profiles, subjective feedback, perceived counterpart identity, game outcomes, and derived behavioural, facial, and gaze features. Alongside the dataset, we provide descriptive analyses to characterise the pilot release. Rigorous risk evaluation is essential for the deployment of secure AI systems, as it enables the identification and mitigation of vulnerabilities, ensures the protection of sensitive data, and supports compliance with evolving regulatory and ethical standards in society.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.17793v1</guid>
+      <category>cs.HC</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Roberto Daza, Javier Irigoyen, Ivan Lopez, Raquel Rodriguez-Carvajal, Laura Gomez, Julian Fierrez, Ruben Tolosana, Aythami Morales</dc:creator>
+    </item>
+    <item>
+      <title>Trustworthy Self-Composable Big-Data-as-a-Service: An LLM-Orchestrated Multi-Agent Framework for Automated Data Engineering, AutoML, MLOps Deployment, and Drift-Aware Lifecycle Optimization</title>
+      <link>https://arxiv.org/abs/2606.17915</link>
+      <description>arXiv:2606.17915v1 Announce Type: cross 
+Abstract: Big-Data-as-a-Service (BDaaS) platforms require re liable automation across data ingestion, cleaning, feature engi neering, model development, deployment, and post-deployment monitoring. However, existing LLM-based data science agents and AutoML systems mainly focus on isolated workflow stages, leaving limited support for lifecycle-level orchestration, artifact governance, human oversight, and drift-aware adaptation. This paper proposes a trustworthy self-composable BDaaS frame work based on LLM-orchestrated multi-agent collaboration. The proposed architecture decomposes the BDaaS lifecycle into specialized agents for data ingestion, data cleaning, feature engineering, AutoML training, model evaluation, MLOps de ployment, monitoring, and drift detection. A central LLM or chestration layer coordinates agent execution, validates interme diate outputs, manages workflow context, and enables dynamic workflow composition. The framework also incorporates shared artifact governance, reproducibility support, human-in-the-loop checkpoints, and drift-aware feedback loops. A prototype-based evaluation is conducted using controlled tabular benchmark datasets with missing values, categorical variables, outliers, class imbalance, and simulated covariate drift. Compared with manual ML, AutoML-only, and single-agent LLM baselines, the pro posed multi-agent BDaaS pipeline achieves competitive predictive performance while improving lifecycle-level reliability, including workflow completion, artifact traceability, deployment readiness, reproducibility, and drift recovery. The results suggest that LLM-orchestrated multi-agent systems can extend conventional AutoML toward trustworthy, adaptive, and production-oriented BDaaS lifecycle automation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.17915v1</guid>
+      <category>cs.MA</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <category>cs.SE</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Aueaphum Aueawatthanaphisut, Badri Raj Lamichhane</dc:creator>
+    </item>
+    <item>
+      <title>Formalizing all indexed mathematics as a benchmark for general reasoning, with the example of implementing dilatations of categories</title>
+      <link>https://arxiv.org/abs/2606.03835</link>
+      <description>arXiv:2606.03835v2 Announce Type: replace 
+Abstract: Formal rigor distinguishes mathematics from other disciplines, in the sense that mathematical statements are derived from explicit axioms by logically verifiable steps. Interactive theorem provers support this by expressing definitions, theorems, and proofs in a fully formal language and verifying them mechanically. We consider the benchmark problem of formalizing all published mathematics as a machine verifiable and continuously updated corpus of mathematical knowledge. This viewpoint treats mathematics as a structured database of interdependent results and raises questions about scalability and organization of large formal libraries. As a case study, we present an ongoing formalization in categorical algebra, namely dilatations of categories, extending classical localizations and illustrating what such an implementation looks like in practice.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.03835v2</guid>
+      <category>cs.DB</category>
+      <category>cs.HC</category>
+      <category>math.CT</category>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>A. Mayeux</dc:creator>
+    </item>
+  </channel>
+</rss>
