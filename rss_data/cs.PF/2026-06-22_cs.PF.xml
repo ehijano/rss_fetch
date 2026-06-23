@@ -7,12 +7,220 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2026 04:00:09 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2026 04:14:39 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Mon, 22 Jun 2026 00:00:00 -0400</pubDate>
+    <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Saturday</day>
       <day>Sunday</day>
+      <day>Saturday</day>
     </skipDays>
+    <item>
+      <title>Does Mixture-of-Experts Actually Help Inference on Consumer and Edge Hardware? An Empirical Study</title>
+      <link>https://arxiv.org/abs/2606.21428</link>
+      <description>arXiv:2606.21428v1 Announce Type: new 
+Abstract: Mixture-of-Experts (MoE) language models are often described as ideal for resource-constrained inference. Each token activates only a small subset of experts, so the per-token compute cost, in floating-point operations (FLOPs), resembles that of a much smaller dense model. Whether that FLOP advantage survives in practice is far less clear. We ask whether MoE models actually run faster and cheaper than comparable dense models on consumer-grade and edge hardware. We benchmark OLMoE-1B-7B (1.3 B active of 6.9 B total) against three dense baselines on an Apple M2 Pro and an NVIDIA Jetson Orin Nano 8 GB through llama.cpp, measuring throughput, memory, and on-device energy. The answer is device-dependent: OLMoE's active-parameter advantage is only partly realised on the laptop (~10% behind the same-active Llama-3.2-1B) and erodes on the edge device (~31% behind, at 2.1$\times$ the energy per token, with peak memory at the 8 GB ceiling). Patching llama.cpp to time the decode graph node-by-node shows routing accounts for under 9% of MoE-block compute on the cleaner edge backend, so the gap reflects total-parameter memory footprint, expert dispatch, and KV-cache pressure rather than routing. The implication is that on bandwidth-bound edge hardware, inference cost tracks total parameters, not active ones, and sparse activation does not buy back what the device is constrained on. These findings are bounded to one MoE model at this parameter scale and two devices, and we release the full measurement harness and per-run data.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.21428v1</guid>
+      <category>cs.PF</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Alfarizy Alfarizy, Hung Truong Thanh Nguyen, Ren\'e Richard, Roozbeh Razavi-Far, Hung Cao</dc:creator>
+    </item>
+    <item>
+      <title>Enabling Cloud-Level Accuracy in Edge AI through IoT Data Preprocessing</title>
+      <link>https://arxiv.org/abs/2606.22496</link>
+      <description>arXiv:2606.22496v1 Announce Type: new 
+Abstract: Large language models (LLMs) offer a natural-language interface for interpreting Internet of Things (IoT) sensor data in smart environments; however, cloud deployment introduces latency, privacy, and connectivity concerns. Local LLMs can reduce these limitations, but compact edge-deployable models often show weaker numerical reasoning when raw sensor readings are provided directly. This paper investigates whether prompt-side preprocessing can improve the accuracy-latency trade-off of local LLMs for environmental monitoring. We propose a structured prompt construction framework that transforms raw air-quality and thermal-comfort measurements into progressively enriched textual representations: raw sensor values, threshold-aware descriptions, and compact environmental summary flags. The approach is evaluated using indoor Raspberry Pi/BME680 datasets from Tampere University and outdoor air-quality datasets from Helsinki, Katowice, and Warsaw. We construct a binary LLM query dataset covering air quality, thermal comfort, and joint environmental conditions, and evaluate five local and five cloud LLMs across three prompt variants and two inference modes, with and without chain-of-thought prompting. Results show that prompt enrichment substantially improves local-model accuracy. In No-CoT mode, local accuracy increases from 50.9% to 81.7% indoors and from 63.7% to 89.3% outdoors from the raw to the most enriched prompt. Local No-CoT inference is the fastest configuration, with mean latency close to 0.22 s, while CoT substantially increases inference time. These findings suggest that lightweight prompt-side preprocessing can narrow the local--cloud performance gap and support low-latency IoT analytics in smart environments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.22496v1</guid>
+      <category>cs.PF</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ayg\"un Varol, Katarzyna Ko{\l}odziej, {\L}ukasz Sobczak, Micha{\l} Romaszewski, Przemys{\l}aw G{\l}omb, Naser Hossein Motlagh, Mirka Leino, Johanna Virkki</dc:creator>
+    </item>
+    <item>
+      <title>KineticSim: A Lightweight, High-Performance Execution Engine for Real-Time Market Simulators</title>
+      <link>https://arxiv.org/abs/2606.21784</link>
+      <description>arXiv:2606.21784v1 Announce Type: cross 
+Abstract: Simulating financial markets at scale with multi-agent (Agent-Based) models is critical for market design, regulatory stress-testing, and reinforcement learning, but traditional CPU simulators are bottlenecked by sequential processing while vectorized GPU frameworks suffer from kernel-launch overhead and redundant global-memory round-trips. We formalize, analyze, and evaluate a reusable parallel design pattern: persistent, state-carrying clearing for iterative multi-agent reductions. By caching mutable simulation state in thread-block shared memory across step boundaries, aggregating agent actions via shared-memory atomics, and resolving the clearing function cooperatively, the pattern reduces the per-step critical-path depth from Theta(L+A) for sequential clearing (L price-grid ticks, A agents) to Theta(log L + ceil(A/L)) and makes global-memory traffic independent of the step count. We implement this in KineticSim, a lightweight GPU execution engine that simulates massive ensembles of limit-order books in parallel, reaching a peak throughput of over 54.7 billion agent-events per second. On a fixed workload it delivers speedups of 3406x over CPU (NumPy), 27.8x over PyTorch GPU, 42.8x over JAX GPU, and 8.4x over a naive custom CUDA baseline, while using roughly an order of magnitude less GPU memory than PyTorch. Across 53 configurations the two custom CUDA engines produce bitwise-identical order books, and aggregate statistics match the CPU reference to within 0.1%. The pattern generalizes to other iterative multi-agent workloads requiring state-persistent, block-localized reductions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.21784v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <category>q-fin.TR</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shakya Jayakody, Prarthinie Jayakody</dc:creator>
+    </item>
+    <item>
+      <title>Load Testing for Machine Learning Model Serving Systems at Scale</title>
+      <link>https://arxiv.org/abs/2606.22013</link>
+      <description>arXiv:2606.22013v1 Announce Type: cross 
+Abstract: Machine learning (ML) model serving has become a dominant consumer of GPU infrastructure, yet capacity planning in these systems remains largely ad hoc. Under-provisioning leads to service-level objective (SLO) violations and production incidents, while over-provisioning results in substantial resource waste. This paper presents \sys, an industrial load testing framework for ML serving systems that systematically estimates serving capacity through an adaptive, feedback-driven search strategy. The approach leverages real-time performance signals, incorporating dampening, spike tolerance, and convergence detection to efficiently identify maximum sustainable throughput under SLO constraints. We evaluate \sys through a longitudinal analysis of 14 industrial case studies spanning four ML architecture classes: recommendation, ranking, vision, and NLP. This study demonstrates that systematic load testing leads to substantial improvements in GPU resource efficiency and operational reliability. Prior to adopting \sys, a significant fraction of model launches were under-provisioned, resulting in recurring incidents; these issues were substantially reduced after deployment. Our results show that ML-specific design decisions are critical to accurate capacity estimation: workload calibration using recorded traffic reduces estimation error from approximately 30\% to 2--6\%, while proper warmup handling yields a 22.2\% improvement in accuracy. Further analysis reveals key factors influencing prediction error, including model size and co-location effects. This paper distills six lessons and derive architectural guidelines for ML load testing, offering actionable insights for building reliable and efficient ML serving systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.22013v1</guid>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Amr S. Abdelfattah, Nakul Tirumalai, Indu Mohanan, Xiao Li, Pengchao Wang, Dinakar Dhurjati, Eric Sung</dc:creator>
+    </item>
+    <item>
+      <title>Apple Neural Engine: Architecture, Programming, and Performance</title>
+      <link>https://arxiv.org/abs/2606.22283</link>
+      <description>arXiv:2606.22283v1 Announce Type: cross 
+Abstract: The Apple Neural Engine (ANE) is the fixed-function matrix accelerator that has shipped in Apple systems-on-chip since the A11-class iPhone and iPad chips and the M1-class Mac chips, exposed to applications only through the Core ML model framework. This guide reports a reverse-engineered account of the engine, based on direct measurement on Apple silicon and static analysis of the private runtime, compiler, kernel driver, and firmware. It documents the datapath and the roofline that bound the engine's throughput and energy, the dispatch route that reaches it below Core ML, the compiler and on-disk program format, the weight-compression scheme, and the kernel driver, firmware, and command protocol beneath them. The account covers the A11 through A18 and M1 through M5 families, with per-chip target tables and an operation-by-device matrix; the direct measurements are on the M1 and M5. Claims are labeled as measured, decompile-derived, or predicted, and the methodology and open questions are recorded. The direct route is callable from ordinary user space but remains undocumented, unsupported, and version-fragile; it is intended for measurement, research, and on-device work, not for shipping software, where Core ML remains the supported path.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.22283v1</guid>
+      <category>cs.AR</category>
+      <category>cs.OS</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Spencer H. Bryngelson</dc:creator>
+    </item>
+    <item>
+      <title>When Is a Columnar Scan Bandwidth-Bound? A Decode-Throughput Law and Its Cross-Hardware Validation</title>
+      <link>https://arxiv.org/abs/2606.22423</link>
+      <description>arXiv:2606.22423v1 Announce Type: cross 
+Abstract: A columnar scan that decompresses, filters, and aggregates should be limited only by memory bandwidth (the roofline floor T &gt;= BytesRead/beta), yet real kernels are often compute-bound and leave bandwidth idle. We give a predictive answer to when a scan is bandwidth-bound. Across encodings, predicate selectivities, and two very different machines, a decoder's value throughput T_dec (values decoded per second) is essentially independent of bit-width b: it is set by the decode layout/strategy, not by how many bits each value occupies. Hence the achieved bandwidth fraction obeys a one-parameter law, f = min(1, T_dec * b / (8*beta)), with the compute-to-bandwidth ridge at b* = 8*beta/T_dec. Fitting one T_dec per strategy reproduces measured bandwidth fractions with median error 0.027 on x86/AVX2 and 0.003 on a held-out Apple M4/NEON machine, and the ridge b* shifts correctly with each machine's bandwidth. Inserting FastLanes' reported decode throughput into the law reproduces its "decode is free at three bits" headline as the large-T_dec limit, unifying our portable decoder and hand-tuned state of the art in one curve. We add two crossovers, validated on both machines: branch-free predicate evaluation beats branchy in a mid-selectivity band (the sigma(1-sigma) misprediction parabola), and zone-map skipping is clustering-gated rather than selectivity-gated. We release the micro-benchmark, the correctness oracle, and a one-command reproduction. This is a baseline and a model, not a faster kernel: our portable C decoders reach ~2 values/cycle, far below hand-tuned SOTA, and the law holds precisely because it is parameterized by the measured T_dec.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.22423v1</guid>
+      <category>cs.DB</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Madhulatha Mandarapu, Sandeep Kunkunuru</dc:creator>
+    </item>
+    <item>
+      <title>Learning Filters with Certainty</title>
+      <link>https://arxiv.org/abs/2606.22786</link>
+      <description>arXiv:2606.22786v1 Announce Type: cross 
+Abstract: Hash-based data structures such as Bloom filters are widely used in network systems for tasks including caching, anomaly detection, and machine learning pipelines. They typically provide binary indications of whether an element belongs to a set of interest, e.g., the contents of a cache. When uncertainty arises due to hash collisions, a positive indication is returned to avoid false negatives. We argue that the certainty associated with such indications can itself be useful information. This work focuses on Counting Bloom Filters (CBFs), a Bloom-filter variant that maintains counters rather than bits. Besides supporting insertions and deletions, these counters provide additional information that can be used to estimate the certainty of positive membership indications. We show how this certainty signal can be exploited in architectures that combine Bloom Filters with machine learning (ML) models.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.22786v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3820441.3820478</arxiv:DOI>
+      <arxiv:journal_reference>APNet'26, Singapore -- The 10th Asia-Pacific Workshop on Networking (APNet 2026), co-located with ACM SIGCOMM 2026</arxiv:journal_reference>
+      <dc:creator>Yuval Banoun, Daniel Sadoc Menasche, Ori Rottenstreich</dc:creator>
+    </item>
+    <item>
+      <title>Node-Level Performance and Energy Characterization of Flagship Science Applications on SuperMUC-NG Phase 2</title>
+      <link>https://arxiv.org/abs/2606.23265</link>
+      <description>arXiv:2606.23265v1 Announce Type: cross 
+Abstract: We present a systematic performance and energy-efficiency characterization of five flagship scientific workloads on SuperMUC-NG phase 2, the 28 PetaFLOPs system at the Leibniz Supercomputing Center (LRZ) equipped with Intel Xeon Platinum 8480+ and Intel Data Center GPU Max 1550 (Ponte Vecchio, PVC) accelerators. The selected codes span molecular dynamics (gromacs, lammps), astrophysics and cosmology (OpenGadget3, AthenaK), and finite-element PDE solvers from the dealii-X Center of Excellence. For each code we measure throughput and energy efficiency expressed as compute-elements per wall-clock second (or per Joule of consumed energy) on a single compute node, comparing CPU-only (SPR) against combined CPU+GPU (SPR+PVC) configurations where available. Energy measurements rely on lightweight code instrumentation with p3em, or the Energy Aware Runtime (EAR) present on the system. Our results show that GPU offload yields $4-12\times$ higher throughput and up to $15\times$ better energy efficiency compared to CPU-only execution, with lammps and AthenaK benefiting most. However, both throughput and energy gains are sensitive to problem granularity: insufficient work per GPU tile erodes the accelerator advantage, as clearly observed in AthenaK at small mesh-block sizes. The power-budget utilization is systematically lower for CPUs than it is for GPUs, indicating that even at peak useful-work rate, most applications running on CPUs leave a significant fraction of the node's thermal envelope unused.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.23265v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Salvatore Cielo, Elmira Birang, Alexander P\"oppl, Sajad Azizi, Plamen Dobrev, Margarita Egelhofer, Ivan Pribec, Gerald Mathias</dc:creator>
+    </item>
+    <item>
+      <title>Load Balancing Policies in Heterogeneous Systems: Non-Monotone Stability and Heavy-Traffic Optimality</title>
+      <link>https://arxiv.org/abs/2510.14284</link>
+      <description>arXiv:2510.14284v2 Announce Type: replace 
+Abstract: We consider a discrete-time queueing system with $n$ heterogeneous parallel single-server queues. Jobs arrive at a central dispatcher and must be assigned immediately to one of the queues. We develop a unified framework for a broad family of load-balancing policies, including Join the Shortest Queue (JSQ), Join the Shortest Expected Delay (JSED), and Power-of-$d$ Choices (Po$d$). In this framework, the dispatcher updates queue-length information periodically, possibly at arbitrarily long intervals, and dispatches jobs based on the sampled permutation of scaled queue lengths and the servers' service rates. Leveraging this structure, we derive a closed-form, easily verifiable sufficient condition for stability. We further show that, for general policies, stability above the induced threshold need not be monotone in the arrival rate, and we obtain an exact characterization under a persistent bottleneck dominance condition. When the stability condition holds strictly, we prove state-space collapse and heavy-traffic delay optimality. We also show that the steady-state queue-length vector converges in distribution to a deterministic vector scaled by an exponential random variable in heavy traffic. Methodologically, we extend Lyapunov-drift and transform techniques to a cycle-based analysis with multi-step updates. Our results connect the policy-induced dispatch fractions and sampled permutations to stability, delay, and distributional performance, providing guidance for designing scalable load-balancing schemes with limited queue-length information.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.14284v2</guid>
+      <category>cs.PF</category>
+      <category>math.PR</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yishun Luo, Martin Zubeldia</dc:creator>
+    </item>
+    <item>
+      <title>AI Application Benchmarking: Power-Aware Performance Analysis for Vision and Language Models</title>
+      <link>https://arxiv.org/abs/2603.16164</link>
+      <description>arXiv:2603.16164v2 Announce Type: replace 
+Abstract: Artificial Intelligence (AI) workloads drive a rapid expansion of high-performance computing (HPC) infrastructures and increase their power and energy demands towards a critical level. AI benchmarks representing state-of-the-art workloads and their understanding in the context of performance-energy trade-offs are critical to deploy efficient infrastructures and can guide energy efficiency measures, such as power limiting. We introduce a benchmarking framework with popular deep learning applications from computer vision (image classification and generation) and large language models (continued pre-training and inference) implementing modern methods. Our performance analysis focuses on throughput rather than ``time to completion'', which is the standard metric in HPC. We analyse performance and energy efficiency under various power-limit settings on NVIDIA H100, NVIDIA H200, and AMD MI300X GPUs. Our results reveal that no universal optimal power limit exists, as the efficiency peak varies across application types and GPU architectures. Interestingly, the two NVIDIA GPUs which mainly differ in their high-bandwidth memory (HBM) configuration show qualitatively different performance-energy trade-offs. Code is available on Zenodo (https://zenodo.org/records/20083679) and GitHub (https://github.com/RRZE-HPC/hpc-ai-perf-bench).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.16164v2</guid>
+      <category>cs.PF</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Martin Mayr, Sebastian Wind, Lukas Schr\"oder, Mohammadmoein Moradi, Georg Hager, Harald K\"ostler, Gerhard Wellein</dc:creator>
+    </item>
+    <item>
+      <title>DriftSched: Adaptive QoS-Aware Scheduling under Runtime Token Drift for Multi-Tenant GPU Inference</title>
+      <link>https://arxiv.org/abs/2606.02982</link>
+      <description>arXiv:2606.02982v2 Announce Type: replace 
+Abstract: The rapid growth of large language model (LLM) inference services has increased the demand for efficient multi-tenant GPU scheduling. While modern inference runtimes such as vLLM improve throughput through continuous batching and optimized memory management, accurately estimating the runtime cost of heterogeneous inference requests remains challenging. In practice, admission-time workload estimates may deviate from observed execution behavior, leading to workload misclassification, queue imbalance, increased tail latency, and degraded Quality-of-Service (QoS). This paper presents DriftSched, a QoS-aware scheduling framework for multi-tenant LLM inference serving on NVIDIA L4 GPUs. DriftSched combines workload classification, token-budget estimation, tenant-aware queue management, and an online feedback mechanism to refine workload estimates using runtime observations. The framework evaluates FIFO, Priority, Weighted, Shortest-Job-First (SJF), and Aging Priority scheduling policies under heterogeneous multi-tenant workloads. Experimental results show that adaptive calibration reduces workload estimation error by an average of 38.8% (MAE) and 40.5% (RMSE), improving workload classification stability. Among all evaluated schedulers, SJF achieves the best overall performance, reducing median end-to-end latency by approximately 42% and P99 latency by approximately 16% relative to FIFO under sustained GPU contention. The results further indicate that scheduler selection has a greater impact on latency behavior than runtime calibration alone, while accurate workload characterization largely eliminates systematic estimation drift. This work contributes a reproducible framework for studying workload-estimation fidelity and QoS-aware scheduling in multi-tenant GPU inference systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.02982v2</guid>
+      <category>cs.PF</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Kathiravan Palaniappan</dc:creator>
+    </item>
+    <item>
+      <title>Beyond Virtual Delay: Improving Packet Delay Bound in Network Calculus</title>
+      <link>https://arxiv.org/abs/2606.13631</link>
+      <description>arXiv:2606.13631v2 Announce Type: replace 
+Abstract: In network calculus, a fundamental result is the classical delay bound given by the horizontal deviation between the arrival and service curves. While widely used, the classical bound is derived from the notion of virtual delay. For a FIFO system, in this work, we first show that the maximum packet delay is always upper-bounded by the maximum virtual delay, revealing inherent conservatism when applying the virtual-delay-based bound to packet delay. Motivated by this insight, we revisit packet delay analysis and derive a new packet delay bound that requires no assumptions beyond the arrival and service curves. Specializing the new bound to a system with leaky-bucket arrival curve and rate-latency service curve shows strict improvement over the classical bound, which is further demonstrated through a case study in time-sensitive networking (TSN).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.13631v2</guid>
+      <category>cs.PF</category>
+      <category>cs.NI</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Yuming Jiang</dc:creator>
+    </item>
+    <item>
+      <title>Look Before You Leap: Checking In on Type Tag Checking</title>
+      <link>https://arxiv.org/abs/2606.05466</link>
+      <description>arXiv:2606.05466v2 Announce Type: replace-cross 
+Abstract: Tagging of generic dynamic values is important in symbolic-computation and dynamic-language systems, but the trade-offs change as machine architectures and workloads evolve. In particular, old folklore about boxed values, immediate values, and type tags must be recalibrated from time to time. We revisit the performance of badged object headers, low-bit tagging, and two NaN-boxing layouts on a range of platforms in use today, including AArch64 and x86-64 architectures from different manufacturers. The experiments isolate two distinct effects: the cost avoided by not heap-allocating common scalar values, and the cost avoided by obtaining tag information from the value word rather than by performing a heap read. The results show that several local bit operations are often cheaper than opening a heap object to obtain a tag or small value. Low-bit tagging remains the simplest and usually fastest choice for mostly symbolic workloads, while NaN-boxing is close in access cost and avoids the time and space of heap allocation for ordinary floating-point values.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.05466v2</guid>
+      <category>cs.PL</category>
+      <category>cs.MS</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Stephen M. Watt</dc:creator>
+    </item>
+    <item>
+      <title>An 83-Format Numeric Catalog with Bit-Exact Conformance Vectors: A Vendor-Neutral Reference for FP8, BF16, MXFP4, and Microscaling Formats</title>
+      <link>https://arxiv.org/abs/2606.09686</link>
+      <description>arXiv:2606.09686v2 Announce Type: replace-cross 
+Abstract: Numeric format proliferation in machine learning hardware -- FP8 (E4M3 and E5M2), BF16, MXFP4, microscaling block formats, and dozens of research variants -- has outpaced the availability of vendor-neutral, bit-exact reference material. Engineers porting models across accelerators encounter silent divergences that are difficult to diagnose without a shared ruler.
+  This paper describes a catalog of 83 numeric formats spanning 13 families, a suite of six bit-exact conformance packs covering GF16, MXFP4 element, BF16, FP8 E4M3, FP8 E5M2, and E8M0 block scale, and an IEEE P3109 v3.2.0 cross-walk that maps each pack to its corresponding standards-track configured format. Each pack is a self-contained JSON document with a SHA-256 fingerprint, a shared row schema, and an anchor vector that encodes 3.0 -- the identity phi^2 + 1/phi^2 = 3 -- as a cross-pack sanity check. Packs are cross-validated against ml_dtypes 0.5.4 (Google/JAX); any divergence is documented explicitly and interpreted as a spec-permitted interpretation gap rather than hidden. The work is framed as registry filling: it does not propose new formats, make model-accuracy claims, or assert superiority over any vendor's implementation. All artifacts are publicly available at https://github.com/gHashTag/t27 under an open license.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.09686v2</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.MS</category>
+      <category>cs.NA</category>
+      <category>cs.PF</category>
+      <category>math.NA</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Dmitrii Vasilev</dc:creator>
+    </item>
+    <item>
+      <title>UltraQuant: 4-bit KV Caching for Context-Heavy Agents</title>
+      <link>https://arxiv.org/abs/2606.20474</link>
+      <description>arXiv:2606.20474v2 Announce Type: replace-cross 
+Abstract: Context-heavy agents place unusual pressure on the key-value (KV) cache: long prefixes are reused across many short turns, while concurrency determines whether the serving system can keep GPUs utilized. We study 4-bit KV-cache compression for this setting, using TurboQuant-style rotation and codebook quantization as a quality anchor and vLLM FP8 KV caching as the deployment anchor. We report three contributions. First, we frame 4-bit KV caching around multi-round agent workloads where task quality, cache residency, and serving throughput must be measured jointly. Second, we describe the practical design choices needed to make the 4-bit path robust, including asymmetric K/V treatment, Walsh-Hadamard rotation, QJL removal, and block-scale variants. Third, we present serving optimizations on AMD GPUs, including optimized decode-attention kernels and UltraQuant, an FP4 approximation path that uses FP8 queries, FP4 KV tensors, UE8M0 group scales, and native scaled-MFMA support on CDNA4. On a long-context, multi-turn agentic workload, UltraQuant cuts P50 time-to-first-token by 3.47x in the cache-pressured late rounds (2.3x across all rounds) and raises output throughput by 1.63x over the FP8 KV baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.20474v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Inesh Chakrabarti, David Limpus, Aditi Ghai Rana, Bowen Bao, Spandan Tiwari, Thiago Crepaldi, Ashish Sirasao</dc:creator>
+    </item>
   </channel>
 </rss>
