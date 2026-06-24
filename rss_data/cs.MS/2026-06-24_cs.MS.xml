@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.MS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.MS</link>
+    <description>cs.MS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.MS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Jun 2026 04:00:54 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>FP8 is All You Need (Part 2): Efficient Ozaki-Bailey Style FFT Through Tensor-core Garner Reformulation and Kulisch Escape Route</title>
+      <link>https://arxiv.org/abs/2606.23698</link>
+      <description>arXiv:2606.23698v1 Announce Type: new 
+Abstract: NVIDIA's Blackwell Ultra (B300) cuts FP64 vector throughput to ~1.3 TFLOPS per GPU, roughly 30x below B200 and well below the level at which bandwidth-limited FP64 workloads stay memory-bound. The Ozaki Scheme II framework recovers FP64-equivalent throughput by routing dense matrix multiply through FP8 tensor cores with a mantissa-sliced Chinese-remainder reconstruction. A companion Part (1) paper covers dense GEMM, batched GEMV, stencils, and SpMV; this paper adds the fifth canonical primitive, the 3-D FFT. We present Ozaki-Bailey FFT, an emulated 3-D FFT via the Bailey six-step decomposition with both 1-D FFT GEMMs on FP8 tensor cores. Bailey's small inner factor k ~ sqrt(N) (k=32 for N=1024) puts the kernel in the regime k &lt;&lt; r^2, where the third TME parameter gamma (reconstruction latency) binds rather than amortising. Garner reconstruction splits into Phase A (inner products on FP8/INT8 tensor cores, ~1 ms for 1024^3 on B300) and Phase B (per-output reduction). We identify Kulisch fixed-point complete arithmetic as a Phase B reformulation that keeps full FP64 accuracy while running entirely on the INT32 SIMT pipe. We derive closed-form bandwidth-parity floors. The native FP64 floor is 1.56*B_HBM (12.5 TF at 8 TB/s): B300's 1.3 TF sits ~10x below, Rubin's 33 TF within 4%. The Kulisch escape route needs an INT32 sub-floor 8.25*B_HBM and an FP8 floor 170*B_HBM; B300 meets both. The projection is ~18 ms for 1024^3 at full FP64, essentially the 12.9 ms memory roof. A GPU meets memory-roof FFT parity if it satisfies either the native floor or both Kulisch floors. If the projection holds in practice, B300 becomes viable for full-FP64 FFT through software alone, motivating a libKulisch library and benchmark campaign.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.23698v1</guid>
+      <category>cs.MS</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Satoshi Matsuoka</dc:creator>
+    </item>
+    <item>
+      <title>New convergence results for Carleman linearization</title>
+      <link>https://arxiv.org/abs/2606.24473</link>
+      <description>arXiv:2606.24473v1 Announce Type: new 
+Abstract: We prove new error bounds for finite Carleman truncations of polynomial ordinary differential equations. The analysis works directly in the original monomial basis and for selected observables, such as state coordinates. Using a Dyson--Duhamel expansion, we separate the degree-preserving linear part from the degree-raising nonlinear part and track how truncation errors can propagate back to the observable. The resulting bounds are degree-aware and retain logarithmic-norm information from the original linear dynamics. We obtain explicit finite-degree estimates and geometric convergence over certified time horizons. Comparisons with existing bounds, in particular those of Forets--Pouly, are given on the Stuart--Landau and Van der Pol systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.24473v1</guid>
+      <category>cs.MS</category>
+      <category>cs.NA</category>
+      <category>math.NA</category>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Michele Boreale, Luisa Collodi</dc:creator>
+    </item>
+    <item>
+      <title>Memory Layouts for GPU-Data Transfer Buffering in SPH</title>
+      <link>https://arxiv.org/abs/2606.23891</link>
+      <description>arXiv:2606.23891v1 Announce Type: cross 
+Abstract: The rise in GPU compute speed has outpaced improvements in host-to-device memory transfer speeds, despite the advent of shared-memory superchips. Consequently, memory transfer times now constitute an increasingly large fraction of total time-to-solution, compelling developers to compress GPU kernel input and output data into compact, minimal formats prior to GPU-offloading. This complements existing work on GPU- and compute-friendly data arrangements. We study a Smoothed Particle Hydrodynamics solver and propose memory layout strategies for host-side particle data that are particularly well-suited to GPU-offloading. Specifically, we advocate splitting classic array-of-struct data structures into a split array-of-struct arrangement, in which each logical struct decomposes into substructs determined by kernel read/write access patterns and attribute types. Splitting a monolithic particle struct into several bespoke, finer-grained structs can reduce the time required to pack data to and from buffers by ~20% - 40%, lowering total time spent on GPU-offloading by ~12% - 25%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.23891v1</guid>
+      <category>cs.DC</category>
+      <category>cs.MS</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mladen Ivkovic, Abouzied M. A. Nasar, Tobias Weinzierl, Matthieu Schaller, Benedict D. Rogers, Georgios Fourtakas, Scott T. Kay</dc:creator>
+    </item>
+  </channel>
+</rss>
