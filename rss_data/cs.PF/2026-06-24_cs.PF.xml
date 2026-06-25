@@ -7,174 +7,70 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jun 2026 04:00:45 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 04:00:44 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
+    <pubDate>Thu, 25 Jun 2026 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Sunday</day>
       <day>Saturday</day>
     </skipDays>
     <item>
-      <title>LMS-AR: LMS Prediction-based Adaptive Regulator for Memory Bandwidth in Multicore Systems</title>
-      <link>https://arxiv.org/abs/2606.23945</link>
-      <description>arXiv:2606.23945v1 Announce Type: new 
-Abstract: Memory bandwidth contention in multi-core systems severely impacts application performance and quality-of-service (QoS) guarantees. Regulating the shared memory bandwidth mitigates the memory performance uncertainty thereby making it a manageable resource and improving trustworthiness of multi-core systems. In this work we propose a memory bandwidth regulation mechanism LMS-AR, i.e., LMS Prediction-based Adaptive Regulator within a Linux kernel module to distribute the memory bandwidth as a resource among the CPU cores. We describe a design in which both monitoring and regulation is enforced from outside by a master core - which is not a dedicated controller for regulation. This allows for plugging in computationally heavy prediction and regulation algorithms without interfering with the regulated core. An adaptive filtering technique was employed for prediction of per-core bandwidth requirement. We conducted several experiments with SPEC CPU 2017 benchmarks distributed across multiple cores. Our proposed approach demonstrated significant improvement over Memguard with respect to slowdown ratios caused due to memory contention. Our solution is hosted publicly at $\href{https://github.com/ss22ongithub/LMSAdaptiveRegulator}{https://github.com/ss22ongithub/LMSAdaptiveRegulator}$.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.23945v1</guid>
+      <title>Above the Inner Loop: Exceeding Accelerate at LLM Prefill GEMM on the M1 AMX</title>
+      <link>https://arxiv.org/abs/2606.25426</link>
+      <description>arXiv:2606.25426v1 Announce Type: new 
+Abstract: On Apple Silicon the fp32 GEMMs dominating LLM prefill are dispatched by Accelerate to a matrix coprocessor (AMX) on the M1-M3. We ask where a hand-written kernel's throughput over Accelerate comes from on the M1 AMX, and reach a structural conclusion: not a faster inner loop. By microbenchmark the inner loop is load-issue bound -- once any operand load interleaves with the FMA32 stream, single-thread throughput falls to a 610-to-680 GFLOPS band, under half the load-free rate. The gain comes from two deployment-level levers Accelerate underuses: fine multi-thread panels filling the M1's second on-chip AMX block (winning the K &gt;= N shapes), and pre-packing the constant weight at load (winning the N &gt; K shapes). A bit-exact direct-AMX kernel using both is the fastest bit-exact fp32 GEMM path we find on the M1: it exceeds all three Accelerate fp32 paths (cblas_sgemm, BNNSMatMul, and the BNNS Graph compiler) at all twelve LLM prefill GEMMs at S = 128 (GPT-2 to Llama-7B scale), leading the fastest, BNNS Graph, by 1.17 -- and by 1.09 at the three shapes where it too holds fp32 -- with geometric means of 1.58 over BNNSMatMul and about 2.0x over cblas_sgemm. Every output is bit-identical to Accelerate, whereas BNNS Graph is bit-exact at only three of twelve shapes, the rest at reduced precision (error up to 1.4e-3). Dropped into llama.cpp for its cblas_sgemm prefill matmuls, it raises measured full-forward throughput from 291 to 420 tokens/s (1.44x, bit-identical) at 128-token prefill -- end-to-end, not a GEMM-only ratio. The contribution is this shape-resolved M1-AMX characterization (microbenchmark, two-block aggregate, per-core occupancy probe), leaving fine-panel scheduling and pre-packing as the only two levers above an inner loop at the hardware limit; mis-tuning the single column-panel width costs nearly 2x.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.25426v1</guid>
       <category>cs.PF</category>
-      <category>cs.DC</category>
-      <category>cs.OS</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Sudarshan Srinivasan, Deepak Gangadharan, Dip Goswami</dc:creator>
+      <dc:creator>Deyvik Bhan</dc:creator>
     </item>
     <item>
-      <title>FP8 is All You Need (Part 2): Efficient Ozaki-Bailey Style FFT Through Tensor-core Garner Reformulation and Kulisch Escape Route</title>
-      <link>https://arxiv.org/abs/2606.23698</link>
-      <description>arXiv:2606.23698v1 Announce Type: cross 
-Abstract: NVIDIA's Blackwell Ultra (B300) cuts FP64 vector throughput to ~1.3 TFLOPS per GPU, roughly 30x below B200 and well below the level at which bandwidth-limited FP64 workloads stay memory-bound. The Ozaki Scheme II framework recovers FP64-equivalent throughput by routing dense matrix multiply through FP8 tensor cores with a mantissa-sliced Chinese-remainder reconstruction. A companion Part (1) paper covers dense GEMM, batched GEMV, stencils, and SpMV; this paper adds the fifth canonical primitive, the 3-D FFT. We present Ozaki-Bailey FFT, an emulated 3-D FFT via the Bailey six-step decomposition with both 1-D FFT GEMMs on FP8 tensor cores. Bailey's small inner factor k ~ sqrt(N) (k=32 for N=1024) puts the kernel in the regime k &lt;&lt; r^2, where the third TME parameter gamma (reconstruction latency) binds rather than amortising. Garner reconstruction splits into Phase A (inner products on FP8/INT8 tensor cores, ~1 ms for 1024^3 on B300) and Phase B (per-output reduction). We identify Kulisch fixed-point complete arithmetic as a Phase B reformulation that keeps full FP64 accuracy while running entirely on the INT32 SIMT pipe. We derive closed-form bandwidth-parity floors. The native FP64 floor is 1.56*B_HBM (12.5 TF at 8 TB/s): B300's 1.3 TF sits ~10x below, Rubin's 33 TF within 4%. The Kulisch escape route needs an INT32 sub-floor 8.25*B_HBM and an FP8 floor 170*B_HBM; B300 meets both. The projection is ~18 ms for 1024^3 at full FP64, essentially the 12.9 ms memory roof. A GPU meets memory-roof FFT parity if it satisfies either the native floor or both Kulisch floors. If the projection holds in practice, B300 becomes viable for full-FP64 FFT through software alone, motivating a libKulisch library and benchmark campaign.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.23698v1</guid>
-      <category>cs.MS</category>
+      <title>Power-Flexible AI Data Centers: A New Paradigm for Grid-Responsive Compute</title>
+      <link>https://arxiv.org/abs/2606.25098</link>
+      <description>arXiv:2606.25098v1 Announce Type: cross 
+Abstract: The rapid expansion of artificial intelligence (AI) infrastructure is driving unprecedented growth in electricity demand from data centers. Traditional power-system planning treats large computing facilities as inflexible peak loads, leading to costly infrastructure upgrades and long delays in grid interconnection. Recent work has shown that AI clusters can reduce electricity consumption during peak demand through software-based workload orchestration. This article explores how modern GPU-based AI data centers can operate as grid-interactive assets that respond dynamically to power system conditions. We describe an architecture integrating grid signals, workload scheduling, and power telemetry for fine-grained cluster power control. Experimental results from a real-world deployment on a 130 kW GPU cluster demonstrate multiple forms of flexibility, including rapid load reduction, sustained curtailment, and carbon-aware operation while preserving service levels for priority jobs. We further demonstrate performance-aware load shifting across geographically distributed clusters, enabling workloads to migrate toward regions with lower grid stress. Together, these capabilities transform AI infrastructure from static electricity consumers into flexible resources that support grid reliability, accelerate interconnection, and improve computing sustainability.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.25098v1</guid>
+      <category>cs.DC</category>
       <category>cs.AI</category>
-      <category>cs.DC</category>
       <category>cs.PF</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Satoshi Matsuoka</dc:creator>
-    </item>
-    <item>
-      <title>Memory Layouts for GPU-Data Transfer Buffering in SPH</title>
-      <link>https://arxiv.org/abs/2606.23891</link>
-      <description>arXiv:2606.23891v1 Announce Type: cross 
-Abstract: The rise in GPU compute speed has outpaced improvements in host-to-device memory transfer speeds, despite the advent of shared-memory superchips. Consequently, memory transfer times now constitute an increasingly large fraction of total time-to-solution, compelling developers to compress GPU kernel input and output data into compact, minimal formats prior to GPU-offloading. This complements existing work on GPU- and compute-friendly data arrangements. We study a Smoothed Particle Hydrodynamics solver and propose memory layout strategies for host-side particle data that are particularly well-suited to GPU-offloading. Specifically, we advocate splitting classic array-of-struct data structures into a split array-of-struct arrangement, in which each logical struct decomposes into substructs determined by kernel read/write access patterns and attribute types. Splitting a monolithic particle struct into several bespoke, finer-grained structs can reduce the time required to pack data to and from buffers by ~20% - 40%, lowering total time spent on GPU-offloading by ~12% - 25%.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.23891v1</guid>
-      <category>cs.DC</category>
-      <category>cs.MS</category>
-      <category>cs.PF</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Mladen Ivkovic, Abouzied M. A. Nasar, Tobias Weinzierl, Matthieu Schaller, Benedict D. Rogers, Georgios Fourtakas, Scott T. Kay</dc:creator>
-    </item>
-    <item>
-      <title>The Serialized Bridge: Understanding and Recovering LLM Serving Performance under Blackwell GPU Confidential Computing</title>
-      <link>https://arxiv.org/abs/2606.23969</link>
-      <description>arXiv:2606.23969v1 Announce Type: cross 
-Abstract: GPU Confidential Computing (GPU-CC) now preserves GPU-local performance: on NVIDIA B300, BF16 matmul runs at 0.998x of non-confidential performance. Yet LLM serving under Intel TDX plus GPU-CC still loses 13-27% of throughput, and KV-cache restore latency can more than double. This paper studies that gap on two Blackwell platforms, RTX Pro 6000 and B300 HGX, and identifies its dominant cause: the confidential VM-GPU bridge, not GPU compute.
-  We find that GPU-CC turns host/device movement into a serialized, high-setup-cost channel. Secure copies do not gain CUDA-stream concurrency within a context, asynchronous transfers block at the runtime boundary, and small crossings pay a fixed toll. This violates the assumptions of modern inference runtimes, where DMA is expected to be cheap, concurrent, and asynchronous. In vLLM dense decode, the gap closes around 44x-slower small alloc-and-copy operations; targeted patches reject alternative explanations. A scheduling flag recovers 57% of the gap, while a worker-thread drain recovers up to 92% in qualified high-concurrency runs. The same bridge model explains a +131% KV-restore penalty and a 34x model-load slowdown.
-  Blackwell also changes the confidential tenancy unit. We qualify confidential multi-GPU NVSwitch tenants on B300, including 510 GB/s NVLink P2P inside a CVM and concurrent isolated tenants, and identify the remaining fabric-attestation gap for production confidential AI platforms.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.23969v1</guid>
-      <category>cs.DC</category>
-      <category>cs.CR</category>
-      <category>cs.PF</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Hang Yin, Kevin Wang</dc:creator>
+      <dc:creator>Chris Williams, Philip Colangelo, Ayse Coskun, Ethan Levine, Andy Neale, Ciaran Roberts, Shayan Sengupta, Nikhil Shirolkar, Varun Sivaram, Sarah Soares, Ethan Tiao, Scott Underwood, Daniel Wilson, Frank Sharp, Luke Wainwright, Harry Petty, Scott Wallace, Brandon Records</dc:creator>
+    </item>
+    <item>
+      <title>EmuGEMM: Fused Tensor Core Kernels for Precision Emulation in Matrix Multiplication</title>
+      <link>https://arxiv.org/abs/2606.25453</link>
+      <description>arXiv:2606.25453v1 Announce Type: cross 
+Abstract: Modern GPUs devote an increasing silicon budget to low-precision matrix-multiplication units, widening the precision-throughput gap for scientific computing workloads. Ozaki Schemes I and II offer an alternative by reconstructing high-precision general matrix multiplication (GEMM) from low-precision operations, yet existing implementations leave substantial performance untapped. In particular, intermediate results are repeatedly materialized in global memory, making data movement the dominant bottleneck. We present EmuGEMM, fused integer Tensor Core kernels for NVIDIA Hopper and Blackwell GPUs that eliminate redundant memory round-trips in both Ozaki schemes. Using Scheme I, EmuGEMM sustains up to 1,639 Top/s on Hopper (83% of INT8 peak) and 3,654 Top/s on Blackwell (81%). For large matrices, EmuGEMM surpasses cuBLAS TF32 throughput by up to 1.4x on Hopper and 1.7x on Blackwell, at comparable accuracy. Using Scheme II, EmuGEMM extends to complex arithmetic and outperforms cuBLAS ZGEMM by up to 2.3x on Hopper and 5.5x on Blackwell.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.25453v1</guid>
+      <category>cs.DC</category>
+      <category>cs.MS</category>
+      <category>cs.PF</category>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Denghui Lu, Alexander Maeder, Mathieu Luisier, Alexandros Nikolaos Ziogas</dc:creator>
     </item>
     <item>
       <title>Accelerating Disaggregated RL for Visual Generative LLMs with Diffusion-Based Parallelism and Trainer-Assisted Generation</title>
       <link>https://arxiv.org/abs/2606.24369</link>
-      <description>arXiv:2606.24369v1 Announce Type: cross 
+      <description>arXiv:2606.24369v2 Announce Type: replace-cross 
 Abstract: Reinforcement learning (RL) has become a dominant post-training paradigm, driving the emergence of high-performance RL systems such as veRL for autoregressive large language models (LLMs). In parallel, diffusion-oriented RL algorithms, e.g., DanceGRPO and FlowGRPO, have rapidly expanded the scope of RL from language reasoning to diffusion-based visual and flow-based generation. However, efficient RL systems for diffusion generative LLMs remain underexplored. Existing implementations, e.g., veRL-Omni, still rely on colocated execution, which simplifies synchronization but couples rollout and training resources, limits heterogeneous deployment, and constrains independent scaling.
   To this end, we introduce DigenRL, a disaggregated RL framework for diffusion-based generative LLMs that supports flexible resource allocation, accommodates heterogeneous GPUs, and facilitates efficient task scheduling. To maximally reduce the execution bubbles in the disaggregated architecture, we propose: 1) a generation-axis pipeline (GAP) and time-step parallelism (TSP) in the diffusion architecture to enable finer-grained pipelining between rollout and training; 2) an elastic trainer-assisted generation (TAG) approach to enable the trainer GPU resources to dynamically assist in executing rollout generations; and 3) a tightly one-step constrained asynchronous strategy to further utilize the tail bubble in the pipeline. Extensive experiments are conducted on three hardware testbeds with 16-32 GPUs using HunyuanVideo-13B, Wan2.1-14B, FLUX.1-12B, and QwenImage-20B generative models. Experimental results show that DigenRL achieves 1.56-2.10x throughput improvements over state-of-the-art diffusion RL systems, veRL-Omni and GenRL.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.24369v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2606.24369v2</guid>
       <category>cs.AI</category>
       <category>cs.DC</category>
       <category>cs.NI</category>
       <category>cs.PF</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
       <dc:creator>Sijie Wang, Zhengyu Qing, Zhiqiang Tan, Yiming Yin, Yeqing Zhang, Yaoyuan Wang, Qiang Wang, Xiaowen Chu, Shaohuai Shi</dc:creator>
-    </item>
-    <item>
-      <title>CrossPool: Efficient Multi-LLM Serving for Cold MoE Models through KV-Cache and Weight Disaggregation</title>
-      <link>https://arxiv.org/abs/2606.24506</link>
-      <description>arXiv:2606.24506v1 Announce Type: cross 
-Abstract: Emerging LLM services increasingly host many sparse MoE models, yet most models receive sparse requests and remain cold. This creates a GPU memory problem: model weights are stable and model-determined, while KV-cache is transient and demand-determined. Because cold models rarely reach peak KV-cache demand at the same time, reserving worst-case KV capacity per model wastes memory; a shared KV-cache pool can instead provision aggregate active demand. However, KV-cache sharing is not sufficient when weights and KV-cache remain in a monolithic GPU memory pool. Static weights compete with dynamic KV-cache, and KV-head-limited attention under cold, low-concurrency traffic exposes only a fraction of replicated KV capacity, leading to low GPU memory utilization and weak long-context support. We present CrossPool, a serving engine for cold MoE models that separates FFN weights and KV-cache into two GPU memory pools: a weights pool that consolidates FFN weights across cold models, and a KV-cache pool that dynamically serves active requests while keeping attention local to KV-cache. CrossPool combines a KV-cache planner and virtualizer, a layer-wise pipeline scheduler that hides hidden-state transfers, and persistent kernels with control lowering to reduce CPU-GPU control overhead. With efficient GPU memory pooling, CrossPool underpins bursty long-context requests and outperforms the state-of-the-art kvcached-based multi-LLM serving system, reducing P99 TBT by up to $10.4\times$.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.24506v1</guid>
-      <category>cs.DC</category>
-      <category>cs.AI</category>
-      <category>cs.LG</category>
-      <category>cs.PF</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Zhuoren Ye, Tianyu Wo, Dinghao Xue, Mingming Zhang, Yuchen Teng, Chunming Hu, Renyu Yang</dc:creator>
-    </item>
-    <item>
-      <title>AI Tokenomics: The Economics of Tokens, Computation, and Pricing in Foundation Models</title>
-      <link>https://arxiv.org/abs/2606.24616</link>
-      <description>arXiv:2606.24616v1 Announce Type: cross 
-Abstract: Tokens have become the practical accounting unit for modern foundation model services, linking information processing, computation, memory use, energy expenditure, pricing, and economic value. This paper develops a framework for AI tokenomics: the study of how tokens are generated, consumed, priced, allocated, and optimized across AI systems. We connect token-level technical costs to workflow-level production functions, enterprise resource allocation, measurement and instrumentation methods, and emerging market-design questions. The framework shows that token expenditure and economic value are distinct: value depends on marginal productivity, workflow position, hidden reasoning activity, risk, and downstream propagation effects. The paper concludes by identifying open research directions in hidden-token measurement, empirical calibration, token productivity, dynamic allocation, and token-based markets.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.24616v1</guid>
-      <category>cs.AI</category>
-      <category>cs.PF</category>
-      <category>econ.GN</category>
-      <category>q-fin.EC</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
-      <dc:creator>Quanyan Zhu</dc:creator>
-    </item>
-    <item>
-      <title>AI-PAVE-Br: Leveraging Large Language Models for Enhanced Product Attribute Value Extraction through a Golden Set Approach</title>
-      <link>https://arxiv.org/abs/2606.24655</link>
-      <description>arXiv:2606.24655v1 Announce Type: cross 
-Abstract: The explosive growth and complexity of product data within the dynamic Brazilian e-commerce landscape demand robust and specialized methods for structured information extraction. Traditional approaches to Product Attribute Value Extraction (PAVE) often struggle with the linguistic nuances and sheer diversity of product descriptions in Portuguese. To address this critical gap, this paper introduces two major contributions. First, we present AI-PAVEBr, a specialized system engineered with Large Language Models (LLMs) to perform high-accuracy PAVE specifically for Brazilian e-commerce catalogs. Second, to facilitate reproducible research and provide a definitive benchmark, we introduce and share the Golden Set, a new, meticulously curated, and manually annotated dataset for PAVE in Portuguese. We detail the creation process and structure (Entity, Category, Subcategories) of this high-quality reference set. Our experiments conclusively show that AI-PAVE-Br, leveraging targeted prompt engineering, dramatically outperforms conventional Named Entity Recognition (NER) baselines. This work not only delivers a superior, scalable solution for a major non-English market but also enriches the NLP community with a valuable, publicly available resource for future PAVE research.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.24655v1</guid>
-      <category>cs.CL</category>
-      <category>cs.AI</category>
-      <category>cs.LG</category>
-      <category>cs.PF</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
-      <arxiv:DOI>10.5753/stil.2025.37821</arxiv:DOI>
-      <arxiv:journal_reference>Proceedings of the 15th Symposium in Information and Human Language Technology (STIL 2025), Brazilian Computer Society (SBC), 2025</arxiv:journal_reference>
-      <dc:creator>Murilo Gazzola, Hugo Gobato Souto, Samuel Silva, J\'ulia Schubert Peixoto, Felipe Siqueira, Andr\'e Luis Pedroso de Morais, Caio Gomes</dc:creator>
-    </item>
-    <item>
-      <title>Scheduling jobs with unknown size distribution in a M/G/1 queue: the shifted empirical Gittins</title>
-      <link>https://arxiv.org/abs/2606.24703</link>
-      <description>arXiv:2606.24703v1 Announce Type: cross 
-Abstract: In this paper we consider a M/G/1 queue for which we want to minimize the expected response time. We show how to compute indices from $n$ samples of the job size distribution such that the corresponding index policy is asymptotically optimal as $n$ grows. This construction is based on a discretization of the bounded support of the job size distribution and a shift of the samples to their nearest discrete point to the right. We show that the Gittins index of the empirical distribution of these shifted samples is close to the Gittins index of the original distribution. This translates to the asymptotic optimality of the corresponding index policy for minimizing the expected response time. Numerical comparison with other approaches further confirm the efficiency of our approach.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.24703v1</guid>
-      <category>math.PR</category>
-      <category>cs.DS</category>
-      <category>cs.PF</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Nicolas Gast, Bruno Gaujal, Adrien Obrecht</dc:creator>
-    </item>
-    <item>
-      <title>Inference of Component Effect on System Performance</title>
-      <link>https://arxiv.org/abs/2605.26643</link>
-      <description>arXiv:2605.26643v2 Announce Type: replace 
-Abstract: In a computer system, multiple components--such as the CPU, memory, and others--work together as a system whose performance can be directly measured. However, the effect of a component under investigation (CUI), e.g., CPU, on system performance cannot be directly measured and can only be inferred. Accurately inferring CUI effect on system performance is a critical issue. Our experiments reveal that the general-purpose rigorous methodologies, like Design of Experiments (DoE), Randomized Controlled Trials (RCTs), and a single-purpose empirical methodology, like SPEC CPU2017, can not address this issue effectively and efficiently.
-  We propose a rigorous methodology to address this issue: First, we identify a self-contained system (SCS) under the context of which we can completely understand how CUI and other essential components affect the system performance, and then we use a structural causal model methodology to represent and infer the causal effect of CUI on the system performance. We utilize this methodology and verify its correctness in the context of CPU design and evaluation. Through theoretical analysis and pioneering controlled experiments, we systematically compare our methodology against three established methodologies: SPEC CPU2017, DoE, and RCTs. The results show that our methodology can achieve its goal effectively and efficiently, whereas others exhibit inherent limitations.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.26643v2</guid>
-      <category>cs.PF</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Chenxi Wang, Lei Wang, Wanling Gao, Fanda Fan, Guoxin Kang, Hongxiao Li, Yuchen Su, Jianfeng Zhan</dc:creator>
-    </item>
-    <item>
-      <title>Does Mixture-of-Experts Actually Help Inference on Consumer and Edge Hardware? An Empirical Study</title>
-      <link>https://arxiv.org/abs/2606.21428</link>
-      <description>arXiv:2606.21428v2 Announce Type: replace 
-Abstract: Mixture-of-Experts (MoE) language models are often described as ideal for resource-constrained inference. Each token activates only a small subset of experts, so the per-token compute cost, in floating-point operations (FLOPs), resembles that of a much smaller dense model. Whether that FLOP advantage survives in practice is far less clear. We ask whether MoE models actually run faster and cheaper than comparable dense models on consumer-grade and edge hardware. We benchmark OLMoE-1B-7B (1.3 B active of 6.9 B total) against three dense baselines on an Apple M2 Pro and an NVIDIA Jetson Orin Nano 8 GB through \texttt{llama.cpp}, measuring throughput, memory, and on-device energy. The answer is device-dependent: OLMoE's active-parameter advantage is only partly realised on the laptop (~10% behind the same-active Llama-3.2-1B) and erodes on the edge device (~31% behind, at 2.1$\times$ the energy per token, with peak memory at the 8 GB ceiling). Patching \texttt{llama.cpp} to time the decode graph node-by-node shows routing accounts for under 9% of MoE-block compute on the cleaner edge backend, so the gap reflects total-parameter memory footprint, expert dispatch, and KV-cache pressure rather than routing. The implication is that on bandwidth-bound edge hardware, inference cost tracks total parameters, not active ones, and sparse activation does not buy back what the device is constrained on. These findings are bounded to one MoE model at this parameter scale and two devices, and we release the full measurement harness and per-run data.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.21428v2</guid>
-      <category>cs.PF</category>
-      <category>cs.AI</category>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Alfarizy Alfarizy, Hung Truong Thanh Nguyen, Ren\'e Richard, Roozbeh Razavi-Far, Hung Cao</dc:creator>
     </item>
   </channel>
 </rss>
