@@ -7,55 +7,55 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 04:00:13 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 04:00:14 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Wed, 01 Jul 2026 00:00:00 -0400</pubDate>
+    <pubDate>Thu, 02 Jul 2026 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Sunday</day>
       <day>Saturday</day>
     </skipDays>
     <item>
-      <title>The Fourth-Root Complexity of Data Movement</title>
-      <link>https://arxiv.org/abs/2606.30948</link>
-      <description>arXiv:2606.30948v1 Announce Type: cross 
-Abstract: Time complexity typically assumes $O(1)$ cost per data access. This paper presents an analysis based on an abstract memory hierarchy. For a common class of applications, it shows that the data-access cost scales with the fourth root of data size, that is, as data size $N$ increases, the cost of each access increases at the rate of $N^\frac{1}{4}$.
-  While the analysis does not predict performance, it predicts scalability. Specifically, the paper provides a precise analysis that shows the constant-factor difference between cases where the miss ratio follows a power law versus an exponential decay.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.30948v1</guid>
-      <category>cs.CC</category>
-      <category>cs.PF</category>
-      <category>cs.PL</category>
-      <pubDate>Wed, 01 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Chen Ding</dc:creator>
-    </item>
-    <item>
-      <title>A Multi-Dimensional, Per-Pass Empirical Study of the LLVM Optimization Pipeline</title>
-      <link>https://arxiv.org/abs/2606.31238</link>
-      <description>arXiv:2606.31238v1 Announce Type: cross 
-Abstract: Quantifying the marginal impact of individual optimization passes underpins phase ordering, pass selection, optimization design, and analysis of pass/hardware interactions. In LLVM -- the standard backend for C/C++, Rust, and ML stacks via MLIR -- interactions among optimization passes, measurement noise, and pipeline scale make this difficult. We present a systematic, empirical study of the LLVM -O3 optimization pipeline. We decompose the pipeline into cumulative per-pass prefixes. We then measure execution time, compile time, binary size, hardware counters, and RAPL energy across 84,750 measurements covering 113 cumulative prefixes of the -O3 pipeline evaluated on 30 PolyBench/C kernels under rigorous noise mitigation. On these compute-bound affine kernels, the pipeline is non-monotone (6.6-9.7% of transitions regress) and strongly back-loaded (the median non-regressing kernel needs 84.8% of the pipeline for 80% of its speedup). Most gains are driven by a small Pareto-dominant core of passes, while the final -O3 configuration is Pareto-dominated on (size, speedup) for 29 of 30 kernels. We further show that IR instruction count is an unreliable predictor of runtime, that runtime-targeted passes are de facto energy-targeted (30-60% savings), and that the search-free idealized-additive upper bound on losses due to phase interference is 46.35%. These findings enable more informed pass pruning, cost-model calibration, and autotuning.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.31238v1</guid>
-      <category>cs.SE</category>
-      <category>cs.PF</category>
-      <category>cs.PL</category>
-      <pubDate>Wed, 01 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Federico Bruzzone, Walter Cazzola</dc:creator>
-    </item>
-    <item>
-      <title>TraceLab: Characterizing Coding Agent Workloads for LLM Serving</title>
-      <link>https://arxiv.org/abs/2606.30560</link>
-      <description>arXiv:2606.30560v2 Announce Type: replace-cross 
-Abstract: Coding agents are rapidly becoming a major application of agentic LLMs, but serving them efficiently remains challenging. Progress on this challenge requires understanding real workload patterns, yet the data needed for such analysis is largely absent. Existing public traces and benchmarks do not capture real, day-to-day coding-agent usage across multiple agents and model families for serving-system analysis. To help fill this gap, we collect and release a trace of roughly 4,300 coding-agent sessions, containing about 350,000 LLM steps and 430,000 tool calls from our own day-to-day use of Claude Code and Codex. Our analysis shows that coding-agent workloads feature long autonomous loops, long contexts with short outputs, diverse and heavily-tailed tool calls, and high but imperfect prefix cache hit rates. These findings point to concrete opportunities for optimizing serving, including lower-overhead tool calling, append-length-aware prefill, semantic-aware tool-latency prediction, and improved KV-cache management around human-paced gaps. We release the dataset, trace collection pipeline, and analysis code at https://github.com/uw-syfi/TraceLab.git the project website is https://tracelab.cs.washington.edu.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.30560v2</guid>
-      <category>cs.LG</category>
+      <title>BaseRT: Best-in-Class LLM Inference on Apple Silicon via Native Metal</title>
+      <link>https://arxiv.org/abs/2607.00501</link>
+      <description>arXiv:2607.00501v1 Announce Type: cross 
+Abstract: We present BaseRT, a native Metal inference runtime for large language models (LLMs) on Apple Silicon, and report the highest inference throughput on this hardware to date. Existing runtimes, including llama.cpp and MLX-based frameworks, incur overhead from abstractions not designed for Metal's execution model or Apple Silicon's unified memory topology. By building natively on Metal with chip-specific kernel fusion, unified memory-aware optimisation, and custom dispatch logic, BaseRT recovers performance that framework-based approaches leave on the table. BaseRT supports a wide range of model families across eight quantisation formats (Q2 to FP16) on all Apple M-series devices. In this paper, we evaluate the Qwen3, Llama 3.2, and Gemma 4 families at Q4 and Q8 quantisation on M3 and M4 Pro devices. BaseRT achieves up to 1.56x higher decode throughput than llama.cpp and up to 1.35x higher than MLX, with substantially larger margins on prefill for mixture-of-experts models, delivering consistent best-in-class throughput from sub-1B to 30B parameter models. These results establish Apple Silicon as a more capable inference platform than previously reported, with direct implications for the emerging edge inference paradigm: as privacy requirements, latency constraints, and cloud cost pressures drive inference toward on-device deployment, performance-optimised local runtimes are a critical enabling layer for this transition. BaseRT is publicly available at https://github.com/basecompute/baseRT</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.00501v1</guid>
+      <category>cs.CL</category>
       <category>cs.AI</category>
       <category>cs.PF</category>
-      <pubDate>Wed, 01 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Kan Zhu, Mathew Jacob, Chenxi Ma, Yi Pan, Stephanie Wang, Arvind Krishnamurthy, Baris Kasikci</dc:creator>
+      <dc:creator>Prabod Rathnayaka, Fabian Waschkowski, Lukas Wesemann</dc:creator>
+    </item>
+    <item>
+      <title>LUMA: Benchmarking Segmentation via a Lightweight Universal Mask Adapter</title>
+      <link>https://arxiv.org/abs/2607.00687</link>
+      <description>arXiv:2607.00687v1 Announce Type: cross 
+Abstract: Comparing transformer backbones for image segmentation is confounded: each is paired with a different decoder, recipe, and pretraining, so reported differences rarely reflect the backbone itself. We introduce the Lightweight Universal Mask Adapter (LUMA), a lightweight, backbone-agnostic mask-transformer head that treats any backbone as a black-box feature extractor, letting a set of queries read from its features through cheap cross-attention. LUMA matches the accuracy of EoMT, the state-of-the-art efficient ViT-segmenter, at lower cost, while attaching unchanged to isotropic, hierarchical, convolutional, and mixture-of-experts backbones alike. Holding this head fixed, we benchmark 20 backbones, 11 pretraining schemes and a range of resolutions on ADE20K and Cityscapes under one modern recipe. We find that ``efficient'' token mixers fail to deliver efficiency even at the high resolutions that motivate them, with plain ViT holding the throughput Pareto-front at every resolution. Additionally, the pretraining objective, not the architecture, the lever the field has tuned hardest, governs segmentation quality.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.00687v1</guid>
+      <category>cs.CV</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Tobias Christian Nauen, Anosh Billimoria, Federico Raue, Stanislav Frolov, Brian B. Moser, Andreas Dengel</dc:creator>
+    </item>
+    <item>
+      <title>Stochastic Connectivity as the Foundation of a Runtime Model for Microservice Availability Analysis</title>
+      <link>https://arxiv.org/abs/2607.00740</link>
+      <description>arXiv:2607.00740v1 Announce Type: cross 
+Abstract: Microservice availability is commonly assessed by fault injection and chaos experiments, but such experiments are costly, operationally risky, and difficult to repeat for every architectural change. Distributed tracing and deployment metadata provide cheaper evidence, yet they usually remain descriptive: they show which services interacted, not what endpoint-level availability property follows. This paper proposes a formal runtime availability model based on stochastic connectivity for resilience-oriented analysis of microservice endpoints. It treats endpoint availability under explicit fault scenarios as a measurable facet of microservice resilience, combining a typed service-dependency graph, a replication map, a probability measure over node and edge states, and request-specific success predicates. Its semantics separates computational failures of service replicas from communication failures of logical dependencies, showing that replication cannot compensate for bottleneck dependencies. The model can be reconstructed from traces and deployment artifacts, parameterized for architectural what-if analysis, and analyzed by Monte Carlo simulation before or alongside fault injection. We define the model, its trace-to-model construction, elementary semantic properties, and a synthetic adequacy study. The study matches closed-form oracle cases within sampling error and exposes boundaries caused by edge bottlenecks, correlated failures, missing traces, and time-dependent failures.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.00740v1</guid>
+      <category>cs.SE</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Anatoly A. Krasnovsky, Anna Maslovskaya</dc:creator>
     </item>
   </channel>
 </rss>
