@@ -7,141 +7,44 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jul 2026 04:00:27 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2026 04:00:13 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Tue, 07 Jul 2026 00:00:00 -0400</pubDate>
+    <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Saturday</day>
       <day>Sunday</day>
     </skipDays>
     <item>
-      <title>Characterizing and Bridging the Diagnostic Gap in eBPF Verifier Rejections</title>
-      <link>https://arxiv.org/abs/2607.02748</link>
-      <description>arXiv:2607.02748v1 Announce Type: new 
-Abstract: eBPF lets developers run custom programs inside the Linux kernel, where a verifier proves each program safe. However, when the verifier rejects a program, the unclear error makes repair challenging: the error reports where verification stopped, not where the program lost the proof the verifier required. To quantify this gap, we conduct an empirical study of 235 reproduced rejections, showing that 47% of rejections return only EINVAL, one error string maps to as many as nine distinct root causes, and 10 of the 12 root causes are eBPF-specific. Repair thus requires both domain knowledge and locating where the proof was lost, yet existing tools only help developers read the error. We present bpfix, which reconstructs where the required proof was established and where it was lost from the verifier log, and prints a Rust-like diagnostic. To evaluate bpfix and the ability of LLMs to help repair, we construct a benchmark of 75 LLM repair tasks. Current models achieve 0-37% one-shot success with the raw log, and replacing the log with the bpfix localization improves repair by 11-21pp, suggesting that locating where the proof was lost is key to guiding repair. bpfix is available at https://github.com/eunomia-bpf/bpfix</description>
-      <guid isPermaLink="false">oai:arXiv.org:2607.02748v1</guid>
+      <title>Complets: Universal Compartmentalisation and Programming Model For Arm Permission Overlay Extension 2</title>
+      <link>https://arxiv.org/abs/2607.05569</link>
+      <description>arXiv:2607.05569v1 Announce Type: new 
+Abstract: Arm Permission Overlay Extension (POE) is an intra-process isolation mechanism based on memory protection keys. This mechanism partitions virtual memory into regions whose access permissions can be reconfigured without invoking higher exception levels. Because POE does not enforce privilege separation, POE-based protection domains are applicable only as a software fault-isolation technique.
+  The POE2 is an isolation mechanism that substantially extends POE1. Dealing with memory protection keys, it also introduces new registers and tables that regulate the operations permitted for code executing within protection domains associated with different keys. A permission is determined by the spatial index of the executing code (i.e., the protection key associated with code), the spatial index of the accessed memory, the operation type, and a new attribute of the thread context: its temporal index.
+  POE2 provides stronger security guarantees than POE1, but also introduces considerable architectural complexity. Effective permissions arise from the interaction of multiple hardware components, making direct programming non-trivial and prone to subtle errors. In the paper, we present a detailed analysis of POE2 and introduce a universal programming model with a strong security model for POE2-based systems. The model abstracts the complexity of spatial and temporal indices while enabling typical patterns of partitioned software constructed using intra-process isolation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05569v1</guid>
       <category>cs.OS</category>
-      <category>cs.PL</category>
-      <category>cs.SE</category>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Yusheng Zheng, Zhengjie Ji, Weichen Tao, Xiangyu Gao, Jianchang Su, Wei Zhang, Andi Quinn, Dan Williams</dc:creator>
-    </item>
-    <item>
-      <title>Elastic Gang: Per-Token Membership Change for a Hard-Barriered LLM Inference Gang Co-Scheduled with OS Processes</title>
-      <link>https://arxiv.org/abs/2607.04668</link>
-      <description>arXiv:2607.04668v1 Announce Type: new 
-Abstract: On-device LLM decoding is a hard-barriered CPU-SIMD computation that wants every core for milliseconds per token, while the rest of the OS wants those same cores continuously. A barriered gang cannot simply be dropped into a preemptive scheduler: an unannounced departure deadlocks a barrier, and an unannounced arrival silently corrupts logits. I present the elastic gang of Anima OS, a bare-metal x86-64 Rust kernel in which the inference gang is a first-class schedulable entity whose core membership may change between any two tokens. The core mechanism is an ACK-latched epoch protocol that never waits on a named core: a seqlock-style generation-tagged latch composed with RCU/epoch-style membership consent, so each token's participant set is the intersection of the cores the gang requested and the cores that acked the current epoch. An un-acked core is outside this token and joins at most one token later. Displaced general processes migrate and keep running; cores return to them the moment a generation ends.
-  On a real AMD Zen 5 machine (8C/16T), inference output is bit-exact under verified per-token membership change on both a 135M and a 7B model, the property that makes elasticity safe in a kernel whose safety gate reads logits. Against fair static core partitions, elastic membership Pareto-dominates: at intermediate inference duty cycles it delivers 1.75x (25%), 1.52x (50%), and 1.28x (75%) the general throughput of a static 8-core split at equal or better inference throughput, recovers all eight stranded cores when inference is idle, and converges to the split at saturation. Returning a lent core costs 0.22 us (p50); acquiring a busy, tenant-occupied core costs one scheduling quantum (~16 ms): a running tenant is never preempted mid-slice. Decode throughput saturates at gang width 8, so ceding cores past the knee is nearly free: elasticity auto-sizes the gang online.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2607.04668v1</guid>
-      <category>cs.OS</category>
-      <category>cs.AI</category>
-      <category>cs.PF</category>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
-      <dc:creator>Daeyeon Son</dc:creator>
-    </item>
-    <item>
-      <title>Fine-Grained Computation Offload for Off-the-Shelf Servers in Tens of Lines</title>
-      <link>https://arxiv.org/abs/2607.02630</link>
-      <description>arXiv:2607.02630v1 Announce Type: cross 
-Abstract: Hardware accelerators now sit on the critical path of online serving. GPUs, FPGAs, and increasingly remote services such as hardware security modules, post-quantum KEMs, and inference servers. For fine-grained offloads (microseconds to a few milliseconds) the classic responses to the resulting stall both fail: a context switch costs as much as the offload, and a busy-wait burns the core. Overlapping the offload with other requests is the fix, and prior systems obtain it by adding concurrency: an async-framework rewrite, a new runtime or dataplane OS, or a hand-tuned point integration.
-  We observe that the concurrency already exists: serving concurrent requests is suspending and resuming them, so every server ships the machinery overlap needs. Overlap is then a routing problem, not a rewrite problem: submit the offload to an executor, suspend the request with the server's own deferred-response primitive, resume it on completion. Across ten off-the-shelf servers spanning every production concurrency model, this recipe takes 22-138 lines added, at most one modified, and recovers 1.2-5.4x on real hardware; the server's concurrency model and the offload's weight predict both numbers in advance, and the win is bounded by device throughput and the server's own overlap capacity. At the limit, an LD_PRELOAD fiber runtime injects the reroute into an unmodified thread-per-connection binary (17.3x) within a characterized envelope. Rerouting suspends run-to-completion atomicity; a measured taxonomy confines the hazard to unlocked shared aggregates, and a transparent page-protection detector guards exactly those, validated on stock Redis.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2607.02630v1</guid>
-      <category>cs.DC</category>
-      <category>cs.AI</category>
-      <category>cs.OS</category>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Bojie Li</dc:creator>
-    </item>
-    <item>
-      <title>Cross-IP Request Coalescing: Relocating the Fan-out Point in Virtualized I/O</title>
-      <link>https://arxiv.org/abs/2607.02969</link>
-      <description>arXiv:2607.02969v1 Announce Type: cross 
-Abstract: Cloud data centers rely on virtualization technologies to serve AI workloads in multi-tenant environments. With the growing scale of data-intensive AI workloads, the performance of storage I/O paths at the virtualization layer has become a critical factor. A single user request often crosses multiple IP blocks, where functional units such as storage, GPU, and accelerator devices under virtualization fan out into separate stack traversals between the guest and the backend. As a result, round-trip and context-switching overheads accumulate with the number of devices. In this letter, we identify that a dominant factor in this overhead lies not in the kernel-mediated I/O path alone, but in the per-device submission structure itself, which persists even in user-space, kernel-bypass storage frameworks such as SPDK. To address this, we propose cross-IP request coalescing, which relocates the fan-out point from the guest to the SPDK vhost-user backend. The guest submits multi-device I/O as a single compound request, and the accelerated bdev at the backend decomposes and dispatches it to each target device, replacing multiple per-device guest-backend round trips with a single submission. Evaluation in an SPDK-based virtualized environment shows that the proposed approach achieves up to 1.78x lower latency than the per-device baseline, with the benefit growing as concurrency increases.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2607.02969v1</guid>
-      <category>cs.DC</category>
-      <category>cs.OS</category>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Kiseok Kim, Hyeontae Joo, Hwangnam Kim</dc:creator>
-    </item>
-    <item>
-      <title>ProbeLogits: Kernel-Level LLM Inference Primitives for AI-Native Operating Systems</title>
-      <link>https://arxiv.org/abs/2604.11943</link>
-      <description>arXiv:2604.11943v3 Announce Type: replace 
-Abstract: An OS kernel that runs LLM inference internally can read the model's own next-token logit distribution before any text is generated, and act on it as a governance primitive. I present ProbeLogits, a kernel-level operation that performs a single forward pass and reads specific token logits to classify an agent's action as safe or dangerous, with zero learned parameters. Because the probe reads a logit from the same base model the agent already runs, it removes the second model a fine-tuned guard requires: the marginal cost of a safety check becomes a single logit read.
-  I evaluate ProbeLogits on three base models (Qwen2.5-7B, Llama-3-8B, Mistral-7B) across three external benchmarks (HarmBench, XSTest, ToxicChat). On HarmBench non-copyright, all three reach a 97-99% block rate. On ToxicChat (n=1,000), ProbeLogits attains F1 parity-or-better against Llama Guard 3: Qwen2.5-7B Safe/Dangerous reaches F1=0.812 (+13.7 pp, bootstrap 95% CIs disjoint), Llama-3 matches within CI (+0.4 pp), and Mistral exceeds by +4.4 pp. Classification is a measured 2.4-3.4x faster than Llama Guard 3 (332-556 ms vs. 851-1,142 ms), because it reads a single logit position instead of generating tokens. A calibration strength alpha acts as a deployment-time policy knob rather than a learned hyperparameter, trading recall for precision per operation class.
-  I implement ProbeLogits within Anima OS, a bare-metal x86-64 kernel written in ~285,000 lines of Rust. Because agent actions must pass through kernel-mediated host functions, enforcement operates below the WASM sandbox boundary, making it substantially harder to circumvent than application-layer classifiers.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2604.11943v3</guid>
-      <category>cs.OS</category>
-      <category>cs.LG</category>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Daeyeon Son</dc:creator>
-    </item>
-    <item>
-      <title>kAgent: An execution-guided crash resolution agent for the Linux kernel</title>
-      <link>https://arxiv.org/abs/2504.20412</link>
-      <description>arXiv:2504.20412v3 Announce Type: replace-cross 
-Abstract: Fuzzing frameworks like syzkaller have uncovered thousands of Linux kernel crashes, many of which are critical and security-sensitive. However, the ability to rapidly repair these crashes has not kept pace, particularly given the complexity and low-level nature of kernel code. Predominantly targeting user-space applications, existing LLM-based program repair techniques are not tailored to the unique challenges posed by kernel fuzz bugs-such as the absence of natural language bug reports, lack of exhaustive test oracles, and highly specialized crash artifacts. Thus, in this work, we first identify the prevalent bottlenecks that generic agents struggle with in complex systems such as the Linux kernel. Guided by these findings, we then build kAgent, a workflow-based agent inspired by how kernel developers diagnose and fix bugs, and kGym++, the co-designed toolstack supporting kAgent's requests. kAgent inspects relevant execution logs, generates execution-grounded natural language hypotheses, synthesizes candidate patches, validates patches through crash reproduction, and iteratively refines its reasoning. We ablate these agentic system features in kAgent and quantitatively analyze their contributions to the overall performance. We also report our experience on building agents for kernel crash repair. Although derived from this work on Linux, we note that our experience applies broadly to fuzzing-discovered bugs in complex systems software. We evaluate kAgent on kBenchSyz and show that it can repair up to 54.5% of crashes without localization and 65% with correct file hints. We also show kAgent's generalization on a few wild Syzkaller bugs, and how different patch types offer varying utility to developers who debug complex system software.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2504.20412v3</guid>
-      <category>cs.SE</category>
-      <category>cs.AI</category>
-      <category>cs.OS</category>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Alex Mathai, Chenxi Huang, Suwei Ma, Jihwan Kim, Hailie Mitchell, Aleksandr Nogikh, Petros Maniatis, Franjo Ivan\v{c}i\'c, Junfeng Yang, Baishakhi Ray</dc:creator>
-    </item>
-    <item>
-      <title>Governed MCP: Kernel-Level Tool Governance for AI Agents via Logit-Based Safety Primitives</title>
-      <link>https://arxiv.org/abs/2604.16870</link>
-      <description>arXiv:2604.16870v2 Announce Type: replace-cross 
-Abstract: AI agents increasingly call external tools (file system, network, APIs) through the Model Context Protocol (MCP). These tool calls are the agent's syscalls: privileged operations with side effects on shared state, yet today's safety enforcement lives entirely in userspace, where a 10-line script can bypass it. I propose Governed MCP, a kernel-resident tool governance gateway built on a logit-based safety primitive (ProbeLogits). The gateway interposes on every MCP tool call in a 6-layer pipeline: schema validation, trust tier, rate limit, adversarial pre-filter, a ProbeLogits semantic gate (the load-bearing check), and constitutional policy match, with a Blake3-hashed audit chain.
-  I implement Governed MCP in Anima OS, a bare-metal x86-64 kernel in ~286,000 lines of Rust. The five non-inference layers plus the audit append cost a measured 11.3 us per call; the ProbeLogits gate (one probe-prompt prefill plus a single logit read) costs 332-556 ms per classification across Qwen2.5-7B, Llama-3-8B, and Mistral-7B, 2.4-3.4x faster than a Llama Guard 3 pass on the same hardware. A silicon-measured ablation shows that removing the ProbeLogits layer collapses F1 from 0.789 to 0.357 (delta-F1 = -0.432): hand-rule firewalling alone is insufficient. Every WASM-to-system host function and every registered MCP tool is mediated by the kernel gateway, so the 10-line userspace bypass that defeats existing guardrail libraries is structurally impossible; a disclosed set of ring-3 syscall paths remains ungated pending future work. Multi-model validation across three architectures (HarmBench 98-99% non-copyright block, XSTest 98.5-100% unsafe recall, ToxicChat parity with Llama Guard 3) shows the underlying primitive is architecture-agnostic. Governed MCP demonstrates that tool-call governance is feasible as an OS primitive, not just an application-layer concern.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2604.16870v2</guid>
       <category>cs.CR</category>
-      <category>cs.AI</category>
-      <category>cs.OS</category>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Daeyeon Son</dc:creator>
+      <dc:creator>Vasily A. Sartakov</dc:creator>
     </item>
     <item>
-      <title>Shedding Light onto Safety Integrity Level and Basic Software Constraints in a Real-World Automotive Application: Case Study with Driverator Framework</title>
-      <link>https://arxiv.org/abs/2605.04837</link>
-      <description>arXiv:2605.04837v2 Announce Type: replace-cross 
-Abstract: Automotive electronic control units (ECUs) are intricate systems with hundreds of individual functions, numerous software components, and multiple interdependent tasks. A prevalent structural pattern in these systems are so-called cause-effect chains. While significant research efforts have been dedicated to the temporal analysis and optimization of these chains, particularly minimizing data age and function response times, other crucial non-functional properties remain relatively underexplored. In particular, the safety integrity level (SIL) classification substantially influences the system design by determining task colocation strategies. Improper sharing of functions or interweaving tasks with different safety levels can compromise the integrity of critical functions. Additionally, AUTOSAR basic software (BSW) (e.g. OS, runtime environment, communication stacks, or diagnostics) introduces complexity that varies based on task characteristics and SIL categories. Furthermore, memory requirements present another critical challenge, given the diversity of memory architectures and SIL-specific dependencies that strongly constrain task allocations. This paper thoroughly characterizes a real-world automotive application, describing an automotive application based on SIL constraints, the impact of basic software, and memory requirements. In this context, the Driverator configuration framework is introduced for scalable system analysis.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.04837v2</guid>
-      <category>cs.SE</category>
+      <title>Edge-Based QoS-Aware Adaptive Task Placement: A Closed-Loop Control in Multi-Robot Systems</title>
+      <link>https://arxiv.org/abs/2606.00552</link>
+      <description>arXiv:2606.00552v2 Announce Type: replace 
+Abstract: Multi-robot systems (MRS) increasingly offload compute-intensive perception tasks to edge nodes to meet strict time-sensitive Quality-of-Service (QoS) constraints. However, static task orchestration on a shared edge node can severely degrade QoS due to network latency, jitter, and edge-resource contention. We present a pilot edge-centric MRS testbed using Raspberry Pi nodes to evaluate a camera-to-manipulator pipeline under three modes: local execution, static offloading, and a QoS-aware Adaptive Task Placement (ATP) controller. ATP scores candidate placements using a multi-metric cost (normalized latency, CPU utilization, and switching overhead) over two-second control windows. The closed-loop visual servoing testbed is instrumented with sub-millisecond clock synchronization, network emulation, and detailed monitoring of multiple metrics across nodes to capture realistic jitter. Experimental results under compute-stress and network-fault scenarios show that static edge offloading reduces on-board CPU load but amplifies tail latency and deadline misses. In contrast, the QoS-aware ATP controller, by switching task placement based on measured latency and utilization thresholds, consistently lowers deadline violations and tail latency. Overall, the results position ATP as a practical edge-side control primitive for MRS and concrete design guidelines for Cloud-Edge Robotics deployments within the broader cloud-fog automation, while motivating QoS-aware multi-objective workload orchestration for industrial cyber-physical systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.00552v2</guid>
       <category>cs.OS</category>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.4230/LIPIcs.ECRTS.2026.19</arxiv:DOI>
-      <dc:creator>Tobias Denzinger (CARIAD SE), Matthias Becker (KTH Royal Institute of Technology), Peter Ulbrich (TU Dortmund University)</dc:creator>
-    </item>
-    <item>
-      <title>Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots</title>
-      <link>https://arxiv.org/abs/2607.02501</link>
-      <description>arXiv:2607.02501v2 Announce Type: replace-cross 
-Abstract: Embodied AI models now span vision-language-action (VLA) models and world-action models (WAMs), but practical deployment remains fragmented across model-specific Python stacks, backend assumptions, and robot-side glue code, especially on heterogeneous edge devices. Existing inference runtimes are designed mainly for request-response serving and therefore do not satisfy the runtime contract of embodied deployment: multi-rate execution inside closed-loop control, latency-first batch-1 inference on heterogeneous hardware, and extensible embodied interfaces beyond fixed token I/O. We present Embodied$.$cpp, a portable C++ inference runtime for embodied models. Based on an architectural analysis of representative VLA models and WAMs, Embodied$.$cpp captures a shared execution path and organizes it into five layers: input adapters, sequence builders, backbone execution, head plugins, and deployment adapters. The runtime provides modular multi-rate execution, latency-first fused inference, and extensible operator and I/O support, enabling deployment across heterogeneous devices, robots, and simulators through one backend abstraction. We evaluate Embodied$.$cpp on two VLA models, HY-VLA and pi0.5, and on a preliminary WAM benchmark using a LingBot-VA Transformer block. The VLA deployments achieve successful closed-loop execution with 100.0% and 91.0% task success rates, respectively. The WAM benchmark reduces block memory from 312.2 MiB to 88.1 MiB. These results show that Embodied$.$cpp improves deployment efficiency while preserving high accuracy across diverse embodied model architectures.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2607.02501v2</guid>
+      <category>cs.DC</category>
+      <category>cs.NI</category>
       <category>cs.RO</category>
-      <category>cs.CV</category>
-      <category>cs.OS</category>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Ling Xu, Chuyu Han, Borui Li, Hao Wu, Shiqi Jiang, Ting Cao, Chuanyou Li, Sheng Zhong, Shuai Wang</dc:creator>
+      <dc:creator>Thien Tran, Jonathan Kua, Thuong Hoang, Minh Tran, Honghao Lyu, Jiong Jin</dc:creator>
     </item>
   </channel>
 </rss>
