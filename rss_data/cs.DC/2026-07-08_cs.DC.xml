@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Jul 2026 04:00:05 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Bounded-Memory Parallel Image Pulling for Large Container Images</title>
+      <link>https://arxiv.org/abs/2607.05596</link>
+      <description>arXiv:2607.05596v1 Announce Type: new 
+Abstract: AI/ML workloads increasingly run as containers, where a container image must be downloaded to the host before the workload can start. This cold image pull lands on the critical path whenever a training or inference job scales up or a host is updated, and for GPU workloads it has become the dominant component of startup time as AI/ML images reach 31--48~GiB compressed. We present Disk-Backed Parallel Pull (DBPP), an alternative to the in-memory ordered reassembly used by containerd~2.2, the upstream container runtime. containerd splits layers into chunks fetched concurrently over HTTP range requests, but chunks that arrive out of order accumulate in the runtime heap until a sequential consumer drains them in order. This backlog grows with image size, and on GPU nodes where host memory is shared with frameworks and model weights, it leads to out of memory (OOM) termination of the runtime itself. DBPP writes each chunk directly to its target byte offset on disk, eliminating the ordering dependency and bounding memory regardless of image size. Because each layer lands on disk as a complete, seekable file, DBPP runs SHA-256 digest verification and decompression simultaneously, two passes containerd must run one after the other. In controlled experiments across five production-scale images (up to 48.5~GiB), DBPP reduces peak daemon memory by 8.7--25.3$\times$ while maintaining comparable pull throughput. On a memory-constrained node, containerd~2.2 is OOM-killed pulling a 31.4~GiB image while DBPP completes the same pull. The underlying idea reaches past container images: any pipeline that buffers data in memory only to enforce ordering can move that buffer to disk once the backing store is fast enough, trading a scarce, contended resource for an abundant one.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05596v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sri Saran Balaji Vellore Rajakumar, Henry Wang, Ankur Singh, James Thompson</dc:creator>
+    </item>
+    <item>
+      <title>Layer 2 Coordinated Trusted Setup for Continuous CRS Generation</title>
+      <link>https://arxiv.org/abs/2607.05776</link>
+      <description>arXiv:2607.05776v1 Announce Type: new 
+Abstract: Zero-knowledge proof systems rely on a trusted setup phase to generate a Common Reference String (CRS), yet existing approaches are typically static, one-time ceremonies that are inflexible and vulnerable to long-term compromise. Offloading continuous, recurring trusted setups to a decentralized Layer 2 (L2) network introduces a fundamental coordination challenge arising from the mismatch between high-throughput transaction processing and the multi-round requirements of trusted setup ceremonies. This paper presents an L2-coordinated framework that safely decouples transaction pipelines from ceremony execution to achieve automated, continuous CRS generation without centralized coordination. We design and implement two protocol variants over a decentralized, PBFT-coordinated ZK-rollup architecture: an on-chain smart contract approach and an asynchronous peer-to-peer consensus variant. Both designs utilize non-interactive zero-knowledge proofs of knowledge alongside commit-reveal structures to eliminate adaptive manipulation vectors and isolate ceremony latency. Experimental evaluations under simulated wide-area network constraints and adversarial conditions demonstrate that our architecture successfully isolates ceremony liveness. Continuous setups complete reliably within practical time bounds despite node dropouts or malicious contributions, while preserving stable L2 transaction throughput.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05776v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Khalid Hassan, Sara Rouhani</dc:creator>
+    </item>
+    <item>
+      <title>MatrixFSDP: communication-free matrix optimizers under ZeRO-3 parameter sharding</title>
+      <link>https://arxiv.org/abs/2607.05895</link>
+      <description>arXiv:2607.05895v1 Announce Type: new 
+Abstract: Matrix optimizers such as Muon are attractive for large-scale training because they can improve convergence and token efficiency over coordinate-wise optimizers. Muon does this by orthogonalizing momentum-smoothed matrix updates with Newton-Schulz, producing spectrum-balanced updates that require the complete 2D matrix as input. This exposes a systems mismatch: FSDP/ZeRO-3 saves memory by making the optimizer see shards, not whole matrices. Existing systems therefore either reconstruct matrices at every optimizer step, paying weight-sized communication after backward, or make the update local by using ZeRO-1 owner placement with full parameters resident. MatrixFSDP takes a third path: it changes where ZeRO-3 shards live, not the optimizer being computed. For each 2D weight, one data-parallel rank owns the whole matrix and the other ranks hold empty shards; non-matrix tensors are packed into tail owners and stay on AdamW. The ordinary backward reduction then lands the full Muon input on the owner, so Newton-Schulz runs locally with no optimizer-step matrix collective. Forward and backward still materialize and reshard parameters; the runtime challenge is to make that uneven layout efficient and correct. MatrixFSDP does so with MatrixShard metadata, a balance-aware owner planner, deterministic owner-segment P2P collectives, owner-buffer pinning, and owner-shard checkpoint resharding. The resulting update matches full-matrix Muon while preserving ZeRO-3-scale memory: on 64 A100s, MatrixFSDP reduces optimizer-step latency over stock FSDP2-Muon by 4.2x on one node and 54.6x on eight nodes, reaches up to 2.15x end-to-end speedup, and runs model sizes where ZeRO-1 owner placement exceeds an 80 GB GPU.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05895v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ming Gao, Yanwu Xu, Hao Zhang</dc:creator>
+    </item>
+    <item>
+      <title>The Surplus Parking Gathering Problem in Infinite Grids</title>
+      <link>https://arxiv.org/abs/2607.05983</link>
+      <description>arXiv:2607.05983v1 Announce Type: new 
+Abstract: In this paper, we introduce the \emph{Surplus Parking Gathering Problem} ($\mathcal{SPG}$), a new coordination problem for robots deployed on an infinite grid. The input consists of a set of designated parking nodes, each associated with a prescribed capacity, while the total number of robots exceeds the total parking capacity. The objective is to saturate every parking node exactly according to its capacity while gathering all remaining surplus robots at a common grid node that is not specified a priori. The robots are assumed to be autonomous, anonymous, oblivious, identical, disoriented, and homogeneous. We consider the asynchronous (\textsc{async}) model with global visibility and global strong multiplicity detection.
+  We first establish necessary conditions for the solvability of $\mathcal{SPG}$ by characterizing the initial configurations that admit no deterministic distributed algorithm. For all the remaining solvable configurations, we present a deterministic distributed algorithm that correctly solves the problem. The proposed algorithm proceeds in several phases and avoids collisions throughout its execution. We prove that the algorithm terminates in finite time and, upon termination, every parking node is saturated according to its prescribed capacity while all surplus robots are gathered at a uniquely determined gathering node. We further analyze the move complexity of the proposed algorithm, obtaining an $O(n(a+b)+n^2)$ upper bound together with an $\Omega(n(a+b))$ worst-case lower bound for the $\mathcal{SPG}$ problem.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05983v1</guid>
+      <category>cs.DC</category>
+      <category>math.LO</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Animesh Maiti, Abhinav Chakraborty, Subhash Bhagat</dc:creator>
+    </item>
+    <item>
+      <title>A Dual-CRDT Architecture for Decentralized Trust Governance and Evolution</title>
+      <link>https://arxiv.org/abs/2607.06068</link>
+      <description>arXiv:2607.06068v1 Announce Type: new 
+Abstract: While CRDTs provide decentralized replication and eventual consistency, Byzantine-resilient deployments require mechanisms for deciding which updates should be trusted and therefore contribute to the reconstructed state. In practice, the trust relationships underlying these decisions may evolve over time as participants join or leave, identities change, and governance rules are revised. However, the information used to make trust decisions is typically managed outside the replicated state itself. This paper introduces a dual-CRDT architecture composed of a \emph{Trust CRDT} and a \emph{Data CRDT}. The Trust CRDT stores and evolves governance information, while the Data CRDT is reconstructed according to the trust configuration derived from the Trust CRDT. Governance therefore becomes replicated state rather than an externally managed artifact. Building upon deterministic reconstruction and Byzantine trust filtering, the proposed model allows trust relationships and governance rules to evolve through ordinary CRDT updates. The resulting architecture provides a recursive governance model in which governance rules determine their own future evolution while simultaneously governing application data. The approach is implemented as a prototype on top of Melda and melda-sec and should be viewed as an initial exploration of decentralized trust governance and evolution for Byzantine-resilient CRDT systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.06068v1</guid>
+      <category>cs.DC</category>
+      <category>cs.CR</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Amos Brocco</dc:creator>
+    </item>
+    <item>
+      <title>DDB: Source-Level Interactive Debugging for Distributed Applications</title>
+      <link>https://arxiv.org/abs/2607.06107</link>
+      <description>arXiv:2607.06107v1 Announce Type: new 
+Abstract: Interactive debugging is an effective tool for understanding program behavior at the source level, allowing developers to pause execution, navigate the call stack, and inspect runtime state. However, interactive debuggers are designed for single-process execution, and interactive debugging has been widely considered impractical for distributed systems. Call stacks stop at process boundaries, debugging state fails to survive infrastructure dynamics, and, most critically, debugger-induced execution pauses trigger catastrophic timeout cascades that destroy the intended debug flow. Consequently, developers are forced to abandon live hypothesis testing in favor of unwieldy and iterative log-and-redeploy cycles.
+  We present DDB, a source-level interactive debugger that extends interactive debugging capabilities to distributed applications. We show that each of these challenges admits a targeted solution. To bridge disjoint processes, Distributed Backtrace (DBT) embeds compact causality metadata in every RPC and reconstructs a unified call stack across RPC boundaries. To manage the lifecycle of a distributed session, an intent-preserving control plane automatically coordinates and propagates breakpoints across dynamic process sets. To make pausing safe, Pause-Erased Time (PET) virtualizes each process's clock, decoupling logical time from physical pauses and preventing timeout cascades. DDB integrates with an RPC framework in 20-60 lines of code. Evaluated on gRPC, ServiceWeaver, Nu, and Quicksand across up to 122 processes, DDB achieves 30ms median cross-RPC backtrace latency, sub-5 ms time jump under repeated execution pauses, and adds 1-5% throughput overhead, comparable to attaching a single-process debugger. In a controlled user study, DDB achieves a 100% fault localization success rate (compared to 38.5% for baseline tools) with a median localization time of ~8 minutes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.06107v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yibo Yan, Junzhou He, Seo Jin Park</dc:creator>
+    </item>
+    <item>
+      <title>Ordering by Unanimity: Giving Applications Sequencing Rights Without Breaking Composability</title>
+      <link>https://arxiv.org/abs/2607.06144</link>
+      <description>arXiv:2607.06144v1 Announce Type: new 
+Abstract: Blockchain applications may have preferences over the order in which transactions execute: an automated market maker may use an external feed to price its liquidity, and require that the oracle update incorporating this price execute before any swap; an exchange may want to execute cancellations of limit orders before incoming market orders; an application may run an on-chain auction by executing bids from highest to lowest, so that the first bid wins. However, the ordering of transactions is chosen by the underlying blockchain and may not be compatible with the requirements of a specific application. In this paper, I tackle this problem by introducing an algorithm called unanimity override. The intuition is that when all the applications agree on how to order two transactions, the underlying blockchain should respect this agreement; a default order - the order in which transactions appear in the block - settles the rest. The problem with this naive approach is that application unanimity may form cycles, which the algorithm must break. Cycle-breaking is also the rule's main vulnerability because an attacker can insert transactions to manufacture a cycle. Yet two guarantees hold against any attacker who sets the default order, deploys applications, and inserts transactions. All transactions that interact with a single application that expressed preferences are ordered according to that application's preferences, even when they also interact with other applications that did not express preferences. Also, gated transactions - those that cannot be outranked in the unanimity order by any transaction crafted by an attacker - always execute as the applications unanimously prefer, even when they touch many applications. The two guarantees identify the preferences the protocol can protect, and they tell applications and senders in advance which transactions will execute in the intended order.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.06144v1</guid>
+      <category>cs.DC</category>
+      <category>econ.TH</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Andrea Canidio</dc:creator>
+    </item>
+    <item>
+      <title>UBEP: Re-architecting Expert Parallelism Communication Library for Production Superpods</title>
+      <link>https://arxiv.org/abs/2607.06202</link>
+      <description>arXiv:2607.06202v1 Announce Type: new 
+Abstract: The deployment of Mixture-of-Experts (MoE) models on production high-bandwidth superpods, such as NVIDIA's NVL72/576 and Huawei's CloudMatrix384, introduces critical challenges beyond raw interconnect bandwidth. While these systems provide unified global address spaces and high-bandwidth fabrics, their full potential for sparse MoE communication is hindered by three fundamental bottlenecks: (1) Strict execution serialization imposed by coarse-grained Bulk Synchronous Parallel (BSP) orchestration of interdependent communication phases; (2) Prohibitive synchronization overhead that fails to scale alongside high interconnect bandwidth; and (3) Severe load imbalance resulting from distance-agnostic scheduling of irregular token traffic. To eliminate these bottlenecks, we introduce UBEP (Unified-Bus Expert Parallelism), a production-ready communication library that rethinks MoE's All-to-All primitives for modern superpod architectures. Through large scale experiments, UBEP reduces All-to-All latency by up to 52.4% and MoE inference Time Per Output Token (TPOT) by up to 11.1%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.06202v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.NI</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3789240.3829183</arxiv:DOI>
+      <dc:creator>Yipeng Liu, Chang Liu, Si Shen, Jiaqi Zheng, Mingfan Li, Yuyang Yang, Guanhua Li, Yuquan Zhang, Yimeng Xu, Zhongzhe Hu, Zhiyuan Huang, Qihang Duan, Junsong Wang, Wenkai Ling, Baochuan Yang, Xianzhi Yu, Han Bao, Yijie Chen, Guihai Chen</dc:creator>
+    </item>
+    <item>
+      <title>Benchmarking KV-Cache Optimizations across Task Quality and System Performance for Long-Context Serving</title>
+      <link>https://arxiv.org/abs/2607.05399</link>
+      <description>arXiv:2607.05399v1 Announce Type: cross 
+Abstract: Large language model serving is increasingly limited by KV-cache growth under long-context workloads, yet existing KV-cache compression techniques are difficult to compare because they were evaluated on different models, tasks, budgets, and serving stacks. This paper presents a workload-aware benchmark of representative KV-cache optimization mechanisms spanning quantization, pruning, and merging, including KIVI, TurboQuant, SnapKV, and CaM, evaluated on LongBench-style multi-document QA, single-document QA, few-shot learning, and summarization workloads using Llama-3.1-8B-Instruct and Mistral-7B-Instruct-v0.3. The benchmark measures task quality, mean output throughput, mean time-to-first-token, and realized compression ratio across context-length buckets. The results show that the compression ratio alone is a poor predictor of end-to-end performance. KIVI4 provides the most stable quality across models, SnapKV delivers the strongest long-context throughput, and CaM yields large gains on selected QA workloads but exhibits substantial workload sensitivity in both quality and realized compression ratio. These findings motivate workload-aware selection of KV-cache mechanisms rather than one-size-fits-all compression and provide deployment guidance for long-context serving systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05399v1</guid>
+      <category>cs.CL</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Nikita Agrawal, Ruben Mayer</dc:creator>
+    </item>
+    <item>
+      <title>Design-CP: Context Parallelism for Design of Protein Nanoparticles</title>
+      <link>https://arxiv.org/abs/2607.05439</link>
+      <description>arXiv:2607.05439v1 Announce Type: cross 
+Abstract: Many all-atom generative protein models can in principle design large multimeric complexes by jointly modelling all chains, but their quadratic token- and atom-pair representations quickly exceed single-GPU memory as the number of chains and residues modelled grows. We introduce Design-CP, two context-parallel (CP) inference strategies for RFdiffusion 3 (1D row-sharding and 2D grid sharding with ring attention) that distribute the quadratic activations across a multi-GPU mesh while preserving pretrained weights. We characterise their scaling when sampling icosahedral assemblies, showing that the maximum feasible asymmetric subunit (ASU) size grows with the expected square-root trend in GPU count and that 2D sharding achieves better wall-clock scaling. Moreover, we show how strong point-group symmetry constraints make CP usable out of the box for end-to-end, all-atom design of icosahedral nanoparticles, yielding favourable in silico structural and interface metrics. Finally, we demonstrate octahedral nanoparticle design on a small cluster of workstation-grade 16GB GPUs, illustrating how Design-CP can be a practical path towards democratising large-assembly protein design.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05439v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <category>q-bio.QM</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Lorenzo Tarricone, Helen E. Eisenach, Aiko Muraishi, Charlotte M. Deane</dc:creator>
+    </item>
+    <item>
+      <title>EOM-CC Excited-State Gradients and Nonadiabatic Couplings on a Consumer GPU from a Contraction-DAG with Laplace-Transform J/K Kernels</title>
+      <link>https://arxiv.org/abs/2607.05622</link>
+      <description>arXiv:2607.05622v1 Announce Type: cross 
+Abstract: We present a unified, memory-bounded GPU realization of equation-of-motion coupled-cluster (EOM-CC) excited-state gradients and interstate nonadiabatic couplings (NACMEs) on a single 8\,GB consumer GPU. Both are built from one contraction directed acyclic graph: the EOM-CC relaxation is the reverse-mode transpose of the forward density build rather than a per-state re-derivation, and an atomic-orbital-direct Laplace-transform $J/K$ kernel, made non-symmetric ($J^x(A,B)\neq J^x(B,A)$) by the transition densities, resolves every energy denominator with no four-index molecular-orbital tensor; a two-sided Davidson returns both eigenvectors from one device-resident, spin-pure solve. The pipeline is \emph{validated end to end at small scale}: gradients and NACMEs match finite differences across four spin multiplicities and full configuration interaction to $&lt;\!10^{-12}$ for two electrons, and the excited-state gradient matches the independent \textsc{Psi4} code to $\le\!4.6\times10^{-7}~E_h/a_0$ from \ce{H2O} to aromatic benzene. The kernels and the ground-state solve reach chromophores ($\le\!730$ AO) in 8\,GB, and a frozen-natural-virtual compression lets the eigensolver \emph{execute} a complete excited-state gradient and $Q$--$B$ NACME of the chlorophyll-core chromophore \ce{Mg}-porphine (def2-SVP, $439$ AO) on the card. We present that run as a \emph{capability demonstration} -- executed and translationally invariant to machine zero, but anchored only piece-wise and bounded by a direct convergence study at ${\sim}10^{-2}~E_h/a_0$ -- not a converged spectroscopic result. The validated small-scale capability and the memory-bounded implementation are the contribution.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05622v1</guid>
+      <category>physics.chem-ph</category>
+      <category>cs.DC</category>
+      <category>physics.comp-ph</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Rub\'en Dar\'io Guerrero</dc:creator>
+    </item>
+    <item>
+      <title>Think Before You Grid-Search: Floor-First Triage for LLM Serving</title>
+      <link>https://arxiv.org/abs/2607.05876</link>
+      <description>arXiv:2607.05876v1 Announce Type: cross 
+Abstract: LLM serving optimization typically benchmarks many configurations and reaches for heavy profilers when latency targets are missed. We argue for the reverse discipline: estimation is the analytical layer of profiling -- without it, optimization degenerates to grid search. Floor First is a residual-driven triage workflow. Each decode step is modeled as a five-dimensional resource vector (HBM bytes, FLOPs, network bytes, network messages, KV capacity); summing within a resource and maximizing across resources gives an optimistic floor, the plain sum a pessimistic one. Where a measurement lands inside this [max, sum] interval reads out overlap quality before any profiler is opened, and profilers escalate only on residuals above a stated threshold. Deployment alternatives are compared by wall ordering -- which resource wall binds first as load grows -- rather than by point benchmarks. The account is compositional: new attention or state-space variants enter by declaring one module, and the workflow ships as a zero-dependency calculator plus an agent skill that enforces the discipline in agentic optimization loops.
+  As a case study we analyze a DeepSeek-V3.2-style 671B MoE/MLA model on 16 NVIDIA H20 GPUs, whose ridge point of ~74 FLOP/byte (vs ~590 for H100) makes it an extreme decode-oriented part. The floors show TP16 decoding is KV-capacity-limited to ~70 concurrent 8K requests; sparse attention removes the KV-bandwidth term but not the capacity wall; an EP16+DP-attention layout accepts slightly worse same-batch weight traffic for an order-of-magnitude higher capacity wall (~644) -- while single-stream latency favors TP by 2.4x. The layout judgment is thus a computable function of the operating point, explaining why production deployments on identical hardware have shipped opposite attention layouts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05876v1</guid>
+      <category>cs.PF</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yihua Liu</dc:creator>
+    </item>
+    <item>
+      <title>Bit2Watt: A Cyber-Physical Vulnerability Exploiting GPU Workloads Across Power and Computing Infrastructures</title>
+      <link>https://arxiv.org/abs/2607.05993</link>
+      <description>arXiv:2607.05993v1 Announce Type: cross 
+Abstract: Modern data centers increasingly rely on large-scale GPU clusters and on-site renewable energy resources, resulting in a tightly coupled cyber-physical system between computing workloads and power-electronic-dominated grids. In this paper, we reveal Bit2Watt, a previously unexplored vulnerability in which an adversary manipulates GPU workloads to induce controlled, high-frequency power modulations that destabilize local power infrastructure and propagate back to disrupt computing services. Unlike traditional attacks that compromise grid-side devices or communication channels, Bit2Watt operates entirely within the cyber layer as a legal tenant, which could amplify fluctuations, harmonic distortion, and damping degradation, particularly in high-DER-penetration scenarios. This risk is difficult to detect under routine cloud- and facility-side monitoring because it exploits legitimate workload execution paths and concentrates much of its distinctive behavior in high-frequency components that are weakly captured by common telemetry. We validate Bit2Watt through impedance-based analysis, power system simulations, and real-world experiments on GPUs and grid-connected PV inverters. Under the synchronized worst-case aggregation model studied in the paper, manipulating 1,000 GPUs in a 1-MW local power system with 90% DERs raises current THD to 46.8% and results in a damping ratio of -0.27. We further show that the resulting power-quality degradation can stress data-center power-delivery equipment, trigger protection mechanisms, and, in extreme simulated cases, induce cascading failures in transmission-scale systems. In addition, we analyze a plausible Watt2Bit feedback path, including denial-of-service risks and covert information exfiltration via EMI side channels. This work highlights the urgent need for cross-layer defenses that jointly consider workload scheduling and power electronics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05993v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zhouhao Ji, Kaikai Pan, Wenyuan Xu</dc:creator>
+    </item>
+    <item>
+      <title>Efficient and Robust Lock-Free Multi-Word Compare-and-Swap via Contention-Aware Helping</title>
+      <link>https://arxiv.org/abs/2607.06034</link>
+      <description>arXiv:2607.06034v1 Announce Type: cross 
+Abstract: Efficient concurrent access to shared memory remains a central focus for researchers seeking to enhance data structure performance. Lock-based synchronization often limits scalability and introduces liveness issues such as deadlocks. In contrast, implementing non-blocking structures with single-word compare-and-swap (CAS) instructions increases algorithmic complexity because of unavoidable intermediate states. Multi-word compare-and-swap (MCAS) operations offer a practical primitive for atomically updating multiple discrete memory locations, thereby addressing these challenges. However, under high contention, helping mechanisms designed to guarantee lock-freedom may cause excessive cache invalidations and significant performance degradation. Furthermore, existing approaches are vulnerable to the ABA problem. Current lock-free MCAS algorithms may duplicate the execution of the same operation, leading to inconsistent states in certain edge cases. To address these challenges, this paper introduces a new lock-free MCAS algorithm that achieves both efficiency and consistency. First, we propose a contention-aware helping mechanism that dynamically regulates the number of concurrent helpers through exponential backoff and embedded entry counters. These counters also enable a fast garbage-collection path, significantly reducing memory management overhead. Second, we introduce a version embedding approach to suppress the ABA problem during MCAS operations. Although version embedding requires several bits per target memory region to store version information, embedded versions allow helpers to avoid duplicated MCAS executions. Experimental results show that the proposed method achieves up to three times the throughput of the state-of-the-art lock-free MCAS algorithm. Moreover, the results indicate that version embedding is sufficient to prevent the ABA problem in practical scenarios.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.06034v1</guid>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <category>cs.DS</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Motoki Unno, Kento Sugiura, Yoshiharu Ishikawa</dc:creator>
+    </item>
+    <item>
+      <title>Leveraging Neural Graph Compilers in Machine Learning Research for Edge-Cloud Systems</title>
+      <link>https://arxiv.org/abs/2504.20198</link>
+      <description>arXiv:2504.20198v2 Announce Type: replace 
+Abstract: This work presents a comprehensive evaluation of neural network graph compilers across heterogeneous hardware platforms, addressing the critical gap between theoretical optimization techniques and practical deployment scenarios. We demonstrate how vendor-specific optimizations can invalidate relative performance comparisons between architectural archetypes, with performance advantages sometimes completely reversing after compilation. Our systematic analysis reveals that graph compilers exhibit performance patterns highly dependent on both neural architecture and batch sizes. Through fine-grained block-level experimentation, we establish that vendor-specific compilers can leverage repeated patterns in simple architectures, yielding disproportionate throughput gains as model depth increases. We introduce novel metrics to quantify a compiler's ability to mitigate performance friction as batch size increases. Our methodology bridges the gap between academic research and practical deployment by incorporating compiler effects throughout the research process, providing actionable insights for practitioners navigating complex optimization landscapes across heterogeneous hardware environments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2504.20198v2</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1109/TPDS.2026.3708042</arxiv:DOI>
+      <dc:creator>Alireza Furutanpey, Carmen Walser, Philipp Raith, Pantelis A. Frangoudis, Schahram Dustdar</dc:creator>
+    </item>
+    <item>
+      <title>Bitcoin-IPC: Scaling Bitcoin with a Network of Proof-of-Stake Subnets</title>
+      <link>https://arxiv.org/abs/2512.23439</link>
+      <description>arXiv:2512.23439v4 Announce Type: replace 
+Abstract: This paper introduces Bitcoin-IPC, a protocol that scales Bitcoin through a network of permissionless, interconnected, programmable Proof-of-Stake (PoS) Layer-2 chains, called subnets, whose stake is denominated in L1 BTC. These subnets rely on Bitcoin L1 for the communication of critical information, settlement, and security. Subnets can communicate with each other and with Bitcoin: users deposit BTC from Bitcoin to a subnet and withdraw it back, and transfer wBTC directly between subnets. We provide formal definitions of these bridge protocols, incorporating a firewall property that limits the impact of malicious subnets on the security of the broader network. Our design, inspired by SWIFT messaging and embedded within Bitcoin's SegWit mechanism, enables seamless value transfer across L2 subnets. Uniquely, this mechanism reduces the virtual-byte cost per transaction (vB/tx) by up to 23x, compared to transacting natively on Bitcoin L1, effectively increasing monetary-transaction throughput from 7 tps to over 160 tps, without requiring any modifications to Bitcoin L1.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.23439v4</guid>
+      <category>cs.DC</category>
+      <category>cs.CR</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Marko Vukoli\'c, Orestis Alpos, Jakov Mitrovski, Themis Papameletiou, Nikola Risti\'c, Dionysis Zindros</dc:creator>
+    </item>
+    <item>
+      <title>Communication Lower Bounds and Algorithms for Sketching with Random Dense Matrices</title>
+      <link>https://arxiv.org/abs/2603.20966</link>
+      <description>arXiv:2603.20966v2 Announce Type: replace 
+Abstract: Sketching is widely used in randomized linear algebra for low-rank matrix approximation, column subset selection, and many other problems, and it has gained significant traction in machine learning applications. However, sketching large matrices often necessitates distributed memory algorithms, where communication overhead becomes a critical bottleneck on modern supercomputing clusters. Despite its growing relevance, distributed-memory parallel strategies for sketching remain largely unexplored. In this work, we establish communication lower bounds for sketching using dense matrices that determine how much data movement is required to perform it in parallel. One important observation of our lower bounds is that no communication is required for a small number of processors. We show that our lower bounds are tight by presenting communication optimal algorithms. Furthermore, we extend our approach to determine communication lower bounds for computations of Nystr\"om approximation where sketching is applied twice. We also introduce novel parallel algorithms whose communication costs are close to the lower bounds. Finally, we implement our algorithms on modern state-of-the-art supercomputing infrastructures which have both CPU- and GPU-equipped systems and demonstrate their parallel scalability.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.20966v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hussam Al Daas, Grey Ballard, Laura Grigori, Md Taufique Hussain, Suraj Kumar, Mohammad Marufur Rahman, Kathryn Rouse</dc:creator>
+    </item>
+    <item>
+      <title>Cadence: Extreme Pipelining with Multiple Concurrent Proposers</title>
+      <link>https://arxiv.org/abs/2607.02275</link>
+      <description>arXiv:2607.02275v2 Announce Type: replace 
+Abstract: We present Cadence, a Byzantine fault-tolerant multi-proposer consensus protocol with arbitrarily low block intervals, optimal resilience, and optimal fast-path latency. Cadence divides time into equally spaced slots, one block per slot, each finalized in its own consensus instance. Blocks do not build directly on their predecessor, so instances run independently and none waits for an earlier block to finish or propagate; we call this extreme pipelining, decoupling the block interval from network latency. Cadence also removes the single-leader monopoly over transaction inclusion and ordering: under multiple concurrent proposers (MCP), several validators propose for each block, and it guarantees that, under synchrony, a transaction a correct proposer includes cannot be censored or deferred (short-term censorship resistance), and that no proposer can craft its proposal in reaction to the others' (hiding). To realize extreme pipelining, we introduce a general framework that turns any one-shot consensus meeting our slot-consensus specification into a multi-shot protocol. We instantiate it for MCP with two protocols of our own: Chorus, a slot consensus whose fast path finalizes a block in an optimal three rounds, with speculative finality one round earlier, and Conductor, an orchestrator that opens slots at an even cadence, more slowly under asynchrony to keep open slots bounded. To our knowledge, Cadence is the first MCP protocol to provide short-term censorship resistance and hiding at the fast-path latency of single-leader consensus. We prove safety, liveness, censorship resistance, and hiding under partial synchrony with optimal resilience (n = 3f+1). In simulation over Monad's 200 validators with five proposers per slot, finalization averages 219 ms (167 ms to speculative finality); at a 100 ms block interval a transaction waits on average 50 ms to enter a proposal.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.02275v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Kushal Babel, Fatima Elsheimy, Lioba Heimbach, Mohammad Mussadiq Jalalzai, Tobias Klenze, Jovan Komatovic, Jason Milionis, Mike Setrin, Victor Shoup</dc:creator>
+    </item>
+    <item>
+      <title>GORIO: GPU-Centered Remote I/O for Graph ANNS over NVMe-oF</title>
+      <link>https://arxiv.org/abs/2607.04415</link>
+      <description>arXiv:2607.04415v2 Announce Type: replace 
+Abstract: Graph-based approximate nearest neighbor search (ANNS) is increasingly used in vector databases and retrieval-augmented generation services, but large vector indexes often exceed the memory capacity of a single GPU server. NVMe over Fabrics (NVMe-oF) provides an attractive storage-disaggregation substrate, yet existing remote storage paths are still largely CPU-centered: the CPU forms I/O requests, drives transport progress, and determines when GPU computation can resume. This organization is poorly matched to graph ANNS, where the next data access is discovered inside GPU graph traversal.
+  This paper presents GORIO, a system study that extends GPU-centered local I/O to remote storage and specializes the resulting substrate for graph ANNS over NVMe-oF. GORIO keeps query evolution, page-miss generation, pending-query state, and resume decisions on the GPU, while the CPU acts only as an NVMe-oF transport and completion proxy. The design has two layers: a GPU-direct remote I/O path that turns local page-cache misses into split-phase remote operations, and ANNS-specific scheduling mechanisms that overlap graph traversal with remote page service. On a SIFT1M DiskANN-style graph workload over an RDMA NVMe-oF path, GORIO is 1.31X faster than the state-of-the-art remote-I/O reference path and 4.89X faster than the direct remote page-cache path. These results demonstrate a concrete GPU-centered remote I/O substrate for graph ANNS.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.04415v2</guid>
+      <category>cs.DC</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Gen Zhang, Wenhao Gu, Shan Huang, Xinhai Chen</dc:creator>
+    </item>
+    <item>
+      <title>Trust-free Personalized Decentralized Learning</title>
+      <link>https://arxiv.org/abs/2410.11378</link>
+      <description>arXiv:2410.11378v3 Announce Type: replace-cross 
+Abstract: Personalized collaborative learning in federated settings faces a critical trade-off between customization and participant trust. Existing approaches typically rely on centralized coordinators or trusted peer groups, limiting their applicability in open, trust-averse environments. While recent decentralized methods explore anonymous knowledge sharing, they often lack global scalability and robust mechanisms against malicious peers. To bridge this gap, we propose TPFed, a \textit{Trust-free Personalized Decentralized Federated Learning} framework. TPFed replaces central aggregators with a blockchain-based bulletin board, enabling participants to dynamically select global communication partners based on Locality-Sensitive Hashing (LSH) and peer ranking. Crucially, we introduce an ``all-in-one'' knowledge distillation protocol that simultaneously handles knowledge transfer, model quality evaluation, and similarity verification via a public reference dataset. This design ensures secure, globally personalized collaboration without exposing local models or data. Extensive experiments demonstrate that TPFed significantly outperforms traditional federated baselines in both learning accuracy and system robustness against adversarial attacks.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2410.11378v3</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yawen Li, Yan Li, Junping Du, Yingxia Shao, Meiyu Liang, Guanhua Ye</dc:creator>
+    </item>
+    <item>
+      <title>Constitutional Governance in Metric Spaces</title>
+      <link>https://arxiv.org/abs/2605.13362</link>
+      <description>arXiv:2605.13362v3 Announce Type: replace-cross 
+Abstract: Computational social choice and algorithmic decision theory offer rich aggregation theory but no end-to-end process for egalitarian self-governance: aggregation, deliberation, amendment, and consensus are each considered in isolation, with key metric-space aggregators being NP-hard.
+  Here, we propose \emph{constitutional governance in metric spaces}, integrating these stages into a protocol for constitutional governance. A community's \emph{legal corpus} comprises its \emph{laws} together with a \emph{constitution}, each being a point in a metric space, with the constitution specifying the supermajority threshold required to amend it. Members vote to amend the legal corpus by proposing their ideal points, followed by rounds of submitting \emph{public proposals} carrying \emph{supermajority public support}; a polynomial-time \emph{aggregation rule} scores each proposal, and a supported proposal whose score is positive and maximal for two rounds is adopted; if none is found the status quo is retained. Public proposals can be sourced from deliberation, vote aggregation, or AI mediation. With Constitutional Consensus, a community can run the constitutional governance protocol on members' personal computing devices (e.g., smartphones), achieving digital sovereignty.
+  By drawing on metric-space aggregation, reality-aware social choice, supermajority amendment, constitutional consensus, deliberative coalition formation, and AI mediation, we provide a comprehensive framework for the constitutional governance of digital communities and organisations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.13362v3</guid>
+      <category>cs.MA</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.GT</category>
+      <category>econ.TH</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Ehud Shapiro, Nimrod Talmon</dc:creator>
+    </item>
+    <item>
+      <title>Edge-Based QoS-Aware Adaptive Task Placement: A Closed-Loop Control in Multi-Robot Systems</title>
+      <link>https://arxiv.org/abs/2606.00552</link>
+      <description>arXiv:2606.00552v2 Announce Type: replace-cross 
+Abstract: Multi-robot systems (MRS) increasingly offload compute-intensive perception tasks to edge nodes to meet strict time-sensitive Quality-of-Service (QoS) constraints. However, static task orchestration on a shared edge node can severely degrade QoS due to network latency, jitter, and edge-resource contention. We present a pilot edge-centric MRS testbed using Raspberry Pi nodes to evaluate a camera-to-manipulator pipeline under three modes: local execution, static offloading, and a QoS-aware Adaptive Task Placement (ATP) controller. ATP scores candidate placements using a multi-metric cost (normalized latency, CPU utilization, and switching overhead) over two-second control windows. The closed-loop visual servoing testbed is instrumented with sub-millisecond clock synchronization, network emulation, and detailed monitoring of multiple metrics across nodes to capture realistic jitter. Experimental results under compute-stress and network-fault scenarios show that static edge offloading reduces on-board CPU load but amplifies tail latency and deadline misses. In contrast, the QoS-aware ATP controller, by switching task placement based on measured latency and utilization thresholds, consistently lowers deadline violations and tail latency. Overall, the results position ATP as a practical edge-side control primitive for MRS and concrete design guidelines for Cloud-Edge Robotics deployments within the broader cloud-fog automation, while motivating QoS-aware multi-objective workload orchestration for industrial cyber-physical systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.00552v2</guid>
+      <category>cs.OS</category>
+      <category>cs.DC</category>
+      <category>cs.NI</category>
+      <category>cs.RO</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Thien Tran, Jonathan Kua, Thuong Hoang, Minh Tran, Honghao Lyu, Jiong Jin</dc:creator>
+    </item>
+    <item>
+      <title>PHOENIX: Resilient LLM Training with Hot-Swapping via Zero-Overhead Checkpoint</title>
+      <link>https://arxiv.org/abs/2607.01646</link>
+      <description>arXiv:2607.01646v2 Announce Type: replace-cross 
+Abstract: State-of-the-art large language model (LLM) training takes tens of thousands of graphics processing units (GPUs) for months and encounters failures across the software and hardware stack. Existing fault-tolerance mechanisms either impose non-trivial overhead during failure-free execution or suffer from prolonged recovery latency, particularly under scenarios where a small subset of compute nodes experience permanent failures. %The tradeoff between failure-free overhead and recovery latency forms a space forms a Pareto frontier We present PHOENIX to simultaneously address both optimization objectives. PHOENIX incorporates a fault-tolerance mechanism that restores LLM training via hot-swapping, namely by replacing failed nodes with spare nodes without terminating the complete job. The hot-swapping of PHOENIX is enabled by two ideas: First, it exploits an off-critical-path in-memory checkpointing mechanism for spatial redundancy. Second, it introduces a communicator reconstruction protocol that replaces failed nodes with spare nodes at runtime. PHOENIX efficiently overlaps the in-memory checkpointing with computation, thus introducing zero overhead during error-free execution. Upon permanent node failures, PHOENIX can rebuild memory states with minimal recomputation by leveraging in-memory checkpoints. We evaluate PHOENIX across scales (up to 512 NVIDIA A100 GPUs) and LLMs (up to 65B parameters), and observe zero checkpoint overhead with hot-swapping recovery completing in under 40 seconds. These results show that PHOENIX simultaneously achieves both zero-overhead error-free execution and extremely low recovery cost.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.01646v2</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Haotian Xie, Junlin Chen, Mingkai Zheng, Lishan Yang, Zhao Zhang</dc:creator>
+    </item>
+  </channel>
+</rss>
