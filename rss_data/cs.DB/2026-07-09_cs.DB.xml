@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DB updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DB</link>
+    <description>cs.DB updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Jul 2026 04:00:07 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Thu, 09 Jul 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Benchmark Engineering as a Design Instrument for Heterogeneous Information Systems</title>
+      <link>https://arxiv.org/abs/2607.07175</link>
+      <description>arXiv:2607.07175v1 Announce Type: new 
+Abstract: Contemporary information systems operate in heterogeneous and continuously evolving data environments, where representation choices and structural redesign decisions strongly influence system behavior. Existing benchmarking approaches, however, rely mostly on static datasets and fixed schemas, providing limited support for analyzing architectural trade-offs or guiding evolution in multi-model settings.
+  This paper introduces TransforMMer, a framework for evolution-aware and representation-aware benchmark engineering in heterogeneous information systems. The approach treats benchmark construction as a systematic design process: starting from raw data, inferring structure, refining it conceptually, and generating comparable dataset variants across relational, document, and graph systems. The framework is grounded in a unified representation that enables explicit modeling of schemas and cross-model mappings and supports reproducible transformations across alternative representations.
+  We position benchmarking as a system-design tool for evaluating architectural and representation-level decisions in evolving information systems, rather than as a static comparison of database engines. Through controlled benchmark construction scenarios on real-world datasets, we demonstrate how structural redesign steps -- such as embedding, enrichment, and hybrid partitioning -- affect observed query costs across systems. The results show that performance differences emerge primarily from the interaction between workload and representation design.
+  By enabling systematic generation of structurally distinct yet semantically aligned dataset variants, the proposed approach connects conceptual data modeling with empirical system evaluation and supports reproducible, evolution-aware analysis of heterogeneous information systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.07175v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>J\'achym B\'art\'ik, Al\v{z}b\v{e}ta \v{S}r\r{u}tkov\'a, Irena Holubov\'a</dc:creator>
+    </item>
+    <item>
+      <title>From Custom-Fit to Portable: Bridging the Gap Between Synthesized and Engineered GPU Query Execution</title>
+      <link>https://arxiv.org/abs/2607.07632</link>
+      <description>arXiv:2607.07632v1 Announce Type: new 
+Abstract: GPUs are increasingly used for analytical query processing, but developing GPU-based database engines that achieve the peak performance of the underlying hardware requires substantial research and engineering effort. A recent line of work argues that query processing should be synthesized, not engineered. In this scenario, instead of tuning a general-purpose engine to fit a workload, a large language model (LLM) generates code specialized to one query, one dataset, and one machine, thereby achieving an order-of-magnitude improvement in performance. This thesis, however, has so far been tested only on CPUs. In this work, we revisit the synthesize-versus-engineer debate for GPU analytics by answering three questions: (i) how good is synthesized GPU code?, (ii) why is it faster than engineered engines?, and (iii) how much of its advantage can be transferred back into a single, performance-portable engine?
+  To answer the first question, we present SHADB, an LLM-based synthesis framework that generates optimized CUDA or HIP kernels using an automated, profile-guided optimization loop. Using SHADB, we show that the synthesized code approaches the memory-bandwidth ceiling and outperforms a state-of-the-art JIT-compiled GPU database engine (HeavyDB) by 7.4$\times$ on SSB SF100. To answer the second question, we decompose this performance gap and systematically classify optimizations as generalizable or workload-specific. Finally, to answer the third question, we integrate these generalizable optimizations into SYCLDB, a performance-portable engine written entirely in the open SYCL programming model. Using optimized SYCLDB, we show that it is possible to substantially bridge the gap to synthesized code (within 1.27$\times$ total execution time) while retaining workload-level generality and hardware-level performance portability.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.07632v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ivan Donchev Kabadzhov, Eugenio Marinelli, Raja Appuswamy</dc:creator>
+    </item>
+    <item>
+      <title>Breaking Database Lock-in: Agentic Regeneration of High Performance Storage Readers for Database Bypass</title>
+      <link>https://arxiv.org/abs/2607.07696</link>
+      <description>arXiv:2607.07696v1 Announce Type: new 
+Abstract: Analytical workloads operating on data stored in external database systems face a fundamental bottleneck: data access is guarded entirely by the database driver, like JDBC or ODBC, forcing all reads through query execution and other driver layers that are not designed for bulk columnar analytics. We present Jailbreak, an approach that bypasses the database engine entirely by reading storage files directly and materializing data as in-memory columnar buffers. Jailbreak's key insight is that database file formats, while complex, are fully specified by their source code and documentation, artifacts that Large Language Models (LLMs) can ingest to regenerate operator-specific table reading components without human-engineered parsing logic. Jailbreak leverages LLM-assisted code synthesis for database storage decoding, turning a traditionally opaque format into a directly queryable artifact. We evaluate Jailbreak on PostgreSQL and MySQL storage files, targeting analytical snapshot scenarios common in read replicas and offline processing pipelines. The generated reader produces Apache Arrow buffers consumable directly by most of the widely known query engines, including DuckDB, Apache Spark, and GPU-accelerated frameworks such as cuDF and Spark RAPIDS. We validate correctness against JDBC/ODBC-based baselines using the TPC-H benchmark across all query results, and demonstrate significant performance improvements in end-to-end analytical throughput, achieving up to 27x speedups. Our results showcase that LLM-assisted storage reader synthesis is a viable and generalizable methodology for breaking data lock-in across database systems, with applications beyond PostgreSQL and MySQL for any system whose file format is available to the LLM from documentation or source code.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.07696v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Victor Giannakouris, Immanuel Trummer</dc:creator>
+    </item>
+    <item>
+      <title>On the Efficient Discovery of Maximum $k$-Defective Biclique</title>
+      <link>https://arxiv.org/abs/2506.16121</link>
+      <description>arXiv:2506.16121v1 Announce Type: cross 
+Abstract: The problem of identifying the maximum edge biclique in bipartite graphs has attracted considerable attention in bipartite graph analysis, with numerous real-world applications such as fraud detection, community detection, and online recommendation systems. However, real-world graphs may contain noise or incomplete information, leading to overly restrictive conditions when employing the biclique model. To mitigate this, we focus on a new relaxed subgraph model, called the $k$-defective biclique, which allows for up to $k$ missing edges compared to the biclique model. We investigate the problem of finding the maximum edge $k$-defective biclique in a bipartite graph, and prove that the problem is NP-hard. To tackle this computation challenge, we propose a novel algorithm based on a new branch-and-bound framework, which achieves a worst-case time complexity of $O(m\alpha_k^n)$, where $\alpha_k &lt; 2$. We further enhance this framework by incorporating a novel pivoting technique, reducing the worst-case time complexity to $O(m\beta_k^n)$, where $\beta_k &lt; \alpha_k$. To improve the efficiency, we develop a series of optimization techniques, including graph reduction methods, novel upper bounds, and a heuristic approach. Extensive experiments on 10 large real-world datasets validate the efficiency and effectiveness of the proposed approaches. The results indicate that our algorithms consistently outperform state-of-the-art algorithms, offering up to $1000\times$ speedups across various parameter settings.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.16121v1</guid>
+      <category>cs.DS</category>
+      <category>cs.DB</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Donghang Cui, Ronghua Li, Qiangqiang Dai, Hongchao Qin, Guoren Wang</dc:creator>
+    </item>
+    <item>
+      <title>Structural Adversarial Attacks on Relational Deep Learning under Integrity Constraints</title>
+      <link>https://arxiv.org/abs/2607.07089</link>
+      <description>arXiv:2607.07089v1 Announce Type: cross 
+Abstract: Relational Deep Learning (RDL) has become a standard methodology for machine learning on relational databases: the database is encoded as a heterogeneous temporal graph in which tuples become nodes and primary-key to foreign-key (PK-FK) dependencies become typed edges, over which a graph neural network is trained for downstream prediction. We study the adversarial robustness of this pipeline. We consider a white-box attacker who knows how the graph is built and the model is trained, reasons about perturbations on the graph, but can only act on the upstream database, by rewiring foreign-key references while preserving the integrity constraints of the schema (foreign-key validity, the degree-one FK constraint, and functional dependencies). This restricts the attacker to a constrained, combinatorial set of admissible edits under a global perturbation budget, which is intractable to explore exhaustively and made non-additive by GNN message passing. We investigate seven attack heuristics - two random sampling baselines and five gradient-guided variants that exploit differentiable edge masks - and evaluate them on the RelBench rel-f1 benchmark. Gradient-based attacks consistently outperform random baselines on regression tasks, whereas gains on classification are smaller, which we attribute to low label-flip rates and greater local stability of classification outputs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.07089v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DB</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Alan Gany, Bogdan Cautis, Silviu Maniu</dc:creator>
+    </item>
+    <item>
+      <title>A knowledge-augmented dataset of high-risk driving scenarios with LLM annotations for autonomous driving</title>
+      <link>https://arxiv.org/abs/2607.07103</link>
+      <description>arXiv:2607.07103v1 Announce Type: cross 
+Abstract: Safe autonomous driving requires both rapid responses to common high-risk events and deeper reasoning over rare, extreme long-tail scenarios in traffic safety. These scenarios are severely under-represented in naturalistic driving data, and existing trajectory and language-augmented datasets seldom provide high-risk event labels, semantic annotations, and verifiable safety signals. Here we present K-Risk, a knowledge-augmented dataset that combines structured driving trajectories with large language model generated semantic annotations for safety-critical driving scenarios. K-Risk integrates 20 human-driven and autonomous-vehicle trajectory datasets from Europe, China, and the United States, covering highways, urban freeways, intersections, and roundabouts. Using a unified risk-centric extraction pipeline, K-Risk curates 31,398 high-risk events, together with a 1,036-event extreme subset of near-collision cases. Each event is released as a synchronized trajectory, metadata, and language triplet containing structured scenario descriptions, abnormal-behavior notifications, and, for a representative subset, causal risk analyses and action recommendations validated through a closed-loop simulator with iterative reflection. By combining multi-dimensional risk annotations, interpretable language supervision, and verifiable decisions, K-Risk bridges structured traffic trajectories, semantic reasoning, and decision supervision, providing a standardized foundation for developing and evaluating next-generation risk-aware autonomous driving agents.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.07103v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DB</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Heye Huang, Jingguang Li, Zhiyuan Zhou, Paul Liang, Mingyu Wu, Kitae Jang, Jianqiang Wang</dc:creator>
+    </item>
+    <item>
+      <title>Agentic Data Environments</title>
+      <link>https://arxiv.org/abs/2607.07397</link>
+      <description>arXiv:2607.07397v1 Announce Type: cross 
+Abstract: Autonomous agents promise substantial gains in speed, scale, and labor efficiency, but their failures can impose abrupt and often irreversible costs. The central challenge for agentic automation is therefore to increase the benefits of automation while bounding the consequences of failure.
+  While databases remain central to modern computing, agents operate over a broader data environment spanning files, APIs, applications, and system state. In this talk, I will outline early work on Agentic Data Environments -- the execution substrate in which agents operate -- that both amplify agent capabilities and enforce safety guarantees. This perspective reframes data systems from passive stores of state into active substrates for safe, reliable execution.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.07397v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:journal_reference>IEEE Data Bulletin Vol. 50 No. 1 2026</arxiv:journal_reference>
+      <dc:creator>Elaine Ang, Chenxi Huang, Georgios Liargkovas, Jerry Liu, Jinhui Liu, Nikos Pagonas, Charlie Summers, Haonan Wang, Jiakai Xu, Tianle Zhou, Yusen Zhang, Zhou Yu, Zhuo Zhang, Tianyi Peng, Kostis Kaffes, Eugene Wu</dc:creator>
+    </item>
+    <item>
+      <title>Named-Entity Recognition in the Crime Domain (CrimeNER): Case Study and Dataset</title>
+      <link>https://arxiv.org/abs/2603.02150</link>
+      <description>arXiv:2603.02150v2 Announce Type: replace-cross 
+Abstract: The extraction of critical information from crime-related documents is a crucial task for law enforcement agencies. The extraction of this information can be interpreted as a Named-Entity Recognition (NER) task. However, there is a considerable lack of adequately annotated data on general real-world crime scenarios. To address this issue, we present CrimeNER, a case study of crime-related NER, and a general crime-related Named-Entity Recognition database (CrimeNER-db), consisting of more than 1.5K annotated documents extracted from public reports of terrorist attacks and the US Department of Justice's press notes. We define 4 coarse types of crime entity and 21 fine-grained entity types. We address the quality of the presented database with experiments using fully supervised finetuned general NER models and zero- and few-shot experiments to address the generalization capabilities. The database is available on GitHub.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.02150v2</guid>
+      <category>cs.CL</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Miguel Lopez-Duran, Julian Fierrez, Aythami Morales, Daniel DeAlcala, Gonzalo Mancera, Javier Irigoyen, Ruben Tolosana, Oscar Delgado, Francisco Jurado, Alvaro Ortigosa</dc:creator>
+    </item>
+    <item>
+      <title>Health System Scale Semantic Search Across Unstructured Clinical Notes</title>
+      <link>https://arxiv.org/abs/2604.25605</link>
+      <description>arXiv:2604.25605v2 Announce Type: replace-cross 
+Abstract: Introduction: Semantic search, which retrieves documents based on conceptual similarity rather than keywords, offers advantages for retrieval of clinical information. However, deploying semantic search across health systems, comprising hundreds of millions of clinical notes, presents formidable engineering, cost, and governance challenges that have prevented institutional adoption. Methods: We deployed a semantic search system at a large children's hospital indexing 166 million clinical notes (484 million embedding vectors) from 1.68 million patients. The system uses instruction-tuned qwen3-embedding-0.6B embeddings, stores vectors with storage-optimized indexing, maintains full-text metadata in a low-latency key-value store, and operates within a HIPAA-compliant governance framework. We evaluated the system by optimizing the model and chunking strategy using a physician-authored benchmark, characterizing full-scale performance (cost, latency, retrieval quality), and assessing clinical utility via chart abstraction efficiency and comparison to ICD-10 cohort generation. Results: The system delivers sub-second query latency with monthly operational costs of ~USD 4,000. Qwen3 embeddings with 300-token chunk size achieved 94.6% accuracy on the benchmark. In clinical utility evaluation across three abstraction tasks, semantic search reduced time-to-completion by 24 to 89% versus chart review while maintaining inter-rater agreement where assessable. During system-wide retrieval, semantic search recovered 98% of patients with molecularly confirmed genetic diseases, versus at most 75% by diagnosis codes. Conclusion: Health-system-scale semantic search is technically and operationally feasible. The system provides institutional infrastructure supporting interactive search, cohort generation, and downstream LLM-powered clinical applications without requiring specialized informatics expertise.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.25605v2</guid>
+      <category>cs.IR</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Faith Wavinya Mutinda, Spandana Makeneni, Anna Lin, Shivaji Dutta, Irit R. Rasooly, Patrick Dibussolo, Shivani Kamath Belman, Hessam Shahriari, Kevin Murphy, Alex B. Ruan, Barbara H. Chaiyachati, Sanjay Chainani, Robert W. Grundmeier, Scott M. Haag, Jeffrey M. Miller, Heather M. Griffis, Ian M. Campbell</dc:creator>
+    </item>
+  </channel>
+</rss>
