@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Jul 2026 04:00:02 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>SiFAR: Synchronization-Free All-Reduce for Low-Latency LLM Inference</title>
+      <link>https://arxiv.org/abs/2607.08973</link>
+      <description>arXiv:2607.08973v1 Announce Type: new 
+Abstract: The rise of reasoning models and agentic systems has made LLM token-generation latency a key bottleneck. Unlike chatbots, whose latency gains saturate at human reading speed, these systems generate intermediate reasoning tokens not consumed by humans. Thus, per-token latency directly determines end-to-end response time. Low-latency inference uses minimal batching, making token generation bandwidth-bound. Tensor Parallelism addresses this by sharding model weights across GPUs and loading them in parallel. However, scaling to more GPUs introduces All-Reduce overheads that grow with GPU count. Removing All-Reduce improves token throughput by 43% for Llama-3.1-8B on 8 H200 GPUs.
+  We propose Synchronization-Free All-Reduce (SiFAR), which reduces synchronization overhead during low-latency inference. Existing oneshot and twoshot algorithms incur overheads from barriers before and after communication. First, we find that the bottom barrier in oneshot enforces a WAW dependency and eliminate it by co-designing communication and model execution to enable dual buffering. However, oneshot scales poorly with GPU count. Twoshot performs better at higher TP degrees but incurs an unavoidable bottom barrier. To overcome this, we leverage in-switch reduction in modern switches. We propose redundant pull, where each GPU reduces the full All-Reduce payload at the switch. This improves oneshot scalability while retaining its no-bottom-barrier advantage. Finally, to reduce top-barrier overhead, we observe that each decode step issues multiple All-Reduce operations, keeping GPUs tightly synchronized after the first. We therefore propose speculative reduction, which initiates data transfer before the top barrier and ensures correctness via lightweight validation. SiFAR reduces All-Reduce latency by up to 52% and improves end-to-end throughput by 18.6% for Llama-3.1-8B and 13.1% for Qwen3.5-397B-17B at TP=8.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.08973v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hritvik Taneja, Anish Saxena, Abhishek Revinipati, Jae Hyung Ju, Neal C. Crago, Moinuddin Qureshi</dc:creator>
+    </item>
+    <item>
+      <title>Distributed Symmetry Breaking on Hyperbolic Random Graphs</title>
+      <link>https://arxiv.org/abs/2607.09170</link>
+      <description>arXiv:2607.09170v1 Announce Type: new 
+Abstract: Real-world networks like the internet share patterns like a power law degree distribution and a high clustering coefficient. Many of these properties are captured by the generative model of hyperbolic random graphs (HRGs), which provides a theoretical framework for studying such networks. Motivated by the observation that several algorithms perform better on real-world networks than their worst-case guarantees suggest, we design and analyse distributed algorithms under the assumption that the input graph is an HRG. Indeed, prior work has shown that the classical symmetry-breaking problem of $\Delta+1$ colouring, where $\Delta$ is the maximum degree of the graph, can be solved in 2 rounds on HRGs [Maus and Ruff; SODA'26].
+  In stark contrast to this 2-round algorithm for $\Delta+1$ colouring, we prove that the related symmetry-breaking problems of maximal independent set (MIS) and maximal matching (MM) are substantially harder: we establish a lower bound of $\Omega\left(\frac{\log\log n}{\log\log\log n}\right)$ for MIS and MM on HRGs. Our lower bound techniques rely on new structural insights that may be of independent interest: we show that HRGs contain $d$-ary trees with large height and degree which enables us to adapt and lift prior impossibility results for distributed algorithms to the setting of HRGs.
+  We also show that these lower bounds are polynomial tight: we design algorithms tailored to HRGs that solve MIS and MM in $\tilde{\mathcal{O}}(\log^{5/3}\log n)$ rounds with high probability in the LOCAL model, improving over the general worst-case lower bound of $\Omega\left(\min\left\{\log \Delta, \sqrt{\log n}\right\}\right)$ rounds [Khoury and Schild; FOCS'25].</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.09170v1</guid>
+      <category>cs.DC</category>
+      <category>math.PR</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yannic Maus, Janosch Ruff, Sonia Simons, George Skretas</dc:creator>
+    </item>
+    <item>
+      <title>Bidirectional Resource Scheduling for Disaggregated and Asynchronous RL Post-Training</title>
+      <link>https://arxiv.org/abs/2607.09207</link>
+      <description>arXiv:2607.09207v1 Announce Type: new 
+Abstract: It is well established that the reasoning capabilities of large language models (LLMs) can be improved by applying reinforcement learning (RL) in a post-training stage. In a standard RL iteration, the current model (the policy) generates experience through rollouts, and the resulting data is then used to update the policy during training. High-performance RL frameworks such as StreamRL and AReaL employ a disaggregated architecture and asynchronous rollouts to better exploit both rollout and training resources, thereby increasing overall system throughput.
+  Nonetheless, across varying RL setups (e.g., hardware configurations, model scales, staleness levels, and hyperparameters) and under changing workloads, it remains common for both rollout and training resources to experience idle periods.
+  In this paper, we present BiDiRL, a hybrid time-space multiplexing architecture for asynchronous, disaggregated RL designed to reduce resource idleness. First, we develop a hot-switch runtime that enables rapid switching between rollout and training resources with negligible overhead. Second, we propose a static, scheduling-aware planner based on time-performance modeling that chooses a hot-switch-friendly resource partition, so that rollout and training durations are roughly balanced at a coarse level. Third, at execution time, we introduce a bidirectional scheduler that further exploits runtime bubbles through fine-grained resource switching, allowing the bottleneck stage to temporarily borrow idle resources from the other pool. Across a wide range of workloads, datasets, and models on two 32-GPU testbeds, BiDiRL increases RL training throughput by up to 1.94x compared with RL systems including veRL, AReaL, and ROLL, without affecting convergence behavior.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.09207v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Tan Zhiqiang, Wang Maoxin, Wang Sijie, Yin Yiming, Wang Qiang, Chu Xiaowen, Shi Shaohuai</dc:creator>
+    </item>
+    <item>
+      <title>EcoKube: Simulating Carbon-Aware Scheduling Policies in Heterogeneous Edge-Cloud Environments</title>
+      <link>https://arxiv.org/abs/2607.09318</link>
+      <description>arXiv:2607.09318v1 Announce Type: new 
+Abstract: Energy demand from cloud and edge computing is rising rapidly, with AI workloads further intensifying electricity use and associated carbon emissions. In hybrid edge-cloud settings, sustainability impact depends on time- and location-varying grid Carbon Intensity (CI), site Power Usage Effectiveness (PUE), and heterogeneous hardware characteristics. Existing carbon-aware work explores solutions such as temporal elasticity, spatio-temporal workload shifting, and carbon-aware placement across distributed sites. However, these solutions do not provide a consistent and reproducible workflow for evaluating sustainability-aware scheduling policies on heterogeneous, federated edge-cloud topologies. We present EcoKube: a configurable simulation framework for the reproducible evaluation of sustainability-aware scheduling policies in heterogeneous edge-cloud environments. The framework includes an event-driven deterministic simulator, policy hooks, and a heterogeneity-aware reference policy. We evaluate the framework with synthetic batch workloads, comparing the reference policy against the default Kubernetes scheduler, KEIDS, and TOPSIS/KCSS. The contribution is architectural and experimental: EcoKube provides a reproducible way to compare sustainability-aware policies before deployment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.09318v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3802513.3803486</arxiv:DOI>
+      <arxiv:journal_reference>Proceedings of the 4th International Workshop on Testing Distributed Internet of Things Systems (TDIS 2026), ACM, 2026, pp. 7-12</arxiv:journal_reference>
+      <dc:creator>Gon\c{c}alo Ferreira, Shashikant Ilager</dc:creator>
+    </item>
+    <item>
+      <title>STEEL: Sparsity-Aware Fused Attention for Energy-Efficient Long-Sequence Inference on AMD's XDNA NPU</title>
+      <link>https://arxiv.org/abs/2607.09385</link>
+      <description>arXiv:2607.09385v1 Announce Type: new 
+Abstract: The growing adoption of large language model-based agents within operating system workflows has increased the importance of energy-efficient inference on laptop-class systems-on-chip (SoCs). While cloud offloading remains common, it introduces reliability and privacy concerns that are particularly problematic for agentic workloads. Recent laptop SoCs, therefore, incorporate neural processing engines (NPUs) optimized for energy efficiency; however, effectively mapping attention mechanisms onto NPUs remains challenging due to architectural diversity and explicit data-movement programming models. In this work, we present STEEL, the first open-source implementation of FlashAttention targeting XDNA-like NPUs. STEEL introduces a dataflow formulation of prefill attention, enabling efficient exploitation of spatial parallelism and on-chip memory. Furthermore, STEEL addresses the load imbalance induced by the causal mask by leveraging a sparsity-aware pipeline placement onto the NPU array, reducing synchronization overhead and improving utilization. We evaluate STEEL on the AMD Ryzen AI 9 HX 370 SoC and compare its performance against optimized CPU and GPU implementations. Experimental results show that STEEL reduces energy consumption by an average of 9.17x and 1.75x relative to CPU and GPU baselines, respectively. On XDNA 1, STEEL achieves an average 9.6x latency reduction over the prior state of the art, and delivers a 22.8x speedup on average compared to a layer-by-layer attention implementation on XDNA 2.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.09385v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Victor J. B. Jung, Gagandeep Singh, Joseph Melber, Kristof Denolf, Francesco Conti, Luca Benini</dc:creator>
+    </item>
+    <item>
+      <title>Short Graph Sketches Suffice for Error-resilient Leader Verification in CONGEST</title>
+      <link>https://arxiv.org/abs/2607.09522</link>
+      <description>arXiv:2607.09522v1 Announce Type: new 
+Abstract: Locally Checkable Proofs (LCPs) enable the verification of global graph properties using locally checkable certificates assigned by a prover. Recently, this framework was extended to Locally Checkable Proofs-with-Errors (LCPE), where an adversary may corrupt some certificates. Existing LCPE algorithms, however, are designed for the LOCAL model, whose unbounded communication makes them unsuitable for direct implementation in the bandwidth-restricted CONGEST model.
+  We initiate the study of efficient CONGEST implementations of LCPE through the \textsc{unique-leader} verification problem on trees. The main challenge is that tolerating $\varepsilon$ certificate errors requires each node to reason about its $(2\varepsilon+1)$-hop neighborhood, whose exact topology may require up to $O(\Delta^{2\varepsilon+1}\log n)$ bits to communicate. To overcome this bottleneck, we introduce \emph{local graph sketches}, together with the notions of \emph{imagined trees} and \emph{imagined certifications}, which encode precisely the information needed for verification using only $O(\varepsilon^2\log n)$ bits per node. Based on these sketches, we design an LCPE algorithm that tolerates up to $\varepsilon$ adversarial certificate errors and constructs the required sketches in $O(\varepsilon^2)$ communication rounds in the CONGEST model.
+  We complement our algorithm with a matching impossibility result: even in the strictly more powerful LOCAL model, and even with unbounded certificate size, no verification scheme with view distance at most $\varepsilon$ can tolerate $\varepsilon$ adversarial certificate errors. Since every CONGEST algorithm can be simulated in LOCAL, this lower bound immediately applies to CONGEST, showing that a view distance exceeding $\varepsilon$ is unavoidable.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.09522v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Pawel Garncarek, Tomasz Jurdzi\'nski, Dariusz Kowalski, Subhajit Pramanick</dc:creator>
+    </item>
+    <item>
+      <title>New Complexity Classes in Locally Checkable Labeling for Local Computation Algorithms</title>
+      <link>https://arxiv.org/abs/2607.09626</link>
+      <description>arXiv:2607.09626v1 Announce Type: new 
+Abstract: Local Computation Algorithms (LCAs), introduced by Rubinfeld, Tamir, Vardi, and Xie (2011), are a special type of sublinear algorithms that, given probing access to a possibly massive input, are required to provide query access to a consistent solution, without maintaining a state between different queries. In this paper, we try to understand LCA through the lens of complexity classifications, described by the following question: Given a target complexity function $f(n)$, is there a problem whose local computation complexity is $f(n)$, up to polylogarithmic factors?
+  We restrict our focus to Locally Checkable Labeling (LCL) problems, which can be seen as constant-degree constraint satisfaction problems. Possible complexity classes of this problem family have been extensively studied in various distributed computation models, including the $\mathrm{VOLUME}$ model proposed by Rosenbaum and Suomela (2020), which is an invariant of local computation algorithms with additional locality requirements.
+  In this paper, we provide new LCL complexity constructions in the $\mathrm{VOLUME}$ model, and generalize the results to LCAs. Specifically, we show that there are LCLs whose probe complexities in the $\mathrm{VOLUME}$ and LCA models are $\Theta(\log^k n)$ and $\tilde \Theta(n^{p/q})$ for any positive integer $k \ge 1$ and rational $p/q \in (0,1]$. Our approach, completely different from the approach to a similar result in the distributed $\mathrm{LOCAL}$ model by Balliu et al. (2018), is to stack instances of complexity $\Theta(\log n)$ and $\tilde \Theta(n^{1/k})$ in the $\mathrm{VOLUME}$ model constructed by Rosenbaum and Suomela (2020).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.09626v1</guid>
+      <category>cs.DC</category>
+      <category>cs.DS</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Sijin Peng</dc:creator>
+    </item>
+    <item>
+      <title>HERO: A Heterogeneity-Aware Benchmark Library for Federated Continual Learning</title>
+      <link>https://arxiv.org/abs/2607.08784</link>
+      <description>arXiv:2607.08784v1 Announce Type: cross 
+Abstract: Federated continual learning (FCL) evaluates how distributed clients learn from changing data streams while retaining previously learned knowledge. Existing evaluations are difficult to compare because they often change datasets, task splits, client data splits, task orders, backbones, memory assumptions, and reporting rules simultaneously. We introduce \textbf{HERO}, a heterogeneity-aware benchmark library for FCL. HERO builds benchmark streams by separating three choices that are often coupled, namely the task split, the client data split, and the client task sequence. In HERO-Core, the main comparable benchmark, $\alpha$ controls client data skew and $\rho$ controls task-order mismatch. We evaluate representative FCL methods on CIFAR-100 and TinyImageNet using final average accuracy, average forgetting, and bottom-10\% client accuracy. We also include a graph-based Domain-IL portability case study on OGB-MolPCBA, where scaffold-domain granularity changes the input distribution while the prediction task remains fixed. Our results show that method behavior changes across easy and heterogeneous settings, that average accuracy can hide weak bottom-client performance, that task-order mismatch favors different strategies from synchronized evaluation, and that the same HERO interface can expose domain-shift difficulty beyond image-based FCIL. HERO releases benchmark streams, configurations, method implementations, and reporting scripts to support reproducible and setting-aware FCL evaluation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.08784v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Thinh T. H. Nguyen, Le-Tuan Nguyen, Minh-Duong Nguyen, Nhi Trinh, Anh Tran Nam Nguyet, Dung D. Le, Kok-Seng Wong</dc:creator>
+    </item>
+    <item>
+      <title>Wireless Decentralized Federated Learning via Device Clustering and Inter-Cluster Link Enhancement</title>
+      <link>https://arxiv.org/abs/2607.08797</link>
+      <description>arXiv:2607.08797v1 Announce Type: cross 
+Abstract: Decentralized federated learning (DFL) dispenses with the central server of classical FL by utilizing peer-to-peer model exchanges among edge devices. This server-free architecture enables ad-hoc, flexible distributed learning in large device-to-device (D2D) networks. However, wireless DFL converges slowly because peer-to-peer model aggregation incurs high delays and errors. Each DFL training round involves many-to-many gradient sharing over wireless channels, resulting in uncoordinated channel access, large communication errors from stragglers, and slow model consensus, especially in large-scale D2D networks with pronounced clustering structures. We address these aggregation bottlenecks by provisioning a few reliable backhaul links at straggling nodes to enhance network connectivity. Building on this idea, our budget-aware, cluster-centric DFL framework first partitions the network into densely connected clusters, and then allocates the limited backhaul budget to selected cluster heads. The resulting two-tier protocol executes fast, parallel model aggregation within clusters and infrequent inter-cluster exchanges among the heads, yielding an O(1/t) convergence rate in t iterations. Numerical experiments on image-classification tasks confirm that our approach accelerates convergence compared to state-of-the-art DFL baselines with only a few strategically placed backhaul links.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.08797v1</guid>
+      <category>cs.IT</category>
+      <category>cs.DC</category>
+      <category>math.IT</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>William Weijia Zheng, Hang Liu, Ying-Jun Angela Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Proof-of-Continuity: A Temporal Model for Authority Propagation in Distributed Systems and AI Agents</title>
+      <link>https://arxiv.org/abs/2607.08906</link>
+      <description>arXiv:2607.08906v1 Announce Type: cross 
+Abstract: Proof-of-Possession authorization models derive authority from the possession of artifacts such as tokens, credentials, or capabilities. This paper argues that possession is insufficient for discrete execution chains, whether they span multiple services or occur as separated steps within the same machine, because it does not guarantee preservation of the causal relationship between the origin of a request and the authority exercised at later steps. We introduce Proof-of-Continuity, a minimal authority-propagation discipline for the Provenance Identity Continuity (PIC) model, in which each execution step must be causally linked to the previous step and may only propagate a non-expansive subset of the authority received from the origin. It introduces Proof of Relationship, a single-hop causal primitive whose transitive composition is Proof-of-Continuity; these complement Proof-of-Possession rather than replace it. Under this model, the confused deputy condition cannot be satisfied as valid model behavior: any privilege exercised at a later step must already be present in the origin authority context. This is directly relevant to distributed systems and AI agents, where executors invoke tools and downstream services while holding multiple authority sources, so that the same authority/causality mismatch recurs across service boundaries. Under Proof-of-Continuity these sources may be carried together but are never merged into a combined authority, since each step is authorized only against the authority context of the lineage that caused it.
+  This paper concerns authorization propagation rather than authentication: identity and authentication mechanisms such as OIDC, verifiable credentials, wallets, and workload identity remain complementary mechanisms for establishing the origin, while Proof-of-Continuity addresses how authority propagates after that origin exists.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.08906v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Nicola Gallo</dc:creator>
+    </item>
+    <item>
+      <title>Hybrid Quantum and Classical Workload Management with Graph-based Scheduling</title>
+      <link>https://arxiv.org/abs/2607.09151</link>
+      <description>arXiv:2607.09151v1 Announce Type: cross 
+Abstract: High Performance Computing (HPC) centers are expanding to encompass resources that extend beyond traditional computing. By extending resources to quantum computing, hybrid quantum-classical workflows tackle complex optimization problems that have never before been possible. However, integrating quantum processing units (QPUs) into cloud-native and scientific workload managers presents a unique orchestration challenge: remote quantum devices introduce a second, external queue -- a two-queue problem -- alongside the queue owned by the traditional scheduler. In this work we present Fluence, a Kubernetes scheduler plugin backed by the Fluxion graph-based scheduler, that enables informed, gang-scheduled placement for quantum-classical workloads and custom resources. We evaluate Fluence across three scenarios using AWS Braket simulators and real QPUs. First, under node contention, Fluence's atomic gang placement all but eliminates the wasted node-time that a default scheduler accrues by partially placing gangs. Second, we introduce a synchronization primitive for the two-queue problem in which a single producer submits a shared quantum task while consumers remain scheduling-gated, reducing worker idle time by roughly 5x under short device queues and by orders of magnitude when a real device queue stretched to hours. Third, cost- and queue-aware backend selection pins the cheapest or shortest-queue device satisfying a workload, cutting mean per-run cost by roughly 70x and time-to-result from hours to under a minute. Together, these results show that quantum-awareness can be added to a cloud-native scheduler without modifying user containers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.09151v1</guid>
+      <category>quant-ph</category>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vanessa Sochat, Daniel Milroy</dc:creator>
+    </item>
+    <item>
+      <title>SHARE: Optimizing Secure Hub Allocation and Routing Efficiency in Payment Channel Networks</title>
+      <link>https://arxiv.org/abs/2501.04236</link>
+      <description>arXiv:2501.04236v3 Announce Type: replace 
+Abstract: Payment channel hub (PCH), by leveraging a powerful hub to reliably provide off-chain payment services, offers an effective enhancement to payment channel networks (PCNs). However, existing approaches typically rely on a single hub to relay transactions and provide relationship anonymity between participants. This design lacks flexibility under high-frequency transaction scenarios and fail to adequately balance the security of off-chain payments with PCH efficiency. Moreover, current PCNs often adopt source routing, where each transaction path is predetermined without considering the dynamic distribution of large-scale payment requests, leading to load imbalance and even transaction deadlocks. To address these issues, we propose SHARE, a multi-PCH distributed routing scheme based on trusted execution environments (TEE), designed to optimize secure hub allocation and routing efficiency in PCNs. For the multi-hub allocation problem, SHARE balances the management and synchronization costs among participants, and employs mixed-integer linear programming along with supermodular optimization techniques to transform the NP-hard problem into a solvable form, enabling optimal or approximate solutions across various PCN scales. At the routing layer, SHARE integrates global network state with local sender requests to design a TEE-assisted, privacy-preserving distributed routing protocol that dynamically adjusts multipath flow rates, achieving high-throughput and deadlock-free transaction forwarding. We formally prove the security of the SHARE protocol under the universally composable framework. Experimental results demonstrate that SHARE achieves a 43.6% improvement in transaction success ratio and an over 181.5% enhancement in system throughput compared to state-of-the-art PCN solutions, effectively realizing a secure extension of PCNs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2501.04236v3</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Lingxiao Yang, Xuewen Dong, Wei Wang, Yong Yu, Sheng Gao, Qiang Qu, Yulong Shen</dc:creator>
+    </item>
+    <item>
+      <title>SPID-Chain: Verifiable Polar-Coded State Validation for Cross-Chain DAG Settlement</title>
+      <link>https://arxiv.org/abs/2501.11794</link>
+      <description>arXiv:2501.11794v2 Announce Type: replace 
+Abstract: Cross-chain settlement must preserve safety across heterogeneous ledgers while tolerating delayed computation, Byzantine participants, and adversarial transaction issuance. This paper presents SPID-Chain, an adapter-compatible settlement architecture for escrow-backed fungible transfers across programmable blockchains. SPID-Chain maintains settlement state through persistent Polar-coded fragments, validates candidate state transitions using hidden linear verification checks, and records certified transfers in a weighted directed acyclic graph (DAG). The design separates native-chain finality from cross-chain settlement: source-chain finality establishes an immutable reservation, whereas weighted DAG confirmation determines when the corresponding destination credit becomes executable. We derive an exact recovery-time distribution for heterogeneous coded workers, a verification-soundness bound for Byzantine responses, and an exact weighted-quorum condition for conflicting-block safety. These components are coupled in a cross-layer stability theorem showing how the coded-validation completion probability determines the effective honest issuance rate and, consequently, the stable adversarial-load region of the settlement DAG. We further establish an end-to-end settlement guarantee covering balance non-negativity, asset conservation, conflict exclusion, replay protection, coded-state consistency, and finite expected lock-to-release latency under the stated liveness conditions. Prototype-assisted simulations indicate that coded validation reduces sensitivity to stragglers, improves validation and confirmation throughput under heterogeneous delays, and produces the predicted transition between stable and unstable DAG operation. The resulting framework provides a verifiable and analytically grounded settlement layer without modifying the native consensus protocol of participating chains.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2501.11794v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Amirhossein Taherpour, Xiaodong Wang</dc:creator>
+    </item>
+    <item>
+      <title>Trivance: Latency-Optimal AllReduce by Shortcutting Multiport Networks</title>
+      <link>https://arxiv.org/abs/2602.17254</link>
+      <description>arXiv:2602.17254v2 Announce Type: replace 
+Abstract: AllReduce is a fundamental collective communication operation in distributed computing and a key performance bottleneck for large-scale training and inference. Its completion time is determined by the number of communication steps, which dominate latency-sensitive workloads, and the communication distance affecting both latency- and bandwidth-bound regimes. Direct-connect topologies, such as Google's TPUv4 tori, are particularly prone to large communication distances due to limited bisection bandwidth.
+  In this paper, we present Trivance, a novel AllReduce algorithm that completes within $\log_3 n$ steps - a 50% improvement in comparison to Swing and Recursive Doubling, while reducing congestion compared to Bruck's algorithm by a factor of three and preserving bandwidth-optimality. Trivance exploits both transmission ports of a bidirectional ring within each step to triple the communication distance along both directions simultaneously. By performing joint reductions, Trivance improves both the number of steps and network congestion. We further show that Trivance extends naturally to multidimensional torus networks, retaining its latency advantage while achieving performance comparable to bandwidth-optimal algorithms for large AllReduce sizes.
+  Our packet-level SST simulation shows that Trivance improves state-of-the-art approaches by 5-30% for AllReduce sizes up to 8 MiB, in high-bandwidth settings up to 32 MiB and for 3D tori up to 128 MiB. Throughout the evaluation, Trivance remains the best-performing latency-optimal algorithm.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.17254v2</guid>
+      <category>cs.DC</category>
+      <category>cs.NI</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Anton Juerss, Vamsi Addanki, Stefan Schmid</dc:creator>
+    </item>
+    <item>
+      <title>Revisiting Bruck: Phase-Efficient All-to-All Communication in Reconfigurable Networks</title>
+      <link>https://arxiv.org/abs/2605.26930</link>
+      <description>arXiv:2605.26930v2 Announce Type: replace 
+Abstract: All-to-All communication is a key performance bottleneck for distributed machine learning (ML) and high-performance computing (HPC) workloads, where dense traffic increasingly stresses scale-up interconnects. While these ML and HPC workloads have driven unprecedented infrastructure demand, optical reconfigurable networks (ORNs) offer a promising path forward as they can reconfigure the network at runtime. By adapting the physical topology to the active workload, they improve communication cost and bandwidth utilization. However, optical reconfigurable networks introduce a fundamental trade-off for collective communication: each reconfiguration requires global synchronization, during which communication is suspended for at a non-negligible delay. Additionally, their benefit is critically contingent on whether the collective consists of structured phases that can be served by sparse and reusable topology states.
+  In this paper, we revisit Bruck's All-to-All implementation and demonstrate the benefits of topology optimization in which both communication pattern and reconfiguration strategy are co-designed. We present ReTri, a bidirectional All-to-All schedule for ORNs based on the Trivance algorithm. ReTri uses balanced ternary block propagation to complete All-to-All in $\lceil \log_3 n\rceil$ phases. The reconfiguration strategy induced by ReTri's pairwise bidirectional exchanges allows reconfiguration delays to be amortized across multiple phases. Preliminary simulations show that ReTri improves completion time by up to $10\times$ over Pairwise All-to-All, even for millisecond-scale reconfiguration delays, and improves reconfigurable Bruck by up to $2.1\times$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.26930v2</guid>
+      <category>cs.DC</category>
+      <category>cs.NI</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Anton Juerss, Stefan Schmid</dc:creator>
+    </item>
+    <item>
+      <title>The Serialized Bridge: Understanding and Recovering LLM Serving Performance under Blackwell GPU Confidential Computing</title>
+      <link>https://arxiv.org/abs/2606.23969</link>
+      <description>arXiv:2606.23969v2 Announce Type: replace 
+Abstract: GPU Confidential Computing (GPU-CC) now preserves GPU-local performance: on NVIDIA B300, BF16 matmul runs at 0.998x of non-confidential performance. Yet LLM serving under Intel TDX plus GPU-CC still loses 13-27% of throughput, and KV-cache restore latency can more than double. This paper studies that gap on two Blackwell platforms, RTX Pro 6000 and B300 HGX, and identifies its dominant cause: the confidential VM-GPU bridge, not GPU compute.
+  We find that GPU-CC turns host/device movement into a serialized, high-setup-cost channel. Secure copies do not gain CUDA-stream concurrency within a context, asynchronous transfers block at the runtime boundary, and small crossings pay a fixed toll. This violates the assumptions of modern inference runtimes, where DMA is expected to be cheap, concurrent, and asynchronous. In vLLM dense decode, the gap closes around 44x-slower small alloc-and-copy operations; targeted patches reject alternative explanations. A scheduling flag recovers 57% of the gap, while a worker-thread drain recovers up to 92% in qualified high-concurrency runs. The same bridge model explains a +131% KV-restore penalty and a 34x model-load slowdown.
+  Blackwell also changes the confidential tenancy unit. We qualify confidential multi-GPU NVSwitch tenants on B300, including 510 GB/s NVLink P2P inside a CVM and concurrent isolated tenants, and identify the remaining fabric-attestation gap for production confidential AI platforms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.23969v2</guid>
+      <category>cs.DC</category>
+      <category>cs.CR</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Hang Yin, Kevin Wang</dc:creator>
+    </item>
+    <item>
+      <title>JustAct: A Framework for Auditable Multi-Agent Systems Regulated by Inter-Organisational Policies</title>
+      <link>https://arxiv.org/abs/2502.00138</link>
+      <description>arXiv:2502.00138v3 Announce Type: replace-cross 
+Abstract: In open multi-agent agent systems that cross organisational boundaries, agent actions must be regulated by complex policies. Consider medical data processing systems, which must observe generic laws (e.g., EU data protection regulations) and also specific participants' resource conditions (e.g., Bob consents to sharing his X-Rays with EU hospitals). Presently, we address the implementation of these systems as distributed software. Solutions to key sub-problems are available: existing policy languages capture the necessary normative concepts and formalise the computational representation and reasoning about policies, and existing distributed algorithms and protocols coordinate agents' changing actions and policies. But which policies and protocols are useful in application?
+  With the JustAct framework, we characterise a class of multi-agent systems where actors justify their actions with sufficient policy information collected from dynamic policy statements and agreements. We prove key properties of these systems, e.g., any decision that an action is permitted now cannot be refuted later, regardless of any added statements or updated agreements. We study a particular instance of the framework by specifying (in Rocq) and implementing (in Rust) a particular policy language and runtime system for mediating agent communications. We demonstrate and assess JustAct via a case study of this implementation: we reproduce the usage scenarios of Brane, an existing policy-regulated, inter-domain, medical data processing system.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2502.00138v3</guid>
+      <category>cs.LO</category>
+      <category>cs.DC</category>
+      <category>cs.MA</category>
+      <category>cs.PL</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Christopher A. Esterhuyse, Tim M\"uller, L. Thomas van Binsbergen</dc:creator>
+    </item>
+    <item>
+      <title>LD-Leiden: Local Parallel Community Detection in Large Dynamic Networks</title>
+      <link>https://arxiv.org/abs/2502.18497</link>
+      <description>arXiv:2502.18497v2 Announce Type: replace-cross 
+Abstract: Dynamic community detection must update high-quality modularity partitions after edge batches, yet full Leiden reruns make small changes scale with the whole snapshot. Existing dynamic methods reduce work but often alter Leiden refinement, keep limited hierarchy state, or restrict graph support. This paper presents LD-Leiden, a local dynamic Leiden method for weighted directed and undirected graphs that preserves the move-refine-aggregate pipeline and updates only repaired affected regions. Its novelty is the combination of an affected-frontier rule after statistic repair, exact subtract-add aggregate repair, and conflict-filtered parallel local moves; together these mechanisms bound update cost by the visited frontier rather than the full graph. On real streams and streamed static graphs with up to 214M vertices and 3.30B edges, LD-Leiden is 48.77x faster than warm-started Leidenalg in 100-batch runs while preserving a 0.996 final modularity ratio. On the common undirected benchmark set, it is 6.94x faster than DF-Leiden and 9.73x faster than NetworKit while obtaining higher final modularity; synthetic sequences support the predicted local edge-volume scaling.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2502.18497v2</guid>
+      <category>cs.SI</category>
+      <category>cs.DC</category>
+      <category>cs.DM</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Grigoriy Bokov, Aleksandr Konovalov, Anna Uporova, Stanislav Moiseev, Ivan Safonov, Alexander Radionov</dc:creator>
+    </item>
+    <item>
+      <title>Untied Ulysses: Memory-Efficient Context Parallelism via Headwise Chunking</title>
+      <link>https://arxiv.org/abs/2602.21196</link>
+      <description>arXiv:2602.21196v2 Announce Type: replace-cross 
+Abstract: Efficiently processing long sequences with Transformer models usually requires splitting the computations across accelerators via context parallelism. The dominant approaches in this family of methods, such as Ring Attention or DeepSpeed Ulysses, enable scaling over the context dimension but do not focus on memory efficiency, which limits the sequence lengths they can support. More advanced techniques, such as Fully Pipelined Distributed Transformer or activation offloading, can further extend the possible context length at the cost of training throughput. In this paper, we present UPipe, a simple yet effective context parallelism technique that performs fine-grained chunking at the attention head level. This technique significantly reduces the activation memory usage of self-attention, breaking the activation memory barrier and unlocking much longer context lengths. Our approach reduces intermediate tensor memory usage in the attention layer by as much as 87.5$\%$ for 32B Transformers, while matching previous context parallelism techniques in terms of training speed. UPipe can support the context length of 5M tokens when training Llama3-8B on a single 8$\times$H100 node, improving upon prior methods by over 25$\%$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.21196v2</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ravi Ghadia, Maksim Abraham, Sergei Vorobyov, Max Ryabinin</dc:creator>
+    </item>
+    <item>
+      <title>Fast Concurrent Primitives Despite Contention</title>
+      <link>https://arxiv.org/abs/2604.14530</link>
+      <description>arXiv:2604.14530v2 Announce Type: replace-cross 
+Abstract: We study the problem of constructing concurrent objects in a setting where $P$ processes run in parallel and interact through a shared memory that is subject to write contention. Our goal is to transform hardware primitives that are subject to write contention into ones that handle contention gracefully.
+  We give contention-resolution algorithms for several basic primitives, and analyze them under a relaxed, roughly-synchronous stochastic scheduler, where processes run at roughly the same rate up to a constant factor with high probability. Specifically, we construct read/write registers and CAS registers that have latency $O(\log P)$ w.h.p. under our scheduler model, using $O(1)$ hardware read/write registers and, in the case of our CAS construction, one hardware CAS register. Our algorithms guarantee performance even when their operations are invoked by an adaptive adversary that is able to see the entire history of operations so far, including their timing and return values. This allows them to be used as building blocks inside larger programs; using this compositionality property, we obtain several other constructions (LL/SC, fetch-and-increment, bounded max registers, and counters).
+  To complement our constructions, we give a trade-off showing that even under a perfectly synchronous schedule and even if each process only executes one operation, any algorithm that implements any of the primitives that we consider, uses space $M$, and has latency at most $L$ with high probability must have expected latency at least $\Omega(\log_{ML} P)$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.14530v2</guid>
+      <category>cs.DS</category>
+      <category>cs.DC</category>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1145/3816782.3819207</arxiv:DOI>
+      <dc:creator>Michael A. Bender, Guy E. Blelloch, Martin Farach-Colton, Yang Hu, Rob Johnson, Rotem Oshman, Renfei Zhou</dc:creator>
+    </item>
+  </channel>
+</rss>
