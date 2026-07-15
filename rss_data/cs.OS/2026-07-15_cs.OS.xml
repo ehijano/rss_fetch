@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jul 2026 04:00:20 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 15 Jul 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Inference Pipelines as Operating-System Objects: Priority Scheduling and Constant-Footprint Streaming for Microcontroller Neural Inference</title>
+      <link>https://arxiv.org/abs/2607.12614</link>
+      <description>arXiv:2607.12614v1 Announce Type: new 
+Abstract: Microcontroller runtimes treat the inference pipeline -- pre-processing, accelerator invocation, post-processing -- as application code: every project re-implements stage sequencing, buffer sizing, and completion signalling around a library call. We argue these are operating-system concerns and present the Phase 2 inference engine of SynapticOS, an open-source Zephyr-based runtime that makes the pipeline a first-class OS object. A pipeline is drawn from a static pool, validated against a canonical stage order, and executed by a priority job scheduler (realtime &gt; normal &gt; best-effort, FIFO per class) with cancellation and a bounded job table; no heap on the inference path. Stage buffers are sized exactly from configuration and tensor geometry for the nine built-in processors (bounded 4x fallback for user stages); all intermediates live in an ephemeral arena reset per frame, so streaming footprint is constant. We evaluate on the NXP FRDM-MCXN947 (Cortex-M33, 150 MHz) and the qemu_cortex_m3 CI target, both running a deterministic stub NPU kernel: engine-overhead baselines, not silicon throughput. On the board the scheduler adds 92 us over the Phase 1 direct-HAL bracket (1,130 vs 1,038 us; dispatch 1 us); a 30-frame, six-stage face-detection pipeline averages 4.63 ms/frame (215.8 FPS, stub model included) vs 31.1 ms under QEMU soft-float, at a constant 2,784-byte arena peak returning to zero each frame. The PowerQuad DSP is routed and self-calibrated for FFT and Q15 matmul; end-to-end speedups are 5.51x (256-point FFT) and 1.66x (16x16 matmul), short of the plan's 10x target -- reported as missed, not re-scoped. Stage-boundary profiling now runs live on the board, closing a Phase 1 gap. The engine adds 3.8 KB flash on QEMU and 20.7 KB on FRDM. 99 tests across 13 ZTEST suites pass 100% under emulation. Released under Apache 2.0 at https://github.com/Dimitrios-Kafetzis/SynapticOS</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.12614v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Dimitrios Kafetzis</dc:creator>
+    </item>
+    <item>
+      <title>Cross-Core Inference Offload as an Operating-System Service on Dual-Core Microcontrollers</title>
+      <link>https://arxiv.org/abs/2607.12620</link>
+      <description>arXiv:2607.12620v1 Announce Type: new 
+Abstract: Dual-core MCUs are asymmetric: on NXP's MCXN947, the second Cortex-M33 has no FPU, DSP extension, TrustZone, or MPU. We treat the asymmetry as a design input in the Phase 3 dual-core architecture of SynapticOS, an open-source Zephyr-based runtime: the AI runtime (models, NPU/DSP, scheduler) lives on the capable core, and the application core reaches inference only via a message-based OS service -- a remote system call. The transport is a pair of lock-free single-producer/single-consumer rings in shared SRAM: one writer per index, free-running 32-bit counters, ordering by data-memory barriers alone (the platform has no cross-core atomics). Because ring state is shared, a rebooting application core rejoins unaided. Requests carry priority classes, errors and timeouts propagate to the caller, and tensors stage zero-copy in a shared slot -- a 27 KB frame cannot exist twice in 64 KB of RAM. Measured on the FRDM-MCXN947 (both cores 150 MHz): the application core boots in 1,514 us and completes the handshake in 2,554 us, bit-identical over 11 boots; round trips are 15 us typical / 81 us worst-case (50 us budget); pushes cost 25 cycles; a 1,913-serve two-model soak had zero errors (stub-NPU latencies bracket transport, not silicon). An MPU region on the runtime core guards the application core's RAM (fault-injection verified); protection is one-directional -- the application core has no MPU, and ARMv8-M cannot block privileged reads. Two hardware-revealed defects are reported: releasing the second core into erased flash wedges the whole chip and its debug port (now prevented by a ROM-API blank check), and a Zephyr flash-driver Kconfig silently disarmed the devicetree MPU guard (now programmed at runtime). Firmware is 98.9 KB flash (runtime core) and 32.4 KB (application core, 42.6 of 64 KB RAM); 108 tests in 13 suites pass 100%. Apache 2.0: https://github.com/Dimitrios-Kafetzis/SynapticOS</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.12620v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Dimitrios Kafetzis</dc:creator>
+    </item>
+    <item>
+      <title>SynapticOS: An Inference-First Runtime Architecture for Neural Processing Units on Resource-Constrained Microcontrollers</title>
+      <link>https://arxiv.org/abs/2607.12606</link>
+      <description>arXiv:2607.12606v1 Announce Type: cross 
+Abstract: Microcontrollers with on-die neural processing units (NPUs) have become mainstream, but the system software hosting them has not: production combinations of Zephyr or FreeRTOS with TensorFlow Lite Micro treat AI inference as an application-layer library, leaving memory fragmentation, accelerator-state hygiene, and model-lifecycle guards as recurring application-developer concerns. We present the Phase 1 foundation of SynapticOS, an open-source runtime built on Zephyr that treats inference as a first-class workload. It contributes four cooperating subsystems: (1) a tensor-aware bump allocator with 16-byte DMA-aligned persistent and ephemeral lifetimes sharing a single arena, achieving constant-time allocation (~154 cycles per call, ~78,000 allocations per second at 150 MHz, invariant across tensor sizes) with zero fragmentation by construction; (2) a four-state hardware abstraction layer for the NPU and DSP, implemented by a deterministic software stub (for CI under QEMU) and a Neutron-flavoured backend (for the NXP MCXN947); (3) a three-state model lifecycle registry with duplicate-name detection, idempotent load/unload, and hot-swap guards; and (4) a four-mark cycle-accurate profiler. We evaluate on the NXP FRDM-MCXN947 (dual Cortex-M33 at 150 MHz) and the qemu_cortex_m3 emulator. Build footprints are 67 KB flash / 184 KB SRAM on FRDM (shell, 128 KB arena) and 24 KB flash / 28 KB SRAM on QEMU (no shell, 8 KB arena). End-to-end inference brackets through the deterministic stub kernel measure 1,038 us on FRDM and 781 us on QEMU for a 16x16x3 INT8 input; these are baseline overhead numbers, not Neutron silicon measurements, which arrive with the real SDK invoke path in Phase 2. A 61-test suite across 10 ZTEST suites passes 100% in 6.6 s on the CI emulator path. SynapticOS is released under Apache 2.0 at https://github.com/Dimitrios-Kafetzis/SynapticOS</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.12606v1</guid>
+      <category>eess.SY</category>
+      <category>cs.OS</category>
+      <category>cs.SY</category>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Dimitrios Kafetzis</dc:creator>
+    </item>
+  </channel>
+</rss>
