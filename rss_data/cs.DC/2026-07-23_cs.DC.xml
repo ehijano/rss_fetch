@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jul 2026 04:00:16 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Fine-grained Computation-Communication Overlap via Tile-level Signaling and Scheduling for Mixture-of-Experts</title>
+      <link>https://arxiv.org/abs/2607.19539</link>
+      <description>arXiv:2607.19539v1 Announce Type: new 
+Abstract: Mixture-of-Experts (MoE) architectures increase model capacity without proportionally increasing computation cost and have become a key building block for scaling large language models (LLMs) to trillion-parameter regimes. Efficient deployment of these MoE models relies on distributed execution across multiple GPUs, where each MoE layer involves two all-to-all communications: dispatching tokens to expert ranks and returning the expert outputs to their source ranks. Conventional MoE implementations launch this return all-to-all after expert compute completes, exposing communication latency on the critical path and reducing GPU utilization. We present a fine-grained approach that overlaps expert compute with the second all-to-all via tile-level signaling and scheduling. Our producer-consumer co-design combines: (1) a persistent per-rank computation kernel (producer) that covers all local experts on the rank to eliminate repeated kernel launch overhead and prioritizes remote-critical tiles, and (2) a persistent communication kernel (consumer) on a small dedicated partition of streaming multiprocessors (SMs) that issues segment-granular transfers as tiles become ready. Our co-design avoids intrusive changes to the underlying computation operators or communication primitives, making it practical for improving distributed MoE execution efficiency on multi-GPU systems. On a 4-A100 GPU platform, evaluated on three MoE models against four state-of-the-art MoE systems, our approach achieves up to 2.64x end-to-end speedup and 2.74x MoE-layer speedup. Compared with a conventional non-overlap baseline, our approach consistently improves both operator- and MoE-layer-level performance across varying GEMM shapes, router modes, and a broad range of producer/consumer SM partitions, while preserving correctness.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.19539v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Minyu Cui, Anna Wingkvist, Morgan Ericsson</dc:creator>
+    </item>
+    <item>
+      <title>Odin: Primitive-Level Synchronization for Distributed Point-Based Neural Rendering</title>
+      <link>https://arxiv.org/abs/2607.19893</link>
+      <description>arXiv:2607.19893v1 Announce Type: new 
+Abstract: Point-based neural rendering (PBNR) represents 3D scenes as explicit, trainable primitives and underpins high-quality reconstruction and emerging embodied AI and world-model pipelines. Unlike layer-structured neural networks, PBNR has primitive-indexed dependencies: each view reads and updates only a sparse, view-dependent subset of mutable scene state. As large scenes require distributed training and optimized renderers reduce per-view computation, global task- or iteration-level barriers increasingly place synchronization, rather than rendering, on the critical path. We present Odin, a distributed PBNR training system that replaces global barriers with primitive-level synchronization. Its ahead-of-time scheduler uses stable locality and phase order to identify low-conflict overlap windows, while the runtime validates primitive publication before later work observes mutable state. Odin provides a quality-first path that preserves synchronized-training visibility and a throughput-first path that uses overlap and gradient evidence to admit only small, low-impact delayed reads; structural changes and high-impact cases remain synchronized. Across four existing PBNR pipelines and 13 non-city scenes on 8 GPUs, Odin improves throughput by 1.22 times on average and hides 82% of critical-path wait while preserving reconstruction quality. In a MatrixCity mixed-parallel case study scaling to 64 GPUs, Odin improves throughput over Grendel by up to 1.89 times without changing renderer kernels, optimizers, training budgets, or model capacity.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.19893v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3806645.3820072</arxiv:DOI>
+      <dc:creator>Zhenxiang Ma, Zeyu He, Yuanzhen Zhou, Zhenyu Yang, Yuchang Zhang, Miao Tao, Rong Fu, Jidong Zhai, Hengjie Li</dc:creator>
+    </item>
+    <item>
+      <title>Ascend to Science: Exploration of AI Chips for Scientific Computing</title>
+      <link>https://arxiv.org/abs/2607.20120</link>
+      <description>arXiv:2607.20120v1 Announce Type: new 
+Abstract: The rapid rise of AI-oriented accelerators has reshaped compute systems around low-precision tensor engines, raising a practical question for the HPC community: under what conditions can such hardware support scientific workloads that demand numerical robustness, irregular memory access, and scalability? Using the Ascend 910 NPU series as a representative tensor-centric platform, we characterize precision, execution, and memory-hierarchy bottlenecks that hinder the direct deployment of scientific codes. We then develop and evaluate workload-specific mappings across five application studies -- HPL-MxP, LRSVD, SGEMM-cube, PQSim, and SMC-X -- combining heterogeneous execution, mixed-precision numerical formulations, precision emulation, hierarchical memory orchestration, and communication--computation overlap. These studies show that AI-native NPUs can achieve numerical robustness, competitive performance, and satisfactory scalability when numerical formulation, execution placement, and data movement are addressed in a coordinated manner. Our results provide a state-of-the-practice case study of how scientific workloads can be adapted to tensor-centric architectures, while distinguishing transferable optimization principles from Ascend-specific implementation details.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.20120v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Weicheng Xue, Kai Yang, Yongxiang Liu, Baisong Xu, Dengdong Fan, Xianglin Liu, Pengxiang Xu, Yonghong Tian</dc:creator>
+    </item>
+    <item>
+      <title>Fully Dynamic Rooted Spanning Tree on GPU</title>
+      <link>https://arxiv.org/abs/2607.20211</link>
+      <description>arXiv:2607.20211v1 Announce Type: new 
+Abstract: Spanning trees are fundamental structures in graph theory, essential for various applications such as network maintenance, routing adjustments, and many more. The dynamic nature of real-world networks requires efficient updates to these structures as the underlying graph evolves. Maintaining rooted spanning trees dynamically is particularly crucial for algorithms addressing 2-connected components and minimum-weighted spanning trees. In this paper, we address the challenge of maintaining a rooted spanning forest when a batch of edges are inserted or deleted. We present four novel fully dynamic parallel algorithms to update the spanning forest without reconstructing it from scratch. To the best of our knowledge, parallel algorithms for this problem remain largely unexplored. Our experiments on a diverse collection of real-world graphs using a GPU environment demonstrate a throughput of 2 million insertions and 1.4 million deletions per second, significantly outperforming state-of-the-art parallel static algorithms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.20211v1</guid>
+      <category>cs.DC</category>
+      <category>cs.DS</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Abhijeet Sahu, Harmit Singh, Soham Nandy, G. Ramakrishna</dc:creator>
+    </item>
+    <item>
+      <title>BaseRT: Advancing Best-in-Class LLM Inference with Apple M5 Neural Accelerators</title>
+      <link>https://arxiv.org/abs/2607.19438</link>
+      <description>arXiv:2607.19438v1 Announce Type: cross 
+Abstract: Apple's M5 generation introduces a redesigned GPU architecture in which every core carries a dedicated Neural Accelerator: on-die matrix units exposed through the Metal~4 tensor API. We show that BaseRT, our native Metal inference runtime for large language models on Apple Silicon, exploits these units to push inference throughput on Apple hardware substantially beyond both llama.cpp and MLX. Building on BaseRT's framework-free design, we add a family of hand-written Metal~4 tensor-core kernels (including dense and mixture-of-experts GEMM and flash-attention prefill kernels) that route the compute-bound matrix multiplications of inference through the M5 Neural Accelerators while leaving the memory-bound decode path on our existing specialised kernels. On an Apple M5 Pro, across fifteen model configurations spanning the Qwen3, Qwen3.5/3.6, Llama~3.2, and Gemma~4 families from sub-1B to 35B parameters, BaseRT delivers up to $6.4\times$ higher prompt-processing throughput than llama.cpp and $3.9\times$ higher than MLX, with the largest margins on the mixture-of-experts models where matrix multiplication dominates, while maintaining its lead on decode of up to $1.75\times$ over llama.cpp and $1.33\times$ over MLX. These results establish a new performance ceiling for on-device LLM inference and show that the M5's tensor cores are the decisive lever for prompt processing on Apple Silicon. BaseRT is publicly available at https://github.com/basecompute/baseRT.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.19438v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Fabian Waschkowski, Prabod Rathnayaka, Lukas Wesemann</dc:creator>
+    </item>
+    <item>
+      <title>SynPre-FL: Synthetic data-driven pretraining integrated Federated Learning training framework</title>
+      <link>https://arxiv.org/abs/2607.19524</link>
+      <description>arXiv:2607.19524v1 Announce Type: cross 
+Abstract: Federated learning (FL) offers a promising approach to privacy-preserving clinical risk prediction, but its deployment remains limited by restricted data sharing, client heterogeneity, class imbalance, and the lack of realistic tabular electronic health record (EHR) benchmarks. Synthetic data generation may alleviate data scarcity, yet its integration with federated optimisation has received limited systematic study. We propose SynPre-FL, a unified framework combining high-fidelity synthetic EHR generation with synthetic-pretrained FL for robust prediction under non-IID conditions. A latent autoencoder-diffusion model generates privacy-preserving synthetic cohorts, which are used to warm-start federated training. This pretraining is followed by heterogeneity-aware optimisation using class-balanced local objectives, proximal regularisation, and adaptive server aggregation. Post-hoc calibration and federated-safe explainability support reliable and interpretable risk estimates. Experiments show that the synthetic generator preserves univariate, bivariate, and multivariate structure while protecting against membership-inference and reconstruction attacks. The generated data achieve strong downstream utility under TSTR, TRTS, and model-based evaluations. Across federated settings with 5, 10, and 15 heterogeneous clients, SynPre-FL consistently improves robustness and scalability over baseline methods, especially under severe non-IID fragmentation. Calibration improves probability reliability, while SHAP analysis produces stable and clinically coherent feature attributions across federation sizes. SynPre-FL therefore provides a practical and reproducible framework for combining synthetic data with FL to enable privacy-aware, interpretable, and robust clinical prediction from distributed tabular EHR data.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.19524v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Akarsh K Nair, Muhammad Arifur Rahman, Nicholas Shopland, Andy Burton, Jun He, Yuan Shen, David Baldwin, Emma O'Dowd, Amna Burzic, Mufti Mahmud, David J. Brown</dc:creator>
+    </item>
+    <item>
+      <title>Examining QRMI as a Unified Interface for Quantum-HPC Integration</title>
+      <link>https://arxiv.org/abs/2607.19591</link>
+      <description>arXiv:2607.19591v1 Announce Type: cross 
+Abstract: The efficient and scalable integration of quantum resources into high-performance computing (HPC) environments requires standardized mechanisms for resource management, scheduling, and workflow orchestration across diverse and heterogeneous infrastructures. The Quantum Resource Management Interface (QRMI) addresses this challenge through a thin, vendor-agnostic middleware layer that provides standardized APIs for scheduling, executing, and monitoring quantum workloads while exposing quantum resources as first-class schedulable resources alongside CPUs and GPUs. Although previous work demonstrated QRMI integration with the Slurm workload manager, its applicability across other workload managers remained unexamined. This paper extends the validation of QRMI to a broad range of workload managers, including PBS, LSF, Grid Engine, Kubernetes, and the Flux Framework, encompassing traditional batch schedulers, a cloud-native orchestration platform, and a graph-based scheduler. We examine the integration patterns, implementation requirements, and scheduler-specific considerations associated with each environment and compare QRMI with alternative approaches to quantum resource integration. We demonstrate that QRMI provides a portable and flexible abstraction layer that minimizes scheduler-specific modifications while enabling consistent access to heterogeneous quantum resources across both on-premises and cloud environments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.19591v1</guid>
+      <category>cs.ET</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Thomas Badts (Pasqal), Tim Boyle (National Quantum Computing Centre), Claudio Carvalho (IBM), Antonio C\'orcoles (IBM), Andrew Damin (Rensselaer Polytechnic Institute), Vadim Elisseev (IBM), Jonathan Frassineti (CINECA), Daniel Gruber (HPC Gridware), Hiroshi Horii (IBM), Eun-Kyung Lee (IBM), James Machin (Alice &amp; Bob), Sara Marzella (CINECA), Mateusz Meller (STFC Hartree Centre), Daniel Milroy (Lawrence Livermore National Laboratory), Matthieu Moreau (Pasqal), Munetaka Ohtani (IBM), Elisabeth Ortega-Carrasco (Qilimanjaro Quantum Tech), Doug Oucharek (Oak Ridge National Laboratory), Yoonho Park (IBM), Adarsh Patil (Siemens), Emre M. Sahin (STFC Hartree Centre), G\'abor Samu (IBM), Seetharami Seelam (IBM), Amir Shehata (Oak Ridge National Laboratory), Vanessa Sochat (Lawrence Livermore National Laboratory), James Thorne (National Quantum Computing Centre), Oscar Wallis (STFC Hartree Centre), Aleksander Wennersteen (Pasqal)</dc:creator>
+    </item>
+    <item>
+      <title>Do Co-Located AI Training Jobs Synchronize? Load-Dependent Throttling as a Coupling Mechanism for Phase-Locking Behind a Shared Power Cap</title>
+      <link>https://arxiv.org/abs/2607.19638</link>
+      <description>arXiv:2607.19638v1 Announce Type: cross 
+Abstract: Large-scale AI training turns computing facilities into multi-megawatt loads whose power draw is periodic: tens of thousands of accelerators step in lockstep between compute-bound phases near peak power and communication-bound phases where they idle. Prior work treats each facility as an exogenous periodic forcing on the grid. We pose the operator's question instead: when many independent training jobs share one oversubscribed power envelope, do their cycles stay independent, so aggregate fluctuation grows as the square root of the number of jobs, or can the power-management stack phase-lock them into linear growth? This is emergent synchronization in a population of nonlinear oscillators - the Kuramoto setting - but classical coupling is absent, since accelerator clocks are decoupled from line frequency. We identify the coupling channel in load-dependent throttling: caps, voltage droop, and shared cooling slow computation exactly when aggregate demand is high. Formalizing the fleet as a generalized Kuramoto system, we obtain three operator-facing statements. Dimension: the coupling is repulsive to leading order and turns attractive only when the control loop's phase lag exceeds half a cycle; protection is mode-selective, so rate diversity is required. Detect: frequency-correlated frustration makes the onset first-order and hysteretic. Mitigate: phase-scattering scheduling raises every mode threshold at once. The prediction is falsifiable by a two-job co-capped measurement, which we specify.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.19638v1</guid>
+      <category>eess.SY</category>
+      <category>cs.DC</category>
+      <category>cs.SY</category>
+      <category>nlin.AO</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Brieuc Le Roux Tardif</dc:creator>
+    </item>
+    <item>
+      <title>DQAOA-GPT: AI-Accelerated Distributed Quantum Optimization for Combinatorial Problems</title>
+      <link>https://arxiv.org/abs/2607.20225</link>
+      <description>arXiv:2607.20225v1 Announce Type: cross 
+Abstract: While combinatorial optimization problems are central to many scientific and engineering applications, their solution remains challenging due to exponentially large search spaces. Variational quantum algorithms offer a promising route for tackling such problems, yet their practical performance is limited by repeated quantum circuit evaluations and classical parameter updates. In this work, we introduce DQAOA-GPT, a hybrid framework that integrates the distributed quantum approximate optimization algorithm (DQAOA), which decomposes a large optimization problem into smaller sub-problems, with GPT-based quantum circuit generation for solving those sub-problems. Rather than relying on iterative variational optimization, the proposed approach uses a trained generative model to directly generate high-quality quantum circuits for the decomposed sub-problems. As a benchmark, we evaluate DQAOA-GPT against conventional DQAOA on dense HUBO optimization problems with up to 100 decision variables. The results demonstrate that DQAOA-GPT significantly reduces computational cost while maintaining competitive solution quality, with larger acceleration observed for larger sub-problem sizes. Although this work focuses on benchmark-scale validation, the framework provides a promising foundation for larger-scale combinatorial optimization in hybrid HPC-QC environments through increased GPU resources and parallel computing capability.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.20225v1</guid>
+      <category>quant-ph</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>math.OC</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Seongmin Kim, Abhinav Rijal, Yuri Alexeev, Nora Bauer, Martin Roetteler, Mina Yoon, George Siopsis, In-Saeng Suh</dc:creator>
+    </item>
+    <item>
+      <title>Distributed Quantum Approximate Optimization Algorithm on a Quantum-Centric Supercomputing Architecture</title>
+      <link>https://arxiv.org/abs/2407.20212</link>
+      <description>arXiv:2407.20212v3 Announce Type: replace 
+Abstract: Quantum approximate optimization algorithm (QAOA) has shown promise in solving combinatorial optimization problems by providing quantum speedup on near-term gate-based quantum computing systems. However, QAOA faces challenges for high-dimensional problems due to the large number of qubits required and the complexity of deep circuits, limiting its scalability for real-world applications. In this study, we present a distributed QAOA (DQAOA), which leverages distributed computing strategies to decompose a large computational workload into smaller tasks that require fewer qubits and shallower circuits than necessitated to solve the original problem. These sub-problems are processed using a combination of high-performance and quantum computing resources. The global solution is iteratively updated by aggregating sub-solutions, allowing convergence toward the optimal solution. We demonstrate that DQAOA can handle considerably large-scale optimization problems (e.g., 1,000-bit problem) achieving a high solution quality and short time-to-solution ($\sim$276 s), outperforming existing strategies. Furthermore, we realize DQAOA on a quantum-centric supercomputing architecture, paving the way for practical applications of gate-based quantum computers in real-world optimization tasks. To extend DQAOA's applicability to materials science, we further develop an active learning algorithm integrated with our DQAOA (AL-DQAOA), which involves machine learning, DQAOA, and active data production in an iterative loop. We successfully optimize photonic structures using AL-DQAOA, indicating that solving real-world optimization problems using gate-based quantum computing is feasible. We expect the proposed DQAOA to be applicable to a wide range of optimization problems and AL-DQAOA to find broader applications in material design.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2407.20212v3</guid>
+      <category>cs.DC</category>
+      <category>cs.CE</category>
+      <category>quant-ph</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:DOI>10.1038/s41534-026-01283-2</arxiv:DOI>
+      <dc:creator>Seongmin Kim, Vincent R. Pascuzzi, Zhihao Xu, Tengfei Luo, Eungkyu Lee, In-Saeng Suh</dc:creator>
+    </item>
+    <item>
+      <title>Legible Consensus: Topology-Aware Quorum Geometry for Asymmetric Networks</title>
+      <link>https://arxiv.org/abs/2603.28788</link>
+      <description>arXiv:2603.28788v3 Announce Type: replace 
+Abstract: Quorum design over asymmetric topologies conflates two independent concerns: inter-tier obligation (which tiers must participate for cross-tier safety) and intra-tier replication (how each tier survives local failures). Flat quorums treat all nodes as interchangeable; when consensus fails, the structure does not reveal whether a tier was unreachable or a tier lost too many replicas. We show that mapping a crumbling-wall quorum construction to a physically tiered network separates these concerns and makes the protocol's failure modes legible: an operator can determine which tiers retain global consensus capability from the wall structure and connectivity state alone, without runtime probing. Using a 10-node Earth/LEO/Moon/Mars topology as a magnifying glass, we confirm that three of four tiers retain global liveness during Mars conjunction blackout; only the disconnected tier loses it. Consensus latency at each tier equals the speed-of-light round-trip to Earth: 183~ms (Earth), 131~ms (LEO), 5.1~s (Moon). The wall also imposes a leadership cost gradient on Multi-Paxos elections that symmetric grid quorums cannot express. A comparison between sparse and full-coverage topologies separates wall obligations from network reachability as independent liveness constraints. All results are design-level; quorum intersection is verified exhaustively in TLA+.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.28788v3</guid>
+      <category>cs.DC</category>
+      <category>cs.NI</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Tony Mason</dc:creator>
+    </item>
+    <item>
+      <title>Static PTX Metrics Track Structural Kernel Regressions but Miss Semantic Ones</title>
+      <link>https://arxiv.org/abs/2607.02541</link>
+      <description>arXiv:2607.02541v2 Announce Type: replace 
+Abstract: We pair each GPU kernel's static PTX metrics (registers, spills, instruction count) with CUDA-event-timed runtime on five GPU classes: RTX 3060, A10, L40S, A100 SXM4, and H100 NVL. In this corpus and toolchain the static and measured signals separate cleanly along one axis. Per-pair Delta-regs and Delta-instrs are identical across all five GPUs for any given (correct, buggy) pair. Measured Delta-perf% is not. Structural bugs that change the kernel's work are unambiguous in the static signal. The gelu_triton_buggy variant, which drops a leading 0.5 factor, removes 8 instructions and 8 registers. The corresponding measured Delta-perf% on RTX 3060 is +3.2%, within the run-to-run noise band at the sub-millisecond scale these corpus kernels occupy. Semantic bugs that swap one constant for another are invisible to the static signal. The softmax_triton_buggy variant, which substitutes other=0.0 for -inf on the masked load, compiles to byte-identical PTX. The paper's bounded claim is that, for this corpus and toolchain, a static-PTX delta gate is a portable pre-filter that separates structural from semantic changes; measured runtime deltas at this scale are hardware- and noise-sensitive and are not a substitute.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.02541v2</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <category>cs.PL</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Dipankar Sarkar</dc:creator>
+    </item>
+    <item>
+      <title>Ordering by Unanimity: Giving Applications Sequencing Rights Without Breaking Composability</title>
+      <link>https://arxiv.org/abs/2607.06144</link>
+      <description>arXiv:2607.06144v3 Announce Type: replace 
+Abstract: Blockchain applications may have preferences over the order in which transactions execute: an automated market maker may use an external feed to price its liquidity, and require that the oracle update incorporating this price execute before any swap; an exchange may want to execute cancellations of limit orders before incoming market orders; an application may run an on-chain auction by executing bids from highest to lowest, so that the first bid wins. However, the ordering of transactions is chosen by the underlying blockchain and may not be compatible with the requirements of a specific application. In this paper, I tackle this problem by introducing an algorithm called unanimity override. The intuition is that when all the applications agree on how to order two transactions, the underlying blockchain should respect this agreement; a default order - the order in which transactions appear in the block - settles the rest. The problem with this naive approach is that application unanimity may form cycles, which the algorithm must break. Cycle-breaking is also the rule's main vulnerability because an attacker can insert transactions to manufacture a cycle. Yet two guarantees hold against any attacker who sets the default order, deploys applications, and inserts transactions. All transactions that interact with a single application that expressed preferences are ordered according to that application's preferences, even when they also interact with other applications that did not express preferences. Also, gated transactions - those that cannot be outranked in the unanimity order by any transaction crafted by an attacker - always execute as the applications unanimously prefer, even when they touch many applications. The two guarantees identify the preferences the protocol can protect, and they tell applications and senders in advance which transactions will execute in the intended order.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.06144v3</guid>
+      <category>cs.DC</category>
+      <category>econ.TH</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Andrea Canidio</dc:creator>
+    </item>
+    <item>
+      <title>Scaling Synthetic-Image Pre-Training for Federated Fine-Tuning of Large Vision Models</title>
+      <link>https://arxiv.org/abs/2607.12583</link>
+      <description>arXiv:2607.12583v2 Announce Type: replace 
+Abstract: Federated fine-tuning (FedFT) enables adapting pre-trained large vision models (LVMs) on distributed, privacy-sensitive devices, while its practical deployment is hindered by three critical challenges: resource constraints, system heterogeneity, and non-IID data. While prior studies partially address these issues, e.g., by pre-training initial models on synthetic images to mitigate the adverse effects of non-IID data, or leveraging parameter-efficient fine-tuning (PEFT) methods like low-rank adaptation (LoRA) to reduce resource consumption, they remain inadequate and fragmented. Specifically, existing synthetic image generation methods fail to capture device-specific feature distributions, while current PEFT-based FedFT methods often undervalue weaker devices that may provide critical information. More importantly, the separate optimization of pre-training and FedFT neglects their inherent connection, lacking a holistic perspective to maximize training efficiency. To overcome these limitations, we propose FeDiSyn, a unified framework that holistically considers the interplay between pre-training and FedFT to minimize the overall LVM training time. Specifically, FeDiSyn introduces: (i) a scaling law for FedFT pre-training to determine the optimal number of synthetic images, balancing pre-training benefit against generation/pre-training cost, (ii) diffusion-based synthetic image generation that captures device-specific feature distributions for pre-training to tackle non-IID data, and (iii) a contribution-aware LoRA configuration and bandwidth allocation algorithm for FedFT to ensure that informative devices are effectively utilized while addressing system heterogeneity. Experimental results on the real-world testbed demonstrate that FeDiSyn reduces completion time by over 52.5% and communication cost by over 97.2%, while achieving comparable accuracy to state-of-the-art solutions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.12583v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1145/3832810.3832835</arxiv:DOI>
+      <dc:creator>Qianpiao Ma, Xiaozhu Song, Junlong Zhou, Yue Zeng, Jianchun Liu, Huaqing Tu</dc:creator>
+    </item>
+    <item>
+      <title>Coherence in Control: Bridging Many-Core Mapping and Routing through Cost Unification</title>
+      <link>https://arxiv.org/abs/2607.19158</link>
+      <description>arXiv:2607.19158v2 Announce Type: replace 
+Abstract: The rapid growth of data-intensive applications increases communication demands in many-core systems, where cache coherence, while essential for correct communication and data consistency, introduces substantial overhead due to frequent data sharing and coherence activities. As system scale and workload complexity grow, the resulting coherence traffic intensifies communication pressure, making the co-optimization of task mapping and routing essential for improving system performance. However, most existing approaches overlook cache coherence, leaving a substantial portion of coherence-induced communication unaccounted for and creating a mismatch between optimization objectives and actual communication patterns. Furthermore, by employing separate cost evaluators for mapping and routing, these approaches complicate objective coordination, may lead to conflicting decisions, and fail to capture the coherence-induced coupling between the two stages. To address these challenges, we propose CoCo, a coherence-aware co-optimization framework that jointly integrates task mapping and routing under a unified cost model for realistic scenarios. This unified model integrates communication cost, coherence overhead, and load imbalance into a single objective, enabling coherence-aware decision-making and effective trade-offs among optimization goals. Guided by this model, CoCo combines coherence-guided task mapping with reinforcement learning-based routing, where directional link weights are adjusted according to communication behavior to improve traffic distribution, enabling coherence-aware co-optimization for many-core systems. Experimental results show that CoCo reduces link utilization by 88.46%, packet delay by 17.40%, and execution time by 17.58% compared with existing approaches, highlighting the importance of cache coherence in co-optimization design.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.19158v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Guochu Xiong, Xiangzhong Luo, Weichen Liu</dc:creator>
+    </item>
+    <item>
+      <title>Secret Quorums: Protecting Byzantine Protocols Against Adaptive Adversaries</title>
+      <link>https://arxiv.org/abs/2412.16648</link>
+      <description>arXiv:2412.16648v3 Announce Type: replace-cross 
+Abstract: Modern committee-based payment protocols improve scalability by delegating critical operations to small subsets of participants, such as validator committees in blockchains or shard committees in distributed systems with parallel execution. This design, however, makes these protocols particularly vulnerable to adaptive adversaries: once a small set of participants is identified, it can be selectively targeted for corruption, bribery, or denial-of-service attacks.
+  In this paper, we propose Secret Quorums, a novel abstraction that enables any committee-based protocol, including payment systems, to rely on small quorums while remaining resilient to adaptive adversaries. Validators composing a Secret Quorum remain anonymous throughout the validation: as in cryptographic sortition approaches, their selection is secret, but unlike classical approaches, the resulting quorum proof does not reveal which validators were selected. We show how to implement Secret Quorums using ring verifiable random functions, without adding communication steps compared to standard quorum-based protocols. We also demonstrate the relevance of Secret Quorums through StealthDust, a new protocol that applies Secret Quorums to the fractional spending payment problem in order to reduce latency and improve settlement message complexity with respect to the original protocol.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2412.16648v3</guid>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Maxence Perion, Sara Tucci-Piergiovanni, Rida Bazzi</dc:creator>
+    </item>
+    <item>
+      <title>Advancing Scientific Discovery and Complex Optimization through Distributed Quantum Neural Networks</title>
+      <link>https://arxiv.org/abs/2503.00221</link>
+      <description>arXiv:2503.00221v2 Announce Type: replace-cross 
+Abstract: Optimization problems are critical across various domains, yet existing quantum algorithms, despite their great potential, struggle with scalability and accuracy due to excessive reliance on entanglement. To address these limitations, we propose variational quantum optimization algorithm (VQOA), which employs an ansatz based solely on quantum superposition, where single-qubit rotation gates function analogously to neurons in classical deep neural networks. This ansatz, which can be regarded as quantum neural networks, significantly reduces circuit complexity, enhances noise robustness, mitigates Barren Plateau issues, and enables efficient partitioning for highly complex, large-scale optimization. Furthermore, we introduce distributed VQOA (DVQOA), which integrates high-performance computing with quantum computing to achieve superior performance. These features enable a significant acceleration of material optimization tasks (e.g., metamaterial design), achieving more than 50$\times$ speedup compared to state-of-the-art optimization algorithms. Beyond material design, DVQOA efficiently solves quantum chemistry problems and \textit{N}-ary $(N \geq 2)$ optimization problems involving higher-order interactions, outperforming classical deep neural networks. These advantages establish DVQOA as a highly promising and versatile solver for real-world problems, demonstrating the practical benefits of the quantum-classical approach.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2503.00221v2</guid>
+      <category>quant-ph</category>
+      <category>cs.CE</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:DOI>10.1038/s41524-026-02203-w</arxiv:DOI>
+      <dc:creator>Seongmin Kim, In-Saeng Suh</dc:creator>
+    </item>
+    <item>
+      <title>Model Gateway: Management Platform for Model-Driven Drug Discovery</title>
+      <link>https://arxiv.org/abs/2512.05462</link>
+      <description>arXiv:2512.05462v2 Announce Type: replace-cross 
+Abstract: Pharmaceutical drug discovery demands machine learning (ML) infrastructure that goes beyond general-purpose Machine Learning Operations (MLOps): inference-time composition of multiple models for multi-parameter optimization (MPO), version management for physics-based models without serialized ML artifacts, enterprise compound library precomputation, and governance structured around scientific organizational units rather than generic access controls. No existing commercial or open-source platform simultaneously addresses this full set of requirements. This paper presents the Model Gateway, a cloud-based platform for managing machine learning and scientific computational models across drug discovery pipelines, providing centralized version control, pharma-structured governance, asynchronous execution, consensus model orchestration, automated retraining, and a unified application programming interface (API) service for heterogeneous clients including molecular design suites and Large Language Model (LLM) agents. In production at Eli Lilly, the platform governs more than 200 deployed models spanning small molecule, peptide, and antibody modalities and serves more than five downstream applications across all phases of the Design-Make-Test-Analyze cycle.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.05462v2</guid>
+      <category>cs.SE</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>q-bio.QM</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Yan-Shiun Wu, Sai Mahit Vaddadi, Zachary A. Rollins, Nathan A. Morin</dc:creator>
+    </item>
+    <item>
+      <title>Pre-Deployment Complexity Estimation for Federated Perception Systems</title>
+      <link>https://arxiv.org/abs/2603.28282</link>
+      <description>arXiv:2603.28282v2 Announce Type: replace-cross 
+Abstract: Edge AI systems increasingly rely on federated learning to train perception models in distributed, privacy-preserving, and resource-constrained environments. Before training, however, practitioners often lack practical tools for estimating task difficulty in terms of expected accuracy and communication effort. We present a classifier-agnostic, pre-deployment framework that combines intrinsic data properties such as dimensionality, sparsity, and heterogeneity, with client-distribution composition to estimate learning complexity in federated perception systems. Using federated learning as a representative distributed training setting, we examine how learning difficulty varies across different federated configurations. Experiments on three MNIST variants show strong negative correlations between the combined complexity metric and maximum and average federated accuracy, while the intrinsic and distributed components exhibit consistent relationships with communication effort. These findings suggest that complexity estimation can serve as a practical diagnostic tool for resource planning, dataset assessment, and feasibility evaluation in edge-deployed perception systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.28282v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>KMA Solaiman, Shafkat Islam, Ruy de Oliveira, Bharat Bhargava</dc:creator>
+    </item>
+    <item>
+      <title>Single-Connection Mixed-Criticality Transport with CATS: Bounded Guarantees, Three Structural Limits, and a QUIC Escape</title>
+      <link>https://arxiv.org/abs/2606.16924</link>
+      <description>arXiv:2606.16924v3 Announce Type: replace-cross 
+Abstract: Satellite terminals, industrial telemetry-and-control, embedded systems, tactical networks often multiplex a small, latency-critical message class with bulk traffic over one connection. A single FIFO connection can starve the critical class. Parallel connections cost another five-tuple (often blocked by carrier-grade NAT, port budgets, and operator policy), are not always available, and when the critical class is light are bandwidth-fair only in aggregate. We present CATS (Conductor-driven Asymmetric Transport Scheme), a sender-side, receiver-transparent TCP priority scheme in which a Conductor assigns each message a priority class and just-in-time sequence numbers under a credit-based shaper. CATS provides deterministic non-starvation, single-flow fairness, and a provable bounded per-class delay.
+  We then show CATS-over-TCP is not a tail-latency mechanism. Three structural barriers bound single-connection in-band priority: the in-order sequence space, the shared congestion window, and per-flow network QoS. These barriers explain why fair queuing and L4S fail to help a single connection and can worsen it by granting a parallel-connection competitor per-flow isolation while leaving in-band priority unserved, and why two parallel connections reduce tail latency by 4-8 times at the cost of another flow. We give CATS-over-QUIC as the principled escape: independent sequence spaces with per-stream isolation under aggregate-coupled congestion control attain the guarantees on one fair flow. A proof of concept shows unreliable datagrams achieve a flat tail (approx. 27 ms p99.9 vs. approx. 307 ms over TCP) by never retransmitting lost messages, while reliable streams still require an aggregate-coupled congestion controller; we frame this standards gap as a research program. An ns-3 evaluation across loss, contention, and handover regimes supports every claim, including the negative ones.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.16924v3</guid>
+      <category>cs.NI</category>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <category>cs.PF</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Syed Muhammad Aqdas Rizvi</dc:creator>
+    </item>
+    <item>
+      <title>Ripple: An Open, AI-Formalized Lean 4 Framework for Computing with CRNs</title>
+      <link>https://arxiv.org/abs/2607.13531</link>
+      <description>arXiv:2607.13531v2 Announce Type: replace-cross 
+Abstract: We present Ripple, an open, AI-formalized Lean 4 framework for the mathematics of computing with chemical reaction networks (CRNs) -- one extensible, machine-checked development that gathers several strands of the field into a single setting, and is built to grow. It formalizes: the theory of which real numbers a CRN can compute -- a single Lean definition of real-time CRN computation, the class of reals it captures, and the compilation pipeline (a GPAC / polynomial-ODE layer, a dual-rail compiler, and four stages down to large-population protocols) that realizes them, built so that adding a new number is a plug-in; three landmark population-protocol majority algorithms -- approximate, exact, and self-stabilizing exact majority; the stochastic-to-deterministic bridge, through three machine-checked versions of Kurtz's mean-field theorem; and two classical Turing-completeness results -- Bournez--Graca--Pouly for the deterministic GPAC and Soloveichik--Cook--Winfree--Bruck for stochastic CRNs. Each of these is verified to depend on exactly the three Mathlib foundational axioms, with no sorry. Along the way the formalization repaired genuine, previously unnoticed gaps in published proofs -- a compilation step that can transiently leave the unit interval, and an algebraic-number construction that silently rests on Catalan's conjecture -- and surfaced a sharp open problem about when a holonomic series admits an exact, rational-data polynomial-ODE encoding. The whole development is open and every proof is kernel-checked, so the results can be independently re-verified; and because it was written predominantly by AI agents using only publicly available models, the workflow that produced it can be reproduced with the same public toolchain.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.13531v2</guid>
+      <category>cs.LO</category>
+      <category>cs.DC</category>
+      <category>cs.ET</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ho-Lin Chen, Xiang Huang</dc:creator>
+    </item>
+  </channel>
+</rss>
