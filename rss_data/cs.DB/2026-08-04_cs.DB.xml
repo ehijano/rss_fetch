@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DB updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DB</link>
+    <description>cs.DB updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Aug 2026 04:00:09 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>CITBench: A Comprehensive Benchmark for Interactive Tabular Data Processing with LLMs</title>
+      <link>https://arxiv.org/abs/2608.00018</link>
+      <description>arXiv:2608.00018v1 Announce Type: new 
+Abstract: Tabular data processing is central to data work, and LLM-based assistants have recently shown promising capabilities in supporting such tasks. However, existing benchmarks primarily focus on table reasoning under single-turn, fully specified instructions, underrepresenting complex table processing that unfolds through multi-turn interactions with evolving user requirements. To bridge this gap, we introduce CITBench, a comprehensive benchmark for evaluating LLMs on interactive tabular data processing. CITBench features a comprehensive taxonomy across four high-level categories--table matching, cleaning, augmentation, and transformation--spanning 18 task types and 1,296 instances curated from datasets across diverse domains. The benchmark supports both offline and online evaluation, where the online setting models multi-turn interactions under constrained operation procedures and structured task scripts, capturing key potential behavioral characteristics of user-in-the-loop tabular data processing. We evaluate a broad suite of open-source and closed-source LLMs on CITBench, revealing a consistent trend: while current models perform well on simple tables and rules, their performance degrades significantly with increasing table complexity, tighter rule dependencies, and noisy multi-turn interaction simulations. These results highlight persistent challenges in understanding, planning, and table-structure awareness for LLMs in extended interactive data processing scenarios.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.00018v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zihan Nan, Yang Gu, Wei Liu, Xi Yan, Zhou Liu, Hao Liang, Wentao Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Machine-Checked Dual-Write Recovery from a Committed Log</title>
+      <link>https://arxiv.org/abs/2608.00501</link>
+      <description>arXiv:2608.00501v1 Announce Type: new 
+Abstract: After a crash, a delivery process faces a question its own database cannot answer: did the other side already receive the effect? Transactional outboxes and change data capture remove the application's dual write, but the relay they introduce delivers and records its own progress as two separate durable acts, so the same decision reappears one stage later.
+  Practitioners have handled this boundary for a decade with retries, checkpoints, idempotency keys, and fencing, and the operational advice is largely sound. What has been missing is a precise account of when it works: the exact event the guarantees refer to, the evidence they require, and how long that evidence lasts. This paper supplies the missing account as a machine-checked theory, developed in Isabelle/HOL.
+  At its heart is an information bound. Two reachable post-crash states can agree on everything the crashed side durably knows and still differ in what the sink accepted, so any recovery decision computed from that side must duplicate a delivery or leave one owed. This is not a story about sloppy bookkeeping: a single deterministic deliver-then-checkpoint protocol, its own durable cursor included in what recovery reads, is defeated by crash timing alone. Reading the sink's accepted record escapes the bound exactly, under stated premises. The answer can then go stale -- an old request still in flight, a second recoverer racing the first -- and each hazard has its own proved fence at the sink's acceptance boundary, the cost of fencing itself a theorem. Finally, the guarantee has a lifetime: bounded deduplication memory and truncated source history each void it in a proved way. The resulting test for any exactly-once recovery claim is short: what did the sink accept, what can still change that answer, and how long will the evidence survive?</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.00501v1</guid>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <category>cs.LO</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Andreas Andreakis</dc:creator>
+    </item>
+    <item>
+      <title>TEngineDB-V: An OLAP-Native Vector Search System for Large-$k$ Workloads at Tencent</title>
+      <link>https://arxiv.org/abs/2608.00650</link>
+      <description>arXiv:2608.00650v1 Announce Type: new 
+Abstract: Vector search systems are essential infrastructure for modern data-driven applications. Large-$k$ analytical vector search, which retrieves $k=10^3$--$10^5$ results for analytics (e.g., aggregation, filtering, joins), is increasingly important for emerging workloads, including LLM data management and advertising analysis at Tencent. Existing systems remain inadequate: specialized vector databases often cap $k$ (e.g., $k \leq 10^4$) to satisfy tail-latency constraints and offer limited analytical support, while OLAP systems typically embed per-segment vector indexes as black boxes, causing severe read/compute amplification and preventing native query optimization.
+  This paper presents TEngineDB-V, an OLAP-native vector search system for large-$k$ workloads. TEngineDB-V makes vector search a first-class analytical primitive in Tencent's OLAP engine through a global segment-decoupled index materialized as relational tables, eliminating scatter-gather execution, reducing amplification, and enabling native storage optimizations. It decomposes IVFPQ-based search into relational operators, integrates OLAP optimizations, and introduces DPPQ, which combines direction-aware quantization with hierarchical residual refinement to improve recall while preserving relational efficiency. TEngineDB-V further incorporates index-aware query rewriting and a distributed-aware cost model for efficient distributed execution. Experiments show that TEngineDB-V achieves up to a $145\times$ speedup over competitive systems such as StarRocks, and up to a $52\times$ improvement in 10-billion-scale production deployments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.00650v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Xufei Wu, Pengcheng Zhang, Yitong Song, Xiaobo Zhang, Anqi Liang, Kai Wang, Jijun Du, Yidi Xiong, Guangxu Cheng, Zhe Chen, Peng Chen, Guoliang Li, Xuanhe Zhou, Fan Wu</dc:creator>
+    </item>
+    <item>
+      <title>Using Lower-Bound Representations for Trajectory Similarity Learning</title>
+      <link>https://arxiv.org/abs/2608.01039</link>
+      <description>arXiv:2608.01039v1 Announce Type: new 
+Abstract: Trajectory similarity learning is fundamental to efficient trajectory retrieval under complex distance measures. Existing learning-based methods typically rely on embeddings trained to approximate trajectory distances or rankings, but they often lack guarantees with respect to the original distances, exhibit unstable performance across distance measures, and incur substantial training costs. We revisit trajectory similarity learning from a lower-bound representation perspective and propose LB-TrajRep, a unified lower-bound representation framework independent of deep neural embeddings. This framework constructs single-vector representations from a set of lower-bound components, enabling admissible and interpretable lower bounds for multiple classical trajectory distances, including Dynamic Time Warping (DTW), Hausdorff distance, and Discrete Fr\'echet Distance (DFD). Within this framework, we instantiate point-pivot components, which naturally support both metric and non-metric distances and remain compatible with standard vector-based retrieval pipelines. To improve ranking quality, we develop two data-driven pivot selection strategies that explicitly optimize lower-bound tightness and prioritize hard near-neighbor trajectory pairs, respectively. Extensive experiments on real-world trajectory datasets show that the proposed lower-bound representations are able to consistently outperform state-of-the-art neural trajectory embeddings across diverse distance measures, improving top-$k$ ranking accuracy by up to 20\%--60\% on the Hausdorff distance and DFD and by 15\%--40\% on DTW.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.01039v1</guid>
+      <category>cs.DB</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Liwei Deng, Haotian Meng, Yupu Zhang, Yan Zhao, Torben Bach Pedersen, Kai Zheng, Christian S. Jensen</dc:creator>
+    </item>
+    <item>
+      <title>Join Indices for Search Engines: a Prunable Parallel Semijoin over Lucene Segments</title>
+      <link>https://arxiv.org/abs/2608.01173</link>
+      <description>arXiv:2608.01173v1 Announce Type: new 
+Abstract: Joins are second-class citizens in search engines: existing query-time join implementations in Lucene are limited either in performance or in capability, forcing a choice between fast joins scoped to a single index and slower joins that span independently managed indices. We carry Valduriez's join-index technique from relational systems to Lucene's flush-based (LSM-style) segment storage: for every pair of a parent and a child segment we materialize an append-only, ordinal-to-ordinal join-index column J[c]=p, avoiding any query-time translation of external variable-length keys. On top of this structure we build a semijoin algorithm that is computed per parent segment, in parallel, without a global barrier between stages; it prunes at three levels (segment-level, the first of which comes free from per-segment execution; a-priori min/max; and document-level two-phase confirmation with a lazily accumulated half-read union) so that it composes with arbitrary engine queries instead of wasting computation on matches that a sibling filter would later discard. A prototype implemented as an Apache Solr query parser, benchmarked on 1M products joined against 10M skus, cuts average query latency 5.4 times (359.8,ms vs. 1934.6,ms) relative to Solr's built-in query-time join, and the advantage widens monotonically with load, reaching 8.3 times at a concurrency of eight: on 4 vCPUs the baseline peaks at 1.18 queries/s and then loses throughput, while the join index is still gaining, at 8.04 - 6.8times the baseline's best.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.01173v1</guid>
+      <category>cs.DB</category>
+      <category>cs.IR</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mikhail Khludnev</dc:creator>
+    </item>
+    <item>
+      <title>RaG-Tree: Combining R-Tree and HNSW for Multi-Attribute Range Filtered Approximate Nearest Neighbor Search</title>
+      <link>https://arxiv.org/abs/2608.01255</link>
+      <description>arXiv:2608.01255v1 Announce Type: new 
+Abstract: Multi-attribute range-filtered approximate nearest neighbor search (MR-ANNS), which retrieves high-dimensional vectors satisfying multiple attribute constraints, is a fundamental operation in modern AI applications. Existing MR-ANNS indexes either exploit a single attribute for range localization or recursively partition objects along individual attributes, which may limit their ability to exploit attribute correlations for effective range pruning and attribute-vector correlations for efficient nearest-neighbor search. In this paper, we propose RaG-Tree, a unified index that couples an R-tree with partition-aware HNSW graphs for MR-ANNS. RaG-Tree leverages hierarchical R-tree partitions for effective range pruning and adapts the sparsity of each HNSW graph to the local vector distributions within its partition, enabling lightweight indexing and efficient query processing. To support efficient query processing and dynamic updates, we develop a cost-based adaptive search algorithm that minimizes unnecessary graph exploration, together with an efficient index maintenance mechanism for incrementally updating affected partition-aware HNSW graphs. Extensive experiments on three real-world datasets show that RaG-Tree achieves superior query performance over state-of-the-art baselines, while also providing lightweight indexing and fast incremental updates.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.01255v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jiawei Liu, Xiang Zhang, Chao Zhang, Ju Fan, Xiaoyong Du</dc:creator>
+    </item>
+    <item>
+      <title>Six Dimensions of Benchmarking Time-Series Databases</title>
+      <link>https://arxiv.org/abs/2608.01459</link>
+      <description>arXiv:2608.01459v1 Announce Type: new 
+Abstract: Time-series databases (TSDBs) employ diverse storage architectures optimized for specific workload characteristics, leading to distinct performance profiles and bottlenecks that are often not apparent under conventional benchmarking approaches. System architects designing robust data backends must understand which storage engines are efficient for their particular pipelines and which exhibit the lowest risk of encountering future scalability constraints. This paper presents SciTSv2, a benchmarking framework that evaluates time-series databases across six workload dimensions: connection parallelism, batch ingestion, time-series regularity, multi-variate series, mixed workloads, and system metrics. We exploit SciTSv2 to systematically evaluate 4 TSDBs representing distinct storage engines: InfluxDB (Time-Structured Merge tree), TimescaleDB (based on relational databases), ClickHouse (columnar), and DataLayerTS (specialized in regular time-series). We show that each dimension surfaces architectural behavior that dedicated, single-axis benchmarks obscure, including regularity-dependent trade-offs, contention between concurrent reads and writes, and distinct CPU, I/O, and disk-bandwidth-bound bottlenecks. Paired with fine-grained system metrics, SciTSv2 gives architects a diagnostic tool for tracing performance outcomes back to their underlying architectural causes, supporting storage engine selections grounded in empirical, workload-specific evidence.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.01459v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jalal Mostafa, Sandro Melissano, Nicholas Tan Jerome, Suren Chilingaryan, Andreas Kopmann</dc:creator>
+    </item>
+    <item>
+      <title>Multimodal Embeddings for 3D Similarity Search in Semantic Web-of-Things Digital-Twin Platforms</title>
+      <link>https://arxiv.org/abs/2608.01852</link>
+      <description>arXiv:2608.01852v1 Announce Type: new 
+Abstract: Semantic Web of Things (SWoT) platforms model physical infrastructure as knowledge graphs typed against domain ontologies, enabling expressive structural and logical queries. However, they lack native mechanisms to express similarity beyond strict ontological equivalence, which represents a critical gap for 3D digital twins in domains such as telecom infrastructure and industrial IoT, where queries must combine ontological constraints with multimodal similarity search over heterogeneous, temporally-evolving scene data. We propose a framework that extends SWoT platforms with a multimodal embedding layer: ontology-typed entities comprising 3D point clouds, temporal attributes, and semantic labels are encoded into latent vector representations stored alongside the knowledge graph, enabling hybrid ontology-vector queries that combine graph-based filtering with similarity search. Implemented on Orange Research's Thing'in platform with the Clock-G temporal graph database, a feasibility evaluation on S3DIS demonstrates that graph filtering effectively restricts the search pool under temporal and relational constraints, and that general-purpose pretrained encoders produce representations sufficient for similarity retrieval and as a preliminary encoding step for downstream predictive tasks.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.01852v1</guid>
+      <category>cs.DB</category>
+      <category>cs.IR</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:journal_reference>4th International Workshop on the Semantic WEb of EveryThing (SWEET 2026), co-located with ICWE 2026, Jun 2026, Lyon, France</arxiv:journal_reference>
+      <dc:creator>Oussama Zaid (MALT), Romaric Gaudel (MALT), Hassan Thomas, Maria Massri, Philippe Raipin-Parv{\'e}dy</dc:creator>
+    </item>
+    <item>
+      <title>Fast Discovery of Inclusion Dependencies with Desbordante</title>
+      <link>https://arxiv.org/abs/2608.02213</link>
+      <description>arXiv:2608.02213v1 Announce Type: new 
+Abstract: Inclusion dependency is a relation between attributes of tables that indicates possible Primary Key-Foreign Key references. Automatic discovery of inclusion dependencies is a relevant problem for both academic and industrial communities. The core concern for this problem is the efficiency of discovery process, since it is a computationally expensive task. However, existing studies only address the algorithmic side, while leaving out the implementation aspect. At the same time, engineering details are at least as important as the algorithmic ones for achieving good performance.
+  In this paper, we describe techniques for efficient implementation of two algorithms for discovery of inclusion dependencies - Spider and Faida. The first one is a classic algorithm whose ideas lie in the foundation of many other inclusion dependency discovery algorithms. We propose an efficient parallelization technique, which greatly speeds up the algorithm while simultaneously reducing its memory consumption. The second one is the state-of-the-art approximate algorithm, which we approach by applying four types of optimizations: data buffering, SIMD-enabled execution, careful hash-table selection and parallelization.
+  In order to experimentally evaluate our techniques, we have implemented these algorithms in Desbordante - an open-source science-intensive data profiler written in C++. For Spider, we have evaluated several different options, and in case of Faida we have demonstrated that all our optimization techniques yield results. We also compared our implementations with Metanome - a Java-based data profiler. Overall, we report up to 5x improvement in terms of run time reduction for Spider and up to 8x for Faida.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.02213v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <arxiv:DOI>10.23919/FRUCT58615.2023.10143047</arxiv:DOI>
+      <arxiv:journal_reference>33rd Conference of Open Innovations Association (FRUCT), Zilina, Slovakia, 2023, pp. 264-275</arxiv:journal_reference>
+      <dc:creator>Alexander Smirnov, Anton Chizhov, Ilya Shchuckin, Nikita Bobrov, George Chernishev</dc:creator>
+    </item>
+    <item>
+      <title>Oasis: Hiding the Cost of Querying Parquet Files in the Datapath</title>
+      <link>https://arxiv.org/abs/2608.02268</link>
+      <description>arXiv:2608.02268v1 Announce Type: new 
+Abstract: Cloud-native database systems disaggregate compute and storage resources to improve cost efficiency over traditional monolithic architectures through elasticity and resource pooling. Studies of production data warehouse workloads show that scans (including round trips to storage) account for roughly half of total query runtime. Data lakes and lakehouses amplify this bottleneck through per-query decoding of storage-optimized, compressed file formats such as Parquet. As storage and network bandwidth continue to outpace CPU cost-performance, the CPU cycles spent on decoding increasingly undermine the cloud's cost-efficiency promise. This has led to a wave of specialization across the stack with custom hardware at cloud-vendor scale at the extreme end. We build on this trend and present Oasis, a data-processing SmartNIC that offloads Parquet decoding into the network datapath as a custom hardware accelerator. Oasis features a hardware decoder architecture, software abstraction layer, and end-to-end integration with DuckDB. Our evaluation shows that Oasis hides the cost of Parquet decoding behind the network datapath with minimal overhead, overlapping the scan with the remainder of the query execution. In the best case, this almost doubles DuckDB query throughput.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.02268v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AR</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jonas Dann, Luca Tagliavini, Gustavo Alonso</dc:creator>
+    </item>
+    <item>
+      <title>FastGFDs: Efficient Validation of Graph Functional Dependencies with Desbordante</title>
+      <link>https://arxiv.org/abs/2608.02321</link>
+      <description>arXiv:2608.02321v1 Announce Type: new 
+Abstract: Graph functional dependencies (GFD) are a recently-developed concept aimed at capturing both topological structures in graphs and functional dependencies between attributes. The process of verifying whether a given GFD holds over a particular graph is referred to as GFD validation. In this very computationally expensive problem, locating suitable subgraphs accounts for about 99% of the total run time. The concept's authors originally proposed a parallel scheme (algorithm), targeting specifically clusters of high-performance servers.
+  The goal of this study is to open GFD validation to a broader public by making it possible to run it on a consumer class PC. Our initial experiments demonstrated that the existing algorithm may not be optimal for these purposes. Therefore, we propose FastGFDs - a GFD validation algorithm that employs a recently developed graph matching technique. In contrast to the parallel scheme, it is sequential and operates on the entire graph. Its novelty lies in the use of Core-First Decomposition and the Compact Path Index (CPI). We compare it with the naive sequential algorithm and the parallel scheme, evaluating run times and memory consumption. The current study is the first step towards designing an efficient algorithm for GFD validation in low-end single-node environments.
+  We also provide an open-source implementation of GFD validation over large data graphs. To the best of our knowledge, this is the only publicly available implementation of an algorithm for this problem. It is developed in Desbordante - an open-source high-performance data profiler aimed at science-intensive tasks.
+  Finally, our experiments on a real-life graph demonstrated up to three times performance (2.6x on average) improvement over the parallel scheme. Employing the new subgraph matching algorithm also reduced memory consumption by five times.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.02321v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <arxiv:journal_reference>33rd Conference of Open Innovations Association (FRUCT), Zilina, Slovakia, 2023</arxiv:journal_reference>
+      <dc:creator>Anton Chernikov, Yurii Litvinov, Kirill Smirnov, George Chernishev</dc:creator>
+    </item>
+    <item>
+      <title>Token-Native Storage: Read and Write in your Agent's Language</title>
+      <link>https://arxiv.org/abs/2608.02376</link>
+      <description>arXiv:2608.02376v1 Announce Type: new 
+Abstract: Search and database engines still store text as UTF-8, a format built for humans. But the systems that increasingly read and write that text (embedders, rerankers, and language-model agents) work in token IDs, not characters, so every access pays to translate between the two. As agents become the primary readers and writers of stored text, we argue for token-native storage: keep the text as the model's own byte-pair-encoding (BPE) token IDs. This is both smaller and faster. Packing r50k IDs as uint16 already beats UTF-8 by 2.25x on English with no compression, and an entropy coder reaches 3.30x. Across six tokenizers and three corpora (English, code, Hindi), compressing token IDs matches or beats every byte codec, even a corpus-trained zstd dictionary. Two findings sharpen the case. BPE numbers tokens by merge order, not frequency, and re-ranking by frequency lets a plain integer codec (streamvbyte) recover most of the entropy coder's ratio while decoding ~7x faster, a one-line change we ask AI labs to make when they publish vocabularies. And because a model reads token IDs, not text, a token-native store hands them over directly instead of re-tokenizing on every read, ~10-600x faster. The only barrier is that sharing token IDs requires a common tokenizer, which is not always true across model families yet, so we argue for standardization: a published, shared vocabulary, the way ASCII and UTF-8 standardized text.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.02376v1</guid>
+      <category>cs.DB</category>
+      <category>cs.CL</category>
+      <category>cs.IR</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Kumar Shivendu</dc:creator>
+    </item>
+    <item>
+      <title>Error-bounded Point Cloud Compression Using Truncated Octahedron Quantization</title>
+      <link>https://arxiv.org/abs/2608.00495</link>
+      <description>arXiv:2608.00495v1 Announce Type: cross 
+Abstract: With the rapid advancement of large-scale scientific simulations, the massive volume of point cloud data generated has increasingly become a critical bottleneck for scientific storage systems and data management pipelines. Existing point cloud compression techniques integrated into scientific storage systems are designed for sparse geometry and rely on quantization schemes whose optimality assumptions do not hold for dense data. When applied at the compression layer to point clouds, this representation mismatch leads to fundamentally sub-optimal rate-distortion trade-offs that cannot be addressed through parameter tuning or framework-level adaptations. This mismatch increases storage overhead and limits efficient movement and downstream analysis of simulation outputs. This issue arises in scientific data management workflows handling large-scale dense particle datasets. State-of-the-art compression methods fail to fully exploit the redundancies inherent in such data.
+  We address this limitation by developing a theory of point cloud compressibility for dense data, characterizing fundamental rate-distortion behavior at the representation layer. Guided by this analysis, we introduce XnYZip, an error-bounded lossy compressor based on provably optimal Truncated Octahedron quantization, combined with a locality-aware encoding pipeline using space-filling curves and run-length encoding. Experiments on large-scale scientific datasets demonstrate consistent storage and throughput improvements, achieving up to 3x higher compression ratios, 2.2x faster compression, and 1.2x faster decompression compared to state-of-the-art point cloud compressors under same distortion.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.00495v1</guid>
+      <category>cs.PF</category>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Youyuan Liu, Longtao Zhang, Ruoyu Li, Bo Jiang, Taolue Yang, Kai Zhao, Sheng Di, Eduard Dragut, Sian Jin</dc:creator>
+    </item>
+    <item>
+      <title>Less Is More: Tuning Configurable Systems with Imperfect Fidelity</title>
+      <link>https://arxiv.org/abs/2608.00759</link>
+      <description>arXiv:2608.00759v1 Announce Type: cross 
+Abstract: Configuration tuning is essential for optimizing the performance of highly configurable systems, e.g., throughput or runtime, under a given environment. Yet, this is a challenging process as there can be many options to tune, and configuration measurement is often highly expensive. In this paper, we demonstrate the phenomenon of ``less can be more'': system configuration tuning can be greatly improved with much superior budget utilization by partially tuning under the imperfect-fidelity---an environment that is similar, but cheaper to measure, compared with the concerned perfect-fidelity of environment under which the system should be tuned. We codify a conceptual framework of fidelity for configurable systems, drawing on which allows us to propose MFTune, a tuner that proactively explores in the space of $&gt;10^4$ possible imperfect-fidelity settings to approximate a useful one, which strikes for the wideness of tuning. This creates high-quality seeds for the perfect-fidelity, which in turn ensures the tuning depth. Experiment results against $10$ state-of-the-art tuners, obtained from running diverse real-world systems for $19$ months $24 \times 7$, show that MFTune performs considerably better on $83.33$\% cases with up to $19.34\%$ improvement while achieving hours of budget saving in general.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.00759v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yulong Ye, Miqing Li, Tao Chen</dc:creator>
+    </item>
+    <item>
+      <title>A Unified Benchmark for Privacy-preserving Vector Search</title>
+      <link>https://arxiv.org/abs/2608.01192</link>
+      <description>arXiv:2608.01192v1 Announce Type: cross 
+Abstract: Vector search powers semantic search, recommendation systems, and retrieval-augmented generation (RAG). By design, the service answering a query sees both the query embedding and, usually, the corpus against which it is matched. This is a privacy breach for both the user issuing the query and the owner of the corpus. A family of cryptographic schemes (e.g., SAP, EMVP, BNTM, Tip-toe) addresses that leak. However, as each scheme is published and evaluated on its own corpus, threat model, parameter choices, hardware, and metric conventions, the numbers cannot be compared directly. Consequently, a practitioner asking which one to deploy today has no defensible way to choose. We close that gap with a uniform experimental comparison, including a Plaintext baseline and four cryptographic backends running over the same workload, hardware, and metric definitions. Under that ruler, the schemes spread across a Pareto frontier in privacy, performance, and recall rather than imposing a flat penalty on performance. We find that the performance of SAP matches Plaintext, EMVP delivers cryptographic indistinguishability at a 4x throughput cost on CPU, BNTM adds malicious-server verifiability at a further 22x median-latency cost, and Tiptoe hides the cluster choice itself, but incurs a 190x per-query cost compared to Plaintext. GPU acceleration pays off for Plaintext and SAP but not for EMVP or BNTM. All our experiment artifacts are publicly available for reproducibility</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.01192v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DB</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Anne-Marie Kermarrec, Rafael Pires, Mathis Randl, Martijn de Vos</dc:creator>
+    </item>
+    <item>
+      <title>Agentic Self-Healing for Data and AI Pipelines: An Affordable Vendor-Agnostic Architecture using Open-Source Software</title>
+      <link>https://arxiv.org/abs/2608.01955</link>
+      <description>arXiv:2608.01955v1 Announce Type: cross 
+Abstract: Modern organizations rely on data, machine learning, and software delivery pipelines to move data, train models, deploy applications, refresh dashboards, and support business-critical decisions. However, these pipelines often fail because of data quality issues, schema changes, upstream source changes, infrastructure problems, orchestration failures, and model workflow issues. Existing ZeroOps, observability, and AI operations platforms can help teams detect incidents, investigate root causes, and in some cases recommend or execute fixes. However, many of these solutions are expensive, vendor-specific, or difficult for smaller teams to adapt across different tools and environments. This paper first compares existing off-the-shelf solutions for AI-assisted pipeline monitoring, root-cause analysis, and automated remediation, including their strengths, limitations, and practical trade-offs. Based on this comparison, we find that the main gap is architectural rather than technological: the required ingredients for self-healing pipelines already exist, but they are fragmented across vendor-specific platforms, observability tools, incident systems, and open-source components. We therefore propose an affordable, vendor-agnostic reference architecture for agentic self-healing pipelines using open-source and low-cost tools. The proposed architecture combines monitoring, pipeline metadata, incident history, deterministic policy checks, AI-assisted diagnosis, approval workflows, and controlled remediation actions to help teams detect, diagnose, repair, verify, and learn from pipeline issues with less manual effort. The goal is to provide a practical reference architecture that can be adapted across data engineering, machine learning operations, and software delivery environments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.01955v1</guid>
+      <category>cs.ET</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Solomon Eshun, Dennis Murage, Sharleen Muoki, Chih-Chun Chen, Stephen Adjignon, Matteo Staar, Oliver Ang\'elil</dc:creator>
+    </item>
+    <item>
+      <title>EcoTable: Cost-effective Table Integration in Data Lakes for Natural Language Queries</title>
+      <link>https://arxiv.org/abs/2606.26613</link>
+      <description>arXiv:2606.26613v2 Announce Type: replace 
+Abstract: The diverse formats of CSV and Parquet files in data lakes pose a significant challenge to traditional ETL, which relies on data engineers to pre-define a target database schema and build a complex pipeline for data integration. Moreover, with this approach, the integrated data often cannot support various analytical needs, as the predefined schema does not necessarily satisfy the table format or join relationships required to answer unforeseen queries. To address this, we propose EcoTable, the first natural language-based data integration framework. Given a set of user-specified natural language queries, EcoTable automatically integrates the tables into a form that adequately supports the corresponding SQL queries. EcoTable achieves this by leveraging the semantic understanding and complex reasoning capabilities of LLMs. Moreover, EcoTable addresses the scalability and cost issues introduced by expensive LLM inferences with a set of novel ideas. First, EcoTable introduces a graph to represent the overall search space, where nodes represent tables and edges carry weights indicating join likelihood produced by a lightweight deep learning model. On top of this graph data structure, EcoTable designs three components to achieve our goal: (1) the table identification layer aims to identify relevant tables via a two-stage schema linking based on user queries; (2) the graph-based validation layer aims to discover significant join paths, including necessary data transformations and bridging tables, by modeling the problem as Steiner tree searches; and (3) the table transformation layer generates transformation code to implement the joins using LLMs. We construct 4 real-world benchmark datasets with more than 200 queries. Extensive experiments demonstrate that EcoTable outperforms the state-of-the-art baselines, increasing accuracy by more than 30% and cutting LLM invocation costs by 5 times.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.26613v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yuhui Wang, Jinqi Liu, Chengliang Chai, Hangyu Zhao, Yuhao Deng, Yuyu Luo, Xin Tang, Ye Yuan, Guoren Wang, Fengjin Wang, Lei Cao</dc:creator>
+    </item>
+    <item>
+      <title>PRomop: A Decision-Ready Longitudinal Patient Health Record on the OMOP Common Data Model</title>
+      <link>https://arxiv.org/abs/2607.13947</link>
+      <description>arXiv:2607.13947v2 Announce Type: replace 
+Abstract: Objective: Health systems and biopharma face a gap between holding patient data and acting on it: records are fragmented, manually mapped, and structured for storage rather than decisions, so every application re-derives patient state. We present PRomop, an open-source longitudinal record that closes this gap.
+  Materials and Methods: PRomop builds on the OMOP Common Data Model (CDM 5.4) with oncology extensions and adds PatientRecord, a flattened projection collapsing each patient's longitudinal history into a single decision-ready 304-column row. State derivations - lines of therapy, disease status, normalized biomarkers - are computed once at projection time, so analytics, trial matching, and standard-of-care evaluation read one substrate.
+  Results: PRomop is deployed by two oncology organizations - the independently governed HealthTree Foundation (~14,000 patients) and CancerBot (~3,500), a HealthKey-owned deployment - matching against 19,500 recruiting trials across five cancer types. A 20-criterion eligibility search requiring 27-39 joins over raw OMOP reduces to zero against the projection. On a synthetic 1000-patient breast-cancer cohort, eligibility screening averaged 0.30 ms via PatientRecord versus 11.0 ms from raw OMOP, a ~36.8x speedup.
+  Discussion: The projection's significance is as a foundation for other applications: it lowers each one's marginal cost by computing error-prone clinical derivation once and removing it from every consumer. Line-of-therapy inference showed decision-readiness demands embedded clinical reasoning, and that the projection is a living artifact requiring maintenance.
+  Conclusion: A flattened, decision-ready projection over a standards-based longitudinal record is a deployed pattern for turning fragmented data into actionable infrastructure, while remaining OMOP-conformant. Benchmarks measured a ~36.8x eligibility-screening speedup.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.13947v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Adam Blum, Louis Ferger-Andrews, Steven Labkoff</dc:creator>
+    </item>
+    <item>
+      <title>VIREL: Route-Local Lattice Residual Compression for Exact and Error-Bounded Floating-Point Time Series</title>
+      <link>https://arxiv.org/abs/2607.22433</link>
+      <description>arXiv:2607.22433v2 Announce Type: replace 
+Abstract: Floating-point page codecs exploit temporal smoothness, but existing methods keep prediction state in different representation domains: IEEE 754 words, erased IEEE 754 words, decimal fields, or integer surrogates. Which domain should carry temporal prediction state inside a database page remains an open question. We present VIREL, a page codec that predicts route-local lattice-coordinate residuals for values admitted to exact or error-bounded integer coordinates. Separate routes preserve the history of mixed source resolutions, and cost-based lattice-step normalization stores compact coordinates such as $z$ for $q=dz+r$ or $q/d$ for divisible error-lattice indices while restoring the same lattice point before reconstruction.
+  On canonical exact streams with independent 1,024-value pages, VIREL-Exact-Fast reaches 6.0243$\times$ and VIREL-Exact-Upper reaches 7.0287$\times$, emitting 22.4% fewer bytes than the strongest evaluated exact baseline. On 74.70 million values in 48 streams, the two profiles reach 8.0629$\times$ and 9.6490$\times$. At $\epsilon=10^{-3}$ on 15 Serf streams, VIREL-EB reaches 12.1094$\times$, emits 12.54% fewer bits than the strongest compliant error-bounded baseline, and preserves all pointwise bounds. Ablations show that integer-domain residual prediction and $q/d$ factoring reduce output by 53.05% and 18.75% in their respective settings. The Fast profile scales to 1,034/1,196 MB/s encode/decode at 64 cores. As an Apache TsFile codec, it writes 27.9-30.1% fewer complete-file bytes than DeXOR and ELF*, and with LZ4 reaches 105.80/102.32/110.30 MB/s on full-scan, range-scan, and aggregate queries, faster than the encoded baselines in all three read paths.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.22433v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yue Zhang (Shanghai Jiao Tong University, Shanghai, China), Jiatao Lin (Shanghai Jiao Tong University, Shanghai, China), Haopeng Chen (Shanghai Jiao Tong University, Shanghai, China)</dc:creator>
+    </item>
+    <item>
+      <title>MERIT: Efficient In-Place Deletion for Dynamic Graph-Based Approximate Nearest Neighbor Indexes</title>
+      <link>https://arxiv.org/abs/2607.29173</link>
+      <description>arXiv:2607.29173v2 Announce Type: replace 
+Abstract: Graph-based indexes have become the dominant approach to approximate nearest neighbor search (ANNS) over high-dimensional data and play a crucial role in real-world applications such as retrieval-augmented generation, recommendation systems, and vector databases. Despite extensive progress in static graph construction and search, efficient in-place deletion remains challenging because obsolete vectors must be removed without allowing stale incoming edges to consume search capacity or expensive graph-wide maintenance to interrupt online services, e.g., retrieval-augmented generation (RAG) and recommendation platforms. To address this problem, we propose MERIT (MST-based Efficient Repair with In-place updaTes), an in-place update framework with three core techniques: (1) bounded search-based recovery that combines a deleted vertex's outgoing neighbors with its readily searchable in-neighbors, (2) $k_r$-Minimum Spanning Tree (MST) local repair that promotes local connectivity while retaining multiple routing choices for graph search, and (3) versioned-edge invalidation that immediately filters all stale incoming edges to the deleted vertex and progressively removes them as adjacency lists are rewritten. Its integration with the hierarchical HNSW index and the single-layer Vamana index demonstrates applicability across distinct graph structures. Extensive experiments on multiple real-world datasets show that MERIT processes deletion at nearly the cost of inserting one vector, achieves up to $3.02\times$--$18.87\times$ faster deletion than state-of-the-art (SOTA) methods, and keeps search recall stable or even improves it as deletions accumulate.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.29173v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zekai Wu, Jiabao Jin, Peng Cheng, Wangze Ni, Haoyang Li, Lei Chen, Junjie Yao, Jingkuan Song, Heng Tao Shen</dc:creator>
+    </item>
+    <item>
+      <title>Cost-Based Semantics for Querying Inconsistent Weighted Knowledge Bases</title>
+      <link>https://arxiv.org/abs/2407.20754</link>
+      <description>arXiv:2407.20754v3 Announce Type: replace-cross 
+Abstract: In this paper, we explore a quantitative approach to querying inconsistent description logic knowledge bases. We consider weighted knowledge bases in which both axioms and assertions have (possibly infinite) weights, which are used to assign a cost to each interpretation based upon the axioms and assertions it violates. Two notions of certain and possible answer are defined by either considering interpretations whose cost does not exceed a given bound or restricting attention to optimal-cost interpretations. Our main contribution is a comprehensive analysis of the combined and data complexity of bounded cost satisfiability and certain and possible answer recognition, for description logics between ELbot and ALCO.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2407.20754v3</guid>
+      <category>cs.LO</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Meghyn Bienvenu, Camille Bourgaux, Robin Jean</dc:creator>
+    </item>
+    <item>
+      <title>A Rule-Based Approach to Specifying Preferences over Conflicting Facts and Querying Inconsistent Knowledge Bases</title>
+      <link>https://arxiv.org/abs/2508.07742</link>
+      <description>arXiv:2508.07742v3 Announce Type: replace-cross 
+Abstract: Repair-based semantics have been extensively studied as a means of obtaining meaningful answers to queries posed over inconsistent knowledge bases (KBs). While several works have considered how to exploit a priority relation between facts to select optimal repairs, the question of how to specify such preferences remains largely unaddressed. This motivates us to introduce a declarative rule-based framework for specifying and computing a priority relation between conflicting facts. As the expressed preferences may contain undesirable cycles, we consider the problem of determining when a set of preference rules always yields an acyclic relation, and we also explore a pragmatic approach that extracts an acyclic relation by applying various cycle removal techniques. Towards an end-to-end system for querying inconsistent KBs, we present a preliminary implementation and experimental evaluation of the framework, which employs answer set programming to evaluate the preference rules, apply the desired cycle resolution techniques to obtain a priority relation, and answer queries under prioritized-repair semantics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.07742v3</guid>
+      <category>cs.LO</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Meghyn Bienvenu, Camille Bourgaux, Katsumi Inoue, Robin Jean</dc:creator>
+    </item>
+    <item>
+      <title>Local Shapley: Model-Induced Locality and Optimal Reuse in Data Valuation</title>
+      <link>https://arxiv.org/abs/2603.03672</link>
+      <description>arXiv:2603.03672v2 Announce Type: replace-cross 
+Abstract: The Shapley value provides a principled foundation for data valuation, but exact computation is #P-hard due to the exponential coalition space. Existing accelerations remain global and ignore a structural property of modern predictors: for a given test instance, only a small subset of training points influences the prediction. We formalize this model-induced locality through support sets defined by the model's computational pathway (e.g., neighbors in KNN, leaves in trees, receptive fields in GNNs), showing that Shapley computation can be projected onto these supports without loss when locality is exact. This reframes Shapley evaluation as a structured data processing problem over overlapping support-induced subset families rather than exhaustive coalition enumeration. We prove that the intrinsic complexity of Local Shapley is governed by the number of distinct influential subsets, establishing an information-theoretic lower bound on retraining operations. Guided by this result, we propose LSMR (Local Shapley via Model Reuse), an optimal subset-centric algorithm that trains each influential subset exactly once via support mapping and pivot scheduling. For larger supports, we develop LSMR-A, a reuse-aware Monte Carlo estimator that remains unbiased with exponential concentration, with runtime determined by the number of distinct sampled subsets rather than total draws. Experiments across multiple model families demonstrate substantial retraining reductions and speedups while preserving high valuation fidelity.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.03672v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <category>cs.GT</category>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:journal_reference>Proceedings of the VLDB Endowment, 19(11):3330-3343, 2026</arxiv:journal_reference>
+      <dc:creator>Xuan Yang, Hsi-Wen Chen, Ming-Syan Chen, Jian Pei</dc:creator>
+    </item>
+  </channel>
+</rss>
