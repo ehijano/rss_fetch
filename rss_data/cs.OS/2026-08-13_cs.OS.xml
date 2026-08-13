@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Aug 2026 04:00:13 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Who Should Own the Expert Cache? Kernel-Managed Tiering for Trillion-Parameter MoE Inference</title>
+      <link>https://arxiv.org/abs/2608.12103</link>
+      <description>arXiv:2608.12103v1 Announce Type: new 
+Abstract: Mixture-of-experts models whose expert pools dwarf DRAM force every serving system to contain a cache, yet existing systems typically implement this cache in user space using expert-granular, frequency-ranked, explicitly pinned tiers. We characterize the alternative already provided by the OS: the page cache as the expert tier. We use router traces from three MoE models spanning 128 to 896 experts per layer, including a production trillion-parameter model with a 1.45 TB expert pool, and replay them natively against the full pool on GH200 nodes with capacity enforced by three independent mechanisms.
+  We find four main results. First, iteration time and device traffic are smooth, reproducible functions of cache capacity, making DRAM a practical sizing knob for trillion-parameter serving. Second, the deep-pressure knee is a reclaim artifact requiring both MGLRU and balloon-style mostly-mlocked memory; cgroup limits and physical-memory configurations show no such amplification, indicating that balloon-based studies can overstate pressured-end device traffic by approximately 2$\times$. Third, under an enforced equal-memory wall, untuned kernel LRU serves essentially as much demand as a same-domain oracle frequency table (75.3% versus 74.6% at 256 GB), while the oracle's mechanism advantage is only 1.09$\times$ and disappears off-domain, where LRU remains at 70--71% hit rate. Fourth, router lookahead with 64.7% measured recall provides only a 0.3% benefit as kernel readahead advice and no benefit as synchronous prefetch. End to end, enabling kernel-managed caching improves decode performance by 1.09--1.10$\times$ with token-identical outputs across nine balanced pairs. The resulting design principle is simple: in this regime, let the kernel own eviction, while model-specific knowledge is best spent on admission and advice.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.12103v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yuan Si, Yufeng Lin, Daming Li, Jialu Zhang</dc:creator>
+    </item>
+    <item>
+      <title>The Ingestion Tax: Adopting File-Backed Weights in Tensor Frameworks</title>
+      <link>https://arxiv.org/abs/2608.12114</link>
+      <description>arXiv:2608.12114v1 Announce Type: new 
+Abstract: Open-weight models can occupy a middle capacity regime: active weights fit in DRAM as cached file pages, but a second framework-owned representation does not fit or must be refilled as layers run, so low-batch decode rereads the weights every token. On integrated and coherent-memory systems the checkpoint's file pages already occupy a GPU-readable domain, yet accelerator-loading paths still copy them into framework-owned allocations. We call this the ingestion tax: the OS holds the bytes as clean, evictable file pages, the architecture makes them GPU-readable, and only the framework's ownership model stands between the two.
+  We present file-backed weight adoption: a framework-independent producer maps each tensor with MAP_SHARED, wraps the pages as a no-copy GPU buffer, and exports a DLPack capsule that PyTorch or MLX imports as ordinary storage. Zero-copy import alone is not enough: a randomized factorial establishes a three-part execution contract - read the mapping, keep activations accelerator-resident, order on the GPU; a bolt-on extension forfeiting the last two runs 2.3x slower than stock. Under the contract, adoption removes the tax at no rate cost: 516 GB/s where default constructors reach 53-82, at parity with the same kernel over resident storage ([-0.66%, +0.48%]; Qwen2.5-72B 7.14 vs 7.23 tok/s).
+  Parity buys ownership: N processes decode one mapped copy where resident loading pays N (at capacity, 5.5 vs 0.08 tok/s); a 65 GB checkpoint reaches its first token 6.4x sooner; the Kimi K3 spine stage falls from 2.62 to 0.35 s per token, 3.8x from storage alone. The same mechanism improves llama.cpp 1.21x at half the footprint on an AMD APU, ties overlapped streaming on a capacity-exceeding GH200, and loses 39x across PCIe: memory topology, not the API, decides the byte path. The deployment rule treats the page cache as a first-class, reclaimable accelerator-storage tier.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.12114v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yuan Si, Yufeng Lin, Daming Li, Jialu Zhang</dc:creator>
+    </item>
+    <item>
+      <title>InfraBench: Evaluating Infrastructure Agents Across Layers, Lifecycle, and Risk</title>
+      <link>https://arxiv.org/abs/2608.11234</link>
+      <description>arXiv:2608.11234v1 Announce Type: cross 
+Abstract: Managing modern computing infrastructure has become a steadily harder problem due to the ever-increasing complexity. Recent advances in AI agents create a timely opportunity to automate infrastructure management tasks, but it remains unclear how well such agents can handle real-world infrastructure complexity. We present InfraBench, a benchmark suite for evaluating AI agents on realistic infrastructure tasks across the full system stack and full operational lifecycle with fine-grained risk assessment. Experiments with 15 agent-model configurations show that even the strongest agent cannot secure a full score across all tasks. Mean effective scores range from roughly 40% to 88% (with per-configuration standard errors of 6-12 points), repeating every task three times reveals that top configurations still pass only a fraction of their attempts, and per-check scoring exposes a general failure pattern: agents may routinely satisfy short-term objectives while leaving non-durable changes, broken distributed invariants, unsafe side effects, and uncleaned state behind. INFRABENCH, including its live leaderboard, tasks, and evaluation harness, is publicly available at infraben.ch.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.11234v1</guid>
+      <category>cs.AI</category>
+      <category>cs.OS</category>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yuan Gao (Wanxiang), Zeren Yang (Wanxiang), Junnan Li (Wanxiang),  Shawn (Wanxiang),  Zhong, Ahmed Dajani, Mai Zheng, Andrea Arpaci-Dusseau, Remzi Arpaci-Dusseau</dc:creator>
+    </item>
+    <item>
+      <title>Ready Cohorts: Bounding GPU Opportunity and Avoiding Host Round Trips in LLM-Agent Control</title>
+      <link>https://arxiv.org/abs/2608.12123</link>
+      <description>arXiv:2608.12123v1 Announce Type: cross 
+Abstract: LLM-agent services repeatedly execute small deterministic transitions between model and tool calls: route an outcome, update state, and emit the next effect. We ask when this control path exposes enough concurrent work for GPU execution, and what changes when a GPU-computed route decision remains on device. We formalize the ready-cohort boundary using fixed-partition share F, exact offline share P*, local upper bound U, and online achieved share A. Under zero service time, unlimited capacity, and equal relative launch deadlines, a specialized dynamic program computes P* exactly. In a stationary Poisson replay of one pinned 851-session public trace panel, the primary condition at 100,000 target active sessions, K=256, and a 50 ms launch deadline gives F=30.19%, P*=43.00%, and U=45.85%. Exact packing recovers 81.83% of the opportunity lost at fixed window boundaries. The outcome-derived route key is a conditioning proxy, not proof of executable identity. A separate mechanism study keeps a GPU-computed binary decision on device instead of returning four bytes to the host and redispatching. Across four named GPU placements, the device-resident path is faster in all 36 configurations; within-placement row-median ratios range from 1.19x to 2.39x. Across both admissible mechanisms, all 14,557,440 tested batched invocations match a separately implemented host oracle. A fixed nested device graph that removes no host decision is slower in all 60 configurations across five placements. Together, the studies establish two measurable gates for GPU agent control: deadline-feasible cohort supply and observation placement. A joined finite online runtime is required to measure A, CPU displacement, and service-level benefit.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.12123v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.OS</category>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Josef Liyanjun Chen</dc:creator>
+    </item>
+  </channel>
+</rss>

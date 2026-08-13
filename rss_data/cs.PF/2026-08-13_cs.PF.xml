@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PF updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PF</link>
+    <description>cs.PF updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Aug 2026 04:00:12 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Testing the EPYC Conjecture on Real Hardware: MoA-Guided Dense Matrix Multiplication on NCSA Delta (AMD EPYC 7763 Milan)</title>
+      <link>https://arxiv.org/abs/2608.11533</link>
+      <description>arXiv:2608.11533v1 Announce Type: new 
+Abstract: A companion empirical study conjectured that MoA-guided dense matrix multiplication would need per-CCD recalibration on AMD EPYC Bergamo; allocation access to that machine was declined, and this paper reports the resulting test on NCSA Delta, an architecturally related chip. Its central claim: every result here traces to shape, not architecture in the abstract -- cache shape, access-pattern shape, and co-tenancy itself treated as a shape parameter. The corrected block size M_C = 256 follows directly from Delta's real 512 KB L2 divided by the data type's own byte width, no parameter fit after the fact, and outperforms the M1-Pro-inherited M_C = 64 by 30--59% -- a block's shape finally matching the cache shape it was always meant to occupy. The same reasoning extends to a shared level: co-tenancy treated as raw capacity fails by an order of magnitude, while co-tenancy treated as a shape parameter -- capacity divided by concurrent consumers -- survives. A controlled NUMA experiment isolates a third shape: GEBP and MoA-pipelined compute the identical result at identical achieved bandwidth, yet GEBP loses 13.9% of its throughput to remote memory while MoA-pipelined loses only 2.4% -- not a speed difference, a difference in the shape each kernel's access pattern traces through memory. The headline result reproduces the M1 Pro's exact three-of-four win over a Strassen-GEBP hybrid, a pattern AWS Graviton4 did not achieve. One question is named rather than resolved: whether Delta's larger MoA-over-GEBP margin reflects genuine speed or an unmatched utilization fraction. Every result here was predicted before it was measured, not fitted after.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.11533v1</guid>
+      <category>cs.PF</category>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Lenore M Mullin</dc:creator>
+    </item>
+    <item>
+      <title>Lifecycle-Optimal Tokenization: Vocabulary Size as a Deployment-Regime-Dependent Infrastructure Parameter</title>
+      <link>https://arxiv.org/abs/2608.11361</link>
+      <description>arXiv:2608.11361v1 Announce Type: cross 
+Abstract: Tokenizer vocabulary size is a foundational design choice in large language model (LLM) infrastructure, yet it is typically fixed at training time based on convention rather than deployment analysis. We show that the cost-optimal vocabulary is not a constant but a function of the serving regime. We formalize total deployment cost as $C_{lifecycle}(V) = C_{train}(V) + \lambda \cdot C_{infer}(V, B)$, where $\lambda$ is inference volume and $B$ is the serving batch size. Through controlled experiments on two GPU families spanning the memory-bound to compute-bound regimes (A10G, ridge $\approx$ 117 FLOP/byte; A100, ridge $\approx$ 183 FLOP/byte), we demonstrate: (1) the inference-optimal vocabulary shifts 16x with serving batch, from 32k at $B=1$ to 524k at $B=64+$, driven by amortization of the $V \times d$ unembedding matrix read; (2) at 1.3-2.3B model scale, quality (bits per byte, BPB) is optimized at $V=65$k, confirming scale-dependent vocabulary preference; (3) the lifecycle-optimal vocabulary diverges from training-optimal by up to 16x for production deployments. Quality is approximately invariant across the optimal range ($&lt;$2% BPB spread), making vocabulary a pure systems optimization with no quality penalty in the measured range. Our results provide actionable capacity planning guidance: on-device deployments ($B=1$) should use $V \approx 32$k; datacenter serving ($B \geq 64$, $\lambda \geq 10$) should use $V \approx 131$-262k.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.11361v1</guid>
+      <category>cs.LG</category>
+      <category>cs.CL</category>
+      <category>cs.PF</category>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Rima Mittal, Ankit Gubrani, Satyanarayana Kakollu</dc:creator>
+    </item>
+    <item>
+      <title>The Fallacy of Independent Ceilings: Characterizing Coupled Load-Branch Stall Interaction</title>
+      <link>https://arxiv.org/abs/2608.11380</link>
+      <description>arXiv:2608.11380v1 Announce Type: cross 
+Abstract: Branch mispredictions and data-cache misses are usually evaluated as separate bottlenecks: studies report perfect-branch or perfect-cache speedups as isolated upper bounds and often treat their product as the joint ceiling. In irregular workloads, however, hard-to-predict branches and cache-missing loads often occur in the same hot loops. Removing one penalty can expose the other: faster memory reaches mispredicted branches sooner, while better branch prediction leaves more long-latency loads in the out-of-order window. We call this interaction symbiotic stall latency (SSL).
+  This paper quantifies when isolated ceilings fail using joint speedup synergy (JSS), the observed joint perfect-branch/perfect-cache speedup divided by the product of the isolated speedups. Values above one mean independent-ceiling analysis understates attainable gain. Across 53 simulated workloads, 70% show measurable coupling (JSS &gt; 1), though many are near unity, especially in lower-pressure cases. With a conservative threshold, 40% exceed the independence product by more than 6%, and kernels with SSO &gt; 20 show JSS from 1.23 to 3.29. We introduce symbiotic stall opportunity (SSO), a lightweight MPKI-based screen for workloads that merit full joint simulation.
+  We map high-SSO workloads to four recurring software patterns: neighbor access, hash lookup, linked-structure traversal, and data-dependent modification. We connect SSL to reorder-buffer occupancy, squash rate, and commit starvation under isolated perfect modes. The resulting methodology is simple: use SSO to screen, JSS to validate, and report conditional branch-after-cache and cache-after-branch gains when evaluating branch predictors, prefetchers, caches, or coupled branch/memory mechanisms. Our contribution is a measurement framework showing when isolated perfect modes are adequate and when they understate joint performance headroom.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.11380v1</guid>
+      <category>cs.AR</category>
+      <category>cs.PF</category>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Matthew Constant, Resit Sendag</dc:creator>
+    </item>
+    <item>
+      <title>User-Assisted Collaborative Distributed Inference for Efficient QoS-Aware Autoscaling</title>
+      <link>https://arxiv.org/abs/2608.11840</link>
+      <description>arXiv:2608.11840v1 Announce Type: cross 
+Abstract: Growing demand for artificial intelligence (AI) inference services requires scalable infrastructure, yet centralized serving costs rise with demand. We propose a collaborative distributed inference system combining dedicated infrastructure with resources contributed by service users. Dedicated resources provide baseline capacity for maintaining quality of service (QoS), while volunteered resources absorb increasing demand without proportional growth in centralized infrastructure. To capture stochastic and dynamic interactions among users, resources, tasks, and policies, we develop a high-dimensional generative Markov model with structured temporal factorization. The model supports simulation and provides a foundation for task scheduling and QoS-aware resource allocation optimization. We evaluate the system across user populations, resource capacities, and centralized and distributed scheduling policies. Simulations show that distributed scheduling becomes increasingly advantageous as the user population grows, improving request completion and P99 latency while substantially reducing dedicated resource consumption. These results demonstrate the feasibility of user-assisted collaborative inference for infrastructure-efficient autoscaling.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.11840v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.NI</category>
+      <category>cs.PF</category>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Alfreds Lapkovskis, Ali Beikmohammadi, Sindri Magn\'usson, Praveen Kumar Donta</dc:creator>
+    </item>
+  </channel>
+</rss>
