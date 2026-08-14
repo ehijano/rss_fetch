@@ -7,7 +7,7 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.AR" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Aug 2026 04:00:11 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 01:48:39 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
     <skipDays>
@@ -42,11 +42,11 @@ Abstract: Nonlinear activation functions are essential to modern deep neural net
       <dc:creator>Miao Sun, Yucheng Huang, Mingcong Cao, Jaehyun Park, Partha Pratim Pande, Umit Y. Ogras</dc:creator>
     </item>
     <item>
-      <title>A Full-Stack Characterization of High-Bandwidth Flash for KV-Centric LLM Serving</title>
+      <title>HBF Sucks! A Full-Stack Characterization of High-Bandwidth Flash for KV-Centric LLM Serving</title>
       <link>https://arxiv.org/abs/2608.11668</link>
-      <description>arXiv:2608.11668v1 Announce Type: new 
-Abstract: High-Bandwidth Flash (HBF) stacks NAND behind a wide, package-local interface, giving flash-scale capacity with far better read latency and bandwidth than an SSD. This makes it tempting to keep an SSD-style Mooncake KV-offloading stack and swap only the backing tier for HBF. We test that substitution with an extended TokenSim, four complete two-hour Qwen-Bailian production traces, five dense and mixture-of-experts models, and H100/B200 profiles. Serving gets worse, not better, and a cost-benefit model explains why. A faster far tier helps only when read I/O is the serving bottleneck, reads outweigh writes, and delivered bandwidth is sustainable. All three must hold together, and transient KV fails every one. The package trade that buys flash costs GPU near-tier capacity and bandwidth, so average end-to-end latency rises 2--5.5x and maximum SLO goodput falls 1.1--2.7x across H100 and B200. Serving is almost insensitive to HBF's own read/write latency, and base-die near-memory compute does not raise the flash tier's share of the critical path. The two-tier hierarchy keeps reuse in the near tier and hands HBF a write-heavy stream, so writes outnumber reads on every trace. A 3D-ICE model shows that stream drives the stack to its thermal limit well below peak bandwidth, and a TLC tier wears out sooner than a capacity-matched SSD pool. The faster device yields a slower system because the package gives up more than the medium returns. HBF is not the problem; using it as a faster SSD for transient KV is. It belongs in serving as a selective, reuse-aware, write-budgeted, and thermally coordinated tier, not as a drop-in SSD replacement.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.11668v1</guid>
+      <description>arXiv:2608.11668v2 Announce Type: new 
+Abstract: A faster storage device should make serving faster. We find the opposite. High-Bandwidth Flash (HBF) stacks NAND behind a wide, package-local interface, promising flash-scale capacity with far lower read latency and higher bandwidth than an SSD. The obvious move is to keep an SSD-style Mooncake KV-offloading stack and swap in HBF underneath. We built that system and measured it: an extended TokenSim, four complete two-hour Qwen-Bailian production traces, five dense and mixture-of-experts models, and H100/B200 profiles. The upgrade backfires. Average end-to-end latency rises 2--5.5$\times$ and maximum SLO goodput falls 1.1--2.7$\times$ across H100 and B200, so the faster device yields a slower system. A cost-benefit model explains the paradox: a faster far tier pays off only when read I/O is the bottleneck, reads outweigh writes, and delivered bandwidth is sustainable. Transient KV violates all three at once. Buying flash through the package costs GPU near-tier capacity and bandwidth, while HBF's own read/write latency barely matters: scaling it 3.75$\times$ moves latency less than 1\%. Worse, the two-tier hierarchy keeps reuse in the near tier and hands HBF a relentless write-heavy stream. Writes outnumber reads on every trace, so a 3D-ICE model shows the stack hits its thermal limit well below peak bandwidth, and a TLC tier wears out sooner than the SSD pool it replaced. The device is fine; the drop-in deployment is not. HBF sucks as an SSD replacement for transient KV, but earns its place in LLM serving when used selectively with reuse-aware placement, write budgeting, and thermal coordination.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.11668v2</guid>
       <category>cs.AR</category>
       <pubDate>Thu, 13 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
