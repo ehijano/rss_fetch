@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 17 Aug 2026 04:00:10 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>A Bounded Reclaim Actuator for PSI-Guided Compressed Memory: A Controlled Ablation</title>
+      <link>https://arxiv.org/abs/2608.13689</link>
+      <description>arXiv:2608.13689v1 Announce Type: new 
+Abstract: When the aggregate working set of active processes exceeds physical RAM capacity, the machine experiences memory pressure. Applications may therefore slow down before the kernel kills a process. Linux provides several ways to observe and respond: Pressure Stall Information (PSI) can detect memory-related task stalls, zram can provide compressed in-memory swap space, and cgroup v2 can request memory reclamation within a selected control group. These facilities are often discussed together even though they act at different points in the pressure path. This paper examines that distinction with a controlled systems study. We compare three setups: zram enabled from startup; zram enabled only after PSI indicates memory pressure; and zram enabled from startup with a one-time 96 MiB cgroup reclaim request. We first selected the request size in a 16-case pilot, then ran 180 confirmatory cases, 60 cases for each setup, on nine 1-vCPU Linux virtual machines with compute and SQLite workloads. Compared with static zram, the bounded reclaim configuration reduced compute p99 response time by 6\%, while the SQLite result was statistically indistinguishable. Delayed activation had higher median p99 latency than both alternatives. These results suggest that the benefit depends on the foreground workload and its memory-access path, rather than a general improvement across workloads.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.13689v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Abhiyan Dhakal (Department of Computer Science,Engineering, Kathmandu University, Dhulikhel, Nepal), Sanjog Sigdel (Department of Computer Science,Engineering, Kathmandu University, Dhulikhel, Nepal)</dc:creator>
+    </item>
+    <item>
+      <title>CoRun: Padding is Simple and Efficient for Deterministic LLM Inference</title>
+      <link>https://arxiv.org/abs/2608.14376</link>
+      <description>arXiv:2608.14376v1 Announce Type: new 
+Abstract: Despite fixed sampling parameters and random seeds, Large Language Model (LLM) inference exhibits output inconsistency, which undermines downstream tasks such as model evaluation and reinforcement learning. A major source of this nondeterminism is batch-dependent GPU execution: dynamic input shapes change kernel tiling and floating-point reduction orders. Existing systems address this problem with batch-invariant kernels, but these kernels restrict optimized tiling and split reductions, increasing more than 2$\times$ latency and reducing serving throughput by up to 74 %. This paper observes that although most kernels are not batch-invariant, they are position-invariant. Leveraging this property, we present CoRun, a scheduling-based system that achieves deterministic inference without requiring batch invariance. CoRun employs isolated prefill and fixed-shape batched decode to handle the two stages of LLM inference, respectively, leveraging CUDA graphs for efficient execution and simplified implementation. Experiments on LLMs with diverse architectures, including Qwen and DeepSeek, show that CoRun ensures determinism while improving throughput by 15-324 % over batch-invariant approaches, reducing time-to-first-token by 51.8 % and time-per-output-token by 48.6 % on average.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.14376v1</guid>
+      <category>cs.OS</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Shiju Zhao, Jiacheng Yang, Qihang Chen, Junhao Hu, Jiaqi Zheng, Guihai Chen, Xusheng Chen</dc:creator>
+    </item>
+    <item>
+      <title>DDB: Source-Level Interactive Debugging for Distributed Applications</title>
+      <link>https://arxiv.org/abs/2607.06107</link>
+      <description>arXiv:2607.06107v1 Announce Type: cross 
+Abstract: Interactive debugging is an effective tool for understanding program behavior at the source level, allowing developers to pause execution, navigate the call stack, and inspect runtime state. However, interactive debuggers are designed for single-process execution, and interactive debugging has been widely considered impractical for distributed systems. Call stacks stop at process boundaries, debugging state fails to survive infrastructure dynamics, and, most critically, debugger-induced execution pauses trigger catastrophic timeout cascades that destroy the intended debug flow. Consequently, developers are forced to abandon live hypothesis testing in favor of unwieldy and iterative log-and-redeploy cycles.
+  We present DDB, a source-level interactive debugger that extends interactive debugging capabilities to distributed applications. We show that each of these challenges admits a targeted solution. To bridge disjoint processes, Distributed Backtrace (DBT) embeds compact causality metadata in every RPC and reconstructs a unified call stack across RPC boundaries. To manage the lifecycle of a distributed session, an intent-preserving control plane automatically coordinates and propagates breakpoints across dynamic process sets. To make pausing safe, Pause-Erased Time (PET) virtualizes each process's clock, decoupling logical time from physical pauses and preventing timeout cascades. DDB integrates with an RPC framework in 20-60 lines of code. Evaluated on gRPC, ServiceWeaver, Nu, and Quicksand across up to 122 processes, DDB achieves 30ms median cross-RPC backtrace latency, sub-5 ms time jump under repeated execution pauses, and adds 1-5% throughput overhead, comparable to attaching a single-process debugger. In a controlled user study, DDB achieves a 100% fault localization success rate (compared to 38.5% for baseline tools) with a median localization time of ~8 minutes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.06107v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yibo Yan, Junzhou He, Seo Jin Park</dc:creator>
+    </item>
+    <item>
+      <title>Offering Microsecond-Scale Cross-VM Core Elasticity on Colocated Lightweight Virtual Machines</title>
+      <link>https://arxiv.org/abs/2608.12633</link>
+      <description>arXiv:2608.12633v1 Announce Type: cross 
+Abstract: Serverless platforms commonly colocate many diverse workloads, each in a fast-booting, memory-lean virtual machine (VM), to improve deployment density. Overprovisioning each VM for its peak protects tail latency during traffic bursts but hurts density; maintaining high density while effectively protecting tail latency requires the infrastructure to be able to shift physical cores, at a microsecond timescale, to whichever latency-sensitive VM is bursting and reclaim them as the burst subsides. No VM substrate delivers this: conventional VMs resize a guest's cores only through a millisecond-scale vCPU hot-plug path, Firecracker fixes a VM's core count at boot, and the ultralight VMs that boot fastest drop multicore execution entirely.
+  We present HyperFlux, a commodity-KVM ultralight VM substrate that makes a VM's parallelism width (the number of physical cores backing it) elastic at runtime. We show that HyperFlux can move a core across VMs in merely 13$\mu$s, even when forcibly reclaiming it from a busy donor, orders of magnitude faster than vCPU hot-plug. A HyperFlux VM incurs only a 3.2MB memory footprint and can cold-boot in 1.37ms, on par with the fastest-booting ultralight VMs, while uniquely supporting multicore parallelism. Under colocation, it can reduce high-priority VMs' tail latency by up to 10x under high load compared to static core-sharing with Firecracker and Cloud Hypervisor, and deliver a lower and more stable tail latency compared to using cgroup and vCPU hot-plug under changing load bursts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.12633v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yibo Yan, Seo Jin Park</dc:creator>
+    </item>
+    <item>
+      <title>Don't Let AI Agents YOLO Your Files: Information and Control in Agent-Native Filesystems</title>
+      <link>https://arxiv.org/abs/2604.13536</link>
+      <description>arXiv:2604.13536v3 Announce Type: replace 
+Abstract: AI coding agents operate directly on users' filesystems and regularly corrupt data, delete files, and leak secrets. We conduct the first systematic study of agent filesystem misuse, analyzing 290~public reports. Our study reveals two fundamental gaps: users and agents have limited information about filesystem effects and insufficient control over them.
+  To close these gaps, we propose shifting information and control from agents to filesystems. We introduce agent-native filesystems and identify three primitives they should provide: introspect effects, undo mutations, and gate accesses. Together, these primitives enable agents to work autonomously and correct their own mistakes, while reserving user interaction for sensitive accesses and final review.
+  We build YoloFS, an agent-native filesystem, with three mechanisms: staging isolates mutations until the user commits them; snapshots let agents restore earlier states; and progressive permission lets users enforce and adapt rules during execution. To evaluate YoloFS, we introduce a new methodology that captures the interactions among user, agent, and filesystem. On 11 tasks with hidden side effects, YoloFS enables agents to self-correct in 8 and keeps all mutations staged for user review. On 112 routine tasks, YoloFS reduces user interactions and matches the baseline success rate. YoloFS is open-sourced at https://github.com/YoloFS/YoloFS.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.13536v3</guid>
+      <category>cs.OS</category>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shawn Wanxiang Zhong, Junxuan Liao, Jing Liu, Mai Zheng, Andrea C. Arpaci-Dusseau, Remzi H. Arpaci-Dusseau</dc:creator>
+    </item>
+    <item>
+      <title>Presto: A Match-Action TCP Stack for the Terabit Era</title>
+      <link>https://arxiv.org/abs/2504.19058</link>
+      <description>arXiv:2504.19058v4 Announce Type: replace-cross 
+Abstract: We present Presto, the first TCP stack that delivers ASIC-class performance and energy efficiency on programmable Reconfigurable Match-Action Table (RMT) pipelines, providing flexibility while retaining standard TCP semantics and POSIX socket compatibility. The key challenge in designing Presto is reconciling TCP's complex, dependent state updates with RMT's unidirectional, lock-step execution model. To overcome this challenge, Presto introduces three novel techniques: optimistic concurrency (speculative updates validated downstream), pseudo-segment injection (circular dependency resolution without stalls), and bump-in-the-wire processing (single-pass segment handling). Together, these enable TCP retransmission, reassembly, flow, and congestion control, as a pipeline of simple match-action operations.
+  Our Intel Tofino 2 prototype demonstrates Presto's scalability to terabit speeds, flexibility, and robustness to network dynamics. Presto matches RDMA performance and efficiency for both RPC and streaming workloads (including NVMe-oF with SPDK), while maintaining TCP/POSIX compatibility. Presto saves up to 16 host CPU cores versus state-of-the-art kernel-bypass TCP, while achieving 5$\times$ lower 99.99p tail latency and 2$\times$ better throughput-per-watt for key-value stores. At scale, Presto drives nearly $1$ Bpps at 20 $\mu$s RPC tail latency. Unlike fixed-function offloads, Presto supports transport evolution through in-data-path extensions (selective ACKs, congestion control variants, application co-design for shared logs). Finally, Presto generalizes to FPGA SmartNICs, outperforming Tonic's monolithic design by $3\times$ under equal timing.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2504.19058v4</guid>
+      <category>cs.NI</category>
+      <category>cs.OS</category>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1145/3789240.3829111</arxiv:DOI>
+      <arxiv:journal_reference>Presto: A Match-Action TCP Stack for the Terabit Era. In Proceedings of the ACM SIGCOMM 2026 Conference (SIGCOMM'26). Association for Computing Machinery, New York, NY, USA, 1360-1375</arxiv:journal_reference>
+      <dc:creator>Rajath Shashidhara, Antoine Kaufmann, Simon Peter</dc:creator>
+    </item>
+  </channel>
+</rss>
