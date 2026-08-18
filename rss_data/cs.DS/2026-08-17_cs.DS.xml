@@ -7,178 +7,488 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.DS" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2026 02:55:07 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 04:00:10 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+    <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Saturday</day>
       <day>Sunday</day>
+      <day>Saturday</day>
     </skipDays>
     <item>
-      <title>Deterministic Spectral Sparsification in Almost-Linear Time for Dense Graphs</title>
-      <link>https://arxiv.org/abs/2608.13910</link>
-      <description>arXiv:2608.13910v1 Announce Type: new 
-Abstract: A spectral sparsifier of a weighted graph is a reweighted subgraph whose Laplacian quadratic form approximates that of the original graph. Let $G$ be a positively weighted $n$-vertex, $m$-edge multigraph, let $0&lt;\varepsilon\le1/2$. Assuming $m,\varepsilon^{-1}\le n^{O(1)}$ and the ratio of maximum to minimum weight is polynomially bounded, we deterministically construct a $(1\pm\varepsilon)$-spectral sparsifier with \[
-  O\!\left(n\varepsilon^{-2}\log^{24+o(1)}n\right) \] edges in \[
-  m^{1+o(1)}+O\!\left(n^2\varepsilon^{-9/2}\log^{113/2+o(1)}n\right) \] time.
-  The construction has two main ingredients. First, we sparsify an approximately regular expander by partitioning its edges into few matchings and viewing their normalized Laplacians as an isotropic family of positive semidefinite matrices. Rather than sample from this family and apply matrix Chernoff, we select matchings deterministically using a pessimistic estimator. We evaluate the resulting conditional-expectation scores in two ways to produce two algorithms: using dense matrix multiplication and sparsely using polynomial approximations to the inverse square root and matrix exponential. Deterministic expander decomposition, along with replacing vertices by fixed expander graphs to achieve approximate regularity, extends these algorithms to general graphs. Second, a recursive blocking scheme applies the dense algorithm to smaller subgraphs and the sparse algorithm to their union, balancing their costs. Reusing the resulting algorithm as the dense algorithm gives $\alpha_{r+1}=3-1/(\alpha_r-1)$, starting from $\alpha_0=\omega$. After $O(\log n)$ levels, the exponent is $2+O(1/\log n)$, yielding $m^{1+o(1)}+\widetilde O_{\varepsilon}(n^2)$ time.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.13910v1</guid>
+      <title>Fair Division Meets Scheduling: Approximately Envy-Free Interval Scheduling</title>
+      <link>https://arxiv.org/abs/2608.15159</link>
+      <description>arXiv:2608.15159v1 Announce Type: new 
+Abstract: We study interval scheduling from the perspective of fair allocation. There are $m$ identical machines and a set of intervals, each specified by a start time, an end time, and a nonnegative weight. A schedule assigns a subset of the intervals to the machines so that no two intervals on the same machine overlap, and the goal is to maximize the total weight of scheduled intervals. Viewing machines as agents and intervals as goods, we require the schedule to be envy-free up to one item (EF1), and we measure efficiency against the offline optimum without fairness.
+  In the offline setting, we give an algorithm that computes an EF1 schedule whose loss is at most a factor of $3/2$ in the unweighted regime, and we prove lower bounds of $\frac{3m-2}{2m-1}$, approaching $3/2$, in both the unweighted and the unit-length weighted regimes, so the price of fairness is $3/2$ in the limit. In the online setting, intervals arrive in nondecreasing order of start times; an arriving interval must be accepted or rejected, rejections are irrevocable, and an accepted interval may be revoked, and lost, at any time before it ends. For the unweighted regime we present Greedy-Balanced, a simple algorithm that maintains EF1 at every point in time and is $(2-\tfrac{1}{m})$-competitive against the offline optimum without fairness, and we prove a matching lower bound for every deterministic algorithm; the optimal deterministic fair competitive ratio is thus exactly $2-\tfrac{1}{m}$. Experiments on real-world benchmark instances show that Greedy-Balanced performs well beyond its worst-case guarantee, with an observed ratio never exceeding $1.306$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15159v1</guid>
       <category>cs.DS</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <category>cs.GT</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Jason Li, Trevor Vaughn</dc:creator>
+      <dc:creator>Sander Borst, Golnoosh Shahkarami, Rohit Vaish</dc:creator>
     </item>
     <item>
-      <title>CavityRank: Zero-Extra-Byte Residual Routing for Cuckoo Filters</title>
-      <link>https://arxiv.org/abs/2608.13970</link>
-      <description>arXiv:2608.13970v1 Announce Type: new 
-Abstract: Near capacity, a cuckoo filter may reject an insertion even though a legal placement still exists: the table remains structurally feasible, but a bounded policy fails to find an augmenting path. Random kick-out keeps each step cheap but leaves no persistent direction; breadth-first search recovers direction by expanding a frontier and maintaining table-scaled state. CavityRank exploits a resource already present in four-slot packed buckets. Lookup observes only the fingerprint multiset, so query-equivalent lane orders can encode two comparison bits without widening the 64-bit bucket or changing the two-bucket query. The bits form a four-level ordinal residual rank. Insertion follows a minimum-rank edge and re-encodes each modified bucket from its outgoing edges after relocation, propagating the rank actually realized by the packed word. An exact capacity-four orientation oracle separates structural infeasibility from bounded-search loss. In a paired 4,096-bucket XOR16 ladder, CR2 closes 86.47% of Random CF's oracle gap and CavityRank leaves 1.39% of that original gap. A canonical-tie CR2-versus-CavityRank ablation isolates the second implicit bit, which closes 89.95% and 90.69% of CR2's residual gap; the corresponding closures at 65,536 buckets are 83.95% and 84.27%. A separate packed implementation study at 64 MiB and 97.75% load records 42.53 logical reads per insertion, versus 62.67 for explicit labels and 355.74 for depth-10 BFS, with zero extra bytes per bucket and no table-scaled workspace. CavityRank therefore occupies a practical design point between unguided eviction and frontier search.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.13970v1</guid>
+      <title>Optimal Repairs for Unary Functional Dependencies: Resolving the Case of Updates</title>
+      <link>https://arxiv.org/abs/2608.15328</link>
+      <description>arXiv:2608.15328v1 Announce Type: new 
+Abstract: If a table violates its required set of functional dependencies (FDs), what is the minimum number of cell changes needed to restore consistency? This fundamental problem, known as finding an optimal update repair (U-repair), is known to admit polynomial-time algorithms only for a small number of specific FD sets. Whether additional tractable cases exist has remained open. The only established hardness result for this problem is due to Kolahi and Lakshmanan (2009); subsequent attempts to prove hardness for additional cases have failed, leaving these cases unresolved. In this work, we make substantial progress on this open problem by completely resolving the case of unary FDs, in which every FD has a single attribute on its left-hand side. We show that every set of unary FDs either falls into one of the previously known tractable classes or makes the problem of finding an optimal U-repair NP-hard.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15328v1</guid>
       <category>cs.DS</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <category>cs.DB</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Benny Kimelfeld, Ester Livshits</dc:creator>
+    </item>
+    <item>
+      <title>The Quick and the Dead: Estimating Sparse-Matrix Permanents with Adaptive Work Filtering</title>
+      <link>https://arxiv.org/abs/2608.15390</link>
+      <description>arXiv:2608.15390v1 Announce Type: new 
+Abstract: Rasmussen's permanent estimator is a simple and unbiased estimator for the permanent of a binary matrix, but its practical performance can be limited by trajectories that terminate before completing a perfect matching. These failed trajectories, together with dispersion among the surviving weights, can substantially reduce the effective sample size. Although the literature leverages techniques such as matrix scaling to improve proposal balance and support filtering to remove structurally infeasible choices, using these at every step can substantially increase the trajectory cost. Furthermore, they do not directly address the choice of the next vertex. This paper uses the classical minimum-degree ordering in sparse matrix algorithms to select the next vertex with O(n + m) total bucket-maintenance work per trajectory, where n is the number of rows/columns in the matrix and m is the number of nonzeros. The proposed estimator uses adaptive schedules to invoke the more expensive scaling and filtering operations only when needed. The experiments show that it is competitive with the state of the art on the tested small matrices and scales effectively to large sparse matrices.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15390v1</guid>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Yongjie Guan</dc:creator>
+      <dc:creator>Deniz Elbek, Yi\u{g}it Manafi, Zeynep G\"urdal, Sinan Y{\i}ld{\i}r{\i}m, Kamer Kaya</dc:creator>
     </item>
     <item>
-      <title>Horospherically convex optimization for fractional subspace packing and its applications</title>
-      <link>https://arxiv.org/abs/2608.13972</link>
-      <description>arXiv:2608.13972v1 Announce Type: new 
-Abstract: In this paper, we address a semi-infinite LP relaxation of the vector-subspace packing problem. This is a higher-dimensional generalization of the fractional linear matroid parity problem and is closely related to Brascamp-Lieb polytopes. We show that the dual of this LP can be formulated as ``linear programming on a Euclidean building," namely, the problem of minimizing a Busemann function over an intersection of horoballs. This provides a natural example of horospherically convex optimization, recently introduced by Goodwin et al. (2026) and Criscitiello and Kim (2025). By applying the incremental Busemann subgradient method, we obtain an additive FPTAS for the problem. As applications, we obtain a new and simpler polynomial-time algorithm for fractional linear matroid parity, and new algorithms for the membership problem of Brascamp-Lieb polytopes.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.13972v1</guid>
+      <title>Cross-Shift Analysis for Unrelated-Machine Weighted Completion Time A (1.3168+epsilon)-Approximation</title>
+      <link>https://arxiv.org/abs/2608.15496</link>
+      <description>arXiv:2608.15496v1 Announce Type: new 
+Abstract: We study the problem of minimizing total weighted completion time on unrelated parallel machines with machine-independent job weights. The best previous approximation guarantee for this problem is arbitrarily close to 1.36, due to Li [SODA 2025], who developed a configuration-LP and iterative-rounding framework based on randomly shifted geometric size classes and a computer-assisted final analysis. We improve the approximation guarantee to arbitrarily close to 1.3168. The scheduling algorithm retains Li's configuration-LP and iterative-rounding framework, with a different fixed geometric class ratio. The improvement comes from a new analysis of the random geometric shift. For each machine and Smith prefix, we normalize the physical prefix before averaging over the shift, so that its normalized size distribution and configuration moments remain fixed across all shifts. A scale-dependent configuration bound and a cross-shift averaging argument then reduce the approximation analysis to a one-dimensional certificate. The final certificate is computer assisted and reproducible. Its rational data are verified exactly where possible, while the remaining continuous inequalities are certified using directed interval arithmetic. This yields the first improvement over Li's guarantee for the machine-independent-weight model.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15496v1</guid>
       <category>cs.DS</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Hiroshi Hirai</dc:creator>
-    </item>
-    <item>
-      <title>Weighted Equitability and Matroid-Constrained Discrepancy</title>
-      <link>https://arxiv.org/abs/2608.13983</link>
-      <description>arXiv:2608.13983v1 Announce Type: new 
-Abstract: We prove weighted matroid equitability. Let $M=(E,\mathcal{I})$ be a matroid whose ground set can be partitioned into $k$ bases, and assign a nonnegative weight to every element. Then $E$ has a partition into $k$ bases such that the weights of any two bases differ by at most the largest element weight. We present two proofs based on the localized exchange theorem of Akrami, Liu, Raj, and V\'egh. The first is existential, while the second is constructive and leads to a strongly polynomial-time algorithm. As applications, we obtain an additive guarantee for matroid-constrained makespan minimization for identical machines and a strongly polynomial-time algorithm for finding an EF1 allocation under a matroid constraint and identical additive valuations.
-  We further generalize the Beck--Fiala framework in discrepancy theory to settings with matroid constraints. Given a nonnegative matrix of column sparsity $\Delta$, we show that a fractional basis can be rounded to a basis of no larger cost while preserving every row sum within additive error $2\Delta$ times the largest matrix entry. Motivated by the $2$-sparse prefix Beck--Fiala conjecture, we formulate a conjecture on prefix-constrained matroid bases and prove a discrepancy bound $O(\log n)$. Finally, we give a counterexample to the weighted carpooling conjecture, thereby also disproving a conjecture by Morell and Skutella on single-source unsplittable flows with two-sided discrepancy bounds.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.13983v1</guid>
-      <category>cs.DS</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Krist\'of B\'erczi, Siyue Liu, Victor Reis, Jakub Tarnawski</dc:creator>
-    </item>
-    <item>
-      <title>MacCorles: Minimum Alignment Cost Computation on Run-Length Encoded Strings</title>
-      <link>https://arxiv.org/abs/2608.13999</link>
-      <description>arXiv:2608.13999v1 Announce Type: new 
-Abstract: We study a tie-breaking variant of the longest common subsequence problem on run-length encoded strings. Given two strings, the goal is first to maximize the number of equal aligned character pairs, as in the classical longest common subsequence problem, and then, among all such alignments, to minimize the alignment length. Equivalently, after maximizing the number of equal pairs, we minimize the number of insertions and deletions. We show that this problem admits a simple block-boundary dynamic program. If the input strings have lengths $N$ and $M$, and their run-length encodings have $n$ and $m$ runs, respectively, the algorithm runs in $O(mN+nM)$ time using $O(nm)$ space. The algorithm treats every pair of runs as a homogeneous block with an explicit transfer function and stores dynamic-programming values only on run boundaries.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.13999v1</guid>
-      <category>cs.DS</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Wing-Kai Hon, Dominik K\"{o}ppl, Jun-Hong Wang</dc:creator>
+      <dc:creator>Weitian Tong, Yao Xu</dc:creator>
     </item>
     <item>
-      <title>A Near-Optimal Lower Bound for $\ell_p$-Subspace Embeddings, $1\leq p&lt;2$</title>
-      <link>https://arxiv.org/abs/2608.14201</link>
-      <description>arXiv:2608.14201v1 Announce Type: new 
-Abstract: For $d \geq 2$, $p \geq 1$ and $\epsilon &gt; 0$, let $N_p(d,\epsilon)$ be the smallest integer $N$ such that for every integer $n$ and every $A\in\mathbb{R}^{n\times d}$, there exists a matrix $\Phi\in\mathbb{R}^{N\times n}$ satisfying $(1-\epsilon)\lVert Ax\rVert_p\leq \lVert\Phi A x\rVert_p\leq (1+\epsilon)\lVert Ax\rVert_p$ for all $x\in\mathbb{R}^d$. For every constant $p\geq 1$ with $p\not\in 2\mathbb{Z}$, when $d\gtrsim_p \log(1/\epsilon)$, the bound \[ N_p(d,\epsilon) \gtrsim_{p} \frac{d}{\epsilon^2 \operatorname{polylog}(d/\epsilon)} \] is established. This improves the previous lower bound $\Omega(1/(\epsilon^2\operatorname{polylog}(1/\epsilon)))$ due to Li et al. (SICOMP 2021) and is optimal up to logarithmic factors for $1\leq p&lt;2$. The central technical idea originated from ChatGPT 5.6 Sol.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.14201v1</guid>
+      <title>Recoverable robust representatives selection problem under interval continuous budgeted uncertainty</title>
+      <link>https://arxiv.org/abs/2608.15836</link>
+      <description>arXiv:2608.15836v1 Announce Type: new 
+Abstract: In this paper, the recoverable robust representative selection problem is considered, where uncertain second-stage costs are modeled using interval uncertainty with a continuous budget. While the variant under a discrete uncertainty budget is known to be NP-hard, we show that transitioning to a continuous budget fundamentally alters the computational complexity landscape. Specifically, by exploiting the structural properties of the problem under the continuous budget model, we design a strongly polynomial-time algorithm for the general case. Furthermore, we propose an even more efficient strongly polynomial-time algorithm for an important special case.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15836v1</guid>
       <category>cs.DS</category>
-      <category>math.FA</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Yi Li</dc:creator>
+      <dc:creator>Marcel Jackiewicz, Adam Kasperski, Pawel Zielinski</dc:creator>
     </item>
     <item>
-      <title>Isomorphism of tournaments with bounded VC dimension</title>
-      <link>https://arxiv.org/abs/2608.14486</link>
-      <description>arXiv:2608.14486v1 Announce Type: new 
-Abstract: The tournament isomorphism problem is one of the two fundamental bottlenecks to designing better algorithms for the graph isomorphism problem. Though the problem has been investigated for more than five decades, compared to graphs, there are only very few results on the isomorphism problem of tournaments. For most classes of tournaments neither hardness nor polynomial-time solvability is known.
-  Tournaments of bounded VC dimension are such a class for which no results are available, even though the VC dimension is arguably one of the most robust and central notions of combinatorial tameness. Resolving an open problem of Neuen and Grohe, we show that the isomorphism problem for tournaments of VC dimension $d$ can be decided in time $n^{O(d\log d)}$. Consequently, automorphism groups of tournaments of bounded VC dimension can be computed in polynomial time. To this end, we develop a new method to isomorphism-invariantly decompose tournaments. To facilitate recursion, we introduce the notion of a patched tournament and analyze bounded VC dimension in patched tournaments. We design a recursive algorithm that balances the size of the decomposed pieces against their number and makes use of the structure of near twins.
-  In an orthogonal direction, it is known that a hereditary class of tournaments has unbounded VC dimension if and only if it contains all 2-colorable tournaments. As a second result, we show that also this class does not form an obstruction towards polynomial-time isomorphism testing and indeed show that isomorphism of tournaments of bounded chromatic number is polynomial-time decidable.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.14486v1</guid>
+      <title>A Simple Las Vegas Algorithm for Sparse Nonnegative Convolution</title>
+      <link>https://arxiv.org/abs/2608.16123</link>
+      <description>arXiv:2608.16123v1 Announce Type: new 
+Abstract: Let $A, B \in \mathbb{Z}_{\ge 0}^n$ be nonnegative vectors and let $t = |\operatorname{supp}(A \star B)|$. We give a Las Vegas algorithm that computes $A \star B$ in $O(t \log t)$ expected time. More generally, for every $0 &lt; \delta \le \frac{1}{2}$, the algorithm terminates within $O(t \log t \log \frac{1}{\delta})$ time with probability at least $1 - \delta$. The algorithm uses dense convolution, linear hashing, and the length reduction of \cite{BFN22}. Its main ingredient is a carry-free representation of the indices as vectors of constant dimension $d$ whose coordinates have size $O(t / \log t)$. We can then take our hash function to be the inner product with a random element of $\mathbb{F}_p^d$ for a prime $p$ of size $\Omega(t / \log t)$: this preserves addition and gives collision probability exactly $1/p$, while identities regarding the moments of the vectors identify and recover the isolated terms as in \cite{BFN22}. Our expected running time matches that of Jin and Xu~\cite{JX24} while using substantially different tools and yielding a simpler algorithm. Note that their algorithm also terminates within $O(t \log t)$ time with probability at least $1 - \frac{1}{t}$, while our tail bound is weaker.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16123v1</guid>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Trevor Vaughn</dc:creator>
+    </item>
+    <item>
+      <title>Derandomizing Karger's Contraction Algorithm for Matroids</title>
+      <link>https://arxiv.org/abs/2608.16298</link>
+      <description>arXiv:2608.16298v1 Announce Type: new 
+Abstract: Karger's randomized contraction algorithm finds a minimum-weight cocircuit of a matroid whenever the cogirth-density ratio is bounded. We prove that the same hypothesis yields a deterministic algorithm with the same exponent. If every contraction minor of rank at least $r_0$ of a matroid $M$ has cogirth-density ratio at most $c$, then a minimum-weight cocircuit of $M$ is computable deterministically in $m^{O(r_0)} n^{O(c)}$ time when the contraction minors of bounded rank have at most $m$ parallel classes, by an algorithm that knows neither $r_0$ nor $c$. As a consequence, we give a deterministic algorithm computing the cogirth of rank-$p$ perturbed graphic matroids in $2^{O(p^2)} n^{O(1)}$ time, fixed-parameter tractable in $p$, settling the cogirth side of a question of Geelen and Kapadia (2018). The extensions of the contraction method carry over deterministically: enumerating all near-minimum 1-cocycles, computing a minimum-weight $k$-cocycle, and computing the Pareto frontier under several positive criteria.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16298v1</guid>
       <category>cs.DS</category>
       <category>cs.DM</category>
       <category>math.CO</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Simon Ra{\ss}mann, Pascal Schweitzer</dc:creator>
+      <dc:creator>Yu Cong, Chao Xu, Yajie Zhao</dc:creator>
     </item>
     <item>
-      <title>The Sharp Dimension Bound in the Johnson--Lindenstrauss Lemma</title>
-      <link>https://arxiv.org/abs/2608.13782</link>
-      <description>arXiv:2608.13782v1 Announce Type: cross 
-Abstract: The Johnson--Lindenstrauss lemma asserts that every set of $n$ points in $d$-dimensional Euclidean space embeds into $O(\varepsilon^{-2}\log n)$-dimensional Euclidean space with distortion at most $1+\varepsilon$. Larsen and Nelson conjectured that the optimal target dimension throughout the full range of the parameters $n,d, \varepsilon$ is \[ \Theta\left(\min\left\{d,n-1,\frac{\log(2+\varepsilon^2n)}{\varepsilon^2}\right\}\right). \] We resolve this conjecture in the affirmative. In fact, we prove the stronger statement that the upper bound is attained by a linear map. The matching lower bound, due to Larsen--Nelson and Alon--Klartag, holds even for nonlinear embeddings.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.13782v1</guid>
+      <title>Correlation Clustering with Random Partial Information</title>
+      <link>https://arxiv.org/abs/2608.16315</link>
+      <description>arXiv:2608.16315v1 Announce Type: new 
+Abstract: Correlation clustering is a fundamental unsupervised learning problem. On complete graphs, both the min-disagreement and min-max objectives admit constant-factor approximations, yet on general (non-complete) graphs, the best guarantees blow up to $O(\log n)$ and $O(\sqrt{n})$. This gap between the two regimes motivates the following question: are there classes of incomplete graphs that circumvent the lower bounds on general graphs and admit approximation guarantees approaching those attainable on complete graphs? We study a natural class of graphs obtained by randomly subsampling a complete signed graph $G$, where each edge is independently deleted with probability $q$. For such graph instances both for the min-max and the min-disagreement objectives, we prove approximation guarantees (depending on $q$) that are substantially better than the bounds achievable for general graphs. We supplement our theoretical results with experiments that also suggest that the approximation ratios of our algorithm are close to those of the complete graph and better than the worst-case bounds for general (non-complete) graphs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16315v1</guid>
+      <category>cs.DS</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Rajath Rao K. N., Jens Schl\"oter, Sami Davies, Amira Ouchene, Yasamin Nazari</dc:creator>
+    </item>
+    <item>
+      <title>A Simple Active-Set Method for PageRank-Based Local Graph Clustering</title>
+      <link>https://arxiv.org/abs/2608.16339</link>
+      <description>arXiv:2608.16339v1 Announce Type: new 
+Abstract: Local graph clustering aims to find a well-connected cluster near a given seed node without exploring the entire graph. A key step in the classic local clustering algorithm of Andersen, Chung, and Lang (ACL; Internet Math. 2007) is to approximate the PageRank vector from the seed node. Their local push method computes an ACL $\varepsilon$-approximate PageRank vector with teleportation parameter $\alpha$ in $O\bigl(1/(\alpha\varepsilon)\bigr)$ time.
+  We give an algorithm that computes an ACL $\varepsilon$-approximate PageRank vector in $\widetilde{O}\bigl(1 / \varepsilon^2\bigr)$ time with high probability. This bound is independent of the graph size and has only a polylogarithmic dependence on $1 / \alpha$, albeit with a quadratic dependence on $1 / \varepsilon$. As a direct consequence, we obtain a new running-time tradeoff between the target conductance and target volume in local graph clustering. Our method also applies to the optimization problem of $\ell_1$-regularized PageRank and computes an additive approximate minimizer with a polylogarithmic dependence on $1/\alpha$, improving the $1/\sqrt{\alpha}$ dependence in the previous bound of Mart\'inez-Rubio, Wirth, and Pokutta (COLT 2023).
+  Our algorithm is based on an intuitive process that maintains a growing active set of nodes: it performs push operations on the current set until convergence and then expands the set and repeats the process if necessary. We show that for each active set, the corresponding limiting state is the solution to a symmetric diagonally dominant (SDD) linear system on the set. We apply nearly-linear-time SDD solvers to these systems and prove that the approximation preserves the properties of the push process.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16339v1</guid>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhewei Wei, Mingji Yang</dc:creator>
+    </item>
+    <item>
+      <title>Efficient Enumeration of Enclosed Vector Spaces</title>
+      <link>https://arxiv.org/abs/2608.16359</link>
+      <description>arXiv:2608.16359v1 Announce Type: new 
+Abstract: In this paper, we address several problems concerning vector spaces enclosed in a given set. Let V be a vector space over a finite field of cardinality c, and let $S \subseteq V$ be a set of vectors. A space enclosed in S is a vector subspace W of V that is also contained in S: $W \subseteq S$. We focus on enumeration problems, where the task is to list all solutions, and we first provide an algorithm to enumerate all spaces that are enclosed in S. Our algorithm is further adapted to solve two more problems: the enumeration of (inclusion-)maximal enclosed spaces, and the problem of finding an enclosed space of maximum dimension. The latter problem arises in the context of Boolean functions' regularity detection. It can also be seen as a dual version of the well-known linear span: indeed, the span is the minimum-dimension vector space that contains a given set of vectors S, and it is a fundamental concept in linear algebra. Our proposed algorithms are based on the binary partition paradigm, and have total time complexity $e^{\frac{1}{2\ln c}\ln^2 n - \Theta(\log n \log \log n)}$, where $n= |\inputset|$. The first version, for enumerating all enclosed spaces, also achieves a delay (time between consecutive outputs) of O(n). Our algorithms provide a quadratic speed-up with respect to a brute-force approach, although the speed-up appears even greater in our experimental evaluation on boolean vector spaces.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16359v1</guid>
+      <category>cs.DS</category>
+      <category>cs.DM</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Anna Bernasconi, Valentina Ciriani, Alessio Conte, Alberto L'Episcopo, Giulia Punzi</dc:creator>
+    </item>
+    <item>
+      <title>Incremental Directed Minimum Cut by Dynamizing Gabow's Algorithm</title>
+      <link>https://arxiv.org/abs/2608.16382</link>
+      <description>arXiv:2608.16382v1 Announce Type: new 
+Abstract: We give the first incremental algorithm for directed global minimum cut. Given a directed graph with $n$ vertices undergoing $m$ edge insertions, our deterministic algorithm explicitly maintains a global minimum cut or certifies that its value is at least $k$ in $O(km\log n)$ total update time. Prior work required either that $k\le2$ or that the graph is undirected.
+  Our algorithm is a strict incremental extension of Gabow's state-of-the-art static algorithm (JCSS 1995), with no asymptotic loss in running time over the entire insertion sequence.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16382v1</guid>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Thatchaphol Saranurak, Kaiyang Xie, Zhaienhe Zhou</dc:creator>
+    </item>
+    <item>
+      <title>A Simple Algorithm for the Directed Multiple Source Replacement Paths Problem</title>
+      <link>https://arxiv.org/abs/2608.16615</link>
+      <description>arXiv:2608.16615v1 Announce Type: new 
+Abstract: In the replacement paths (RP) problem, we are given a graph $G = (V, E)$ with $n = |V|$ and $m = |E|$, together with two vertices $s, t \in V$, and are asked to compute the shortest-path distance from $s$ to $t$ in $G \setminus e$ for every failed edge $e \in E$. The multiple source replacement paths (MSRP) problem is its natural generalization: given a set $S \subseteq V$ of $\sigma$ sources, compute the replacement path distances for all pairs in $S \times V$.
+  In this paper, we present a randomized combinatorial algorithm that solves MSRP on unweighted directed graphs in $\tilde{O}(m\sqrt{\sigma n} + \sigma n^2)$ time, with all the output distances correct with high probability. This improves the best known bound $\tilde{O}(m\min\{\sigma\sqrt{n}, n\} + \sigma n^2)$ for directed graphs, which is obtained either by running the single source RP algorithm of Chechik and Magen [ICALP'20] from each source separately or by constructing and querying the all-pairs distance sensitivity oracle of Bernstein and Karger [STOC'09]. Our running time is essentially tight among combinatorial algorithms because Gupta, Jain, and Modi [PODC'20] proved a lower bound of $m{(\sigma n)}^{1/2-o(1)}$ for such algorithms, which holds even on undirected graphs, and the additive term $\sigma n^2$ is proportional to the time needed to write down the $\Theta(\sigma n^2)$ output distances. The algorithm is also remarkably simple.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16615v1</guid>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Kaito Harada, Taisuke Izumi</dc:creator>
+    </item>
+    <item>
+      <title>Spectral Gaps of Hit-and-Run and Coordinate Hit-and-Run</title>
+      <link>https://arxiv.org/abs/2608.16878</link>
+      <description>arXiv:2608.16878v1 Announce Type: new 
+Abstract: For any convex body $\mathcal{K}\subset\mathbb{R}^{n}$ containing a unit ball, the spectral gap of Hit-and-Run is $\Omega(1/(n^2 C_{\mathsf{PI}}))$, where $C_{\mathsf{PI}}$ is the Poincar\'e constant of the uniform distribution $\pi$ over $\mathcal{K}$. This implies that Hit-and-Run converges to a distribution within $\chi^2$-divergence $\varepsilon$ of the uniform distribution $\pi$ in $O(n^2 C_{\mathsf{PI}}\log(M/\varepsilon))$ steps from any starting distribution $\pi_0$ with $M=\chi^2(\pi_{0}\,\|\,\pi)$, thus refining the known bound of $O(n^2 R^2 \log(M/\varepsilon))$ by Lov\'asz and Vempala (2004) in terms of the outer radius $R$; for nearly isotropic bodies, together with progress on the KLS conjecture, the complexity is $O(n^2\log n\log(M/\varepsilon))$, improving the dimension dependence from cubic to nearly quadratic while maintaining logarithmic dependence on the initial distance. It was an open problem to connect the convergence of Hit-and-Run to Poincar\'e/KLS constants as was done for the Ball walk by Kannan, Lov\'asz and Simonovits (1997). Unlike Hit-and-Run, the Ball walk has an unavoidable linear dependence on (a stronger notion) of the initial warmness.
+  We directly bound the spectral gap of the Hit-and-Run Markov chain by connecting it to functional isoperimetric constants, inspired by the recent analysis of In-and-Out. Rewriting the spectral gap in terms of dual certificates leads to the Babu\v{s}ka--Aziz constant studied in the analysis of PDEs; it is asymptotically bounded by the improved Poincar\'e constant, which we show can be bounded in terms of the usual Poincar\'e constant. The proof is based on duality and calculus, unlike known proofs of convergence for Hit-and-Run which are based on bounding the conductance. The same technique can be applied to Coordinate Hit-and-Run, resulting in a much improved mixing time of $O(n^3C_{\mathsf{PI}}\log(M/\varepsilon))$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16878v1</guid>
+      <category>cs.DS</category>
+      <category>cs.LG</category>
+      <category>math.PR</category>
+      <category>math.ST</category>
+      <category>stat.TH</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yunbum Kook, Santosh S. Vempala</dc:creator>
+    </item>
+    <item>
+      <title>Improving the matrix multiplication exponent with modern optimization and AlphaEvolve</title>
+      <link>https://arxiv.org/abs/2608.16884</link>
+      <description>arXiv:2608.16884v1 Announce Type: new 
+Abstract: The current best bounds on the matrix multiplication exponent $\omega$ are obtained through a refinement of the laser method called combination loss analysis (Duan et al., 2022; Williams et al., 2024; Alman et al., 2025). In this note, we address the optimization problem at the core of this approach and propose several improvements. First, we reformulate the optimization problem allowing us to solve it in a larger setting than was previously possible. Second, we leverage recent advances in machine learning to design a new optimization algorithm for this problem. Finally, we refine the resulting optimization algorithm with AlphaEvolve. Our combined approach yields an upper bound of $\omega$ &lt; 2.371177, improving the previous best bound of 2.371339.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16884v1</guid>
+      <category>cs.DS</category>
+      <category>cs.AI</category>
+      <category>cs.CC</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Emilien Dupont, Marvin Eisenberger, Borislav Kozlovskii, Abbas Mehrabian, Francisco J. R. Ruiz, Abigail See, Renfei Zhou, Josh Alman, Virginia Vassilevska Williams, Matej Balog</dc:creator>
+    </item>
+    <item>
+      <title>Do You Have My Size In Stock? Assortment and Inventory Optimization Under the Consider-Fit-Then-Choose Choice Model</title>
+      <link>https://arxiv.org/abs/2608.15172</link>
+      <description>arXiv:2608.15172v1 Announce Type: cross 
+Abstract: In apparel retail and other applications, when a customer's preferred size is unavailable, demand may shift to nearby sizes. This substitution creates new assortment and inventory optimization challenges by coupling product availability and demand across sizes. We introduce the consider-fit-then-choose (CFTC) model to capture such size-dependent choice behavior. Products may be offered in multiple sizes, which affect customer preferences and consideration sets through fit, measured by distance from the customer's ideal size. We study assortment optimization and show-all inventory selection, in which the retailer chooses initial inventory and subsequently offers every in-stock product.
+  We show that assortment optimization under the CFTC model is NP-hard and develop a PTAS when customers deviate by at most $O(1)$ sizes from their ideal size. Combined with the recent black-box framework of Fu et al. (2026), this yields a nearly $0.272$-approximation for show-all inventory selection. We next exploit the specific choice dynamics of the CFTC model. By stocking only every other size, we decouple demand across stocked sizes and reduce CFTC to a special class of mixed multinomial logit models that we prove satisfies the convex chain decomposition (CCD) property of Goyal et al. (2023).
+  For the fluid problem, we develop a polynomial-time $(1/2-\epsilon)$-approximation under adjacent-size substitution and a mild condition on preference weights. For the stochastic problem, we establish an asymptotic $1/2$-approximation using a new coupling argument connecting the stochastic inventory process to its fluid counterpart. Numerical experiments calibrated using footwear data show small optimality gaps across a broad range of substitution patterns and problem settings.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15172v1</guid>
+      <category>math.OC</category>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yi-Chun Akchen, Kaan Cakiroglu, Felipe Caro, Jacob Feldman</dc:creator>
+    </item>
+    <item>
+      <title>Exact MMS Allocations under Personalized Bivalued Valuations: Goods and Chores</title>
+      <link>https://arxiv.org/abs/2608.15822</link>
+      <description>arXiv:2608.15822v1 Announce Type: cross 
+Abstract: The maximin share (MMS) is a central fairness benchmark for allocating indivisible goods and chores. We study additive valuations in the personalized bivalued setting, where each agent assigns one of two agent-specific values to every item. Whether exact MMS allocations always exist in this setting has remained a major open question, as highlighted by Ebadian, Peters, and Shah and by Garg, Huang, and Segal-Halevi. We answer this question affirmatively: we prove that exact MMS allocations always exist for both goods and chores and can be computed in polynomial time. Our proof combines a quota-based reformulation with an envelope relaxation, a sparse extreme-point construction, and flow-based rounding that controls the total rounding loss.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15822v1</guid>
+      <category>cs.GT</category>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yuhao Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Geometric Burning Under $L_1$ and $L_\infty$ Metrics, and Beyond</title>
+      <link>https://arxiv.org/abs/2608.15954</link>
+      <description>arXiv:2608.15954v1 Announce Type: cross 
+Abstract: Burning is a discrete-time model for propagation in which a new fire starts in each round, while each existing fire expands by one unit of distance along the underlying metric. In geometric burning, the input is a finite point set, and the goal is to burn all points in as few rounds as possible. Equivalently, burning a point set in $k$ rounds corresponds to covering it with metric balls of distinct radii in $\{0,1,\ldots,k-1\}$; the objective is to minimize $k$. Previous work has studied the problem mainly under the Euclidean metric. In this paper, we study geometric burning under the $L_1$ and $L_\infty$ metrics. The problem remains NP-hard in both settings.
+  The $L_1$ and $L_\infty$ metrics provide additional geometric structure, which allows us to obtain improved approximation guarantees, especially for anywhere burning. We first present a simple $(2+\varepsilon)$-approximation for both anywhere burning and point burning. We then improve the anywhere burning approximation to $7/4+\varepsilon=1.75+\varepsilon$, and give a $(3151/1620+\varepsilon)$-approximation for point burning, where $3151/1620&lt;1.9451$. We also extend the anywhere burning result under $L_\infty$ to every fixed dimension $d\ge 3$ to achieve a $\left(2-\frac{1}{2^{d+1}}+\varepsilon\right)$-approximation. Finally, using standard comparisons between planar $L_p$ distances, we transfer our $L_1$ and $L_\infty$ algorithms, together with known Euclidean burning algorithms, to obtain approximation guarantees for every fixed $1\le p\le\infty$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15954v1</guid>
       <category>cs.CG</category>
       <category>cs.DS</category>
-      <category>math.MG</category>
-      <category>math.PR</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Vishesh Jain</dc:creator>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shahin Kamali, Saba Yazdani</dc:creator>
     </item>
     <item>
-      <title>The Dirichlet Mechanism for rounding with strong negative correlation, with applications</title>
-      <link>https://arxiv.org/abs/2605.25078</link>
-      <description>arXiv:2605.25078v2 Announce Type: replace 
-Abstract: Many optimization and scheduling problems can be abstracted in terms of a bipartite ``assignment graph" $G = (U \cup V, E)$, where the goal is to select exactly one edge for each right-node. For example, a right-node may correspond to a job, and a left-node to a possible machine assignment. A common strategy to solve such problems is to obtain a fractional relaxation $x_e$ for each edge $e$, and then have each right-node independently select an edge with probability $x_e$. However, this may cause the left-nodes to become unevenly loaded, leading to suboptimal solutions for some problems.
-  To address this, a number of algorithms for dependent rounding with strong negative correlation have been developed, e.g. Bansal, Srinivasan &amp; Svensson (2021), Im &amp; Shadloo (2020), Im &amp; Li (2023), Harris (2024), Naor, Srinivasan &amp; Wajc (2025). We introduce a new method for this, which we call the \emph{Dirichlet mechanism}. It is based on having each left-node draw Dirichlet random variables for its edges, and then having each right-node select an edge based on these values. This achieves quantitatively stronger negative correlation than previous algorithms, and is also simpler since it avoids the need for a tie-breaking mechanism.
-  We illustrate the mechanism with improved approximation ratios for two problems. For oblivious online dependent rounding, we achieve a $0.68$-approximation which improves upon the previous $0.652$-approximation of Naor, Srinivasan &amp; Wajc (2025). For the problem of scheduling jobs on unrelated machines to minimize weighted completion time, we achieve a $1.387$-approximation which improves upon the $1.398$-approximation of Harris (2024). (A recent algorithm of Li (2025) based on iterated rounding also provides a $1.36$-approximation if the weights of each job are independent of machine.)</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.25078v2</guid>
+      <title>Witness-Certified Fair Division with Comparison Queries</title>
+      <link>https://arxiv.org/abs/2608.16109</link>
+      <description>arXiv:2608.16109v1 Announce Type: cross 
+Abstract: We study fair division of indivisible goods when agents' valuations are accessed only through ordinal comparisons between bundles, with arbitrary tie-breaking. In this model, even deciding whether a given allocation is envy-free up to one good (EF1) can be impossible. This suggests explicit fairness certificates as a natural algorithmic object. Our main contribution is a certificate-preserving scaling framework, which recursively contracts goods, solves a smaller instance, and expands the solution while repairing an explicit envy-eliminating witness certificate. For arbitrary identical monotone valuations, this yields a certified EF1 allocation for $n$ agents and $m$ goods using $O(n \log n \log(m/n))$ comparison queries, within an $O(\log n)$ factor of the $\Omega(n \log (m/n))$ communication lower bound. For identical additive valuations, we additionally obtain a $1/2$-MMS guarantee within the same query complexity. For non-identical additive valuations, exploiting our EF1+$1/2$-MMS algorithm, we accelerate the existing matching-based PROP1+$1/2$-MMS framework, improving the query complexity from $O(n^4\log m)$ to $O(n^3\log m)$. Finally, we study the structure of such certificates through $k$-witness EF1, a hierarchy between EF1 and EFX.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16109v1</guid>
+      <category>cs.GT</category>
       <category>cs.DS</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Tatsuhito Yamagata, Hanna Sumita</dc:creator>
+    </item>
+    <item>
+      <title>Graph Streaming Lower Bounds for Parameter Estimation and Property Testing via a Streaming XOR Lemma</title>
+      <link>https://arxiv.org/abs/2104.04908</link>
+      <description>arXiv:2104.04908v2 Announce Type: replace 
+Abstract: We study space-pass tradeoffs in graph streaming algorithms for parameter estimation and property testing problems such as estimating the size of maximum matchings and maximum cuts, weight of minimum spanning trees, or testing if a graph is connected or cycle-free versus being far from these properties. We develop a new lower bound technique that proves that for many problems of interest, including all the above, obtaining a $(1+\epsilon)$-approximation requires either $n^{\Omega(1)}$ space or $\Omega(1/\epsilon)$ passes, even on highly restricted families of graphs such as bounded-degree planar graphs. For multiple of these problems, this bound matches those of existing algorithms and is thus (asymptotically) optimal.
+  Our results considerably strengthen prior lower bounds even for arbitrary graphs: starting from the influential work of [Verbin, Yu; SODA 2011], there has been a plethora of lower bounds for single-pass algorithms for these problems; however, the only multi-pass lower bounds proven very recently in [Assadi, Kol, Saxena, Yu; FOCS 2020] rules out sublinear-space algorithms with exponentially smaller $o(\log{(1/\epsilon)})$ passes for these problems.
+  One key ingredient of our proofs is a simple streaming XOR Lemma, a generic hardness amplification result, that we prove: informally speaking, if a $p$-pass $s$-space streaming algorithm can only solve a decision problem with advantage $\delta &gt; 0$ over random guessing, then it cannot solve XOR of $\ell$ independent copies of the problem with advantage better than $\delta^{\Omega(\ell)}$. This result can be of independent interest and useful for other streaming lower bounds as well.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2104.04908v2</guid>
+      <category>cs.DS</category>
+      <category>cs.CC</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>David G. Harris, George Z. Li, Nitya Raju, Renata Valieva</dc:creator>
+      <dc:creator>Sepehr Assadi, Vishvajeet N</dc:creator>
     </item>
     <item>
-      <title>Active Regression via Linear-Sample Sparsification</title>
-      <link>https://arxiv.org/abs/1711.10051</link>
-      <description>arXiv:1711.10051v4 Announce Type: replace-cross 
-Abstract: We present an approach that improves the sample complexity for a variety of curve fitting problems, including active learning for linear regression, polynomial regression, and continuous sparse Fourier transforms. In the active linear regression problem, one would like to estimate the least squares solution $\beta^*$ minimizing $\|X\beta - y\|_2$ given the entire unlabeled dataset $X \in \mathbb{R}^{n \times d}$ but only observing a small number of labels $y_i$. We show that $O(d)$ labels suffice to find a constant factor approximation $\tilde{\beta}$:
-  \[
-  \mathbb{E}[\|X\tilde{\beta} - y\|_2^2] \leq 2 \mathbb{E}[\|X \beta^* - y\|_2^2].
-  \] This improves on the best previous result of $O(d \log d)$ from leverage score sampling. We also present results for the \emph{inductive} setting, showing when $\tilde{\beta}$ will generalize to fresh samples; these apply to continuous settings such as polynomial regression. Finally, we show how the techniques yield improved results for the non-linear sparse Fourier transform setting.</description>
-      <guid isPermaLink="false">oai:arXiv.org:1711.10051v4</guid>
-      <category>cs.LG</category>
+      <title>Cluster deletion and clique partitioning in graphs with bounded clique number</title>
+      <link>https://arxiv.org/abs/2505.00922</link>
+      <description>arXiv:2505.00922v3 Announce Type: replace 
+Abstract: The Cluster Deletion problem asks for a minimum-size edge set whose deletion turns a graph into a disjoint union of complete graphs. Equivalently, the Clique Partition problem asks for a partition of the vertex set into cliques that maximizes the number of edges within the parts. We give a simpler proof of a result of Gao, Hare, and Nastos, that Cluster Deletion is polynomial-time solvable on cographs. In addition, we show that the natural linear programming formulation of Clique Partition is exact on cographs.
+  We then study both problems on permutation graphs, a superclass of cographs, and exhibit counterexamples to several natural greedy approaches. We also exhibit a permutation graph whose unique optimal clique partition interleaves both of the linear orders defining the graph, which rules out a natural class of dynamic programming algorithms.
+  Finally, for graphs with clique number at most $c$, we give a polynomial-time $2\binom{c}{2}/(\binom{c}{2}+1)$-approximation algorithm for Clique Partition. More generally, the algorithm runs in polynomial time on every graph class for which a maximum clique can be found in polynomial time. For each fixed $c\geq 3$, we construct infinitely many examples attaining the stated approximation ratio, so the analysis is exact.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.00922v3</guid>
       <category>cs.DS</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <category>cs.DM</category>
+      <category>math.CO</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Nicola Galesi, Tony Huynh, Fariba Ranjbar</dc:creator>
+    </item>
+    <item>
+      <title>Submodular Maximization under Supermodular Constraint: Greedy Guarantees</title>
+      <link>https://arxiv.org/abs/2602.16240</link>
+      <description>arXiv:2602.16240v3 Announce Type: replace 
+Abstract: Motivated by a wide range of applications in data mining and machine learning, we consider the problem of maximizing a submodular function subject to supermodular cost constraints. In contrast to the well-understood setting of cardinality and matroid constraints, where greedy algorithms admit strong guarantees, the supermodular constraint regime remains poorly understood -- guarantees for greedy methods and other efficient algorithmic paradigms are largely open. We study this family of fundamental optimization problems under an upper-bound constraint on a supermodular cost function with curvature parameter $\gamma$. Our notion of supermodular curvature is less restrictive than prior definitions, substantially expanding the class of admissible cost functions. We show that our greedy algorithm, which iteratively includes elements maximizing the ratio of the objective and constraint functions, achieves a $\left(1 - e^{-(1-\gamma)}\right)$-approximation before stopping. We prove that this approximation is indeed tight for this algorithm. Further, if the objective function has a submodular curvature $c$, then we show that the bound further improves to $\left(1 - (1- (1-c)(1-\gamma))^{1/(1-c)}\right)$, which can be further improved by continuing to violate the constraint. Finally, we show that the Greedy-Ratio-Marginal in conjunction with binary search leads to a bicriteria approximation for the dual problem -- minimizing a supermodular function under a lower bound constraint on a submodular function. We conduct a number of experiments on a simulation of LLM agents debating over multiple rounds -- the task is to select a subset of agents to maximize correctly answered questions. Our algorithm outperforms all other greedy heuristics, and on smaller problems, it achieves the same performance as the optimal set found by exhaustive search.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.16240v3</guid>
+      <category>cs.DS</category>
+      <category>cs.CC</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3770855.3818123</arxiv:DOI>
+      <dc:creator>Ajitesh Srivastava, Shanghua Teng</dc:creator>
+    </item>
+    <item>
+      <title>Fast Deterministic Distributed Degree Splitting</title>
+      <link>https://arxiv.org/abs/2604.00724</link>
+      <description>arXiv:2604.00724v3 Announce Type: replace 
+Abstract: We obtain better algorithms for computing more balanced orientations and degree splits in LOCAL. Important to our result is a connection to the hypergraph sinkless orientation problem [BMNSU, SODA'25] We design an algorithm of complexity $\mathcal{O}(\varepsilon^{-1} \cdot \log n)$ for computing a balanced orientation with discrepancy at most $\varepsilon \cdot \mathrm{deg}(v)$ for every vertex $v \in V$. This improves upon a previous result by [GHKMSU, Distrib. Comput. 2020] of complexity $\mathcal{O}(\varepsilon^{-1} \cdot \log \varepsilon^{-1} \cdot (\log \log \varepsilon^{-1})^{1.71} \cdot \log n)$. Further, we show that this result can also be extended to compute undirected degree splits with the same discrepancy and in the same runtime.
+  As as application we show that $(3 / 2 + \varepsilon)\Delta$-edge coloring can now be solved in $\mathcal{O}(\varepsilon^{-1} \cdot \log^2 \Delta \cdot \log n + \varepsilon^{-2} \cdot \log n)$ rounds in LOCAL. Note that for constant $\varepsilon$ and $\Delta = \mathcal{O}(2^{\log^{1/3} n})$ this runtime matches the current state-of-the-art for $(2\Delta - 1)$-edge coloring in [Ghaffari &amp; Kuhn, FOCS'21].</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.00724v3</guid>
+      <category>cs.DS</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yannic Maus, Alexandre Nolin, Florian Schager</dc:creator>
+    </item>
+    <item>
+      <title>Differentially Private Verification of Distribution Properties</title>
+      <link>https://arxiv.org/abs/2604.10819</link>
+      <description>arXiv:2604.10819v2 Announce Type: replace 
+Abstract: A recent line of work initiated by Chiesa and Gur and further developed by Herman and Rothblum investigates the sample and communication complexity of verifying properties of distributions with the assistance of a powerful, knowledgeable, but untrusted prover. In this work, we initiate the study of differentially private distribution property verification. After all, if we do not trust the prover to help us with verification, why should we trust it with our sensitive sample? We map a landscape of differentially private verification of properties of distributions. In the non-private case it is known that one-round private-coin protocols can have substantially lower complexity than public-coin (AM) protocols. In contrast, the possibility for improvement in differentially private interactive proofs depends on the privacy parameter regime and model. Drawing on connections between privacy and replicability and privacy amplification techniques in the literature we show:
+  1. There exists a reduction from any one-round $(\varepsilon,\delta)$-differentially private private-coin protocol to a differentially private AM protocol for the parameter regime $\varepsilon = O(1/\sqrt{s})$ and $\delta= O(1/s^{5/2})$ with the same privacy and sample and communication complexities. In the local model, this is relaxed to $\varepsilon = O(1/\sqrt{\log s})$
+  2. However, when the privacy guarantee is very relaxed ($\varepsilon \in \Omega(\log s)$), private coins indeed reduce sample and communication complexities.
+  We also obtain a computationally efficient Merlin-Arthur proof for privately testing whether samples are drawn from a product distribution and prove that its sample complexity is optimal up to a $polylog N$ factor by reducing uniformity testing to independence testing with Boolean attributes and appealing to known lower bounds on sample complexity for private uniformity testing.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.10819v2</guid>
+      <category>cs.DS</category>
+      <category>cs.CC</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Elbert Du, Cynthia Dwork, Pranay Tankala, Linjun Zhang</dc:creator>
+    </item>
+    <item>
+      <title>An Approximation Algorithm for 2-Vertex-Connectivity via Cycle-Restricted 2-Edge-Covers</title>
+      <link>https://arxiv.org/abs/2605.10058</link>
+      <description>arXiv:2605.10058v3 Announce Type: replace 
+Abstract: In the 2-Vertex-Connected Spanning Subgraph problem (2-VCSS), we are given an undirected graph $G$, and the objective is to find a 2-vertex-connected spanning subgraph $S$ of $G$ with the minimum number of edges. In the context of survivable network design, 2-VCSS is one of the most fundamental and well-studied problems. There has been active research on improving the approximation ratio of algorithms, and the current best ratio is $\frac{4}{3}$, achieved by Bosch-Calvo, Grandoni, and Jabal Ameli. In this paper, we improve the approximation ratio to $\frac{21}{16}+\varepsilon$ ($&lt;1.313$). The key idea in our algorithm is to introduce a 2-edge-cover without certain cycle components, and use it as an initial solution.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.10058v3</guid>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Afrouz Jabal Ameli, Yusuke Kobayashi, Takashi Noguchi</dc:creator>
+    </item>
+    <item>
+      <title>Computing Gaussian and exponential integrals in ${\Bbb R}^n$</title>
+      <link>https://arxiv.org/abs/2606.23556</link>
+      <description>arXiv:2606.23556v3 Announce Type: replace 
+Abstract: We consider expectations of the type $E \exp \left\{\sum_{i=1}^m \phi_i \right\}$, where $\phi_i: {\Bbb R}^n \longrightarrow {\Bbb C}$ are functions, each depending on a few coordinates of a point in ${\Bbb R}^n$, and the expectation is taken with respect to the standard Gaussian or symmetric exponential probability measures. We prove sufficient conditions, in terms of the Lipschitz constants of $\phi_i$ and the combinatorics of their dependencies, for the integral to be non-zero, and, consequently, to be amenable to a computationally efficient approximation. We discuss applications to computing volumes of bodies and statistics on integer points in polyhedra in ${\Bbb R}^n$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.23556v3</guid>
+      <category>cs.DS</category>
+      <category>math-ph</category>
+      <category>math.CA</category>
+      <category>math.MP</category>
+      <category>math.PR</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Alexander Barvinok</dc:creator>
+    </item>
+    <item>
+      <title>Layer-Respecting Linear Graph Layouts</title>
+      <link>https://arxiv.org/abs/2607.06968</link>
+      <description>arXiv:2607.06968v2 Announce Type: replace 
+Abstract: We show how to visualize a graph, $G=(V,E)$, as a layered drawing, layer-respecting arc diagram, or layer-respecting linear cylindric drawing with a minimum number of edge crossings, where layer-respecting means that layers appear in order on a single line and vertices are grouped by their layers. Even though this problem is NP-hard for general arc diagrams, we show how to create such diagrams with fixed-parameter tractable linear-time algorithms, where the parameter that allows this is the width of a layered graph. Such a layered graph can be obtained from a breadth-first search (BFS), in which case the width is upper bounded by a graph width parameter called the BFS width.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.06968v2</guid>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Alvin Chiu, David Eppstein, Michael T. Goodrich, Songyu Liu</dc:creator>
+    </item>
+    <item>
+      <title>The Power of the Score Sequence of a Tournament</title>
+      <link>https://arxiv.org/abs/2607.15260</link>
+      <description>arXiv:2607.15260v2 Announce Type: replace 
+Abstract: What problems can one solve on a tournament if only its score sequence is known?
+  Tournaments are oriented complete graphs that form an extensively-studied class of directed graphs (digraphs), both from combinatorial and algorithmic perspectives. Over the years, researchers have identified multiple classical digraph problems that can be solved on a tournament from only its score sequence (indegree sequence). These problems include acyclicity testing and topological sorting [Chakrabarti, Ghosh, McGregor, and Vorotnikova; SODA'20], $s,t$-reachability, strong connectivity, and decomposition into strongly connected components (SCC) [Ghosh and Kuchlous; ESA'24], and vertex-ordering problems such as cutwidth and optimal linear arrangement [Barbero, Paul, and Pilipczuk; ICALP'17]. These prior works showed the sufficiency of the score sequence by designing distinct algorithms for the individual problems. In this work, we give a simple unified framework that solves all these problems using only indegrees and, in fact, completely characterises the class of problems that is determined by the indegree information: problems whose answers are invariant under cycle reversals. This characterisation is a special case of a much more general result that we establish: for any arbitrary digraph, the knowledge of its skeleton (underlying undirected graph) and the vertex indegrees completely determines its properties that are invariant under cycle reversal.
+  As a byproduct of our results, we obtain algorithms for a variety of connectivity-based, cut-based, and vertex-ordering problems on tournaments and ``almost tournaments'' in the streaming, the two-player communication, and the cut-query models of computation. Some of these algorithms match existing optimal bounds and others provide bounds improving the state of the art.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.15260v2</guid>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Prantar Ghosh, Sahil Kuchlous, Shravan Mehra, Sagnik Mukhopadhyay</dc:creator>
+    </item>
+    <item>
+      <title>Bitcoin Mempool Linearization</title>
+      <link>https://arxiv.org/abs/2607.23787</link>
+      <description>arXiv:2607.23787v2 Announce Type: replace 
+Abstract: In the Bitcoin system, transactions arrive continuously at miners' mempools and await inclusion in future blocks. Every non-coinbase transaction must spend one or more unspent outputs created by previous transactions, inducing dependency constraints among transactions in the mempool. At the same time, miners are economically incentivized to prioritize transactions with higher fee rates, measured as transaction fee per unit size. This paper formulates the mempool linearization problem: given a set of transactions with associated fees, sizes, and dependency relationships, compute a dependency-respecting transaction ordering that maximizes fee-rate efficiency while supporting efficient updates as the mempool evolves dynamically. The problem is characterized through a partition of transactions into disjoint dependency-respecting subsets ordered by decreasing aggregate fee rate, together with an equivalent linear programming formulation. Motivated by structural properties of basic feasible solutions in the simplex method, a new algorithm called spanning forest linearization (SFL) is developed. Operating directly on the transaction dependency graph, SFL iteratively merges and splits chunks of transactions to refine a global ordering, and is guaranteed to terminate at an optimal solution. Evaluation on both synthetic and real-world Bitcoin mempool data shows that SFL consistently computes optimal linearizations with substantially lower runtime than competing approaches, including a method based on the parametric preflow algorithm of Gallo, Grigoriadis, and Tarjan. These results indicate that SFL provides a practical and scalable framework for transaction prioritization by decentralized miners in large and rapidly evolving mempools. SFL has also been incorporated into the Bitcoin Core codebase for transaction cluster linearization.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.23787v2</guid>
+      <category>cs.DS</category>
+      <category>cs.CR</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Arman Mollakhani, Pieter Wuille, Dongning Guo</dc:creator>
+    </item>
+    <item>
+      <title>Spectral clustering in the Gaussian mixture block model</title>
+      <link>https://arxiv.org/abs/2305.00979</link>
+      <description>arXiv:2305.00979v4 Announce Type: replace-cross 
+Abstract: Gaussian mixture block models are distributions over graphs that strive to model modern networks: to generate a graph from such a model, we associate each vertex $i$ with a latent feature vector $u_i \in \mathbb{R}^d$ sampled from a mixture of Gaussians, and we add edge $(i,j)$ if and only if the feature vectors are sufficiently similar, in that $\langle u_i,u_j \rangle \ge \tau$ for a pre-specified threshold $\tau$. The different components of the Gaussian mixture represent the fact that there may be different types of nodes with different distributions over features -- for example, in a social network each component represents the different attributes of a distinct community. Natural algorithmic tasks associated with these networks are embedding (recovering the latent feature vectors) and clustering (grouping nodes by their mixture component).
+  In this paper we initiate the study of clustering and embedding graphs sampled from high-dimensional Gaussian mixture block models, where the dimension of the latent feature vectors $d\to \infty$ as the size of the network $n \to \infty$. This high-dimensional setting is most appropriate in the context of modern networks, in which we think of the latent feature space as being high-dimensional. We analyze the performance of canonical spectral clustering and embedding algorithms for such graphs in the case of 2-component spherical Gaussian mixtures, and begin to sketch out the information-computation landscape for clustering and embedding in these models.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2305.00979v4</guid>
+      <category>stat.ML</category>
+      <category>cs.DS</category>
+      <category>cs.SI</category>
+      <category>math.PR</category>
+      <category>math.ST</category>
+      <category>stat.TH</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Xue Chen, Eric Price</dc:creator>
+      <dc:creator>Shuangping Li, Tselil Schramm</dc:creator>
     </item>
     <item>
-      <title>The Parameterized Complexity of Extending Stack Layouts</title>
-      <link>https://arxiv.org/abs/2409.02833</link>
-      <description>arXiv:2409.02833v2 Announce Type: replace-cross 
-Abstract: An $\ell$-page stack layout (also known as an $\ell$-page book embedding) of a graph is a linear order of the vertex set together with a partition of the edge set into $\ell$ stacks (or pages), such that the endpoints of no two edges on the same stack alternate. We study the problem of extending a given partial $\ell$-page stack layout into a complete one, which is a natural generalization of the classical NP-hard problem of computing a stack layout of an input graph from scratch. Given the inherent intractability of the problem, we focus on identifying tractable fragments through the refined lens of parameterized-complexity analysis. Our results paint a detailed and surprisingly rich complexity-theoretic landscape of the problem which includes the identification of paraNP-hard, W[1]-hard and XP-tractable, as well as fixed-parameter tractable fragments of stack layout extension via a natural sequence of parameterizations.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2409.02833v2</guid>
-      <category>cs.CG</category>
+      <title>Constant-Time Dynamic Enumeration of Word Infixes in a Regular Language</title>
+      <link>https://arxiv.org/abs/2602.14748</link>
+      <description>arXiv:2602.14748v2 Announce Type: replace-cross 
+Abstract: For a fixed regular language $L$, the enumeration of $L$-infixes is the following task: we are given an input word $w = a_1 \cdots a_n$ and we must enumerate the infixes of $w$ that belong to $L$, i.e., the pairs $i \leq j$ such that $a_i \cdots a_j \in L$. We are interested in dynamic enumeration of $L$-infixes, where we must additionally support letter substitution updates on $w$ (e.g., "replace the $i$-th letter of $w$ by a letter $a$"). Each update changes the set of infixes to enumerate, and resets the enumeration state.
+  We study for which regular languages $L$ we can perform dynamic enumeration of $L$-infixes in constant delay (i.e., the next infix is always produced in constant time) and constant additional memory throughout the enumeration, while supporting each update in constant time.
+  We show that, for languages $L$ with a neutral letter, if the language $L$ belongs to the class ZG and is extensible (i.e., if $u \in L$ and $u$ is a factor of $v$ then $v \in L$), then dynamic enumeration of $L$-infixes can be achieved with a simple algorithm that ensures constant-time updates and constant delay, but not constant additional memory. Our main contribution is then to show an algorithm that additionally uses only constant additional memory, and applies to a more general class of semi-extensible ZG languages for which we give several equivalent characterizations. We further discuss whether our results can be generalized to larger language classes and show some (conditional) lower bounds.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.14748v2</guid>
+      <category>cs.FL</category>
       <category>cs.DS</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <arxiv:DOI>10.7155/jgaa.v29i3.3221</arxiv:DOI>
-      <dc:creator>Thomas Depian, Simon D. Fink, Robert Ganian, Martin N\"ollenburg</dc:creator>
+      <dc:creator>Antoine Amarilli, Sven Dziadek, Luc Segoufin</dc:creator>
     </item>
     <item>
-      <title>Breaking Chains with Trees: Model-Parallel Deep Learning with $\mathcal{O}(\log N)$ Time Complexity</title>
-      <link>https://arxiv.org/abs/2606.21497</link>
-      <description>arXiv:2606.21497v2 Announce Type: replace-cross 
-Abstract: Modern deep neural networks are trained using error backpropagation, which requires sequential forward and backward computations across network layers. As these networks become deeper, this introduces limitations, since layer-wise updates are strictly interdependent and cannot proceed in parallel. These constraints restrict training procedures to data-parallel schemes, thereby prohibiting model-parallel training. We propose TreeProp, an architecture-agnostic variational learning framework that organizes network layers into a tree-structured hierarchy. During training, TreeProp replaces sequential forward computations and backward gradient propagation with hierarchical computations. This allows intermediate representations and learning signals to be constructed in time complexity of $\mathcal{O}(\log N)$ for a network of $N$ layers. To the best of our knowledge, TreeProp is the first learning algorithm for deep neural networks with logarithmic parallel time complexity for both forward computation and backward gradient propagation during training. Furthermore, we show that multiple valid paths through the hierarchy exist, such that TreeProp implicitly learns subnetworks with different effective depths, but without additional training effort. We evaluate TreeProp on vision classification and autoregressive language modeling, matching the performance of conventional end-to-end training for a variety of tasks and outperforming previous contrastive training approaches. We further demonstrate the applicability of TreeProp to recurrent neural networks that otherwise rely on backpropagation through time.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.21497v2</guid>
+      <title>Noise tolerance via reinforcement in the quantum search problem</title>
+      <link>https://arxiv.org/abs/2604.04137</link>
+      <description>arXiv:2604.04137v2 Announce Type: replace-cross 
+Abstract: The Grover lower bound for the unstructured search problem can be surpassed when some information about the data structure is available. Here, we numerically observe that reinforcement can exponentially reduce the number of required evolution layers from $\sqrt{D}$ to $\ln D$ in a $D$-dimensional system, by exploiting the information provided by the quantum state. Therefore, a reinforced quantum search is expected to exhibit a larger noise threshold compared to a standard search algorithm in a noisy environment. We use numerical simulations to characterize the level of noise tolerance via reinforcement in the presence of both coherent and incoherent noise, considering a system of $N$ qubits and a single $D$-level (qudit) system. Our results show that reinforcement significantly enhances the algorithm's success probability and improves the scaling of the number of reinforced evolution layers with system size. These findings indicate that reinforcement offers a promising strategy for error mitigation, especially when a precise noise model is unavailable.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.04137v2</guid>
+      <category>quant-ph</category>
+      <category>cond-mat.dis-nn</category>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1103/qt8h-6dyg</arxiv:DOI>
+      <arxiv:journal_reference>Phys. Rev. A 114, 022423 (2026)</arxiv:journal_reference>
+      <dc:creator>Marjan Homayouni-Sangari, Abolfazl Ramezanpour</dc:creator>
+    </item>
+    <item>
+      <title>Convex Optimization with Nested Evolving Feasible Sets</title>
+      <link>https://arxiv.org/abs/2605.07386</link>
+      <description>arXiv:2605.07386v2 Announce Type: replace-cross 
+Abstract: \emph{Convex Optimization with Nested Evolving Feasible Sets (CONES)} is considered where the objective function \(f\) remains fixed but the feasible region evolves over time as a nested sequence \(S_1 \supseteq S_2 \supseteq \cdots \supseteq S_T\). The goal of an online algorithm is to simultaneously minimize the regret with respect to hindsight static optimal benchmark and the total movement cost $M_\cA(T)$ while ensuring feasibility at all times. CONES is an optimization-oriented generalization of the well-known \emph{nested convex body chasing} (NCBC). When the loss function is convex, we propose a lazy-algorithm and show that it achieves $O(T^{1-\beta}), O(T^\beta)$ simultaneous regret and movement cost for any $\beta \in (0,1]$, over a time horizon of $T$. When the loss function is strongly convex, we propose a \textsc{Frugal} algorithm that simultaneously achieves zero regret and a movement cost of $O(\log T)$. To complement this, we show that any online algorithm with $o(T)$ regret has a movement cost of $\Omega\left(\sqrt{\frac{\log{T}}{\log \log T}}\right)$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.07386v2</guid>
       <category>cs.LG</category>
-      <category>cs.AI</category>
       <category>cs.DS</category>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
+      <category>math.OC</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Karthick Krishna M., Haricharan Balasundaram, Rahul Vaze</dc:creator>
+    </item>
+    <item>
+      <title>Sum-of-Squares Degree Barriers for the Reweighted-Hinge Method in Robust Halfspace Learning: A Christoffel-Function Characterization</title>
+      <link>https://arxiv.org/abs/2606.17215</link>
+      <description>arXiv:2606.17215v2 Announce Type: replace-cross 
+Abstract: A certificate that removes outliers sees the data only through its low-degree moments, and an adversary exploits exactly this, hiding corruption where the clean data already looks typical, in the blind spot no bounded-degree test resolves. That blind spot has an exact size: the Christoffel function of the clean marginal, the quantity data analysis thresholds to detect outliers, here read from the adversary's side as the corruption a certificate cannot remove. We turn this inversion into the organizing principle of the reweighted-hinge approach to robustly learning $\gamma$-margin halfspaces under malicious noise (Shen 2025; Zeng-Shen 2025): the governing resource is the Sum-of-Squares degree of the certificate, and the resolution principle states that the maximal corruption mass hideable at a center $c$ from a degree-$2t$ certificate is exactly the Christoffel function $\lambda_{t+1}(c)$. Three consequences follow, all against the certificate method (not information-theoretic). A margin-degree tradeoff: certifying the dense pancake to error $\varepsilon$ costs SoS degree $\Omega(\log(1/\varepsilon))$ or margin $\Omega(\sqrt{\log(1/\varepsilon)}/\sqrt{d})$, so the $\log(1/\varepsilon)$ margin of Shen (2025) is forced; a weighted-Chebyshev reduction makes the threshold $2t=\Theta((|c|/s)^2)$ tight modulo one classical extremal estimate. A degree-2 outlier barrier: an explicit instance on which degree 2 is stuck at $\eta^{1/2}$ while degree 4 escapes, locating the small breakdown rate in the degree, not the analysis. A degree-$2t$ algorithm tracing the frontier $\eta^{1-1/2t}$ (recovering Shen 2025 at $t=1$), with an explicit constant gain capped by the pancake density. And an information-theoretic floor of $\eta/(2(1-\eta))$, matched exactly from above; under a hard margin its two-point realizations provably require $\Theta(1/\eta)$ mixture components."</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.17215v2</guid>
+      <category>cs.LG</category>
+      <category>cs.DS</category>
+      <category>stat.ML</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Neeraj Mohan Sushma, Aditya Nagarsekar, Cabrel Teguemne Fokam, Robin Schiewer, Amit Kumar Pal, Anand Subramoney, David Kappel</dc:creator>
+      <dc:creator>Xiaoyu Li</dc:creator>
+    </item>
+    <item>
+      <title>A Necessary and Sufficient Hall Condition for Hypergraphs</title>
+      <link>https://arxiv.org/abs/2608.10193</link>
+      <description>arXiv:2608.10193v2 Announce Type: replace-cross 
+Abstract: We prove a necessary and sufficient Hall condition for a family $A=(A_e)_{e\in E(G)}$ of hypergraphs indexed by the edges of a forest \(G\). This restriction on the index graph is sharp. The loop-only case recovers the classical Hall's Theorem with multiplicities for arbitrary finite set systems, while the loopless case shows that full rainbow matching is polynomial time solvable under this forest structure, although the problem is NP-complete in general. As another application, we prove every $5$-tough chordal graph is Hamilton-connected, improving toughness bounds of $18$ for Hamiltonicity (1998) and $10$ for Hamilton-connectedness (2017).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.10193v2</guid>
+      <category>math.CO</category>
+      <category>cs.DM</category>
+      <category>cs.DS</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Xiaoyao Huang</dc:creator>
     </item>
   </channel>
 </rss>
