@@ -7,7 +7,7 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.CR" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Aug 2026 04:00:07 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 02:55:16 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
     <skipDays>
@@ -175,12 +175,13 @@ Abstract: Existing labeled Bitcoin datasets are largely derived from community-r
       <dc:creator>Abdoul Nasser Hassane Amadou, Arnaud Legout, Imane Fouad, Konstantin Avrachenkov, Anas Motii</dc:creator>
     </item>
     <item>
-      <title>Vectorized SQIsign Implementation Using AVX-512</title>
+      <title>Exposing SIMD Parallelism in SQIsign: An AVX-512 Implementation</title>
       <link>https://arxiv.org/abs/2608.13948</link>
-      <description>arXiv:2608.13948v1 Announce Type: new 
-Abstract: SQIsign is the sole isogeny-based digital signature scheme submitted to the NIST Post-Quantum Cryptography standardization process, distinguished by its foundation on the hardness of the endomorphism ring problem for supersingular elliptic curves. While offering compact key and signature sizes, SQIsign's practical deployment is hindered by computationally intensive signing procedures. This paper presents the first comprehensive vectorized implementation of SQIsign utilizing the AVX-512 Integer Fused Multiply-Add (IFMA) instruction set architecture. By systematically redesigning the computational stack---encompassing prime-field and extension-field arithmetic, elliptic curve operations including batched point doubling and scalar multiplication, as well as pairing computations via cubical arithmetic and two-dimensional isogeny evaluations---we achieve substantial performance improvements over the reference implementation. When combined with Qlapoti technology, our implementation attains a $2.69\times$ speedup for signing and a $3.18\times$ improvement for verification at NIST security level I.
-  Contrary to misconceptions regarding the obsolescence of AVX-512, we emphasize that Intel's AVX10 instruction set architecture (revision 10.2, scheduled for widespread deployment in late 2026) will standardize AVX-512 capabilities---including IFMA instructions---across both performance and efficiency cores, ensuring long-term viability of these optimization techniques. Furthermore, our vectorization strategies are architecture-agnostic and provide a methodological foundation applicable to broader isogeny-based cryptographic constructions. This work demonstrates that SIMD vectorization represents a critical yet underexplored optimization dimension for post-quantum isogeny-based schemes, independent of recent algorithmic advances.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.13948v1</guid>
+      <description>arXiv:2608.13948v2 Announce Type: new 
+Abstract: Modern isogeny-based cryptosystems spend much of their running time in finite-field, elliptic-curve, and higher-dimensional isogeny arithmetic. Exploiting SIMD parallelism is nontrivial: routines such as Montgomery ladders contain loop-carried dependencies, while point, pairing, and theta-coordinate formulas expose only irregular fine-grained parallelism. We show that substantial SIMD parallelism can be recovered by reorganizing the arithmetic dependency graphs of higher-level primitives rather than vectorizing field multiplication in isolation.
+  We develop an end-to-end AVX-512IFMA implementation of SQIsign in which data remain in a radix-$2^{51}$ vector representation across most of the curve-side computation. Our redesign includes projective xDBLADD schedules, batched point doubling in several coordinate systems, a vectorized biscalar ladder, fused cubical-arithmetic pairing steps, and batched one- and two-dimensional isogeny evaluation. Relative to the reference C implementation, we achieve end-to-end speedups of $1.76\times$, $1.71\times$, and $3.18\times$ for key generation, signing, and verification at NIST level~I; combined with Qlapoti, key-generation and signing speedups rise to $2.90\times$ and $2.69\times$.
+  We further apply the same backend and methodology to CORAL, a recent isogeny group action for post-quantum non-interactive key exchange based on two-dimensional $2$-isogenies. Across five parameter sets, this yields $1.28$--$1.40\times$ speedups for key generation and $1.92$--$2.46\times$ for shared-key computation. These results provide cross-scheme evidence that algorithm-level SIMD scheduling is a reusable optimization dimension for higher-dimensional isogeny cryptography.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.13948v2</guid>
       <category>cs.CR</category>
       <pubDate>Mon, 17 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
