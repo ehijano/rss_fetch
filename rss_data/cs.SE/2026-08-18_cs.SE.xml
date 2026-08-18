@@ -1,0 +1,874 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.SE updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.SE</link>
+    <description>cs.SE updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.SE" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Aug 2026 04:00:18 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>PandasCorpus: A Resource of Real-World Pandas Workflows and Usage Patterns</title>
+      <link>https://arxiv.org/abs/2608.14742</link>
+      <description>arXiv:2608.14742v1 Announce Type: new 
+Abstract: Pandas has emerged as the de facto library for data processing and machine learning, widely used for tasks, such as data loading, transformation, and analysis. Despite its ubiquity, there has been limited systematic investigation into how Pandas is used in real-world projects and how typical workflows are composed in practice. To address this gap, we introduce PandasCorpus, a dataset curated from GitHub repositories that captures real-world Pandas workflows at scale. In this work, a workflow refers to Pandas-based code contained in Jupyter notebooks, a prevalent medium for writing, executing, and sharing data analysis code.
+  The dataset comprises 139k notebooks from approximately 100k repositories and captures more than 4M Pandas API calls spanning 136 distinct operations. Beyond dataset construction, we characterize workflows using structural and Pandas-specific features and analyze notebook evolution between 2015 and 2025. Our study examines code executability, notebook size, and recurring sequences of Pandas operations, providing empirical insights into how Pandas is used in practice. The resulting corpus offers a reusable resource for studying data analysis workflows, Pandas usage patterns, and library-aware code composition. Both the dataset and the extraction pipeline are publicly available via GitHub and Zenodo.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.14742v1</guid>
+      <category>cs.SE</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Syrym Abdikhan, Mazhar Hameed</dc:creator>
+    </item>
+    <item>
+      <title>The Recall Trap: A Recall-Maximizing Retriever Configuration Reduces Issue Resolution in Fixed-Budget Code Context</title>
+      <link>https://arxiv.org/abs/2608.14838</link>
+      <description>arXiv:2608.14838v1 Announce Type: new 
+Abstract: Retrieval components for code assistants are tuned against retrieval metrics: a configuration that raises recall@k is adopted, and downstream task success is assumed to follow. We report a controlled case study in code repair, not a new phenomenon but a deployed-flag, execution-graded instance of the known relevance-diversity and objective-mismatch tradeoff (Levy et al., 2025). On SWE-bench Verified we inject a retriever's hits as a fixed 12-slot context pack with no search tools and toggle one flag (one-chunk-per-file deduplication) on an otherwise identical stack. The flag is the higher-recall configuration (gold file present in 0.878 of served packs against 0.806 disabled), yet disabling it, trading file breadth for within-file depth, raises the single-shot resolve rate: gpt-5.6-sol +7.6pp (39.2% to 46.8%, n=500, McNemar exact p=0.0003), and a pre-registered open-weights replication any reviewer can re-run (Qwen3.6-27B, +3.6pp, n=499, p=0.0133); both survive repository-clustered inference. The gain tracks within-file anchor dose, and a random-chunk control refutes an argmax-selection artifact. We map where it holds: it reverses on a lexical BM25 retriever (-3.2pp, significant cross-paradigm interaction), is not detected under unrestricted-Read agents (a powered null), and across four languages (SWE-PolyBench, N=617) is positive but not significant (+2.6pp, p=0.056), a mapped boundary rather than a confirmed extension. Operationally, at a tight fixed budget: do not hard-deduplicate by file, and A/B packing policies against the task, not the metric the flag was tuned to.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.14838v1</guid>
+      <category>cs.SE</category>
+      <category>cs.CL</category>
+      <category>cs.IR</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Alexander Adkins, Teimuraz Trapaidze</dc:creator>
+    </item>
+    <item>
+      <title>Evaluating Agentic Code Repair Capabilities in Distributed Systems</title>
+      <link>https://arxiv.org/abs/2608.14863</link>
+      <description>arXiv:2608.14863v1 Announce Type: new 
+Abstract: LLM-based coding agents have advanced rapidly on single-process SWE tasks, with frontier models now clustering in the high-70s on SWE-bench Verified. Distributed-system debugging, however, remains an under-explored regime: bugs span processes, nodes, and protocol interactions, with root causes rarely recoverable from source alone and brute-force exploration intractable across non-deterministic interleavings. This leaves two gaps in LLM and agent evaluation: no code-repair benchmark targets distributed-system bugs, and no controlled study isolates how much externally provided debugging context changes agent success on them. We introduce DDBench, a code-repair benchmark of 60 historical bugs mined from 13 open-source distributed systems, partitioned into three difficulty tiers.
+  DDBench evaluates every case under two matched conditions: a symptom-only condition where the agent receives only the bug symptom and repository, and a context-augmented condition where it additionally receives a bounded debugging context (logs, traces, runtime state, and targeted code-investigation notes), isolating the effect of debugging context from model capability. The evaluation of ten LLMs on DDBench reveals several findings. First, distributed debugging exercises a reasoning dimension that single-process benchmarks do not surface: models' pass rates span 61 pp, and pairwise bootstrap separates 9 of 15 top-tier model pairs at p &lt; 0.05 on DDBench's hardest case-set. Second, bounded debugging context lifts aggregate pass rate by +18.1 pp, and the lift is asymmetric: weaker models gain pass rate, while stronger models gain efficiency. Third, debugging context requires careful curation, as even faithful debugging context can sometimes mislead LLMs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.14863v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yibo Yan, Huijuan Wang, Junzhou He, Yizhuo Liang, Shaoyu Wang, Huanchen Sun, Seo Jin Park</dc:creator>
+    </item>
+    <item>
+      <title>Mobile App Rewrites via Dual Boot</title>
+      <link>https://arxiv.org/abs/2608.15135</link>
+      <description>arXiv:2608.15135v1 Announce Type: new 
+Abstract: We term the mechanism dual boot: the ability to host two mobile application variants within a single binary with a boot-time variant selection. This mechanism, combined with build-generated symbol resolution maps and linker retain lists, also enables two additional capabilities not inherent to the mechanism alone: (1) in-binary A/B experimentation between full application variants, and (2) graceful deprecation of the legacy variant without user disruption: preserving app store listing, branding, and install base. We frame the complete lifecycle as the first application of the Strangler Fig pattern to native mobile platforms. We validate the architecture across three evaluation scenarios, with improvements in developer productivity, experimentation capability and flexibility. The system contributed to a complete iOS application rewrite, from initial embedding through multi-segment experimentation to full deprecation of the legacy variant, without losing users throughout the 10-month evaluation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15135v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Gaurav Nijhara, Jasmit Kaur Saluja, Pritesh Shah, Dustin Shahidehpour, Hari Panjwani</dc:creator>
+    </item>
+    <item>
+      <title>The Quality of Claude AI-authored Python Tests Is Not Weaker Than Human-authored Tests</title>
+      <link>https://arxiv.org/abs/2608.15188</link>
+      <description>arXiv:2608.15188v1 Announce Type: new 
+Abstract: We evaluate the quality of Claude AI-written Python tests against human-written Python tests from two established open-source projects Django and Pandas. Hundreds of tests per corpus are scored under one identical protocol. Using one-sided non-inferiority bounds, we find that the tests written by recent Claude models (Sonnet/Opus 4.6 and later) are no weaker than the two human-written corpora. In this study: (i) the AI-written corpus is tests from real tools, not synthetic tests generated in isolation against a fixed target, the setup used by every other AI-test-generation study we are aware of; (ii) every test is individually scored under three independent fault-injection protocols plus a seven-axis qualitative design rubric, allowing methods to cross-validate each other; (iii) tests are scored individually, rather than suite-level, identifying exactly which specific tests need attention.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15188v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Douglas J. Leith</dc:creator>
+    </item>
+    <item>
+      <title>Comparing Domain-Model Similarity Metrics Against Human Expert Ratings</title>
+      <link>https://arxiv.org/abs/2608.15250</link>
+      <description>arXiv:2608.15250v1 Announce Type: new 
+Abstract: Domain models are a primary artefact in model-driven software engineering, where they capture the shared understanding between stakeholders and serve as the contractual basis for downstream software development. Automatic comparison of these semantic models has diverse application areas such as requirements engineering, education, automatic generation of domain models and model reuse and repository mining. The literature offers a variety of presented metrics, but for practitioners there is no defensible way to choose between them. The contribution of this paper is the implementation of five such metrics, their execution on a fixed set of 39 domain-model comparisons and the comparison of each metric's output against the human expert ratings produced for the same comparisons. Two research questions are addressed. RQ1 asks how close, on average, each metric is to the human expert rating across the 39 comparisons. RQ2 asks how consistent each metric's per-comparison distance from the human expert rating is. The findings reveal that no single metric achieves dominance across all criteria; rather, different metrics each yield competitive results on individual criteria - some closest on average, others best preserving the per-pair ordering - which suggests that an ensemble approach combining multiple metrics may serve as a viable substitute for human expert grading. The metric implementations are an artefact of this work and are published in accordance with the FAIR4RS recommendations (DOI: 10.5281/zenodo.20942596).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15250v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vasiliy Seibert</dc:creator>
+    </item>
+    <item>
+      <title>AgentR A Stateful and Recovery-Aware Software Architecture for LLM-based Auditable Workflows</title>
+      <link>https://arxiv.org/abs/2608.15264</link>
+      <description>arXiv:2608.15264v1 Announce Type: new 
+Abstract: Modern LLM-based applications increasingly require multi- stage execution, persistent intermediate state, retry seman- tics, and auditable usage accounting. However, many LLM applications are still implemented as stateless prompt- response wrappers or session-bounded conversational sys- tems, which makes them difficult to recover, audit, and re- produce after interruption or failure. We propose AgentR, a stateful architecture for LLM workflow systems that en- ables persistence and recovery, instantiated through scien- tific literature review as a representative use case. AgentR represents research intent, generated queries, candidate- paper assessments and gap analyses as durable workflow artifacts, and executes the pipeline through asynchronous BullMQ workers backed by Redis, with PostgreSQL as the persistence store. The design includes explicit processing state transitions, retries with exponential backoff, orphan job detection, credit-aware pre-checks, ACID token-cost logging, and Type-2 slowly changing pricing records. We evaluate AgentR on telemetry collected from a prototype deployment. At the LLM stage, the system achieves 99.2% job completion, and mean latencies of 9.0 s, 18.9 s, and 25.4 s for intent decomposition, query generation, and paper scoring, respectively. Parallel scoring allows for analytical latency modeling from observed calls, leading to as much as 4.3 wall-clock speedup over sequential execution. The results provide preliminary proof-of-concept that persistent state machine design, asynchronous orchestration, and cost-aware usage logging can enable improved observability, recoverability, and operational accountability in LLM workflow systems. The prototype implementation of AgentR is publicly available at: https://github.com/ RiyaSamanta/AgentR-public.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15264v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Riya Samanta, Bidyut Saha, Soumya Kanti Ghosh, Rajkumar Buyya</dc:creator>
+    </item>
+    <item>
+      <title>On the Influence of Refactoring Types on Merge Effort</title>
+      <link>https://arxiv.org/abs/2608.15384</link>
+      <description>arXiv:2608.15384v1 Announce Type: new 
+Abstract: Modern software development involves parallel work and concurrent changes, requiring code merging. Prior studies report that 10% to 20% of merge attempts result in conflicts, often requiring manual intervention. The literature explores factors that generate conflicts, including refactorings, but does not analyze how individual refactoring types influence the manual effort required to resolve them. We analyzed 64 open-source Java projects and applied association rule mining to measure the strength of associations between specific refactoring types and merge effort. Our results show that refactoring types relate to merge effort with varying strength. In particular, Rename Attribute, Move Class, Extract Variable, Change Return Type, and Split Parameter exhibit some of the strongest associations, especially when a higher number of such refactorings is present in the merge branches. We also find that both the number of refactorings and their diversity independently increase merge effort, both in terms of occurrence and intensity. Additionally, the co-occurrence of refactorings across parallel branches is associated with higher merge effort, particularly when combining structural transformations with changes to method signatures and data-structure representations, whereas more localized changes are less frequent in the most impactful combinations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15384v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Andr\'e Oliveira, Jo\~ao Victor Monteiro, V\^ania Neves, Alexandre Plastino, Bianca Trinkenreich, Alessandro Garcia, Leonardo Murta</dc:creator>
+    </item>
+    <item>
+      <title>HxAgent: Iterative Agent Planning for End-to-End Web Application Testing</title>
+      <link>https://arxiv.org/abs/2608.15491</link>
+      <description>arXiv:2608.15491v1 Announce Type: new 
+Abstract: In automated web testing, generating test cases and performing testing using functionality descriptions in natural-language is crucial for improving efficacy. These tasks require such a testing agent to carry out tasks on the target application and generating tests autonomously. We introduce HxAgent, an iterative LLM-based planning agent with a proactive correction strategy. After each step, HxAgent reassesses the web state to determine the next action using (1) current observations, (2) short-term memory of past actions, and (3) long-term experience extracted from past (in)correct sequences of actions. HxAgent achieves 97.4% Exact-Match accuracy on MiniWoB++, comparable to the best baselines without human demonstrations and surpassing the recent WALT by 10.5%. On a dataset of 350 web tasks, it attains 83.8% Exact-Match and 91.8% Prefix-Match, exceeding WALT by 13.4%. On OnlineMind2Web, it further improves over WALT by 4.6%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15491v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Tu Nguyen, Duy Cao, Viet Nguyen, Phu Nguyen, Vy Le, Nguyen TK Nguyen, Tien N. Nguyen, Vu Nguyen</dc:creator>
+    </item>
+    <item>
+      <title>Kozuchi Agent: A Language-Agnostic Open-Weight Agent for Software Repair</title>
+      <link>https://arxiv.org/abs/2608.15579</link>
+      <description>arXiv:2608.15579v1 Announce Type: new 
+Abstract: Industrial software-engineering teams increasingly need LLM agents that turn bug reports into correct patches, yet benchmark-scale operation adds long horizons, tool-use discipline, context persistence, heterogeneous clusters, and evaluation reuse. We present Kozuchi Agent, a language-agnostic open-weight repair agent and CI-operated evaluation pipeline. Explicit phases, persistent state, deterministic tools, a model-independent action interface, and cross-agent test-time selection make runs auditable and repeatable. With locally hosted Qwen3.5-27B, no fine-tuning, and TTS@8, Kozuchi resolves 374/500 SWE-bench Verified instances on the official evaluator. Unchanged on Multi-SWE-bench Java, the same 27-billion-parameter agent resolves 41/128 instances (32.03%), ranking first among strict open-weight submissions and fourth of 42 overall; on Python it ranks 12th of 135 and first among open-weight systems. Per-phase behavior remains within +/-5 percentage points across languages. Remaining failures mainly reflect semantic correctness, Java-specific harness issues, and selection errors. Across both tracks, results compare favorably with open/local peers by parameter count. Analysis of candidate diversity, selector regret, and patch reliability shows that the remaining gap is primarily semantic correctness and selection rather than edit formatting or proprietary-model access. Operationally, reusable CI stages reduce operator touch-points from five to one across heterogeneous internal clusters.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15579v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.ET</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3832783.3834531</arxiv:DOI>
+      <dc:creator>Mehdi Bahrami, Kosaku Kimura, Satoshi Munakata, Satoshi Nakashima, Yu Ishikawa, Kosuke Maeda, Nao Soma, Kenichi Kobayashi, Keisuke Miyazaki, Keizo Kato, Shigeki Fukuta, Tatsuo Kumano, Nobutaka Imamura, Kevin Musgrave, Shahbaz Abdul Khader, Kwun Ho Ngan, Joe Townsend, Fayas Asharindavida, Matthieu Parizy, Akira Sakai, Yuma Ichikawa, Yang Zhao, Michiaki Takizawa, Taku Fukui, Hiroki Ohtsuji, Wei-Peng Chen, Hiromichi Kobashi</dc:creator>
+    </item>
+    <item>
+      <title>AutoSQL: Extracting SQL Templates from Imperative ORM Code in Large-Scale Repositories</title>
+      <link>https://arxiv.org/abs/2608.15595</link>
+      <description>arXiv:2608.15595v1 Announce Type: new 
+Abstract: Suboptimal SQL queries can significantly degrade the performance of cloud systems, motivating the extraction and auditing of SQL statements before deployment. However, Go ORM frameworks construct SQL imperatively through scattered method-call sequences, making it difficult to statically recover the resulting SQL templates. We present AutoSQL, a system that reconstructs SQL templates from Go ORM code. AutoSQL constructs a Code Index, a directed graph that captures structural dependencies between functions, types, and global variables as navigable edges. It then traces upstream call chains from ORM invocation sites to identify database-interacting functions as entry points. For each entry point, an LLM agent traverses the Code Index to collect code slices that influence SQL generation, switching to pattern-based search when the graph cannot resolve a retrieval goal. We call this strategy Hybrid Context Retrieval. Once sufficient context is collected, the agent synthesizes SQL templates. Evaluation on a benchmark of 579 test-covered entry points and 1,186 runtime-traced SQL statements from five large-scale Go repositories shows that AutoSQL achieves 68.04% to 72.18% recall, exceeding the static reachability baseline by 11.80% to 15.94% and outperforming existing methods by 8.52% to 21.50%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15595v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Junsong Pu, Yichen Li, Zhuangbin Chen, Zhihan Jiang, Zibin Zheng</dc:creator>
+    </item>
+    <item>
+      <title>An Empirical Comparison of Monolithic and Microservices Architectures for an E-Commerce Application</title>
+      <link>https://arxiv.org/abs/2608.15668</link>
+      <description>arXiv:2608.15668v1 Announce Type: new 
+Abstract: Microservices architectures are widely adopted for their promised scalability and modularity, yet empirical evidence comparing their runtime performance to monolithic designs remains context-dependent. This paper presents an experimental comparison of a monolithic and a microservices implementation of the same e-commerce application, both backed by a shared PostgreSQL database. Using k6, we subject both systems to identical HTTP workloads at 50 and 100 virtual users (VUs) over 60-second runs, measuring throughput, latency, and error rates. At 50 VUs, both architectures perform similarly with no errors. At 100 VUs, the microservices design achieves 5.4% higher throughput, 25% lower average latency, and 39% lower p95 latency than the monolith, while exhibiting a lower median error rate (0.00% vs 0.69%). The monolith shows consistent order-creation failures under load, whereas microservices failures are transient and confined to the cart service in one run. These results suggest that, in this deployment context, decomposing the system into microservices improves scalability and tail latency under stress, while introducing distinct, service-specific failure modes that must be managed.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15668v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Swayam Amol Katole</dc:creator>
+    </item>
+    <item>
+      <title>Where Accountability Lives: Mapping Human Responsibility to Workflow Artifacts in Agentic Software Development</title>
+      <link>https://arxiv.org/abs/2608.15678</link>
+      <description>arXiv:2608.15678v1 Announce Type: new 
+Abstract: Coding agents author commits, open pull requests, and push code in production repositories. Who is accountable is settled in two places that do not refer to each other: the platform controls that gate what an agent may do, and the provider terms that allocate responsibility for what it produces.
+  We read both against the workflow events that leave artifacts, across four agentic coding tools and eighteen governing policy documents from seven providers, recording at each event who holds authority, who executed and under which identity, who must verify, who bears the consequence, and which artifact survives.
+  The layers disagree. One provider bars the developer who assigned a task from approving the resulting pull request; another documents an agent that approves pull requests below a configured risk threshold and can dismiss reviews. We therefore replace the usual three-way distinction between enforced, advisory and absent verification with a grid separating whether a mechanism compels the check from who performs it. Attribution runs in opposite directions across providers, and no trailer is defined for agent authorship, though one provider repurposes the co-authorship trailer for it.
+  We argue that agentic tooling did not create this gap. A decade of code-review research already recorded that the approval artifact carries less than the terms assume. What changes is that this weakness moved from a property of how people work to a property of what a product does: a vendor now documents a product that stands at the approval event and emits the same artifact with no party capable of forming a judgement present.
+  We do not claim the gap harms anyone. The selection rule is equalised across the four tools, every reported absence is re-tested against a doubled page set with the survival rate reported, and the source collection and its scripts are deposited.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15678v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Sabry E. Farrag</dc:creator>
+    </item>
+    <item>
+      <title>An Empirical Study on the Impact of Normalized Use-Case Specifications on Traceability</title>
+      <link>https://arxiv.org/abs/2608.15726</link>
+      <description>arXiv:2608.15726v1 Announce Type: new 
+Abstract: Traceability link recovery between requirements and source code is vital for software quality assurance and evolution analysis. Although automated traceability techniques have advanced greatly, the large semantic gap between vague natural-language requirements and precise source code still hinders accurate link recovery. Most existing approaches optimize traceability algorithms yet ignore the inherent quality of requirement descriptions, which prevents fundamental reduction of the semantic gap. This work proposes a requirement-oriented normalization method. Using controlled natural language and large-language-model-based prompt engineering, raw requirements are decomposed and converted into standardized use-case specifications to strengthen semantic representation and mitigate semantic divergence. Evaluated on four public datasets under two typical traceability frameworks, the normalized specifications improve tracing performance for semantically ambiguous raw requirements. However, over-normalization may degrade results for already high-quality requirements closely aligned with code semantics. The results validate source-side requirement normalization as a promising strategy for traceability improvement and reveal its applicable boundaries for practical usage.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15726v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Luoyuan Shi, Yuanzhao Zhai, Dawei Feng, Jialin Zhao, Zhaoxie Xu, Bo Ding, Huaimin Wang</dc:creator>
+    </item>
+    <item>
+      <title>Mind the Gap: An Empirical Study of Synchronization Gaps, Delays, and Missed Opportunities in Software Forks</title>
+      <link>https://arxiv.org/abs/2608.15803</link>
+      <description>arXiv:2608.15803v1 Announce Type: new 
+Abstract: Fork-based development enables parallel evolution of software, but unsynchronized contributions create persistent divergence: security patches, bug fixes, and quality improvements often fail to propagate across fork families, leaving downstream users exposed to known vulnerabilities or bugs and missing massive opportunities to improve the other repositories in the family. We present the first large-scale empirical study of fork synchronization, analyzing popular GitHub fork families with 3,820 actively maintained forks, and developed a monitoring platform to mine the valuable commits and promote their swift merging.
+  Our findings reveal a synchronization paradox: while 90% of submitted pull requests are merged, only 6.92% of fork commits ever appear in PRs, leaving massive fork development permanently unsynchronized across the families. Synchronization delay is pervasive and structurally uneven where fork propagation accounts for 72.9% of end-to-end commit lifecycle delay. Contrary to common assumptions, PR rejection is rarely caused by technical incorrectness; instead, 65% of rejections stem from superseded contributions, process violations, or maintainer policy decisions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15803v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jiaying Zhu, Lyuye Zhang, Jiahui Wu, Chengyue Liu, Yang Liu</dc:creator>
+    </item>
+    <item>
+      <title>SMTpip: Interpreter-Aware SMT-Based Dependency Conflict Resolution for Restoring Python Source-Code Executability</title>
+      <link>https://arxiv.org/abs/2608.15886</link>
+      <description>arXiv:2608.15886v1 Announce Type: new 
+Abstract: Software developers rely on packages to reuse existing functionality instead of implementing everything from scratch. Python developers commonly provide package and interpreter dependencies using configuration files, such as requirements.txt or setup.py. Package managers in Python, such as pip, can install packages according to dependency and interpreter version constraints specified in configuration files. However, Python dependency resolution remains challenging: (1) different packages may require incompatible versions of the same dependency; (2) dependencies may require a Python interpreter version that is incompatible with the interpreter used for the project, making a valid environment impossible; and (3) pip, the most popular Python package manager, resolves conflicts via backtracking, repeatedly trying candidate versions without knowing whether a valid execution environment exists or not. To address these challenges, we present SMTpip, an interpreter-aware environment inference technique for improving the executability of Python source-code artifacts. SMTpip constructs a dependency knowledge graph using metadata stored in the Python Package Index (PyPI) that hosts millions of package releases, encodes both package version constraints and interpreter compatibility constraints specified in configuration files into Satisfiability Modulo Theories (SMT) formulas. Solving these formulas identifies a set of package versions and an interpreter version that jointly satisfy all declared constraints. Empirical evaluation on multiple datasets from open-source Python projects shows that SMTpip achieves substantial speedups -- $6.9\times$ over pip, $9.6\times$ over Conda, $3.2\times$ over smartPip, and $4\times$ over PyEGo -- while consistently producing constraint-consistent environments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15886v1</guid>
+      <category>cs.SE</category>
+      <category>cs.LO</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sadman Jashim Sakib, Muhammad Asaduzzaman, Curtis Bright</dc:creator>
+    </item>
+    <item>
+      <title>OpenHarmony Bench: Evaluating LLMs and Coding Agents on OpenHarmony App Development</title>
+      <link>https://arxiv.org/abs/2608.16022</link>
+      <description>arXiv:2608.16022v1 Announce Type: new 
+Abstract: We present OPENHARMONY BENCH, an app-level coding benchmark for evaluating LLM-based coding agents on OpenHarmony ArkTS applications. Unlike function-level benchmarks, it evaluates complete app-level changes: each task requires an agent to modify a buildable ArkTS project so that a requested behavior works end to end, involving UI state, data persistence, build configuration, and platform APIs. The benchmark installs and drives the delivered application on a device to check whether the behavior is observable. It covers three input sources: natural-language feature requests (new-feature), structured scenario specifications (spec-driven), and bug descriptions (bug-fix). The benchmark contains 153 top-level tasks and 242 Feature points (F-points), where an F-point is one executable behavior check. The snapshot includes 32 new-feature tasks, 50 spec-driven tasks with 139 F-points, and 71 bug-fix tasks. The main leaderboard is scored over top-level tasks rather than independently weighted F-points. We describe the benchmark construction, statistics, and build-and-test evaluation pipeline, and evaluate DevEco Code with eight LLMs across three independent full-suite runs per configuration. Three findings emerge. First, newer generations complete more tasks than their predecessors within evaluated model-family pairs. Second, buildability is close to saturated while behavioral correctness is not: mean Final Build Success Rate is 94.77% to 100.00%, whereas mean Task Completion is 48.36% to 58.39%. Third, spec-driven tasks have the lowest Task Completion under all-checks task scoring, with no configuration exceeding 35%. The code, data, tasks, reference solutions, tests, evaluation scripts, and leaderboard are released through the official OPENHARMONY BENCH website at https://bench.matrix.openharmony.cn/.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16022v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Li Li, Han Hu, Tianjian Zhang, Xin Peng, Fangzhu Mao, Qingyu Zhang, Xiaoheng Xie, Zhongmin Tang, Zhihao Lin, Haolin Ruan, Miaomiao Dong, Liuchuan Zhu, Yue Li, Chi Chen, Wenkang Zhong, Mingfei Zhang, Yang Yu, Bo Sun, Chaorui Zhang, Weixi Zhang, Wei Han, Bo Bai, Kui Liu, Gang Fan, Siru Liu, Jiaqian Zhou, Jiali Sun, Yunbiao Dong, Wenhao Zhong, Yunhong Xu</dc:creator>
+    </item>
+    <item>
+      <title>Strategic Technical Debt: A Real Options Approach to Early-Stage Software Experimentation</title>
+      <link>https://arxiv.org/abs/2608.16112</link>
+      <description>arXiv:2608.16112v1 Announce Type: new 
+Abstract: Technical debt is treated almost universally as an engineering pathology. This paper argues that under the conditions defining early-stage software work (high hypothesis uncertainty, cheap experiments, and the freedom to abandon), deliberately incurred technical debt is a rationally priced financial instrument: a call option on the validated product, purchased at a discount that is largest exactly when uncertainty is highest. We make three contributions. First, a demarcation: debt is strategic when its expected cost loads on the success branch of the venture (repaid only if the hypothesis validates) and toxic when it imposes unconditional cost while held (security exposure, data loss, corrupted experimental signal), a boundary stated formally that renders the popular "prudent vs. reckless" intuition testable. Second, a sequential model: a finite-horizon dynamic program over belief and debt stock yielding four results: a shadow price of debt equal to the risk-discounted probability of repayment; a technical-debt overhang (the belief threshold for scaling rises with the debt stock, proved via an envelope Lipschitz bound); a refactoring-pivot theorem (optimal repayment concentrates at the commitment boundary, predicting the practitioner-reported refactoring burst at product-market fit, registered here as a falsifiable prediction); and a volatility result under risk-neutral valuation. A pivot-salvage correction shows the folk rule "maximum debt at maximum uncertainty" fails whenever failure redirects rather than terminates the venture and the salvage differential clears the discounted cost premium. Third, a two-test primary empirical program (validation-event refactoring timing; the first repository measurement of pivot salvage), pre-registered with frozen analyzers before any data contact. Calibrations are illustrative, not estimates.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16112v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Rashid Azarang, Mohammad Reza Azarang Esfandiari</dc:creator>
+    </item>
+    <item>
+      <title>Software Engineering for AI-driven Building Operation</title>
+      <link>https://arxiv.org/abs/2608.16237</link>
+      <description>arXiv:2608.16237v1 Announce Type: new 
+Abstract: Building operations are energy-inefficient. Artificial Intelligence (AI)-driven control systems promise benefits through optimization and predictive control, but deploying them in real buildings reveals a significant software engineering (SE) challenge. SE for AI practices assume digital environments where failures mean poor user experience. Buildings are different. A bad control decision wastes energy irreversibly, violates occupant comfort, or accelerates equipment wear. Although actual safety-critical failures are rare, as real building automation systems are inherently fault-tolerant, the physical and lasting nature of even minor failures fundamentally changes SE4AI requirements. Rooted in two interdisciplinary research projects in civil engineering and computer science that target the AI-driven optimization of building operations, we identify the missing perspectives in SE4AI that currently stymie the successful deployment of AI-based systems for building operations. We further share lessons learned and best practices, and discuss broader implications for engineering AI-driven building operations and cyber-physical systems more generally. Our work proposes a foundation for SE4AI in systems where failure has physical consequences - one the research agenda below will need to validate.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16237v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Philipp Zech, Sascha Hammes, Johannes Weninger, J\"urgen Pannosch, Gernot Steidl</dc:creator>
+    </item>
+    <item>
+      <title>Validating HTTP Semantics in REST APIs With Constructed Call Sequence Scenarios</title>
+      <link>https://arxiv.org/abs/2608.16239</link>
+      <description>arXiv:2608.16239v1 Announce Type: new 
+Abstract: Context: REST APIs are widely used in industry. These APIs use HTTP for their communications. Failures in following the specifications of HTTP can lead to confusing and hard to use APIs, with possibly serious software faults with dire consequences. Objectives: Define novel automated techniques to automatically find HTTP semantics-level faults in existing REST APIs. Methods: We extended the state-of-the-art fuzzer EvoMaster with 9 new oracles to detect HTTP semanticslevel faults. Once the standard fuzzing process is finished generating N test cases, a new phase is executed in which these N tests are used as a starting point to create new scenarios (i.e., new sequences of HTTP calls) aimed at validating specific HTTP properties defined in these 9 oracles. Results: Experiments on 9 artificial APIs with inject faults show that our novel techniques can successfully detect all of them. Further experiments on 36 APIs from the WFD corpus show that our novel techniques can automatically find 166 existing faults in these real-world APIs. Conclusion: REST APIs use HTTP, and, as such, they need to follow its semantics to avoid misleading their clients and introducing subtle software faults. The novel techniques presented in this paper are shown to be effective at automatically finding several of this type of faults.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16239v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Omur Sahin, Andrea Arcuri</dc:creator>
+    </item>
+    <item>
+      <title>Implicit, Yet Impactful: Understanding Hidden Dependencies in Java Projects</title>
+      <link>https://arxiv.org/abs/2608.16262</link>
+      <description>arXiv:2608.16262v1 Announce Type: new 
+Abstract: As software usage continues to expand, package managers automatically resolve dependencies to construct a dependency graph based on user-specified requirements. These explicitly declared dependencies, known as direct dependencies, receive significant attention in terms of maintainability and security. However, implicit dependencies, which are not explicitly defined by users but are still directly utilized or referenced in their project code due to oversight, remain largely unnoticed. Unlike ordinary transitive dependencies, which may remain unused and invisible to the root, implicit dependencies are actively used yet undeclared, leaving their versions outside the project's direct control. This lack of awareness poses substantial challenges related to security and maintainability.
+  In this study, we present the first study to treat implicit dependencies as the focal phenomenon and quantitatively characterize their lifecycle consequences for the Maven ecosystem. We meticulously collected and built a large-scale dataset with 1,157 libraries with 19,812 versions from the Maven Central Repository and 972 modules from GitHub. Our findings reveal that 34.12% of the analyzed dataset contains implicit dependencies, with two primary causes identified as key contributors to the issue. Among these, 48% introduce breaking changes due to version drift, and 36 CVEs have vulnerable methods directly used by root projects; 30.28% of implicit dependencies are affected by known vulnerabilities under the version-range convention SCA tools use for declared dependencies. Finally, we identified and analyzed four major countermeasures, providing actionable insights and practical implications for addressing this overlooked issue for stakeholders within the OSS ecosystem.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16262v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Lyuye Zhang, Chengwei Liu, Fangyuan Zhang, Yiran Zhang, Yuan Zhou, Yang Liu</dc:creator>
+    </item>
+    <item>
+      <title>Comparing the Quality of Code Generated by Vibe Coding Tools</title>
+      <link>https://arxiv.org/abs/2608.16302</link>
+      <description>arXiv:2608.16302v1 Announce Type: new 
+Abstract: The use of AI agents for automatic code generation has become increasingly common in software development. However, concerns remain about the quality of the generated code, including aspects of maintainability, readability, and long-term evolution. This study compares the structural quality of code produced by three widely adopted vibe coding tools --- Lovable, v0, and Replit --- starting from a single generation prompt. We generate three independent projects per tool, totalling nine web applications, and submit them to static analysis with SonarQube. We collect metrics such as the number of issues, severity distribution, estimated remediation effort, cyclomatic and cognitive complexity, and code duplication. Preliminary results show that the tools exhibit distinct qualitative profiles: Lovable concentrates issues of lower severity but presents a substantially higher density of code smells per KLOC, while v0 and Replit produce more code with more aggressive severity profiles. These findings suggest that choosing between vibe coding tools involves structural trade-offs that go beyond perceived productivity.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16302v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Gustavo da Mota, Kiev Gama</dc:creator>
+    </item>
+    <item>
+      <title>Revisiting the Performance of Generative Artificial Intelligence on Introductory Object-Oriented Programming Assessments: Insights from 2026</title>
+      <link>https://arxiv.org/abs/2608.16318</link>
+      <description>arXiv:2608.16318v1 Announce Type: new 
+Abstract: Recent advances in Generative Artificial Intelligence (GenAI) have substantially improved the ability of large language models (LLMs) to generate and explain source code. However, their performance on authentic object-oriented programming (OOP) assessments remains insufficiently understood. This study evaluates five widely used GenAI systems, ChatGPT-5.2, DeepSeek-V3, Gemini 2.5 Flash, Claude Sonnet 4.5, and M365 Copilot, using programming tests and examination tasks from an introductory university OOP course. The generated solutions were assessed using the same grading criteria applied to students and compared with historical student results from the same course, as well as findings from the previous year. Common errors were also analyzed to identify recurring limitations across models. All evaluated GenAI systems achieved higher scores than the average student cohort and frequently obtained full marks on longer programming tasks. Nevertheless, they occasionally produced non-compiling code and continued to struggle with advanced OOP concepts, particularly interfaces, abstract classes, and certain inheritance-related tasks. Performance was also limited on graphics-related questions involving image interpretation. Compared with the previous year, the evaluated systems demonstrated noticeable improvements across most assessments while exhibiting several recurring error patterns. The findings provide an updated evaluation of the capabilities and limitations of contemporary GenAI systems on authentic introductory OOP assessments. They also offer evidence that can inform the design of programming assessments, the responsible integration of GenAI tools into software engineering education, and future studies evaluating the evolution of AI-assisted programming.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16318v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Marina Lepp, Joosep Kaimre</dc:creator>
+    </item>
+    <item>
+      <title>Towards Risk-free AI Agent Deployment</title>
+      <link>https://arxiv.org/abs/2608.16411</link>
+      <description>arXiv:2608.16411v1 Announce Type: new 
+Abstract: LLM-based agents are rapidly moving from research prototypes into the core business processes of organizations, but these agents pose deployment risks to security, compliance, and functionality. In this article, we argue that risk-free deployment must be grounded in the agent's trajectory: the recorded sequence of reasoning steps, tool invocations, and environmental observations. Trajectories are available for any agent, and many failures are visible only in the trajectory. To make agents deployable and sustainable, we advocate agent testing and debugging as a systematic research direction for detecting and mitigating these risks. This article begins with the challenges of testing agents, including the oracle problem, non-determinism, trajectory validation, and the absence of adequacy metrics. We then turn to debugging agents, from automated failure attribution to repair and self-evolution. We distill these directions into a practical deployment-readiness checklist covering the full deployment lifecycle. Finally, we identify open problems, i.e., formal adequacy metrics, root-cause attribution over long-horizon trajectories, and the reliability of self-evolving agents, that the community must address to enable trustworthy agent deployment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16411v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yintong Huo, Rangeet Pan, Abhik Roychoudhury</dc:creator>
+    </item>
+    <item>
+      <title>DCI: Dependency Confidence Index for Assessing Open-Source Dependency Trustworthiness</title>
+      <link>https://arxiv.org/abs/2608.16430</link>
+      <description>arXiv:2608.16430v1 Announce Type: new 
+Abstract: Selecting trustworthy open source software dependencies remains a major challenge in software supply chain security. We present the Dependency Confidence Index (DCI), a composite formative index that combines nine empirically weighted trust factors into a single normalized composite score for dependency selection. DCI's trust factors combine insights from a systematic literature review and an exploratory Analytic Hierarchy Process (AHP) survey of ten software developers, highlighting security, source code quality, and project health as the most influential dimensions. Following Goal-Question-Metric methodology, we implemented 12 automated measurements using SonarQube, GitHub APIs, and OpenSSF Scorecard data, deployed in a containerized evaluation platform. We conducted a pilot evaluation of the normalized DCI on 92 popular PyPI packages, observing moderate agreement with OpenSSF Scorecard scores and perfect test--retest reliability. Analysis reveals process-based factors (dependency management, CI) dominate scores on high-quality packages, while security metrics saturate---suggesting DCI's complementary role to existing tools. Our publicly available implementation provides a foundation for open source software trustworthiness research and practical dependency auditing.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16430v1</guid>
+      <category>cs.SE</category>
+      <category>cs.CR</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Clemens Albrecht, Stefan Reitmann</dc:creator>
+    </item>
+    <item>
+      <title>Operationalizing the EU AI Act in Agile Software Development: A Guideline-Based Approach</title>
+      <link>https://arxiv.org/abs/2608.16526</link>
+      <description>arXiv:2608.16526v1 Announce Type: new 
+Abstract: Context: The EU AI Act requires providers and deployers of Artificial Intelligence (AI) systems to implement documentation, risk management, and human oversight. Agile teams that ship AI features in short iterations lack specific artifacts to discharge these duties, since the regulation's abstract provisions do not map onto the Definition of Done, Sprint Reviews, or working agreements. Objective: We provide agile teams with an actionable compliance instrument: an evaluated guideline that operationalizes EU AI Act obligations as activities integrable into existing agile practice. We further document the translation method behind it so that the approach can be reused for adjacent regulations. Method: Following Design Science Research, we assessed each EU AI Act article along three dimensions. We subsequently classified the articles using a traffic-light scheme and mapped those deemed highly relevant to previously documented pain points of agile teams working with AI. We validated the resulting catalog with practitioners through a survey and 11 additional semi-structured expert interviews, analyzed via qualitative content analysis. Results: The guideline comprises 12 items covering roles and responsibilities, risk and quality management, transparency and traceability, monitoring, and regulatory sandboxes. Practitioners rated the catalog as understandable and relevant; feasibility varied with organizational maturity. Effective adoption towards EU AI Act compliance requires collective ownership across roles and integration into existing agile events rather than parallel compliance processes. Conclusions: The catalog gives agile teams a starting point to transform their delivery practices towards an EU AI Act compliance without dismantling agile practices.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16526v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Dennis Schrader, Eva-Maria Sch\"on, Henning Fritzemeier, Michael Neumann</dc:creator>
+    </item>
+    <item>
+      <title>ADEMM: A Longitudinal Method for Monitoring Developer Efficiency in Industry</title>
+      <link>https://arxiv.org/abs/2608.16580</link>
+      <description>arXiv:2608.16580v1 Announce Type: new 
+Abstract: Context: Developer efficiency is influenced by technical, organizational, cognitive, and communication-related factors. However, most studies rely on one-time assessments or fixed instruments, limiting the ability to monitor how barriers emerge and change over time, especially in consulting and professional education contexts. Objective: This study proposes and evaluates the Adaptive Developer Efficiency Monitoring Method (ADEMM), an adaptive longitudinal method for monitoring developer efficiency when the monitoring organization does not directly employ the developers. Method: Following Design Science Research and Action Design Research, we conducted a mixed-method longitudinal study with 27 software developers over twelve survey cycles. ADEMM was designed and refined through five iterative cycles, combining recurring surveys, 18 semi-structured interviews, and joint evaluation with a problem owner. Results: The study resulted in ADEMM, a method that supports continuous data collection, mixed-methods integration, and iterative redesign of monitoring instruments. The evaluation produced three design principles: prioritization with the problem owner based on actionability, combination of closed and open data collection, and adaptation of items based on low variance and emerging qualitative signals. Conclusions: ADEMM provides a transferable approach for adaptive longitudinal monitoring of developer efficiency. It helps balance comparability, contextual sensitivity, and practical utility in environments where organizations need to support developers without directly controlling their work contexts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16580v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Danilo Ribeiro, Breno Alves, Gabriel Souza, C\'esar Fran\c{c}a, Alberto Souza</dc:creator>
+    </item>
+    <item>
+      <title>Factors Impacting Developer Efficiency: Results from an Adaptive Longitudinal Study</title>
+      <link>https://arxiv.org/abs/2608.16596</link>
+      <description>arXiv:2608.16596v1 Announce Type: new 
+Abstract: Context: Developer efficiency is driven by technical, organizational, and personal factors, yet few longitudinal studies explore how these factors evolve over time. Objective: This study investigates the primary factors hindering the perceived efficiency of developers in a consulting and professional development context, analyzing how these factors vary across recurring data collection cycles and how they are described qualitatively. Method: We conducted a mixed-methods longitudinal case study applying the Adaptive Developer Efficiency Monitoring Method (ADEMM) to 27 external software developers, combining twelve waves of periodic surveys with eighteen semi-structured interviews, analyzed through statistical and thematic analysis. Results: The most frequent bottlenecks were organizational dependencies and waiting for external validation, which stayed structurally stable, followed by technical knowledge gaps, which declined as developers adapted. A generative AI usage barrier emerged qualitatively nine waves into the study, was incorporated into the survey instrument, and became the most frequently coded interview theme. Interviews corroborated the quantitative findings, with insufficient requirements documentation and organizational dependencies as the most recurrent themes alongside AI-related challenges. Conclusions: Perceived developer efficiency is highly dynamic and cannot be accurately captured through a single cross-sectional measurement. Adaptive monitoring via ADEMM identified an emerging factor, generative AI usage barriers, that a fixed instrument would have missed, and informed a concrete organizational intervention during the study. For organizations managing external developers, actions should target external dependencies, communication channels, and developers' evolving use of AI tools.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16596v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Danilo Ribeiro, Breno Alves, Gabriel Souza, C\'esar Fran\c{c}a, Alberto Souza</dc:creator>
+    </item>
+    <item>
+      <title>The Specification Paradox: Rethinking Requirements Engineering in the Age of AI</title>
+      <link>https://arxiv.org/abs/2608.16618</link>
+      <description>arXiv:2608.16618v1 Announce Type: new 
+Abstract: The growing adoption of Large Language Models (LLMs) in Software Engineering has reinforced the expectation that coding activities can be largely automated. However, this perception may represent yet another historical search for a solution capable of eliminating the inherent challenges of software development. This article discusses the transition from a code-centered paradigm to Specification-Driven Development. We argue that artificial intelligence reduces some of the effort associated with writing source code, but it does not eliminate the complexity of developing professional software systems. Instead, it shifts this complexity toward domain understanding, requirements elicitation, specification development, validation, maintenance, and software evolution. Building on this perspective, we discuss the renewed centrality of Requirements Engineering, considering its implications for productivity and software quality, as well as risks associated with automation bias, ambiguity propagation, Specification Overfitting, and the accumulation of Specification Debt. Finally, we propose the Specification Paradox: the more capable artificial intelligence systems become at automatically generating software, the greater the dependence on correct, complete, verifiable, and explainable human-produced specifications. We conclude that the future of Software Engineering will depend not only on machines' ability to generate code, but also on humans' ability to correctly specify, evaluate, and evolve what is intended to be built.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16618v1</guid>
+      <category>cs.SE</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Tassio Sirqueira, Jessica Faciroli</dc:creator>
+    </item>
+    <item>
+      <title>The Working Set of a Coding Agent: Coherence Debt in Repository-Scale Tasks</title>
+      <link>https://arxiv.org/abs/2608.16630</link>
+      <description>arXiv:2608.16630v1 Announce Type: new 
+Abstract: Repository-scale coding requires an agent to keep tests, imports, configuration, and migration rules consistent within a bounded context window. We model this as reconstructing a coupled-fact graph: at each edit, a required fact comes from recent context or parametric memory, and the facts covered by neither form coherence debt. We supply and withhold each channel and inject faults across seven models and five harnesses. As expected, no model completes a task on an unseen API with both channels empty, and putting the facts in the prompt restores success. When a rename defeats what models memorized about a real library, all seven fail in the same place, passing and missing the same tests. Availability decides the outcome and distance does not: withholding a fact costs exactly the work it supports, and a supplied fact works as well far from the edit as next to it. Harnesses pay unequal prices for it: configurations that all pass every test differ more than tenfold in tokens consumed because they rebuild the same content at different rates, and spending more recovers nothing when facts are withheld. A missing fact produces wrong work rather than absent work: an agent asked to act acts, fabricating the file or guessing the value, so instruments built on reads look for a hole already filled. How often it says it is blocked instead is a property of the model, from every trial to none. Availability does not settle every edit: where standard and code disagree, agents follow the standard even when it prescribes the worse code, so a stale convention file costs more than no file. Because parametric memory substitutes for reading, on SWE-bench, where models likely know the repositories, reads no longer predict success. Harnesses should keep the facts an edit depends on available when the agent writes, and check that availability against what the agent produces rather than what it reads.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16630v1</guid>
+      <category>cs.SE</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Bardia Mohammadi, Lars Klein, Aman Chadha, Akhil Arora, Laurent Bindschaedler</dc:creator>
+    </item>
+    <item>
+      <title>ModBench: A Pipeline for Building Modelica Benchmark Datasets Mined from Library Repositories</title>
+      <link>https://arxiv.org/abs/2608.16638</link>
+      <description>arXiv:2608.16638v1 Announce Type: new 
+Abstract: Research on equation-based cyber-physical systems modeling languages, such as Modelica, is constrained by the lack of curated benchmark datasets. This limits empirical insight into the evolution and development of models. We address this gap with ModBench, a pipeline that mines Git repositories of Modelica libraries to produce benchmark datasets of model snapshots. The pipeline (1) filters repository commits to retain human-authored, Modelica-relevant revisions; (2) extracts simulation-eligible classes; and (3) builds canonical representations of Modelica classes. For empirical validation, we applied ModBench to the Modelica Standard Library (MSL) and report the resulting dataset, spanning the full commit history (since Modelica language v3), with 85,562 distinct class snapshots, and links enabling traceability to original models and Git metadata. The dataset, its API, and the data generation pipeline are publicly available to support future research on model evolution analysis, compiler testing, and automated model repair or generation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16638v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3837062.3838901</arxiv:DOI>
+      <dc:creator>Masoud Sadrnezhaad, Martin Sj\"olund, Adrian Pop, Jos\'e Antonio Hern\'andez L\'opez, Torvald M{\aa}rtensson, D\'aniel Varr\'o</dc:creator>
+    </item>
+    <item>
+      <title>TDD-Agent: Test-Driven Reasoning for Code Generation</title>
+      <link>https://arxiv.org/abs/2608.16742</link>
+      <description>arXiv:2608.16742v1 Announce Type: new 
+Abstract: Large Language Models (LLMs) have achieved remarkable progress in code generation, yet ensuring correctness in complex, repository-level tasks remains challenging. Existing approaches often use generated tests as static post-hoc validators, which limits their ability to guide implementation and may introduce misleading feedback when the tests themselves are incomplete or incorrect. In this paper, we introduce TDD-Agent, which operationalizes the test-driven development paradigm for code generation. TDD-Agent first prompts the model to generate executable tests, encouraging it to clarify expected behaviors before implementation, and then performs iterative dual-track refinement over both the generated code and tests using execution feedback. We first isolate the effect of test-first reasoning through a prompt variant TDD-prompt on LiveCodeBench, where it consistently improves upon reasoning-based prompting baselines. Building on this finding, we evaluate the full TDD-Agent framework on RepoEval, a repository-level benchmark, and show that it consistently outperforms retrieval-based and agent-based baselines. Additional analyses show that iterative refinement improves not only code correctness but also the effectiveness of the generated tests, yielding higher pass rates, coverage, and mutation scores, suggesting that tests can serve as evolving reasoning artifacts rather than fixed validators. Our source code is available at https://anonymous.4open.science/r/TDD-Agent-Framework-6370/.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16742v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Hongyue Yu, Kefan Li, Jiakun Li, Hongzheng Chai, Yuan Yuan, Rui He, Junyi Wei</dc:creator>
+    </item>
+    <item>
+      <title>Agentic Kernel Optimization: Generating State-of-the-Art GPU Kernels Without Hand-Written CUDA</title>
+      <link>https://arxiv.org/abs/2608.14560</link>
+      <description>arXiv:2608.14560v1 Announce Type: cross 
+Abstract: We study whether general-purpose code agents can produce state-of-the-art GPU kernels without any manually written CUDA code. We investigate this question using representative workloads from FlashInfer-Bench, focusing on the Fused MoE, DSA TopK Indexer, and DSA Sparse Attention, and evaluate all generated kernels under the correctness-gated FlashInfer-Bench protocol on NVIDIA B200 GPUs. Starting from the PyTorch implementations, workload definitions, benchmark commands, and a compact set of CUDA optimization skills, we build a kernel optimization workflow in Houmao, a multi-agent orchestration framework for heterogeneous coding agents, to generate, debug, profile, and optimize the kernels. Humans remain strictly in an orchestration role: defining the workflow, enforcing correctness and anti-hacking constraints, supplying key references, and redirecting the search when progress stalls, without reviewing or editing the kernel code itself. Across roughly 1.9 billion agent tokens, the resulting kernels achieve speedups of 92.68x on Fused MoE, 1101.02x on DSA TopK Indexer, and 181.35x on DSA Sparse Attention relative to the PyTorch reference implementations, while also significantly outperforming the corresponding FlashInfer baselines. In the official evaluation of the MLSys 2026 FlashInfer AI Kernel Generation Contest, our generated Fused MoE kernel achieves a 1.71x speedup over the FlashInfer baseline, exceeding the top result of the Fused MoE agent-assisted track, which reports a 1.68x speedup. These results suggest that, under a disciplined correctness-first workflow, code agents can serve as effective autonomous optimizers for modern GPU kernel development.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.14560v1</guid>
+      <category>cs.DC</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mao Luo, Hongbin Li, Feng Lin, Hanling Yi, Zhe Huang</dc:creator>
+    </item>
+    <item>
+      <title>When Uncertainty Isn't Enough: An Empirical Study of Self-Correction in Code Generation</title>
+      <link>https://arxiv.org/abs/2608.14659</link>
+      <description>arXiv:2608.14659v1 Announce Type: cross 
+Abstract: Large language models for code generation often produce incorrect solutions without reliable indicators of failure. We study whether uncertainty estimation methods developed for natural language transfer to code generation, and whether such signals can improve code generation via selective self-correction. We evaluate five uncertainty methods: mean token entropy, verbalized confidence, $P(\text{True})$, entropy ensembles, and semantic entropy probes, across three small code LLMs on HumanEval and BigCodeBench. We find that multi-sample $P(\text{True})$ achieves the strongest correlation with correctness, while all the other methods, including semantic entropy probes, yield only weak correlation. We then use these uncertainty signals to drive three self-correction policies: adaptive decoding, uncertainty-based regeneration, and verification-based regeneration. Our results reveal a stronger negative finding than anticipated: uncertainty-based self-correction fails to reliably improve Pass@1, degrading accuracy in 5 of 6 configurations across both benchmarks ($-3$pp to $-10$pp), and adaptive decoding degrades accuracy in 4 of 6 configurations. Only verification-based self-correction reliably improves Pass@1, with gains of $+6$ to $+26$ percentage points on HumanEval and $+8$ to $+20$ percentage points on BigCodeBench, scaling inversely with baseline strength. These findings replicate consistently across both benchmarks and suggest that cheap uncertainty estimators are insufficient on their own to improve code correctness, and that their practical value lies in serving as gating signals for costlier execution-based correction loops rather than as standalone substitutes for verification.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.14659v1</guid>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Pranav Rakasi, Maanas Lalwani, Arnav Srivastava, Arya Palanivel, Tinuade Adeleke, Ruizhe Li, Sean Wu</dc:creator>
+    </item>
+    <item>
+      <title>When Agentic Executions Fail: Detecting and Localizing Runtime Faults from Telemetry</title>
+      <link>https://arxiv.org/abs/2608.14680</link>
+      <description>arXiv:2608.14680v1 Announce Type: cross 
+Abstract: Reliability in LLM-based agentic systems is a property of the whole execution (its tool calls, model calls, guardrails, and inter-agent messages), not of the final answer alone, yet evaluating only task outcomes reveals little about how or why a run fails. We present AGENTCHAOSBENCH, a benchmark for detecting and localizing runtime faults in agentic systems from their execution telemetry. We run five heterogeneous applications that coordinate agents over the Agent-to-Agent protocol and call tools through the Model Context Protocol, and inject ten types of operational fault (unavailable or slow tools, corrupted or oversized responses, and delayed, looped, or misrouted delegations and bypassed guardrails) at their tool, model, guardrail, and inter-agent boundaries, alongside a no-fault control. The resulting dataset contains 275 sanitized traces: 250 faulty executions spanning ten fault types and 25 no-fault controls. Each faulty trace is aligned with the no-fault execution of the same input; fault-type labels and, where applicable, location labels are held out from diagnosis. On structured single-trace inputs, a first set of zero-shot LLM baselines shows the task is far from solved: local detectors up to 14B parameters reach only 13.6-19.2% top-1 fault-type accuracy and the frontier DeepSeek-v4-pro only 24.8%, while jointly identifying the fault type and its location tops out at 22%; reference-dependent faults (above all a bypassed guardrail) stay near-unsolved from a single trace. An aligned reference improves selected relative faults but does not resolve guardrail bypass. The held-out labels and compact prediction format support reproducible comparison of LLM-based and non-LLM diagnosis methods.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.14680v1</guid>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Chenkai Zhang, Yiran Li, Yifang Tian, Michalis Bachras, Hans-Arno Jacobsen</dc:creator>
+    </item>
+    <item>
+      <title>Enabling Hybrid HPCQC Workflows with a Heterogeneous Software Stack</title>
+      <link>https://arxiv.org/abs/2608.14827</link>
+      <description>arXiv:2608.14827v1 Announce Type: cross 
+Abstract: In this work, we demonstrate hybrid High Performance Computing-Quantum Computing (HPCQC) workflows on a production petascale system. The demonstration combines three components: the SuperMUC-NG supercomputer at the Leibniz Supercomputing Centre (LRZ), a 20-qubit superconducting quantum processor provided by IQM Quantum Computers (IQM), and Munich Quantum Valley (MQV)'s Munich Quantum Software Stack (MQSS).
+  Integrating quantum processors into High Performance Computing (HPC) systems requires a heterogeneous software stack capable of orchestrating classical and quantum resources within established supercomputing workflows. MQSS treats Quantum Processing Units (QPUs) as scheduler-managed accelerators and it performs resource coordination following a two-level scheduling scheme. Slurm performs system-level allocation by exposing QPUs as Generic RESources (GRES), while the MQSS Quantum Resource Manager &amp; Compiler Infrastructure (QRM&amp;CI) performs just-in-time compilation and subsequent dispatch of quantum circuits.
+  To integrate with existing HPC operations without modifying the scheduler core, MQSS introduces an open-source SLURM Plugin Suite based on Prolog/Epilog scripts and SPANK modules. Experimental results show that hybrid HPCQC workflows can be executed without significant latency overhead compared to conventional workloads.
+  The presented architecture provides a portable integration model for quantum accelerators on large-scale HPC systems and is directly applicable to next-generation Hewlett Packard Enterprise (HPE) Cray platforms, including LRZ's upcoming 'Blue Lion' supercomputer.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.14827v1</guid>
+      <category>quant-ph</category>
+      <category>cs.DC</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Muhammad Nufail Farooqi, Minh Chung, Burak Mete, Eric Mansfield, Bernd Hoffmann, Teemu Mattsson, Laura Schulz, Jorge Echavarria</dc:creator>
+    </item>
+    <item>
+      <title>WeSCE: A Benchmark for Measuring Security Drift in LLM-Driven Code Editing</title>
+      <link>https://arxiv.org/abs/2608.15092</link>
+      <description>arXiv:2608.15092v1 Announce Type: cross 
+Abstract: In this work, we introduce WeSCE, a benchmark for quantifying security drift in code editing under weak-security constraints, where tasks specify only functional objectives without explicit security requirements. WeSCE consists of 400 executable programs derived from real-world code, covering feature addition, feature removal, bug fixing, and refactoring. To quantify security drift, we propose a continuous risk representation that aggregates heterogeneous vulnerability signals through a unified formulation, and define drift measures capturing changes in overall risk, worst-case severity, and vulnerability distribution under code transformations, providing a multi-scale view of security spanning average-case behavior to worst-case emphasis.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15092v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Zhiyu Zhang, Tingyue Wen, Senke Sun, Dengxiang Liang, Enhao Huang</dc:creator>
+    </item>
+    <item>
+      <title>LongRCA Bench: Diagnosing Responsible Roles and Root Causes in Long-Horizon Agent Failures</title>
+      <link>https://arxiv.org/abs/2608.15242</link>
+      <description>arXiv:2608.15242v1 Announce Type: cross 
+Abstract: When a long-horizon agent execution fails, outcome-level evaluation reveals the unsuccessful result but not where the decisive error entered the trajectory. Developers must then inspect the full execution to identify the responsible role and localize the earliest decisive root-cause step. Existing failure-attribution benchmarks largely focus on shorter traces, leaving diagnosis across hundreds of recorded steps underexplored. We introduce LongRCA Bench, comprising 1,140 failed trajectories across five domains without injected errors. It provides independently scored human labels for the responsible role and earliest decisive root-cause step. The median trajectory contains 145 steps, and the strongest baseline reaches only 13.2% exact root-step accuracy. We further present Root-Cause Trajectory Attribution (RCTA), a training-free method that retrieves candidate error steps from segment summaries and traces them to available earlier handoff instructions. Using the same backbone, benchmark instances, and scoring protocol, RCTA reaches 51.1% responsible-role accuracy and 24.1% exact root-step accuracy. These results highlight the need to evaluate responsible-role attribution and exact root-step localization as separate targets in long-trajectory failure diagnosis.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15242v1</guid>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yunfei Zhang, Boyu Feng, Changhua Pei, Zexin Wang, Zhihuang Peng, Xinlong Liu, Hengyue Jiang, Difeng Ma, Jiayi Zhang, Yongzhou Yao, Yanan Zhao, Fei Sun, Yintong Huo, Zhaoyang Liu, Jingjing Li, Gaogang Xie, Dan Pei</dc:creator>
+    </item>
+    <item>
+      <title>Invariant Pretraining for Robust Code Representations</title>
+      <link>https://arxiv.org/abs/2608.15412</link>
+      <description>arXiv:2608.15412v1 Announce Type: cross 
+Abstract: Encoder-based code representation models remain widely deployed for discriminative tasks such as clone detection and code classification, where their small size and low inference cost are decisive. Their robustness, however, is fragile: under invariant programs, semantically equivalent code written in different syntactic forms, learned representations degrade substantially even though program behavior is unchanged. We present an empirical study of this robustness gap across four encoder baselines, two downstream tasks, and four datasets, together with a minimal code-only continued pretraining recipe that closes much of it. Our method, invariant pretraining (InvPT), applies semantic-preserving transformations to the corpus and combines masked language modeling with multi-positive supervised contrastive learning that treats all augmentations of the same source function as positives, mixing self-contrast pairs (same code, different masks) with invariant-contrast pairs (transformed code) for positives of varying difficulty. Unlike prior contrastive code encoders, InvPT does not require paired natural-language data. Across our evaluation, InvPT improves robustness on transformed test sets by up to 11 percentage points on clone detection and 19 on code classification while matching or improving standard accuracy, and our ablations isolate multi-positive invariant contrast as the main source of the gains. Our aim is not a new objective but a careful measurement of where encoder robustness breaks and how far a simple, code-only recipe can recover it.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15412v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/publicdomain/zero/1.0/</dc:rights>
+      <dc:creator>Yifeng He, Yundi Xu, Christopher Castro Gaw Gonzalo, Zili Wang, Hao Chen</dc:creator>
+    </item>
+    <item>
+      <title>Securing AI-Generated Code: A Just-in-Time Vulnerability Detection and Remediation Pipeline</title>
+      <link>https://arxiv.org/abs/2608.16187</link>
+      <description>arXiv:2608.16187v1 Announce Type: cross 
+Abstract: AI-assisted development tools generate vulnerable code at significant rates, yet few automated mechanisms exist to detect, enrich, fix, and verify security issues at development velocity, particularly ones that ground remediation in real-world threat context. This paper presents an automated security evaluation pipeline that generates Python code from LLMSecEval prompts, scans for vulnerabilities using CodeQL and Bandit in parallel with an independent Code Validator LLM, enriches the Code Validator findings with MITRE ATT&amp;CK techniques, CWE Observed Examples, and Python best practice guidelines, generates fixes via the Code Generation LLM, and re-scans with CodeQL and Bandit to verify outcomes. Two pipeline configurations were evaluated: Pipeline 1 (P1), using enriched Code Validator findings only, and Pipeline 2 (P2), where it additionally receives the initial CodeQL and Bandit findings. Both configurations were run across four Claude models: Opus 4.8, Sonnet 4.6, Sonnet 5, and Haiku 4.5, producing 80 runs against 26 LLMSecEval prompts covering 9 CWE categories.
+  P1 reduced static analyzer findings across all four models, ranging from -9% (Opus 4.8) to -54% (Sonnet 5). P2 deepened these reductions further, ranging from -29% (Opus 4.8) to -69% (Haiku 4.5), with P2 outperforming P1 for every model. Verdict consistency averaged approximately 81% modal agreement across all configurations, with P2 marginally more stable than P1. Remediation introduced new vulnerabilities in 15-22% of cases: roughly 70% involved a single new finding, and P2 reduced churn for three of four models, with Sonnet 5 as the sole exception. Notably, the best Code Generation LLM (Opus 4.8) was not the best pipeline performer, as Sonnet 4.6 produced the lowest residual findings and highest pass rate after P2 remediation, suggesting that pipeline effectiveness and first-draft security are distinct properties.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16187v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mikhail Surikov</dc:creator>
+    </item>
+    <item>
+      <title>When Agents Coordinate: Measuring Coordination in Multi-Agent AI Coding</title>
+      <link>https://arxiv.org/abs/2608.16801</link>
+      <description>arXiv:2608.16801v1 Announce Type: cross 
+Abstract: We study how teams of AI coding agents coordinate while solving programming tasks. Current evaluations usually report whether the agents complete the task and how much the run costs, leaving the coordination inside the team largely unmeasured. We introduce an instrument to measure this coordination. Each run is represented as a temporal network in which agents and files are nodes, and messages, file writes, and file reads are timestamped directed edges with an associated cost. We apply this instrument to 1902 runs, each evaluated with a fixed test suite, across configurations that vary the team size, the team structure, and the file policy. The resulting networks show how coordination changes as teams grow and as the work changes. Direct messaging initially increases close to quadratically with the number of agents, with much of this growth coming from an early round of introductions. As the teams grow further, this increase levels off in the largest teams we study, where agents increasingly communicate through broadcast messages. The task also shapes the network that emerges. Work built around a shared specification produces dense, highly connected teams, while pipeline tasks produce sparse networks organised around local interfaces. Shared files can replace repeated 1-to-1 communication, cutting output tokens by about 42% at eight agents on message-heavy work, while adding overhead when files already carry the coordination. Naming one agent as coordinator creates no communication hub and provides no reliable improvement in success. We also observe an unprompted tendency for agents to seek out hidden grading material. We repeat the key experimental conditions in a sealed environment, replacing the hidden material with marked placeholder files. Across 244 additional runs, agents still reach for it in four fifths of runs, while the coordinator and file-channel findings reproduce.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.16801v1</guid>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Giuseppe Destefanis, Tomaso Aste</dc:creator>
+    </item>
+    <item>
+      <title>Enhancing the Non-Functional Quality Compliance of LLM-Generated Code through Quality-Aware Preference Learning</title>
+      <link>https://arxiv.org/abs/2503.09020</link>
+      <description>arXiv:2503.09020v3 Announce Type: replace 
+Abstract: Large Language Models (LLMs) have been widely adopted in commercial code completion engines, significantly enhancing coding efficiency and productivity. However, even functionally correct LLM-generated code may exhibit non-functional quality issues that violate coding standards and best practices, such as poor style and limited maintainability. To address this, we propose a framework for quality-aware preference learning that guides LLMs toward generating criteria-compliant code. Our approach consists of three phases. First, we construct a dataset of paired criteria-violating and criteria-compliant samples, where each pair contains code exhibiting a specific non-functional quality issue and its repaired version that resolves the issue. Second, we design an adaptive token weighting mechanism to emphasize quality-sensitive code regions. Third, we introduce a hybrid optimization objective that combines ranking loss with language modeling loss and KL divergence to enable effective comparative optimization. Extensive experiments on DeepSeek-Coder and Qwen2.5-Coder show that our method substantially improves compliance with the targeted non-functional quality criteria while maintaining functional correctness, achieving a 75.7% relative increase in Quality Reciprocal Score (QRS) on MBPP-sanitized for Qwen2.5-Coder. Fine-tuning a 7B model requires less than three hours, indicating strong practical viability. Ablation studies and a user study further support the effectiveness of the proposed framework.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2503.09020v3</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Liang Lu, Yuan Jiang, Christoph Treude, Shuzheng Gao, Jingyu Xiao, Xiaohong Su, Michael R. Lyu</dc:creator>
+    </item>
+    <item>
+      <title>Self-Bootstrapping Automated Program Repair: Using LLMs to Generate and Evaluate Synthetic Training Data for Bug Repair</title>
+      <link>https://arxiv.org/abs/2505.07372</link>
+      <description>arXiv:2505.07372v3 Announce Type: replace 
+Abstract: This paper presents a novel methodology for enhancing Automated Program Repair (APR) through synthetic data generation utilizing Large Language Models (LLMs). Current APR systems are constrained by the limited availability of high-quality training data encompassing diverse bug types across multiple programming languages. The proposed approach addresses this limitation through a two-phase process: a synthetic sample generation followed by a rigorous quality assessment. Multiple state-of-the-art LLMs were employed to generate approximately 30,000 paired examples of buggy and fixed code across 12 programming languages and 13 bug categories. Subsequently, these samples underwent cross-model evaluation against five criteria: correctness, code quality, security, performance, and completeness. Experimental evaluation on the VulRepair test set dataset showed statistically significant improvements in Perfect Prediction rates, with the quality-filtered synthetic dataset achieving 17.18% (Top@1) and 23.00% (Top@5) compared to the baseline's 11.68% and 18.88% respectively, representing a 47% relative improvement in Top@1 and 22% in Top@5. The methodology was validated through rigorous statistical testing, including ANOVA and post-hoc Tukey's Honest Significant Difference analysis. Furthermore, the best-performing configurations surpassed existing systems despite using a less computationally intensive decoding strategy. This research establishes a self-bootstrapping paradigm in which LLMs generate and evaluate their own training data, suggesting promising directions for addressing data scarcity in similar software engineering tasks and advancing the development of robust, adaptable tools for automated code maintenance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.07372v3</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:DOI>10.1016/j.eswa.2026.132154</arxiv:DOI>
+      <arxiv:journal_reference>Expert Systems with Applications (5 July 2026), Volume 319, 132154</arxiv:journal_reference>
+      <dc:creator>David de-Fitero-Dominguez, Antonio Garcia-Cabot, Eva Garcia-Lopez</dc:creator>
+    </item>
+    <item>
+      <title>Aletheia: What Makes RLVR For Code Verifiers Tick?</title>
+      <link>https://arxiv.org/abs/2601.12186</link>
+      <description>arXiv:2601.12186v4 Announce Type: replace 
+Abstract: Multi-domain thinking verifiers trained via Reinforcement Learning with Verifiable Rewards (RLVR) are a cornerstone of modern post-training. However, their adoption in code generation has lagged behind that of execution feedback due to the prohibitive costs of the full RLVR pipeline. In this work, we ablate three primary choices along the performance-cost trade-off in RLVR: intermediate thinking traces, learning from negative samples, and on-policy training. We introduce Aletheia, a controlled, execution-grounded testbed to facilitate a decontaminated analysis of code verifier training recipes across disparate model sizes and covariate shifts across two common verifier application scenarios. Our analysis reveals that the optimal training recipe is scale-dependent: on-policy learning is the primary performance driver for small verifiers, whereas the thinking budget becomes the most vital factor at larger scales. Negative samples play a key role in stabilizing training at large sizes. They have a constant impact on top-1 selection, but are increasingly important for ranking performance as size increases. Our Pareto optimality analysis demonstrates that eliminating on-policy training at larger model scales could yield a verifier that performs comparably to the full RLVR recipe. Furthermore, we find that eschewing thinking traces is a compute-efficient strategy at lower budgets, offering a strong trade-off between training cost and verifier accuracy. We validate our findings across a Best-of-N deployment setting and two external reward model benchmarks, demonstrating that our findings generalize beyond the controlled testbed. Ultimately, our work offers empirical guidance toward training cost-efficient code verifiers and takes a step toward their wider adoption in post-training pipelines for code.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.12186v4</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Vatsal Venkatkrishna, Indraneil Paul, Iryna Gurevych</dc:creator>
+    </item>
+    <item>
+      <title>ReLoop: Structured Modeling and Behavioral Verification for Reliable LLM-Based Optimization</title>
+      <link>https://arxiv.org/abs/2602.15983</link>
+      <description>arXiv:2602.15983v3 Announce Type: replace 
+Abstract: Large language models (LLMs) can translate natural language into optimization code, but silent failures pose a critical risk: code that executes and returns solver-feasible solutions may encode semantically incorrect formulations---a feasibility--correctness gap reaching 90 percentage points on compositional problems. We introduce ReLoop, which addresses this gap through two complementary mechanisms. Structured generation decomposes code production into a four-stage reasoning chain (understand, formalize, synthesize, verify), preventing formulation errors at their source. Behavioral verification detects errors that survive generation by testing whether the formulation responds correctly to solver-based parameter perturbation---an external semantic signal that bypasses LLM self-review and requires no ground truth. The two mechanisms are complementary by error structure: structured generation drives the largest gains on compositional problems (+8.5pp accuracy on RetailOpt-190 with Claude Opus 4.6), while behavioral verification dominates on localized defects +4.4pp on MAMO-ComplexLP, its largest contribution across benchmarks). Combined with diagnostic execution recovery, ReLoop reaches 100% executable code on Claude Opus 4.6 and consistently improves accuracy on chat-tuned foundation models across three benchmarks; we further identify a known limitation of narrowly-tuned SFT models, whose learned output formats are brittle to chain-of-thought prompts---an interaction we document and analyze. We release RetailOpt-190, 190 compositional retail optimization scenarios targeting the multi-constraint interactions where LLMs most frequently fail.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.15983v3</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>math.OC</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Junbo Jacob Lian, Yujun Sun, Huiling Chen, Chaoyu Zhang, Hanzhang Qin, Chung-Piaw Teo</dc:creator>
+    </item>
+    <item>
+      <title>Automating the Detection of Requirement Dependencies Using Large Language Models</title>
+      <link>https://arxiv.org/abs/2602.22456</link>
+      <description>arXiv:2602.22456v2 Announce Type: replace 
+Abstract: Requirements are inherently interconnected through various types of dependencies. Identifying these dependencies is essential, as they underpin critical decisions and influence a range of activities throughout software development. However, this task is challenging, particularly in modern software systems, given the high volume of complex, coupled requirements. These challenges are further exacerbated by the ambiguity of Natural Language (NL) requirements and their constant change. Consequently, requirement dependency detection is often overlooked or performed manually. Large Language Models (LLMs) exhibit strong capabilities in NL processing, presenting a promising avenue for requirement-related tasks. While they have shown to enhance various requirements engineering tasks, their effectiveness in identifying requirement dependencies remains unexplored. In this paper, we introduce LEREDD, an LLM-based approach for automated detection of requirement dependencies that leverages Retrieval-Augmented Generation (RAG) and In-Context Learning (ICL). It is designed to identify diverse dependency types directly from NL requirements. We empirically evaluate LEREDD against two state-of-the-art baselines. The results show that LEREDD provides highly accurate classification of dependent and non-dependent requirements, achieving an accuracy of 0.93, and an F1 score of 0.84, with the latter averaging 0.96 for non-dependent cases. LEREDD outperforms zero-shot LLMs and baselines, particularly in detecting fine-grained dependency types, where it yields average relative gains of 94.87% and 105.41% in F1 scores for the Requires dependency over the baselines. We also provide an annotated dataset of requirement dependencies encompassing 813 requirement pairs across three distinct systems to support reproducibility and future research.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.22456v2</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ikram Darif, Feifei Niu, Manel Abdellatif, Lionel C. Briand, Ramesh S., Arun Adiththan</dc:creator>
+    </item>
+    <item>
+      <title>Formalisms for Robotic Mission Specification and Execution: A Comparative Analysis</title>
+      <link>https://arxiv.org/abs/2603.15427</link>
+      <description>arXiv:2603.15427v2 Announce Type: replace 
+Abstract: Robots are increasingly deployed across diverse domains and designed for multi-purpose operation. As robotic systems grow in complexity and operate in dynamic environments, the need for structured, expressive, and scalable mission-specification approaches becomes critical, with mission specifications often defined in the field by domain experts rather than robotics specialists. However, there is no standard or widely accepted formalism for specifying missions in single- or multi-robot systems. A variety of formalisms, such as Behavior Trees, State Machines, Hierarchical Task Networks, and Business Process Model and Notation, have been adopted in robotics to varying degrees, each providing different levels of abstraction, expressiveness, and support for integration with human workflows and external devices.
+  This paper presents a systematic analysis of these four formalisms with respect to their suitability for robot mission specification. Our study focuses on mission-level descriptions rather than robot software development. We analyze their underlying control structures and mission concepts, evaluate their expressiveness and limitations in modeling real-world missions, and assess the extent of available tool support. By comparing the formalisms and validating our findings with experts, we provide insights into their applicability, strengths, and shortcomings in robotic system modeling. The results aim to support practitioners and researchers in selecting appropriate modeling approaches for designing robust and adaptable robot and multi-robot missions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.15427v2</guid>
+      <category>cs.SE</category>
+      <category>cs.RO</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Gianluca Filippone, Sara Pettinari, Patrizio Pelliccione</dc:creator>
+    </item>
+    <item>
+      <title>Who Tests the Testers? Systematic Enumeration and Coverage Audit of LLM Agent Tool Call Safety</title>
+      <link>https://arxiv.org/abs/2603.18245</link>
+      <description>arXiv:2603.18245v2 Announce Type: replace 
+Abstract: Large Language Model (LLM) agents increasingly act through external tools, making their safety contingent on tool-call workflows rather than text generation alone. While recent benchmarks evaluate agents across diverse environments and risk categories, a fundamental question remains unanswered: how complete are existing test suites, and what unsafe interaction patterns persist even after an agent passes the benchmark? We propose SafeAudit, a meta-audit framework that addresses this gap through two contributions. First, an LLM-based enumerator that systematically generates test cases by enumerating valid tool-call workflows and diverse user scenarios. Second, we introduce rule-resistance, a non-semantic, quantitative metric that distills compact safety rules from existing benchmarks and identifies unsafe interaction patterns that remain uncovered under those rules. Across 3 benchmarks and 12 environments, SafeAudit uncovers more than 20% residual unsafe behaviors that existing benchmarks fail to expose, with coverage growing monotonically as the testing budget increases. Our results highlight significant completeness gaps in current safety evaluation and motivate meta-auditing as a necessary complement to benchmark-based agent safety testing.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.18245v2</guid>
+      <category>cs.SE</category>
+      <category>cs.CR</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Xuan Chen, Lu Yan, Ruqi Zhang, Xiangyu Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Can LLMs Reason Like Automated Theorem Provers for Rust Verification? VCoT-Bench: Evaluating via Verification Chain of Thought</title>
+      <link>https://arxiv.org/abs/2603.18334</link>
+      <description>arXiv:2603.18334v2 Announce Type: replace 
+Abstract: As Large Language Models (LLMs) increasingly assist secure software development, their ability to meet the rigorous demands of Rust program verification remains unclear. Existing evaluations treat Rust verification as a black box, assessing models only by binary pass or fail outcomes for proof hints. This obscures whether models truly understand the logical deductions required for verifying nontrivial Rust code. To bridge this gap, we introduce VCoT-Lift, a framework that lifts low-level solver reasoning into high-level, human-readable verification steps. By exposing solver-level reasoning as an explicit Verification Chain-of-Thought, VCoT-Lift provides a concrete ground truth for fine-grained evaluation. Leveraging VCoT-Lift, we introduce VCoT-Bench, a comprehensive benchmark of 1,988 VCoT completion tasks for rigorously evaluating LLMs' understanding of the entire verification process. VCoT-Bench measures performance along three orthogonal dimensions: robustness to varying degrees of missing proofs, competence across different proof types, and sensitivity to the proof locations. Evaluation of ten state-of-the-art models reveals severe fragility, indicating that current LLMs fall well short of the reasoning capabilities exhibited by automated theorem provers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.18334v2</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zichen Xie, Wenxi Wang</dc:creator>
+    </item>
+    <item>
+      <title>Latent Reuse in Agent Skills: Multi-modal Clone Detection at Ecosystem Scale</title>
+      <link>https://arxiv.org/abs/2603.22447</link>
+      <description>arXiv:2603.22447v2 Announce Type: replace 
+Abstract: An agent skill is a reusable package for extending an LLM agent, typically a SKILL.md file that combines YAML metadata, natural-language instructions, and executable code. Public repositories now host over two million skills, yet existing tools analyze each artifact in isolation, and registries do not track reuse created through copying, renaming, or adaptation. Detecting these links is difficult because reuse may appear in one channel while the others change; conventional single-channel clone detectors can therefore miss such adaptations. We present SkillReuse, a multi-modal clone detector that combines global lexical matching with channel-specific representations for YAML, prose, and code, then uses logistic regression to produce clone scores and interpretable clone-type labels. We also introduce SkillReuse-Bench, an annotated benchmark of 300 skill pairs spanning exact copies, renamed copies, adaptations, and semantic equivalents. On SkillReuse-Bench, SkillReuse reaches an F1 of 0.939 with 0.952 precision, improving over TF-IDF and delivering 4.2x higher recall on Type-4 semantic clones than MinHash. Applied to all 137,470 skills that pass the content filter, SkillReuse identifies 1.06 million clone pairs involving 66.8% of the analyzed skills; 95.3% of these pairs cross author boundaries. Among skills in the analyzed name-based clone families, 67% are superseded by a higher-quality variant. Tracing 938 security-relevant skills through the clone graph surfaces 16,587 clone links spanning 6,376 related skills that per-skill scanners alone would miss.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.22447v2</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jiaying Zhu, Lyuye Zhang, Wenbo Guo, Yang Liu</dc:creator>
+    </item>
+    <item>
+      <title>Assessing Large Language Models for Stabilizing Numerical Expressions in Scientific Software</title>
+      <link>https://arxiv.org/abs/2604.04854</link>
+      <description>arXiv:2604.04854v4 Announce Type: replace 
+Abstract: Scientific software relies on high-precision computation, yet finite floating-point representations introduce precision errors that propagate in safety-critical domains. Despite growing use of large language models (LLMs) in scientific applications, their reliability in handling floating-point numerical stability has not been systematically evaluated. This paper evaluates LLMs' reasoning through two tasks: (1) detecting instability in numerical expressions by generating error-inducing inputs (detection), and (2) rewriting expressions to improve numerical stability (stabilization). Building on popular numerical benchmarks, we assess 4 state-of-the-art LLMs on 2,037numerical structures, including nested conditionals, high-precision literals, and multi-variable arithmetic, across 469,000 tasks. Our results show that LLMs complement traditional approaches in detecting and stabilizing numerically unstable computations. Notably, LLMs outperform baseline methods precisely where the latter fail, stabilizing 61.2% of expressions the baseline fails to improve. More broadly, however, traditional baselines outperform LLMs: Herbie stabilizes 93.7% of the expressions compared to 67.2% by LLMs, and on expressions that both stabilize, Herbie achieves higher accuracy in 42.7% of cases. LLMs struggle with control flow and high-precision literals, consistently removing such structures rather than reasoning about their numerical implications, while performing substantially better on purely symbolic expressions. Even when LLMs preserve structure, their numerical reasoning falters, yielding semantically inequivalent expressions in over 46% of cases. These findings suggest LLMs are effective at stabilizing expressions that classical techniques cannot, yet struggle when high-precision magnitudes and control-flow semantics demand precise reasoning, since such concrete patterns are rarely seen during training.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.04854v4</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Tien Nguyen, Kirshanthan Sundararajah, Muhammad Ali Gulzar</dc:creator>
+    </item>
+    <item>
+      <title>An Empirical Study of Speculative Decoding on Software Engineering Tasks</title>
+      <link>https://arxiv.org/abs/2604.26469</link>
+      <description>arXiv:2604.26469v4 Announce Type: replace 
+Abstract: Large Language Models (LLMs) have become widely used for Software Engineering (SE) tasks, spanning from function-level code generation to complex repository-level workflows. However, the high latency of autoregressive inference remains a significant bottleneck, hindering their deployment in interactive environments. While Speculative Decoding (SD) offers a promising technique for lossless acceleration, prior research on long-context repository-level tasks and complex agentic interactions remains limited. To bridge this gap, we present the first systematic empirical study to evaluate the effectiveness of SD in SE tasks. We systematically benchmark a comprehensive spectrum of strategies, encompassing both model-based and model-free methods, across representative generation, editing, and repair scenarios. Our empirical results indicate that SD demonstrates clear potential for accelerating inference, particularly for smaller models that achieve higher speedups than those of their larger counterparts. We find that the effectiveness of SD methods varies across different task scenarios. Model-based approaches are well-suited for code generation, whereas model-free methods are better adapted to repository-level repair and editing scenarios. Furthermore, we observe that the repetitiveness of SE tasks improves the performance of model-free methods. In contrast to natural language tasks, the higher predictability of SE tasks allows for more aggressive hyperparameters. Our findings are summarized as guidelines to help increase inference efficiency for SE scenarios.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.26469v4</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yijia Li, Junkai Chen, Xing Hu, Xin Xia</dc:creator>
+    </item>
+    <item>
+      <title>Modeling Dependency-Propagated Ecosystem Impact of Changes in Maintenance Activities: Evaluating Support Strategies in the PyPI Network</title>
+      <link>https://arxiv.org/abs/2605.06164</link>
+      <description>arXiv:2605.06164v3 Announce Type: replace 
+Abstract: Background: Open source software ecosystems exhibit dense dependency networks in which maintenance degradation of structurally central packages can propagate widely. Despite increasing attention to open source sustainability, existing support mechanisms lack an explicit, dependencyaware notion of ecosystem-level impact to guide support decisions. Aims: In this paper, we introduce a dependency-aware model of ecosystem impact that captures how changes in maintenance activities propagate through the Python Package Index (PyPI) ecosystem and affect its overall state. Based on this model, we prioritize packages for ecosystem support using our dependency-propagated notion of ecosystem impact. Method: Applying this framework to a snapshot of 718,750 PyPI packages and over 2 million dependencies, we compare our impact-driven support strategy with existing support mechanisms (Tidelift, Ecosyste$.$ms, and GitHub Sponsors) and with PageRank as a baseline measure of structural importance. Results: Our results show that a large share of the modeled ecosystem impact (approximately 80%) can be attributed to just 0.1% of all PyPI packages when prioritized based on dependency-propagated impact. In contrast, externally defined support sets vary substantially in their alignment with ecosystem impact. We further analyze maintainer reach and metadata accessibility, revealing that ecosystem impact, social footprint, and operational feasibility represent distinct but complementary dimensions of ecosystem support. Conclusions: Dependencyaware ecosystem impact modeling provides a transparent and systematic basis for prioritizing support in large-scale software ecosystems. Our findings suggest that effective support strategies, driven by ecosystem stewards, funding bodies, and organizations operating support programs, should complement existing allocation logic with impact-informed decision making.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.06164v3</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.4230/LIPIcs.ESEM.2026.2</arxiv:DOI>
+      <dc:creator>Alexandros Tsakpinis, Emil Schwenger, Alexander Pretschner</dc:creator>
+    </item>
+    <item>
+      <title>RepoTrace: Browser-Assisted Evidence Collection for GitHub Research Datasets</title>
+      <link>https://arxiv.org/abs/2607.05106</link>
+      <description>arXiv:2607.05106v2 Announce Type: replace 
+Abstract: Empirical software engineering studies frequently build datasets from GitHub issues and pull requests. In many projects, researchers inspect pages in a browser, copy selected fields into spreadsheets, keep side notes in separate documents, and later run scripts to normalize or export the data. This workflow is flexible, but the page evidence, the research codes, and the rationale behind each decision end up spread across tabs and files, which leaves provenance, update tracking, and multi-reviewer labeling hard to audit.
+  RepoTrace is a browser-assisted research tool that collects GitHub issue and pull-request evidence into a local SQLite-backed workspace. It combines a Chrome side-panel extension, an Express backend, and a React dashboard to capture page snapshots, comments, labels, notes, screening and labeling decisions, refresh history, and scoped exports, keeping the source evidence and the research interpretation linked together.
+  A validation pass collected and checked 20 Matplotlib issues across two study projects. The resulting dataset preserves 22 snapshots, 38 comments, 20 research notes, 98 annotations, 20 screening reviews, 20 fix-evidence entries, and 4 simulated unresolved consensus conflicts. The results show that RepoTrace can support a complete local evidence-collection workflow for manually constructed GitHub issue and pull-request datasets.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05106v2</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3837729.3840498</arxiv:DOI>
+      <dc:creator>Xue Yao, Zehua Zhang, Jiatong Liu, Yongqiang Tian</dc:creator>
+    </item>
+    <item>
+      <title>DebugTracker: Lightweight Process Evidence for Classroom Debugging</title>
+      <link>https://arxiv.org/abs/2607.05871</link>
+      <description>arXiv:2607.05871v2 Announce Type: replace 
+Abstract: Debugging exercises are often assessed from final code and test outcomes, yet these artifacts hide how students reproduced failures, formed hypotheses, inspected evidence, edited code, and verified fixes. We present DebugTracker, a Visual Studio Code extension that records lightweight debugging-process evidence for classroom tasks. DebugTracker separates uncoached Evaluation Mode traces from coached Training Mode traces, stores append-only JSONL events, and exports timeline and Markdown reports for human review. The prototype records test commands, editor and debugger metadata, student checkpoints, source snapshots, optional image evidence, human labels, and optional AI-assisted practice feedback. DebugTracker is largely language-agnostic: it captures process evidence through standard VS Code mechanisms rather than language-specific tooling, although debugger evidence depends on the relevant VS Code language extension. We validate the prototype with debugging tasks in Python, TypeScript, and Java, 16 automated checks, and an 11-case manual trial matrix spanning packaged VSIX installation and three operating systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.05871v2</guid>
+      <category>cs.SE</category>
+      <category>cs.CY</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3837729.3840500</arxiv:DOI>
+      <dc:creator>Jiatong Liu, Xue Yao, Zehua Zhang, Yongqiang Tian</dc:creator>
+    </item>
+    <item>
+      <title>Reducing Data Movement in the Galerkin Product of Block Algebraic Multigrid on GPUs</title>
+      <link>https://arxiv.org/abs/2607.28891</link>
+      <description>arXiv:2607.28891v4 Announce Type: replace 
+Abstract: The Galerkin triple product $A_c = P^T A P$ dominates the recurring per-solve setup cost of algebraic multigrid (AMG). For AMG on systems of PDEs the product is a rectangular-block sparse matrix triple product: for 3D elasticity the fine operator has $3\times3$ blocks, the prolongator $3\times6$, and the coarse operator $6\times6$, a shape no vendor sparse library supports. We map its algorithm space -- classical two-pass, fused-recompute, schedule-reordered, shared-memory-tiled, and inspector-executor variants -- under an explicit DRAM/L2 traffic model, and implement the leading variants in portable Kokkos (CUDA) and native CUDA backends using new PETSc blocked matrix types. Validated on an NVIDIA A100, the model predicts per level which variant moves the fewest bytes. Guided by it, a shared-memory-tiled kernel with a sorted, search-free schedule moves fewer bytes in less than half the time of the portable Kokkos team kernels on the fine-level product (10.5 vs 17.4 GB of DRAM, 45 vs 82 ms), within $2.5\times$ of the model's streaming floor for the full product and $1.9\times$ on its $A\cdot P$ stage. We further present prolongator filtering, a new PETSc GAMG algorithm that drops small blocks from the coarse space under a Frobenius criterion with a kernel-preserving projection; it reduces $P^TAP$ traffic, coarse-operator fill, and memory, and cuts the hot $P^TAP$ time $2.9\times$ on the fine grid with iteration counts unchanged. The driving application is a fully GPU-resident blocked pipeline in PETSc: finite-element assembly writes directly into the blocked device matrix, and the AMG setup, Galerkin products, and solve all operate on primary blocked data with no scalar expansion and no operator-sized device-host transfers in the recurring phases.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.28891v4</guid>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/publicdomain/zero/1.0/</dc:rights>
+      <dc:creator>Mark F. Adams</dc:creator>
+    </item>
+    <item>
+      <title>Do Personalized Skills Help Coding Agents? An Empirical Study of Developer Interaction Histories</title>
+      <link>https://arxiv.org/abs/2608.10319</link>
+      <description>arXiv:2608.10319v2 Announce Type: replace 
+Abstract: Large language model (LLM)-powered agents have rapidly evolved from code-completion tools into solvers of complex software engineering tasks. As developers collaborate with coding agents over time, their preferences emerge through repeated interactions and can be used to adapt agent behavior to better meet individual developers' needs. Capturing and reusing these preferences may reduce repeated corrections and improve developer-agent collaboration. Agent skills provide a lightweight mechanism for transferring experience without modifying model parameters. However, existing work primarily focuses on task-specific skills, and it remains unclear whether developer-specific skills distilled from interaction histories can generalize to future tasks. We propose a framework for extracting reusable developer preferences from interaction traces. It first generates personalized skills through rule-based bootstrapping and evidence-grounded refinement, and then evaluates them using a reproducible replay framework with an interactive, trajectory-conditioned LLM-based human developer simulator. We conduct an experiment on 206 real-world developer-agent sessions from 13 developers and compare personalized skills against no-skill, generic-skill, and other-user-skill baselines. Personalized skills provide small and inconsistent improvements over the no-skill baseline, whereas generic skills pooled across developers achieve the largest and most consistent gains. Further analysis suggests that personalized skills become more effective when developer preferences appear frequently, particularly when their histories contain multiple examples relevant to future tasks. These findings provide empirical insights into when developer-specific personalization is effective and demonstrate that broadly transferable procedural knowledge can be more robust than developer-specific preference signals.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.10319v2</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shuyan Huang, Kai Du, Andrew Lan</dc:creator>
+    </item>
+    <item>
+      <title>Persistent Recursive Worlds Enable Autonomous Software Evolution</title>
+      <link>https://arxiv.org/abs/2608.10450</link>
+      <description>arXiv:2608.10450v3 Announce Type: replace 
+Abstract: Complex software systems develop over timescales that exceed the lifespan of any individual coding agent. Most agentic software systems preserve continuity through persistent sessions, memories, managers or shared context. We introduce EvoX Genesis (hereafter, Genesis), which instead makes the software project persistent while allowing local agents to remain finite-lived. Genesis represents software as a persistent recursive world: each local world is situated by an accepted version and a repository path, finite-lived agents propose local changes, recursive delegation moves work across paths, and only accepted consequences advance the persistent version history. We evaluate this organization across formation, continuation and redevelopment. Starting from a repository with no compiler implementation, Genesis used DeepSeek V4 Flash to build a Rust-based C compiler with about 250k tracked lines; the run lasted over 120 hours, archived over 1,000 agent episodes and incurred only US\$44 in model-token charges. The compiler passed the complete c-testsuite and most LLVM and Csmith tests. In a separate compiler world generated with GLM 5.2, development continued after repeated agent replacement while retaining full test performance. Genesis also reimplemented 13 MESA modules with over 100k Fortran lines as a Rust workspace with nearly 90k Rust lines; across six numerical workloads, it achieved median speedups of 1.55--6.87x. These results show that long-horizon software development can be organized around a persistent project rather than a persistent agent. Project Website: https://genesis.evox.group/</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.10450v3</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.MA</category>
+      <category>cs.NE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Beichen Huang, Zhenyu Liang, Bowen Zheng, Ran Cheng</dc:creator>
+    </item>
+    <item>
+      <title>Specification-first convergence with an AI coding agent: a case study of dismantling a core architectural invariant across 189 files in a 717k-line codebase with no test oracle and no human code review</title>
+      <link>https://arxiv.org/abs/2608.12440</link>
+      <description>arXiv:2608.12440v2 Announce Type: replace 
+Abstract: This paper reports a single, fully instrumented case study of a large-scale architectural refactoring by an AI coding agent under a specification-first protocol, with no human review of the generated code and no pre-existing oracle to validate the target behaviour. The task, dismantling a central invariant across a large interdependent codebase, was assessed by the author as effectively infeasible through incremental refactoring, the kind of change that conventionally calls for a rewrite instead. Under the protocol described here, the agent completed it successfully.
+  The system is a 717,725-line production TypeScript application across 3,648 files. The task required dismantling a core lifetime invariant: the guarantee that a UI panel remains open for the duration of an AI request. The target behaviour was that a streaming generation survives the closing of its panel and can be reattached, on reopening, to the same live stream with no loss or duplication.
+  The protocol: formal specification by the agent, 14 refinement cycles auditing that specification against the source code, atomic implementation, a compile/test feedback loop, then 17 verification cycles auditing the code against the frozen specification. Across 31 audit passes, 201 defects were corrected before any human executed the program. The convergence criterion was empirical: two consecutive verification passes returning zero findings.
+  The change touched 189 files (31 new); with the extraction phase, the two commits total 288 files, 34,770 insertions, 16,422 deletions. Across the first and roughly thirty later sessions, the software behaved as specified, no bug observed. Elapsed: three days; cost: USD 2,430.
+  The full specification and raw session logs, 1,500+ pages in French, are published as evidence, allowing inspection of the process and submission to a language model for consistency checking.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.12440v2</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Joel Abenhaim</dc:creator>
+    </item>
+    <item>
+      <title>Rethinking Automated Program Repair: The Impact of Bug Complexity, Fault Localization, and LLM Cost-efficiency</title>
+      <link>https://arxiv.org/abs/2608.14065</link>
+      <description>arXiv:2608.14065v2 Announce Type: replace 
+Abstract: Background: Software bugs remain a critical challenge in development, necessitating effective Automated Program Repair (APR) techniques. While Large Language Model (LLM)-based APR systems have shown promise, prior studies primarily focus on overall repair effectiveness. The effects of bug complexity, fault localization, reasoning settings, and repair cost-effectiveness remain insufficiently explored.
+  Aims: This study presents a comprehensive empirical analysis of LLM-based APR, focusing on how repair performance is shaped by bug complexity, fault localization, reasoning settings, and costs.
+  Method: We evaluate two APR techniques (ChatRepair and CodeCorrector) using three LLMs (DeepSeek, GPT, and Llama), and examine their performance across diverse levels of bug complexity and localization strategies through a multi-dimensional empirical framework and statistical analysis.
+  Results: Although structurally complex bugs and imprecise fault localization make repair more challenging, LLM-based APR techniques still achieve competitive repair effectiveness. Imprecise fault localization can substantially enlarge the performance gap between APR techniques. Furthermore, higher-cost LLMs and stronger reasoning settings do not consistently yield better cost-efficiency, revealing a nontrivial trade-off between repair effectiveness and computational cost.
+  Conclusions: Over 50% of moderately complex bugs can be repaired by low-cost LLM-based APR techniques. The repair effectiveness gap between APR techniques becomes larger as fault localization becomes less precise. GPT-5 repairs 7 and 39 more complex bugs than DeepSeek-V4-pro and DeepSeek-V3.2, respectively; whereas the total repair cost of DeepSeek-V3.2 shows the best cost-efficiency performance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.14065v2</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Junchi Liu, Ali Bigdeli, Roya Daneshi, Atu Ambala, Sudipto Ghosh, Fabio Santos</dc:creator>
+    </item>
+    <item>
+      <title>From Lab to Reality: A Practical Evaluation of Deep Learning Models and LLMs for Vulnerability Detection</title>
+      <link>https://arxiv.org/abs/2512.10485</link>
+      <description>arXiv:2512.10485v3 Announce Type: replace-cross 
+Abstract: Vulnerability detection methods based on deep learning (DL) have shown strong performance on benchmark datasets, yet their real-world effectiveness remains underexplored. Recent work suggests that graph neural network-based and transformer-based models, including large language models (LLMs), yield promising results when evaluated on curated benchmark datasets. These datasets are typically characterized by similar data distributions and may contain synthetic samples, heuristic labels, or labeling noise. In this study, we systematically evaluate four representative DL models---Devign, ReVeal, LineVul, and VulBERTa---across four representative datasets: Juliet, Devign, BigVul, and ICVul. Each model is trained independently on each dataset, and the graph-based and CodeBERT representations adopted by these models are analyzed using t-SNE and centroid distance to examine vulnerability-related patterns. To assess realistic applicability, we further evaluate trained ReVeal and LineVul models, along with four open-weight LLMs, on VentiVul, our newly constructed temporally separated out-of-distribution (OOD) dataset comprising 200 recent vulnerabilities from Linux and Chromium. Our experiments reveal that current representation methods struggle to distinguish vulnerable from non-vulnerable code and that trained models generalize poorly across datasets with differing distributions and characteristics. When evaluated on VentiVul, performance drops sharply, with most models failing to detect vulnerabilities reliably or distinguish vulnerable functions from their patched counterparts. These results expose a persistent gap between academic benchmarks and real-world deployment, emphasizing the value of our deployment-oriented evaluation framework and the need for more robust code representations, higher-quality datasets, and evaluation methods that account for vulnerability-fixing changes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.10485v3</guid>
+      <category>cs.CR</category>
+      <category>cs.LG</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Chaomeng Lu, Bert Lagaisse</dc:creator>
+    </item>
+    <item>
+      <title>A Highly Efficient Diversity-based Input Selection for DNN Improvement Using VLMs</title>
+      <link>https://arxiv.org/abs/2601.08024</link>
+      <description>arXiv:2601.08024v2 Announce Type: replace-cross 
+Abstract: Maintaining or improving the performance of Deep Neural Networks (DNNs) through fine-tuning requires labeling newly collected inputs, a process that is often costly and time-consuming. To alleviate this problem, input selection approaches have been developed in recent years to identify small, yet highly informative subsets for labeling. Diversity-based selection is one of the most effective approaches for this purpose. However, they are often computationally intensive and lack scalability for large input sets, limiting their practical applicability. To address this challenge, we introduce Concept-Based Diversity (CBD), a novel and highly efficient diversity metric for image inputs that leverages Vision-Language Models (VLMs). Our results show that CBD exhibits a strong correlation with Geometric Diversity (GD), an established diversity metric, while requiring only a fraction of its computation time. Building on this finding, we propose a hybrid input selection approach that combines CBD with Margin, a simple uncertainty metric. We conduct a comprehensive evaluation across a diverse set of DNN models, input sets, selection budgets, and six most effective state-of-the-art selection baselines. The results demonstrate that the CBD-based selection consistently outperforms all baselines at guiding input selection to improve the DNN model. Furthermore, the CBD-based selection approach remains highly efficient, requiring selection times close to those of simple uncertainty-based methods such as Margin, even on larger input sets like ImageNet. These results confirm not only the effectiveness and computational advantage of the CBD-based approach, particularly compared to hybrid baselines, but also its scalability in repetitive and extensive input selection scenarios.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.08024v2</guid>
+      <category>cs.CV</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Amin Abbasishahkoo, Mahboubeh Dadkhah, Lionel Briand</dc:creator>
+    </item>
+    <item>
+      <title>Specifying AI-SDLC Processes: A Protocol Language for Human-Agent Boundaries</title>
+      <link>https://arxiv.org/abs/2606.20615</link>
+      <description>arXiv:2606.20615v3 Announce Type: replace-cross 
+Abstract: AI agents now act as first-class members of the software development lifecycle, but the instruments teams use to direct them enforce nothing: process encoded in prompts is flexible but unenforceable, while workflow formalisms are enforceable but do not model autonomous agents. We propose a domain-specific language for specifying AI-SDLC processes as protocols, with formal abstract syntax, well-formedness conditions, operational semantics, and enforcement invariants, organised around a separation of policy (declared intent) from mechanism (structural enforcement). We prove that any well-formed protocol maintains its invariants on every execution trace, closed under Kleene composition of orchestration loops: protocol steps cannot be skipped, by construction. A failure-rate analysis derives two consequences: structural enforcement bounds silent failure while converting the remainder into visible, audited stalls, and the benefit carries a capability floor. We validate the design in simulation and end-to-end on SWE-bench Verified, where an identical bug-fix methodology yields no improvement delivered as prose instructions, but a significant, replicated 14-22 point gain when executed as a validated, self-correcting process; an ablation attributes the gain to the executed process itself, and the capability floor appears where the model predicts it. As foundation models converge, the durable engineering asset is the formally specified, executable process.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.20615v3</guid>
+      <category>cs.AI</category>
+      <category>cs.MA</category>
+      <category>cs.PL</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ylli Prifti, Pasquale De Meo, Alessandro Provetti</dc:creator>
+    </item>
+    <item>
+      <title>A Control-Driven Framework for Secure SaaS Onboarding in Regulated Enterprises</title>
+      <link>https://arxiv.org/abs/2607.16543</link>
+      <description>arXiv:2607.16543v2 Announce Type: replace-cross 
+Abstract: As enterprises increasingly adopt Software-as-a-Service (SaaS) platforms for mission-critical functions, onboarding these services has emerged as a complex challenge extending well beyond procurement and basic security review. In regulated environments, SaaS onboarding must address multiple interdependent control domains, including Third-Party Risk Management (TPRM), cybersecurity assessment, Identity and Access Management (IAM), and disaster recovery (DR), which are often executed in isolation, resulting in delayed go-lives, duplicated assessments, unclear ownership, and residual operational risk. This paper proposes a control-driven, end-to-end SaaS onboarding framework that integrates TPRM, cybersecurity, IAM, and DR into a unified lifecycle model. The framework introduces a stage-based approach spanning intake and risk scoping, architecture validation, identity design, resilience assessment, and post-production governance. Key contributions include: (1) a structured SaaS onboarding lifecycle emphasizing sequencing and dependency management across control domains; (2) a cross-domain control mapping highlighting failure modes caused by siloed reviews; and (3) practical design patterns for secure connectivity, federated identity, least-privilege access, and shared-responsibility disaster recovery. Supported by operational lessons from enterprise-scale implementations and a reference governance checklist, the framework helps organizations reduce onboarding friction, improve auditability, and strengthen the security and resilience posture of SaaS-enabled platforms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.16543v2</guid>
+      <category>cs.CR</category>
+      <category>cs.CY</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Naga Sundeep Krishna Thota, Rithika Dulam</dc:creator>
+    </item>
+  </channel>
+</rss>
