@@ -7,12 +7,12 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.LG" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Aug 2026 04:00:01 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 02:55:19 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Mon, 24 Aug 2026 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Sunday</day>
       <day>Saturday</day>
+      <day>Sunday</day>
     </skipDays>
     <item>
       <title>Bankruptcy Prediction via Hybrid Resampling and Stacking Ensemble Techniques with Explainable Artificial Intelligence (XAI)-Driven Analysis</title>
@@ -139,6 +139,7 @@ Abstract: Subliminal trait transfer allows a student model to acquire behavioral
 Abstract: Kernel density estimation converts finite samples into probability densities, but its performance depends critically on bandwidth selection. Classical selectors prescribe the sample-to-bandwidth rule analytically or asymptotically, or solve a new optimization for each sample. An amortized framework is proposed that instead learns this mapping across a distribution of density-estimation tasks by optimizing the logarithmic score. A truncated-and-renormalized bounded-support formulation enables stable learning across heterogeneous tasks, while affine standardization allows a selector trained on a single reference interval to transfer across bounded intervals. Experiments under Gaussian sampling, a multi-family benchmark, and randomized Gaussian-mixture training show that the amortized selector consistently and substantially outperforms Silverman's rule, the Sheather--Jones selector, and least-squares cross-validation, with especially large gains in small and heterogeneous samples. Finite Gaussian mixtures provide a generic training mechanism supported by their $L^1$ approximation property. Selectors trained in this way generalize strongly across different density structures, allowing the same trained selector to be applied directly to finite samples from unknown densities without specifying or fitting a distributional family. This combination of broad applicability and strong empirical performance makes the framework attractive for a wide range of applications in which finite samples or ensembles must be converted into continuous probability densities.</description>
       <guid isPermaLink="false">oai:arXiv.org:2608.20445v1</guid>
       <category>cs.LG</category>
+      <category>stat.ME</category>
       <pubDate>Mon, 24 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
@@ -393,17 +394,16 @@ Abstract: The matrix-aware optimizer Muon improves large model training by balan
       <dc:creator>Chenghao Li, Xiao Han, Xinxin Huang, Wei Liu, Boyang Li, Bing Xiao, Heran Zhang, Juanma Perez Rua, Ke Xu, Kangning Liu, Linjun Kuang, Na Li, Tan Wang, Tian Xie, Wei Peng, Yang Pei, Yifan Xu, Yuanhao Zhai, Yuwei Lin, Zhe Wang, Zihao He, Daniel Li, Junbiao Tang, Ziyang Jiang, Dake Chen</dc:creator>
     </item>
     <item>
-      <title>Nothing Changed but the Model: CellFill -- Bounded In-Cell Learning for Bit-Identical, Revocable Updates to Quantized LLMs</title>
+      <title>In-Cell Learning: Deployed Language Models Can Learn New Knowledge Without Changing a Single Stored Bit</title>
       <link>https://arxiv.org/abs/2608.20873</link>
-      <description>arXiv:2608.20873v1 Announce Type: new 
-Abstract: Every way of teaching a deployed language model something new -- full fine-tuning, adapter merging, model editing -- replaces the released checkpoint, and with it every evaluation and cache that referred to those exact bits. We instead learn inside the dequantization gap: with the integer codes and scales of a 4-bit release frozen, new knowledge is written only into the per-weight residual that lives strictly inside each quantization decision cell. Re-quantization then returns the released artifact bit-for-bit, a machine-checkable guarantee; updates are exactly revocable by dropping the residual; and drift is bounded. We give six propositions and three training paths, including CellFill, a bounded reparameterization that makes invariance structural rather than enforced.
-  Exact invariance turns out to be nearly free: across three paired seeds the constrained dense path matches an unconstrained reference whose weights provably escape the artifact (58.9 vs 59.3 percent fact recall; paired difference -0.5 points, 95% CI [-5.0,+4.0]), and is better on held-out cross-domain perplexity. Against the natural null hypothesis -- serving the same update as an unmerged adapter -- projecting into the cells reduces cross-domain forgetting in every run that converged, and a diverged control shows the boundary: projection is a trust region, not a repair. What no method escapes is the cost of knowledge itself, and the apparent free lunch of in-domain perplexity improving past the anchor is an artifact of rehearsal sharing a corpus with the metric. Methods differ threefold at matched rehearsal in knowledge bought per point of cross-domain perplexity, a ranking that is not the recall ranking. The method transfers to a 27B hybrid linear-attention model (2.4e10 constrained weights, verified bit-identical), where matched recall costs about half as much cross-domain perplexity as at 1.7B.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.20873v1</guid>
+      <description>arXiv:2608.20873v2 Announce Type: new 
+Abstract: A deployed language model is a file that many things depend on - a benchmark report, a certification, a fleet of devices - and every way of teaching it something new produces a different file. We show that this is not necessary. A 4-bit release stores each weight as an integer code and a shared scale, and leaves between the stored values an interval the quantizer discards; we call in-cell learning the paradigm in which new knowledge is written only into that interval, so that re-quantizing the served weights reproduces the released codes and scales exactly. The guarantee is checked in the integer domain on every weight, the update is a separate file (a fill) that can be withdrawn by subtraction, and drift is bounded by radii the grid fixes before training. CellFill realizes the paradigm by construction: a low-rank position inside the cell, trained on the vendor's own 4-bit release. On those releases - NF4, QAT and GPTQ-style grids, Qwen3 and Gemma, 1.7B to 31B - CellFill writes 83 to 97 percent of a corpus of real facts the models verifiably did not know, with zero violations over up to 2.4 x 10^10 constrained weights. We demonstrate the knowledge is usable: injected drugs compose with injected ingredients at the model's own two-hop ceiling, and a post-cutoff software library is used in code at 2.6 times chance. Against retrieval on PopQA's long tail, the fill answers 82 to 90 percent of questions the released model could not, at 75 tokens per question against 90 to 1008. Several writers can share one release, sequential updates consume a constant fraction of the remaining room, and the archived result files behind every table are at https://github.com/sumsliu/cellfill.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.20873v2</guid>
       <category>cs.LG</category>
       <pubDate>Mon, 24 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Zifeng Liu, Zhiyong Du, Yaxin Lu, Yiming Mao, Zhenhe Wang, Wenqi Shi, Zhengkun Jing</dc:creator>
+      <dc:creator>Zifeng Liu, Yaxin Lu, Xuanhan Wu, Zhiyong Du, Yiming Mao, Zhenhe Wang, Wenqi Shi, Zhengkun Jing, Linwei Liu</dc:creator>
     </item>
     <item>
       <title>Decoupling Policy Extraction for Offline Reinforcement Learning</title>
@@ -547,9 +547,9 @@ Abstract: Federated learning enables privacy-preserving collaborative training, 
     <item>
       <title>BackDFL: A Unified Benchmark For Backdoor Attacks and Defenses In Decentralized Federated Learning</title>
       <link>https://arxiv.org/abs/2608.21137</link>
-      <description>arXiv:2608.21137v1 Announce Type: new 
+      <description>arXiv:2608.21137v2 Announce Type: new 
 Abstract: Decentralized Federated Learning (DFL) promises trust-free collaborative learning by replacing the centralized parameter server with peer-to-peer model exchange. However, this architectural shift fundamentally reshapes the threat landscape. Without globally coordinated aggregation, DFL becomes particularly susceptible to backdoor attacks, in which malicious participants implant persistent hidden behaviors while maintaining high clean-task performance. In this paper, we argue that the robustness of DFL has been significantly overestimated. Existing studies rely on simplified threat models, non-adaptive adversaries, fragmented evaluation protocols, inconsistent communication topologies, and ad hoc training configurations, leading to an incomplete understanding of DFL security. To address these limitations, we present BackDFL, a unified benchmark for systematically evaluating DFL under realistic and adaptive backdoor attacks. Through extensive experiments, BackDFL exposes critical failure modes of decentralized learning. Our results demonstrate that both state-of-the-art Byzantine-robust DFL methods and adapted FL backdoor defenses fail under modest malicious participation rates (as low as 15%), especially in heterogeneous settings, while their robustness varies substantially across communication graph topologies.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.21137v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.21137v2</guid>
       <category>cs.LG</category>
       <category>cs.CR</category>
       <category>cs.DC</category>
@@ -2129,9 +2129,9 @@ Abstract: Forecast accuracy is often used as a proxy for temporal structure disc
     <item>
       <title>Towards Truly Unsupervised Evaluation of Feature Selection</title>
       <link>https://arxiv.org/abs/2608.12057</link>
-      <description>arXiv:2608.12057v2 Announce Type: replace 
+      <description>arXiv:2608.12057v3 Announce Type: replace 
 Abstract: Feature selection is one of the most important and fundamental tasks in data mining, tackled by a family of methods with an established set of evaluation techniques to measure the quality of a specific method. Most of the methods commonly used for the unsupervised evaluation of feature selection algorithms suffer from critical design flaws which question their unsupervised nature. In this paper, we provide a critical discussion on the established allegedly unsupervised evaluation techniques, and shed light on the reasons why they are not truly unsupervised but, at best, supervised evaluation under an unsupervised downstream task. We also propose a novel, truly unsupervised evaluation framework to measure the quality of the feature selection algorithms without any form of information about the labels. The proposed framework utilizes unsupervised Principal Component Analysis, and optimal transport to measure the quality of the feature selection methods in a truly unsupervised manner.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.12057v2</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.12057v3</guid>
       <category>cs.LG</category>
       <pubDate>Mon, 24 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
