@@ -7,70 +7,114 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Aug 2026 02:03:47 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 04:00:19 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
+    <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Sunday</day>
       <day>Saturday</day>
     </skipDays>
     <item>
-      <title>When Structure is Silent: Opportunities for Algorithmic Dispatch in Linear Algebra</title>
-      <link>https://arxiv.org/abs/2608.22099</link>
-      <description>arXiv:2608.22099v1 Announce Type: new 
-Abstract: Algorithmic dispatch is essential for performance in linear-algebra-intensive systems. A persistent challenge lies in the treatment of structured matrices. Although such matrices are often described as sparse, the term structured is more precise, as it highlights exploitable properties - such as bandedness or triangularity - whose algorithmic advantages extend beyond sparsity alone. When the dispatch strategy leaves these structures unrecognized, valuable opportunities for optimization are lost. Recent advances in generative AI offer the promise of linking these silent structures to more effective algorithmic and architectural choices, supplying much of the missing connective tissue in computational linear algebra. However, AI-synthesized dispatch strategies also raise important questions about their theoretical soundness. This work introduces analytical criteria - grounded in time-complexity analysis - to determine when structure-aware dispatch delivers tangible gains. We examine the overheads of structure detection and data-format conversion, characterizing their impact on speedup and slowdown. We illustrate these concepts through a case study on LU factorization applied to banded matrices stored in a dense format, demonstrating results that align with theoretical bounds and reveal substantial gains in both performance and memory usage. These analyses underscore the need for more intelligent dispatch strategies to recognize and exploit silent structures - an underused path to high-performance linear algebra.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22099v1</guid>
-      <category>cs.PF</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.1109/HPEC67600.2025.11196484</arxiv:DOI>
-      <arxiv:journal_reference>2025 IEEE High Performance Extreme Computing Conference (HPEC), 2025, pp. 1-7</arxiv:journal_reference>
-      <dc:creator>Emmanuel Lujan, Alan Edelman</dc:creator>
-    </item>
-    <item>
-      <title>What actually runs: a measurement study of language model placement and decode speed on the Apple Neural Engine</title>
-      <link>https://arxiv.org/abs/2608.22110</link>
-      <description>arXiv:2608.22110v1 Announce Type: cross 
-Abstract: We ask what gets a language model onto the Apple Neural Engine (ANE) and what makes it fast there, and we answer with three measurements. We sweep a 64-shape matrix of LLM primitives that varies how a computation is expressed while holding what it computes fixed, recording per-operation device support. We then train matched models across size and precision, with quantized checkpoints byte-identical in structure to their fp16 counterparts, so every deployment measurement is of a real trained artifact. And we read the ANE's memory-controller byte counters during inference, establishing what actually ran rather than what the compiler intended. We support every headline claim with at least two of these three measurement paths. We find that placement is a property of how a computation is expressed, not of what it computes: a fused RMSNorm is fully ANE-eligible while its arithmetically identical decomposition is CPU-only. Weight encoding gates the accelerator: CoreML assigns a 25.85M-parameter conv-heavy fp16 model entirely to the CPU (our counters confirm zero bytes through the engine), while the same graph in int8 or 2-bit returns to ~83% residency and runs 1.8-2.2x faster, and a smaller 22.29M all-attention fp16 model sits at 98.9%. Decode cost is bytes streamed per token, at a constant ~0.77 fraction of nominal encoding width across fp16, int8 and 2-bit. The smallest and fastest models we measured are ternary, and at matched size the operator mix barely moves either axis: every resident 25M ternary model lands within 10.0-10.8 MB and 0.62-0.64 ms/token. The headline pair is half-attention ternary at 25M (10.5 MB, 0.63 ms) and 50M (16.8 MB, 0.86 ms) - 9.8x and 6.1x smaller, 3.0x and 2.2x faster than the conv-heavy fp16 design this work began with. From these measurements we draw a design procedure: choose the encoding first, then spend the byte budget on parameters.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22110v1</guid>
-      <category>cs.LG</category>
+      <title>Pipeline-Native Transformers: Co-Designing Model Architecture and CPU Inference for Bandwidth-Efficient Autoregressive Decode</title>
+      <link>https://arxiv.org/abs/2608.23841</link>
+      <description>arXiv:2608.23841v1 Announce Type: cross 
+Abstract: Single-token autoregressive decode on CPUs is bound by memory bandwidth, not arithmetic: a modern CPU sustains roughly 1 TFLOP/s of compute but only about 50 GB/s from main memory, and each generated token must stream every active weight once. This report argues that the most effective response is to co-design the model architecture and the inference runtime together. It presents cflow, a CPU-first streaming engine, alongside a family of pipeline-native transformer architectures whose inter-layer dependency graphs are constructed to permit a vertical, stage-major execution schedule.
+  cflow stores weights as L2-sized tiles in compute-consumption order, reads only the top-k experts of each mixture-of-experts layer, fuses projections, and executes a delay-aware schedule from per-model dependency parameters. Across five architectures trained on TinyStories, one (arch2_4_combined) achieves a 2.00x reduction in critical-path weight bandwidth (9.00 to 4.50 MB/token) within 0.24 perplexity of the best candidate, and the tile layout incurs 7.29x fewer L1-data read misses than a row-major baseline. On a 30.9-billion-parameter pipeline-native MoE, cflow decodes at 5.94 tokens/s (tok/s) on a 32-vCPU Ice Lake server, ahead of llama.cpp (4.75) and the vLLM CPU backend (1.65) on comparably sized dense models. Realizing the expert-delay window as asynchronous I/O overlap on a disk-resident expert tier yields a further net win of up to 1.68x, matching the overlap model within 1%. Measurement refutes one of the eight design claims and leaves a second inconclusive; both are reported in full, with the conditions under which they would hold.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23841v1</guid>
       <category>cs.AR</category>
+      <category>cs.LG</category>
       <category>cs.PF</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Shahir M A</dc:creator>
+      <dc:creator>Tom Poperszky</dc:creator>
     </item>
     <item>
-      <title>CatchBench: When Can an Agent Failure Be Caught?</title>
-      <link>https://arxiv.org/abs/2608.22808</link>
-      <description>arXiv:2608.22808v1 Announce Type: cross 
-Abstract: When can an agent failure be caught? An audit is usually limited by the record rather than by the method. CatchBench therefore puts one auditor's question to three information states: the declared configuration before a run (PRE), a growing prefix of its trace (LIVE), and the finished trace (POST). Prior benchmarks fix one of these states or vary the telemetry; to our knowledge none scores all three under one task-method interface. Each state admits different questions, so seven task contracts carry their own labels and metrics rather than one leaderboard. Four are evidential; three are Gold-derived mechanism diagnostics.
-  The release scores 72 entrants, from rule scanners and structural models to eleven LLM judges across nine model families (GPT, Claude, Gemini, Gemma, Llama, Qwen, DeepSeek, Mistral, Nova), over 1187 declared configurations and 1162 recorded runs. Most of the arena does not order: 47 of 118 pre-declared contrasts separate, and the rest are published unresolved rather than ranked. The two sharpest results cut against our own data. One rule ignores every name and permission; it flags each capability declared after the first. On one of six configuration sources it reaches a perfect F1, so a score there measures how the corpus was built rather than how well a method reasons. Our admissibility bar then rejected one injected substrate and withheld evidential status from the other. A benchmark number is therefore not interpretable until the process behind its labels is published and tested for the shortcut it may leave. We report both, and regenerate every ordering from released predictions with no model call.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22808v1</guid>
-      <category>cs.LG</category>
-      <category>cs.MA</category>
+      <title>The Shadow Price of Intelligence: Quality Degradation in LLM Inference as a Supply Chain Problem</title>
+      <link>https://arxiv.org/abs/2608.23986</link>
+      <description>arXiv:2608.23986v1 Announce Type: cross 
+Abstract: Large language model providers are compute constrained, and their universal response to congestion is to degrade service: route queries to smaller models, cut reasoning effort, truncate context. The industry's accounting says this saves money. We show the accounting is wrong, because it prices a query when the customer buys an answer. A degraded answer fails with some probability, and a failed answer either returns as a retry, inflating arrivals when the system is most loaded, or departs as churn, destroying lifetime value on a ledger no cost dashboard displays. We model inference allocation with three classical primitives: a newsvendor whose stockout cost is churned lifetime value, a geometric retry multiplier in which the recycled product is dissatisfaction, and a two-regime transient queue whose arrival rate is made endogenous by retries. Statically, there is a nonempty, measurable regime in which a cheaper model saves energy per satisfied answer while consuming strictly more capacity per satisfied answer, so the discount inverts exactly when capacity binds. Dynamically, a reactive throttle fired during a surge can cross an ignition threshold beyond which it manufactures more traffic than it sheds, and a release rule set below the degraded equilibrium converts a transient surge into a permanent degraded regime. With heterogeneous customers, throttling is a transportation problem in retry-inflated load whose optimal policy rations intelligence by critical ratio, class by class, and whose dual, the shadow price of intelligence, prices a marginal query by class and by hour; closed-form trajectories make it computable in milliseconds. Stochastic analysis sharpens rather than erodes the thesis: the ignition boundary acquires a predicted width, and noise punishes the reactive policy that parks the system against it. Under congestion, throttling is not a cost lever but a demand lever.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23986v1</guid>
+      <category>math.OC</category>
+      <category>cs.AI</category>
       <category>cs.PF</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Yue Zhao</dc:creator>
+      <dc:creator>Elioth Sanabria</dc:creator>
     </item>
     <item>
-      <title>An interpretable universal bound for multiserver queues via a leave-one-out technique</title>
-      <link>https://arxiv.org/abs/2510.11015</link>
-      <description>arXiv:2510.11015v3 Announce Type: replace-cross 
-Abstract: Bounding the steady-state queue length of a multiserver queue is a central challenge in queueing theory. Even for the classical $GI/GI/n$ queue with homogeneous servers, obtaining a simple, accurate bound that holds across all parameters is highly non-trivial. A recent breakthrough by Li and Goldberg (2025) establishes the first universal bound of order $O(1/(1-\rho))$, holding for every load $\rho&lt;1$ and server count $n$ -- an order known to be tight in many regimes, including classical heavy-traffic, Halfin-Whitt, and Non-Degenerate Slowdown. However, their bounds carry astronomically large constants and rely on an intricate proof; they conjecture that a far simpler bound holds.
-  We introduce a leave-one-out coupling technique that yields a new universal $O(1/(1-\rho))$ bound for the $GI/GI/n$ queue, with a simple and transparent proof. Moreover, for light-tailed service times, the leading constant in our bound is orders of magnitude smaller than that in prior work. For instance, we bound the $M/GI/n$ queue's mean queue length by simply $1/(1-\rho)$ for New-Better-than-Used-in-Expectation service times, with similarly clean bounds for gamma, phase-type, and bounded service times.
-  Finally, our techniques extend to $GI/GI/n$ queues with fully heterogeneous service-time distributions, a setting not addressed by prior universal bounds.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.11015v3</guid>
-      <category>math.PR</category>
+      <title>Compression Trinity: Exploring Sparsity, Quantization, and Low-Rank Approximations for LLM Compression</title>
+      <link>https://arxiv.org/abs/2608.24070</link>
+      <description>arXiv:2608.24070v1 Announce Type: cross 
+Abstract: Prohibitive computational and environmental costs impede the scalable deployment of Large Language Models (LLMs). Traditional compression techniques (sparsity, quantization, low-rank approximations) are typically applied in isolation, and each hits an accuracy-efficiency wall. This thesis proposes the "Compression Trinity," a unified framework that applies the three pillars jointly: sparsity to reduce computation, quantization to minimize memory bandwidth, and low-rank approximations to recover accuracy. To accelerate pretraining, we apply the Trinity to the optimizer and model architecture. MKOR approximates curvature via block-diagonal sparsity and low-rank inversion, maintaining numerical stability for quantized states; it reduces curvature update complexity from $O(d^3)$ to $O(d^2)$ and accelerates convergence by up to 1.85x over KFAC. SLoPe accelerates training by up to 1.25x via a double-pruned backward pass for N:M sparsity, using low-rank "lazy" adapters in the final 1% of training to recover accuracy. For post-training compression, OPTIMA stabilizes static masks in a zero-training regime by formulating weight reconstruction as globally optimal column-wise quadratic programs, improving zero-shot accuracy by up to 3.97%. Given a fine-tuning budget, PATCH breaks the ceiling of static masks by learning a dynamic hybrid sparsity ratio between 0% and 50%, yielding up to 1.38x speedups. Finally, SLiM realizes the full Compression Trinity in one shot, using mathematically derived low-rank adapters to recover information lost to quantization and sparsity, improving accuracy by up to 5.66% over state-of-the-art methods and outperforming uncompressed dense models at equal parameter budgets by 0.6%. Together, these results show that jointly applying the Compression Trinity is essential for efficient, scalable, high-performance LLMs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.24070v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
       <category>cs.PF</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mohammad Mozaffari</dc:creator>
+    </item>
+    <item>
+      <title>ABSTRACTS: Amsterdam Benchmark Suite for the Time and Resource Analysis of Clifford+T Simulators</title>
+      <link>https://arxiv.org/abs/2608.24370</link>
+      <description>arXiv:2608.24370v1 Announce Type: cross 
+Abstract: Recent years have seen a rapid growth in literature presenting new methods for simulating non-Clifford quantum circuits with classical hardware. These methods span a range of approaches, including stabiliser decomposition and tensor contraction techniques, varying in efficiency depending on circuit class, depth, non-Clifford gate count, and other metrics. A notable limitation of this literature is the lack of a standardised approach to benchmarking, with each new paper outlining its own specification, simulating its own set of circuits on the authors' own hardware. This paper seeks to address this issue by presenting a standardised and canonical benchmark suite and infrastructure for quantifying the efficiency of non-Clifford classical simulators, with a consistent dataset of circuits and providing consistent (virtual) hardware, thereby enabling a fair comparison of results.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.24370v1</guid>
+      <category>quant-ph</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Matthew Sutcliffe, John van de Wetering</dc:creator>
+    </item>
+    <item>
+      <title>Next-generation O-RAN Edge: Energy-aware Joint Placement and Migration of Cloud-Native Functions</title>
+      <link>https://arxiv.org/abs/2608.24841</link>
+      <description>arXiv:2608.24841v1 Announce Type: cross 
+Abstract: The transition toward Open Radio Access Networks (O-RANs) is reshaping how cellular infrastructure is deployed, managed, and optimized. This paper investigates the energy-aware joint placement and migration of cloud-native functions (CNFs) in an O-RAN edge cloud. We consider both a Single-CU-UP association model and a slice-aware Multi-CU-UP relaxation, in which distinct slice-flow groups of the same distributed unit (DU) may be assigned to different Centralized Unit User Plane (CU-UP) processing targets under one Centralized Unit Control Plane (CU-CP). For brevity, these scenarios are referred to as Single-CU and Multi-CU, respectively; Multi-CU never denotes multiple CU-CP associations. We formulate the problem as a Mixed-Integer Linear Program (MILP) that minimizes server, transmission, wake-up, and migration energy while satisfying server-resource capacities and one-way delay requirements over the F1 user-plane interface (F1-U) between each DU and its selected CU-UP in a fat-tree edge data center. To improve computational scalability, we also develop a deterministic k-means-based heuristic that approximates the MILP decisions without requiring repeated exact optimization.
+  Over the evaluated 24-hour workload, the theoretical Multi-CU relaxation reduces modeled energy consumption by 5.7% relative to the Single-CU baseline. For the Multi-CU case, the proposed heuristic remains within approximately 9.7% of the proposed MILP, demonstrating a favorable trade-off between energy efficiency and computational tractability.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.24841v1</guid>
+      <category>cs.IT</category>
+      <category>cs.DC</category>
+      <category>cs.ET</category>
+      <category>cs.PF</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <category>math.IT</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Nguyen Phuc Tran, Brigitte Jaumard, Oscar Delgado</dc:creator>
+    </item>
+    <item>
+      <title>The Caf\'e in Amsterdam: When the Incumbent Becomes the Oracle</title>
+      <link>https://arxiv.org/abs/2607.13393</link>
+      <description>arXiv:2607.13393v3 Announce Type: replace 
+Abstract: A field can reformulate its computations freely exactly where its demand is stated independently of any incumbent implementation, and finds itself unable to when the incumbent's own output has quietly become the specification. This note offers that observation as a lens on computational reformulation for modern accelerators, where posing a problem in a hardware-friendly form can yield large speed and energy gains, but only if a replacement can be judged at all. Building on the test-oracle problem (Weyuker; Barr et al.), on requirements engineering's notion of implementation bias (Zave and Jackson), and on the case for judging approximate designs by acceptability rather than numerical proximity (Felzmann et al.), it names the pathology "baseline capture": the moment an incumbent stops being evidence that a demand can be met and becomes the definition of meeting it. It then separates two questions that are easily confused: whether a reformulation can be judged at all, which turns on the existence of an incumbent-independent demand, and whether its discovery can be automated, which turns additionally on the cost of evaluating that demand. Short cases -- shortest-path routing, learnable audio frontends, ZIP-215 for Ed25519 signature validation, CESM-ECT for climate models, and a single-GEMM audio frontend measured at 1.64x-3.29x speedup and up to 3.03x less energy -- illustrate the pattern and the move of "buying a verifier": making a demand explicit, operational, and independent of the incumbent. No component is claimed novel in isolation; the contribution is the synthesis and the single question it makes easy to ask of any reformulation result -- does its acceptance test mention the incumbent's output?</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.13393v3</guid>
+      <category>cs.PF</category>
+      <category>cs.AI</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Augusto Camargo</dc:creator>
+    </item>
+    <item>
+      <title>Fixing ill-formed UTF-16 strings with SIMD instructions</title>
+      <link>https://arxiv.org/abs/2601.06349</link>
+      <description>arXiv:2601.06349v3 Announce Type: replace-cross 
+Abstract: UTF-16 is a widely used Unicode encoding representing characters with one or two 16-bit code units. The format relies on surrogate pairs to encode characters beyond the Basic Multilingual Plane, requiring a high surrogate followed by a low surrogate. Ill-formed UTF-16 strings -- where surrogates are mismatched -- can arise from data corruption or improper encoding, posing security and reliability risks. Consequently, programming languages such as JavaScript include functions to fix ill-formed UTF-16 strings by replacing mismatched surrogates with the Unicode replacement character (U+FFFD). We propose using Single Instruction, Multiple Data (SIMD) instructions to handle multiple code units in parallel, enabling faster and more efficient execution. Our software is part of the Google JavaScript engine (V8) and thus part of several major Web browsers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.06349v3</guid>
+      <category>cs.OH</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Yige Hong</dc:creator>
+      <dc:creator>Robert Clausecker, Daniel Lemire</dc:creator>
     </item>
     <item>
       <title>Reproducible Evaluation of MoE Expert Caching: Replay Semantics, Workload Contamination, and Operating Regimes</title>
@@ -82,10 +126,24 @@ Abstract: Mixture-of-Experts (MoE) models have outgrown accelerator memory, and 
       <guid isPermaLink="false">oai:arXiv.org:2608.07911v4</guid>
       <category>cs.LG</category>
       <category>cs.PF</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
       <dc:creator>Yu Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Anytime Solver Evaluation with a Normalized Signed Primal Integral and Explicit Reference Policies - Extended Version</title>
+      <link>https://arxiv.org/abs/2608.18288</link>
+      <description>arXiv:2608.18288v2 Announce Type: replace-cross 
+Abstract: Anytime solvers return usable solutions before they terminate and improve them while time remains. Their progress is commonly summarized by a primal integral, a final gap, or convergence curves. Each summary leaves consequential choices open: how to score a run before its first feasible solution, whether poor incumbents are truncated, and whether the reference value is updated after the experiment or version-frozen beforehand. These choices become visible when runs produce no valid incumbent or improve a published best-known value. We study a normalized signed primal integral built from a bounded relative gap. It assigns an intrinsic worst value to an empty run, requires no acceptance threshold, and assigns negative instantaneous gaps to incumbents that beat a frozen reference. We compare the smooth difference-over-sum kernel with a signed version of Berthold's max-normalized gap and use the former as a working default. We also distinguish analysis-time from version-frozen reference policies and recommend reading the score with the raw final gap, mean convergence curve, and target-attainment curve. We evaluate these choices on a five-arm routing campaign and two model-fidelity ladders. The two signed kernels preserve every panel ordering in this study, whereas a common acceptance threshold compresses the distances between arms and reverses one panel ordering. Updating 54 of the 212 reference values changes score levels and removes all negative scores, while leaving the observed panel orderings unchanged. An exploratory screen also identifies 12 panel comparisons in which similar integral scores conceal materially different endpoints or attainment rates. The implementation, frozen inputs, and generators are openly released.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.18288v2</guid>
+      <category>math.OC</category>
+      <category>cs.MS</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Florian Rascoussier</dc:creator>
     </item>
   </channel>
 </rss>

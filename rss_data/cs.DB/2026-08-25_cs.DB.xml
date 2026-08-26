@@ -7,282 +7,125 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Aug 2026 02:03:56 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 04:00:17 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
+    <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Sunday</day>
       <day>Saturday</day>
     </skipDays>
     <item>
-      <title>Residual Privacy Budgeting with Weighted Scarcity Allocation for Online Query Answering</title>
-      <link>https://arxiv.org/abs/2608.22185</link>
-      <description>arXiv:2608.22185v1 Announce Type: new 
-Abstract: In many practical deployments of differential privacy, queries do not arrive all at once. We study online differentially private query answering under a finite zero-concentrated differential privacy (zCDP) contract. In this setting, queries arrive sequentially, carry different accuracy thresholds, and may overlap with information already released. We formulate this setting as residual privacy budgeting: for each arriving query, the mechanism first credits reusable support from previous DP outputs and then spends new budget only on the remaining support required to satisfy the current threshold. The controller separates feasible cases, where the minimal residual support is allocated exactly, from scarcity cases, where a weighted shortfall-conservation optimiser assigns limited support according to query difficulty. We define the weight using the Query Influence Factor (QIF), a diagnostic signal for query difficulty and instability rather than query importance. For scalar Gaussian exact reuse, inverse-variance fusion justifies additive support. We prove zCDP composition, residual minimality, 1-competitiveness against the offline optimum in the feasible regime, and avoidable expenditure for allocators that ignore released history. A scarcity impossibility result shows that no online allocator can guarantee a competitive ratio better than 1/n in threshold satisfaction, contextualising the QIF scarcity layer as a design choice for an inherently hard online problem.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22185v1</guid>
+      <title>Quantification in Double-Categorical Database Schemas</title>
+      <link>https://arxiv.org/abs/2608.00913</link>
+      <description>arXiv:2608.00913v2 Announce Type: cross 
+Abstract: Double-categorical database schemas are enriched with universal quantification in the form of right adjoints to substitution. This allows phrasing of the important query, relational division. It is shown that such right adjoints together with suitable tabulators interpret modal operators, provide cartesian closed structure, and, when combined with global cocartesian structure, interpret first-order predicate logic and thus description logic. These structures are applied throughout to querying and optimization. It is seen, for example, that Frobenius reciprocity and Beck-Chevalley hold in any suitably structured double database schema and that these provide pushdown optimization rules. Such optimization rules are thus provably error-free as a property of the schema. Likewise, negation queries are derived from cocartesian and local implication structure.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.00913v2</guid>
+      <category>math.CT</category>
       <category>cs.DB</category>
-      <category>cs.DS</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Mina Khoshmehr, Fernando Beltran</dc:creator>
-    </item>
-    <item>
-      <title>JetStream: Generating Query Accelerators for Existing Database Systems</title>
-      <link>https://arxiv.org/abs/2608.22476</link>
-      <description>arXiv:2608.22476v1 Announce Type: new 
-Abstract: Recent work has shown that LLMs can synthesize highly specialized database systems for fixed workloads, but existing approaches typically assume static data and replace the database's native storage with generated representations. We present JetStream, a system for generating query-specific accelerators that instead extend an existing DBMS.
-  JetStream consists of three parts. First, a staged, measurement-driven agentic workflow generates and optimizes query-specific accelerators, including persistent auxiliary state when beneficial. Second, a fixed, engine-neutral substrate provides the common interfaces for execution, transaction coordination, state management, and maintenance. Third, a separate synthesis workflow generates engine-specific backend adapters that connect the substrate to the underlying engine. For stateful accelerators, JetStream also generates maintenance logic and uses a runtime policy to choose among incremental maintenance, rebuilds, and lazy repair as the database changes.
-  On TPC-H at SF=20, stateful accelerators generated by JetStream achieve an 833x geomean read-only speedup over DuckDB, compared with 34.07x for GenDB and 12.35x for Bespoke OLAP. Under TPC-H refreshes every 60 seconds, JetStream maintains a 375x geomean workload speedup. We also show that JetStream generalizes to new, unseen workloads, achieving geomean read-only speedups of 102x over DuckDB and 486x over PostgreSQL. These results show that aggressive generated specialization can be integrated seamlessly with existing DBMSes and support dynamic workloads.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22476v1</guid>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Akhilesh Balasingam, Amadou Ngom, Geoffrey X. Yu, Tim Kraska</dc:creator>
-    </item>
-    <item>
-      <title>DAGSmith: Dependency-Aware Rewriting for dbt-Style SQL Pipelines</title>
-      <link>https://arxiv.org/abs/2608.22551</link>
-      <description>arXiv:2608.22551v1 Announce Type: new 
-Abstract: Modern analytics is increasingly organized as recurring SQL pipelines rather than isolated SQL statements. Tools such as dbt, which have gained extreme popularity in recent years, allow teams to write each transformation as SQL and make dependencies between transformations explicit, producing directed acyclic graphs (DAGs) with hundreds or thousands of interdependent SQL models. Traditional query optimizers and source-to-source query rewriters operate on one query at a time, while materialized-view selection and multi-query optimization address narrower forms of reuse. They do not exploit the pipeline-level information exposed by explicit dependencies: how intermediate results are consumed, which downstream outputs depend on each computation, where expensive work sits relative to data reduction, which results are worth persisting, and how refresh schedules relate to input change and output demand.
-  We introduce DAGSmith, to the best of our knowledge the first holistic dependency-aware source-to-source rewriting system for SQL pipeline DAGs. DAGSmith treats explicit dependencies as optimization signals. It analyzes each transformation with its upstream inputs, downstream consumers, and position in the pipeline DAG, uses an LLM to propose pipeline-level refactorings, separates SQL generation and equivalence checking to reject unsafe rewrites, retunes persistence choices with a learned cost model, and selects a globally compatible, conflict-free set of rewrites. This enables dependency-edge simplification, non-local semantic reuse, downstream-aware pruning, pipeline-aware work placement, rewrite-materialization co-optimization, and frequency-aware optimization. On the open-source Tuva dbt project, DAGSmith reduces elapsed time by 42.6% and warehouse compute cost by 67.7%, 98.1%/348.3% larger than state-of-the-art single-query rewriting.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22551v1</guid>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Jie Liu, Lin Ma, Barzan Mozafari</dc:creator>
-    </item>
-    <item>
-      <title>HAWKEYE: Seeing One Layer Deeper -- A Cohesion-Aware Structural Channel for Temporal Link Prediction</title>
-      <link>https://arxiv.org/abs/2608.22727</link>
-      <description>arXiv:2608.22727v1 Announce Type: new 
-Abstract: State-of-the-art temporal-link-prediction (TLP) models are, in essence, multi-channel information aggregators: they combine an interaction-history channel, a time-encoding channel, and a structure channel. The first two have been refined relentlessly; the structure channel remains a crude afterthought -- DyGFormer encodes it as a 1--2-bit neighbour-cooccurrence count. We begin with a measurement: on sparse temporal graphs the classical 1-hop common-neighbour signal is near-random (discriminative AUC $\approx 0.50$), because two nodes almost never share a direct neighbour; the genuinely discriminative signal lies one hop deeper -- the 2-hop cohesive bridge, whose discAUC reaches 0.73--0.98, on both bipartite and non-bipartite graphs. Motivated by this, we propose HAWKEYE, a cohesion-aware structural channel that incrementally maintains the classical k-family of cohesiveness indicators (degree $\to$ k-core $\to$ k-truss) and forms 2-hop cohesive-bridge features. HAWKEYE is a drop-in replacement for a temporal-graph model's native structure channel, with no change to the backbone. Swapping HAWKEYE into DyGFormer improves test AP/MRR over the cooccurrence channel by +0.6 to +10.8 points across six multi-seed-validated datasets (uci, enron, USLegis, CanParl, reddit, mooc). On the bipartite recommendation benchmark tgbl-subreddit, a 3-seed single-pass struct-only ablation shows HAWKEYE nearly doubling the baseline test MRR (0.103$\pm$0.003 $\to$ 0.204$\pm$0.005, +10.1 points across all three seeds); the streaming pipeline scales to the 67M-edge tgbl-flight in five minutes per pass. We further characterise when it helps: the gain tracks a graph's training-free 2-hop discAUC and vanishes on degenerate or saturated graphs -- a predictable boundary. All code, data, and figure-generation scripts are released.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22727v1</guid>
-      <category>cs.DB</category>
-      <category>cs.LG</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.1145/3799682.3841168</arxiv:DOI>
-      <dc:creator>Jiacheng Ding, Xiaofei Zhang</dc:creator>
-    </item>
-    <item>
-      <title>Why We Created Yet Another Memory Framework: Understanding MGA's Role in Next-Gen Database Systems</title>
-      <link>https://arxiv.org/abs/2608.22853</link>
-      <description>arXiv:2608.22853v1 Announce Type: new 
-Abstract: Despite the presence of multiple memory regions in modern database systems, supporting an efficient form of memory remains a challenge under production constraints. In enterprise-grade data systems, existing abstractions impose a trade-off between coarse-grained global sharing and strict process isolation, resulting in data copying, memory fragmentation, and limited support for controlled sharing. These challenges become more pronounced as workloads grow more diverse, and systems must tolerate process failures while maintaining predictable performance. This paper introduces the Managed Global Area (MGA), a scoped shared-memory abstraction in Oracle AI Database that addresses these limitations. MGA allows components to explicitly define allocation source, membership, and coordination semantics across selected processes while integrating with a production database engine. Unlike fully shared memory regions in Oracle, such as the System Global Area (SGA), MGA supports dynamic process membership and modular memory usage without imposing system-wide visibility. We evaluate MGA on analytical and AI workloads that stress shared-memory execution, including TPC-H hash joins and ONNX Runtime inference. Under concurrent execution, MGA reduces latency for join-intensive TPC-H queries by up to 35%. For ONNX- based inference, MGA-enabled model sharing reduces memory footprint by up to 90% and lowers large-model inference latency by up to 37%. These results demonstrate that dynamically scoped shared memory can improve both efficiency and predictability in production database systems.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22853v1</guid>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <arxiv:DOI>10.14778/3827998.3828042</arxiv:DOI>
-      <dc:creator>Vikramraj Sitpal, Pei Li, Shubham Kumar, Somansh Reddy Satish, Ravi Thammaiah, Nagarajan Muthukrishnan</dc:creator>
-    </item>
-    <item>
-      <title>Closed-Form Predicate-Level Shapley Attribution for Sliding-Window Aggregates</title>
-      <link>https://arxiv.org/abs/2608.23087</link>
-      <description>arXiv:2608.23087v1 Announce Type: new 
-Abstract: Streaming engines report sliding-window aggregates in real time, but they do not explain \emph{why} an aggregate takes its current value. A natural target is the Shapley value from cooperative game theory, which axiomatically distributes an aggregate among the tuples in the window. Practitioners, however, ask predicate-level questions (e.g., how much a region or customer tier contributed to an average or variance spike). Exact Shapley computation is exponential in the window size, and existing estimators discard the massive overlap between consecutive windows.
-  We show that for SUM, COUNT, AVG, and population/sample variance, exact predicate-level Shapley values admit closed forms in three additively maintained summaries per predicate (count, sum, and sum of squares), with coefficients that depend only on two running harmonic numbers. Attribution therefore reduces to $O(1)$ summary updates per slide for registered predicates, with no coalition enumeration. Overlapping and compositional predicates are answered exactly via atomic refinement of Boolean signatures. We further characterize the phenomenon: every moment-polynomial aggregate admits such a form, while MAX, MIN, and quantiles provably do not at any fixed moment order.
-  Experiments match brute-force Shapley values to floating-point precision on over $10{,}000$ windows, sustain $\approx\!2\,\mu$s per slide up to $N=10^6$ ($3{,}200\times$ faster than per-window recomputation of the same formulas), and explain a nighttime fare spike on 2.9M NYC taxi trips at $\approx\!1.8$M summary updates per second.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23087v1</guid>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
+      <category>cs.LO</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Pouya Khani, Ira Assent</dc:creator>
+      <dc:creator>Michael Lambert</dc:creator>
     </item>
     <item>
-      <title>Teach Your DBMS to LIKE Strings: Fast and General Pattern Matching for Wildcard Joins and Filters</title>
-      <link>https://arxiv.org/abs/2608.23307</link>
-      <description>arXiv:2608.23307v1 Announce Type: new 
-Abstract: Nowadays, modern applications do more than just store text -- they need to derive meaningful insights from it. To do that, they usually rely on wildcard queries with LIKE predicate to extract patterns. However, modern database management systems (DBMSs) handle these wildcard operations poorly, resorting to nested loops for joins and expensive interpreted evaluation for filters. To address the former, we propose a new join algorithm based on the Aho-Corasick algorithm, which significantly reduces the time complexity. For wildcard filtering, we leverage the code-generation infrastructure to improve performance: we generate specialized code for the LIKE predicate, eliminating the overhead of interpreting the pattern per tuple. Our experimental results show that the new wildcard join algorithm significantly outperforms both baseline DuckDB and Umbra, achieving speedups of up to 30.6x and 114.75x, respectively. The new wildcard filter approach likewise outperforms both baselines, achieving a speedup of 13.3x in a filter-focused stress benchmark. We believe these two techniques will play key roles for high-performance text analytics in modern query engines.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23307v1</guid>
+      <title>Degree Centrality Algorithms for Weighted Multilayer Networks (or w-MLNs)</title>
+      <link>https://arxiv.org/abs/2608.23876</link>
+      <description>arXiv:2608.23876v1 Announce Type: cross 
+Abstract: Centrality measures are defined for simple graphs -- directed, undirected, weighted or unweighted. Attributed graphs have to be reduced to simple graphs for computing centrality measures. However, when applications with multiple types of relationships are modeled using multilayer networks (MLNs), simple graph algorithms cannot be directly used. Existing approaches typically analyze MLNs by aggregating layers of an MLN into a single graph, which results in the loss of structural and semantic information. The semantic information loss can be more pronounced particularly, in weighted networks.
+  This work focuses on computing degree centrality in weighted homogeneous multilayer networks (HoMLNs) using a decoupling-based framework. The framework performs independent layer-wise analysis on MLNs without reducing them to simple graphs. The decoupling approach allows use of exiting algorithms for each layer and uses minimal information from individual layers for computing degree centrality of HoMLNs. We propose heuristic-based algorithms that strike a balance between accuracy and efficiency.
+  The proposed methods are evaluated against ground truth (GT) results obtained using Boolean OR aggregation and naive baselines. Experimental results on both synthetic and real-world HoMLN datasets demonstrate that the heuristics achieve accuracy comparable to the ground truth while significantly improving computational efficiency, thereby establishing the scalability and effectiveness of the HoMLN algorithms developed using the decoupling approach.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23876v1</guid>
+      <category>cs.SI</category>
       <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Lam-Duy Nguyen, Pascal Ginter, Duc-Tam Nguyen, Thomas Neumann, Viktor Leis</dc:creator>
-    </item>
-    <item>
-      <title>EXPLAIN Yourself! Finding Query Planner Stalls Across DBMSes</title>
-      <link>https://arxiv.org/abs/2608.23402</link>
-      <description>arXiv:2608.23402v1 Announce Type: new 
-Abstract: Query planners are typically expected to produce optimized plans quickly, leading many researchers (including the authors of this paper) and practitioners to design systems that assume query planning is a low-cost operation. Using a lightweight agentic search, we show that this assumption does not always hold. Across seven DBMSes, including four commercial systems, we find at least one query per system that takes more than three minutes to plan. In addition to being slow to plan, such queries risk tying up database resources without performing useful work, creating a potential denial-of-service vector. We analyze the queries our search uncovers and compare how the seven systems respond to each pattern. We find that although the queries triggering slow planning are largely DBMS-specific, recurring pathologies involving correlated subqueries, CTE expansion, repeated subquery expressions, disjunctive joins, and constant folding affect multiple systems. We release our uncovered queries along with a curated suite of parameterized query pathologies that researchers and database engineers can use to test planner robustness. Overall, our results show that query planning cannot always be treated as a predictably inexpensive operation and that its latency and robustness deserve further attention from both database researchers and engineers.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23402v1</guid>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Geoffrey X. Yu, Ryan Marcus, Tim Kraska</dc:creator>
-    </item>
-    <item>
-      <title>Chimera: Efficient Multi-Vector Retrieval via GPU-CPU Co-Processing</title>
-      <link>https://arxiv.org/abs/2608.23553</link>
-      <description>arXiv:2608.23553v1 Announce Type: new 
-Abstract: Multi-vector retrieval has become a core primitive in semantic search applications that require fine-grained matching, such as information retrieval, recommender systems and bioinformatics. However, its high computational complexity and memory costs make low-latency retrieval difficult. Prior systems have attempted to optimize query latency, but their designs remain CPU-centric. While GPUs offer substantial computational advantages, their limited memory capacity necessitates a heterogeneous architecture in which the dataset resides in host memory and the GPU serves as an accelerator. Existing GPU-based system, PLAID, is bottlenecked by CPU-GPU data movement, as vector data must be transferred from host memory to the GPU at query time. We propose Chimera, a GPU-CPU co-processing system for multi-vector retrieval that eliminates this transfer bottleneck. Chimera stores highly compressed, low-precision quantization codes on the GPU while maintaining high-precision data in CPU memory. At query time, it leverages GPU-resident data for efficient candidate generation and filtering, and further refines results through a GPU-CPU collaborative scoring scheme that completely avoids vector data transfer while enabling computation overlap. Experiments on real-world datasets demonstrate that Chimera significantly outperforms existing approaches, achieving up to 16.0x higher QPS at the same recall level.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23553v1</guid>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
-      <dc:creator>Yanqi Chen, Juelin Liu, Alexandra Meliou, Xiao Yan</dc:creator>
-    </item>
-    <item>
-      <title>Retrieval Needs Multivectors: An Exponential Separation</title>
-      <link>https://arxiv.org/abs/2608.21494</link>
-      <description>arXiv:2608.21494v1 Announce Type: cross 
-Abstract: Recent works have highlighted the expressive limitations of embedding based retrieval models through both theoretical analyses and challenging benchmarks such as LIMIT. While multi-vector embeddings consistently outperform single-vector embeddings, the precise representational gap between them remains poorly understood. In this work, following Jayaram's work, we provide the first explicit family of query and document sets, together with their relevance matrices, for which single-vector embeddings that rank all relevant documents above irrelevant ones require exponential size, whereas polynomial-size multi-vector embeddings suffice. Our result establishes an exponential separation between the expressive power of single-vector and multi-vector embeddings for the task of ranking of documents as opposed to approximating numerical scores as in the work of Jayaram.
-  Motivated by our theoretical construction, we introduce ANDOR, a new retrieval benchmark that naturally instantiates these hard examples. We show that state-of-the-art single-vector embedding models perform poorly on ANDOR in the zero-shot setting and exhibit only marginal improvements after fine-tuning, highlighting the inherent difficulty of the benchmark compared to prior work. In contrast, multi-vector models consistently outperform their single-vector counterparts and improve substantially with fine-tuning, closely aligning with our theoretical predictions.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.21494v1</guid>
+      <category>cs.DM</category>
       <category>cs.IR</category>
-      <category>cs.DB</category>
-      <category>cs.LG</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Ayomide Ayowole-Obi, Abhishek Santra, Sharma Chakravarthy</dc:creator>
+    </item>
+    <item>
+      <title>SQLite is Enough. Lexical, Semantic, and Hybrid Search with scrydb</title>
+      <link>https://arxiv.org/abs/2608.24060</link>
+      <description>arXiv:2608.24060v1 Announce Type: cross 
+Abstract: This work introduces scrydb, a Python library that enables lexical, semantic, and hybrid search within SQLite. For lexical search, scrydb leverages SQLite's full-text search extension FTS5. Semantic search builds on sqlite-vec, a SQLite extension for vector search. Furthermore, the library allows users to rerank and fuse retrieval results to combine both lexical and semantic approaches, providing a lightweight solution for downstream tasks in information retrieval (IR) or agentic search. We evaluate scrydb on various IR benchmark datasets and demonstrate its effectiveness in text retrieval based on keyword matching, semantic similarity, and rank fusion. In addition, we provide insights into query latency and the trade-off between efficiency and effectiveness. scrydb is available under the MIT license.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.24060v1</guid>
+      <category>cs.IR</category>
+      <category>cs.CL</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Timo Breuer</dc:creator>
+    </item>
+    <item>
+      <title>Matched Excess-Outranker Regularization for Candidate-Set Interference in Continual Knowledge Graph Embedding</title>
+      <link>https://arxiv.org/abs/2608.24273</link>
+      <description>arXiv:2608.24273v1 Announce Type: cross 
+Abstract: Continual knowledge graph embedding updates entity and relation representations as a graph grows. Existing methods primarily address catastrophic forgetting, but entity admission also changes the candidate universe of every compatible query. A historical answer can therefore lose rank even when its score and its ordering among old entities are preserved. We formalize this effect as candidate-set interference and introduce Matched Excess-Outranker Regularization (MEOR), a host-level objective that compares smooth answer-relative newcomer pressure with score-blind, structurally matched old references. Its one-sided penalty acts only when newcomer competition exceeds the matched reference, preserving the host learner's signal for legitimate new entities. Across eight paired runs on ENTITY-ComplEx, MEOR improves historical current-universe mean reciprocal rank (MRR) by 0.0057 over replay and reduces candidate-set interference by 0.0055, with one-sided 95% lower bounds of 0.0052 and 0.0051, respectively. It satisfies the preservation criteria for old-universe ranking and newcomer acquisition and improves historical current-universe MRR over persistent calibration, matched maximum regularizer (MMR), and unmatched old regularizer (UOR). Direct ablations support each component of its reference construction and aggregation. Adding MEOR also improves historical ranking in all ten reported FBInc-S and FBInc-L host and backbone settings, with every paired 95% confidence interval excluding zero. These results establish candidate admission as a distinct source of continual rank loss and show that it can be controlled without replacing the underlying embedding architecture or continual learner.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.24273v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <category>cs.IR</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Hao Ren, Junbin Gao, Jiaojiao Jiang</dc:creator>
+    </item>
+    <item>
+      <title>MGQL: An Executable, Small-Step Semantics of GQL</title>
+      <link>https://arxiv.org/abs/2608.24565</link>
+      <description>arXiv:2608.24565v1 Announce Type: cross 
+Abstract: ISO Graph Query Language (GQL) is the first international standard for property graph-based graph query languages, standardized as ISO/IEC 39075 in 2024. However, ISO/IEC 39075 codifies its semantics informally across 600+ pages of prose, making it difficult to formally reason about the standard or for a standard-faithful implementation. Existing formalizations are not adequate because they either: (1) significantly reduce the semantic complexity by omitting bag semantics, schemas, and composite queries on multiple graphs; (2) or significantly reduce the syntactic complexity by only considering isolated fragments such as pattern-matching, leaving the full query pipeline unformalized. Yet it is these semantic-syntactic features that make formalizing GQL non-trivial. We present MGQL, the first mechanized, small-step operational semantics for a substantial read-only fragment of GQL that is grounded in the ISO/IEC 39075 standard. Our formalization models multi-graph property graphs with mixed edge directionality and supports a large fraction of GQL pattern constructs: quantified paths and edges, directional and undirected matching, label expressions, pattern lists, and composite queries. The semantics is supported by a schema-aware type system that refines variable types via closed-graph schemas, tracks nullability, supports multiple composite query operators, and models quantified-path bindings with list types. We prove that our type system is sound, ensuring an end-to-end guarantee of well-formed queries yielding results that conform to their declared schemas. MGQL provides the first bridge between GQL's informal specification and a mechanized implementation, enabling formal reasoning about correctness.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.24565v1</guid>
+      <category>cs.PL</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3839459</arxiv:DOI>
+      <dc:creator>Aditya Thimmaiah, Tong-Nong Lin, Milos Gligoric</dc:creator>
+    </item>
+    <item>
+      <title>Bridging Business Intent and Data: A Benchmark for Automatic Relational Data Product Generation</title>
+      <link>https://arxiv.org/abs/2512.15798</link>
+      <description>arXiv:2512.15798v2 Announce Type: replace 
+Abstract: A data product is designed to address a specific business need by transforming raw data into a curated, usable asset that delivers actionable insights. Despite practical advances in related areas like text-to-SQL and ELT pipelines, there is no comprehensive benchmark for evaluating the end-to-end process of automatically generating such data products from high-level business requests. To fill this gap, we introduce DP-Bench, a first-of-its-kind benchmark for automatic data product creation, built by combining elements from existing ELT and text-to-SQL datasets. We also propose baseline methods using LLMs to generate data products, providing a foundation for future research in bridging natural language business intent and structured data representation. We make the DP-Bench dataset and code available at: https://huggingface.co/datasets/ibm-research/dp-bench.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.15798v2</guid>
+      <category>cs.DB</category>
+      <category>cs.CL</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Faisal Chowdhury, Sola Shirai, Sarthak Dash, Nandana Mihindukulasooriya, Horst Samulowitz</dc:creator>
+    </item>
+    <item>
+      <title>Accelerating Point-in-Polygon Predicates via Algebraic Hash-Joins and Discrete Global Grids at Scale: An interactive benchmark</title>
+      <link>https://arxiv.org/abs/2607.08956</link>
+      <description>arXiv:2607.08956v2 Announce Type: replace 
+Abstract: Traditional vector-based point-in-polygon queries rely on computationally expensive geometric predicates that scale poorly for massive datasets, even when accelerated by spatial indices. Discrete Global Grid Systems (DGGS) offer a scalable alternative by discretizing geometries into hierarchical cells, transforming complex spatial relations into constant-time relational hash-joins. However, adopting a DGGS introduces an overhead to encode data, and current grid implementations exhibit a significant performance ``tooling gap.'' In this demonstration, we present an interactive dashboard that empirically evaluates these computational tradeoffs across four DGGS implementations (H3, S2, A5, and ISEA4H) using DuckDB. Through progressive scenarios, the platform visualizes the overhead of on-the-fly encoding and demonstrates how pre-indexing spatial datasets eliminates this overhead. Ultimately, the demo proves that when data is pre-indexed, all DGGS regardless of their mathematical complexity or tooling converge to sub-second join latencies, unlocking the throughput of modern vectorized execution engines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.08956v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
-      <dc:creator>Mihir Agarwal, Viraj Agrawal, Sabyasachi Basu, Ankit Garg, Kirankumar Shiragur</dc:creator>
+      <arxiv:DOI>10.1145/3841645.3843101</arxiv:DOI>
+      <dc:creator>Levente Juhasz</dc:creator>
     </item>
     <item>
-      <title>Consistency Is Not Coherence: Orientation Search for Certified Alignments Between 4D Defence Upper Ontologies</title>
-      <link>https://arxiv.org/abs/2608.21914</link>
-      <description>arXiv:2608.21914v1 Announce Type: cross 
-Abstract: We align three upper ontologies that sit under UK and NATO defence data infrastructure: the Information Exchange Standard (IES), the Higher Quality Data Model (HQDM) that underpins the National Digital Twin, and Basic Formal Ontology (BFO). No public alignment between IES and HQDM existed. Promoting a hand-curated 17-correspondence crosswalk to OWL and reasoning over the complete merged ontologies with HermiT produces three results that we believe matter beyond this pair.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.21914v1</guid>
-      <category>cs.AI</category>
+      <title>Adaptive Probabilistic Skyline Analytics for Mobile Edge-Cloud Systems via State-Aware Deep Reinforcement Learning</title>
+      <link>https://arxiv.org/abs/2601.21855</link>
+      <description>arXiv:2601.21855v3 Announce Type: replace-cross 
+Abstract: The proliferation of Mobile Edge Computing (MEC) and distributed sensing necessitates efficient Probabilistic Skyline (PSKY) query analytics at the network edge. However, this process is severely constrained by the computation-communication trade-off under constrained wireless capacity and dynamic traffic conditions. Furthermore, mobility-induced workload fluctuations and spatio-temporal data shifts render static filtering policies inefficient, often triggering network congestion or compromising query fidelity. To address these systemic inefficiencies in dynamic mobile environments, this paper introduces SA-PSKY, a self-adaptive framework integrating deep reinforcement learning into a distributed query optimization architecture. We formulate the probabilistic skyline filtering as an adaptive control problem and develop a State-Aware Adaptive Weighting (SAAW) mechanism to dynamically regulate computation, communication, and fidelity. By incorporating Prioritized Experience Replay (PER) to stabilize learning around abrupt network transitions, our framework reliably navigates the Pareto-efficient operating point. Empirical evaluations confirm that SA-PSKY achieves substantial latency reduction while preserving query fidelity under constrained communication resources. Furthermore, zero-shot robustness analyses reveal superior adaptation to unseen mobility-induced uncertainty shifts, where rigid methods exhibit severe policy degradation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.21855v3</guid>
+      <category>cs.DC</category>
       <category>cs.DB</category>
-      <category>cs.LO</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Fabio Rovai</dc:creator>
-    </item>
-    <item>
-      <title>From SQL Generation to Tool Selection: A Domain-Oriented Pattern for MCP Servers</title>
-      <link>https://arxiv.org/abs/2608.22063</link>
-      <description>arXiv:2608.22063v1 Announce Type: cross 
-Abstract: Agents built on Large Language Models (LLMs) increasingly reach enterprise data through the Model Context Protocol (MCP), and many MCP database servers maximize flexibility by exposing a single generic SQL execution tool. This paper proposes the Domain-Oriented Tooling Pattern: instead of generating SQL at query time, the model selects from a small set of domain-aligned tools whose parameterized queries encapsulate schema navigation, joins and business rules on the server side. We formalize the pattern around three architectural invariants and introduce Model Demotion, the observation that replacing SQL synthesis with intent classification lowers the model tier required to serve routine requests. As a reference implementation we present MCP Blueprint, an open-source framework in which domain tools are defined declaratively as YAML metadata plus external parameterized SQL files. We evaluate the pattern with a public reproducibility benchmark comparing three MCP server designs - raw SQL execution, a thin generic tool pack, and a verticalized domain pack - on four local models (3B-8B) across seventeen customer-facing tasks over the Sakila database (609 completed cells; temperature 0; three repetitions per cell). The verticalized pack reaches a pooled mean score of 0.939 versus 0.666 for raw SQL and 0.605 for the generic pack; the smallest model improves from 0.583 to 0.929, matching or exceeding every larger configuration while cutting cost per correct answer by an order of magnitude. All harness code, prompts, gold answers, frozen packs and per-cell results are publicly available.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22063v1</guid>
-      <category>cs.AI</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Bartolomeo Bogliolo</dc:creator>
-    </item>
-    <item>
-      <title>Data Quality Assessments: A Theoretically Structured Overview of Approaches and Methods</title>
-      <link>https://arxiv.org/abs/2608.22474</link>
-      <description>arXiv:2608.22474v1 Announce Type: cross 
-Abstract: The quality of data is crucial for both practice and academia, and this holds for descriptive statistics, AI and advanced analytics alike. This study addresses an apparent gap in the literature and as such presents a full and theoretically grounded overview of data quality assessment approaches and methods, as well as their defining characteristics and inter-relationships. For this purpose a broad typology is introduced that employs two theoretical dimensions, namely the evaluation logic (formal versus informal) and the assessment driver (norms versus data). This yields four high-level approaches and 15 methods for assessing data quality. The research results are relevant for academia, as they provide a theory-based overview and definition of the ways that data quality can be evaluated. The study is also relevant for practice because it allows professionals to make informed decisions on using these methods, e.g. as part of an audit or broad data quality assessment strategy.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22474v1</guid>
-      <category>stat.OT</category>
-      <category>cs.DB</category>
-      <category>stat.ME</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Ralph Foorthuis</dc:creator>
-    </item>
-    <item>
-      <title>RAD: Rule-Augmented Relational Anomaly Detection</title>
-      <link>https://arxiv.org/abs/2608.23468</link>
-      <description>arXiv:2608.23468v1 Announce Type: cross 
-Abstract: Anomaly detection is often applied to data stored in relational databases, yet most existing methods require flattening multiple tables into a single feature matrix. This flattening can obscure entity identity, schema structure, and multi-hop dependencies, limiting the detection of anomalies that depend on relational context rather than isolated feature values. Beyond preserving relational structure, relational anomaly detection raises an additional challenge: how to incorporate symbolic behavioral evidence into learned relational representations. To address these challenges, we study relational anomaly detection, where the goal is to identify anomalous entities or events in a multi-table database. We propose RAD, a rule-augmented relational anomaly detector that combines heterogeneous graph representation learning with refined symbolic rule signals. RAD derives candidate rules from random-forest paths over flattened summaries of the entities or events being scored, refines them into compact interpretable predicates, injects the resulting rule features into the graph model, and learns anomaly scores using reconstruction-based and pairwise-ranking supervision. To evaluate this setting, we introduce a relational anomaly detection benchmark spanning three settings: LANL cybersecurity event detection and two unexpected user-churn anomaly tasks derived from Amazon and H&amp;M relational databases. Experiments show that RAD improves anomaly ranking over flattened tabular detectors and relational baselines under natural class imbalance, achieving the best average rank on AUROC and AUPRC across the benchmark. Ablations show that direct rule injection and ranking-based supervision are key contributors to performance, while edge reconstruction is not uniformly beneficial. Our code and data are available at: https://github.com/noahd15/RAD_RelationalAnomalyDetection.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23468v1</guid>
-      <category>cs.LG</category>
-      <category>cs.CR</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <arxiv:DOI>10.1145/3799682.3841086</arxiv:DOI>
-      <dc:creator>Noah Dahle, Anne Tumlin, Ngoc Tran, Xenofon Koutsoukos, Tyler Derr</dc:creator>
-    </item>
-    <item>
-      <title>Vibe Coding on Trial: Operating Characteristics of Unanimous LLM Juries</title>
-      <link>https://arxiv.org/abs/2602.18492</link>
-      <description>arXiv:2602.18492v2 Announce Type: replace 
-Abstract: Large Language Models (LLMs) are now good enough at coding that developers can describe intent in plain language and let the tool produce the first code draft, a workflow increasingly built into tools like GitHub Copilot, Cursor, and Replit. What is missing is a reliable way to tell which model written queries are safe to accept without sending everything to a human. We study the application of an LLM jury to run this review step. We first benchmark 15 open models on 82 MySQL text to SQL tasks using an execution grounded protocol to get a clean baseline of which models are strong. From the six best models we build unanimous committees of sizes 1 through 6 that see the prompt, schema, and candidate SQL and accept it only when every member says it is correct. This rule matches safety first deployments where false accepts are more costly than false rejects. We measure true positive rate, false positive rate and Youden J and we also look at committees per generator. Our results show that single model judges are uneven, that small unanimous committees of strong models can cut false accepts while still passing many good queries, and that the exact committee composition matters significantly.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.18492v2</guid>
-      <category>cs.DB</category>
-      <category>cs.AI</category>
-      <category>cs.CL</category>
-      <category>cs.SE</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Muhammad Aziz Ullah, Abdul Serwadda</dc:creator>
-    </item>
-    <item>
-      <title>Which Eviction Policy Should an LLM Cache Use? A Systematic Study Across Workloads, Capacities, and Encoders</title>
-      <link>https://arxiv.org/abs/2608.20280</link>
-      <description>arXiv:2608.20280v2 Announce Type: replace 
-Abstract: Semantic caches reuse an LLM response when the incoming query embedding lies near a cached query, but proposed eviction policies have rarely been compared under one protocol. Using CLEVER, we evaluate FIFO, LRU, LFU, ARC, GDSF, a single-pass streaming adaptation of SISO, and a semantic-redundancy policy across three ordered, deduplicated query corpora, three cache capacities, and two encoders. No evaluated policy improves on LFU by more than 0.041 percentage points in any of the eighteen settings. Replacement is not irrelevant: FIFO and streaming SISO trail LFU by as much as 8.67 and 8.55 points, respectively, at tight capacity.
-  We explain the missing upside with a conditional packing result. Under exact lookup and insert-on-miss, a newly inserted entry cannot have a resident neighbor within the hit radius, so a geometry-aware eviction rule receives little new redundancy signal. A separate audit exposes a larger problem with the evaluated operating point. At MiniLM's median nearest-neighbor threshold, only 2.1-3.9% of sampled LMSYS and QQP hits are judged answer-substitutable, reducing raw hit rates of 51-60% to quality-adjusted rates of 1.1-2.2%. The cross-encoder study further shows that thresholds do not transfer between embedding models. LFU is the strongest simple default in this protocol; deployment decisions should first establish answer validity and then test sub-point policy differences with exact search.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.20280v2</guid>
-      <category>cs.DB</category>
-      <category>cs.LG</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Yash Kulkarni, Shubham Harkare, Arvind Yogesh Suresh Babu</dc:creator>
-    </item>
-    <item>
-      <title>Improving Join Order Optimization on Gate-Based Quantum Computers via Structured Parameter Initialization</title>
-      <link>https://arxiv.org/abs/2608.20683</link>
-      <description>arXiv:2608.20683v2 Announce Type: replace 
-Abstract: Join Order Optimization (JOO) is one of the most computationally expensive tasks in relational query optimization due to the exponential growth of possible join plans with increasing query size. Recent work has explored quantum and quantum-inspired approaches for solving JOO by reformulating the problem as a Quadratic Unconstrained Binary Optimization (QUBO) problem suitable for optimization using quantum hardware. However, many existing approaches have limited scalability on current gate-based quantum devices. In addition, little work has investigated the role of initialization strategies in improving the performance of gate-based quantum optimization for database workloads. In this work, we investigate gate-based quantum join order optimization using the Quantum Approximate Optimization Algorithm (QAOA) initialized with Scalable Parameter Initialization for QAOA (SPIQ). SPIQ is used to efficiently identify high-quality initial points in the quantum solution landscape for QAOA executed on a gate-based quantum computer. We evaluate the interaction between QUBO encoding, SPIQ initialization, and gate-based optimization on small-scale join ordering problems involving 3 and 4 relations. Our results show that structured initialization improves optimization stability and increases convergence toward high-quality join plans compared to uninformed initialization approaches. Across these small-scale, simulation-based instances, SPIQ increases the sampling frequency of the optimal join order by up to approximately 5$\times$ and yields final-state energies significantly lower than a randomly initialized QAOA. Overall, this work enhances existing gate-based quantum optimization while providing an initial proof of concept for applying SPIQ initialization to database query optimization workloads.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.20683v2</guid>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Divya Shekar, Ruokun Wu, Dhanvi Bharadwaj, Gokul Subramanian Ravi, Lin Ma</dc:creator>
-    </item>
-    <item>
-      <title>LakeHopper: Knowledge-Aware Adaptation of Column Type Annotators across Data Lakes</title>
-      <link>https://arxiv.org/abs/2602.08793</link>
-      <description>arXiv:2602.08793v2 Announce Type: replace-cross 
-Abstract: Column Type Annotation (CTA), which assigns a semantic type to a table column, underpins data integration, cleaning, and search over data lakes. State-of-the-art annotators are pre-trained language models (PLMs) fine-tuned on one particular corpus of tables, i.e., a source data lake, and they degrade sharply once deployed on a new (i.e., target) lake, whose tables and semantic type set both differ. Retraining per lake is prohibitive because it demands large volumes of expert annotations. We recast cross-lake adaptation as a knowledge management problem and make the resulting decomposition explicit: relative to a target annotator, a source annotator holds knowledge that must be discarded (source-specific), realigned and reused (shared), or acquired (target-specific). This decomposition exposes which part of the gap a general-purpose LLM can close and which part only target supervision can. Guided by it, we present LakeHopper, which adapts a source annotator under a fixed annotation budget through three coupled mechanisms: label-set realignment that transplants the output layer for shared types, LLM-verified gap discovery that localizes columns the annotator handles unreliably, and cluster-based propagation plus rehearsal fine-tuning that generalizes each flagged column into a labeling batch without erasing shared knowledge. Casting the LLM as a verifier of the annotator's own predictions rather than an annotator keeps every output inside the target type set, so LakeHopper structurally emits no out-of-domain labels, whereas prompted LLMs hallucinate types on 2.7-47.6% of columns. Across three data lake transfers of differing difficulty, LakeHopperlifts three PLM backbones by up to 71.4% relative macro-F1, reaches near-full-data quality with under 6% of the target labels, and matches fine-tuned table LLMs while training 27-131 times faster.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2602.08793v2</guid>
-      <category>cs.CL</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Yushi Sun, Xujia Li, Nan Tang, Quanqing Xu, Chuanhui Yang, Lei Chen</dc:creator>
-    </item>
-    <item>
-      <title>Reconciling Consistency-Based Diagnosis with Actual-Causality-Based Explanations</title>
-      <link>https://arxiv.org/abs/2605.08688</link>
-      <description>arXiv:2605.08688v2 Announce Type: replace-cross 
-Abstract: We establish, from the point of view of Explainable AI (XAI), connections between Consistency-Based Diagnosis (CBD), on one side, and Actual Causality and Causal Responsibility, on the other. CBD has received little attention from the XAI community. Connections between these two areas could have a fruitful impact on XAI and Explainable Data Management.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2605.08688v2</guid>
-      <category>cs.AI</category>
-      <category>cs.DB</category>
-      <category>cs.LO</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
+      <category>cs.NI</category>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace-cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Leopoldo Bertossi</dc:creator>
-    </item>
-    <item>
-      <title>NL2SHACL-Bench: A Benchmark Suite for Natural Language to SHACL Translation</title>
-      <link>https://arxiv.org/abs/2608.07530</link>
-      <description>arXiv:2608.07530v2 Announce Type: replace-cross 
-Abstract: SHACL is a core technology for validating the conformance of RDF knowledge graphs (KGs). Yet, authoring SHACL shapes requires technical expertise that most domain experts lack. Translating natural language requirements into SHACL (NL2SHACL) would lower this barrier. However, there is no dedicated benchmark for NL2SHACL, and evaluating generated shapes requires methods beyond string comparison, as semantically equivalent shapes can differ in serialisation and structure. To tackle these challenges, we present NL2SHACL-Bench, a benchmark suite for natural language to SHACL translation. Using NL2SHACL-Bench, we evaluate four state-of-the-art large language models (LLMs) for this task. Our results show that current LLMs are highly capable of generating syntactically valid SHACL, but still struggle to produce semantically equivalent constraints for complex logical and structural patterns. This indicates that NL2SHACL-Bench provides a meaningful basis for measuring advances in the NL2SHACL state of the art.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.07530v2</guid>
-      <category>cs.AI</category>
-      <category>cs.CL</category>
-      <category>cs.DB</category>
-      <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/publicdomain/zero/1.0/</dc:rights>
-      <dc:creator>Yuchen Zhou, Niels Bobet, Maribel Acosta</dc:creator>
+      <dc:creator>Chuan-Chi Lai</dc:creator>
     </item>
   </channel>
 </rss>
