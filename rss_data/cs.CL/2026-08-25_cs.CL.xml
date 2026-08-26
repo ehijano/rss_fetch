@@ -7,7 +7,7 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.CL" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Aug 2026 04:00:01 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 02:03:31 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
     <skipDays>
@@ -338,9 +338,9 @@ Abstract: Large Language Models (LLMs) have achieved significant progress across
     <item>
       <title>Training a Knowledge Base: Supervised Structure Learning for Agent-Curated Document Stores</title>
       <link>https://arxiv.org/abs/2608.21829</link>
-      <description>arXiv:2608.21829v1 Announce Type: new 
-Abstract: Retrieval-augmented generation treats the document store as a frozen input, and the systems that instead let an agent curate one never measure what curation does to the store. We invert the framing: the knowledge base is the model. A training agent answers a supervised question against the current store, is shown the gold, then edits the store; an unchanged reader is later examined on a frozen snapshot under a fixed action budget. Where offline graph construction is unsupervised, (question, answer) pairs are our labels -- and that supervision is what makes the structure cheap. Per point of corpus indexed it returns 1.6x the action saving and 1.8x the accuracy of an unsupervised entity index covering everything, using 1,913 links against its 196,112. On questions the store trained on, an unchanged reader spends 31% fewer actions at higher accuracy, and the result reproduces on an official PhantomWiki generation whose questions we did not write. To measure how far this reaches we introduce a key-coverage gradient, a probe varying how much of a question the training set touched, replacing a train/test split's pass/fail with a decay curve. Generalization proves endpoint-dependent: accuracy carries to unseen questions (+0.167 F1 where both of a question's keys were indexed, +0.100 where one was, zero where neither) while the action saving stays on trained questions. Because that decay is indexed by coverage rather than by novelty, more training extends it -- and the store is undertrained, not saturated: coverage grows linearly in new questions and stops the moment training repeats them, so a hundred questions reach a quarter of the corpus and four times as many would close the gap.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.21829v1</guid>
+      <description>arXiv:2608.21829v2 Announce Type: new 
+Abstract: Retrieval-augmented generation treats the document store as a frozen input, and the offline pipelines that do build structure over it build it unsupervised -- a whole corpus indexed at uniform effort, with no signal about which structure a question will need. We instead treat the knowledge base as a non-parametric model trained on (question, answer) pairs: a curator agent answers a supervised question against the current store, is shown the gold answer, then edits the store. The store carries forward, and we evaluate the curated store with a test set, on two contamination-free benchmarks: KBGym, a fictional-universe generator we release, and PhantomWiki. Generalization is probed with four question groups of decreasing overlap with the training set: the trained questions themselves, and unseen questions sharing both of their keys with training, one key, or neither. The curated store's advantage grows with overlap -- from parity where no key was shared, through +0.176 F1 where both keys were, to 25% fewer actions at +0.294 F1 on the trained questions, the one cell significant on both benchmarks -- while matching HippoRAG's gains with 1,913 links against its 196,112: per point of corpus covered, 1.5x the action saving and 2.1x the accuracy gain. Accuracy rises steadily with the share of the corpus the indexes cover, so training on more questions widens coverage, and with it the generalization.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.21829v2</guid>
       <category>cs.CL</category>
       <category>cs.AI</category>
       <category>cs.IR</category>
@@ -1179,11 +1179,11 @@ Abstract: Vision-language models (VLMs) frequently fail at visual change reasoni
       <dc:creator>Youdi Li</dc:creator>
     </item>
     <item>
-      <title>Better Retrieval, Worse Robustness:How Multi-hop RAG Amplifies Upstream ASR Errors</title>
+      <title>Better Retrieval, Worse Robustness: How Multi-hop RAG Amplifies Upstream ASR Errors</title>
       <link>https://arxiv.org/abs/2608.22872</link>
-      <description>arXiv:2608.22872v1 Announce Type: new 
-Abstract: Speech-based applications pass spoken queries through automatic speech recognition (ASR) before any retrieval module, so ASR errors enter the pipeline as a fixed upstream constraint. We empirically test whether two extensions to standard retrieval-augmented generation (RAG), entity-graph linking and iterative reformulation, absorb or amplify these errors. Using four English accents synthesized through neural TTS, we evaluate four RAG configurations on three multi-hop QA benchmarks (HotpotQA, 2WikiMultiHopQA and MuSiQue) against a clean-text oracle. Although the structurally richer configurations generally retain higher absolute F1 under ASR input, both extensions amplify the error: the F1 gap from clean text to the highest-WER accent is 36-67% larger under their combination than under naive dense retrieval, on all three benchmarks. The dominant failure mode is corruption of one or more query entities, accounting for 87-96% of degradation cases on 2WikiMultiHopQA across all four methods. Two lightweight surface-form mitigations leave most of the gap intact, indicating that downstream retrieval structure amplifies remaining entity errors. We release code and data at https://github.com/ZhenghuaBao/spoken-multihop-rag .</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22872v1</guid>
+      <description>arXiv:2608.22872v2 Announce Type: new 
+Abstract: Speech-based applications pass spoken queries through automatic speech recognition (ASR) before any retrieval module, so ASR errors enter the pipeline as a fixed upstream constraint. We empirically test whether two extensions to standard retrieval-augmented generation (RAG), entity-graph linking and iterative reformulation, absorb or amplify these errors. Using four English accents synthesized through neural TTS, we evaluate four RAG configurations on three multi-hop QA benchmarks (HotpotQA, 2WikiMultiHopQA and MuSiQue) against a clean-text oracle. Although the structurally richer configurations generally retain higher absolute F1 under ASR input, both extensions amplify the error: the F1 gap from clean text to the highest-WER accent is 36-67% larger under their combination than under naive dense retrieval, on all three benchmarks. The dominant failure mode is corruption of one or more query entities, accounting for 87-96% of degradation cases on 2WikiMultiHopQA across all four methods. Two lightweight surface-form mitigations leave most of the gap intact, indicating that downstream retrieval structure amplifies remaining entity errors. We release code and data at https://github.com/Continuum-AI-Corp/spoken-multihop-rag .</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.22872v2</guid>
       <category>cs.CL</category>
       <category>cs.IR</category>
       <category>eess.AS</category>
@@ -1356,20 +1356,16 @@ Abstract: Large language models (LLMs) require effective unlearning to address p
       <dc:creator>Xunlei Chen, Qirui Ye, Yuang Li, Yi Gong, Zhaokun Wang, Wenyi Li, Shiyao Guo, Jinyu Guo</dc:creator>
     </item>
     <item>
-      <title>Most of the LLM routing gap is task type</title>
+      <title>Most of the LLM Routing Gap Is Task Type</title>
       <link>https://arxiv.org/abs/2608.23023</link>
-      <description>arXiv:2608.23023v1 Announce Type: new 
-Abstract: An LLM router picks which model should answer each query. The appeal is that models fail on different questions. Whatever single model is best overall still gets some wrong, and another model in the pool gets many of those right. Getting that choice right every time is the ceiling, and a router is an attempt to approach it.
-  However, recent work reports that routers do not get close. Across 21 routing methods on five benchmarks, sharply different designs land within a fraction of a point of each other, and all of them stay far below that ceiling. Learned routers often fail to beat simply always calling the strongest model.
-  We ask what those missed questions have in common. We set fourteen models to answer all 294 questions, with 7 task types across 3 languages: Korean, English and Hindi. We ran the whole matrix twice, changing nothing, but 5.37% of the 4,116 model-question pairs came out scored differently anyway. Run-to-run movement like that is normal, and we argue that a small win does not show that routing did anything, ours or anyone else's.
-  Counting an answer correct only when the model got it right in both runs, 29 questions on this matrix can be improved with routing. Every correct-answer count here is on that rule. Task type accounts for most of them: assigning each task type one model in advance, chosen once and never updated, improves 21 of the 29. Splitting each task type by language improves 2 more and leaves 6 of 294 unoptimized. That handful is what a learned router would have been built for, and it is smaller than the run-to-run movement above, which is a share of pairs rather than of questions. The static table we adopted answers 262 of 294 questions at $3.33 per run, against the best single model's 245 at $7.69.
-  All of this is fitted and scored on the same 294 questions with no holdout.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23023v1</guid>
+      <description>arXiv:2608.23023v2 Announce Type: new 
+Abstract: An LLM router picks which model should answer each query. The appeal is that models fail on different questions. Whatever single model is best overall still gets some wrong, and another model in the pool gets many of those right. Getting that choice right every time is the ceiling, and a router is an attempt to approach it. However, recent work reports that routers do not get close. Across 21 routing methods on five benchmarks, sharply different designs land within a fraction of a point of each other, and all of them stay far below that ceiling. Learned routers often fail to beat simply always calling the strongest model. We ask what those missed questions have in common. We set fourteen models to answer all 294 questions, with 7 task types across 3 languages: Korean, English and Hindi. We ran the whole matrix twice, changing nothing, but 5.37% of the 4,116 model-question pairs came out scored differently anyway. Run-to-run movement like that is normal, and we argue that a small win does not show that routing did anything, ours or anyone else's. Counting an answer correct only when the model got it right in both runs, 29 questions on this matrix can be improved with routing. Every correct-answer count here is on that rule. Task type accounts for most of them: assigning each task type one model in advance, chosen once and never updated, improves 21 of the 29. Splitting each task type by language improves 2 more and leaves 6 of 294 unoptimized. That handful is what a learned router would have been built for, and it is smaller than the run-to-run movement above, which is a share of pairs rather than of questions. The static table we adopted answers 262 of 294 questions at \$3.33 per run, against the best single model's 245 at \$7.69. All of this is fitted and scored on the same 294 questions with no holdout.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23023v2</guid>
       <category>cs.CL</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Janghoon Lee</dc:creator>
+      <dc:creator>Janghoon Lee (Redrob)</dc:creator>
     </item>
     <item>
       <title>Beyond Surface Cues: Disentangling Sociocultural Signals in Multilingual LLMs</title>
@@ -1450,9 +1446,9 @@ Abstract: Media bias detection relies on definitions and examples that specify w
     <item>
       <title>Molecular LLM Agents: From Architectural Design to Scientific Autonomy</title>
       <link>https://arxiv.org/abs/2608.23104</link>
-      <description>arXiv:2608.23104v1 Announce Type: new 
+      <description>arXiv:2608.23104v2 Announce Type: new 
 Abstract: Molecular science represents an important frontier for LLM-based agents. Unlike general agents that mainly operate over natural language, code, or web environments, molecular LLM agents must perceive, reason about, and act upon chemical objects across symbolic strings, molecular graphs, 3D conformations, spectra, simulations, and wet-lab measurements. Their capabilities depend on chemically faithful molecular perception, an LLM-centered agent framework, domain-specific tool grounding, and computational or experimental feedback, in addition to planning and tool use. This work develops a conceptual framework for molecular LLM agents from two complementary perspectives. First, we introduce an architectural view of molecular-agent design, covering molecular representation and perception, the agent framework, domain-specific toolboxes, and learning and optimization. Second, we propose a scientific autonomy ladder inspired by staged autonomy in engineering systems, categorizing agents into four levels: L1 assistive or fixed workflows, L2 adaptive computational agents, L3 feedback-aware physical experiment agents, and L4 scientific-agenda agents. Together, these two perspectives establish a comprehensive framework for comparing existing molecular LLM agents, identifying missing capabilities and deployment risks, and guiding the design, evaluation, and deployment of future agents in molecular discovery workflows.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23104v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23104v2</guid>
       <category>cs.CL</category>
       <category>cs.AI</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
@@ -1502,9 +1498,9 @@ Abstract: The alignment of Large Language Models heavily relies on English-centr
     <item>
       <title>Counter with Evidence! A Multi-Agent Memory Efficient Reasoning Framework for Hate Category Informed Counterspeech Generation</title>
       <link>https://arxiv.org/abs/2608.23152</link>
-      <description>arXiv:2608.23152v1 Announce Type: new 
+      <description>arXiv:2608.23152v2 Announce Type: new 
 Abstract: Counterspeech effectively neutralizes the impact of online hate. Although prior work explores automated counterspeech generation, it largely emphasizes stylistic control while treating hate speech as homogeneous, overlooking that distinct forms of abuse require fundamentally different counterspeech strategies. To address this gap, we introduce FIRE (Factuality Informed Multi-Agent Reasoning Framework) that first decomposes hate speech into one of the five distinct categories (misinformation, stereotype, conspiracy, dehumanizing, non-factual), and then maps it to a targeted counterspeech style. To facilitate FIRE, we curate FactualCS, a novel dataset of $4,784$ instances that provides the annotations regarding hate categories, reasoning traces, and evidence mappings, which are critical elements for grounded generation that are missing in prior work. A comprehensive evaluation across $28$ baseline configurations demonstrates that FIRE significantly surpasses existing methods, despite using compact agents ($&lt;$2B). FIRE achieves a $\sim$ $12 \%$ and $\sim$ $11 \%$ improvements in factual and category-specific accuracy respectively, while simultaneously reducing toxicity by $\sim$ $11 \%$ relative to the strongest baselines. Further human evaluation confirms that responses generated by FIRE are significantly preferred over the strongest baselines, underscoring its effectiveness for real-world deployment. These findings show that decomposing the underlying intent of hate speech is essential for generating safe, effective, and contextually precise counterspeech.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23152v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23152v2</guid>
       <category>cs.CL</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
@@ -1539,14 +1535,14 @@ Abstract: Large-scale vision-language models (VLMs) have demonstrated remarkable
     <item>
       <title>LongWoF-Bench: Evaluating EvoMap Genes for Verifiable Long-Workflow Tasks</title>
       <link>https://arxiv.org/abs/2608.23200</link>
-      <description>arXiv:2608.23200v1 Announce Type: new 
+      <description>arXiv:2608.23200v2 Announce Type: new 
 Abstract: Large language models are increasingly expected to execute complex workflows whose success depends on maintaining interdependent constraints and producing artifacts that satisfy strict end-to-end verification. Yet successful execution experience is typically lost after a single run, forcing subsequent models to rediscover strategies and failure modes from scratch. We study whether such experience can instead be externalized and reused through EvoMap, where verifier-confirmed execution trajectories are consolidated into structured Gene. To evaluate this setting, we introduce the Long-Workflow Benchmark (LongWoF-Bench), comprising 778 machine-verifiable tasks across code generation, agent-environment synthesis, mathematical reasoning, and rule following. On the 252 tasks with verifier-confirmed Opus trajectories, evolved EvoMap Gene outperform Skill across all seven evaluated models by 8.7-15.5 percentage points, with the gains extending to consumer models from different model families. In contrast, reference-distilled Gene do not exhibit the same advantage, indicating that compact representation alone is insufficient and that Gene utility is closely associated with verified experience provenance. For Claude Opus, Gene reuse also completes 39 more tasks than Skill while reducing solve-time token consumption by 9.9%. Together, these results show that verified execution experience can be retained and shared as a reusable external resource, enabling models to improve long-workflow completion without repeatedly paying the full cost of experience discovery.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23200v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23200v2</guid>
       <category>cs.CL</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Xiao Zhang, Qumeng Sun, Jihao Li, Yiming Ren, Xiang Liu, Haoyang Zhang, Junjie Wang</dc:creator>
+      <dc:creator>Xiao Zhang, Qumeng Sun, Jiahao Li, Yiming Ren, Xiang Liu, Haoyang Zhang, Junjie Wang</dc:creator>
     </item>
     <item>
       <title>Aligning Biomedical Texts and Knowledge Graphs: A Systematic Comparison of Lightweight Alignment Strategies</title>
@@ -1640,10 +1636,9 @@ Abstract: Dynamic Embedded Topic Models (D-ETM) provide an interpretable framewo
     <item>
       <title>Beyond the Stability-Exploration Dilemma: Environmental Regularization for LLM Policy Optimization</title>
       <link>https://arxiv.org/abs/2608.23311</link>
-      <description>arXiv:2608.23311v1 Announce Type: new 
-Abstract: Policy optimization (PO) for Large Language Models faces a stability--exploration trade-off, currently mediated by an action-side Policy-KL regularizer. This puts practitioners in a double bind: keeping Policy-KL constrains response behavior and consumes the action-side exploration budget, while dropping it leaves the optimization without an explicit drift control. We argue for an alternative that breaks the dilemma by moving regularization to the input side. As training progresses, the distribution over training queries induced by the current policy drifts unchecked from its pre-RL reference distribution.
-  Concretely, Environment-Regularized Policy Optimization (ERPO) introduces a Query-KL (QKL) term that bounds this query distribution shift, together with a dataset-static reference-derived per-query weight that biases each per-query update toward queries typical under the reference. The QKL gradient flows strictly through the query likelihood; the response score function used by policy-gradient estimators does not appear in the QKL term, so QKL exerts no direct gradient pressure on the response distribution---exploration is preserved. ERPO plugs into GRPO/PPO/REINFORCE-style pipelines without additional forward passes. On six mathematical reasoning benchmarks, ERPO replaces the standard Policy-KL regularizer while achieving effective control over query distribution drift, delivering stronger accuracy and substantially more stable behavior under high-temperature decoding and long-horizon training.Our source code are available at https://github.com/alibaba/ERPO</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23311v1</guid>
+      <description>arXiv:2608.23311v2 Announce Type: new 
+Abstract: Policy optimization (PO) for Large Language Models faces a stability--exploration trade-off, currently mediated by an action-side Policy-KL regularizer. This puts practitioners in a double bind: keeping Policy-KL constrains response behavior and consumes the action-side exploration budget, while dropping it leaves the optimization without an explicit drift control. We argue for an alternative that breaks the dilemma by moving regularization to the input side. As training progresses, the distribution over training queries induced by the current policy drifts unchecked from its pre-RL reference distribution. Concretely, Environment-Regularized Policy Optimization (ERPO) introduces a Query-KL (QKL) term that bounds this query distribution shift, together with a dataset-static reference-derived per-query weight that biases each per-query update toward queries typical under the reference. The QKL gradient flows strictly through the query likelihood; the response score function used by policy-gradient estimators does not appear in the QKL term, so QKL exerts no direct gradient pressure on the response distribution---exploration is preserved. ERPO plugs into GRPO/PPO/REINFORCE-style pipelines without additional forward passes. On six mathematical reasoning benchmarks, ERPO replaces the standard Policy-KL regularizer while achieving effective control over query distribution drift, delivering stronger accuracy and substantially more stable behavior under high-temperature decoding and long-horizon training. Our source code are available at https://github.com/AlibabaResearch/ERPO</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23311v2</guid>
       <category>cs.CL</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
@@ -1717,9 +1712,9 @@ Abstract: English Wikipedia is often treated as the default encyclopedic source,
     <item>
       <title>Cross-Domain, Multi-Task Data-to-Text Generation without In-Domain Training Data</title>
       <link>https://arxiv.org/abs/2608.23391</link>
-      <description>arXiv:2608.23391v1 Announce Type: new 
+      <description>arXiv:2608.23391v2 Announce Type: new 
 Abstract: Structured data exists in many forms (tables, knowledge graphs, charts, and time series), and converting it into text may involve different generation tasks. However, most prior work on data-to-text (D2T) generation has focused on specific tasks and datasets, relying either on task-specific training data or on the zero-shot capabilities of large language models. We study cross-domain D2T generation in a setting where neither in-domain training text nor test references are available, and where domains, generation goals, and input structures vary substantially. We compare data-driven knowledge distillation (DDKD) against zero-shot inference and fine-tuning on out-of-domain D2T data, and introduce structure-preserving augmentation via structural subsampling and perturbation. Experiments on five benchmarks show that, at constant model size (1.7B parameters), DDKD consistently outperforms both fine-tuning and zero-shot inference. Moreover, the resulting small models outperform a much larger finetuned model on two of the five domains, achieving comparable performance on the remaining three. We further construct QUINTD-5, a fivefold extension of QUINTD-1, and show that simply scaling real target-domain inputs yields only modest gains, whereas our augmentation strategy remains more effective and more cost-efficient for cross-domain distillation.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23391v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23391v2</guid>
       <category>cs.CL</category>
       <category>cs.AI</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
@@ -1742,9 +1737,9 @@ Abstract: LLM value studies often merge questionnaire ratings, pairwise choices,
     <item>
       <title>A Comprehensive Analysis of Arabic Natural Language Processing Research: Trends, Topic Evolution, and Research Gaps -- A Bibliometric and Topic-Based Study</title>
       <link>https://arxiv.org/abs/2608.23421</link>
-      <description>arXiv:2608.23421v1 Announce Type: new 
-Abstract: Natural Language Processing (NLP) has grown rapidly over the past decade, driven by digital transformation in the Arab world, social media, and large language models (LLMs). Despite this growth, a comprehensive quantitative meta-analysis of the field remains absent. This study presents a large-scale bibliometric and topic-based analysis of 7,120 Arabic NLP papers published between 1960 and 2026, sourced from six collections. We employ BERTopic for topic modeling, regression analysis to identify citation predictors, social network analysis for co-authorship structures, and geographic mapping. Our findings show a significant publication surge after 2020, driven by transformer models and LLMs. Topic modeling identifies 19 substantive themes, the largest centered on text, speech, translation, and recognition. Citation analysis reveals a positive correlation between paper age and citations (r = 0.245, p &lt; 0.001); regression shows that indexing in OpenAlex or Semantic Scholar and institutional affiliation are associated with higher citation counts. Saudi Arabia, the United States, and Egypt lead in research output. A task-dialect gap matrix identifies critical understudied areas, including summarization for Maghrebi, Iraqi, and Sudanese dialects. The largest topic has the highest H-index (87), followed by sentiment analysis (54). Our quantitative approach complements existing qualitative surveys and offers recommendations to prioritize under-resourced dialects and develop culturally aligned benchmarks for Arabic NLP.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23421v1</guid>
+      <description>arXiv:2608.23421v2 Announce Type: new 
+Abstract: Arabic Natural Language Processing (NLP) has grown rapidly over the past decade, driven by digital transformation in the Arab world, social media, and large language models (LLMs). Despite this growth, a comprehensive quantitative meta-analysis remains absent. This study presents a bibliometric and topic-based analysis of 7,120 Arabic NLP papers published between 1960 and 2026, sourced from five platforms (arXiv, ACL Anthology, Semantic Scholar, Crossref, OpenAlex) plus an additional targeted OpenAlex subset. We employ BERTopic for topic modeling, regression analysis, social network analysis, and geographic mapping. Our findings show a significant publication surge after 2020, driven by transformer models and LLMs. Topic modeling identifies 19 themes, the largest centered on text, speech, translation, and recognition (2,942 papers). Citation analysis reveals a positive correlation between paper age and citations (r = 0.245, p &lt; 0.001); regression (R^2 = 0.105) shows that indexing in OpenAlex or Semantic Scholar and institutional affiliation are associated with higher citations. Saudi Arabia, the United States, and Egypt lead in research output. A task-dialect gap matrix identifies understudied areas, including summarization for Maghrebi, Iraqi, and Sudanese dialects. The largest topic has the highest H-index (90), followed by sentiment analysis (57). Our quantitative approach complements existing qualitative surveys and offers recommendations to prioritize under-resourced dialects and develop culturally aligned benchmarks.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23421v2</guid>
       <category>cs.CL</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
@@ -1766,9 +1761,9 @@ Abstract: This paper presents new Cantonese ParGram resources and evaluates LLMs
     <item>
       <title>What's the Catch? Evaluating Temporal Consistency in Vision-Language Models</title>
       <link>https://arxiv.org/abs/2608.23474</link>
-      <description>arXiv:2608.23474v1 Announce Type: new 
+      <description>arXiv:2608.23474v2 Announce Type: new 
 Abstract: Vision-language models (VLMs) achieve strong performance on video and image-sequence benchmarks, yet it remains unclear whether they capture temporal structure. To study this question, we formulate temporal grounding as an anomaly detection problem, providing a simple and controlled evaluation that directly tests sensitivity to temporal consistency. We introduce TimeCatch, where temporal anomalies are created by swapping consecutive frames and frame-level anomalies by replacing a frame with Gaussian noise. Models are evaluated on anomaly detection and localization tasks across four synthetic and real-world datasets, alongside a human study. Our evaluation reveals a substantial gap between frame-level and temporal anomaly detection. While VLMs consistently detect frame-level anomalies and often localize them accurately, they perform near chance on temporal anomaly detection and only modestly above chance on localization. Humans, in contrast, achieve near-ceiling performance on both tasks. Additional analyses across model scales, prompting strategies, sequence lengths, and visual similarity suggest that these failures cannot be explained solely by limitations in perception or model capacity. Together, these findings indicate that current VLMs can identify anomalies within individual frames but struggle to integrate information across frames to reason about temporal consistency. TimeCatch provides a controlled benchmark for evaluating temporal grounding in vision-language models.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23474v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23474v2</guid>
       <category>cs.CL</category>
       <category>cs.AI</category>
       <category>cs.CV</category>
@@ -1871,6 +1866,7 @@ Abstract: In medicine, claims remain valid when supported by empirical evidence 
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.18653/v1/2026.acl-long.497</arxiv:DOI>
       <arxiv:journal_reference>Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), San Diego, California, United States, Association for Computational Linguistics, 2026, pp. 10865-10886</arxiv:journal_reference>
       <dc:creator>Lorenzo Molfetta, Alessio Cocchieri, Luca Ragazzi, Ilaria Bartolini, Marco Patella, Gianluca Moro</dc:creator>
     </item>
@@ -2211,9 +2207,9 @@ Abstract: While cascaded multi-talker ASR (MT-ASR) leverages state-of-the-art fo
     <item>
       <title>Beyond What Meets the Eye: Unveiling Situational Illusions for Multimodal Large Language Models</title>
       <link>https://arxiv.org/abs/2608.22232</link>
-      <description>arXiv:2608.22232v1 Announce Type: cross 
+      <description>arXiv:2608.22232v2 Announce Type: cross 
 Abstract: Real-world situation appearances can deviate from their underlying physical states, challenging the reliability of multimodal large language models (MLLMs) in practical applications. In this paper, we term this phenomenon situational illusions and investigate: (1) how MLLMs perform under such illusions, and (2) how to mitigate the limitations. We first develop a comprehensive where-what-how taxonomy that characterizes where situational illusions occur, what targets they take, and how they arise. Building on this taxonomy, we introduce MSIBench, a benchmark designed to assess the discrimination, understanding, and reasoning capabilities of MLLMs under situational illusions. Evaluations of 27 model configurations reveal that current MLLMs are highly vulnerable to these illusions and exhibit 6 typical failure modes related to visual observation, grounding, and reasoning. To mitigate the limitations, we build on the core idea of systematically inspecting and reasoning over visual evidence for contextual understanding, developing prompting for closed-source models and supervised fine-tuning for open-source models, respectively. These two simple yet effective methods improve model performances by 20% at most, suggesting a practical path toward more reliable multimodal perception and reasoning in complex real-world environments.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.22232v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.22232v2</guid>
       <category>cs.AI</category>
       <category>cs.CL</category>
       <category>cs.CV</category>
@@ -2545,15 +2541,15 @@ Abstract: Low-bit weight quantization saves storage but leaves errors that degra
     <item>
       <title>CyberFactory: Scaling Cyber Security Capabilities with Instances from the Wild</title>
       <link>https://arxiv.org/abs/2608.23181</link>
-      <description>arXiv:2608.23181v1 Announce Type: cross 
+      <description>arXiv:2608.23181v2 Announce Type: cross 
 Abstract: As large language models (LLMs) continue to advance in coding capabilities, their potential in cybersecurity has drawn increasing research attention, with closed-source LLMs (e.g., Mythos) delivering advanced cybersecurity capabilities. However, existing open-source efforts remain limited: frontier open-weight models do not provide reproducible cybersecurity training solutions, open-source training solutions focus on isolated tasks and lack scalable agentic data, and scaling agentic rollouts requires strong domain priors. In this work, we introduce \textbf{CyberFactory}, a unified open-source framework that connects data construction, trajectory synthesis, and model training across proof-of-concept (PoC) generation, vulnerability patching, and cybersecurity question answering (CyberQA). CyberFactory transforms public vulnerability artifacts, including CVEs from the wild, into executable and verifiable task instances. It further uses a reusable vulnerability-analysis skill to guide the teacher through source inspection, problem solving with domain prior, and evidence-based validation. The resulting supervision is agentic: the model interacts with tools and target environments and revises its solutions according to execution feedback. Using these trajectories, we train and release \modelname\footnote{\emph{Aegis} is, in Greek mythology, the protective shield of Zeus and Athena; the name reflects the model's defensive, security-oriented purpose.}, which internalizes the skill-guided procedure without requiring the skill at inference time. On CyberGym, \modelname reaches 52.4% Pass@1 under a one-hour budget, improving over its Qwen~3.5 base model by +22.8 points and outperforming the evaluated general-purpose backbones under the same scaffold.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23181v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23181v2</guid>
       <category>cs.CR</category>
       <category>cs.CL</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Jian Yang, Haau-Sing Li, Shawn Guo, Zixi Zhao, Yibo Tan, Jiajun Wu, Aishan Liu, Xianglong Liu, Tianyu Zheng, Bryan Dai, Chengran Yang</dc:creator>
+      <dc:creator>Jian Yang, Haau-Sing Li, Shawn Guo, Zixi Zhao, Yibo Tan, Jiajun Wu, Aishan Liu, Zhoujun Li, Xianglong Liu, Tianyu Zheng, Bryan Dai, Chengran Yang</dc:creator>
     </item>
     <item>
       <title>Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy</title>
@@ -2616,9 +2612,9 @@ Abstract: Although Large Language Models (LLMs) are aligned to optimize for both
     <item>
       <title>Expectations and Practices around AI Disclosure in CS Research</title>
       <link>https://arxiv.org/abs/2608.23271</link>
-      <description>arXiv:2608.23271v1 Announce Type: cross 
-Abstract: As generative AI tools find increasing use in research workflows, ongoing debates on their impact, appropriateness and responsible use have led policymakers to enact policies to disclose AI use at multiple publishing venues. However, are current AI disclosure policies and practices reflective of their purpose? In this work, we first investigate disclosure policies of top computer science venues and find that despite their prevalence, they remain highly under-specified. Secondly, through a survey of computer science researchers (N=$109$), we characterize the necessity of disclosures across different research tasks and levels of human involvement. We learn that researchers find disclosures most necessary for tasks involving research design, and for tasks when the human involvement is low. We also compile expectations that researchers have about the information to be conveyed in AI disclosure statements. Lastly, through an analysis of $13867$ disclosure statements from EMNLP $2025$ and ICLR $2026$, we reveal a large disconnect between these expectations and AI disclosures in practice---a prime example being writing assistance which is deemed less necessary but frequently disclosed. We conclude with recommendations for authors and policymakers that seek to align AI disclosure policies and practices with expectations.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23271v1</guid>
+      <description>arXiv:2608.23271v2 Announce Type: cross 
+Abstract: As generative AI tools find increasing use in research workflows, ongoing debates on their impact, appropriateness and responsible use have led policymakers to enact policies to disclose AI use at multiple publishing venues. However, are current AI disclosure policies and practices reflective of their purpose? In this work, we first investigate disclosure policies of top computer science venues and find that despite their prevalence, they remain highly under-specified. Secondly, through a survey of computer science researchers (N=$109$), we characterize the necessity of disclosures across different research tasks and levels of human involvement. We learn that researchers find disclosures most necessary for tasks involving research design, and for tasks when the human involvement is low. We also compile expectations that researchers have about the information to be conveyed in AI disclosure statements. Lastly, through an analysis of $13867$ disclosure statements from EMNLP $2025$ and ICLR $2026$, we reveal a large disconnect between these expectations and AI disclosures in practice---a prime example being writing assistance which is deemed less necessary but is frequently disclosed. We conclude with recommendations to align AI disclosure policies and practices with expectations, suggesting a categorization of research tasks by perceived necessity and a boilerplate template capturing expected details.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23271v2</guid>
       <category>cs.CY</category>
       <category>cs.CL</category>
       <category>cs.HC</category>
@@ -2630,16 +2626,16 @@ Abstract: As generative AI tools find increasing use in research workflows, ongo
     <item>
       <title>Apodex 1.1: Scaling Agentic Intelligence for Complex Work</title>
       <link>https://arxiv.org/abs/2608.23283</link>
-      <description>arXiv:2608.23283v1 Announce Type: cross 
+      <description>arXiv:2608.23283v2 Announce Type: cross 
 Abstract: General-purpose language models can reason and synthesize knowledge, but complex work also requires sustained interaction with files, information sources, and executable code, together with state maintenance, failure recovery, and verifiable delivery. We call this \emph{working capability}: sustained, verifiable progress toward a real-world objective. Apodex 1.1 develops this capability along two complementary dimensions. \emph{Environment Scaling} expands the diversity and verifiability of executable file, search, and code environments, while \emph{Agentic Coordination Scaling} trains agents to decompose long-horizon tasks, delegate parallel work, integrate asynchronous results, and replan. A shared execution harness and AgentOS maintain task state and provenance across tools and agents, and training turns environment trajectories and coordination traces into reliable behavior. Across complex professional work, finance, scientific research, mathematics, coding, and search, Apodex 1.1 reaches the leading performance band despite using a substantially smaller model than many frontier systems. The 35B-parameter Apodex 1.1 Mini further retains strong working capability in a locally deployable form. These results ground agentic intelligence in useful, verifiable work completed over time and advance our goal of building a \emph{Heavy-Duty Solver} for ambitious, long-running tasks.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23283v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23283v2</guid>
       <category>cs.AI</category>
       <category>cs.CL</category>
       <category>cs.LG</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator> Apodex Team, B. An, B. Li, B. Wang, B. Zhang, B. L. Wang, C. Feng, C. Wei, C. Xue, C. Zhang, D. Ng, D. Ye, E. Min, F. Chen, F. Liu, F. Yang, F. Ye, H. Xu, H. Yang, H. Ye, H. Zhang, H. Zhao, J. Li, J. Lin, J. Xia, K. Jin, K. Wang, K. Yang, L. Bing, L. Lei, L. Su, Le. Wang, Lu. Wang, N. Wang, Q. Ren, Q. Yang, R. Li, S. Bai, S. Du, S. Li, S. Lin, S. Nie, S. Wang, S. Zhang, S. Z. Wang, Ta. Q. Fang, Ti. Q. Fang, W. Fang, W. Li, W. Zhang, X. Chen, X. Li, X. Tang, X. Wang, X. Xu, X. Zhang, X. Q. Wang, X. Y. Wang, Y. Deng, Y. Gao, Y. Hu, Y. Li, Y. Sui, Y. Wang, Y. Xiao, Y. Zhang, Z. Chen, Z. Cheng, Z. Feng, Z. Liang, Z. Zhang</dc:creator>
+      <dc:creator>B. An, B. Li, B. Wang, B. Zhang, B. L. Wang, C. Feng, C. Wei, C. Xue, C. Zhang, D. Ng, D. Ye, E. Min, F. Chen, F. Liu, F. Yang, F. Ye, G. Sun, H. Ji, H. Xu, H. Yang, H. Ye, H. Zhang, H. Zhao, J. Li, J. Lin, J. Xia, K. Jin, K. Wang, K. Yang, L. Bing, L. Lei, L. Su, Le. Wang, Lu. Wang, N. Wang, Q. Ren, Q. Yang, R. Li, S. Bai, S. Du, S. Li, S. Lin, S. Nie, S. Wang, S. Zhang, S. Z. Wang, T. Ge, Ta. Q. Fang, Ti. Q. Fang, W. Fang, W. Li, W. Zhang, X. Chen, X. Li, X. Tang, X. Wang, X. Xu, X. Zhang, X. Q. Wang, X. Y. Wang, Y. Deng, Y. Gao, Y. Hu, Y. Li, Y. Sui, Y. Wang, Y. Xiao, Y. Zhang, Y. Zhou, Z. Chen, Z. Cheng, Z. Feng, Z. Liang, Z. Liu, Z. Zhang</dc:creator>
     </item>
     <item>
       <title>Agent-G$^2$: Gaussian Guidance for Agentic Reinforcement Learning</title>
@@ -2657,16 +2653,16 @@ Abstract: Hint-based reinforcement learning addresses reward sparsity in long-ho
     <item>
       <title>Robustness of IR Models to Collection Growth</title>
       <link>https://arxiv.org/abs/2608.23419</link>
-      <description>arXiv:2608.23419v1 Announce Type: cross 
+      <description>arXiv:2608.23419v2 Announce Type: cross 
 Abstract: Information Retrieval (IR) systems seek to identify relevant documents within a collection. In practical applications, collections are dynamic, with documents frequently added. We argue that ideally, a retriever's effectiveness should not decrease when non-relevant documents are added to a collection. This study formalises this concept and empirically evaluates it by merging two collections with negligible topic overlap. We hypothesise that the way an IR model conditions its ranking on other documents in a collection (e.g., the IDF component in BM25 or contextual documents in listwise rerankers) plays an important role in its robustness to the addition of non-relevant documents. We broadly classify models as those that do not depend on other documents (Multi-Document-Agnostic, MDA) and those that do (Multi-Document-Dependent, MDD). Our results show that neither MDD nor MDA models are fully robust to the addition of non-relevant documents, as all models exhibit some performance degradation. Interestingly, among the models we test, MDA is more effective than MDD for retrieval, whereas MDD and MDA rerankers are equally effective.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23419v1</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23419v2</guid>
       <category>cs.IR</category>
       <category>cs.CL</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
       <arxiv:DOI>10.1145/3799682.3839935</arxiv:DOI>
-      <dc:creator>Emmanouil Georgios Lionis, Debasis Ganguly, Sean MacAvaney</dc:creator>
+      <dc:creator>Emmanouil Georgios Lionis, Sean MacAvaney, Debasis Ganguly</dc:creator>
     </item>
     <item>
       <title>Mitigating Reasoning-Induced Misalignment via Safety-Direction Penalty</title>
@@ -2696,11 +2692,11 @@ Abstract: Language models are sequential processors, but long-horizon agency req
       <dc:creator>Seth Karten, Alex L. Zhang, Kevin Thomas, Sebastian M\"uller, Elie Bakouch, Daniel Auras, Mika Senghaas, Fares Obeid, Konstantin Dunas, Johannes Hagemann, Sami Jaghouar</dc:creator>
     </item>
     <item>
-      <title>How to Train a Critic Stably and Efficiently</title>
+      <title>Best Practice Critic Optimization</title>
       <link>https://arxiv.org/abs/2608.23566</link>
-      <description>arXiv:2608.23566v1 Announce Type: cross 
-Abstract: Group-based reinforcement learning methods such as GRPO for large language models avoid training a critic by sampling multiple responses for each prompt. A reliable critic could instead estimate token-level advantages from one response, but standard critic-based training recipes are often unstable. We study this instability and develop \textbf{Best-Practice Critic Optimization (BPCO)}, a recipe that combines DPPO, value predictions bounded to the reward range, Monte Carlo value targets, unnormalized policy advantages, and length-adaptive generalized advantage estimation. Because the critic is used only during training, BPCO can also condition it on reward-defining information, such as a reference answer or grading rubric, that is hidden from the policy. Controlled experiments isolate the effect of each design choice. Across mathematical reasoning tasks with models ranging from 1.5B parameters to 30B-A3B mixtures of experts, BPCO improves a strong critic-based baseline consistently, and matches or exceeds a group-based baseline while sampling one response per prompt. The same recipe also improves learning with rubric-based rewards. These results show that a carefully designed critic provides a reliable alternative to group-relative advantage estimation. Code is available at https://github.com/QPHutu/golden_critic</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.23566v1</guid>
+      <description>arXiv:2608.23566v2 Announce Type: cross 
+Abstract: Group-based reinforcement learning methods such as GRPO for large language models avoid training a critic by sampling multiple responses for each prompt. A reliable critic could instead estimate token-level advantages from one response, but standard critic-based training recipes are often unstable. We study this instability and develop **Best Practice Critic Optimization (BPCO)**, a recipe that combines DPPO, value predictions bounded to the reward range, Monte Carlo value targets, unnormalized policy advantages, and length-adaptive generalized advantage estimation. Because the critic is used only during training, BPCO can also condition it on reward-defining information, such as a reference answer or grading rubric, that is hidden from the policy. Controlled experiments isolate the effect of each design choice. Across mathematical reasoning tasks with models ranging from 1.5B parameters to 30B-A3B mixtures of experts, BPCO improves a strong critic-based baseline consistently, and matches or exceeds a group-based baseline while sampling one response per prompt. The same recipe also improves learning with rubric-based rewards. These results show that a carefully designed critic provides a reliable alternative to group-relative advantage estimation. Code is available at https://github.com/QPHutu/golden_critic.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.23566v2</guid>
       <category>cs.LG</category>
       <category>cs.AI</category>
       <category>cs.CL</category>
@@ -2870,9 +2866,9 @@ Abstract: As a multimodal communication medium that integrates images and text, 
     <item>
       <title>A Modular Multitask Reasoning Framework Integrating Spatio-temporal Models and LLMs</title>
       <link>https://arxiv.org/abs/2506.20073</link>
-      <description>arXiv:2506.20073v2 Announce Type: replace 
+      <description>arXiv:2506.20073v3 Announce Type: replace 
 Abstract: Spatio-temporal data mining plays a pivotal role in informed decision making across diverse domains. However, existing models are often restricted to narrow tasks, lacking the capacity for multi-task inference and complex long-form reasoning that requires generation of in-depth, explanatory outputs. These limitations restrict their applicability to real-world, multi-faceted decision scenarios. In this work, we introduce STReason, a novel framework that integrates the reasoning strengths of large language models (LLMs) with the analytical capabilities of spatio-temporal models for multi-task inference and execution. Without task-specific fine-tuning, STReason leverages in-context learning to decompose complex natural language queries into modular, interpretable programs, which are then systematically executed to generate both numerical solutions and detailed reasoning rationales. By grounding all explanations in verified computational outputs, STReason inherently suppresses factual hallucinations common in direct-prompt LLM approaches. To enable rigorous evaluation, we construct a new benchmark dataset and propose a unified evaluation framework with metrics specifically designed for long-form spatio-temporal reasoning. Experimental results demonstrate that STReason significantly outperforms advanced LLM baselines across all reasoning metrics, particularly excelling in complex, reasoning-intensive spatio-temporal scenarios. Human evaluations further validate STReason's credibility and practical utility, demonstrating its potential to reduce expert workload and broaden the applicability to real-world spatio-temporal tasks.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2506.20073v2</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2506.20073v3</guid>
       <category>cs.CL</category>
       <category>cs.AI</category>
       <category>cs.LG</category>
@@ -3512,11 +3508,11 @@ Abstract: Multilingual large language models (LLMs) have been shown to perform b
     <item>
       <title>RIG-RoPE: Relation-Stratified Multimodal Attention with Instance-Local Rotary Geometry and Representation-Aware Traversal Coordinates</title>
       <link>https://arxiv.org/abs/2608.05154</link>
-      <description>arXiv:2608.05154v3 Announce Type: replace 
+      <description>arXiv:2608.05154v4 Announce Type: replace 
 Abstract: Multimodal rotary positional encodings apply temporal, height, and width phases to interleaved text, image, and video tokens. This creates two ambiguities: cross-instance spatial displacement depends on preprocessing chart choices unless registration is declared, and scalar advance across visual blocks is often inherited from coordinate extrema rather than defined at the representation level.
   We introduce RIG-RoPE, combining instance-local rotary geometry, relation-stratified attention, and representation-aware traversal coordinates. RIG-RoPE normalizes relation-homogeneous scores separately, allocates mass with a common H/W-neutral LogSumExp statistic, and uses traversal extent that is additive over ordered slices and sublinear over parallel spatial scale. Text advances by unit increments, image patches are simultaneous, and video accumulates over tokenizer temporal tokens.
   In a matched, inference-only Qwen2-VL-2B checkpoint experiment, native and RIG text-only paths were exactly equal. RIG was exactly invariant to a whole-chart single-image translation and to translating only the second instance of an unregistered image pair. Native attention remained sensitive to the latter, while an H/W-collapse control confirmed that RIG retained same-instance spatial effects; visual embeddings and all parameters were unchanged. Across three seeds of a frozen tiny task, RIG also had zero clean-to-Gauge logit change, whereas the raw-H/W baseline changed in every seed. Gauge-accuracy differences were +2/72, 0, and 0, failing the preregistered stability gate. These results support the specified activation and Gauge mechanisms, not stable task improvement, universality, or empirical superiority.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.05154v3</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.05154v4</guid>
       <category>cs.CL</category>
       <category>cs.CV</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
@@ -3553,9 +3549,9 @@ Abstract: We study a specific sparse post-processing pipeline for Random Indexin
     <item>
       <title>ConstructCIE: A Dataset for Extracting Causal Information from Construction Accident Narratives</title>
       <link>https://arxiv.org/abs/2608.06495</link>
-      <description>arXiv:2608.06495v3 Announce Type: replace 
+      <description>arXiv:2608.06495v4 Announce Type: replace 
 Abstract: Construction accident narratives contain rich causal information, but the evidence is often implicit, long-span, and distributed. We introduce ConstructCIE, a manually annotated dataset for Causal Information Extraction from OSHA construction accident reports. The dataset uses a hierarchical schema for accident types, causal factors, sub-causal factors, and supporting evidence spans. We evaluate supervised sequence taggers and instruction-tuned LLMs in an end-to-end hierarchical extraction setting. Results show that most evaluated models achieve strong accident-type prediction and recover broad causal meaning but remain limited in precise span-level extraction. Joint Hierarchical Extraction generally achieves stronger exact and soft matching, while Individual Hierarchical Extraction sometimes achieves higher keyword F1. Error distributions vary by extraction strategy, but evidence-selection and span-boundary errors remain common. These findings show that reliable Causal Information Extraction for construction accidents requires stronger domain grounding and more accurate evidence extraction. The code and data can be found at https://github.com/lab-flair/ConstructCIE .</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.06495v3</guid>
+      <guid isPermaLink="false">oai:arXiv.org:2608.06495v4</guid>
       <category>cs.CL</category>
       <pubDate>Tue, 25 Aug 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
