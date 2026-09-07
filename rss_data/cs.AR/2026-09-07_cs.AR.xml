@@ -1,0 +1,274 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.AR updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.AR</link>
+    <description>cs.AR updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.AR" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Sep 2026 04:00:17 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Budgeting Bytes: A Windowed Storage Roofline and Dual-Budget Architecture Ablations for Storage-Bound LLM Decoding</title>
+      <link>https://arxiv.org/abs/2609.04238</link>
+      <description>arXiv:2609.04238v1 Announce Type: new 
+Abstract: Autoregressive decoding on cheap hardware is bound not by FLOPs but by the bytes each generated token must move across the slowest populated tier of a memory hierarchy. We treat bytes-per-token as a first-class design axis, organized by an address-determinism taxonomy that classifies parameters by when their fetch address becomes known during a token's forward pass (A0: at token sampling; A1: before attention; A2: layerwise data-dependent; A3: always read). This reduces prefetch scheduling to single-machine feasibility with release times, yielding a closed-form windowed roofline. We run dual-budget (bytes-per-token times storage) ablations across three sub-100M scales, then take the framework to real large-MoE deployment and report a substantial negative result the roofline predicts: on an 8GB edge board running Qwen3-30B-A3B (4-bit, 18GB), the model overflows RAM and decode is pinned at the eMMC bandwidth ceiling; predictive expert prefetch does not help -- not temporal-locality prefetch (net-negative), not even a trace-driven oracle with perfect prediction -- because the binding constraint is byte volume over a saturated bus, which prefetch cannot reduce. The lever that works is reducing bytes-per-token until the model fits the fast tier: quantized to fit a 16GB unified-memory device, the same model runs GPU-resident at 11.5 tok/s (22x). We reconcile this with GPU-serving expert-prefetch predictors: a frozen-model probe predicts Qwen3-30B routing from the pre-attention state at 91.2%, a scale-invariant predictability property, but this converts to throughput only where the fast tier caches most of the model and per-token transfer is comparable to compute -- measured to hold on an A100 PCIe-offload path and to fail on bandwidth-walled edge storage. Predictability is not speedup; we chart where the gap closes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04238v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hanhaodi Zhang</dc:creator>
+    </item>
+    <item>
+      <title>MonoMoE: An Efficient Fused Mega-kernel for Quantized MoE Decoding</title>
+      <link>https://arxiv.org/abs/2609.04244</link>
+      <description>arXiv:2609.04244v1 Announce Type: new 
+Abstract: Mixture-of-Experts (MoE) layers increase model capacity without proportionally increasing arithmetic, but their sparse expert computation is difficult to execute efficiently during autoregressive decode. Existing grouped and batched GEMMs are token-major: they construct expert-local token tiles and obtain parallelism from the token dimension. When few tokens reach each expert, this organization incurs tile padding and preprocessing, launches short-lived grids that underutilize memory bandwidth, and exposes quantization, activation, and reduction as separate stages. We present \textbf{MonoMoE}, a weight-major persistent megakernel for block-wise quantized MoE decode. MonoMoE places the complete decode-step token tile on the fine-grained tensor-core $N$ dimension and partitions CTAs over expert-weight tiles, eliminating expert-local token materialization and reducing padded arithmetic. A persistent grid fuses routing, top-$k$ selection, quantization, both expert projections, activation, and reduction in one launch; warp specialization and readiness flags overlap auxiliary work with the dominant expert-weight stream. MonoMoE is integrated with vLLM and supports multiple model shapes through generated kernel specializations and offline schedule tuning. On NVIDIA H200 GPUs, MonoMoE accelerates the complete routed-MoE operator by up to $\mathbf{1.54\times}$ over vLLM Triton Grouped GEMM, is $\mathbf{2.20}$--$\mathbf{3.84\times}$ faster than FlashMoE-FP8 adaptation across various models and batch sizes, and reduces end-to-end time per output token by up to $\mathbf{18.7\%}$ across the evaluated FP8 models, while preserving task accuracy. The MonoMoE implementation and supporting artifacts are open source and available in the \href{https://github.com/flashinfer-ai/flashinfer/tree/main/csrc/fused_moe/monomoe}{FlashInfer repository}.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04244v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yu Gong, Kailash Budhathoki, Taeho Kim, Haipeng Li, Ashish Khetan</dc:creator>
+    </item>
+    <item>
+      <title>Hardware-conscious Software Training for Deep Neural Network Inference Accelerator Chips to Recover Accuracy Degradation due to Hardware Variabilities</title>
+      <link>https://arxiv.org/abs/2609.04259</link>
+      <description>arXiv:2609.04259v1 Announce Type: new 
+Abstract: Deep neural network (DNN) has been widely applied in various industries. Specialized chips are being discussed for the purpose of achieving lower power consumption with higher throughput. Hardware variations introduced during the process of chip manufacturing are the main reason for affecting the inference accuracies. In this paper, we propose hardware-conscious software training (HCST) method which enables high inference accuracies even under the influence of hardware variations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04259v1</guid>
+      <category>cs.AR</category>
+      <category>cs.ET</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.7567/SSDM.2023.J-5-03</arxiv:DOI>
+      <arxiv:journal_reference>Extended Abstracts of the International Conference on Solid State Devices and Materials (SSDM), Nagoya, Japan, September 2023, pp. 427-428</arxiv:journal_reference>
+      <dc:creator>Shuchao Gao, Takashi Ohsawa</dc:creator>
+    </item>
+    <item>
+      <title>Quality Recovery for Quantized KV Caches via Low-Rank Attention Adaptation</title>
+      <link>https://arxiv.org/abs/2609.04263</link>
+      <description>arXiv:2609.04263v1 Announce Type: new 
+Abstract: Low-bit key--value (KV) caches reduce the memory required for autoregressive decoding, but the resulting quality loss depends on the model and quantizer. We keep the quantizer fixed and distill the floating-cache model's behavior into low-rank Q/K/V projection updates while the student executes a physically packed incremental cache. Across three seeds, 4-bit affine-cache adapters recover $54.24\%\pm2.47\%$ of the held-out perplexity gap on TinyLlama-1.1B and $75.96\%\pm4.04\%$ on Gemma-4-12B. On the same frozen NF4 Llama-3.1-8B base, one validation-selected run per quantizer recovers $60.42\%$ under KIVI K2V2 and $37.61\%$ under KVarN K4V2, while preserving 180-case associative retrieval. Gemma's score on an official 4K/8K RULER subset rises from 42.80 with the unadapted 4-bit cache to 48.33 after adaptation (46.15 floating), with substantial task heterogeneity. Finally, a 2-bit rank--token sweep reduces TinyLlama's 2-bit PPL from 576.10 to $11.4000\pm0.0059$ across three seeds, versus 10.3988 floating, but restores only 11--12 of 180 retrieval cases. These results show that low-rank projection adaptation can recover held-out quality across fixed cache formats, while perplexity recovery need not restore long-context retrieval.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04263v1</guid>
+      <category>cs.AR</category>
+      <category>cs.CL</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Seifeldin Abdellatif</dc:creator>
+    </item>
+    <item>
+      <title>Compute-in-Memory Attention: A Time-Domain Analog Softmax Circuit with RC-Tunable Temperature</title>
+      <link>https://arxiv.org/abs/2609.04266</link>
+      <description>arXiv:2609.04266v1 Announce Type: new 
+Abstract: Softmax is a key operation in Transformer attention, but its exponentiation and normalization add significant overhead in compute-in-memory (CIM) accelerators, especially when analog attention scores must first be converted to the digital domain. This work presents a tunable-temperature analog softmax circuit in GlobalFoundries 22-nm fully depleted silicon-on-insulator (FDSOI) technology that operates directly on CIM-generated score voltages without intermediate analog-to-digital conversion. Each input score is converted into a time-domain event using a shared falling ramp. The corresponding comparator transition samples an RC-decaying reference to generate an exponential weight, which is then processed by an in-circuit normalization stage. In contrast to analog softmax circuits that rely on transistor weak-inversion behavior for exponentiation, the proposed architecture controls the softmax response through the ramp slope and RC time constant, enabling programmable effective temperature. The 128-element architecture is evaluated using transistor-level and post-layout extracted simulations, including multi-level input vectors, capacitance variation and mismatch, process and temperature variation, monte carlo analysis, and shared-interconnect parasitics. The complete 128-element implementation occupies 9453.42~$\mu\mathrm{m}^{2}$ including the shared global ramp circuitry, while each replicated softmax element occupies 70.2~$\mu\mathrm{m}^{2}$. The circuit achieves a 242.97-ns evaluation latency at 13.44~mW total power, corresponding to 25.5~pJ per output element. The simultaneous 128-element evaluation achieves an RMSE of 24.46~mV relative to the ideal softmax response. The extracted circuit characteristics are further incorporated into a MemTorch-based hardware-aware Transformer model, where the proposed softmax achieves a validation loss within 2.5\% of the ideal-softmax baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04266v1</guid>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Ankur Singh, Ashish Gautam, Shruti R. Kulkarni, Guojing Cong</dc:creator>
+    </item>
+    <item>
+      <title>Huawei's $\tau$ Chip Was Supposed to Melt?</title>
+      <link>https://arxiv.org/abs/2609.04287</link>
+      <description>arXiv:2609.04287v1 Announce Type: new 
+Abstract: Heat is the sharpest concern on $\tau$ scaling law --- the time-scaling principle behind Huawei's folded silicon, named for the delay $\tau$ (``Tao'') it sets out to shrink. Our Kirin measurements turned that objection upside down. The reason is one every commuter already knows: on a chip, as in a workday, it is the travel that burns the majority of the energy, not the work at the desk.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04287v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Tingbo He</dc:creator>
+    </item>
+    <item>
+      <title>Sustainable Edge Vision via Empirically Calibrated DVFS: Eliminating Thermal Throttling on Passively Cooled Hardware</title>
+      <link>https://arxiv.org/abs/2609.04705</link>
+      <description>arXiv:2609.04705v1 Announce Type: new 
+Abstract: Passive cooling eliminates the energy overhead and mechanical failure modes of fans, making it attractive for edge deployment, yet sustained Deep Neural Network (DNN) inference on passively cooled edge Systems-on-Chip (SoCs) is bottlenecked by thermal throttling. To address this, we propose an empirically calibrated, state-aware Dynamic Voltage and Frequency Scaling (DVFS) scheduler. Unlike heuristic-driven controllers, our methodology utilizes time-domain guards and absolute temperature bounds, with derivative triggers acting as safeguards against sharp thermal spikes. Evaluated on a passively cooled Raspberry Pi 5 running YOLOv8n, our scheduler eliminates all observed thermal throttling events during sustained 30-minute workloads. It outperforms a temperature-only reactive baseline by achieving a 6.8% higher frame rate (Cohen's d = 8.73) while consuming 1.9% less energy per frame. Furthermore, our optimized passive scheduling surpasses an actively cooled reference system in energy efficiency (Joules/frame), though active cooling remains superior for raw throughput. Through isolated ablations, we show that the dwell guard is necessary for run-to-run reproducibility. Finally, exploratory boundary probes indicate that the passive operating envelope closes at ambient temperatures ($\ge 27^\circ$C) where nonlinear leakage defeats DVFS-based control. These results indicate that, within the mapped envelope, correct scheduling can make mechanical cooling unnecessary for sustained edge inference on this platform.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04705v1</guid>
+      <category>cs.AR</category>
+      <category>cs.CV</category>
+      <category>cs.LG</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Aayush Marasini, Zhaoxian Zhou</dc:creator>
+    </item>
+    <item>
+      <title>FlexPosit: Tunable Fractional Precision for LLM Inference Accelerators</title>
+      <link>https://arxiv.org/abs/2609.04724</link>
+      <description>arXiv:2609.04724v1 Announce Type: new 
+Abstract: Large language models (LLMs) offer remarkable capabilities but impose prohibitive compute and energy costs. Quantization governs the trade-offs between accuracy and hardware efficiency across granularity and bit-width. Finer granularity (e.g., group-wise) provides high accuracy but incurs scaling and control overhead, while coarser granularity (e.g., channel-wise) has lower overhead but loses accuracy at low precision. Meanwhile, mixed-precision quantization exposes rich accuracy-efficiency trade-offs algorithmically, but existing LLM accelerators remain limited to discrete precision modes, leaving the fractional design space between them unexplored.
+  FlexPosit bridges these gaps through co-design of Posit-based quantization and a precision-tunable bit-serial architecture. Algorithmically, FlexPosit employs distribution-aware quantization with hardware-aligned, sensitivity-guided mixed-precision allocation, leveraging the Posit format's tapered precision to achieve group-wise-like accuracy with channel-wise-like regularity. Architecturally, FlexPosit is a unified bit-serial systolic array with lightweight per-column decoders, unified Processing Elements (PEs), and a global precision controller, enabling tunable fractional precision while preserving fully regular systolic dataflow. Across diverse LLMs, FlexPosit achieves near-FP16 accuracy with sub-5-bit fractional weights. It achieves up to 1.8x higher throughput and 1.2x lower energy than BitMoD (group-wise quantization), and 1.5x higher throughput and 2.0x lower energy than OliVe (channel-wise quantization), establishing a new Pareto frontier for precision-tunable LLM acceleration.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04724v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yimin Gao, Liangtao Dai, Jun Yin, Xinfei Guo, Mircea Stan</dc:creator>
+    </item>
+    <item>
+      <title>A Piecewise-Linear Approximation-based Energy-Efficient Error-Optimized Unsigned Square Rooter for Accuracy-Critical Applications</title>
+      <link>https://arxiv.org/abs/2609.04783</link>
+      <description>arXiv:2609.04783v1 Announce Type: new 
+Abstract: Approximate computing improves energy efficiency in error-resilient applications, but square root units remain challenging due to the trade-off between hardware cost and computational accuracy. This paper presents an energy-efficient, error-optimized, piecewise-linear approximation-based unsigned square rooter (EOSQR) for 2n-bit inputs that achieves high accuracy with low hardware complexity, using only simple arithmetic and shift operations. The EOSQR design is implemented in Verilog-HDL and evaluated on a 16-bit benchmark synthesized on an Artix-7 FPGA. Compared to representative state-of-the-art approximate square rooters, EOSQR achieves the lowest error among accuracy-critical designs while delivering 61.91 percent resource savings, 77.54 percent power savings, and 53.11 percent latency reduction relative to a precise restoring array-based square rooter. To enable holistic evaluation, a Composite Efficiency Metric (CEM) is introduced to jointly capture accuracy and energy efficiency. EOSQR is further validated across representative image-processing workloads, including Sobel edge detection, K-means colour quantization, and K-nearest-neighbour (KNN) classification. Experimental results demonstrate that EOSQR achieves high computational accuracy with a superior CEM-based accuracy-hardware efficiency trade-off while maintaining visual quality and classification performance, making it well-suited for real-time edge-embedded systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04783v1</guid>
+      <category>cs.AR</category>
+      <category>eess.IV</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Prateek Goyal, Sujit Kumar Sahoo</dc:creator>
+    </item>
+    <item>
+      <title>TreeFI: Value-Aware Statistical Fault Injection for Deep Neural Networks</title>
+      <link>https://arxiv.org/abs/2609.04912</link>
+      <description>arXiv:2609.04912v1 Announce Type: new 
+Abstract: Reliability evaluation of deep neural networks under hardware faults commonly relies on fault injection, but exhaustive campaigns are intractable for modern models and datasets. Statistical fault injection reduces this cost, yet existing approaches still require large injection budgets because they do not explicitly exploit a key property of floating-point faults: the effect of a bit flip depends strongly on the value being corrupted. We propose TreeFI, a value-aware statistical fault-injection methodology for FP32 single-bit faults in DNN activations and weights. TreeFI partitions each layer's value distribution into intervals with similar expected bit-flip behavior, learned using regression trees, and allocates injections across these intervals according to their relevance for failure-rate estimation. This stratified allocation preserves the target confidence and error margin while avoiding unnecessary injections in low-impact regions of the fault space. We validate TreeFI on CNN and Transformer models using CIFAR-10 and ImageNet. On ResNet8, where exhaustive activation fault injection is feasible, TreeFI provides more accurate estimates than state-of-the-art statistical FI baselines under the same campaign setting. Across the evaluated models, TreeFI reduces the required injection budget by up to 72.1x, with average reductions of 44.9x for activation faults and 11.2x for the executed weight campaigns.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04912v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Noam Bires, Marcello Traiola, Angeliki Kritikakou, Elisa Fromont</dc:creator>
+    </item>
+    <item>
+      <title>APEX-RBD: Mixed-Precision Exploration Framework for Hardware-Efficient Robot Dynamics Accelerator Design</title>
+      <link>https://arxiv.org/abs/2609.05161</link>
+      <description>arXiv:2609.05161v1 Announce Type: new 
+Abstract: Rigid Body Dynamics (RBD) forms the computational core of real-time robotic control, but its immense computational complexity creates a performance bottleneck that necessitates dedicated hardware accelerators. However, the substantial hardware resource and power costs of these accelerators make their deployment on resource-constrained edge platforms highly challenging. While quantization offers a promising path to optimize RBD hardware for edge computing, existing uniform-precision approaches remain inefficient by ignoring the diverse quantization sensitivities of different variables. Although mixed-precision offers a superior alternative, its exploration is intractable due to a vast search space and the prohibitive cost of closed-loop simulation for motion accuracy evaluation.
+  To address these challenges, we introduce APEX-RBD, an automated framework that makes mixed-precision exploration computationally tractable while effectively identifying hardware-efficient configurations. Specifically, it performs physics-driven search space pruning via variable grouping and sensitivity analysis, and employs a data-efficient, prior-informed surrogate model to enable rapid trajectory error prediction. This formulation guides a hybrid optimizer to identify area- and power-efficient designs under user-defined accuracy and performance constraints. Experimental results demonstrate that APEX-RBD discovers designs achieving up to 1.9$\times$ area reduction and 1.8$\times$ power savings compared to uniform-precision baselines across diverse robotic platforms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.05161v1</guid>
+      <category>cs.AR</category>
+      <category>cs.RO</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Xingyu Liu, Hanwei Fan, Chaofang Ma, Jiawei Liang, Guangyu Hu, Jiang Xu, Wei Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Proton Irradiation Characterization of an Open-Source ML Accelerator on a Zynq UltraScale+ MPSoC</title>
+      <link>https://arxiv.org/abs/2609.05249</link>
+      <description>arXiv:2609.05249v1 Announce Type: new 
+Abstract: As spaceborne computing systems increasingly rely on neural network (NN) accelerators, the opacity of commercial, black-box architectures severely restricts the development of verifiable radiation mitigation strategies. Open-source, register-transfer level (RTL)-accessible accelerators resolve this limitation by enabling user-defined instrumentation, yet few have empirical radiation-response baselines. This work establishes a foundational system-level proton-irradiation baseline for an unmitigated open-source Tensil NN accelerator deployed on a Zynq UltraScale+ SoC executing ResNet-20 inference. Under 20 to 58 MeV proton irradiation, we delivered $4.29 \times 10^{10}$ p/cm$^{2}$ within monitored operational windows. Seven workload interruptions required two restarts of the notebook process, four reboots or board resets, and one power-cycle sequence. Two output-corruption events returned incorrect CIFAR-10 classes without loss of service. In the longer event, the accelerator returned a class absent from the ten-image CIFAR-10 pool for 39 consecutive inputs at normal cadence. The process remained alive, while the kernel log, limited memory test, and sampled power showed no anomaly. Observation of the stuck-class sequence ended with scheduled bitstream reconfiguration. All nine onsets occurred under the nominal 4 cm beam, which exposed the SoC, LPDDR4, and additional board circuitry; none occurred under the 2 cm SoC-centered field. This pattern shows a field association but does not establish LPDDR4 as the cause because field size was confounded with run order and dose. Linux-managed accelerators require end-to-end content checks and recovery that reaches the state in which corruption can persist. This baseline documents availability loss and silent output corruption, supporting future software hardening of COTS FPGA-SoCs for neural-network inference in space systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.05249v1</guid>
+      <category>cs.AR</category>
+      <category>cs.ET</category>
+      <category>cs.LG</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Saad Memon, Rafal Graczyk, Jan Swako\'n, Leszek Grzanka, Sebastian Kusyk, Mike Papadakis</dc:creator>
+    </item>
+    <item>
+      <title>TETRIS-Q: Tiling-based Effective Transient-fault Reduction on Interleaved Superconducting Qubits</title>
+      <link>https://arxiv.org/abs/2609.05226</link>
+      <description>arXiv:2609.05226v1 Announce Type: cross 
+Abstract: The struggle of the hour in quantum computing research is achieving effective suppression of the error mechanisms induced by the interaction of external radiation with superconducting quantum devices. Despite the rapid advancements in quantum error correction (QEC) of recent years, radiation-induced faults are yet to be fully addressed. These events are known to be the cause of simultaneous correlated defects in qubits that lie onto a single substrate, ultimately jeopardising QEC code effectiveness.
+  In this paper, we propose to selectively combine substrate-level phonon barriers and QEC interleaving via a planar-mesh tiling algorithm, TETRIS-Q, reaching efficient and effective suppression of radiation events. Our cross-layer solution comes at no extra cost in terms of QEC code execution or decoding time. We model and simulate radiation-induced transient faults over a plethora of barrier and QEC interleaving configurations. Through more than 51 million quantum circuit simulations, we show peak logical error reductions of more than $99.8 \%$, together with an $80\%$ reduction of the observable transient duration with permeable barriers. We find that sparser tiling can reach comparable performance to single qubit tiling, prompting cost reductions of upwards of $87 \%$ in barrier tracing. By leveraging independent QEC code interleaving, we measure up to one order of magnitude average logical error rate reductions without the use of permeable barriers, and up to three orders of magnitude with the joint usage of barriers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.05226v1</guid>
+      <category>quant-ph</category>
+      <category>cs.AR</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Marzio Vallero, Gioele Casagranda, Flavio Vella, Paolo Rech</dc:creator>
+    </item>
+    <item>
+      <title>LLM-Driven Algorithm Design for Quantum Circuit Synthesis based on Binary Decision Diagrams</title>
+      <link>https://arxiv.org/abs/2609.05327</link>
+      <description>arXiv:2609.05327v1 Announce Type: cross 
+Abstract: Quantum circuits are central to implementing quantum algorithms on quantum devices, where quantum gates must be reversible. Many quantum algorithms rely on Boolean functions, which must therefore be implemented reversibly within quantum circuits. Reversible circuit synthesis provides a way to translate such Boolean functions into reversible circuits. Binary decision diagrams (BDDs) offer a scalable approach to this task, but the resulting BDDs and circuits depend heavily on variable ordering. Existing ordering heuristics commonly minimize BDD size because it is closely tied to the circuit size. However, BDD size is an imperfect proxy for the quantum cost of the synthesized circuit (QCC). We propose \texttt{QuantumEvo}, an evolutionary framework that uses an LLM as a heuristic generator for QCC-aware BDD variable ordering. Instead of predicting orderings directly, \texttt{QuantumEvo} searches over ordering heuristics initialized from multiple heuristic families. Candidate heuristics directly manipulate variable orderings using standard BDD operations and are selected by downstream QCC. The discovered heuristic, HGA-QE, modifies the sifting step inside a genetic algorithm so that the procedure is better aligned with QCC. Across the benchmark set, HGA-QE achieves a 70.9\% tie-or-win rate against the per-function best baseline and is strictly best on 13.5\% of the functions. The results demonstrate broadly competitive QCC performance, with HGA-QE showing a clearer relative advantage in strict wins on the two benchmark suites drawn from sources different from the data used for heuristic discovery.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.05327v1</guid>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Yoonju Sim, Federico Berto, Chuanbo Hua, Jinkyoo Park, Changhyun Kwon</dc:creator>
+    </item>
+    <item>
+      <title>CuLifter: Lifting GPU Binaries to Typed IR</title>
+      <link>https://arxiv.org/abs/2604.27486</link>
+      <description>arXiv:2604.27486v2 Announce Type: replace 
+Abstract: GPU compilers merge all data types into a single unified register file, erasing the type information that binary-analysis tools rely on. We show that type recovery from this untyped register file is the central challenge of GPU binary lifting. We present CuLifter, a SASS-to-LLVM IR lifting framework that recovers register types via constraint propagation with conflict detection, reconstructs explicit control flow, and aggregates multi-instruction patterns. Across eight benchmark suites spanning open-source applications, vendor libraries, and optimized ML runtimes, CuLifter successfully lifts all 11,977 kernels to valid LLVM IR. Among the testable set, we achieve more than 90% execution correctness, verified via the CPU backend. An ablation study confirms that type recovery is the only step required to produce compilable IR: disabling it causes 86.9% of kernels to execute incorrectly.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.27486v2</guid>
+      <category>cs.AR</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jisheng Zhao, Huanzhi Pu, Shinnung Jeong, Chihyo Ahn, Hyesoon Kim</dc:creator>
+    </item>
+    <item>
+      <title>GoldenFloat: A Phi-Derived Static-Split Floating-Point Family from GF4 to GF1024 with a Lucas-Exact Integer Identity</title>
+      <link>https://arxiv.org/abs/2606.05017</link>
+      <description>arXiv:2606.05017v4 Announce Type: replace 
+Abstract: We present a hardware-oriented description of GoldenFloat (GF), a static-split floating-point family generated by a single closed rule, and three concrete artefacts: (i) an open multi-width RTL generator covering GF4-GF256 with a continuous-integration differential sweep against a correctly-rounded reference; (ii) an integer-backed Lucas-exact accumulator path verified at 500-digit precision for n = 1, ..., 256; and (iii) a GF16 FPGA codec passing a 35-of-35 testbench at 323 MHz on Artix-7 (Xilinx XC7A35T). A format-conformance oracle (Corona) ships in the same repository and is used as the blackbox check in our continuous-integration audit.
+  The rule and its scope. For each total width N &gt;= 4, the exponent width is e = round((N-1)/phi^2) with fraction f = N-1-e and phi = (1+sqrt(5))/2. The rule reproduces the realised exponent widths of nine formats GF4, GF8, GF12, GF16, GF20, GF24, GF32, GF64, GF256 (9/9) and extends consistently to GF128, GF512, GF1024. The rule is positioned alongside posit (2022 Posit Standard), takum (Hunhold 2024, 2025), OCP-MX (Rouhani et al. 2023), and the IEEE P3109 multi-width float draft, all of which are width-spanning families under a parameterised rule. We make no per-rung accuracy or superiority claim against any of them.
+  What is open. The breadth/toolchain-coherence framing is recorded as an open conjecture with a pre-registered falsification path: a matched-substrate FPGA experiment and a matched-budget software ablation. A falsification ledger (FL-002) records the open questions and the experiments that would settle them. An RTL-correctness erratum dated 2026-05-31 is reported in Section 5.5; the withdrawn TTSKY26b submission carried the defective multiplier portfolio, and the corrected generator is the regeneration baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.05017v4</guid>
+      <category>cs.AR</category>
+      <category>cs.MS</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Dmitrii Vasilev</dc:creator>
+    </item>
+    <item>
+      <title>Golden Ruler: A Numeric Format Catalog with Bit-Exact Conformance Vectors for FP8, BF16, MXFP4, and Microscaling Formats</title>
+      <link>https://arxiv.org/abs/2606.09686</link>
+      <description>arXiv:2606.09686v3 Announce Type: replace 
+Abstract: Numeric format proliferation in machine learning hardware -- FP8 (E4M3 and E5M2), BF16, MXFP4, microscaling block formats, and dozens of research variants -- has outpaced the availability of vendor-neutral, bit-exact reference material. Engineers porting models across accelerators encounter silent divergences that are difficult to diagnose without a shared ruler.
+  This paper describes a catalog of 109 numeric formats spanning 12 clusters (83 at v2; the count is a catalog invariant, not a fixed number), a suite of six bit-exact conformance packs covering GF16, MXFP4 element, BF16, FP8 E4M3, FP8 E5M2, and E8M0 block scale, and an IEEE P3109 v3.2.0 cross-walk that maps each pack to its corresponding standards-track configured format. Each pack is a self-contained JSON document with a SHA-256 fingerprint, a shared row schema, and an anchor vector that encodes 3.0 -- the identity phi^2 + 1/phi^2 = 3 -- as a cross-pack sanity check. Packs are cross-validated against ml_dtypes 0.5.4 (Google/JAX); any divergence is documented explicitly and interpreted as a spec-permitted interpretation gap rather than hidden. The work is framed as registry filling: it does not propose new formats, make model-accuracy claims, or assert superiority over any vendor's implementation. All artifacts are publicly available at https://github.com/gHashTag/t27 under an open license.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.09686v3</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.MS</category>
+      <category>cs.NA</category>
+      <category>cs.PF</category>
+      <category>math.NA</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Dmitrii Vasilev</dc:creator>
+    </item>
+    <item>
+      <title>Confidence-Gated Admission for Hardware Prefetching: When the Gate Matters More Than the Predictor</title>
+      <link>https://arxiv.org/abs/2609.04040</link>
+      <description>arXiv:2609.04040v2 Announce Type: replace 
+Abstract: Learned cache prefetchers are typically evaluated against classical predictors that always issue requests, confounding the prediction model with the admission policy. We disentangle these variables with matched controls: the same admission gate is applied to both a 257-parameter online MLP and a classical stride predictor. The neural advantage vanishes; the MLP is indistinguishable from gated stride on random traffic and slower on most regular streams. The gate itself is architecturally useful independent of the predictor: on twenty SPEC CPU2017 programs in native ChampSim, it removes 35% of prefetches and improves accuracy from 11% to 15%, but DRAM reads change by only 0.07% demonstrating that proxy metrics do not predict endpoint behavior. We prove gate-closed execution reproduces the no-prefetch baseline exactly. The gate matters more than the predictor, and better proxies do not imply better endpoints.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.04040v2</guid>
+      <category>cs.AR</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Youssef Majdane, Simone Jarno Casartelli, Enrico Lopedoto</dc:creator>
+    </item>
+    <item>
+      <title>Evolving Layer-Specific Scalar Functions for Hardware-Aware Transformer Adaptation</title>
+      <link>https://arxiv.org/abs/2605.14047</link>
+      <description>arXiv:2605.14047v3 Announce Type: replace-cross 
+Abstract: Vision Transformers (ViTs) achieve state-of-the-art performance on challenging vision tasks, but their deployment on edge devices is hindered by the computational complexity and global reduction bottleneck imposed by layer normalization. Recent methods attempt to bypass this by replacing normalization layers with hardware-friendly scalar approximations. However, these homogeneous replacements do not optimally fit to all layers' behaviour and rely on expensive model retraining. In this work, we propose a highly efficient, hardware-aware framework that utilizes genetic programming (GP) to evolve heterogeneous, layer-specific scalar functions directly from pre-trained weights. Coupled with a novel post-training re-alignment strategy, our approach eliminates the need to retrain models from scratch entirely. Our evolved expressions accurately approximate the target normalization behaviours, capturing $90$-$93\%$ of the variance ($R^2$) compared to only $70$-$76\%$ for homogeneous baselines, allowing our modified architecture to recover $84.32\%$ Top-1 ImageNet-1K accuracy on ViT-B and $85.74\%$ on ViT-L in only 20 epochs. By retaining near-baseline accuracy while eliminating the global reduction bottleneck, our approach achieves a strict reduction in both arithmetic complexity and off-chip memory traffic compared to standard LayerNorm, removing a primary barrier to the efficient deployment of ViTs on edge accelerators.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.14047v3</guid>
+      <category>cs.CV</category>
+      <category>cs.AR</category>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Kieran Carrigg, Sigur de Vries, Amirhossein Sadough, Marcel van Gerven</dc:creator>
+    </item>
+  </channel>
+</rss>
