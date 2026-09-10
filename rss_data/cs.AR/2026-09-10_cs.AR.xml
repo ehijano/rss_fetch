@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.AR updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.AR</link>
+    <description>cs.AR updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.AR" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Sep 2026 04:00:08 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Shift-Accumulate Attention: Multiplier-Free Query--Key Products for Transformer Decoding</title>
+      <link>https://arxiv.org/abs/2609.09208</link>
+      <description>arXiv:2609.09208v1 Announce Type: new 
+Abstract: Power-of-two (PoT) quantisation turns a multiplication into a bit shift, so far only for the post-softmax attention--value product. The earlier and larger product, S=QK^T, has not been reformulated the same way. We quantise the key cache to a signed power-of-two fixed-point code, so that every scalar multiplication in QK^T becomes a sign flip, a bit shift and an integer accumulation. A fixed-point head-room F&gt;= e_max turns every shift index r=F-e into a non-negative left shift, making the accumulation exact in integer arithmetic. We add a sub-power mantissa extension that halves the score error for one extra shift-add, a shift-exact online softmax whose running maximum lives in an integer log2 domain so that every rescaling is itself an exact shift, and a log-quantised AV product.
+  Fused CUDA kernels in a 1.1B Llama decoder on an RTX 4090: at B=8, T=32k the 4-bit kernel is 4.60x faster than FP16 scaled dot-product attention with a 2.5x smaller KV cache, and batched decoding crosses over at B=64 to 1.22x FP16 throughput at 11.02 against 13.77 GB peak memory. A matched INT8 multiply--accumulate kernel on the same tiling reaches 5.29x: on a GPU with a hardware 4-way INT8 dot product, shift-accumulate is not faster than the MAC it replaces. An iso-storage control--an 8-bit shift code of exactly one byte per key, run through the identical kernel--prices the arithmetic substitution alone at 2.02x at comparable accuracy. The advantage of the PoT representation is therefore its density and the removal of the multiplier, not raw GPU throughput. A sweep over exponent width, mantissa levels, granularity and rounding gives the design lesson: nearest-PoT relative error is scale-free, so extra exponent bits buy nothing (eps_S=0.1302 at 3, 4 and 5 bits) and accuracy must come from mantissa terms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09208v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Khubaib Ahmed, Amna Noor, Ahsan Ul haq</dc:creator>
+    </item>
+    <item>
+      <title>Academia x Industry: The Role of Fundamentals for Silicon in an AI Native Era</title>
+      <link>https://arxiv.org/abs/2609.09344</link>
+      <description>arXiv:2609.09344v1 Announce Type: new 
+Abstract: Agentic AI is set to become one of the most transformational technologies in generations and materially change how we approach silicon design and engineering. The impact is being felt in real time amid a rapidly changing landscape, which can make it overwhelming for both silicon practitioners and academics to adapt to the AI native silicon design era. To add structure to how we navigate this transition, we provide a joint view from academia and industry silicon practitioners of the challenges, opportunities, and considerations we expect will catalyze how the community transitions into an AI native silicon future. In particular, we reemphasize the importance of core silicon design fundamentals in academic training and why they have renewed importance in research and industry practice for AI native silicon design. It is our hope that the views provided here will offer valuable and complementary perspectives to those in academia and industry to interpret, inform, and catalyze the transition to the AI native era. We expect that many similar and overlapping views will emerge, but the precise technical details will differ across stakeholders, so it is valuable for the community to amass a diversity of viewpoints.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09344v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Vincent T. Lee, Armin Alaghi, Carole-Jean Wu, Sai Zhang, Brandon Reagen, Thierry Tambe, Jean Boufarhat, Matheus Trevisan Moreira</dc:creator>
+    </item>
+    <item>
+      <title>HLSFactory-Agent: Large-Scale Agentic HLS Dataset Construction from Academic and Open-Source Projects</title>
+      <link>https://arxiv.org/abs/2609.09519</link>
+      <description>arXiv:2609.09519v1 Announce Type: new 
+Abstract: Building large, diverse datasets of high-level synthesis (HLS) designs beyond common community benchmarks remains an open challenge. This challenge is made urgent by the rise of deep learning and LLMs for hardware design, which demand such datasets to train QoR models and benchmark LLMs on HLS tasks. Despite ongoing efforts to broaden sources, dataset curation still depends on manual work: locating HLS designs across academic publications and open source, then extracting standalone designs from larger codebases. The process is error-prone and demands expert knowledge, iterative testing, and substantial per-repository engineering.
+  To address this, we present HLSFactory-Agent, an LLM agent that automates large-scale HLS dataset curation by extracting standalone designs from larger codebases. HLSFactory-Agent runs the open-source Pi agent framework inside Docker containers to build and evaluate each extracted design. This turnkey automation allows users to pass a GitHub link or code directory to HLSFactory-Agent and receive a folder of extracted HLS designs ready to be integrated into the HLSFactory dataset framework. Additionally, we provide open-source scripts to scrape and index papers from computer architecture, EDA, and FPGA conferences that possibly implement or use HLS designs, allowing for faster human discovery and curation of HLS designs for HLSFactory-Agent.
+  We report initial results from running HLSFactory-Agent across a small subset of our indexed repositories, demonstrating successful extraction of synthesizable designs from structured codebases.
+  We open source HLSFactory-Agent and indexing scripts at https://github.com/sharc-lab/hlsfactory-agent.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09519v1</guid>
+      <category>cs.AR</category>
+      <category>cs.SE</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Kaushik Chandana, Jay Imperatori, Tanmay Shukla, Justin Zhou, Stefan Abi-Karam, Callie Hao</dc:creator>
+    </item>
+    <item>
+      <title>Benchmarking Agentic HLS Design Tasks With HLS-Eval</title>
+      <link>https://arxiv.org/abs/2609.09526</link>
+      <description>arXiv:2609.09526v1 Announce Type: new 
+Abstract: Large language models (LLMs) and AI agents are increasingly explored for hardware design, including high-level digital design. While most work targets code generation and editing for hardware description languages (HDLs), our prior work introduced HLS-Eval, an open-source benchmark for evaluating LLMs on high-level synthesis (HLS) design tasks. Those evaluations, however, focused on zero-shot generation and editing, leaving open how agents achieve HLS design tasks.
+  We therefore extend HLS-Eval with an agentic evaluation flow built on the open-source mini-swe-agent framework. The flow lets HLS design agents use file-editing tools, invoke a C++ compiler for self-verification, and iteratively refine designs during inference, while logging agent traces for analysis of cost, token usage, and iteration count. We present initial results on the existing HLS-Eval benchmarks.
+  In our initial evaluation, we find open-source LLMs paired with an agentic harness solve every simple HLS code generation task in our evaluation, underscoring the need to expand benchmark difficulty as model capabilities advance. Analyzing traces from passing and failing runs, we show how model size, token usage, and trajectory length relate to design pass rates. These results establish a foundation for agentic HLS design and motivate harder benchmarks and new agentic tooling as model capabilities progress.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09526v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Stefan Abi-Karam, Callie Hao</dc:creator>
+    </item>
+    <item>
+      <title>Differential Stochastic Simulated Annealing Processor for Fully Connected 2048-Spin Optimization</title>
+      <link>https://arxiv.org/abs/2609.09559</link>
+      <description>arXiv:2609.09559v1 Announce Type: new 
+Abstract: A 2,048-spin fully connected annealing processor based on differential stochastic simulated annealing (DSSA) is presented as an architectural design in TSMC 28 nm CMOS with a 3 mm x 4 mm post-layout area. The processor closes timing at 500 MHz, integrates a 16 Mb SRAM weight memory, and amortizes stochastic noise across 16 spins with area-efficient random number generators. DSSA keeps a serialized datapath for density but recomputes interactions only for spins that flip, shrinking the effective workload to the active frontier during each annealing run. Spin-select scheduling, priority-based weight reads, and a temperature controller that skips idle steps accelerate sparse updates without sacrificing full connectivity. Post-layout simulation results show 2.7 ms time-to-solution (TTS) and 0.86 mJ energy-to- solution on 2,000-spin problems at 316 mW (0.15 mW/spin), achieving 1.5x lower power and 3.5x lower TTS energy than projected prior fully connected annealers. These results demonstrate the potential of the proposed DSSA architecture for large-scale combinatorial optimization hardware under post-layout evaluation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09559v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1109/ACCESS.2026.3731035</arxiv:DOI>
+      <dc:creator>Naoya Onizawa, Md Mohaimenul Alam, Sean Smithson, Duckgyu Shin, Takahiro Hanyu</dc:creator>
+    </item>
+    <item>
+      <title>UNISON: A Co-Designed Near-Memory Scheduler of Session KV Residency for LLM Agents</title>
+      <link>https://arxiv.org/abs/2609.09643</link>
+      <description>arXiv:2609.09643v1 Announce Type: new 
+Abstract: Large language models are increasingly composed into agent loops that plan, call tools, and resume the same task after each action. These loops press a shared memory hierarchy harder than conventional multi-turn chat, because they hold a growing key-value (KV) prefix across tool waits and place many sessions on one SRAM/HBM pool, so that eviction and hierarchical placement become a session-level efficiency problem orthogonal to compute-mode optimization. Existing proxies based on recency, timeout, or identity miss the mechanism information of the loop and therefore treat a live wait as a cold, discardable unit. We present Unified Native Inter-turn Session Orchestration Nexus (UNISON), an event-driven near-memory scheduler in which Survival-Penalty Eviction for Agent Return-gap (SPEAR) and Tiering in Idle-window DMA Events (TIDE) share one live ranking. SPEAR selects who leaves from a gap average and a turn-indexed hazard, while TIDE spends the observed wait as a DMA budget for who sits in the fast tier. On coding and general-mission benchmarks with three model families, totaling 1,415 sessions and 33,596 turns, the joint policy is the best non-oracle entry on every trace, raising hit rate by 0.3% to 23.1%, reducing AMAT by 22% to 51%, and lowering TTFT by 58% to 89% on long-horizon traces. A structural necessity analysis shows that the unified near-memory design cannot be decomposed into independent IPs or realized in software without re-introducing documented failure modes. The 28-nm CMOS scheduling core occupies 0.169 mm^2 at 13.6 mW and 150 MHz, a negligible overhead relative to the KV hierarchy it manages, reproducing the floating-point ranking at Kendall tau exceeding 0.998.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09643v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Fan He, Yan Li, Xiaoyang Zeng</dc:creator>
+    </item>
+    <item>
+      <title>Minimal Deadlock-Free Routing for Degree-Six Triangular-Lattice Meshes and Tori with Two Forbidden Turns</title>
+      <link>https://arxiv.org/abs/2609.09746</link>
+      <description>arXiv:2609.09746v1 Announce Type: new 
+Abstract: Degree-six triangular-lattice interconnection networks offer substantial minimal-path diversity, but their additional directions complicate deadlock-free routing under wormhole flow control. We study a finite hexagon-shaped mesh and its periodic torus quotient in a common six-direction coordinate system. For the finite mesh, we construct a minimal partially adaptive routing relation that uses one virtual channel and forbids only two directed turns. For the torus, we prove that every source-destination pair has a unique closest lattice lift, but that the same two-turn physical routing relation still has a cyclic one-VC resource CDG for every n &gt;= 3. We eliminate this residual periodic dependency by combining two virtual channels with Hamiltonian coordinates and group-specific datelines. Each same-group segment crosses its dateline at most once, which permits a global rank on VC-labelled channel resources. We prove minimal all-pairs connectivity for both physical routing relations and acyclicity of the complete resource CDG for the proposed one-VC mesh and two-VC torus constructions. For a single static bidirectional link failure known before a routing epoch, we further rotate the turn rule toward the failed orientation and replace a failed hop by a same-group two-hop triangle bypass. This restricted extension preserves all-pairs connectivity and the original VC counts, with at most one additional hop relative to the healthy shortest-path distance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09746v1</guid>
+      <category>cs.AR</category>
+      <category>cs.NI</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zibo Diao, Rongxi Sun</dc:creator>
+    </item>
+    <item>
+      <title>HBFSim: Fast and Faithful Simulation of High-Bandwidth Flash Under Real GPU Execution</title>
+      <link>https://arxiv.org/abs/2609.09800</link>
+      <description>arXiv:2609.09800v1 Announce Type: new 
+Abstract: Serving a large language model (LLM) is limited by memory capacity. High-Bandwidth Flash (HBF) stacks NAND flash inside the accelerator package, one tier below high-bandwidth memory (HBM); the specification was published on August 3, 2026, and the first inference devices are expected to sample in early 2027. Decisions about capacity and data placement cannot wait for silicon. No existing method settles those decisions: a storage simulator replaying a recorded access sequence never executes the workload, a GPU simulator does not run the real compute kernels, and a cycle-accurate simulator cannot finish one LLM inference run. We present HBFSim, the first evaluation platform that applies HBF timing, capacity, and thermal effects to a real inference workload while that workload executes on a real GPU. HBFSim rewrites PTX, the intermediate code NVIDIA's compiler emits, and gates kernel launches; issue is separated from consumption, so real hardware supplies the computation that hides an access. Timing comes from measurements of a real device rather than a parameter sheet, and junction temperature sets both the rate HBF sustains and the retention deadline that forces refresh writes. HBFSim matches the measured device exactly at all six calibration breakpoints, with zero unsafe launches, and an unmodified vLLM 0.15.1 serving Qwen3-30B-A3B returns the token identifiers of the uninstrumented baseline. The device fast path serves the same Qwen3-30B-A3B case in 2s against 44s on the detailed reference path, 20.8x faster. Before HBF parts sample, HBFSim lets a designer measure a capacity or placement decision under a real workload instead of assuming one.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09800v1</guid>
+      <category>cs.AR</category>
+      <category>cs.ET</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Yanpeng Hu, Yiwei Yang, Yuanwu Zhu, Yusheng Zheng, Wei Zhang, Andi Quinn</dc:creator>
+    </item>
+    <item>
+      <title>AMEND: Audited Margins Enable Nonblocking Drops in GPU-PIM LLM Decoding</title>
+      <link>https://arxiv.org/abs/2609.09823</link>
+      <description>arXiv:2609.09823v1 Announce Type: new 
+Abstract: Autoregressive large language model (LLM) decoding re-reads a growing key-value (KV) cache at every step, so long-context attention is bound by graphics processing unit (GPU) memory bandwidth. Block-sparse attention skips low-contribution KV blocks, but a selector that decides after the current query-key (QK) product, such as max-relative block thresholding (BLASST), still reads every K block, and a processing-in-memory (PIM) filter that decides from the current query places a serial PIM stage on the critical path. We present AMEND, a GPU-PIM attention design that removes both dependencies. AMEND predicts each block's BLASST verdict from margins audited at earlier steps, so the GPU fetches only predicted survivors while near-bank PIM units in high-bandwidth memory (HBM) concurrently score the omitted complement. A stack-level controller merges both observations, updates the predictor, and eagerly generates the next step's mask, so every predicted drop is re-observed without blocking the current token. Operating points are selected offline by constrained Bayesian optimization under a false-drop budget. Across LongBench and RULER runs, AMEND preserves near-baseline task quality; in simulation at batch size 8, it achieves $1.40$-$3.63\times$ end-to-end decode speedup and 28-66% lower dynamic decode energy than dense attention across 8K-64K contexts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09823v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zuxiong Tan, Will Wei-Jen Wang, Wei Shao, Ali Karkehabadi, Houman Homayoun, Avesta Sasan</dc:creator>
+    </item>
+    <item>
+      <title>SAGE: Semantic-Aware Geographic Error Recovery for AI Data Movement</title>
+      <link>https://arxiv.org/abs/2609.10126</link>
+      <description>arXiv:2609.10126v1 Announce Type: new 
+Abstract: AI interconnects typically protect and replay packets uniformly, yet numerical bit faults differ sharply in consequence: a low-order mantissa flip may resemble quantization noise, while a high-significance exponent flip can produce a catastrophic outlier or non-finite value. We present SAGE, a semantic-aware geographic error-recovery architecture that decouples whether a detected fault merits replay from where replay restarts. For BF16-like data, a workload-calibrated contract separates catastrophic Class-H faults from bounded Class-M and precision Class-L damage. It first applies a Class-H silent-delivery constraint, then ranks admissible policies by quality-normalized terminal latency, $\Psi_{\rm del}$. Independently, a source-local region table adapts checkpoint intervals to fault geography, shortening recovery segments in noisy regions. Detected Class-H failures may trigger protected negative acknowledgments and full-flit replay; Class-M and Class-L outcomes do not trigger default network replay.
+  We implement SAGE's endpoint and replay protocol in gem5 Garnet and synthesize its fully pipelined checker in ASAP7. At a stable synthetic operating point, a ten-seed contention-faithful direct-Garnet campaign shows that SAGE reduces $\Psi_{\rm del}$ by 30.1% relative to fixed 34-hop recovery, combining 28.0% lower mean latency with improved delivered semantic quality. Under higher-BER synthetic stress at the same offered load, SAGE maintains bounded queues while the fixed baseline accumulates backlog. Application-derived DeiT-S communication traces also show lower mean and p99.5 latency at the evaluated nonzero BERs. Within the qualified operating envelope, CRC32 decoder trials yield a simultaneous 95% per-original Class-H silent-delivery upper bound of $3.18\times10^{-7}$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.10126v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Patrick S. Y. Hung, Zitong Wang, Zekai Zhang, Yu Hin Chan, Shengzhe Lyu, Ray C. C. Cheung</dc:creator>
+    </item>
+    <item>
+      <title>CertiFlash: A Formal Verification Framework for Flash Translation Layers in Computational Solid State Drives</title>
+      <link>https://arxiv.org/abs/2609.10347</link>
+      <description>arXiv:2609.10347v1 Announce Type: new 
+Abstract: Data-intensive applications move large amounts of data from storage to the compute unit, incurring significant data movement overhead. Storage-centric computing reduces this overhead by moving computation near or inside solid-state drives (SSDs). Enabling it requires modifying SSD policies, e.g., address translation and garbage collection, which are part of the Flash Translation Layer (FTL), the SSD's firmware. Modifying the FTL is error-prone. Because FTL logic has direct access to security-critical device components, even a functionally correct FTL can leak data between tenants, drop integrity tags, or assign a flash block to the wrong tenant. We show that a faulty FTL can corrupt the device state at five surfaces inside the SSD, and demonstrate them on a DaisyPlus OpenSSD. Prior work verifies individual FTL designs, but has two limitations. (1) It establishes only functional correctness, so a modified FTL can violate isolation, integrity, and ownership and still pass verification. (2) It is tied to a single FTL design, so every modification requires redoing every proof.
+  We propose CertiFlash, a formal verification framework for FTLs, mechanized in the Rocq proof assistant, that gives designers a machine-checked proof of security and correctness. CertiFlash models an FTL as a deterministic state machine with a single global invariant over mapping, isolation, integrity, ownership, and allocation. We prove once, over a general FTL model, that (i) every FTL operation preserves the invariant and (ii) the model refines an idealized block device. For a new design, a designer discharges five hypotheses about its own operations instead of redoing either proof. Across four case studies, a designer adds 27 to 3,231 lines against a 16,489-line framework, significantly reducing the verification effort. CertiFlash is open source.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.10347v1</guid>
+      <category>cs.AR</category>
+      <category>cs.CR</category>
+      <category>cs.LO</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Harshita Gupta, Mayank Kabra, Rakesh Nadig, Nika Mansouri Ghiasi, Sahand Divsalar, F. Nisa Bostanci, Ataberk Olgun, Konstantinos Kanellopoulos, Jisung Park, Haiyu Mao, Abdullah Giray Yaglikci, Mohammad Sadrosadati, Onur Mutlu</dc:creator>
+    </item>
+    <item>
+      <title>DiffLUT-Net: Differentiable Training of FPGA LUT Networks with Learnable Connectivity</title>
+      <link>https://arxiv.org/abs/2609.09254</link>
+      <description>arXiv:2609.09254v1 Announce Type: cross 
+Abstract: Field-programmable gate arrays (FPGAs) enable efficient neural-network inference, but most deployment flows either accelerate multiply-accumulate operations or convert pretrained quantized models into lookup tables (LUTs). We present DiffLUT-Net, an FPGA-native network connected by six-input LUTs that are trained from scratch. We jointly learn the 64 truth-table entries of a LUT and the source to each of its six input ports using a differentiable LUT function relaxation and hardware source selection. After training, the truth tables and connections are discretized, unused logic can be pruned, and the network is exported directly as synthesizable Verilog. Across five benchmarks, DiffLUT-Net achieves favorable accuracy-resource trade-offs. These results demonstrate the effectiveness of jointly learning LUT functions and sparse connectivity for compact FPGA-native inference. The code is available at https://github.com/TUDa-HWAI/DiffLUT-Network.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09254v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Jiaqi Ye, Xinrui Gong, Jingcun Wang, Olga Kondrateva, Bing Li, Grace Li Zhang</dc:creator>
+    </item>
+    <item>
+      <title>FPGA Acceleration of Fully Homomorphic Encryption with Adaptive Key Switching</title>
+      <link>https://arxiv.org/abs/2609.09423</link>
+      <description>arXiv:2609.09423v1 Announce Type: cross 
+Abstract: Fully Homomorphic Encryption (FHE) enables privacy-preserving cloud services but incurs substantial computation overhead, making hardware acceleration essential. Among FHE operations, key-switching is a major performance bottleneck. Recent cryptographic advances introduce a novel key-switching method (i.e., KLSS) that reduces certain operational complexity but demands higher computational precision than the traditional Hybrid Key Switching (HKS) method. This trade-off leads to distinct computation and memory requirements, making the relative latency of KLSS and HKS highly dependent on hardware parallelism, FHE security parameters, and available on-chip memory capacity, particularly on FPGA platforms, where memory resources and parallelism must be carefully balanced.
+  In this work, we first propose a memory-efficient KLSS datapath that eliminates off-chip ciphertext transfers. We then develop a performance model to analyze and compare the overheads of both KLSS and HKS. Our analysis reveals that an adaptive solution supporting both methods can achieve lower overall latency than a static method during FHE computation. Guided by the performance model, we design an adaptive FPGA-based FHE accelerator that dynamically selects between HKS and KLSS during computation. We implement the accelerator on an Alveo U280 and evaluate it across multiple FHE benchmarks. Experimental results demonstrate that our adaptive solution achieves a 1.84-3.31$\times$ speedup in bootstrapping latency and a 1.66-2.52$\times$ speedup in secure image classification compared to state-of-the-art FPGA accelerators.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09423v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zhihan Xu, Jayashree Adivarahan, Rajgopal Kannan, Viktor K. Prasanna</dc:creator>
+    </item>
+    <item>
+      <title>A Fully Wave-Domain Wideband MU MIMO OFDM Transmitter via Stacked Intelligent Metasurfaces</title>
+      <link>https://arxiv.org/abs/2609.09727</link>
+      <description>arXiv:2609.09727v1 Announce Type: cross 
+Abstract: This paper proposes an advanced realization principle for wideband multiuser multiple-input multiple-output orthogonal frequency-division multiplexing (MU-MIMO OFDM) transmitters, where the conventional transmitter-side baseband chain is physically synthesized in the wave domain. For design and optimization purposes, this fully wave-domain wideband MU-MIMO OFDM transmitter implemented by a cascaded SIM structure is functionally partitioned into two cascaded SIM blocks. The first block, denoted as SIM_1, integrates symbol loading and channel-adaptive MU-MIMO precoding updated at the channel-coherence timescale, mapping the user streams to a virtual port-subcarrier representation. The second block, denoted as SIM_2, acts as an offline-configured sampling-rate modulator that materializes the inverse discrete Fourier transform (IDFT) and cyclic prefix (CP) insertion directly in the wave domain. This baseband-free architecture establishes a virtual-to-physical transition from information bits to radiated CP-extended OFDM waveforms. To account for practical nonidealities, SIM_2 is optimized to fit the ideal multi-port CP-OFDM operator, and its residual response is mapped into an effective coupling matrix. Then, SIM_1 is optimized in a communication-oriented manner by jointly adapting discrete phase shifts and stream-subcarrier power loading to maximize the sum spectral efficiency. Results demonstrate the convergence, architecture trade-off, wave-domain OFDM materialization accuracy, and competitive performance of the proposed baseband-free transmitter.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09727v1</guid>
+      <category>eess.SP</category>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Zheao Li, Jiancheng An, Chau Yuen</dc:creator>
+    </item>
+    <item>
+      <title>Analytic Gradients and Nonadiabatic Couplings for Device-Resident DMRG-QD-NEVPT2 Through Conical Intersections on a Consumer GPU</title>
+      <link>https://arxiv.org/abs/2609.09990</link>
+      <description>arXiv:2609.09990v1 Announce Type: cross 
+Abstract: Nonadiabatic dynamics through a conical intersection needs both static and dynamic correlation and, at every geometry, an excited-state gradient and interstate nonadiabatic coupling (NACME); analytic multireference derivatives at this level have been cluster-scale. We report device-resident \mbox{DMRG-QD-NEVPT2} with analytic derivatives, on B2PLYP double-hybrid Kohn--Sham orbitals: a density-matrix-renormalization-group reference supplies the static correlation, and quasi-degenerate NEVPT2 adds the dynamic correlation through a multi-state effective Hamiltonian that stays valid \emph{through} the intersection, where single-state perturbation theory fails. Each gradient and NACME is one reverse-mode transpose of a contraction graph that carries the DMRG sweep as a gauge-free, tape-free node and reduces to active-space RDM contractions with Cholesky factors. The whole construction runs on a consumer 8\,GB GPU. The DMRG reference is FCI-in-active-space to $10^{-15}$ and the single-precision leg is spectroscopically inert ($&lt;10^{-6}$\,eV); the correction yields smooth adiabats and a non-vanishing, $1/\Delta E$-divergent NACME through the twisted-ethene intersection---where adiabatic linear-response TDDFT returns zero---and restores the dynamic correlation the ionic $\pi\pi^*$ states require. DMRG-NEVPT2 and quasi-degenerate NEVPT2 are each established; the contribution is the entire stack---multi-state through a conical intersection, with analytic gradients and couplings---made device-resident on commodity hardware. Multireference companion to our density-functional realization of the same engine.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09990v1</guid>
+      <category>physics.chem-ph</category>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Rub\'en Dar\'io Guerrero</dc:creator>
+    </item>
+    <item>
+      <title>AutoTrans: AI-Assisted Automatic Translation of Security Assertions for RISC-V Processors</title>
+      <link>https://arxiv.org/abs/2609.10057</link>
+      <description>arXiv:2609.10057v1 Announce Type: cross 
+Abstract: Reusing a set of verified security assertions across RISC-V processor targets remains one of the most expensive bottlenecks in hardware security verification. Manual translation takes hours per assertion. Raw LLM translation is fast but unreliable, introducing signal hallucination, where the model invents port names absent from the target RTL and produces outputs that may vary across model updates or even within the same model version. This paper presents AutoTrans, an automated framework that addresses the above shortcomings. First, a new lightweight Regular Expression-based System Verilog signal extractor is proposed to identify the signals for generating security assertions. This step is necessary to prevent signal hallucination. Second, a template is introduced to create prompt and pinned inference parameters that guarantee a byte-identical prompt assembly on every run, making the pipeline output resilient to model updates. Moreover, the introduced template for LLM prompting is capable of generating security assertions from English-only security descriptions of RISC-V processors, with no manual authoring. Third, a formal verification process (JasperGold FPV) is integrated, which guarantees that the generated security assertions verify the security of the RISC-V processor rather than silently entering the result set. The workflow is applied on Deepseek V4 to translate security assertions from one RISC-V to another (e.g., for IBEX from NS31A RISC-V). The experiment shows that AutoTrans achieves 78\% Auto Translation Acceptance Rate (TAR) automatically and without human intervention and 100\% Final TAR after refinement by humans.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.10057v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sharjeel Imtiaz, Uljana Reinsalu, Tara Ghasempouri</dc:creator>
+    </item>
+    <item>
+      <title>PASCAL: A Phase-Aware Shared-Cache Model for Parallel Scans</title>
+      <link>https://arxiv.org/abs/2609.10515</link>
+      <description>arXiv:2609.10515v1 Announce Type: cross 
+Abstract: In modern AI Accelerators and GPGPUs, many concurrent cores repeatedly access the same shared data. This pattern occurs in attention, where different query tiles share the same K/V block, GEMM, where every tile in a row reads the same panel, and many other operators. We name this pattern parallel scan. Due to a significant amount of data reuse in this pattern, the cache is expected to capture as much data reuse as possible and largely reduce requests sent to the main memory for both performance and energy consumption concerns. However, in reality, because of the intrinsic asynchrony of multi-cores, the actual cache miss rate and DRAM traffic can be much higher compared to ideal cases. In this paper, we propose PASCAL, a shared-cache model for parallel scans. It is aware of the dynamic feature of progress divergence across multi-cores, correlate the divergence with the combination of different factors such as occupancy, and predicts the cache miss rate before execution. Because prediction needs no target trace, timing, or counters, PASCAL supports design-space exploration at scales where cycle-accurate simulation is impractical, and its policy-independent bound states how much traffic no replacement policy can avoid. A MAPE of 13.84% is achieved in a 60-configuration dataset with various software pipeline depths, occupancies, and memory access data paths on an NVIDIA GB10 GPU, against 44.79% for physical-wave TileSight and 54.16% for exact symbolic SDCM.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.10515v1</guid>
+      <category>cs.PF</category>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhongchun Zhou, Chengtao Lai, Songtao Mao</dc:creator>
+    </item>
+    <item>
+      <title>FP8 is All You Need (Part 1): Debunking Hardware FP64 as the HPC Holy Grail (Sep 3rd version)</title>
+      <link>https://arxiv.org/abs/2606.06510</link>
+      <description>arXiv:2606.06510v4 Announce Type: replace 
+Abstract: We argue that on AI-optimised GPUs of the NVIDIA B300 generation and beyond, the FP8 tensor-core matrix operation, composed through CRT-based Ozaki Scheme II, can serve as the dominant matrix-work substrate for the surveyed matrix-dominated FP64 kernel classes at FP64-grade accuracy, with native FP64 recast from a hardware requirement into a derived accuracy guarantee. The claim is conditional: the FP8 op is the candidate dominant multiplication substrate, with a bounded auxiliary set of integer deconstruction/reconstruction work, FP32/Kulisch reductions, data movement and a native-FP64 fallback, organised as a hierarchy from the FP8 op through Ozaki II and the Berkeley dwarfs to applications. The instrument is the Tensor-Memory Equilibrium (TME) model, a Roofline extension with four parameters (compute multiplier $\alpha=3r+1$, bandwidth multiplier $\beta$, reconstruction cost $\gamma$, and the per-input deconstruction cost $c_q$ identified in an NVIDIA review) under which, at its upper bound, the reduction to FP8 costs no performance against an ideal native-FP64 machine of equal bandwidth. On-chip tile fusion drives $\beta \to 1$; the deconstruction term sets a threshold intensity below which emulation is conversion-bound. At the fused, engineered-$c_q$ bound every surveyed class reaches the memory roof, with two priced exceptions: large dense-square DGEMM sits at a deconstruction floor near 0.50 of the FP8 arithmetic roof (about 235 of 473 TFLOPS on the NVIDIA Rubin GPU), a liftable co-design coordinate, and the 3-D FFT is walled by a per-output integer epilogue at $4.9$-$6.7\times$ its roof in software, recoverable with minor hardware and one moderate ask. Ozaki II lifts the emulated FP64 ceiling from $\approx 1.3$ to $\approx 135$ TFLOPS on B300 and $\approx 473$ on Rubin; three deconstruction-path hardware options are given; constants are engine-checked.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.06510v4</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Satoshi Matsuoka</dc:creator>
+    </item>
+    <item>
+      <title>PIMID: A Full-System Simulator with Intricacy and Diversity for Processing-in-Memory</title>
+      <link>https://arxiv.org/abs/2607.24196</link>
+      <description>arXiv:2607.24196v2 Announce Type: replace 
+Abstract: Processing-in-Memory addresses the memory wall by co-locating computation with memory, but because real PIM hardware remains scarce, simulation is the primary way to explore the PIM design space. Yet existing PIM simulators each cover only part of that space: they typically model a single memory technology, fix processing elements at one level of the memory hierarchy, support a single execution model, and stop at the device boundary. We therefore present PIMID, an execution- and trace-driven full-system simulator that closes these gaps in one tool. PIMID supports both the shared-memory and message-passing execution models, running annotated parallel code in OpenMP and MPI side by side across eleven memory technologies (seven DRAM standards, SRAM, and three non-volatile memories); it places PEs anywhere from subarrays to logic dies, sweeps PE count and core-model fidelity, and prices the in-memory network per technology from measured congestion. Its single-process host-device co-simulation resolves an end-to-end time and energy breakdown (host preparation, device compute, and explicit boundary charges) that device-only tools cannot produce. Across the resulting dual-execution-model dataset, PIMID shows that the memory technology alone moves execution time by more than an order of magnitude and that the best host main memory is not the best PIM substrate; that regular kernels scale superlinearly with PE count as in-memory bandwidth co-scales with compute; that graph traversal under message-passing hits a collective-communication wall absent under shared memory; and that at full-system scope the offload trades time for energy only on the bandwidth-class memory: shared-memory offload saves energy on HBM3 while a 16-core host keeps every end-to-end time win. PIMID's plugin interfaces let new engines and models be added through standardized YAML specifications as PIM technology evolves.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.24196v2</guid>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yuan He, Masaaki Kondo, Galen M. Shipman, Jered B. Dominguez-Trujillo, Shigeki Tomishima, Kazi Asifuzzaman</dc:creator>
+    </item>
+    <item>
+      <title>NOVA-CIM: Noise- and Correlation-Tolerant Stochastic Interfaces for Analog Compute-in-Memory</title>
+      <link>https://arxiv.org/abs/2609.07059</link>
+      <description>arXiv:2609.07059v2 Announce Type: replace 
+Abstract: Analog compute-in-memory (CIM) enables energy-efficient model acceleration, but its reliance on ADC-based readout, which directly quantizes noisy column currents, makes inference accuracy highly sensitive to analog read noise, active-row scaling, and ADC precision. In this paper, we present NOVA-CIM, a noise- and correlation-tolerant stochastic interface for analog CIM by replacing multi-bit ADC readout with random-reference 1-bit sensing and reconstructing results through lightweight counting. By converting column currents into comparison probabilities, this probability-domain readout averages zero-mean dynamic read noise over stochastic samples while reducing dependence on high-resolution ADCs. We provide a unified robustness analysis showing that dynamic read noise is suppressed through temporal averaging and that spatial input-bitstream correlation increases instantaneous current variance rather than introducing first-order MAC bias. MAC-level experiments and end-to-end evaluation on ViT-Base validate the analysis: under read noise, Top-1 accuracy remains 84.48% near the 84.51% bfloat16 (BF16) baseline; under stochastic number generator (SNG) reuse, MAC bias stays near zero while root-mean-square error (RMSE) and stochastic cross-correlation (SCC) grow as predicted.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.07059v2</guid>
+      <category>cs.AR</category>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jiachen Ren, Wenshuai Yao, Haobo Liu, Xincheng Feng, Chenxi Hu, Zhengwu Liu, Kechao Tang, Wenyong Zhou, Ngai Wong</dc:creator>
+    </item>
+  </channel>
+</rss>
