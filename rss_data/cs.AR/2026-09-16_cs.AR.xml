@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.AR updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.AR</link>
+    <description>cs.AR updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.AR" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Sep 2026 04:00:07 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>DT-RAID: A Software-Defined Tiered RAID Architecture for Heterogeneous SSDs</title>
+      <link>https://arxiv.org/abs/2609.16003</link>
+      <description>arXiv:2609.16003v1 Announce Type: new 
+Abstract: The rapid proliferation of cloud and AI-driven workloads has led to increasingly complex requirements for modern storage subsystems. To meet these demands, SSD controller architectures have evolved into a fragmented landscape, offering tiers of drive types optimized for endurance, performance, or capacity. More recently, SSDs have begun to differentiate regions within the same device, enabling intra-drive heterogeneity. However, integrating such heterogeneity into the existing storage stack with minimal disruption remains challenging.
+  In this paper, we argue that storage middleware, such as RAID, is an effective control layer to address these integration challenges. We present DT-RAID, an intra-drive heterogeneity-aware RAID architecture designed for emerging SSDs. DT-RAID monitors stripe-level I/O access patterns and makes online placement decisions without requiring application modifications. It employs a lightweight heat-tracking mechanism to dynamically place frequently accessed (hot) stripes onto the higher-performance, higher-endurance tier. Using simulations based on SNIA MSR enterprise I/O traces, we demonstrate that DT-RAID improves modeled I/O performance by up to $6.8\times$ under greater tier asymmetry and extends normalized lifespan by up to $20.9\times$ compared to uniform RAID deployments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16003v1</guid>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Kun-Chi Chiang, Radu Stoica, Animesh Trivedi, Chun-Lien Su, Liang-Chi Chen, Roman Pletka, Wei-Kuan Shih, Chien-Chung Ho</dc:creator>
+    </item>
+    <item>
+      <title>Is INT8 Portable? A Cross-Platform Measurement Study of Quantized Inference on Embedded and Automotive Accelerators</title>
+      <link>https://arxiv.org/abs/2609.16085</link>
+      <description>arXiv:2609.16085v1 Announce Type: new 
+Abstract: Eight-bit integer (INT8) post-training quantization is the default recipe for edge deployment, under a widely held assumption: INT8 makes inference faster at a small, predictable accuracy cost, and a model quantized once can be carried to any target. We test that assumption with a controlled measurement study across seven hardware classes -- ARM and x86 CPUs, a discrete GPU, an NVIDIA Jetson AGX Orin iGPU and its NVDLA cores, and two vendor NPUs (Qualcomm Hexagon HTP, DEEPX DX-M1) -- holding the ONNX artifact and the quantization scales fixed so the integer kernel or ISA is the only free variable. Portability fails on three axes. (1) The sign of the INT8 speedup is set by the CPU's dot-product ISA (ARM dotprod/SDOT, x86 VNNI): cores that have it speed up by up to 2.1x, cores that lack it slow down by 1.7x, for the identical model and runtime. (2) INT8 outputs are not portable, and the rule is an invariance rather than a gradient: FP32 predictions are bit-identical for every pair (1000/1000), while INT8 predictions agree 1000/1000 exactly when two targets share an integer kernel and 958-965/1000 whenever they do not -- independent of whether the boundary is CPU&lt;-&gt;CPU or CPU&lt;-&gt;accelerator, and invisible to top-1 accuracy, which is preserved. (3) Vendor NPUs own quantization: a bring-your-own QDQ graph fails silently on one NPU (external scales ignored, accuracy 0.75 -&gt; 0.005 while it compiles, profiles and runs without error) and loudly on the other (the compiler refuses the graph), so only the vendor's native path yields a correct engine. We further show that edge-NPU latency regimes are set by output/device-to-host transfer size rather than compute, and locate the transition with a fixed-compute sweep. We release the scripts and 32 reports. "Quantize once, deploy anywhere" is unsafe for embedded and automotive deployment, where per-input determinism and redundancy matter.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16085v1</guid>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yuyeong Shin</dc:creator>
+    </item>
+    <item>
+      <title>The World Model Hardware Accelerator</title>
+      <link>https://arxiv.org/abs/2609.16244</link>
+      <description>arXiv:2609.16244v1 Announce Type: new 
+Abstract: Diffusion transformers invert the arithmetic that autoregressive decoding made familiar. There is no token-by-token recurrence: every denoising step is a full-sequence forward pass over static shapes, so the entire schedule is known at compile time and the only serial dimension is the step count itself. We exploit that structure in WMHA, a latency-first diffusion-transformer inference accelerator: a very-long-instruction-word sequencer issues four engines from one instruction word, a weight-stationary 16x16 dual-dot array streams FP8 and BF16 contractions, and a single-pass online-softmax attention pipeline keeps keys and values resident through a skewed software pipeline. The design is specified in a frozen micro-architecture document, implemented in synthesizable SystemVerilog, and verified against a double-precision reference model by a UVM environment whose acceptance criterion is semantic: the device must run a real denoising trajectory and reduce mean squared error against a clean latent by at least a factor of ten. It does so by a factor of 23, at both synthesized configurations, with zero element failures across 237 million checked values. Eleven application benchmarks built from published model shapes, including the original diffusion-transformer configuration, run on the device and report measured occupancy beside separately labelled projections. Five engines are taken to routed layout in sky130 with parasitic-annotated timing and measured-activity power; the full chip is synthesized, and the host limit that stopped its place-and-route is quantified together with the machine that would remove it.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16244v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Shashank Chaurasia</dc:creator>
+    </item>
+    <item>
+      <title>EBL: Efficient Broad Learning for Distributed Adaptive Harmonic Analysis</title>
+      <link>https://arxiv.org/abs/2609.16358</link>
+      <description>arXiv:2609.16358v1 Announce Type: new 
+Abstract: Renewable energy systems and electrified transport have found widespread adoption in recent years. The integration of these non-linear loads, dominated by electric vehicle (EV) charging, however, has introduced severe harmonic distortion into the power grid, impacting the efficiency and lifetime of substation equipment and switchgear in the distribution network. Rapid and high-precision harmonic analysis has hence become a prerequisite for effective harmonic control at the source of injection. This paper proposes an Efficient Broad Learning (EBL) framework for distributed adaptive harmonic estimation. As a quantised FPGA acceleration framework for BLS-style harmonic estimation, it offers high-accuracy estimation with half-cycle input, reconfigurable flexibility enabled by the FPGA implementation, and ultra-low latency, achieving 17.4 $\times$ faster predictions than the nearest reported FPGA method. For harmonic prediction across multi-scenario charging and discharging nodes, the online transfer learning based on a closed-form solution rather than backpropagation in EBL demonstrates rapid adaptability. By exploiting bespoke quantisation and sparsity, the approach consumes 5.9\% of the LUTs on the Zynq Ultrascale+ ZU7EV FPGA, using $\approx$ 82\% of the LUTs required by the state-of-the-art FPGA-accelerated estimator.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16358v1</guid>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Changhong Li, Georgios Floros, Biswajit Basu, Shreejith Shanker</dc:creator>
+    </item>
+    <item>
+      <title>FSNIC: A Low-Latency Flow-Based Intrusion Detection Architecture for FPGA SmartNICs</title>
+      <link>https://arxiv.org/abs/2609.16363</link>
+      <description>arXiv:2609.16363v1 Announce Type: new 
+Abstract: Modern data centres require high-performance networking alongside effective real-time security. Traditional Intrusion Detection Systems (IDS) commonly rely on general-purpose processors and often struggle to inspect high-speed traffic at line rate without introducing latency or performance bottlenecks. Smart Network Interface Cards (NICs) provide an alternative by enabling computation directly within the network data plane. This work presents a machine learning-based IDS implemented within an FPGA-based SmartNIC pipeline. The system integrates P4-based packet parsing with a LogicNets IDS model implemented in RTL, enabling deterministic, low-latency inference. Compared with traditional stateless packet-level classifiers, the proposed stateful flow-based IDS introduces minimal state by aggregating features across packets, capturing behavioural patterns not observable at the packet level. Experimental results on the UNSW-NB15 dataset show that the flow-based IDS improves detection accuracy from 86.92\% to 97.68\% compared with stateless packet-level classification. We also evaluate the proposed IDS on CICIDS2017 and compare its real-time hardware performance with prior FPGA-based IDS designs. Through hardware-software co-design, the proposed IDS achieves 6~ns inference latency using only 846 LUTs, with no BRAM or DSP usage, demonstrating a low latency and resource efficient implementation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16363v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Nise O'Cuill, Changhong Li, Georgios Floros, Shreejith Shanker</dc:creator>
+    </item>
+    <item>
+      <title>FINNAS: FINN-Guided Hardware-Aware NAS and Pruning for FPGA Jet Substructure Classification</title>
+      <link>https://arxiv.org/abs/2609.16367</link>
+      <description>arXiv:2609.16367v1 Announce Type: new 
+Abstract: FPGAs are well suited to deploying quantised neural networks (QNNs) under strict accuracy, latency, and resource constraints; however, identifying efficient model-accelerator combinations commonly requires extensive manual design-space exploration and repeated hardware synthesis. This paper presents FINNAS, a FINN-guided hardware-aware evolutionary neural architecture search framework. FINNAS jointly searches quantised MLP depth, width, and global precision settings, and ranks candidates using proxy validation accuracy together with FINN-estimated LUT usage and latency under a fully parallel mapping. Selected finalists are fully retrained, subjected to post-search unstructured pruning, and validated using RTL simulation and Vivado out-of-context synthesis. On the CERNBox jet substructure classification task, the searched implementations expose competitive accuracy-resource trade-offs. Compared with a manually optimised dense FINN accelerator, a compact FINNAS design improves accuracy from 73.78\% to 74.36\%, while reducing LUT usage by \(8.5\times\) and RTL-simulation latency by \(1.77\times\). Unstructured pruning further provides consistent LUT and FF reductions across the fully parallel finalists.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16367v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Eva Chauffour, Changhong Li, Georgios Floros, Shreejith Shanker</dc:creator>
+    </item>
+    <item>
+      <title>ScaleLUT: A Fully-Parallel Configurable LUT-Based Accelerator for Real-Time Multi-Scale Super-Resolution</title>
+      <link>https://arxiv.org/abs/2609.16508</link>
+      <description>arXiv:2609.16508v1 Announce Type: new 
+Abstract: Real-time super-resolution (SR) remains challenging for edge devices because deep-learning-based methods require substantial multiply-accumulate (MAC) operations, resources, and power. Lookup-table (LUT)-based SR reduces computation by replacing convolutional inference with table queries, but existing methods still suffer from limited speed, large storage overhead, and poor scalability across upsampling factors. We present ScaleLUT, a hardware-oriented LUT design framework and fully parallel reconfigurable accelerator for real-time multi-scale SR. ScaleLUT combines a hardware-friendly YUV-domain strategy with power-of-two kernels and rotation ensemble to improve receptive-field coverage while reducing LUT dimensionality; division operations are replaced by shifts. These designs reduce memory by 18.4% over state-of-the-art LUT-based SR methods. ScaleLUT supports arbitrary input resolutions and configurable x2^n upsampling factors using a deeply pipelined, massively parallel architecture. Implemented on a Xilinx ZCU102 FPGA, it achieves real-time 4K SR at 95.3 FPS for x2 upscaling at 300 MHz. Compared with existing SR accelerators, ScaleLUT uses at least 58.6% fewer LUTs, 41.1% fewer flip-flops, zero DSPs, and 42.0% lower power, while delivering 10x and 1.2x speedups over the best CPU-based SR implementation and prior FPGA-based SR accelerators, respectively. These results demonstrate the effectiveness of joint LUT algorithm-hardware co-design for practical and energy-efficient edge SR deployment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16508v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Boyu Li, Chenchen Ding, Zhilin Ai, Wenqing Shi, Baizhou Jiang, Wenyong Zhou, Binxiao Huang, Jiachen Ren, Hao Yu, Ngai Wong</dc:creator>
+    </item>
+    <item>
+      <title>A 420 GOPS/W CGRA with a Configurable MAC and Dynamic Truncation</title>
+      <link>https://arxiv.org/abs/2609.16600</link>
+      <description>arXiv:2609.16600v1 Announce Type: new 
+Abstract: Edge devices demand for highly efficient yet flexible processing capability to handle dynamic real-time workloads. Coarse grain reconfigurable architecture (CGRA) emerges as a suitable accelerator candidate in edge devices, because they are as flexible as general purpose processors and offer high efficiency close to that of domain specific accelerators. However, a typical CGRA requires two cycles for a multiply-and-accumulate (MAC) operation, and workloads such as neural network inference and signal processing involve many MAC operations, resulting in long CGRA processing time. This work proposes a CGRA that has configurable MAC units in the processing elements (PEs) that can perform an addition (ADD) or multiplication (MUL) or a MAC by using the same multiplier and adder, in a single cycle. The readout precision of MAC result can be adjusted by a truncation block. The proposed CGRA is implemented with 40nm CMOS technology. It attains an energy efficiency of 420.6GOPS/W operating at supply of 0.6V and frequency of 21MHz, which is 1.4 times higher than the state-of-the-art.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16600v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1109/ISCAS58744.2024.10558192</arxiv:DOI>
+      <dc:creator>Yi Sheng Chong, Rakshith Harish, Rajesh Chandrasekhara Panicker, Vishnu P. Nambiar, Anh Tuan Do</dc:creator>
+    </item>
+    <item>
+      <title>SpecLens: LLM-Based Verilog Generation with Specification-Derived Constraints via Behavioral Divergence</title>
+      <link>https://arxiv.org/abs/2609.16729</link>
+      <description>arXiv:2609.16729v1 Announce Type: new 
+Abstract: Large language models (LLMs) have recently shown promise in Verilog generation, but producing functionally correct RTL directly from natural-language specifications remains a highly challenging task. Existing approaches improve LLM-based Verilog generation mainly with retrieval-augmented generation (RAG), self-planning, or few-shot prompting. However, these methods focus primarily on external or generic forms of enhancement rather than strengthening the specification with task-specific constraints. In this work, we propose SpecLens, an automated framework for LLM-based Verilog generation that derives specification-driven constraints by analyzing behavioral divergence among multiple candidate implementations, using the original specification as the only external semantic source during generation. On the VerilogEval v2.0 spec-to-RTL benchmark, SpecLens achieves a functional pass@1 ratio of 86.2\% with o3-mini-medium and 89.4\% with o3-mini-high. This corresponds to a 3.6 percentage-point gain over the SOTA prompting method with o3-mini-medium and a 3.8 percentage-point gain over the SOTA behavioral divergence method with o3-mini-high. In addition, on RTLLM v1.1 and v2.0, analysis shows that SpecLens is more specification-faithful and less prone to benchmark-aligned priors. SpecLens achieves 100\% syntactic correctness on VerilogEval v2.0, 86.2\% on RTLLM v1.1, and 88\% on RTLLM v2.0, even without using costly compile-repair loops to revise generated code iteratively. The code is open source and available at https://anonymous.4open.science/r/SpecLens-4632/readme.md.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16729v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Wen Bing, Bing Li</dc:creator>
+    </item>
+    <item>
+      <title>Carry-Through Checksum: A Lightweight Fault-Detection for CNN Inference at the Edge</title>
+      <link>https://arxiv.org/abs/2609.16742</link>
+      <description>arXiv:2609.16742v1 Announce Type: new 
+Abstract: Convolutional Neural Networks (CNNs) are increasingly deployed in safety-critical edge applications, where soft errors can silently corrupt inference outputs and lead to unsafe decisions. Such applications typically rely on resource-constrained embedded GPUs, requiring fault detection and mitigation techniques that add minimal compute, memory, and latency overhead while integrating seamlessly with the standard GPU inference pipeline. Existing algorithm-based fault tolerance techniques rely on matrix augmentation and per-operation checksum verification, imposing substantial overhead that is prohibitive for CNN inference on embedded GPUs.
+  In this work, we propose carry-through checksum, a fundamentally new scheme for soft-error detection in CNN inference on embedded GPUs. The method embeds dedicated carry-through filters into the convolutional layers, which compute a checksum from the CNN's own operations and propagate it through inference, enabling end-to-end error detection with a single output verification. Experimental results on multiple CNN architectures show that the proposed method detects 95.86% and 86.56% of critical faults for FP32 and FP16, respectively, at almost no additional per-image overhead. Detected faults are mitigated through re-execution, incurring only 2.27% run-time overhead across the entire test set on an NVIDIA Jetson Orin NX GPU.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16742v1</guid>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Kyrylo Nazarevych, Mohammad Hasan Ahmadilivani, Krister Kaldre, Davide Bertozzi, Jaan Raik</dc:creator>
+    </item>
+    <item>
+      <title>OptiPrime: Optimizing Private Inference through Protocol-Hardware Co-design</title>
+      <link>https://arxiv.org/abs/2609.16898</link>
+      <description>arXiv:2609.16898v1 Announce Type: new 
+Abstract: Private deep neural network (DNN) inference based on hybrid homomorphic encryption (HE) and multi-party computation (MPC) can protect user data with a formal guarantee, but at the cost of significant latency overhead due to HE. Customized HE accelerators have been proposed and have achieved orders-of-magnitude speedup for individual HE operations. However, when directly applying a commercial HE accelerator to state-of-the-art HE-MPC frameworks, we observe only limited end-to-end performance gain. This is because HE-MPC frameworks often require wireless transmission of input and output ciphertexts for each HE operation, leading to a severe network communication bottleneck. To overcome this challenge, we introduce OptiPrime, a protocol-hardware co-optimization framework for efficient private DNN inference. OptiPrime features a novel HE protocol for convolutions that substantially reduces the number of transmitted output ciphertexts and mitigates the network communication bottleneck. Meanwhile, as the new protocol introduces complex computation for fewer output ciphertext, we observe new memory access challenges due to a high volume of weight plaintexts and intermediate ciphertexts. Hence, we further propose a lightweight compression system for the weight plaintexts, reducing memory traffic by 10 times, as well as a specialized dataflow to maximize on-chip data reuse of intermediate ciphertexts. Extensive experiments show that our framework outperforms the Cheetah baseline by at most 5.7 times on CPUs and 4.2 times with an accelerator.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16898v1</guid>
+      <category>cs.AR</category>
+      <category>cs.CR</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jiangrui Yu, Ye Yu, Si Chen, Chenqi Lin, Wenxuan Zeng, Junfeng Fan, Mingyu Gao, Meng Li</dc:creator>
+    </item>
+    <item>
+      <title>Budgeted Express-Mesh: Traffic-Aware Link Placement and Deadlock-Free Adaptive Routing</title>
+      <link>https://arxiv.org/abs/2609.17057</link>
+      <description>arXiv:2609.17057v1 Announce Type: new 
+Abstract: We present Budgeted Express-Mesh, a topology-routing co-design that adds a small number of traffic-aware express links under a fixed wire budget. An ASPL-based greedy placement is refined by simulation-guided annealing, while packets use committed top-K routes selected from delayed express-link congestion and reservation signals. Across four synthetic workloads, optimized placements consistently improve high-load throughput over Mesh and random placement, and annealing further improves Greedy. The gains persist under delayed quantized congestion information, longer express-link latency, multi-flit packets, and a 16-by-16 heterogeneous workload.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.17057v1</guid>
+      <category>cs.AR</category>
+      <category>cs.NI</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Li Cao, Jingyuan Ma</dc:creator>
+    </item>
+    <item>
+      <title>Nested Parallel von Neumann Architecture and Nested BSP</title>
+      <link>https://arxiv.org/abs/2609.16787</link>
+      <description>arXiv:2609.16787v1 Announce Type: cross 
+Abstract: Large-scale AI computing is no longer a contest of ''one stronger processor,'' but of how an army of processors under one command can still be one computer. This paper offers two interlocking extensions.
+  First, extend BSP to Nested BSP. The Turing machine describes computation as a single tape, in sequence. A million processors need not a longer tape, but a battle plan nested layer within layer: at every layer, parallel work, barrier, exchange and aggregate, then the next phase. Every ``parallel advance'' inside a layer repeats the same four steps. Nested BSP extends classic BSP by nesting it recursively, a computing paradigm for million-scale parallelism, under one rule: every node at every layer is a peer.
+  Second, extend von Neumann to the Nested Parallel von Neumann Architecture, and Unified Bus is its interconnect. Von Neumann taught us how to build one stored-program computer. The false extrapolation of eighty years was that wiring many computers into a network yields one larger computer. A second habit ran deeper: nearly every design assumes a master that commands and slaves that obey---host over device, CPU over accelerator, center over edge. The Nested Parallel Architecture extends that idea rather than discarding it. Two nesting dolls must fit: Nested BSP in software, and the Nested Parallel von Neumann Architecture from package to autonomous zone, joined by one memory-semantic bus end to end, with full peer equality: physically sparse, logically tight. It pairs with Huawei's $\tau$ Scaling law: $\tau$ governs how each layer folds time, while the Architecture governs how the nested parallel computer stands, layer by layer, peer by peer.
+  In summary, the paper extends BSP to Nested BSP and extends von Neumann to the Nested Parallel von Neumann Architecture. $\tau$ folds time, peer-equal parallelism nests layer by layer---many processors, still one computer.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.16787v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Heng Liao</dc:creator>
+    </item>
+    <item>
+      <title>AI for Science with GPT-6 Astra: Thermal Design and Electrothermal Analysis of 2D CFET</title>
+      <link>https://arxiv.org/abs/2609.17123</link>
+      <description>arXiv:2609.17123v1 Announce Type: cross 
+Abstract: Thermal optimization of 2D CFET inverters requires testing structural proposals against their electrical costs. We examine these research tasks using an AI agent workflow within a supplied electrothermal model. At 12 nm, Astra selects a redistributed source-interconnect geometry, while a coordinating agent proposes a substrate-directed heat-removal path. The combined design reduces peak temperature rise by 1.67 K at fixed metal volume and 20 {\mu}W. A subsequent metal-resistance sensitivity gives about 0.6-K inverter cooling alongside a 2% nFET on-current loss. Effective contact-length scaling further shows that lower temperature can accompany higher thermal resistance when current falls. Reproduction identifies agreeing implementations and retains a 104.95-K failure for diagnosis. These results show that an AI scientist workflow can propose thermal structures, test them under common constraints, and quantify their electrical cost.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.17123v1</guid>
+      <category>cond-mat.mtrl-sci</category>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Min-Hui Kim, Khushi Sharma, Sarah Zhang, Ye Wang</dc:creator>
+    </item>
+    <item>
+      <title>SCHERI: Provably Secure Speculation Under the Constant-Time Policy for CHERI (Extended Version)</title>
+      <link>https://arxiv.org/abs/2609.17399</link>
+      <description>arXiv:2609.17399v1 Announce Type: cross 
+Abstract: Capability-based architectures such as CHERI provide strong support for the architectural isolation of software components. To additionally protect against microarchitectural leakage, software can be written in a constant-time fashion. Modern processors, however, rely heavily on speculative execution, which can invalidate the constant-time guarantees and leak isolated secrets transiently.
+  In this work, we show that providing secure speculation for CHERI is non-trivial, and that existing proposals fail to preserve the confidentiality guarantees. We develop a formal framework for reasoning jointly about capability safety, speculative execution, and information-flow security, and use it to demonstrate potential leaks. We then present SCHERI, a new processor design within this framework, and formally prove that it provides end-to-end secure speculation guarantees for the constant-time policy.
+  Our results provide formal foundations and practical guidance for building future capability-based processors, which are resilient to Spectre attacks for constant-time programs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.17399v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Shixin Song, Davide Davoli, Elias Storme, Marton Bognar, Dominique Devriese, Frank Piessens, Tamara Rezk</dc:creator>
+    </item>
+    <item>
+      <title>Comparative Characterization of KV Cache Management Strategies for LLM Inference</title>
+      <link>https://arxiv.org/abs/2604.05012</link>
+      <description>arXiv:2604.05012v2 Announce Type: replace 
+Abstract: Efficient inference with Large Language Models (LLMs) increasingly relies on Key-Value (KV) caches to store previously computed key and value vectors at each layer. These caches are essential to minimize redundant computation during autoregressive token generation, lowering computational complexity from quadratic to linear. However, the growth of KV caches has posed significant system-level challenges, particularly as model sizes increase, context lengths grow, and concurrent requests compete for limited memory resources. Even though several recent frameworks for KV cache management have emerged, their comparative trade-offs in memory consumption and inference performance have not been fully understood, especially under varying request sizes and model configurations. In this work, we conduct an empirical study of three state-of-the-art KV cache management frameworks: vLLM, InfiniGen, and H2O. These frameworks employ techniques such as tensor offloading, token eviction heuristics, and speculative scheduling to balance memory usage and performance. We evaluate their performance in terms of a range of metrics such as latency, throughput, and memory usage across a spectrum of key parameters including request rates, model sizes, and sparsity levels. Our results pinpoint the conditions for each framework to perform the best, revealing the most suitable selection and configuration of KV cache strategies under memory and performance constraints.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.05012v2</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Oteo Mamo, Olga Kogiou, Hyunjin Yi, Weikuan Yu</dc:creator>
+    </item>
+    <item>
+      <title>Grouped Value Attention: Efficient KV Caching via On-Demand Key Reconstruction</title>
+      <link>https://arxiv.org/abs/2609.13285</link>
+      <description>arXiv:2609.13285v2 Announce Type: replace 
+Abstract: The KV cache is a primary bottleneck for Transformer decoding: its memory footprint and cache-read traffic grow with sequence length. Grouped-query attention (GQA) reduces this cost by sharing key-value heads, but still stores both a key and a value at every step. We introduce Grouped Value Attention (GVA), which stores grouped values and reconstructs content keys with a learned linear map. At inference, the map can be absorbed into the query, eliminating the need to materialize content keys in the intended decode path. A small shared decoupled RoPE channel retains positional information through a separately cached positional key. For the configurations studied, this representation reduces persistent cache scalars by approximately 45-47% relative to matched GQA. At the 350M-parameter scale with 30B FineWeb-Edu tokens, the 16-dimensional positional variant reaches 44.18 average accuracy across five tasks, compared with 44.36 for GQA and 43.88 for MLA. These results demonstrate near-GQA benchmark accuracy with a more compact cache representation. To translate this compact representation into faster autoregressive inference, we have developed custom decoding kernels and are currently evaluating their end-to-end inference performance with an open-source release planned soon.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.13285v2</guid>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vishesh Tripathi, Abhay Kumar, Ramsha Khan</dc:creator>
+    </item>
+    <item>
+      <title>Accurate Models of AMD Matrix Cores</title>
+      <link>https://arxiv.org/abs/2609.14845</link>
+      <description>arXiv:2609.14845v2 Announce Type: replace 
+Abstract: Matrix multipliers available on recent GPUs do not conform with the IEEE 754 floating point standard. Features of matrix multipliers differ across vendors and architectures of the same vendor, such as accumulator width, rounding behaviour, normalisation points, intermediate underflow and overflow logic, the handling of subnormals, and the treatment of special inputs. As a result, reproducibility of small matrix multiplier results across devices is not possible and cannot be achieved by software control. Implementation details of matrix multipliers are not documented, making it difficult to interpret discrepancies in the computed results. We characterise the numerical behaviour of matrix multipliers across three AMD GPU architectures: CDNA 1, CDNA 2, and CDNA 3, using the MI100, MI210/250, and MI300A/300X GPUs, respectively. We design test vectors to target numerical features for all supported input formats and provide the derivation and the reasoning for why each vector allows to determine a particular numerical feature based on the outputs of the devices. MATLAB-based software models of the matrix multipliers are then developed for each architecture and validated for bit-level reproducibility against hardware using a randomized test suite consisting of 10 million sets of random input vectors. To achieve this, we applied a previously developed technique to iteratively refine the accuracy of the models in a loop, by randomized testing followed by test-refinement until the model matches the hardware for every test case. Finally, as a proof of concept for what experimental research can be done with the models, we have utilised them in two demonstrative numerical applications, quantifying application-level accuracy differences between AMD matrix cores and the NVIDIA tensor cores.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.14845v2</guid>
+      <category>cs.AR</category>
+      <category>cs.MS</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Faizan A Khattak, Mantas Mikaitis, Carlo J. Graziani</dc:creator>
+    </item>
+    <item>
+      <title>DMA-Latte: Expanding the Reach of DMA Offloads to Latency-bound ML Communication</title>
+      <link>https://arxiv.org/abs/2511.06605</link>
+      <description>arXiv:2511.06605v3 Announce Type: replace-cross 
+Abstract: Offloading communication to existing direct memory access (DMA) engines, available on most state-of-the-art commercial GPUs, has emerged as a practical and low-cost solution to efficiently overlap computation and communication in machine learning (ML). However, the reach of DMA offloads has so far been limited to bandwidth-bound scenarios only (10s of MB to GB transfer sizes). In this work, we break this barrier and extend DMA communication offloads to latency-bound regions (KB to low MB). Specifically, we leverage hitherto untapped features available in the state-of-the-art AMD Instinct$^{\mathrm{TM}}$ GPUs that render DMA communication offloads competitive even in latency-bound regions. We demonstrate the efficacy of these features both at the operator level (ML communication collectives such as all-gather and all-to-all), and at the end-to-end workload level (LLM inference). At the operator level, our optimizations provide up to 4.5$\times$ speedups (3.2$\times$ geomean in the latency-bound region) over baseline DMA offload, narrowing the performance gap while delivering additional power savings (3-10%) for ML collectives compared to state-of-the-art GPU core-based communication library, RCCL. At the workload level, we demonstrate acceleration for LLM inference: up to 1.65$\times$ lower latency and up to 1.9$\times$ higher throughput over the state-of-the-art vLLM inference framework. We conclude with a discussion of AMD Instinct GPU runtime innovations that stand to expose these features.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.06605v3</guid>
+      <category>cs.DC</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Suchita Pati, Shaizeen Aga, Mahzabeen Islam, Ryan Quach, Saleel Kudchadker, Mohamed Assem Ibrahim</dc:creator>
+    </item>
+  </channel>
+</rss>
