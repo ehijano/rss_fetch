@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Sep 2026 04:00:05 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Thu, 17 Sep 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>GroupKV: Hierarchical KV Cache Management for Long-Context Diffusion LLM Inference</title>
+      <link>https://arxiv.org/abs/2609.17573</link>
+      <description>arXiv:2609.17573v1 Announce Type: new 
+Abstract: Diffusion large language models (dLLMs) are emerging as a promising generative paradigm that complements autoregressive decoding. In long-context settings, KV cache bloat and offloading transfer overhead have become primary bottlenecks in inference systems. Meanwhile, the periodic full-sequence recomputation and localized token updates in dLLMs make the KV lifecycle substantially more dynamic, complicating cache management and prefetch scheduling while making heavyweight token-level indexing or clustering schemes harder to amortize effectively during decoding.
+  To address these challenges, we present \textsc{GroupKV}, a lightweight hierarchical KV cache management system for long-context dLLM inference. We observe that under block-wise decoding, tokens within the same generation block tend to access highly overlapping and spatially concentrated context regions, making group-level sparse selection effective. Building on this observation, \textsc{GroupKV} partitions the context into contiguous groups and performs coarse-to-fine sparse selection. \textsc{GroupKV} further exploits cross-layer consistency to enable predictive prefetching, and incorporates a staleness correction mechanism to maintain cache coherence under dynamic KV updates. Additionally, \textsc{GroupKV} adopts streaming prefill to reduce peak memory consumption during prefilling.
+  Experiments show that \textsc{GroupKV} extends the maximum serviceable context length by up to $48.00\times$ under constrained GPU memory, improves end-to-end inference performance by up to $3.73\times$ in offload-based long-context settings, and maintains competitive task accuracy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.17573v1</guid>
+      <category>cs.OS</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jinhao Wang, Zhexin Hu, Kangjie Zhou, Xin Zhou, Fangfang Liu</dc:creator>
+    </item>
+    <item>
+      <title>Netkit: Specializing Linux Packet Delivery for Container Networks</title>
+      <link>https://arxiv.org/abs/2609.18633</link>
+      <description>arXiv:2609.18633v1 Announce Type: new 
+Abstract: Cloud-native microservices architectures rely on network namespaces for isolation, with the overhead of container communications remaining a critical performance bottleneck. While colocating containers on the same host mitigates some of this overhead, it cannot match the performance of communication within a single network namespace. Existing solutions either require application rewrites or fail to support the full Linux network stack expected by containerized applications.
+  In this paper, we present netkit, an eBPF-based datapath that specializes the Linux networking stack to eliminate redundant backlog queue traversals during network namespace transitions. netkit leverages eBPF to transparently redirect packets between namespaces, bypassing unnecessary buffering while preserving compatibility with existing container applications. Our implementation in the Linux kernel, integrated with minimal changes to the Cilium network plugin for Kubernetes, improves throughput by up to 37\% and achieves parity between container-to-container and process-to-process communications, effectively closing the performance gap introduced by namespace isolation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.18633v1</guid>
+      <category>cs.OS</category>
+      <category>cs.NI</category>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3837779.3838164</arxiv:DOI>
+      <arxiv:journal_reference>Proceedings of the 4th Workshop on eBPF and Kernel Extensions (eBPF'26). September 29th, 2026. Prague, Czech Republic. Pages 83-89</arxiv:journal_reference>
+      <dc:creator>Daniel Borkmann, Paul Chaignon</dc:creator>
+    </item>
+    <item>
+      <title>Ask the Tool, Don't Guess: Agent Tool Calls Hold Their Progress, and the Serving System Should Read It</title>
+      <link>https://arxiv.org/abs/2609.18849</link>
+      <description>arXiv:2609.18849v1 Announce Type: cross 
+Abstract: An agentic request spends substantial wall-clock time waiting for tools, and its KV cache holds GPU memory the whole time. Serving systems decide whether that cache stays, leaves, or comes back by guessing how long the tool will run, from the tool's name, its history, a duration declared before the call, or the engine's own occupancy. We show that no estimate fixed before a call starts can know its duration, and such estimates may not even rank the calls. Meanwhile, the running tool already holds the answer, but the agent stack together with the tool silences it. We propose that tool calls report their progress explicitly while they run, and we measure what that takes. A census of four public agent corpora finds a readable signal in most tool time once it is revealed, in two strengths: a fraction of the work remaining, or an accurate signal that the end is near. A harness recovers it without changing what the agent sees, at no measurable cost to the agent's benchmark score. At the points where a KV cache decision is made, the reported progress is between several times and an order of magnitude more accurate than the best published predictors, and it stays accurate when the environment changes. Plugged into a production engine through a few small hints, it cuts the p90 time to first token (TTFT) after a tool call by 20.7% (HBM only) and 20.8% (HBM + DRAM) against LRU, close to an oracle. A serving system should not guess what its tools can tell it.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.18849v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.OS</category>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yipeng Liu, Yingqiang Zhang, Feifei Li, Huanchen Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Don't Let AI Agents YOLO Your Files: Information and Control in Agent-Native Filesystems</title>
+      <link>https://arxiv.org/abs/2604.13536</link>
+      <description>arXiv:2604.13536v5 Announce Type: replace 
+Abstract: AI coding agents regularly misuse their filesystem access, causing data corruption, loss, and leakage. We conduct the first systematic study of this problem through an analysis of 290 public reports. Our study reveals two fundamental gaps: users and agents have limited information about filesystem effects and insufficient control over them.
+  To close these gaps, we propose to shift information and control from agents to filesystems. We introduce agent-native filesystems and identify three primitives they should provide: introspect effects, undo mutations, and gate accesses. These primitives let agents operate autonomously while reserving user interaction for sensitive accesses and final review.
+  We build YoloFS, an agent-native filesystem. YoloFS stages mutations until the user commits them, snapshots intermediate states for agent self-correction, and uses progressive permission to let users adapt access rules during execution. We evaluate YoloFS with a new methodology that captures interactions among the user, agent, and filesystem. On 11 tasks with hidden side effects, YoloFS enables agents to self-correct in 8 and stages all mutations for user review. On 112 routine tasks, YoloFS reduces user interaction while matching the baseline success rate. YoloFS is open-sourced at https://github.com/YoloFS/YoloFS.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.13536v5</guid>
+      <category>cs.OS</category>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3830418.3843858</arxiv:DOI>
+      <dc:creator>Shawn Wanxiang Zhong, Junxuan Liao, Jing Liu, Mai Zheng, Andrea C. Arpaci-Dusseau, Remzi H. Arpaci-Dusseau</dc:creator>
+    </item>
+  </channel>
+</rss>
