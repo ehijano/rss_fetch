@@ -7,162 +7,374 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Sep 2026 04:00:49 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 04:00:11 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
+    <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Saturday</day>
       <day>Sunday</day>
+      <day>Saturday</day>
     </skipDays>
     <item>
-      <title>SKYE: Write-Optimized Key-Value Store with Fine-Grained Control over Persistent Memory Accesses</title>
-      <link>https://arxiv.org/abs/2609.20972</link>
-      <description>arXiv:2609.20972v1 Announce Type: new 
-Abstract: State-of-the-art key-value stores built for persistent memory (PM) provide low latency as they allow application threads to directly access the data on PM and rely on hardware to manage multiple non-volatile DIMMs (NVDIMMs). While this provides low latency, it results in low throughput and scalability. Performance degrades because PM hardware requires fine-grained control over PM accesses; for example, throughput degrades if too many threads write to PM concurrently.
-  We present SKYE, a write-optimized PM key-value store that achieves high throughput and scalability. SKYE builds on the central idea of maintaining fine-grained control over all PM accesses and obtains high PM write-bandwidth utilization. To achieve this, SKYE deviates from current practice and provides indirect access to applications; applications send requests to SKYE, which uses dedicated threads to access PM on their behalf. Instead of relying on hardware-managed PM, SKYE controls how data is placed on individual NVDIMMs. SKYE leverages multiple media to avoid overloading PM and limits remote NUMA accesses for scalable throughput. We show that on a single NVDIMM, SKYE outperforms state-of-the-art PM stores by 2.5-5x on the standard Yahoo Cloud Serving Benchmark (YCSB). With four NVDIMMs across four NUMA nodes, SKYE obtains about 86% of PM write bandwidth, and its write throughput scales by 3.9x.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2609.20972v1</guid>
+      <title>io_uring in Oracle Database: A Hybrid Storage I/O Architecture at Production Scale</title>
+      <link>https://arxiv.org/abs/2609.22781</link>
+      <description>arXiv:2609.22781v1 Announce Type: new 
+Abstract: We describe the integration of io_uring into Oracle Database's storage layer and the architectural decisions required to deploy it in a production multi-process RDBMS. Our design uses per-process ring contexts that eliminate inter-process synchronization, a shared buffer registration mechanism now part of the mainline Linux kernel, and a transparent fallback to libaio on error. Evaluation on an internal development build of Oracle Database 26ai shows that io_uring's benefits concentrate on asynchronous batched I/O paths: on a mixed OLTP workload (TPC-C), io_uring delivers identical throughput while reducing server CPU utilization by 1.2 percentage points through more efficient background writes; on analytical queries (TPC-H), CPU per query drops by 8.5% (geometric mean). Isolating the write path alone shows 29% lower CPU per write and 34% higher throughput. Synchronous read paths -- the dominant I/O in OLTP -- show no improvement and even increased CPU usage for very large I/O sizes. These results motivate a hybrid I/O architecture that retains pread/pwrite for synchronous operations, adopts io_uring for asynchronous batched I/O, and falls back transparently to libaio -- a selective strategy that may also be relevant to other database systems facing the same integration question.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.22781v1</guid>
       <category>cs.DB</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
+      <category>cs.PF</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Soujanya Ponnapalli (University of Texas at Austin), Sekwon Lee (University of Texas at Austin), Rohan Kadekodi (University of Texas at Austin), Vijay Chidambaram (University of Texas at Austin)</dc:creator>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Rajarshi Chowdhury, Akshay Shah, Margaret Susairaj, Ayush Agrawal</dc:creator>
     </item>
     <item>
-      <title>The Stochastic Shift: A New Evaluation Paradigm for Text-to-SQL with AI Operators</title>
-      <link>https://arxiv.org/abs/2609.21133</link>
-      <description>arXiv:2609.21133v1 Announce Type: new 
-Abstract: SQL has been augmented with AI operators, enabling modern data analytics platforms to derive insights from both structured and unstructured data. We observe that while current Text-to-SQL systems can successfully generate these AI-augmented queries, reliably evaluating their correctness remains a critical open challenge. Current metrics, which rely on exact query results and deterministic execution, systematically fail against the flexible, non-deterministic outputs of AI operators. In this paper, we formalize these unique evaluation failure modes and introduce a Multilayered Evaluation Framework that decouples deterministic database logic from flexible AI semantics. We test our approach across both industry (BigQuery) and academic (ThalamusDB) systems. We demonstrate that traditional Execution Accuracy severely penalizes valid queries, achieving as low as a 25% detection rate for correct translations. Furthermore, even a state-of-the-art LLM-based autorater falsely rejects 32% of accurate queries due to the complexity of judging both relational and AI components simultaneously. By validating the standard relational logic and the AI operations separately, our framework achieves state-of-the-art overall accuracy across both platforms (up to 97.2%), proposing a reliable standard for benchmarking AI-powered SQL generators.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2609.21133v1</guid>
+      <title>Same Pattern, Different Answer: A Reference Semantics and Divergence Map for GQL and SQL/PGQ Path Patterns</title>
+      <link>https://arxiv.org/abs/2609.23032</link>
+      <description>arXiv:2609.23032v1 Announce Type: new 
+Abstract: GQL (ISO/IEC 39075:2024) is the first international standard for a graph query language, and SQL/PGQ (ISO/IEC 9075-16:2023) embeds the same pattern-matching core, GPML, in SQL. Both fix a precise semantics for path patterns: four path modes, four selectors, quantified segments. What engines compute for those patterns has never been measured. Work on GQL is theoretical and runs no engine; cross-engine work measures performance and normalises the semantics away. We build an executable reference semantics for the GPML path core and gate it against the six worked answers printed in the standard's own reference exposition. We then run a 17-construct suite against six releases of five products - Kuzu, DuckPGQ, Neo4j at 5.26 and 2026.04, Memgraph, Apache AGE - scoring each cell as conforming, diverging, rejected, or inexpressible in that dialect. Nine of seventeen constructs draw more than one answer across the engines that accepted them. Of 26 disagreements, 15 are silent - the query runs, returns a different multiset, raises no error - a silence ratio of 0.58. Scoring each divergence against the path mode each engine's manual declares separates language from implementation: 9 of 15 are documented differences, 6 are departures from the standard the engine implements. A metamorphic layer needing no reference semantics finds 39 self-consistency violations, yielding two minimal defects. No engine we measured parses the order the standard's own examples are written in, except the authors' own, which added it after this suite reported the gap. Suite, semantics, reproducers and results are open source.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.23032v1</guid>
+      <category>cs.DB</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Madhulatha Mandarapu (VaidhyaMegha Private Limited, India), Sandeep Kunkunuru (VaidhyaMegha Private Limited, India)</dc:creator>
+    </item>
+    <item>
+      <title>Exploiting Residual Reachability for Cross-Model Migration of Graph-Based Indexes in Approximate Nearest Neighbor Search</title>
+      <link>https://arxiv.org/abs/2609.23036</link>
+      <description>arXiv:2609.23036v1 Announce Type: new 
+Abstract: Approximate nearest neighbor search (ANNS) underpins large-scale vector retrieval in search, recommendation, and retrieval-augmented generation. Graph-based indexes have demonstrated state-of-the-art search performance for ANNS. They connect each corpus vector to a small set of nearby or navigationally useful vertices and answer queries by traversing the resulting graph. Because these edges are selected using construction-time distances, the graph index is tied to the embedding model. Re-encoding a corpus with a new model may change distances and neighborhoods of the vectors. Reconstructing the graph for the new embedding vectors incurs substantial construction cost and delays deployment. When the embedding model changes, we observe a phenomenon in the old graph index that we call residual reachability. Specifically, although derived from different models, the vectors describe the same underlying objects and often retain part of their similarity structure. These shared relations are reflected in the connectivity of the old graph index, leaving many exact new-model neighbors reachable within a few hops in the old graph index. Motivated by this observation, we develop an index-migration approach that utilize the residual reachability in the old graph index to faster construct the new graph index for the new embedding vectors. Our method, Drift-Guided Migration (DGM), provides two migration paths. DGM-Local performs parallel shallow expansion over the inherited graph index and screens second-hop candidates with packed position sign codes before exact evaluation. DGM-Search uses hop-bounded beam traversal to explore beyond shallow expansion. Across eight text and image migrations, our DGM methods can achieve up to 17.43 times speedup on constructing the new graph index than the fastest degree-matched reconstruction method while keeping competitive recalls.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.23036v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Baoyuan Gu, Xiaoyao Zhong, Jiabao Jin, Peng Cheng, Wangze Ni, Haotian Li, Jingkuan Song, Heng Tao Shen</dc:creator>
+    </item>
+    <item>
+      <title>Graph Memory for LLM Agents: At What Cost? A Comparative Evaluation of Query, Ingest, and Update Performance Across Graph Database Engines</title>
+      <link>https://arxiv.org/abs/2609.23315</link>
+      <description>arXiv:2609.23315v1 Announce Type: new 
+Abstract: Graph databases are frequently positioned as categorically necessary for connected-data workloads, yet the systems dimension along which they actually differ - query planning, indexing, and data-readiness cost - is rarely isolated from vendor framing. We construct a synthetic, biomedical-shaped property graph (1.02 million nodes, 5.34 million total node and edge rows) and a twenty-query workload spanning neighborhood lookups, bounded paths, set intersections, anti-joins, grouped aggregation, top-k ranking, temporal filters, full scans, and relational joins. We benchmark Corvic AI - a purpose-built columnar query engine underlying Corvic's ontology management layer ("memories")- against seven purpose-built or graph-extension database systems (LoraDB, Ladybug, DuckPGQ, Memgraph, Neo4j, HugeGraph, and FalkorDB) at three graph scales spanning three orders of magnitude. We report query latency geomeans, bulk-ingest throughput, point-update latency, and answer correctness for each system, and we derive a simple total-cost-of-ownership model that expresses the ingest/query trade-off as a function of query volume. Our central finding is that no system in this sample is categorically fastest: a native graph engine (Ladybug) outperforms Corvic AI on narrow, bounded-neighborhood shapes, while Corvic AI is faster on shapes that scan or join a large fraction of the graph, and a system implementing graph query syntax via SQL/PGQ (DuckPGQ) is measurably slower purely due to query-plan choice. The dominant cost differential in our data is not query latency but the cost of making data queryable at all: bulk-ingest throughput varies by three orders of magnitude across engines (5.0k-4.3M rows/s), a gap that a simple crossover-point calculation shows dominates total cost for any workload with fewer than roughly 105 queries per data refresh.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.23315v1</guid>
       <category>cs.DB</category>
       <category>cs.AI</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Tarfah Alrashed, Fatma Ozcan, Per Jacobsson, Tal Neiman, Xianshun Chen</dc:creator>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Donald Nguyen, Gurbinder Gill, Hadi Ahmadi, Christopher J. Rossbach</dc:creator>
     </item>
     <item>
-      <title>kgsteward: a tool for building, reproducing and maintaining distributed knowledge graphs</title>
-      <link>https://arxiv.org/abs/2609.21564</link>
-      <description>arXiv:2609.21564v1 Announce Type: new 
-Abstract: Collaborative research projects in life sciences increasingly need to integrate private, embargoed consortium data with public reference databases in order to reach statistically meaningful interpretations. The Resource Description Framework (RDF) is well suited to this task: it facilitates the integration of heterogeneous data sources, and allows researchers to keep data and their documentation as metadata in the same place, provided the knowledge graph itself remains private during the time course of the project. Nevertheless, the development and long-term maintenance of a scientific knowledge graph remains a challenging, labour-intensive endeavour owing to the state of constant flux of most public resources. To tackle this challenge, we present kgsteward, a Python command-line tool that builds and maintains knowledge graphs inside RDF stores from a single, version-controlled configuration file. kgsteward supports multiple triplestores, keeps the local graph up-to-date with its external sources possibly already in RDF, or transformed into it on the fly, and uses SPARQL 1.1 UPDATE commands to amend further imported RDF on the fly. It can also validate the resulting graph with SPARQL queries that double as usage examples for both human users and AI agents. kgsteward has already been used in several collaborative projects at the SIB Swiss Institute of Bioinformatics, and we demonstrate its applicability in two real-world international research projects: one that builds a library of plant extracts with chemical analyses and associated bio-activities, and a second that reconciles public reference resources for human metabolic-network reconstruction.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2609.21564v1</guid>
+      <title>Structured Spatio-Temporal Evidence Graphs for Open-Vocabulary Object Retrieval in Videos</title>
+      <link>https://arxiv.org/abs/2609.23393</link>
+      <description>arXiv:2609.23393v1 Announce Type: new 
+Abstract: Open-vocabulary object retrieval in videos requires answering free-form object queries under bounded query-time cost. Existing index-based systems typically store independent frame-level regions and retrieve them with vision-language similarity, which is effective for appearance queries but mismatched with predicates whose evidence is temporal or relational, such as stopped state, scene-region occupancy, persistence, and object interactions. We identify this gap as an evidence-unit mismatch: the query is expressed over tracklets or object tuples, while the index stores isolated boxes. To address it, we propose STEG-OVR, a structured spatio-temporal evidence graph for open-vocabulary object retrieval. STEG-OVR represents persistent objects as tracklet nodes and temporally compatible object pairs as relation edges, storing appearance, motion, scene occupancy, relative geometry, velocity compatibility, and symbolic relation evidence. A query is decomposed into entity, state, scene, temporal, and relation slots, which activate only the corresponding retrieval channels before soft score fusion and fixed-budget consistency verification. Diagnostic experiments on three object-centric settings show AP improvements from 0.0882 to 0.2073 on Beach, from 0.0834 to 0.1505 on Shibuya, and from 0.701 to 0.743 in a LOVO-style comparison. The gains are strongest for stopped-state and scene-region-occupancy queries, while sustained relations remain sensitive to tracking continuity and predicate calibration.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.23393v1</guid>
       <category>cs.DB</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Marco Pagni, Robin Engler, Frederic Burdet, Sebastien Moretti, Loic Le Gregam, Luis Quiros-Guerrero, Jahn Nitschke, Pierre-Marie Allard, Louis-Felix Nothias, Jack McGoldrick, Ronan M. T. Fleming, Alan Bridge, Vincent Emonet, Tarcisio Mendes de Farias, Ana-Claudia Sima, Mark Ibberson, Jean-Luc Wolfender, Florence Mehl</dc:creator>
+      <dc:creator>Jingdan Wang, Chuanwen Li</dc:creator>
     </item>
     <item>
-      <title>COAL-SQL: Coverage-Guided Augmentation and Failure-Driven Learning for Text-to-SQL Post-Training</title>
-      <link>https://arxiv.org/abs/2609.20842</link>
-      <description>arXiv:2609.20842v1 Announce Type: cross 
-Abstract: Text-to-SQL translates natural-language questions into executable SQL queries, but open-source large language models still require task-specific post-training for complex, real-world SQL generation. Effective post-training requires both training data that cover the capabilities demanded by the target task and a learning strategy that enables the model to acquire them. Existing datasets provide valuable supervision but incompletely cover SQL structures, while augmentation methods typically expand data without identifying structural gaps. Moreover, supervised fine-tuning (SFT) or reinforcement learning (RL) alone cannot dynamically address weaknesses exposed during training. We propose COAL-SQL, a unified framework combining Coverage-Guided Augmentation (CGA) and Failure-Driven Learning (FDL). CGA uses greedy selection to identify SQL structures missing from the original dataset and constructs complementary examples, improving structural coverage. FDL retains GRPO as the main optimization objective while supplying targeted supervision for unsolved examples. At the step level, it applies SFT to verified reasoning traces generated by a strong LLM for accumulated failures. At the epoch level, it retrieves structurally related examples based on accumulated failures to create targeted practice, helping the model acquire the corresponding SQL capabilities. With only 12,600 distinct post-training examples, COAL-SQL achieves 64.9% execution accuracy on the BIRD development set and outperforms baselines trained at comparable scale. The code is available at https://github.com/TechNomad-ds/COAL-SQL.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2609.20842v1</guid>
+      <title>Data Agents: Agentic Data Systems</title>
+      <link>https://arxiv.org/abs/2609.24137</link>
+      <description>arXiv:2609.24137v1 Announce Type: new 
+Abstract: Traditional data systems face profound limitations in the AI era, relying on human-crafted pipelines, lacking semantic understanding of heterogeneous data, and operating through rigid, reactive processing. To address these challenges, we propose a new paradigm called the Data Agent, designed to manage, process, and analyze data with minimal human intervention. Data agents autonomously execute a wide range of data-related tasks, transforming traditional data systems by shifting from manual design to autonomous orchestration, from literal manipulation to semantic interpretation, and from reactive to proactive processing. Our Data Agent system includes six components: semantic data organization, semantic operators, agentic pipeline orchestration and optimization, feedback-driven refinement, memory management, and proactive adaptation. Building on this foundation, we also develop two specialized agents: the data analytics agent and the data science agent. Experiments on real benchmarks demonstrate significant performance gains of our data agent over state-of-the-art methods. We identify open challenges to guide future research in building fully autonomous data systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.24137v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
       <category>cs.CL</category>
-      <category>cs.DB</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Qifeng Cai, Xuanguang Pan, Hao Liang, Chang Xu, Wentao Zhang</dc:creator>
-    </item>
-    <item>
-      <title>BI-Agent and BI-Bench: Towards Automating End-to-End Business Intelligence</title>
-      <link>https://arxiv.org/abs/2609.20886</link>
-      <description>arXiv:2609.20886v1 Announce Type: cross 
-Abstract: Business intelligence (BI) is a cornerstone of enterprise decision-making and is widely used by enterprise users in software such as Power BI and Tableau. In traditional BI workflows, users need to prepare data by (1) identifying relevant tables, (2) performing data transformations, and (3) building join relationships, before they can (4) answer their business questions. These steps can be complex and time-consuming, making BI challenging.
-  Given the strong capabilities of large language models (LLMs) in working with data, we study their ability to answer BI questions end-to-end, without requiring users to manually perform the tedious preparation steps. To do this, we harvest a large collection of real-world BI projects from public sources, and manually extract pairs of (questions, ground-truth answers) from real user dashboards. The resulting benchmark, BI-Bench, is the first benchmark to systematically study LLMs' ability on end-to-end BI.
-  We find that even frontier LLMs perform poorly on BI-Bench, with less than 50% accuracy. To address their limitations, we design a tool-augmented BI-Agent that decomposes BI workflows into subtasks on structured data, such as search, join, and transform, and orchestrates specialized data management methods across BI stages. Furthermore, we develop a post-training framework that synthesizes training trajectories from real BI projects, enabling BI-Agent to be further post-trained using both supervised fine-tuning (SFT) and reinforcement learning (RL). BI-Agent achieves substantial accuracy gains of up to 40 percentage points with vanilla LLMs, and post-trained BI-Agent yields gains of up to 30 points. Our results highlight the importance of combining tool-augmented reasoning with domain-specific post-training in complex BI workflows, and point to promising directions for future research.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2609.20886v1</guid>
       <category>cs.LG</category>
-      <category>cs.AI</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1109/TKDE.2026.3736532</arxiv:DOI>
+      <dc:creator>Guoliang Li, Peiyao Zhou, Xuanhe Zhou, Ji Sun, Yuyu Luo, Ju Fan</dc:creator>
+    </item>
+    <item>
+      <title>Efficient Dense Vector Search within Knowledge Graph Content Embeddings</title>
+      <link>https://arxiv.org/abs/2609.24236</link>
+      <description>arXiv:2609.24236v1 Announce Type: new 
+Abstract: Knowledge graphs are a core component of today's knowledge infrastructure, supporting reasoning and anchoring knowledge systems to verifiable facts. RDF stores and SPARQL engines fulfill this function, enabling a range of retrieval and inference tasks on structured knowledge. Coupling them with Language Models (LMs) extends RAG toward neurosymbolic reasoning, where structured queries gate or re-rank generative outputs. This line of reasoning requires that SPARQL evaluation natively support tensor operations on dense embeddings, enabling multimodal querying and learned similarity-based ranking to be expressed together with graph-structural constraints. This approach is feasible only if the engine can efficiently perform dense vector search. We present QLever-Unified Indexed Vector Embedding Retrieval (QUIVER), an extension to QLever that adds native support for dense vector retrieval within RDF knowledge graphs. It implements three optimizations: engine-level registration of tensor functions, vocabulary-time parsing of JSON-encoded vectors, and a virtual SERVICE that exposes a vector index inside the query. We propose two new benchmarks: an extension of Berlin Sparql Benchmark (BSBM) with text embeddings and an extension of DBpedia with image embeddings. Against the baselines, vocabulary-time parsing alone yields median speedups of up to 41.9x on BSBM and 20x on DBpedia for single-type ranking; adding an approximate nearest-neighbor index yields speedups of 355x on BSBM and 97.8x on DBpedia. The index further makes cross-modal vector joins on DBpedia feasible in seconds, whereas all non-indexed configurations time out.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.24236v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Benedikt Kantz, Tobias Schreck, Gianmaria Silvello</dc:creator>
+    </item>
+    <item>
+      <title>Pierce: GPU Ray Tracing for Spatial Joins over Complex 3D Data</title>
+      <link>https://arxiv.org/abs/2609.24513</link>
+      <description>arXiv:2609.24513v1 Announce Type: new 
+Abstract: Many emerging applications, from computational biology to digital twins and urban planning, rely heavily on three-dimensional spatial joins over polyhedral meshes. These joins comprise computationally-intensive triangle--triangle intersection tests that pairwise compare the faces of polyhedral meshes. Since each mesh may contain thousands of faces, the resulting cost challenges the responsiveness of spatial data management techniques. Existing techniques follow the filter-and-refine paradigm, accelerating either the filtering step through indexing or the refinement step through progressive mesh compression combined with GPU parallelization of triangle--triangle tests. However, the former neglects the high cost of intra-geometry refinements, whereas the latter lowers this cost but still relies on the same pairwise triangle--triangle tests. In this paper, we introduce Pierce, an approach that reformulates three-dimensional spatial joins over complex polyhedral meshes as ray-tracing operations and leverages the hardware ray-tracing units (RT cores) of modern GPUs to accelerate query execution. Our approach casts rays along the edges of one mesh against a spatial hierarchy built over the other, performing ray--node tests at the internal levels to prune distant geometries and ray--triangle tests at the leaves to identify intersecting meshes, both of which RT cores accelerate in hardware. We evaluated Pierce on real and synthetic data against multiple baselines, demonstrating more than two orders of magnitude speedup on digital pathology data compared to the state-of-the-art approach.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.24513v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3841645.3844195</arxiv:DOI>
+      <dc:creator>Anton Hackl, Eleni Tzirita Zacharatou</dc:creator>
+    </item>
+    <item>
+      <title>From OA colors to observable access states: A commentary on the 2026 OpenAlex proposal</title>
+      <link>https://arxiv.org/abs/2609.24730</link>
+      <description>arXiv:2609.24730v1 Announce Type: new 
+Abstract: The OpenAlex Colors Working Group proposes replacing the familiar Gold, Green, Hybrid, Bronze and Closed taxonomy with a work-level framework based on three dimensions: access, location and license. The proposal addresses genuine weaknesses in the legacy color system, particularly its dependence on journal-level characteristics, its difficulty in describing non-article outputs, and its conflation of access conditions with venue business models. This commentary supports that general direction but argues that the proposed labels should not become the primary data model. The central technical issue is that access, location and license are not best understood as three independent attributes of a work: scholarly works commonly have several versions or copies at different locations, and access status, license and version may differ from one location to another. The analysis therefore recommends treating the location/version observation as the atomic unit of OA metadata and deriving work-level labels, legacy colors and user-facing summaries from those observations. Particular attention is given to license semantics, version identification, the normative assumptions embedded in a ``best-available'' hierarchy, the coarse Publisher/Other Platform distinction, temporal change, provenance, compound works, and backward compatibility. Existing standards and infrastructure (including NISO/ALPSP Journal Article Versions, COAR controlled vocabularies, FAIR provenance principles, and OpenAlex's own current location objects) already provide many of the components needed for such an approach. The result would preserve the simplicity sought by the Working Group while making the underlying data model more extensible, auditable and suitable for funder compliance, bibliometric research and future changes in scholarly communication.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.24730v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Abdelghani Maddi (GEMASS)</dc:creator>
+    </item>
+    <item>
+      <title>Which Part of the Context Layer Does the Work? Separating Semantic Content from Retrieval Scaffolding in Text-to-SQL Agents</title>
+      <link>https://arxiv.org/abs/2609.22259</link>
+      <description>arXiv:2609.22259v1 Announce Type: cross 
+Abstract: Context layers, curated documentation that an analytics agent fetches at query time, produce large accuracy gains on text-to-SQL benchmarks. A with/without comparison cannot say which part of the layer does the work: the semantic content, the retrieval scaffolding that delivers it, or the pre-computed views that usually accompany it. We report a four-arm ablation on DABStep on four models that separates the three. The instrument is a data contract: a YAML artifact that carries a domain's semantics and the rules an agent's tools enforce. One arm empties every field of prose in the frozen contract while holding the tool surface, retrieval instruction, table allow-list and operation rules byte-for-byte fixed. Compiling the contract's own SQL expressions into views gives the ceiling a pre-computed layer would reach: gold on all 176 tasks it covers. Content dominates. It raises hard-task accuracy from 13.9% to 55.1%, 22.6% to 56.6%, 22.9% to 68.4% and 37.0% to 77.4%, beating the same knowledge pasted into the prompt on every model. Scaffolding without content is worth 0 to 5 points on two flash models and 14 to 15 on two frontier models. Against the compiled ceiling the contract arm's shortfall is a failure to derive, and it falls from 39 points to 5 with model capability. The contract beats the prompt because the rule it needs is one lookup away rather than buried in a long prompt: its SQL carries the fee semantics up to 98% of the time against the prompt arm's 4%, and at the lowest cost per correct answer on three of four models. For practitioners: semantics first, scaffolding second, pre-computed macros only where an agent demonstrably fails to derive. Ungoverned arms submitted 166 mutating statements; governed arms none. The gain is confined to the contract's domain. On one model the benchmark's own withheld golds grade the contract arm at 51.9% against 18.8% for the prompt baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.22259v1</guid>
       <category>cs.CL</category>
+      <category>cs.AI</category>
       <category>cs.DB</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Chuxuan Hu, Yeye He, Penny Zhou, Wee Hyong Tok, Daniel Kang, Surajit Chaudhuri</dc:creator>
+      <dc:creator>Qing Ye</dc:creator>
     </item>
     <item>
-      <title>What Stops a Small Language Model From Driving a Database Agent</title>
-      <link>https://arxiv.org/abs/2609.21341</link>
-      <description>arXiv:2609.21341v1 Announce Type: cross 
-Abstract: Small open-weight language models are assumed to fail at agentic database work because they lack the reasoning capacity for it. We test that against a production system. Over eleven days we drove the agent mode of an open-source SQL client with 39 open-weight models served locally and one hosted control, across six task surfaces: 8,199 runs, 110,711 ledger events, 14,008 refused tool calls. Of the 2,100 model-attributed agent-mode losses, 1,590, or 75.7%, came from runs that had invoked at least one tool. That majority is what survives resampling models rather than runs: it holds in 99.7% of clustered resamples and in 15 of the 22 models with at least twenty losses. Within it, transport, a run that used the tools and never got a deliverable through, is the largest class at 36.2% and capability, a run that invoked no tool at all, the smallest at 17.3%; we report that ordering as a property of this corpus rather than a general finding, since clustered by model it holds in only 74.5% of resamples. Transport failures decompose into a few mechanical argument shapes. Production ledgers record refusal codes and never the model's arguments, so these were invisible for ten days; capturing them exposed five server defects, one of which demanded a field on one tool, forbade it on the sibling that composed it, then failed the run for its absence. Five server changes, touching no model, prompt or sampling setting, moved six models by 6 to 21 cells out of 30. We also report a confound we believe affects published local-model benchmarks, ours included: with no context cap, one 7.1 GB model was admitted at its full 262,144-token window and held 51 GB on a 64 GB machine, producing runs indistinguishable in any ordinary log from a model timing out. The corpus, the scorer and a verifier that regenerates every figure are released.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2609.21341v1</guid>
+      <title>Goal-driven Variant Categorization</title>
+      <link>https://arxiv.org/abs/2609.22475</link>
+      <description>arXiv:2609.22475v1 Announce Type: cross 
+Abstract: Process discovery rarely yields a single coherent process structure. For analysis, a common step is to cluster process variants based on structural similarity and then assign business meaning to the resulting groups. Since these partitions are not derived from the organization's goals, analysts must manually interpret and consolidate variants into business-meaningful categories. This judgment-intensive step becomes increasingly difficult as the number and complexity of variants grow. In this paper, we propose a goal-driven approach to variant categorization that reverses this workflow. We first author an organization's goal model that predefines the categorization axis. Each variant is transformed into a textual narrative describing its behavior, and a Large Language Model (LLM) interprets it in the context of the goal model and assigns the variant to the most appropriate category. LLM-based semantic reasoning connects low-level process behavior with analyst-defined business goals. We instantiate this approach end-to-end and evaluate it on three public logs differing substantially in scale and behavioral diversity. Goal-model guidance yields partitions that differ from those produced by unguided induction and respond to controlled edits to the declared alternatives, at the cost of authoring a goal model.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.22475v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
       <category>cs.SE</category>
-      <category>cs.DB</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Cevheri Bozoglan, Yusuf Gundogdu, Abdullah Kaya, Koray Sirin</dc:creator>
+      <dc:creator>Daniel Calegari, Daniel Amyot</dc:creator>
     </item>
     <item>
-      <title>FPT=PTIME for Homomorphism Problems on Sparse-Incidence and Bounded-Independence Patterns</title>
-      <link>https://arxiv.org/abs/2609.21840</link>
-      <description>arXiv:2609.21840v1 Announce Type: cross 
-Abstract: Assuming the Exponential Time Hypothesis (ETH), fixed-parameter tractability and polynomial-time solvability coincide for homomorphism problems specified by classes of pattern hypergraphs of bounded incidence degeneracy or bounded primal independence number. In both cases, tractability is characterised by bounded fractional hypertree width. Grohe (JACM 2007) established the corresponding FPT-PTIME equivalence under bounded arity. Our result allows unbounded arity and covers important cases such as bounded-degree patterns and patterns whose incidence graphs exclude a fixed minor. Building on the recent fractional balanced-separator framework and rounding theorem of Korchemna et al. (FOCS 2024), we prove a near-linear bound on fractional hypertree width ($\mathsf{fhw}$) in terms of adaptive width ($\mathsf{adw}$). For every hypergraph $H$ with $\mathsf{adw}(H)\geq 2$, \[ \mathsf{fhw}(H)=O\bigl(\lambda(H)\mathsf{adw}(H)\log\mathsf{adw}(H)\bigr), \] where $\lambda(H)=\min\{\mu(H),\max\{1,\log\alpha(H)\}\}$, with $\mu(H)$ denoting incidence degeneracy and $\alpha(H)$ the independence number of the primal graph. As a further consequence, we obtain a corresponding FPT-PTIME collapse for exact homomorphism counting on every bounded-$\lambda$ class. More generally, for every recursively enumerable class of pattern hypergraphs, fixed-parameter tractability of the parameterised homomorphism problem implies quasipolynomial-time solvability of the corresponding unparameterised problem, assuming ETH.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2609.21840v1</guid>
-      <category>cs.CC</category>
+      <title>Concurrency-Aware Process Model Forecasting with Causal Nets</title>
+      <link>https://arxiv.org/abs/2609.22614</link>
+      <description>arXiv:2609.22614v1 Announce Type: cross 
+Abstract: Process model forecasting (PMF) aims to predict the process model that will characterize a future period, thereby providing a process-level view of how behavior is expected to evolve. Existing PMF methods, however, forecast directly-follows graphs, which cannot explicitly represent concurrency. We extend PMF to causal nets by forecasting time series of relation and binding counts and using these forecasts to reconstruct future process models with AND/XOR semantics. To evaluate the resulting models, we introduce a protocol that accounts for partial traces and constructs the workflow nets required for conformance checking. Experiments on four event logs show that the forecasted models achieve conformance levels close to those of models re-mined from observations in the corresponding future windows. They also outperform static discovery baselines, which retain high precision on the structurally stable log but exhibit substantial precision losses on the other three logs. Filtering infrequent bindings improves most conformance metrics, although it also removes much of the concurrent behavior captured by the models.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.22614v1</guid>
+      <category>cs.LG</category>
       <category>cs.DB</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yongbo Yu, Jari Peeperkorn, Johannes De Smedt, Jochen De Weerdt</dc:creator>
+    </item>
+    <item>
+      <title>An Iterative LangGraph Agent for Text-to-SQL: Natural Language Access to the Chicago Crime Database</title>
+      <link>https://arxiv.org/abs/2609.22917</link>
+      <description>arXiv:2609.22917v1 Announce Type: cross 
+Abstract: Non-technical stakeholders frequently cannot write the SQL needed to extract insights from operational databases. We built and evaluated a Text-to-SQL agent that closes this gap end to end: a six-node LangGraph StateGraph checks question relevance, fetches the live schema, generates PostgreSQL, validates it with a dry run, retries on failure, executes the query, and narrates the result set in plain English. The agent uses prompt engineering only; no model was fine-tuned. We evaluated it on the Chicago Crime dataset (approximately 8.5 million records, 22 attributes) against a hand-built benchmark of 100 natural language questions with ground-truth SQL, stratified into 30 Easy, 40 Medium and 30 Hard items. Comparing two prompt revisions of the same agent, the revised system (V2) reached a Valid SQL Rate of 93% (from 87%), an Execution Accuracy of 60% under a hybrid relational equivalence metric (from 47%; 19% from 12% under strict JSON matching), and a mean Synthesis Quality of 4.34 out of 5 (from 3.91). The single largest driver was removing a LIMIT 10 instruction from the system prompt, which had been truncating multi-row answers. Error analysis attributes the residual failures to relevance-checker false rejections, ambiguous question semantics, and free-tier API rate limits rather than to the language generation step. We report no comparison against an external baseline system or a public benchmark; the study is a single-model engineering evaluation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.22917v1</guid>
+      <category>cs.CL</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Matthias Lanzinger</dc:creator>
+      <dc:creator>Vigneshwar Ravi Rao, Rupesh Swarnakar, Fayeq Jeelani Syed{\dag}</dc:creator>
     </item>
     <item>
-      <title>Compass: General Filtered Search across Vector and Structured Data</title>
-      <link>https://arxiv.org/abs/2510.27141</link>
-      <description>arXiv:2510.27141v5 Announce Type: replace 
-Abstract: The increasing prevalence of hybrid vector and relational data necessitates efficient, general support for queries that combine high-dimensional vector search with complex relational filtering. However, existing filtered search solutions are fundamentally limited by specialized indices, which restrict arbitrary filtering and hinder integration with general-purpose DBMSs. This work introduces \textsc{Compass}, a unified framework that enables general filtered search across vector and structured data without relying on new index designs. Compass leverages established index structures -- such as HNSW and IVF for vector attributes, and B+-trees for relational attributes -- implementing a principled cooperative query execution strategy that coordinates candidate generation and predicate evaluation across modalities. Uniquely, Compass maintains generality by allowing arbitrary conjunctions, disjunctions, and range predicates, while ensuring robustness even with highly-selective or multi-attribute filters. Comprehensive empirical evaluations demonstrate that Compass consistently outperforms NaviX, the only existing performant general framework, across diverse hybrid query workloads. It also matches the query throughput of specialized single-attribute indices in their favorite settings with only a single attribute involved, all while maintaining full generality and DBMS compatibility. Overall, Compass offers a practical and robust solution for achieving truly general filtered search in vector database systems.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2510.27141v5</guid>
+      <title>Mind the Gaps: A Curated Benchmark for Form Field Detection</title>
+      <link>https://arxiv.org/abs/2609.23679</link>
+      <description>arXiv:2609.23679v1 Announce Type: cross 
+Abstract: Form Field Detection (FFD) is a fundamental component of document understanding systems, enabling applications ranging from large-scale industrial digitization to accessible form interaction for automated analysis. Unlike conventional object detection tasks, FFD is inherently challenging because fields are often defined by layout structure and whitespace rather than visible foreground content. Existing large-scale datasets frequently rely on heuristic annotation pipelines, resulting in noisy and inconsistent labels that hinder reliable evaluation. In this work, we introduce mini-CommonForms, a carefully curated FFD benchmark with consistent, high-quality annotations, and present a detailed evaluation of state-of-the-art detection approaches. The benchmark is designed to support reproducible research in document automation and accessibility-oriented applications. Dataset and code are available at https://github.com/moured/mini-commonforms</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.23679v1</guid>
+      <category>cs.CV</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1007/978-3-032-36207-0_27</arxiv:DOI>
+      <arxiv:journal_reference>Document Analysis Systems (DAS 2026), Lecture Notes in Computer Science, Springer Nature Switzerland, Cham, pp. 459-473</arxiv:journal_reference>
+      <dc:creator>Iheb Brini, Omar Moured, Hamza Gbada, Elisa Barney</dc:creator>
+    </item>
+    <item>
+      <title>Reading the Data Back: Enriching Variable-Level Metadata for Model-Data Consistency Checks</title>
+      <link>https://arxiv.org/abs/2609.23767</link>
+      <description>arXiv:2609.23767v1 Announce Type: cross 
+Abstract: Purpose: Research data repositories often lack variable-level metadata. Model-choice screening, checking whether a reported model suits the values of its outcome variable, also requires summaries of those values and links to the analyses that use them. We ask how repositories can represent and acquire them as metadata with evidence and review histories. Methods: We propose a metadata application profile compatible with the Data Documentation Initiative Cross-Domain Integration (DDI-CDI) model, linking versioned variables and empirical profiles to reported analyses, estimators, and analysis roles. Extraction provenance and review decisions are recorded separately. We evaluate streaming data profiling, deterministic extraction from Stata and R code, and language-model extraction of analysis records from papers. Results: A worked export of one replication package illustrates the profile: it passes shape and interchange checks and answers four queries, one of which returns the analyses that raise no alert. Screening 4,868 replication datasets from six political-science journals links outcomes to profiled columns in 1,440 deposits and flags 965, including 14 of the 21 deposits with a hand-verified linear model on a count, proportion, binary, or ordinal outcome. AI-assisted adjudication yields 55% precision on a near-balanced sample of 119 count and proportion candidates; screening rules were developed on the same corpus. Conclusion: The profile makes analysis-variable relationships queryable while preserving evidence and review history; screening yields review candidates with context. Code, metadata, and measurements are released.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.23767v1</guid>
+      <category>cs.DL</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Eryk Kulikowski (LIBIS, KU Leuven)</dc:creator>
+    </item>
+    <item>
+      <title>Pattern-level Differential Privacy for High-utility Complex Event Processing</title>
+      <link>https://arxiv.org/abs/2609.23827</link>
+      <description>arXiv:2609.23827v1 Announce Type: cross 
+Abstract: Current privacy-preserving mechanisms (PPMs) in Complex Event Processing (CEP) systems are unnecessarily restrictive, reducing the utility of data received by data consumers. This article presents a novel approach to preserve privacy in CEP systems, improving the utility of detected event patterns by dynamically adapting the noise added to an unprotected data stream. We introduce a new guarantee named pattern-level differential privacy (DP), which enables us to apply and compare the strength of PPMs at the pattern level. We propose new pattern-level PPMs yielding pattern-level DP and analyze different trust settings of these PPMs and their requirements for context knowledge in the CEP system, e.g., the deployed queries. Our evaluation is based on three datasets (two real-world, one synthetic) and shows that the proposed PPMs increase data utility while preserving the same privacy level as the state-of-the-art PPMs. We use simulations to study the performance of our proposed PPMs in various practical scenarios. Furthermore, we demonstrate that computational complexity is not an obstacle to deployment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.23827v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>He Gu, Thomas Plagemann, Vera Goebel, Maik Benndorf, Boris Koldehofe</dc:creator>
+    </item>
+    <item>
+      <title>VectorMaton: Efficient Vector Search with Pattern Constraints via an Enhanced Suffix Automaton</title>
+      <link>https://arxiv.org/abs/2603.01525</link>
+      <description>arXiv:2603.01525v2 Announce Type: replace 
+Abstract: Approximate nearest neighbor search (ANNS) has become a cornerstone in modern vector database systems. Given a query vector, ANNS retrieves the closest vectors from a set of base vectors. In real-world applications, vectors are often accompanied by additional information, such as sequences or structured attributes, motivating the need for fine-grained vector search with constraints on this auxiliary data. Existing methods support attribute-based filtering or range-based filtering on categorical and numerical attributes, but they do not support pattern predicates over sequence attributes. In relational databases, predicates such as LIKE and CONTAINS are fundamental operators for filtering records based on substring patterns. As vector databases increasingly adopt SQL-style query interfaces, enabling pattern predicates over sequence attributes (e.g., texts and biological sequences) alongside vector similarity search becomes essential. In this paper, we formulate a novel problem: given a set of vectors each associated with a sequence, retrieve the nearest vectors whose sequences contain a given query pattern. To address this challenge, we propose VectorMaton, an automaton-based index that integrates pattern filtering with efficient vector search, while maintaining an index size comparable to the dataset size. Extensive experiments on real-world datasets demonstrate that VectorMaton consistently outperforms all baselines, achieving up to 10x higher query throughput at the same accuracy and up to 18x reduction in index size.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.01525v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Haoxuan Xie, Siqiang Luo</dc:creator>
+    </item>
+    <item>
+      <title>Efficient K-generalizable Learned Search</title>
+      <link>https://arxiv.org/abs/2603.06159</link>
+      <description>arXiv:2603.06159v2 Announce Type: replace 
+Abstract: Learned top-K search improves the accuracy-latency trade-off of graph-based vector search, but existing methods are designed for a fixed K: serving production workloads with varying K values requires preprocessing cost proportional to the number of distinct Ks served - prohibitive in practice. This paper shows that learned search can support arbitrary K with the preprocessing cost of a single top-1 model. The key idea is to reduce top-K learned search to repeated masked top-1 refinement, which works because the distance-reduction trajectory for discovering the next top-1 vector is largely invariant to the number of results already found. We therefore train the model on trajectory features that remain effective under masking. To make repeated refinement robust and efficient, OMEGA counters error accumulation across iterations with rank-wise confidence allocation, and skips unnecessary model invocations with a statistical forecast of recall from partial results. Across nine dataset-scale configurations, OMEGA meets the 0.95 recall target with one K-independent model. Under the lowest-preprocessing configuration of each learned baseline,it reduces mean latency by 7-36% versus DARTH, 3-25% versus MultiK-DARTH, and 8-21% versus LAET on BIGANN, BIGANN-1B, DEEP, and three production workloads. On GIST, Text2Image, and MS MARCO, its latency remains within 9% of DARTH and MultiK-DARTH. On production traces, OMEGA further reduces total serving and preprocessing computation by up to 28%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.06159v2</guid>
       <category>cs.DB</category>
       <category>cs.IR</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
+      <category>cs.LG</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Chunxiao Ye, Xiao Yan, Eric Lo</dc:creator>
+      <dc:creator>Yifan Peng, Jiafei Fan, Xingda Wei, Sijie Shen, Rong Chen, Jianning Wang, Xiaojian Luo, Wenyuan Yu, Jingren Zhou, Haibo Chen</dc:creator>
     </item>
     <item>
-      <title>NeurIDA: Dynamic Modeling for Effective In-Database Analytics</title>
-      <link>https://arxiv.org/abs/2512.08483</link>
-      <description>arXiv:2512.08483v4 Announce Type: replace 
-Abstract: Relational Database Management Systems (RDBMS) manage complex, interrelated data and support a broad spectrum of analytical tasks. With the growing demand for predictive analytics, the deep integration of machine learning (ML) into RDBMS has become critical. However, a fundamental challenge hinders this evolution: conventional ML models are static and task-specific, whereas RDBMS environments are dynamic and must support diverse analytical queries. Each analytical task entails constructing a bespoke pipeline from scratch, which incurs significant development overhead and hence limits wide adoption of ML in analytics.
-  We present NeurIDA, an autonomous end-to-end system for in-database analytics that dynamically "tweaks" the best available base model to better serve a given analytical task. In particular, we propose a novel paradigm of dynamic in-database modeling to pre-train a composable base model architecture over the relational data. Upon receiving a task, NeurIDA formulates the task and data profile to dynamically select and configure relevant components from the pool of base models and shared model components for prediction. For friendly user experience, NeurIDA supports natural language queries; it interprets user intent to construct structured task profiles, and generates analytical reports with dedicated LLM agents. By design, NeurIDA enables ease-of-use and yet effective and efficient in-database AI analytics. Extensive experiment study shows that NeurIDA consistently delivers up to 12% improvement in AUC-ROC and 25% relative reduction in MAE across ten tasks on five real-world datasets. The source code is available at https://github.com/Zrealshadow/NeurIDA</description>
-      <guid isPermaLink="false">oai:arXiv.org:2512.08483v4</guid>
+      <title>Dial: A Knowledge-Grounded Dialect-Specific NL2SQL System</title>
+      <link>https://arxiv.org/abs/2603.07449</link>
+      <description>arXiv:2603.07449v2 Announce Type: replace 
+Abstract: Enterprises commonly deploy heterogeneous database systems, each of which owns a distinct SQL dialect with different syntax rules, built-in functions, and execution constraints. However, most existing NL2SQL methods assume a single canonical dialect (e.g., SQLite) and struggle to produce queries that are both semantically correct and executable on target engines. Prompt-based approaches tightly couple intent reasoning with dialect syntax, rule-based translators often degrade native operators into generic constructs, and multi-dialect fine-tuning suffers from cross-dialect interference.
+  In this paper, we present Dial, a knowledge-grounded framework for dialect-specific NL2SQL. Dial introduces: (1) a Dialect-Aware Logical Query Planning module that converts natural language into a dialect-aware logical query plan via operator-level intent decomposition and divergence-aware specification; (2) HINT-KB, a hierarchical intent-aware knowledge base that organizes dialect knowledge into i a Canonical Syntax Reference, ii a declarative function repository, and iii a procedural constraint repository; and (3) an execution-driven debugging and semantic verification loop that separates syntactic recovery from logic auditing to prevent semantic drift. We construct DS-NL2SQL, a benchmark covering six major database systems with 2,218 dialect-specific test cases. Experimental results show that Dial consistently improves translation accuracy by 10.25% and dialect feature coverage by 15.77% over state-of-the-art baselines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.07449v2</guid>
       <category>cs.DB</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.IR</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Lingze Zeng, Naili Xing, Shaofeng Cai, Peng Lu, Gang Chen, Jian Pei, Beng Chin Ooi</dc:creator>
+      <arxiv:DOI>10.14778/3836663.3836720</arxiv:DOI>
+      <arxiv:journal_reference>Proceedings of the VLDB Endowment, 19(11): 3718-3731, 2026</arxiv:journal_reference>
+      <dc:creator>Xiang Zhang, Hongming Xu, Le Zhou, Wei Zhou, Xuanhe Zhou, Guoliang Li, Yuyu Luo, Changdong Liu, Guorun Chen, Jiang Liao, Fan Wu</dc:creator>
     </item>
     <item>
-      <title>Chronos: Efficient Bolt-on Branching Across Data Stores for Stateful Agentic Applications</title>
-      <link>https://arxiv.org/abs/2609.14889</link>
-      <description>arXiv:2609.14889v2 Announce Type: replace 
-Abstract: Data-centric applications increasingly use speculative execution to explore multiple candidate paths where each path modifies state distributed across heterogeneous data stores. This trend is intensified by the rise of tool-calling agents. Hence, applications need data systems that can create branches quickly, isolate state-modifying paths, and merge changes consistently across stores without imposing substantial query overhead. Existing systems provide only partial support, forcing applications to coordinate branches and merges manually, which increases overhead and risks inconsistent cross-store state.
-  To solve this problem, we introduce Chronos, a bolt-on system that provides branching capability across heterogeneous data stores. We make two contributions. First, Chronos introduces a compact interval-based versioning technique that enables efficient branching and data sharing through simple query rewrite. Second, Chronos introduces a bolt-on architecture that separates branch management from data path within each store. Combined with interval-based versioning, this separation provides atomic cross-store visibility for merges and enables Chronos to support diverse data stores without modifying their engines.
-  We implement Chronos for PostgreSQL, SQLite, DuckDB, Qdrant, and a DBMS-backed filesystem. We evaluate it using cross-store agent workflows, MCTS-style exploration, and per-store benchmarks. Chronos runs MCTS-style exploration up to 16.7x faster than existing approaches while maintaining practical query performance across the underlying stores. Under concurrent cross-store workflows, Chronos prevents partially visible merges while substantially outperforming serialized execution.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2609.14889v2</guid>
+      <title>Samyama: A Unified Graph-Vector Database with In-Database Optimization, Agentic Enrichment, and Hardware Acceleration</title>
+      <link>https://arxiv.org/abs/2603.08036</link>
+      <description>arXiv:2603.08036v3 Announce Type: replace 
+Abstract: Modern data architectures fragment across graph databases, vector stores, analytics engines and optimization solvers, forcing ETL between them. We present Samyama, a graph-vector database in Rust that unifies these workloads in one engine: a RocksDB-backed store with MVCC, a vectorized executor, a cost-based planner, a CSR analytics engine, RDF and SPARQL, 22 metaheuristic solvers callable from the query language, HNSW vector indexing, and agentic enrichment that expands a graph via LLMs. It has been run to billion-edge scale: 74.3M nodes and 1.07B edges from four biomedical sources on one machine for $2.50 of spot compute. This version re-measures the system at release v1.8.0 on rented Linux hosts a reader can boot, replacing earlier figures taken on a Mac Mini that nobody could re-run. On a 16-vCPU cloud instance, ingestion reaches 123K-152K nodes/s and PageRank costs 6.7 ms per iteration at ten thousand nodes and 236 ms at a million. The previously reported 8.2x GPU speedup is withdrawn; in its place we measure the CUDA path, which no earlier version measured at all, on a rented NVIDIA A16: parity with the CPU at ten thousand nodes, 1.62x at a hundred thousand and 2.70x at a million, with 1.1-1.35 s of context initialisation on the first call. The earlier Cypher-throughput figure, its claim of near-constant index-driven scaling, and a vector-search figure are withdrawn as unreproducible. openCypher conformance, once estimated at ~90%, is now measured at 99.9% of evaluated TCK scenarios. Against Neo4j 5 and FalkorDB on one host over an identical SF10 extract, 14 of 14 SNB complex reads land within 5x of the best competitor and 7 of 14 are faster.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.08036v3</guid>
       <category>cs.DB</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Xinjing Zhou, Jason Mohoney, Samuel Madden, Michael Stonebraker, Lei Cao</dc:creator>
+      <dc:creator>Madhulatha Mandarapu, Sandeep Kunkunuru</dc:creator>
     </item>
     <item>
-      <title>FireDataForge: A Unified Framework for Multi-Source Wildfire Data Retrieval and Integration</title>
-      <link>https://arxiv.org/abs/2606.21198</link>
-      <description>arXiv:2606.21198v2 Announce Type: replace-cross 
-Abstract: Wildfire research, modeling, and education require geospatial data from multiple sources that vary in formats, coordinate systems, spatial resolutions, and temporal cadences. This preprocessing burden limits reproducible reuse. We present FireDataForge, an open-source Python framework that automates retrieval and harmonization of 11 wildfire-related sources spanning fire behavior, weather, land cover, vegetation, elevation, built environment, wildland-urban interface, fire history, and satellite imagery. Given an MTBS Event ID, FireDataForge retrieves relevant datasets, aligns them to a common grid, and outputs analysis-ready NumPy arrays with embedded metadata. Batch processing of historical fires demonstrates support for fire behavior simulation, educational visualization, machine learning, and AI-assisted wildfire analysis.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2606.21198v2</guid>
-      <category>cs.CE</category>
+      <title>VeriTS: Verifiable Model-Enhanced Time-Series Queries on Blockchain Systems</title>
+      <link>https://arxiv.org/abs/2608.28318</link>
+      <description>arXiv:2608.28318v2 Announce Type: replace 
+Abstract: Every blockchain transaction carries a timestamp, and the chain imposes a total order. On-chain data therefore forms per-source time-series streams. However, existing systems support only basic lookups on blocks and transactions, and cannot answer time-series queries such as time-range retrieval and windowed aggregation. Offloading queries off-chain restores expressiveness, but the off-chain query layer is untrusted, so results must be verifiable. To this end, we propose VeriTS, the first verifiable time-series query framework for blockchain systems. It supports efficient range and aggregation queries. VeriTS maintains an off-chain query layer. In this layer, each stream is kept under one tree whose nodes carry authenticated aggregates, so the query index is itself the authenticated data structure. A light client thus verifies a windowed aggregate from a logarithmic number of authenticated nodes rather than from every record. VeriTS further answers error-tolerant queries from compact model representations of a stream, and extends the completeness and soundness guarantees to such approximate answers. As VeriTS never trusts the model behind a representation, a faulty or adversarial model can only widen an answer's certified interval, never falsify it. Experiments offer evidence that on windowed aggregation, VeriTS improves verification efficiency by more than two orders of magnitude over per-record proofs. On range retrieval, proofs shrink by up to 14.5x.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.28318v2</guid>
       <category>cs.DB</category>
-      <category>physics.geo-ph</category>
-      <pubDate>Mon, 21 Sep 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <arxiv:DOI>10.1109/IRI69576.2026.00103</arxiv:DOI>
-      <arxiv:journal_reference>IRI '26: Proc. 2026 IEEE Int. Conf. on Information Reuse and Integration for Data Science, 528-531 (2026)</arxiv:journal_reference>
-      <dc:creator>Zeyu Xia, Lexie Chen, Ye Liu, Huilin Huang</dc:creator>
+      <dc:creator>Zhongming Yao, Jun Pang, Chenxu Wang, Qian Ma, Peiyuan Guan, Shiliang Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Diachronic Hypergraphs for Orchestrated Multi-Agent Multimodal Memory Curation</title>
+      <link>https://arxiv.org/abs/2608.29678</link>
+      <description>arXiv:2608.29678v2 Announce Type: replace 
+Abstract: Multi-agent systems solve tasks through collaboration, tool use, multimodal reasoning, and orchestration, but each agent operates within a knowledge boundary defined by its observations, context, and resources. Memory must preserve and transfer evidence, role specific context, decisions, procedures, and experience across interactions, not only outcomes. Vector and graph memories flatten these structures into embeddings or dyadic traces, obscuring events involving agents, tools, documents, errors, and evidence. This limits knowledge sharing, tracing, reuse, revision, and orchestration. We present MAGE, a hypergraph based multimodal database designed as a memory engine for MAS. MAGE stores agents, messages, tools, errors, procedures, documents, entities, decisions, and evidence in a heterogeneous temporal hypergraph, preserving high order collaborative events as reusable memory. It supports decision driven updates, role aware retrieval, validation, lifecycle management, and budget bounded context packing. By delivering knowledge to agents and orchestrators, MAGE expands their knowledge boundaries without modifying the models. Experiments show MAGE outperforms on various memory baselines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.29678v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Yichao Feng, Ran Zhang, Haoran Luo, Zhenghong Lin, Carl Yang, Anh Tuan Luu</dc:creator>
+    </item>
+    <item>
+      <title>sheval: An RDF data shapes evaluation tool and test-suite for recursive shapes</title>
+      <link>https://arxiv.org/abs/2609.05944</link>
+      <description>arXiv:2609.05944v2 Announce Type: replace 
+Abstract: Two different languages have been developed to validate RDF data based on the concept of a shape: ShEx and SHACL. In each language it is possible to define a shape that refers to itself, which is called a recursive shape. While in the case of ShEx, the semantics of recursive shapes is well defined and is part of the specification, in the case of SHACL, the semantics of recursive shapes is left to the implementation of the different SHACL engines. Consequently, the different SHACL engines show different behaviours when confronted with recursive shapes. In this paper we present sheval: an evaluation framework consisting of a tool and a test suite that can be used to compare the behaviour of different shapes technologies when confronted with recursive definitions. The tool has been used to evaluate and understand the differences in the implementation of recursive shapes in ShEx and SHACL. It provides a framework for testing and comparing the behaviour of different shape engines, helping to identify inconsistencies and potential issues, and providing a basis for further research and development in the field of shape-based validation of RDF data.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.05944v2</guid>
+      <category>cs.DB</category>
+      <category>cs.LO</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Shqiponja Ahmetaj, Iovka Boneva, Jan Hidders, Maxime Jakubowski, Jose-Emilio Labra-Gayo, Wim Martens, Filip Murlak, Cem Okulmus, Ognjen Savkovi\'c, Mantas \v{S}imkus, Dominik Tomaszuk</dc:creator>
+    </item>
+    <item>
+      <title>Generalized DBLog: A Verified Contract for Interleaving Copied Rows with a Change Log</title>
+      <link>https://arxiv.org/abs/2609.08160</link>
+      <description>arXiv:2609.08160v3 Announce Type: replace 
+Abstract: Change-data capture (CDC) feeds downstream systems like caches, search indexes, and data warehouses from a database's log of committed row changes. When bootstrapping, adding a table, or repairing downstream data, a pipeline must also copy existing rows. Merging this copy with the active log introduces the copy-to-log handoff problem. Changes must not fall through a gap, and older copied state must not overwrite a newer logged update or resurrect a deleted row. DBLog, developed at Netflix, addressed this problem by reading tables in chunks and interleaving those reads with the live log. Watermarks identify the changes that overlap each read, and the log wins when a copied row is stale. Debezium and Flink CDC have since adapted this design. Earlier work proved that applying the original algorithm's copied rows and logged changes in their emitted order reconstructs the source's rows, including the effect of every logged insert, update, and delete processed. Generalized DBLog asks when the same result holds for variants of that design. We state the conditions the source and capture implementation must satisfy. Once copying and reconciliation are complete, we prove that the result holds across all selected tables and key ranges even when their rows were read at different times. A single database snapshot is not required for the copy. Further logged changes advance the reconstructed state one event at a time. We establish these guarantees for classic watermarking, Debezium's signal-table and read-only modes, Flink CDC's parallel chunks, reads and dumps tied to exact log positions, and engine-consistent backups whose log position lies within known bounds. The complete theory is machine-checked in Isabelle/HOL, its core independently verified in Lean 4, and the protocols are also examined by bounded model checking in TLA+.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.08160v3</guid>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <category>cs.LO</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Andreas Andreakis</dc:creator>
+    </item>
+    <item>
+      <title>Large-scale spatial variable gene atlas for spatial transcriptomics</title>
+      <link>https://arxiv.org/abs/2510.07653</link>
+      <description>arXiv:2510.07653v4 Announce Type: replace-cross 
+Abstract: Spatial variable genes (SVGs) reveal critical information about tissue architecture, cellular interactions, and disease microenvironments. As spatial transcriptomics (ST) technologies proliferate, accurately identifying SVGs across diverse platforms, tissue types, and disease contexts has become both a major opportunity and a significant computational challenge. Here, we present a comprehensive benchmarking study of 20 state-of-the-art SVG detection methods using human slides from STimage-1K4M, a large-scale resource of ST data comprising 662 slides from more than 18 tissue types. We evaluate each method across a range of biologically and technically meaningful criteria, including recovery of pathologist-annotated domain-specific markers, cross-slide reproducibility, scalability to high-resolution data, and robustness to technical variation. Our results reveal marked differences in performance depending on tissue type, spatial resolution, and study design. Beyond benchmarking, we construct the first cross-tissue atlas of SVGs, enabling comparative analysis of spatial gene programs across cancer and normal tissues. We observe similarities between pairs of tissues that reflect developmental and functional relationships, such as high overlap between thymus and lymph node, and uncover spatial gene programs associated with metastasis, immune infiltration, and tissue-of-origin identity in cancer. Together, our work defines a framework for evaluating and interpreting spatial gene expression and establishes a reference resource for the ST community.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.07653v4</guid>
+      <category>stat.AP</category>
+      <category>cs.DB</category>
+      <category>q-bio.GN</category>
+      <category>q-bio.TO</category>
+      <category>stat.CO</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jiawen Chen, Jinwei Zhang, Dongshen Peng, Yutong Song, Aitong Ruan, Yun Li, Didong Li</dc:creator>
+    </item>
+    <item>
+      <title>An Empirical Survey and Benchmark of Learned Distance Indexes for Road Networks</title>
+      <link>https://arxiv.org/abs/2602.04068</link>
+      <description>arXiv:2602.04068v2 Announce Type: replace-cross 
+Abstract: The calculation of shortest-path distances in road networks is a core operation in navigation systems, location-based services, and spatial analytics. Although classical algorithms, e.g., Dijkstra's algorithm, provide exact answers, their latency is prohibitive for modern real-time, large-scale deployments. Over the past two decades, numerous distance indexes have been proposed to speed up query processing for shortest distance queries. More recently, with advances in machine learning (ML), researchers have designed and proposed ML-based distance indexes to answer approximate shortest path and distance queries efficiently. However, a comprehensive and systematic evaluation of these ML-based approaches is lacking. This paper presents the first empirical survey of ML-based distance indexes on road networks, evaluating them along four key dimensions: training time, query latency, storage, and accuracy. Using 13 real-world road networks (7 with workload-driven queries, derived from trajectory data, and 6 with synthetically generated queries), we benchmark ten representative ML techniques and compare them against classical non-ML baselines, highlighting key insights and practical trade-offs. We release a unified open-source codebase to support reproducibility and future research on learned indexes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.04068v2</guid>
+      <category>cs.LG</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Gautam Choudhary, Libin Zhou, Yeasir Rayhan, Walid G. Aref</dc:creator>
+    </item>
+    <item>
+      <title>Knowledge-Graph Grounding Helps LLMs Only for Out-of-Training Knowledge: A Controlled Study on Clinical Question Answering</title>
+      <link>https://arxiv.org/abs/2606.22419</link>
+      <description>arXiv:2606.22419v3 Announce Type: replace-cross 
+Abstract: A recent Nature Medicine study reports that general-purpose frontier LLMs outperform specialized retrieval-augmented clinical tools on medical benchmarks, and that retrieval can hurt strong models. We ask the natural follow-up: does structured knowledge-graph (KG) grounding change this, and when does grounding help at all? We contribute two results. First, a reproduction: the study's headline HealthBench score (~88) is the Consensus variant, not full HealthBench, where frontier models and ideal completions both score ~46-47 under a physician-calibrated grader (agreement 82.5%); we reproduce GPT-5.2 Consensus =90.9 and flag a score-deflating grader bug. Second, a knowledge-boundary result. Using a graph+vector engine (samyama-graph) over the public biomedical KG PrimeKG, neither naive triple retrieval nor an agentic natural-language-to-Cypher loop (82% successful queries) improves MedQA across a weak-to-strong model ladder (all |Delta| &lt;= 3.4). On a synthetic counterfactual KG, and on a hybrid benchmark mixing known and novel facts, the identical pipeline lifts out-of-training accuracy from chance to ~100% (+68 to +79) while adding nothing on known facts (a no-LLM arm answers both). Across three regimes (no-knowledge, graph-aided, hybrid), grounding helps only insofar as the decisive fact lies outside the model's training -- public-KG facts are redundant, private and novel data are where it pays -- matching the study's institutional-data caveat.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.22419v3</guid>
+      <category>cs.CL</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Madhulatha Mandarapu, Sandeep Kunkunuru</dc:creator>
     </item>
   </channel>
 </rss>
