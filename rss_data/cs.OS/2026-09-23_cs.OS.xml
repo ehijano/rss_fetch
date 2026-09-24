@@ -7,52 +7,26 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Sep 2026 04:00:09 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2026 04:00:28 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Wed, 23 Sep 2026 00:00:00 -0400</pubDate>
+    <pubDate>Thu, 24 Sep 2026 00:00:00 -0400</pubDate>
     <skipDays>
       <day>Sunday</day>
       <day>Saturday</day>
     </skipDays>
     <item>
-      <title>OSFoundry: Building and Evolving Operating Systems with Specification-Guided Agents</title>
-      <link>https://arxiv.org/abs/2609.25018</link>
-      <description>arXiv:2609.25018v1 Announce Type: new 
-Abstract: Operating systems must evolve continuously. Yet their development remains code-centric and largely manual: even a localized change can require recovering implicit assumptions, coordinating multiple subsystems, and repeatedly building, booting, testing, and debugging the complete system. General-purpose coding agents automate individual edits, but their prompt-centric workflows repeatedly reconstruct task boundaries and OS semantics from scattered context, limiting their reliability for sustained OS evolution. This paper presents OSFoundry, an OS-specialized agent harness that makes design intent persistent throughout OS development. Its key insight is to separate stable intent from diverse implementation. Instead of relying on free-form natural-language prompts to convey design intent, OSFoundry uses SysSpec*, a shared development blueprint comprising a task-bounding Plan and an OS-specific Specification: the Plan bounds what a change should achieve, while the Specification records the interfaces, modular dependencies, and concurrency semantics that its implementation must preserve. Agents implement and validate code against this same blueprint, refining both SysSpec* and the implementation when execution or review exposes a mismatch. We evaluate OSFoundry along three ways. First, OSFoundry generates SpecOS from SysSpec*; the resulting complete OS boots and passes all 70 functional tests. Second, specification patches evolve SpecOS with a GUI and three performance optimizations that improve performance by up to 4.41x. Third, across 11 recent Linux-kernel bug-fix tasks, OSFoundry achieves 1.8x the accuracy of Codex using GPT-5.5. These results show that persistent specifications can shift OS construction and evolution from repeated manual kernel engineering toward specification-guided development.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2609.25018v1</guid>
+      <title>xTier: Intelligent Tiering for CXL-Enabled Memory</title>
+      <link>https://arxiv.org/abs/2609.27266</link>
+      <description>arXiv:2609.27266v1 Announce Type: new 
+Abstract: CXL-enabled memory expands server memory capacity, but introduces a page-placement problem: the operating system must decide which pages should reside in DRAM and which should reside on slower CXL memory. Existing systems make this tradeoff in one of two ways. Userspace controllers support flexible policies, but expose placement decisions to scheduler jitter and kernel-userspace crossing overhead. Kernel-space systems avoid this latency, but rely on fixed heuristics that must generalize across workloads.
+  We present xTier, a kernel-resident learned memory-tiering system. xTier attaches eBPF programs to PEBS events and uses a compact quantized MLP to score sampled pages inside the kernel at microsecond-scale latency. Rather than reacting to every candidate, xTier converges to a low-churn placement for the current workload phase, reduces sampling cost after convergence, and returns to a higher sampling cadence when the workload shifts.
+  We evaluate xTier on six memory-bound workloads at DRAM:CXL ratios from 1:5 to 1:25. The advantage grows as the DRAM budget tightens. At 1:15 and beyond, xTier is the fastest system in 14 of 18 configurations. Where it is not fastest, it trails the best baseline by 3.9% on average. It reaches this performance while moving 13% fewer pages in geometric mean, and 22% fewer at the tighter ratios. When a workload changes phase, xTier rebuilds its hot set in DRAM faster and more completely than any baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.27266v1</guid>
       <category>cs.OS</category>
-      <category>cs.SE</category>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 -0400</pubDate>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Hengbin Zhang, Qingyuan Liu, Mo Zou, Dong Du, Yubin Xia, Haibo Chen</dc:creator>
-    </item>
-    <item>
-      <title>Extending concurrent separation logic to the hardware level to verify the xv6 OS kernel on RISC-V with AI agents</title>
-      <link>https://arxiv.org/abs/2609.04043</link>
-      <description>arXiv:2609.04043v2 Announce Type: cross 
-Abstract: MachCSL is a framework for verifying system software, such as an OS kernel, on top of low-level semantics of a RISC-V computer, based on the Sail RISC-V semantics. The key idea behind MachCSL is to adapt concurrent separation logic, based on Iris, to reasoning about low-level hardware execution at the sub-instruction level: page-table translation, TLB, privilege levels, configuration registers, instruction fetch/decode/execute, traps and interrupts, DMA, shared memory, power failures, etc. Reasoning at this level of detail ensures that the system software correctly manages all of the hardware details.
-  Verifying software at this low level of abstraction is tedious, but LLM-based agents are capable of reasoning about such low-level details. As a case study, we verify the xv6 OS kernel (6,593 lines of C and assembly code), which provides a traditional Unix system call interface (processes, file system, file descriptors, and preemptive scheduling) and has substantial internal concurrency (multi-core support with fine-grained locking, shared memory, interrupts, DMA, etc.). In the verification process, we uncovered ten bugs in the xv6 implementation, as well as one bug in the Sail RISC-V semantics. The verification effort took us 93 days, including the time to develop the MachCSL framework.
-  On top of the verified xv6 kernel, we prove an application-level theorem: if the user types echo hello world as input on the UART console, the only output the system can produce is hello world. This theorem covers both the kernel and the init, sh, and echo binaries in the initial file system image.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2609.04043v2</guid>
-      <category>cs.LO</category>
-      <category>cs.OS</category>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>M. Frans Kaashoek, Nickolai Zeldovich</dc:creator>
-    </item>
-    <item>
-      <title>TierBPF: Page Migration Admission Control for Tiered Memory via eBPF</title>
-      <link>https://arxiv.org/abs/2604.12300</link>
-      <description>arXiv:2604.12300v2 Announce Type: replace 
-Abstract: Software-based memory tiering systems decide which pages to place on the slower or faster tier. However, they do not consider two important factors that greatly influence application performance: the size of the migrated pages, and the underlying hardware device and tiering topology. We introduce TierBPF, a software mechanism that can be plugged into existing memory tiering systems to take these factors into account, by making architecture-aware page admission decisions. TierBPF is implemented as a set of eBPF hooks, allowing users to define their custom policies. In order to make its decisions, TierBPF utilizes a lightweight tracking mechanism for page profiling which is not dependent on the application's working set size. TierBPF, integrated into three memory tiering systems and evaluated with 17 workloads, achieves geomean throughput gains of up to 15.9% with improvements of up to 75% for individual workloads.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2604.12300v2</guid>
-      <category>cs.OS</category>
-      <pubDate>Wed, 23 Sep 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Xi Wang, Tal Zussman, Bin Ma, Asaf Cidon, Dong Li</dc:creator>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sriranga Ramaswamy, Yueqi Chen</dc:creator>
     </item>
   </channel>
 </rss>
