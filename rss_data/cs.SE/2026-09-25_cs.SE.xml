@@ -1,0 +1,898 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.SE updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.SE</link>
+    <description>cs.SE updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.SE" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Sep 2026 04:00:06 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>IaC-Guard-V: A Verification Framework for LLM-Generated Infrastructure-as-Code Repairs</title>
+      <link>https://arxiv.org/abs/2609.28488</link>
+      <description>arXiv:2609.28488v1 Announce Type: new 
+Abstract: Infrastructure-as-Code (IaC) misconfigurations are a leading cause of cloud security incidents, and Large Language Models (LLMs) are increasingly proposed as automated repair agents. Yet the trustworthiness of LLM-generated IaC repairs remains underexplored. IaC presents distinctive verification challenges: security scanners may behave differently across tools and configurations, infrastructure semantics cannot be validated through ordinary unit tests, and provider-specific rules create a fragmented verification landscape. We present IaC-Guard-V, a verification-centered framework that evaluates AI-generated IaC repairs through four dimensions: syntactic validity, target-issue resolution, regression safety, and patch minimality. We construct a benchmark of 70 real-world misconfigured Terraform and Kubernetes artifacts spanning 70 unique scanner rules and eight violation classes, and evaluate three repair strategies across three LLM families in 630 runs. Although all models achieve 100% syntactic validity, only 32-50% of single-shot repairs pass full verification. Verification-guided iterative repair significantly improves verified-fix rates to 68-92%. An open-source model with verification-guided repair outperforms the strongest commercial model without verification at one-twelfth the cost per verified fix. Kubernetes repairs reach near-perfect rates for commercial models but require verification-guided iteration for the open-source model. Structured prompting consistently reduces Terraform repair quality, challenging common assumptions about constrained LLM output. The benchmark and artifacts are released for reproducibility.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28488v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Lokesh Chauhan</dc:creator>
+    </item>
+    <item>
+      <title>Pretraining and adapting a language model on a dependency-free stack: GPT-2 124M from random weights, reproduced against llm.c, and a clinical adapter for Qwen3-0.6B</title>
+      <link>https://arxiv.org/abs/2609.28568</link>
+      <description>arXiv:2609.28568v1 Announce Type: new 
+Abstract: Almost every language model in service was trained by one family of software. That concentration makes a question hard to settle: how much of what is known about training a language model describes language models, and how much describes that software? Settling it needs a second implementation able to carry a model through a whole lifecycle rather than reproduce one operator.
+  We report such a lifecycle. Using numbat, a machine-learning stack written in Zig with no third-party runtime dependencies, we pretrain a 124.4 M-parameter GPT-2 from random initialisation over 9.91 B tokens of web text, then adapt a separate small model to clinical question answering. A reference implementation runs on identical hardware at both stages, and a sidecar with authority to halt a run supervises each.
+  Agreement is close. Held-out cross-entropy finishes at 3.2588 against a published 3.29, and HellaSwag at 0.3053 against 0.299; across 8 paired evaluations it sits below a same-machine reference at every point, by 0.0608 on average. Re-running that reference on different hardware moves it 0.0035, which bounds how much of any gap is method rather than framework. Throughput does not pay for agreement: measured in one session at a production configuration, numbat reaches 43,374 tokens per second against PyTorch's 41,202, scaling 2.769x over three cards. Clinical adaptation ends at 2.1899 held-out loss against 2.1941.
+  Neither model is a medical device, and neither is validated for clinical use.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28568v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Thang Tran (CloudKites AI Lab, New South Wales, Australia), Lan Dang (Monash Business School, Monash University, Victoria, Australia)</dc:creator>
+    </item>
+    <item>
+      <title>Change-Provenant Supervision: Governing Learned Artifacts Under Policy Change</title>
+      <link>https://arxiv.org/abs/2609.28574</link>
+      <description>arXiv:2609.28574v1 Announce Type: new 
+Abstract: A recorded dependency graph cannot certify that it contains no omitted edge. For learned artifacts, graph-scoped invalidation therefore cannot by itself justify admission after authority changes, especially when output testing misses a provenance-stale derivation. We separate recorded lineage, which proposes impact scope and a dependency explanation, from independent current-contract revalidation of every retained target, which supplies soundness relative to the declared contract.
+  We evaluate this design in two evidence layers. Four Qwen3-14B LoRA packages bind 1.028 GB of adapter bytes to training and authority records. Stale and full-fresh adapters trained on mutually exclusive versioned supervision emitted identical plans on all 80 tested authority-neutral inputs. Byte-derived reconstruction and a sealed current-contract ledger nevertheless refused the stale and naive-append packages and admitted full-fresh and lineage-selective packages. In a controlled harness with six role-separated amendments, transitive lineage recovered all 40 semantically invalidated amendment-target pairs while nominating 56 impact candidates, compared with 120 under document-wide invalidation. All 56 had a declared path to an amended clause, although 16 remained content-valid. Omitting one load-bearing edge per amendment reduced semantic recall to 34/40 while independent revalidation refused all six affected packages.
+  The results establish properties of a controlled governance mechanism, not an enterprise invalidation rate, unlearning result, operationally optimal workflow, or measured total-cost reduction.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28574v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jesus Salas</dc:creator>
+    </item>
+    <item>
+      <title>Developing a Unified Verification and Validation Activity Standard at JPL</title>
+      <link>https://arxiv.org/abs/2609.28600</link>
+      <description>arXiv:2609.28600v1 Announce Type: new 
+Abstract: Verification and validation practices (V&amp;V) at NASA's Jet Propulsion Laboratory (JPL) have diverged over the past decade, creating fragmentation that increases overhead, reduces cross-project efficiencies, and inhibits institutional knowledge transfer. We present a unified V&amp;V activity schema developed through human-centered design workshops involving 29 practitioners across multiple mission types and disciplines. The schema builds on a relationship-based architecture that allows for separating methods (Test, Analysis, Inspection, Demonstration, and Review of Design) while maintaining a common attribute set. Formalized as a platform-agnostic SysML model, the schema defines bidirectional relationships between requirements, V&amp;V activities, venues, and evidence. Implementation in JPL's Jama platform demonstrates controlled customization through templates and modular item types, balancing rigor with agility while enabling automations, pattern reuse, and digital thread integration.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28600v1</guid>
+      <category>cs.SE</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Maximilian Vierlboeck, Ellen Van Wyk, Natalia Sanchez, Bogdan Oaida, Torrance James Eberhart, Marie Piette Gomez, Christopher Delp, Marijke G. Jorritsma, Alex Desharnais</dc:creator>
+    </item>
+    <item>
+      <title>Soundness Checking of Taint Flow Models</title>
+      <link>https://arxiv.org/abs/2609.28750</link>
+      <description>arXiv:2609.28750v1 Announce Type: new 
+Abstract: Existing state-of-the-art static taint flow analyses for imperative programming languages can scale to large applications by using precise user-provided taint flow models of library methods. However, manually and precisely modeling a method's taint flows is tedious and potentially unsound. Furthermore, automatically modeling the method via an inter- procedural taint analysis can be inefficient. To solve this problem, we propose a guess-and-check approach: (1) an LLM agent that generates a precise taint flow model of a method and (2) a symbolic algorithm to check the soundness of the model. The algorithm deduces which taint flows must not occur in the method for the LLM's taint flow model to be sound, and uses lightweight static analyses (e.g., type system and pointer analysis) to prove these must-not-flows. When these analyses are insufficient, the algorithm deduces maximally-general callee models and recursively verifies their soundness, avoiding a full inter-procedural taint analysis in most cases. Since a more precise model requires fewer must-not-flows to be verified, the precision of the LLM's model directly determines the efficiency of our approach. We evaluate our approach on 97 LLM-generated taint flow models for methods in 6 large Go codebases and prove the models sound for 93% of the methods they cover. The proven-sound LLM-generated models are also precise, resulting in no new false-positives when proving taint flow properties.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28750v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Samarth Kishor, Victor Nicolet, Joey Dodds</dc:creator>
+    </item>
+    <item>
+      <title>Category-Based MLM: Unifying Powertypes with Superclasses</title>
+      <link>https://arxiv.org/abs/2609.28810</link>
+      <description>arXiv:2609.28810v1 Announce Type: new 
+Abstract: MultiLevel software Modeling (MLM) suggests that conceptual modeling in broad subject domains might require abstraction of multiple classification levels. The MLM approach relies on philosophical arguments, claiming that faithful modeling of real-world domains involves repeated type classification as in ontologies of natural kinds. MLM leveled architecture is interwoven and defined by instance-of interlevel relationships between clabject classes in lower levels to classes termed category classes, in upper levels. The instance-of relation denotes membership of clabjects as type objects in their (powertypes) category classes, and is not transitive.
+  All MLM approaches support forms of deep characterization, i.e., category classes can influence classes in lower levels. Deep characterization is an essential feature of superclasses and contradicts the non-transitive membership meaning of instance-of.
+  In this paper, we introduce the Category-Based MLM (CatMLM) model, in which category classes have dual superclass and powertype facets, based on the distinction between category features that do not participate in deep characterization, and object features that do. This distinction clarifies the role of levels, provides a clear quantifiable criterion for leveling, and yields a decision rule between the subclass and instance-of relations.
+  The contribution of this paper is to introduce a well-defined MLM model that (1) is based on simple, quantifiable level decisions; (2) clarifies how leveling emerges from domain needs; and (3) analyzes gains and losses of MLM vs. plain OO modeling.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28810v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mira Balaban, Azzam Maraee, Arnon Sturm</dc:creator>
+    </item>
+    <item>
+      <title>Specification-Driven Benchmarking for Automated Program Repair From Static Corpora to Executable Specifications</title>
+      <link>https://arxiv.org/abs/2609.28896</link>
+      <description>arXiv:2609.28896v1 Announce Type: new 
+Abstract: Automated Program Repair (APR) benchmarks have traditionally been constructed as static datasets whose characteristics are inherited from the defects they contain. While this paradigm has enabled decades of progress, finite corpora provide limited experimental control, become increasingly susceptible to contamination as they are reused, and cannot be systematically regenerated or adapted as evaluation requirements evolve. We propose specification-driven benchmarking, a paradigm in which benchmarks are defined by executable specifications and realized through benchmark generation. The specification explicitly declares the intended properties of the benchmark (including program context, fault taxonomy, difficulty, validation strategy, and corpus constraints) while a generation pipeline realizes those requirements through independent generation, validation, and corpus management components. We develop the conceptual foundations of this approach by introducing a taxonomy of benchmark specification dimensions, establishing how each specification dimension maps to deterministic architectural responsibilities, and arguing that independent validation is a structural requirement for trustworthy benchmark generation. An end-to-end example illustrates how specification choices propagate through the pipeline to produce benchmark instances whose properties are independently verifiable. By treating the benchmark as an executable specification rather than a static dataset, the proposed paradigm shifts benchmark construction from artifact curation to declarative experimental design.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28896v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yasser Ebrahim</dc:creator>
+    </item>
+    <item>
+      <title>Automatic Harness Evolution for Hardware Design Verification: Can LLMs Consolidate Gains Across Discovered Harnesses?</title>
+      <link>https://arxiv.org/abs/2609.28908</link>
+      <description>arXiv:2609.28908v1 Announce Type: new 
+Abstract: Agent behavior depends on the harness surrounding a language model, but it remains unclear whether language models can reliably improve such harnesses for hardware-design tasks. We study automatic harness evolution around a fixed subject model on 12 proprietary design-verification root-cause localization tasks. Across five trials per task, automatically evolved harnesses increased completed attempts by 71-76% and any-hit task coverage by 80-100%, while total correct attempts improved by only 18-24%. The strongest success reproducible at least twice result improved by one task, and later candidates exchanged gains across tasks rather than preserving them. An auxiliary candidate improved on a four-task validation set excluded from search but tied its baseline on a subsequent 12-task replay containing both search and validation tasks, so the selected gain did not persist across the full pool. Across the tested lineage, useful search, evidence, and finalization behaviors appeared in different candidates but did not consistently consolidate into a single harness that dominated across tasks and metrics. In a separate CVDP cross-benchmark case study, an automatically evolved defined-width repair harness produced 35.6% more functional passes than its 142-task reference baseline; the final functional verifier scored completed outputs but was not shown to the subject agent during repair. These results support archive-aware selection when evolution yields complementary specializations without consistent consolidation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28908v1</guid>
+      <category>cs.SE</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Kidus Seyoum, Ajay Mittur</dc:creator>
+    </item>
+    <item>
+      <title>Human-AI Collaboration for Multi-Line Task Adjustment Using Local Large Language Models and a Digital Twin</title>
+      <link>https://arxiv.org/abs/2609.29061</link>
+      <description>arXiv:2609.29061v1 Announce Type: new 
+Abstract: Automation systems must adapt to changing tasks, equipment states, and staffing conditions while providing evidence for human review. This study presents a multi-line task-adjustment system integrating a local large language model, a digital twin, and human decision-making. A Propose-Verify-Decide workflow translates operator intent into structured requirements, generates a bounded set of candidate strategies, and checks semantics, simulation execution, and operational constraints. Linked records preserve traceability from requests to verification evidence and decisions. Thirty fixed test records were evaluated using four virtual surgical-instrument sorting lines: 28 assessed the workflow and two assessed model generation. Eighteen workflow cases met expectations; autonomous strategy-workflow success was 3/10, and correct rejection of invalid inputs was 7/8. All four cases that passed preceding checks, produced complete evidence, and reached final engineering review (CP6) passed that review. Together with the correct blocking of strategies that failed throughput constraints, this supports the effectiveness of staged screening and confirmation within the tested setting. Mean placement-validation pass rate across eight simulation evidence records was 97.50%. Mean times to the first reviewable response and simulation verification, excluding startup, were 12.94 and 164.39 s, respectively. Remaining failures involved semantic distortion, incomplete evidence, and missed invalid inputs. The results demonstrate a traceable strategy-review workflow, but do not establish overall reliability or long-term stability. Broader testing and physical evaluation are needed to assess generalizability.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29061v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Teng-Hsien Ko, Chin-Te Lin</dc:creator>
+    </item>
+    <item>
+      <title>Design, development, and preliminary validity and reliability evidence of the Software Engineering Self-Efficacy Scale (SESES)</title>
+      <link>https://arxiv.org/abs/2609.29068</link>
+      <description>arXiv:2609.29068v1 Announce Type: new 
+Abstract: The purpose of this research is to design, develop, implement, and provide preliminary validity and reliability evidence of the Software Engineering Self-Efficacy Scale (SESES). Framed by a conceptual framework using guidance in software engineering curriculum and concepts along with the notion of self-efficacy, we generated an initial item pool of n = 87 items to operationalize and measure software engineering self-efficacy among undergraduate computing students. The conceptual framework traces five dimensions: 1) Requirements Engineering, 2) Teamwork and Collaboration, 3) Software Quality Management, 4) Software Design and Architecture, and 5) Software Agile Methodologies. We pilot tested the SESES with n = 527 undergraduate computing students who had completed a software engineering course in the current semester or a previous academic semester. We employed Exploratory Factor Analysis (EFA) with the Principal Axis Factoring method and an oblique (Promax) rotation to examine the underlying structure of the SESES, resulting in the same five internally consistent latent constructs in the conceptual framework with minimal cross-loading and a simple structure in the pattern matrix, explaining approximately 57% of the variability in these data. Our findings suggest that software engineering self-efficacy is a multidimensional construct of five theorized and correlated, yet distinct latent factors. We unpack the limitations and delimitations of the research while exploring undergraduate computing students' software engineering self-efficacy using necessary domain-specific measurements.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29068v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Albert D. Ritzhaupt, Jhonathan Sora-Cardenas, Priya Ganapathy Prasad, Kai A. Hackney, Neha Rani, Pedro Guillermo Feij\'oo-Garc\'ia</dc:creator>
+    </item>
+    <item>
+      <title>VidTutorAssistant: Automating Responses to Programming Tutorial Questions</title>
+      <link>https://arxiv.org/abs/2609.29129</link>
+      <description>arXiv:2609.29129v1 Announce Type: new 
+Abstract: Programming tutorial videos on YouTube are an important information resource for software developers and students, and their comment sections have evolved into active spaces where viewers ask follow-up questions. The volume of these questions, however, often exceeds what content creators can address, leaving learners without the clarifications they need. We present VidTutorAssistant, a web platform that automates responses to viewer questions on programming video tutorials. VidTutorAssistant implements a retrieval-augmented generation pipeline that extracts a video's transcript, then segments it and embeds it. It then classifies each viewer comment as being a question or non-question, retrieves the most relevant transcript segments to each identified question via cosine similarity, and then generates an answer to the question using an LLM (GPT-4), while grounding the response using the retrieved transcript segments as context. We validate VidTutorAssistant through a study on a subset of 440 user comments selected from a larger dataset of 105,553 comments extracted from 7,522 Python and Java tutorials. VidTutorAssistant is evaluated on various criteria: a) its ability to identify the programming language in a video, achieving a 0.99 accuracy; b) its ability to classify comments into questions and non-questions, reaching a 0.96 accuracy; and c) its ability to produce correct and complete answers to questions, producing 98% correct and 99.5% complete responses, compared with 89% and 90% for the original creators' answers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29129v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3832783.3834599</arxiv:DOI>
+      <dc:creator>Ahmad Tayeb, Sonia Haiduc, Mohammad D. Alahmadi</dc:creator>
+    </item>
+    <item>
+      <title>Orchestrating AI-Assisted Code Remediation: Socio-Technical Bottlenecks in a Large Industrial Repository</title>
+      <link>https://arxiv.org/abs/2609.29172</link>
+      <description>arXiv:2609.29172v1 Announce Type: new 
+Abstract: Background: Code degradation in large, long-lived codebases is costly to remediate through manual refactoring and opportunistic clean-ups. LLM-based coding assistants can perform mechanical remediation at scale, but their impact on industrial workflows is underexplored. Objective: We investigate how massive AI-assisted code remediation affects build-on-commit continuous integration (CI), code review, and team coordination in a large industrial repository, and which socio-technical bottlenecks constrain such remediation when source editing becomes cheap through AI assistance. Method: We report on a 15-day exploratory single-case field study in which an experienced developer used a command-line AI coding buddy to remediate widespread issues in a closed-source industrial C++ repository. We triangulate Gerrit metadata with a developer diary and team chat, analyzed through descriptive statistics and qualitative coding. Results: AI-assisted remediation rapidly generated hundreds of commits touching thousands of lines, saturating CI and reviewer attention. Na\"ive per-file commits overloaded build-on-commit CI; Switching to directory-based batching and capping the number of files per change restored throughput, but still required explicit review solicitation, negotiation of acceptable commit granularity, and iterative follow-up to resolve build and static-analysis failures. Conclusion: When mechanical editing is cheap, CI capacity, review effort, and change orchestration become primary bottlenecks. Sustainable AI-assisted remediation in very large repositories requires deliberate control of commit, review, and CI batch granularity and treating semantic change sets, such as ``fix all instances of warning X'', as first-class units of work that can be sliced differently for developers, reviewers, and CI.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29172v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Andreas Bexell, Lo Gullstrand Heander, Emma s\"oderberg</dc:creator>
+    </item>
+    <item>
+      <title>HistoRAG: A Citation-Grounded Question Answering Assistant for Teaching with Scanned Local History and Heritage Archives</title>
+      <link>https://arxiv.org/abs/2609.29184</link>
+      <description>arXiv:2609.29184v1 Announce Type: new 
+Abstract: Teachers who prepare lessons on local history and cultural heritage work from material that is hard to use. The primary sources are scanned books without a text layer, and the supporting records are administrative catalogs released as spreadsheets. A general chatbot answers such questions fluently but without a verifiable source, which is the property a teacher needs most. This paper presents HistoRAG, a question answering assistant that answers from one regional collection and cites a volume and a page for every fact. HistoRAG transcribes each page with a vision language model and keeps a line level confidence from the token probabilities. It builds three stores from the same collection: a hybrid text index, a relational catalog database, and a knowledge graph extracted only from entity dense passages. A lightweight router sends each question to the stores it needs, so that counting questions reach the database and relational questions reach the graph. We build a benchmark of 516 questions over a collection of 36 scanned volumes and the heritage catalogs of the same region, covering statistical, factual, temporal, and multi-hop questions. HistoRAG answers more questions correctly than passage retrieval baselines and than a graph based retrieval system, at a far smaller cost per question. The assistant runs behind a chat interface, so a teacher can check any statement against the page it came from.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29184v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hongzhou Duan, Zikun Guo</dc:creator>
+    </item>
+    <item>
+      <title>On the Impact of Requirement Smells in LLM-Based Code Generation</title>
+      <link>https://arxiv.org/abs/2609.29208</link>
+      <description>arXiv:2609.29208v1 Announce Type: new 
+Abstract: Software requirements are typically incorporated into prompts used in LLM-assisted software development. Recent work has shown that requirement smells can affect automated traceability between requirements and code, but empirical evidence on their effects in code generation remains limited. To address this gap, we build upon a prior study on automated traceability by reusing its dataset and requirement smell taxonomy, while extending it to evaluate the functional correctness of LLM-generated code. Using a benchmark consisting of requirements and corresponding system tests for four applications, we progressively introduced semantic, syntactic, and lexical smells into otherwise clear requirements and analyzed their influence on generated implementations. Our results suggest that increasing \textit{smell density} was generally associated with lower test-suite-based functional correctness, although non-smelly requirements could still produce faulty code. We also found that different smell categories had similar effects. These findings provide additional empirical evidence of the importance of requirement quality in LLM-assisted code generation, while showing that high-quality requirements alone do not guarantee correctness, as these depends on several factors, including the LLM. Compared with previous work, our results suggest that the impact of requirement smells depends on the software engineering task: whereas their effects on traceability were modest, code generation appears more sensitive. Overall, this work motivates further investigation into task-dependent quality effects in LLM-assisted software engineering.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29208v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hugo Villamizar, Jannik Fischbach, Mert \c{S}ahin, Julian Frattini, Alessio Ferrari, Alexander Korn, Andreas Vogelsang, Daniel Mendez</dc:creator>
+    </item>
+    <item>
+      <title>Model-Based Retargeting to Many-Core CPS: Simulink-to-OpenCL Workflow</title>
+      <link>https://arxiv.org/abs/2609.29311</link>
+      <description>arXiv:2609.29311v1 Announce Type: new 
+Abstract: This paper addresses the software portability gap between Model-Based Development (MBD) and advanced many-core execution for Cyber-Physical Systems (CPS). We present a workflow-preserving retargeting approach for Simulink-based CPS applications with candidate-wise data parallelism to OpenCL-based many-core processors. Rather than manually rewriting models for new platforms, our toolchain uses MathWorks GPU Coder to extract data-parallel CUDA code, which is then translated into OpenCL host and device code via a custom framework. The conversion handles syntax rewriting, API emulation, and platform-specific argument packing. We deployed this workflow for a computationally intensive Frenet-frame trajectory planner on the Kalray MPPA Coolidge2. The results demonstrate the feasibility of a workflow-preserving retargeting pipeline for the evaluated CPS workload and platform.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29311v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1007/978-3-032-36590-3_6</arxiv:DOI>
+      <arxiv:journal_reference>Software Engineering and Advanced Applications (SEAA 2026), LNCS 16863, Springer, 2027, pp. 76-85</arxiv:journal_reference>
+      <dc:creator>Ryuga Chiba, Hiroshi Fujimoto, Takuya Azumi</dc:creator>
+    </item>
+    <item>
+      <title>Demystifying Agent Skills for Smart Contract Auditing: Design, Effectiveness, Behavioral Impact</title>
+      <link>https://arxiv.org/abs/2609.29454</link>
+      <description>arXiv:2609.29454v1 Announce Type: new 
+Abstract: LLM agents, notably Claude Code and OpenAI Codex, are emerging as versatile tools beyond coding agents only. These agents can be enhanced with skills---reusable artifacts that package domain knowledge, workflows, and tool-use instructions. To date, however, little is known about how such skills are designed or how they affect agent effectiveness and behavior in practice. In this paper, we investigate these questions in smart contract security auditing, a domain in which agents have shown substantial promise. We systematically collect 83 smart contract audit skills from the wild and evaluate them on EVMBench across seven agent--model configurations. Our study examines three dimensions: (i) the design characteristics of audit skills, including their structure, knowledge representations, workflows, and tool dependencies; (ii) their effectiveness in improving vulnerability detection; and (iii) their influence on agent execution trajectories. We find that audit skills are mostly lightweight but heterogeneous in design, covering a broad yet imbalanced range of vulnerability types. Their effectiveness is determined primarily by the model rather than the agent harness: Codex/GPT-5.5 achieves the largest gains, improving detection score by 22.8% and captured award by 43.2%. We further find that skill triggering is a key bottleneck. When triggered, skills preserve a shared six-stage audit workflow while exhibiting distinct loading patterns and differential effects on agent behavior across configurations. We release our skill corpus and artifacts to support future research.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29454v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Cuifeng Gao, Juantao Zhong, Jiachi Chen, Shuai Wang, Daoyuan Wu</dc:creator>
+    </item>
+    <item>
+      <title>Judgment-Centred Software Engineering Education: A Post-Hype Review and Framework for AI-Augmented Learning</title>
+      <link>https://arxiv.org/abs/2609.29473</link>
+      <description>arXiv:2609.29473v1 Announce Type: new 
+Abstract: Generative artificial intelligence has moved from a disruptive novelty to a recurring part of software-development and computing-education workflows, while software agents are beginning to act across repositories, command lines, browsers, tests, and other tools. The educational problem is no longer whether students should be allowed to generate code, but whether software-engineering (SE) programs can preserve and assess human understanding while preparing students to work responsibly with increasingly capable AI systems. This paper presents a structured integrative review of research and practice from 2023 through 23 September 2026, supplemented by established work on AI literacy, technical debt, and human-AI collaboration. The evidence supports a conditional conclusion: GenAI can improve access to explanations, feedback, practice, and short-term task completion, but learning outcomes depend on prior knowledge, scaffolding, verification, task design, and assessment. We examine student help-seeking and authorship, faculty assessment and policy demands, and the wider SE risks created when generated artifacts persist across repositories, teams, architectures, and deployed systems. We extend the concept of comprehension debt: the deferred learning and maintenance cost that arises when AI-assisted production outpaces a learner's or team's ability to explain, test, modify, and justify the resulting software. We then refine the AI-Augmented Software Engineering Education (AASEE) framework into five non-linear integration levels and four cross-cutting evidence obligations: explain, verify, modify, and account. The framework links delegation to evidence, governance, and recovery mechanisms appropriate to its consequences.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29473v1</guid>
+      <category>cs.SE</category>
+      <category>cs.CY</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Qusay H. Mahmoud</dc:creator>
+    </item>
+    <item>
+      <title>CodeGraph: Open-Taxonomy Knowledge Graph for Source Code with Wikidata Grounding</title>
+      <link>https://arxiv.org/abs/2609.29474</link>
+      <description>arXiv:2609.29474v1 Announce Type: new 
+Abstract: Public software repositories, like GitHub and Software Heritage Archive, store billions of files, yet extracting their implicit engineering knowledge ---i.e., the algorithms they implement, the paradigms they follow, the patterns they instantiate, and the application domains they serve--- remains challenging, as current tools are constrained to syntactic and token-level analysis. We present a pipeline for building an open-taxonomy semantic annotation of source code using a code-specialised Large Language Model. The extracted entities are grounded in Wikidata through a three-stage linking procedure: a deterministic SPARQL stage handles unambiguous entities, a Deep Research Agent resolves the residual long tail, and a hierarchy-rollup stage imports the parent-of closure of each resolved Wikidata identifier. The resulting annotations are materialised as a source-code-specific open-taxonomy knowledge graph. We further introduce a calibrated quality-assurance protocol that quantifies annotation precision by combining a small human gold set with an LLM-as-a-judge filter. We applied our pipeline to the 167 million files of the Stack-Edu corpus, creating the first known large-scale open-taxonomy knowledge graph for source code. Our graph, named CodeGraph, contains approximately 158 million nodes, which include around 145 million files, about 63,000 extracted concept entities (such as algorithms, paradigms, design patterns, and application domains), and roughly 19,800 grounded Wikidata entities. Furthermore, CodeGraph features approximately 1 billion typed edges that connect files to their respective concepts, link these concepts to their grounded Wikidata identifiers, and relate them to their parent categories, covering 14 programming languages.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29474v1</guid>
+      <category>cs.SE</category>
+      <category>cs.CL</category>
+      <category>cs.IR</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3799682.3840769</arxiv:DOI>
+      <dc:creator>Federico Pennino, Andrea Gurioli, Stefano Zacchiroli, Maurizio Gabbrielli, Paolo Ferragina</dc:creator>
+    </item>
+    <item>
+      <title>Object-to-Source Mapping under Optimization: What a Control-Flow Trace Can Show, and Where Source-Level Coverage Breaks</title>
+      <link>https://arxiv.org/abs/2609.29656</link>
+      <description>arXiv:2609.29656v1 Announce Type: new 
+Abstract: Within a validated interval, control-flow trace can reconstruct machine-level execution, but source-level structural coverage additionally requires a validated attribution from generated instructions and branch outcomes to source obligations. This paper defines that boundary and illustrates it with exact compiler output. Optimization can fuse multiple source conditions into one branch, replace a branch with a conditional select or move, and degrade provenance in debug and mapping information. In such cases, trace may be complete for the generated binary while condition-level source evidence remains unresolved. We therefore separate trace completeness, source attribution, and coverage satisfaction; distinguish source-to-object transformations from object-region attribution states; and explain when internal reconvergence makes aggregate branch observations insufficient and ordered per-instance condition-evaluation histories necessary. We compare measuring a less-optimized build, constraining code generation, and adding state-writing instrumentation. Finally, we describe a pre-compilation supplementation mechanism disclosed in WO 2026/162831 A1 that preserves selected source distinctions as trace-observable control flow without writes to application-resident coverage state. An appendix demonstrates the mechanism end-to-end on real silicon for the worked example: the supplemented -O3 build keeps each condition individually trace-observable, per-instance histories and an MC/DC verdict are reconstructed from a captured ETM trace, and code-size and cycle costs are measured. Its use remains subject to build-specific preservation, final-image mapping, trace-validity, and probe-effect verification.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29656v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Alexander Weiss, Albert Schulz</dc:creator>
+    </item>
+    <item>
+      <title>On the Factors in Quantum Software Quality</title>
+      <link>https://arxiv.org/abs/2609.29705</link>
+      <description>arXiv:2609.29705v1 Announce Type: new 
+Abstract: As quantum computing evolves, the demand for high-quality quantum software is increasing. Classical software quality models, such as McCall's model, provide a useful foundation, but they do not explicitly capture distinctive properties of quantum software, including probabilistic measurement outcomes, backend-dependent behavior, and hybrid quantum-classical workflows. This paper proposes a base quality model for quantum software using McCall's factor-criterion-metric structure as the organizing backbone. It broadens the set of quality factors by drawing on representative classical software quality models and standards and introduces quantum-specific extensions only where needed. We define the resulting factor set and quality criteria, provide a many-to-many mapping of core factor-to-criterion relationships, discuss representative candidate metrics together with the execution, reference, and interpretation conditions needed to use them, and illustrate how the resulting model can be applied across the quantum software lifecycle. The model is intended as a common starting point for structuring, assessing, and communicating quality concerns in quantum software while supporting context-specific adaptation. Further expert feedback, case studies, and empirical studies can be used to evaluate and refine the model and its application across different quantum software contexts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29705v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jianjun Zhao</dc:creator>
+    </item>
+    <item>
+      <title>DSpec2Test: Specification-Driven Test Generation in Dafny</title>
+      <link>https://arxiv.org/abs/2609.29713</link>
+      <description>arXiv:2609.29713v1 Announce Type: new 
+Abstract: Verification-aware languages, such as Dafny, integrate logical constructs into code and enable automatic verification of program correctness. However, tests remain helpful in scenarios that verification alone does not address (e.g., to support test-driven development). Existing Dafny test generation tools are implementation-based, limiting their applicability in this context. We present DSpec2Test, a specification-driven test generation tool for Dafny that automatically derives tests from formal specifications, without considering implementation details. Our tool extends Dafny's generate-tests command with a new blackbox mode based on Disjunctive Normal Form (DNF) equivalence class partitioning and optional Boundary Value Analysis (BVA). DSpec2Test relies on the Z3 SMT solver to synthesize inputs and expected outputs that meet the specification-derived constraints. We evaluate DSpec2Test on programs from DafnyBench mutated using MutDafny and compare it against Dafny's existing implementation-driven Block mode. DSpec2Test achieves a 93.9% mutation kill rate on a dataset of 131 mutants, outperforming Block's 82.4%, and uniquely killing 17 mutants. These results suggest that specification-driven testing is an effective and complementary approach for testing Dafny programs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29713v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sofia Vieira Pinto, \'Alvaro F. Silva, Jo\~ao Pascoal Faria, Alexandra Mendes</dc:creator>
+    </item>
+    <item>
+      <title>Between the Commits: Process, Error, and Claim Reliability in a Wholly AI-Authored Codebase</title>
+      <link>https://arxiv.org/abs/2609.29744</link>
+      <description>arXiv:2609.29744v1 Announce Type: new 
+Abstract: We present: (i) a new dataset consisting of the full development history of a 21,000-line Python tool built entirely by Claude AI, with no human-authored code or tests, (ii) two code-provenance tracing tools, (iii) three taxonomies for instruction intent, commit provenance, and response reliability, (iv) application of these to analyse the dataset. We find that: (i) user coding agent CLI instructions differ in kind from IDE-chat instructions, with a greater focus on comprehension, planning and consultation, (ii) code development is mainly proactive, (iii) 14.3% of AI code-generation events contain a real error later caught by the AI-authored test suite, (iv) roughly 1 in 4-5 of the AI's interactive responses contains one or more factual errors.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29744v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Douglas Leith</dc:creator>
+    </item>
+    <item>
+      <title>SWE-PolyVision: Benchmarking Cross-Image Abductive Reasoning for Repository-Level Software Engineering</title>
+      <link>https://arxiv.org/abs/2609.29754</link>
+      <description>arXiv:2609.29754v1 Announce Type: new 
+Abstract: Current multimodal software-engineering benchmarks expose images as additional context, but do not test whether an agent can integrate evidence distributed across images into a verified repository-level repair. We present SWE-PolyVision, an executable benchmark of 92 real tasks from 36 open-source organizations, with 48 public tasks and 44 private holdouts. The release contains 402 static images and 6 videos, with at least two visual inputs per task. Each task pairs a fixed pre-fix repository with an isolated verifier and is evaluated under the supported conditions among three access modes: Text-only, Native Vision, and Tool-mediated Vision. Across eleven coding models, visual access changes which tasks are solved, but effects depend on both model and task. Two trace-linked Native Vision cases illustrate how complementary visual and textual clues can lead to source-localized, verified repairs; controlled interventions show that this conversion is not yet stable across inputs. SWE-PolyVision thus separates the availability of multi-image evidence from its successful use in repository-level repair, without treating patch success alone as proof of explicit reasoning.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29754v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jiajun Wu, Leixin Sun, Zihan Tan, Yitao Liu, Shuo Li, Jiaru Qian, Shanghaoran Quan, Chuangxin Zhao, Yangxu Liao, Yang Liu, Bin Chong, Guancheng Wan</dc:creator>
+    </item>
+    <item>
+      <title>Formal Model Construction Guided by Model-Based Proof Sketches</title>
+      <link>https://arxiv.org/abs/2609.29870</link>
+      <description>arXiv:2609.29870v1 Announce Type: new 
+Abstract: Formal modeling provides strong guarantees about system correctness, but developing and repairing formal models remains labor-intensive and requires substantial expertise in logic and formal reasoning. Recent LLM-based autoformalization agents seek to reduce this burden by generating candidate formal models and revising them using feedback from formal tools. However, the existing approaches follow a generate-and-repair paradigm, in which repairs are driven by verification failures of the generated model and therefore depend heavily on both the granularity of the feedback and the LLM's repair capability. As a consequence, a repair targeting one level of verification may invalidate properties at another level, which requires reasoning over the complete set of event guards. To address these limitations, we propose Proof-Sketch-Guided Formal Model Synthesis (ProGS), an autoformalization method centered on model-based proof sketches. A model-based proof sketch represents the proof structure of the target formal system as a tree. Internal nodes capture case splits and inductive reasoning steps, while leaf nodes correspond to concrete state-transition events that realize individual subgoals. ProGS uses LLMs to generate and repair these sketches, with verification failures mapped back to specific nodes and subtrees to provide structured guidance for iterative repair. Our evaluation on a benchmark of 27 formal systems shows that ProGS improves over state-of-the-art agentic formal modeling approaches in syntactic validity, deductive verifiability, and behavioral correctness, demonstrating the benefit of organizing formal model construction around hierarchical proof sketches.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29870v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hongshu Wang, Xinyue Zuo, Yufan Cai, Neeraj Kumar Singh, Yamine Ait Ameur, Jin Song Dong</dc:creator>
+    </item>
+    <item>
+      <title>Era by Eon: Benchmarking Enterprise Agents on Hidden Knowledge</title>
+      <link>https://arxiv.org/abs/2609.30055</link>
+      <description>arXiv:2609.30055v1 Announce Type: new 
+Abstract: In the Era by Eon benchmark, each question states the rules for its answer, and code computes the answer from a generated company's data. When agents can run code, the four strongest models each answer 22 to 25 of 27 such questions, so the benchmark barely separates them.
+  We add eight question templates that depend on hidden facts. No question or document states a hidden fact, and the records that seem to hold it show something else. Other data implies it. For example, the sales system says a customer dropped a purchase because of timing. On a recorded call, the customer blames an outage.
+  For each generated company, code fills each template and computes an exact answer without a language model. We evaluate 12 agents. Each pairs a model with an agent program, which connects it to the company's systems.
+  The best agent answers 18 of its 24 attempts, three per question, correctly. Four of the six models answer at most 6 of 24 with any program. The hardest questions require picking one of several similar records, such as which of three renewal offers a customer signed. All agents together answered two such questions correctly in only 1 of 84 attempts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30055v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Benjamin Gruenbaum, Doron Porat, Assaf Natanzon, Roy Zavida, Chen Dinachi, Or Itzahary</dc:creator>
+    </item>
+    <item>
+      <title>Evaluating Agent Skills for Version-Specific Plugin Migration: A Retrospective Study</title>
+      <link>https://arxiv.org/abs/2609.30120</link>
+      <description>arXiv:2609.30120v1 Announce Type: new 
+Abstract: Agent skills package version-specific maintenance knowledge for coding agents, but a higher diagnostic score does not by itself show that the resulting migration advice satisfies the target version's contract. We study a shipped plugin-upgrade skill through an archive of 64 reports on 16 static migration tasks, with two attempts per condition and 328 criterion decisions. With the skill, mean recorded reward rises from 93.83 to 98.75, a gain of 4.92 points (95% task-bootstrap interval [0.31, 10.86]); the gain is concentrated in one task, and eight task pairs are at the ceiling. Tracing every decision to its contract domain and reviewing ten reports in depth exposes grading errors that favor either arm; in one, a containment predicate that accepts the parent directory still receives full credit. Executable probes confirm this defect and show that a working teardown repair is excluded only by a narrower lifecycle rubric. Replacing the reviewed decisions keeps the estimate positive (4.61 to 5.39 points) but moves its interval to or across zero. Re-grading all 64 reports with judges from two other model families, without arm labels or prior scores, agrees with the original judge on 91.8% and 95.7% of decisions (weighted $\kappa=0.64$ and $0.72$) and gives gains of 10.63 and 6.09 points. The study contributes a traceable evaluation that connects aggregate reward to contract-level evidence and judge sensitivity, together with concrete review checks for migration advice. Executable end-to-end repairs, independent human annotation, and other frameworks are left to future work.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30120v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Beiming Liu, Haihao Li, Minjie Chen, Ning Chen, Yiran Wang, Jiming Ye, Puzhao Zhang, Tongtao Wang, Sheng Gao, William Jin, Weihao Mu, Chengzhi Liu, Yucheng Xia, Guangren Wang, Chaoyang Fan, Changfeng Huang, Xunming Lin, Yuanjie Shen</dc:creator>
+    </item>
+    <item>
+      <title>NEUROTESTGEN: Neuro-Symbolic Guided Test Generation with Large Language Models</title>
+      <link>https://arxiv.org/abs/2609.30178</link>
+      <description>arXiv:2609.30178v1 Announce Type: new 
+Abstract: Ensuring high structural coverage remains a fundamental challenge in automated test generation, particularly for complex software systems where reaching specific lines or branches requires satisfying intricate control- and data-flow constraints. Large Language Models (LLMs) have recently demonstrated strong capabilities in producing human-like test cases; however, they often struggle to generate inputs that satisfy precise path conditions. Conversely, symbolic execution can systematically derive such constraints, but it often fails to construct realistic, executable test cases and is constrained by scalability limitations.
+  In this paper, we introduce NEUROTESTGEN, a hybrid approach that integrates symbolic execution with LLM-driven test synthesis to generate test cases targeting on-demand code coverage. Given a set of target statements within a method, NEUROTESTGEN first employs a symbolic analysis engine (i.e., the Z3 SMT solver) to extract path-specific constraints and construct a symbolic guidance specification for the desired coverage goal. This specification is then used to guide an LLM in synthesizing concrete test cases that are both structurally valid and semantically meaningful. For paths involving complex object-related constraints that are difficult for SMT solvers to handle, NEUROTESTGEN leverages LLMs to infer plausible constraints. Furthermore, NEUROTESTGEN incorporates an iterative feedback loop that validates LLM-generated tests and provides corrective guidance until the target line or branch is covered or a limit is reached. Our empirical evaluation on a widely used benchmark demonstrates that NEUROTESTGEN significantly outperforms the state-of-the-art approach across multiple LLMs, including Llama 3.3 70B1, GPT-4o Mini, Claude 3.5 Haiku3, and Claude Sonnet 4.6.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30178v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ruixin Zhang, Jiho Shin, Hung Viet Pham, Song Wang</dc:creator>
+    </item>
+    <item>
+      <title>Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem</title>
+      <link>https://arxiv.org/abs/2609.30216</link>
+      <description>arXiv:2609.30216v1 Announce Type: new 
+Abstract: Jev is a fast, low-cost decision model that answers natural-language questions with choices, binary judgments, and scores. As its public ecosystem grows rapidly, it remains unclear how Jev is used across applications and how public attention relates to project distribution. To answer these questions, we conduct a large-scale, data-driven analysis of 2,170 publicly available Jev projects collected from GitHub as of September 22, 2026. We find rapid early growth in Jev's public ecosystem, with both new projects and integration into existing repositories. Across diverse domains, projects use Jev for multiple decision purposes and combine its interfaces. Attribute judgment and scoring are widely used, while the use of action selection, content filtering, and model and tool selection varies across domains. These patterns suggest that Jev serves as a reusable decision component whose functionality varies with the surrounding workflow. Meanwhile, public attention is concentrated in routing and interface agents and does not track project counts. Our findings provide a quantitative view of Jev's emerging ecosystem and inform the design and evaluation of general-purpose decision models across diverse application contexts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30216v1</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Guoming Ling, Muen Xue, Zijian Ye</dc:creator>
+    </item>
+    <item>
+      <title>Requirement-Bound Verified Commissioning: A Frozen Four-Billion-Parameter Local Model as a Candidate Generator under an External Acceptance Layer with Verification and Release Authority</title>
+      <link>https://arxiv.org/abs/2609.30219</link>
+      <description>arXiv:2609.30219v1 Announce Type: new 
+Abstract: An acceptance protocol is developed for sensor-coordinate and polarity binding in mechatronic commissioning. Candidate generation is separated from release authority. Requirements unsupported by a deterministic parser are routed to a frozen local language model with four billion parameters. Plans are released only when both facts can be derived by an external gate under a sealed grammar. One canonical answer is requested from a gold-standard user when eligible. The protocol was evaluated once under a criterion fixed before benchmark construction, on 144 tasks written by isolated agent contexts without access to the gate, grammar, or experimental plan. Three contributions are established. First, candidate generation and release decisions were measured separately. Fabricated ready plans were committed on 21 of 22 routed unanswerable tasks, and all were rejected. The same 83 releases were reproduced without model calls. Second, no false release was observed among 83 releases. A one-sided 95% Clopper-Pearson upper bound of 0.0354 was obtained as a diagnostic under an independent-and-identically-distributed assumption, below the sealed 5% threshold. However, one false release was subsequently recorded among 146 releases outside the benchmark at seed 0. Third, protection against incorrect user answers was characterized. Both facts were bound from the original text on 13 of 96 answerable tasks. Incorrect answers were released in 169 of 431 pairings on the remaining tasks, including failures involving coordinate exclusion. A deployable questioning policy was not tested because eligibility was determined from the answer key. Gate sensitivity and real user behavior were not measured.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30219v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mehmet Iscan</dc:creator>
+    </item>
+    <item>
+      <title>Drafter: A Python Library for Full-Stack Web Development in CS1</title>
+      <link>https://arxiv.org/abs/2609.28481</link>
+      <description>arXiv:2609.28481v1 Announce Type: cross 
+Abstract: Web applications are increasingly the main way to create user interfaces, and they are often the most common software beginners have encountered. However, web development relies on concepts like HTML, CSS, JavaScript, and backend technologies, which are challenges beyond the scope of an introductory course. Additionally, many features of modern web frameworks conflict with CS1 principles, such as avoiding global mutable state and promoting test-driven development. Consequently, web development is rarely integrated into CS1 courses, despite its motivational potential. This paper introduces Drafter, a new open-source Python library for CS1, enabling students to develop full-stack web applications using pure functions with minimal boilerplate. Drafter has simple functions to generate HTML, eliminating the need to learn HTML or templating languages. The data model scales with students' mastery of types, from primitives to nested lists, Dataclasses, and dictionaries. Drafter supports unit testing of entire web applications and reinforces CS1 concepts like decomposition and reusability. Websites created with Drafter can be deployed through GitHub Pages, with plotting and image manipulation. Students receive extensive debug information, including unit test scaffolding, program state visualization, and enhanced error messages and tests. This paper discusses the pedagogical features and design decisions behind Drafter, along with instructor reflections on its use. We believe Drafter can significantly enhance student engagement in CS1 courses and reinforce key learning objectives.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28481v1</guid>
+      <category>cs.CY</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3641554.3701874</arxiv:DOI>
+      <dc:creator>Austin Cory Bart, Nazim Karaca</dc:creator>
+    </item>
+    <item>
+      <title>Generative AI May Reinforce Social Biases in Software Engineering Education</title>
+      <link>https://arxiv.org/abs/2609.28483</link>
+      <description>arXiv:2609.28483v1 Announce Type: cross 
+Abstract: Generative artificial intelligence (GenAI) is increasingly being deployed across a wide range of real-world applications. Without careful evaluation, reliance on these systems can have unintended consequences, such as reinforcement of stereotypes and amplification of social biases. Such risks are particularly important in educational settings, where early decisions can shape students' interests, opportunities, and career trajectories. In this paper, we investigate how GenAI use by software engineering instructors may inadvertently reinforce software-specific social biases. We focus on two representative tasks: team formation based on student profiles and the generation of visual content for educational materials. Our results reveal significant biases in both tasks. In team formation, factors such as gender and nationality affect role assignments (e.g., women are more likely to be assigned to front-end roles than equally qualified men). In the visual content generation task, models generally produce diverse and balanced representations when depicting groups of individuals. However, when generating images of a single person, the outputs are predominantly male and light-skinned. These findings highlight the persistence of demographic biases in generative models and underscore the need for domain-specific evaluation and mitigation strategies to support their responsible use in educational settings.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28483v1</guid>
+      <category>cs.CY</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Erfan Entezami, Andrew Lan, Madeline Endres</dc:creator>
+    </item>
+    <item>
+      <title>Synthesizing Proofs Using Proof Sharding and Exploration</title>
+      <link>https://arxiv.org/abs/2609.28535</link>
+      <description>arXiv:2609.28535v1 Announce Type: cross 
+Abstract: Distributed systems are hard to implement correctly, and subtle bugs can go undetected using traditional testing. Formal verification offers an alternative for proving the correctness of complex distributed systems. Despite previous efforts to automate and facilitate formal verification, it is still hard to integrate formal verification in software development. Programmers need to query the theorem prover repeatedly to find the correct proof of their system. This cycle of going back and forth with the theorem prover involves a lot of human intervention and is a barrier to adopting formal verification in software development.
+  In this paper, we address the challenges of scaling formal verification in practice by reducing the human intervention required to find the correctness proof of a distributed system. We propose ProofSaX, an automated tool that shards large verification tasks and explores the proof search space for each shard independently to synthesize correctness proofs. We use controlled exploration when adding possible proof annotations to handle the search-space explosion problem. We evaluate ProofSaX on a variety of safety proofs for distributed systems. We show that ProofSaX can find the last proof annotation in 86 out of 103 proof-completion tasks, with runtimes ranging from one minute to two hours.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28535v1</guid>
+      <category>cs.PL</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Seyed Armin Vakil Ghahani, Manos Kapritsos</dc:creator>
+    </item>
+    <item>
+      <title>Who Is Behind the Harness? Fingerprinting LLMs through Agentic Behavior</title>
+      <link>https://arxiv.org/abs/2609.28559</link>
+      <description>arXiv:2609.28559v1 Announce Type: cross 
+Abstract: LLMs increasingly operate through coding-agent harnesses that inspect repositories, invoke tools, and modify files. Substituting the model behind such an agent can therefore change security-relevant decisions, including whether it verifies changes or recovers safely from failures. Existing LLM fingerprints largely infer identity from direct text or token distributions. In coding agents, these signals are mediated by system instructions, controller logic, tools, and execution feedback, limiting their transfer.
+  We present LIDAR (LLM Identification from Decisions and Actions at Runtime), an active black-box fingerprinting method for coding-agent execution. Three coding probe pairs expose post-edit verification, transient-failure recovery, and specification--test conflict resolution under controlled changes. LIDAR represents the resulting trajectories with complementary instance-level and distribution-level features and compares them with clean references using a lightweight probabilistic identifier. It requires no access to model weights, logits, or provider internals.
+  Across 36 models from seven families and two agent harnesses, LIDAR achieves high Top-1 accuracy and MRR and outperforms four existing fingerprinting and API-auditing baselines. Ablations confirm that the two feature levels, all probe pairs, and their controlled variants contribute. These results show that agent execution behavior provides model-identity evidence beyond final outputs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28559v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Chuyi Wang, Xiaohui Xie, Tongze Wang, Fangchen Luo, Yong Cui</dc:creator>
+    </item>
+    <item>
+      <title>Where Cyber Agents Struggle: Bottleneck Analysis of Multi-Stage LLM Agents</title>
+      <link>https://arxiv.org/abs/2609.28572</link>
+      <description>arXiv:2609.28572v1 Announce Type: cross 
+Abstract: Multi-stage LLM-based cyber agents may complete attack workflows while remaining brittle, costly, or reliant on incorrect interpretations of execution evidence. Success rates alone obscure inefficiency, adaptation through retries, and recognition of success or failure. We present an end-to-end diagnostic study of an Autonomous Adversary system with orchestrator, executor, and validator LLMs in enterprise-like lateral-movement scenarios. Six frontier models are evaluated across two scenarios and three modes: expert-defined, self-scaffolded, and fully autonomous. We assess validator consistency and evidence grounding; introduce a subtask-conditioned, cost-aware score for abnormal token use, retries, and runtime; and use comparative LLM-as-a-Judge analysis to identify planning deficiencies, including tool misalignment, plan similarity, over-specification, inadequate probing, and weak recovery. Validators are generally relevant and evidence-grounded but often nonspecific and overly optimistic. Bottlenecks cluster in credential and lateral-movement tasks, spread with scenario complexity, and vary more under full autonomy. Reliable evaluation must assess outcomes, evidence interpretation, resource use, and adaptation after failure.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28572v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Saeedeh Lohrasbi, Mohammad Mamun, Ahmed Yehia, Scott Buffett, Sherif Saad</dc:creator>
+    </item>
+    <item>
+      <title>Time-Series Foundation Models That Understand Data Revisions</title>
+      <link>https://arxiv.org/abs/2609.28576</link>
+      <description>arXiv:2609.28576v1 Announce Type: cross 
+Abstract: Historical observations are not always fixed: statistical agencies revise previously published values as new evidence arrives. Forecasting from a contemporary download can therefore expose a model to information unavailable at the date it purportedly made a prediction. We propose VINTAGE-TS, a revision-aware adaptation of a time-series foundation model that distinguishes observation time from information-availability time. Its targets are the next period's first-published value and the value available a fixed number of days after that publication; neither is declared final truth. A joint predictive distribution preserves dependence between these targets and exposes uncertainty about their difference. We specify an ALFRED-based rolling evaluation, a matched Chronos-2 comparison, conventional and revision-aware baselines, and a separate audit of pretraining overlap. The accompanying software implements validity-interval reconstruction, delayed-label filtering, a frozen-backbone adapter interface, and reproducible diagnostics. An executed synthetic demonstration and a 25-configuration sensitivity suite verify the workflow, expose variation across seeds and revision regimes, and illustrate how hindsight contamination changes measured performance. Thirty one automated tests check temporal and integration contracts. Real ALFRED and Chronos-2 experiments have not been executed; no empirical foundation-model advantage is claimed.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28576v1</guid>
+      <category>cs.LG</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Taimoor Ahmad</dc:creator>
+    </item>
+    <item>
+      <title>Agent Approval Laundering: Transitive Effects Beyond the Approved Invocation</title>
+      <link>https://arxiv.org/abs/2609.28586</link>
+      <description>arXiv:2609.28586v1 Announce Type: cross 
+Abstract: Coding-agent approval interfaces bind a human decision to a command or tool call, while developer tools execute the transitive workflow that invocation activates. Package installation can run lifecycle hooks and write files; an MCP call can exercise network authority. We call the resulting record-coverage failure approval laundering: the durable record names the entry invocation but omits effects exercised by its workflow.
+  We present the first systematic security analysis of this record-to-closure relation in agent systems. We formalize closure-bound approval over six effect classes and derive an information limit: identical policy-visible fields can require different effect-specific decisions, so no record-only policy can guarantee both. The Approval-to-Action Security Benchmark binds approval objects and decision-time metadata to post-execution evidence.
+  Across 111 fixed approval-object/trace pairs, residual records fall from 40 under explicit fields to 17 with command semantics and 13 with decision-time metadata. Across 11 fixed-SHA executions, the ladder reaches zero metadata residuals; two exact mappings recur across three product frontends. For prospective recovery, effect-bound records commit frozen, source-backed predictions and provenance before authorization. On 17 prespecified holdout workflows, predictions achieve 0.926 macro recall and 0.941 macro precision; binding them cuts residual effects from 10 to 3. A Claude Code PreToolUse integration carries the frozen record through the permission path without automatic approval. These results establish approval laundering as a measurable, recurrent record-coverage failure despite truthful invocation identity. They motivate binding each invocation before authorization to a source-backed prediction of its workflow's transitive effect boundary and preserving that binding with the decision.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28586v1</guid>
+      <category>cs.CR</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jinqian Zhang (Institute of Information Engineering, Chinese Academy of Sciences, School of Cyber Security, University of Chinese Academy of Sciences), Haojun Xia (Institute of Information Engineering, Chinese Academy of Sciences, School of Cyber Security, University of Chinese Academy of Sciences), Shujiang Wu (Beihang University), Jingkun Yue (State Key Laboratory of Networking and Switching Technology, Beijing University of Posts and Telecommunications), Xia Zhang (Institute of Information Engineering, Chinese Academy of Sciences, School of Cyber Security, University of Chinese Academy of Sciences), Zhangpei Cheng (Institute of Information Engineering, Chinese Academy of Sciences, School of Cyber Security, University of Chinese Academy of Sciences), Bibo Tu (Institute of Information Engineering, Chinese Academy of Sciences, School of Cyber Security, University of Chinese Academy of Sciences)</dc:creator>
+    </item>
+    <item>
+      <title>CONCURDEP: Event-Guided Analysis of Dependency Invalidation in CPython Concurrency</title>
+      <link>https://arxiv.org/abs/2609.28608</link>
+      <description>arXiv:2609.28608v1 Announce Type: cross 
+Abstract: Removing CPython's Global Interpreter Lock (GIL) exposes native code to concurrency absent from ordinary C types. Mutation or re-entry can revoke a borrowed object, storage pointer, traversal state, or lease between acquisition and use while its owner remains alive, causing native memory errors and runtime-state corruption. Race analyses track conflicting accesses. Python/C lifecycle analyses track individual object states. These reporting units leave implicit owner-subject-storage relations disconnected from later uses under parallel and re-entrant events. We present CONCURDEP, a source-level static analysis of dependency invalidation. Its key insight is to represent the runtime property a native use requires and ask which target-matched event can revoke it within the dependency's live region. CONCURDEP recovers runtime-semantic dependencies, connects them to events through an event-aware native concurrency dependency graph, and applies property-specific state and protection transfers through a shared engine and six mechanism plugins. CONCURDEP correctly classifies all 180 matched semantic-conformance cases and analyzes each of three production CPython releases with five-run medians of 22.13-27.66 seconds and 670-784 MiB peak resident memory. Source auditing confirms 1,094 of 4,273 unique production fingerprints (25.60% confirmation yield). Removing derived relation recovery loses 25-44 represented roots per release; removing cross-entry events loses 73-94. The study identifies 144 distinct bugs across free-threaded and conventional-GIL builds, including 95 previously unreported in public sources. These results show that explicit dependency, event, and property semantics expose consequential runtime failures across API boundaries and execution modes at release scale.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28608v1</guid>
+      <category>cs.CR</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Baihong Chen (Utah State University), Hadley Westover (Utah State University), Wen Li (Utah State University)</dc:creator>
+    </item>
+    <item>
+      <title>Towards a Platform for Mastering Personal Sovereignty</title>
+      <link>https://arxiv.org/abs/2609.28736</link>
+      <description>arXiv:2609.28736v1 Announce Type: cross 
+Abstract: The ongoing digital transformation of work, administration, health, mobility, and social interaction is profoundly reshaping everyday life, steadily shifting control from individuals to large platform providers. Although data is often labeled the "gold of the 21st century", its real value is realized through services that access, combine, and exploit it. Today, individuals have little sovereignty: life events (e.g., changing an address, insurance, job, or marital status) require fragmented, repetitive interactions across numerous systems, leaving users overwhelmed rather than empowered. We argue for a fundamental rethinking of this situation and propose a virtual, trustworthy platform, called "MyVirtualME" that acts on behalf of the human individual towards companies, administrations, and other actors. This platform centers services, data, permissions, and data usage around humans, not foreign actors, allowing genuine control and transparency. Our vision goes beyond a pure data focus: supported by trusted services ranging from basic notifications to intelligent assistants, MyVirtualME aims to reduce digital bureaucracy, improve and even automate interactions, and support informed oversight of an individual's health, financial, and administrative situation. We firmly believe that a human-centered MyVirtualME is essential for restoring personal sovereignty in our digital future.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28736v1</guid>
+      <category>cs.CY</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Judith Michael, Bernhard Rumpe, Antonio Bucchiarone, Dominik Bork</dc:creator>
+    </item>
+    <item>
+      <title>Pack Iteration in Swift: Ordinary Control Flow for Variadic Generics</title>
+      <link>https://arxiv.org/abs/2609.28822</link>
+      <description>arXiv:2609.28822v1 Announce Type: cross 
+Abstract: Variadic generics are a powerful tool for type-safe meta-programming. Yet in most widely used languages, they remain an "expert-only" feature due to their reliance on complex patterns such as recursive decomposition or expansion expressions that do not compose naturally with ordinary control flow. In C++, for example, accessing elements of parameter packs has traditionally relied on unintuitive recursive patterns that "peel off" elements.
+  This paper presents Pack Iteration, a feature introduced in Swift 6.0 that allows developers to iterate over parameter packs using a familiar, imperative for-in loop. By treating pack expansion as a first-class source for iteration, Swift bridges the gap between high-level expressiveness and advanced generic programming.
+  We detail the design and implementation of this feature within the Swift compiler, focusing on the challenges of bridging static type-checking in the constraint system with dynamic execution in the Swift Intermediate Language. Unlike traditional models that expand packs at compile time, Swift's implementation supports on-demand evaluation, enabling efficient dynamic iteration and short-circuiting control flow. Our empirical evaluation confirms that pack iteration provides performance comparable to - and sometimes significantly better than - the complex workarounds previously required.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28822v1</guid>
+      <category>cs.PL</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Serafima Nerush, Eitan Frachtenberg</dc:creator>
+    </item>
+    <item>
+      <title>RECLAIM: Can Agents Reproduce the Claims of Machine Learning Papers?</title>
+      <link>https://arxiv.org/abs/2609.28850</link>
+      <description>arXiv:2609.28850v1 Announce Type: cross 
+Abstract: Reproducing a machine learning paper involves most research steps, from installing software and debugging to running experiments, work that AI agents increasingly do. We introduce RECLAIM, a benchmark of 100 NeurIPS 2025 papers that can be rebuilt yearly from new conferences. For each paper we fix in advance the result to reproduce, what counts as a successful reproduction, and a GPU-hour budget. An agent must reproduce that result using the paper and whatever its authors released. What the authors released decides the difficulty tier. Run-tier releases include code, data, and weights; Retrain-tier releases lack weights, so the agent trains the model; Reimplement-tier releases lack code, so the agent writes it. A separate language model grades runs from logs and outputs rather than agents' reports. We run four agents once per paper; the best agent in each tier reproduces only 41% of Run-tier papers, 27% at Retrain, and 15% at Reimplement, where every agent does worst. Failed attempts use on average 29% of their budget, so most stop with budget left. The most common agent error is writing the method without checking any part against the paper's numbers, in 63 of 400 runs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28850v1</guid>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mithil Salunkhe, Haochen Ding, Samridhi Verma, Volodymyr Kindratenko</dc:creator>
+    </item>
+    <item>
+      <title>pytest-gpu-proof: Enabling Cloud-CPU Continuous Integration for GPU Code with Local GPU Attestation</title>
+      <link>https://arxiv.org/abs/2609.28862</link>
+      <description>arXiv:2609.28862v1 Announce Type: cross 
+Abstract: GPU acceleration is now routine across robotics, but cloud-hosted GPU continuous integration (CI) runners are expensive, resulting in severe under-testing of GPU-accelerated code. We present pytest-gpu-proof, an open-source pytest plugin offering a practical middle ground. Tests can be run on a local machine, signed with a receipt of exactly what ran and what it produced, and integrated into standard CPU CI workflows (e.g., GitHub Actions). The tool is open source and on PyPI, and we are actively integrating it across our lab's software stack.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28862v1</guid>
+      <category>cs.DC</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Brian Plancher</dc:creator>
+    </item>
+    <item>
+      <title>Calibrated Decision Models for Autonomous Penetration-Testing Harnesses: JEV and Laya as System One Decision Layers for LLM-Driven Pentest Agents</title>
+      <link>https://arxiv.org/abs/2609.28940</link>
+      <description>arXiv:2609.28940v1 Announce Type: cross 
+Abstract: Autonomous penetration-testing harnesses use large language models (LLMs) for reconnaissance, exploitation, and reporting, but often rely on those same models to confirm findings, grade severity, and select agents. This can lead to false positives, inflated severity, and wasted compute. We examine how System One decision models, lightweight non-generative classifiers that return typed, calibrated verdicts, can support these decisions. We make five contributions. First, we define four decision points: finding adjudication, severity recalibration, agent pruning, and confirmation loops. Second, we present an exploratory NeuroSploit case study comparing one run with TypeSafe System One (Jev) and one without it against a web target containing 13 vulnerabilities. Differences in severity distribution, runtime, and grading by exposed data type motivate the architecture but do not establish statistical significance. Third, we review published specifications for Jev, Jev-Ultrafast, and the open-source Laya without assuming that results from other benchmarks transfer to penetration testing. Fourth, we discuss RLHF, RLAIF, RLCD, and RLHV as training approaches and their implications for trust in security decisions. Finally, we propose Rave, a domain-adapted System One model, and outline its training data, evaluation protocol, and potential effect on harness assurance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28940v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Joas Antonio dos Santos Barbosa</dc:creator>
+    </item>
+    <item>
+      <title>Where Does Exactly-Once Live? Model, Harness, and Tool-Contract Effects on Duplicate Side Effects in LLM Agents</title>
+      <link>https://arxiv.org/abs/2609.29095</link>
+      <description>arXiv:2609.29095v1 Announce Type: cross 
+Abstract: When a tool-using agent's write times out or returns a server error, the action may already have taken effect. Retrying blindly duplicates it -- a second charge, a second announcement, a second deployment -- while giving up skips required work. We ask where exactly-once behaviour should be enforced: in the model, in the agent harness, or in the tool contract. We introduce LIMBO, a deterministic sandbox of six services with realistic contracts (optional idempotency keys, eventually consistent and missing read paths) and twelve fault modes injected at the service boundary, including late commits, redelivery and partial batches; every episode is graded against a ledger of committed effects. Across 25,930 episodes spanning nine recent models, three production agent harnesses, two contract variants and fifteen recovery conditions, the answer depends on the fault. When an immediate read-back can reveal what happened, the model decides: frontier models instructed to act exactly once almost never duplicate a write whose acknowledgement was lost (0.5%), weaker models often do, and the model explains 53% of the explained variance. When it cannot -- the request is still in flight, or the transport delivered it twice -- the same frontier models duplicate in 56% and 74% of episodes, and the contract explains 81%. We prove that no verification-only policy is exactly-once under late commits without a bound on in-flight time. Waiting works when such a bound is short and known, but with heavy-tailed in-flight delays even an hour of waiting per episode falls short of offering an idempotency key on every write, which lowers the duplicate rate from 28% to 4% because agents use keys when they exist. The harness barely matters, a guard that attaches keys transfers across harnesses unchanged, and agents reported success in 90% of the episodes in which they had duplicated an effect.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29095v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jiapeng Li</dc:creator>
+    </item>
+    <item>
+      <title>The Last Human Gate: Forward Deployed Engineering for Governance Automation</title>
+      <link>https://arxiv.org/abs/2609.29345</link>
+      <description>arXiv:2609.29345v1 Announce Type: cross 
+Abstract: Enterprise governance requires decisions, evidence, and accountable authority; it does not require every review task to retain its current human implementation. We develop a task-substitution framework for Digital Governance Frameworks (DGF), treating each gate as an executable contract. Substitution requires sufficient accessible information, valid decision and authority checks, and a reduction in total human work after exceptions, verification, correction, and maintenance are counted. We derive a residual-work threshold and show why automating most cases can still increase labor. Forward deployed engineering connects these conditions to an architecture for agents, rule engines, evidence services, and escalation. DGF-Bench supplies controlled evidence from 300 synthetic projects and 899 evaluable model-project runs. Gemini 3.8 Flash, GPT-5.6 Luna, and DeepSeek v4.1 Flash achieve strict gate success of 94.98%, 83.29%, and 74.18%; complete-route success is 76.92%, 42.33%, and 24.67%. A deterministic control passes all 1,700 gates given the supplied rules and structured facts, locating the comparison in execution of a supplied decision kernel. Evidence audits and 135 repeated runs distinguish correct decisions from reliable execution. A document counterexample establishes an information-sufficiency obstruction. These results support the technical feasibility of replacing human execution of specified governance-review tasks with agents and software. The framework specifies a workforce test based on the complete human effort required at fixed output and quality; the present measurements concern review performance. Sources, dossiers, traces, and analyses are public.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29345v1</guid>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jeremy Canale</dc:creator>
+    </item>
+    <item>
+      <title>Large Language Models for Programming: Actually Fixing or Reimplementing Incorrect Code?</title>
+      <link>https://arxiv.org/abs/2609.29410</link>
+      <description>arXiv:2609.29410v1 Announce Type: cross 
+Abstract: Recent studies have shown that Large Language Models can effectively solve problems and fix bugs in diverse programming environments, including competitive programming. Existing approaches primarily evaluate LLM performance in problem solving or bug fixing independently, but do not explore the relationship between these two capabilities. This work focuses on determining how much the LLM deviates from a buggy solution to fix the bug compared to a human-written patch, and if there is a bias towards generating entirely new solutions. We construct a dataset with all the submissions ($\sim$ 3000) from a couple of users from Codeforces, and we match each buggy submission with its corresponding human fix. By using the similarity between the buggy solution and the human fix as a baseline, we evaluate the quality of LLM-generated bug fixes on 3 OpenAI GPT models (gpt-5-nano, gpt-5-mini, gpt-5.1). We check if the generated solutions solve the problem by using the Codeforces-R1 dataset, an openly available dataset that has tests generated with the DeepSeek-R1 model. Our findings suggest that LLMs tend to modify more lines than necessary compared to human fixes and, in some cases, generate entirely new solutions. We also observe that LLMs solve more problems correctly when allowed to generate solutions from scratch rather than patch buggy submissions, even when those submissions are close to the human patch. This has important implications for the design of AI-assisted programming tools, particularly in supporting user debugging processes and promoting incremental problem-solving strategies rather than solution replacement.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29410v1</guid>
+      <category>cs.CL</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Alexandru Stefan Stoica, Traian Rebedea, Marian Cristian Mihaescu</dc:creator>
+    </item>
+    <item>
+      <title>SWE-Prometheus: Measuring Engineering Governance Improvements in Real-World Repositories</title>
+      <link>https://arxiv.org/abs/2609.29465</link>
+      <description>arXiv:2609.29465v1 Announce Type: cross 
+Abstract: Large language model based coding agents have made substantial progress on repository-level software engineering tasks. Existing repository benchmarks, however, usually start from a human-identified issue and evaluate whether a patch satisfies a functional signal. We present SWE-Prometheus, a benchmark for the broader task of improving repository engineering governance. Each task provides a fixed snapshot and an open-ended objective, requiring the agent to identify risks, prioritize interventions, and verify the resulting changes. SWE-Prometheus evaluates six governance dimensions through paired evidence, clean-environment probes, behavior gates, and two independent teacher ratings of the same evidence. The benchmark contains 60 repositories; ten models are evaluated on a shared 22-repository public subset, where mean Normalized Governance Improvement ranges from 0.0568 to 0.5760 and observed behavior-breakage rates range from 0% to 23%. On a frozen ten-repository batch, a repository-blind template obtains mean NGI 0.272, but its gains concentrate in Tests &amp; CI, Quality Gates, and Documentation; it improves Reproducible Environment and Dependency &amp; Security on none of the repositories. This baseline makes the distinction between adding governance artifacts and producing execution-backed improvements measurable. The no-op condition has median NGI zero and standard deviation 0.073; two teachers agree exactly on 57 of 60 dimension scores for the same no-op evidence. For the two highest conditional-mean systems, common-valid NGI is similar, while full-pool comparisons that include behavior failures favor Kimi-K3. These results show why repository-governance evaluation should report improvement, behavior preservation, evidence quality, and coverage together.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29465v1</guid>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jiajun Wu, Leixin Sun, Zihan Tan, Yitao Liu, Shuo Li, Jiaru Qian, Shanghaoran Quan, Chuangxin Zhao, Yangxu Liao, Yang Liu, Bin Chong, Guancheng Wan</dc:creator>
+    </item>
+    <item>
+      <title>iCoder-27B: Recursive AI-Led Development of Frontier Industrial Coding Model</title>
+      <link>https://arxiv.org/abs/2609.29626</link>
+      <description>arXiv:2609.29626v1 Announce Type: cross 
+Abstract: Recursive AI, the prospect of AI taking an increasingly complete role in building and improving AI, is a crown jewel of AI for AI. Although recursive self-development has become practical for small models, bounded tasks, and fixed time budgets, a more consequential realization of this ambition, i.e., developing a release-ready, frontier-competitive model, remains far more challenging. In this work, we ask how little human involvement is sufficient for an agent to develop a frontier model. We concentrate human input into a high-density, low-frequency interface: experts encode objectives, stage scaffolds, permission boundaries, and operating procedures as reusable research skills, while the agent instantiates these priors, selects experiments, diagnoses outcomes, and revises the training strategy. In the challenging domain of industrial coding, the agent evolves data and coordinates SFT, on-policy self-distillation, and reinforcement learning with verifiable rewards, ultimately producing iCoder, a 27B model for RTL design and GPU kernel optimization. Across seven benchmarks, iCoder leads RTLLM, outperforming GPT-5.5 and Claude-Opus-4.8; ranks second on CVDP and KernelBench L2, exceeding GPT-5.5 by 16 points; and ties Claude-Opus-4.8 for the best TritonBench result. Exploratory case studies further show iCoder's competitive iterative RTL and GPU-kernel optimization with substantially fewer tokens. These results chart an engineering path toward recursive self-improvement, in which humans distill the principles of model building, agents operationalize them through evidence-driven experimentation, and each generation of AI becomes a more capable architect of the next.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29626v1</guid>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Cheng Yang, Jiayang Lyu, Shangyuan Liu, Guibin Zhang, Jiong Lin, Xinlei Yu, Junchi Yan, Shuicheng Yan, Weinan E, Linfeng Zhang, Linfeng Zhang, Qibing Ren</dc:creator>
+    </item>
+    <item>
+      <title>Operator Packages, Proposer Strength, and Construction-Family Plateaus in Office-Scale Verified Search</title>
+      <link>https://arxiv.org/abs/2609.29636</link>
+      <description>arXiv:2609.29636v1 Announce Type: cross 
+Abstract: Verified search, in which a language model proposes programs, a hard evaluator scores them, and selection keeps the best, has recently moved mathematical records; controlled ablations of the proposer-side components remain rare. We instrument a minimal FunSearch-style loop at office scale (a 30B local model on a laptop, 120-600 verified samples per run) with three operator packages: a schematic notebook the model writes and carries instead of verbatim elites, a named obstacle, and behavioural repulsion from constructions already found. On nine construction problems from a public repository, the complete 2^3 factorial with two replicates favours the primary contrast in a nominal two-stage analysis: the composition closes more of the seed-to-record gap (+0.196; nominal pooled p=0.023, stage-combination p~0.08; median per-problem effect +0.045). Repulsion raises construction-hash diversity everywhere (p=0.0039; partly a manipulation check). The factorial finds no positive memory-by-repulsion interaction (bounded to about +/-0.04); the gain decomposes additively, and memory+repulsion is the only arm that never collapses (0 of 18 runs), within 0.025 of the full composition. A frontier proposer under the identical loop reaches in tens of samples what the local model does not in hundreds; in single scoping runs its gains arrive without the operators. The search stalls after closing ~92% of the gap on the flagship problem, and the registered family-hint test gives the stall its first reading: named in words, the reference family is adopted and loses; handed as code, it is optimized, but our best finite-grid implementation remains below the plateau reached unaided. The loop transported and optimized the idea it was handed; no unaided run produced it. We release the harness, every candidate, and the dated pre-registrations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29636v1</guid>
+      <category>cs.CL</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Roberto I. Ono Filho</dc:creator>
+    </item>
+    <item>
+      <title>Automated Abstraction Refinement for Information Flow Security in Embedded Systems</title>
+      <link>https://arxiv.org/abs/2609.29645</link>
+      <description>arXiv:2609.29645v1 Announce Type: cross 
+Abstract: Information flow analysis (IFA) is a powerful technique for verifying confidentiality and integrity and is therefore highly desirable for security-sensitive embedded systems. However, as these systems are inherently concurrent and time-dependent, existing IFA for embedded systems tend to be either imprecise or expensive. In this paper, we propose an approach to tackle this problem using automatic abstraction refinement. The key idea is to heuristically choose abstraction levels based on information about dependencies between states and detected potential information leakage. Our approach builds on previous work, where we leverage symbolic execution to precisely capture data, control, timing, and event dependencies between processes within an IFA. To capture values symbolically, this analysis uses abstract interpretation. While the existing approach requires manual definition of abstraction levels, our novel contribution in this paper is using carefully designed heuristics to select these levels automatically. The aim is to keep analysis times acceptable while also retaining enough information to decide whether or not illegal information flow is possible. We have implemented our approach for the system design language SystemC and demonstrate its feasibility with experimental results on several shared bus architectures.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29645v1</guid>
+      <category>cs.CR</category>
+      <category>cs.PL</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jonas Becker-Kupczok, Lukas Ernst, Paula Herber</dc:creator>
+    </item>
+    <item>
+      <title>A Lightweight Ethereum Voting Prototype for Hospital Ethics Committees with Receipt-Based Inclusion Verification</title>
+      <link>https://arxiv.org/abs/2609.29981</link>
+      <description>arXiv:2609.29981v1 Announce Type: cross 
+Abstract: This paper presents a Solidity, Hardhat, React, MetaMask, and ethers.js prototype for hospital ethics committee voting. Role controls, case-state checks, duplicate vote controls, and a receipt hash support public audit and transaction inclusion verification. Because vote events expose wallet addresses and vote values, the design provides pseudonymous auditability, not anonymous or secret-ballot voting; the receipt is neither receipt-free nor coercion-resistant. Evaluation reports 22 passing functional tests and local Hardhat gas use, including 284,137 gas per vote. A 12-participant simulation used assumed probabilities and is not human-subject evidence. Residual risks include multiple wallets, administrator or frontend compromise, credential reassignment, front-running, denial of service, and untested adversarial paths. Confidential deployment requires governed enrollment, encrypted ballots, independent audit, adversarial testing, reproducible benchmarks, and a real user study.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.29981v1</guid>
+      <category>cs.CR</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Edwin Clatus, Madhusudan Singh</dc:creator>
+    </item>
+    <item>
+      <title>Style, Not Self: Surface Cues Explain Zero-Shot Code Attribution by Large Language Models</title>
+      <link>https://arxiv.org/abs/2609.30048</link>
+      <description>arXiv:2609.30048v1 Announce Type: cross 
+Abstract: If a language model can recognize code it wrote, it may favor that code as a judge, and instances of one model monitoring each other could collude. We test this zero-shot on current commercial models. Five LLMs generate solutions to MBPP, HumanEval, and DS-1000, seven more to MBPP, and models act as evaluators in four tasks: picking their own solution from a pair, judging whether a single solution is their own, identifying which of two solutions a named model wrote, and judging quality blind. In the single-solution task, balanced accuracy is 49-58% for all 15 model-benchmark combinations, while raw accuracy (38-67%) mostly reflects how readily a model claims authorship. In the pairwise task, accuracy across 14 evaluator-opponent combinations correlates at r=0.93 with how often the evaluator's solution is longer. Attribution to a named model succeeds on some pairs and is consistently inverted on others. A rule-based normalization that strips docstrings, comments, type hints, and local names preserves Pass@1 and leaves ten of twelve re-tested results at chance; the other two follow a length difference it leaves, although a trained classifier still separates most normalized pairs. Claude Haiku's self-preference also disappears. We recommend reporting balanced accuracy, heuristic baselines, and label consistency.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30048v1</guid>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ehsan Barkhordar, Surendrabikram Thapa</dc:creator>
+    </item>
+    <item>
+      <title>Jev-Mobile: Jev as an Executor for Mobile GUI Agents</title>
+      <link>https://arxiv.org/abs/2609.30186</link>
+      <description>arXiv:2609.30186v1 Announce Type: cross 
+Abstract: Vision-language models (VLMs) have become a common foundation for autonomous mobile GUI agents, but most existing systems rely on the VLM for both planning and action grounding at nearly every interaction step, leading to substantial latency and model-serving cost. We introduce Jev-Mobile, which shifts this paradigm to low-frequency VLM planning and high-frequency lightweight execution: the VLM specifies local goals, the accessibility tree defines a structured executable action space, and Jev, a fast typed decision model, repeatedly selects actions within this space. This design allows multiple GUI actions to be executed under a single VLM decision, reducing expensive VLM inference while preserving adaptive interaction. On the full AndroidWorld task suite, Jev-Mobile achieves 79% task success, compared with 78% for SeeAct-V and 84% for a Step-wise VLM baseline. Among successful trajectories, it reduces mean end-to-end execution time by 32.7% and mean model API cost by 73.4% relative to Step-wise VLM. These results show that decoupling high-level VLM reasoning from low-level action execution can substantially improve mobile GUI agent efficiency while maintaining competitive task performance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30186v1</guid>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/publicdomain/zero/1.0/</dc:rights>
+      <dc:creator>Linghua Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Search-Based Software Engineering and AI Foundation Models: Current Landscape and Future Roadmap</title>
+      <link>https://arxiv.org/abs/2505.19625</link>
+      <description>arXiv:2505.19625v4 Announce Type: replace 
+Abstract: Search-based software engineering (SBSE), which integrates metaheuristic search techniques with software engineering, has been an active area of research for about 25 years. It has been applied to solve numerous problems across the entire software engineering lifecycle and has demonstrated its versatility in multiple domains. With recent advances in Artificial Intelligence (AI), particularly the emergence of foundation models (FMs) such as large language models (LLMs), the evolution of SBSE alongside these models remains undetermined. In this window of opportunity, we present a research roadmap that articulates the current landscape of SBSE in relation to FMs, identifies open challenges, and outlines potential research directions to advance SBSE through its synergy with FMs. Specifically, we analyze three core aspects: utilizing FMs to enhance SBSE, applying SBSE to advance FMs, and exploring the integration of SBSE and FMs. Furthermore, we present a forward-thinking perspective that envisions the future of SBSE in the era of FMs, highlighting promising research opportunities to address challenges in emerging domains.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.19625v4</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hassan Sartaj, Shaukat Ali, Paolo Arcaini, Andrea Arcuri</dc:creator>
+    </item>
+    <item>
+      <title>QMon: Monitoring the Execution of Quantum Circuits with Mid-Circuit Measurement and Reset</title>
+      <link>https://arxiv.org/abs/2512.13422</link>
+      <description>arXiv:2512.13422v2 Announce Type: replace 
+Abstract: Unlike classical software, where logging and runtime tracing can effectively reveal internal execution status, quantum circuits possess unique properties, such as the no-cloning theorem and measurement-induced collapse, that prevent direct observation or duplication of their states. These characteristics make it especially challenging to monitor the execution of quantum circuits, complicating essential tasks such as debugging and runtime monitoring. This paper presents QMon, a practical methodology that leverages mid-circuit measurements, reset operations, and causal-cone replay to monitor selected intermediate values of quantum circuits while preserving their original runtime behavior under explicit conditions. QMon enables the instrumentation of monitoring operators at selected locations within the circuit, allowing comparisons between expected and observed one-qubit outcome probabilities at those locations. Under an ideal noise-free model, we prove that QMon preserves the full circuit state when the monitored qubit is separable, replay is exact, and the measurement record does not control later operations. Across 310 benchmark circuits with a 24-qubit limit per run, QMon monitors 44.54% of gate-qubit locations and 89.75% of circuit qubits at least once, on average. On 2,860 simulated buggy circuits (mutated circuits that alter final outputs), it achieves a detection rate of 62.4%, remaining competitive with three assertion baselines while requiring a median of one planned run per circuit, compared with 21 for the assertion baselines. By collecting multiple checkpoint observations within continued executions, QMon combines practical efficiency with an exact preservation guarantee under explicit conditions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.13422v2</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ning Ma, Jianjun Zhao, Foutse Khomh, Shaukat Ali, Heng Li</dc:creator>
+    </item>
+    <item>
+      <title>Self-Evolving Coding Agents</title>
+      <link>https://arxiv.org/abs/2608.03392</link>
+      <description>arXiv:2608.03392v4 Announce Type: replace 
+Abstract: Large language models are increasingly embedded in software engineering workflows as coding agents that can inspect repositories, invoke tools, execute tests, debug failures, and generate patches. Yet most existing coding agents remain largely static after deployment, even though software development is a dynamic, feedback-rich process in which repositories evolve, dependencies change, tests fail, and repair attempts leave reusable experience. This tension has motivated a growing body of work on self-evolving coding agents, where the agent improves its future behavior by persistently updating its framework, memory, skills and tools, components, workflow and topology, or environment and context from prior coding interactions. In this survey, we provide a structured synthesis of this emerging area. We first define the concept of self-evolving coding agents and distinguish it from conventional coding agents and general self-evolving agents. We then develop a taxonomy centered on the targets of evolution, complemented by two orthogonal perspectives: when evolution occurs and which code-specific signals drive it. We further examine the benchmarks used to measure the effect of evolution and related coding products. Across the literature, we find that executable feedback, repository-level context, and coding trajectories make software engineering a natural domain for agent self-evolution, but also introduce challenges in feedback reliability, benchmark overfitting, reversibility, system complexity, safety, cost, and generalization. By organizing existing work around these dimensions, this survey aims to clarify the conceptual boundaries of self-evolving coding agents and provide a foundation for designing more adaptive, reliable, and software-aware agentic systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.03392v4</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hao Zhou, Haichuan Hu, Tianyu Luo, Ye Shang, Chunrong Fang, Zhenyu Chen, Liang Xiao, Quanjun Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Scanning the Harness: A Repository Study of Configuration Exposures in AI Coding Agents</title>
+      <link>https://arxiv.org/abs/2609.07360</link>
+      <description>arXiv:2609.07360v2 Announce Type: replace 
+Abstract: AI coding agents rely on repository instructions, skills, hooks, tool-server declarations, and subagent definitions. These artifacts distribute both behavior and access to executable dependencies, making configuration review part of the agent software supply chain. We study 3,171 public GitHub repositories: 2,660 assembled setups and 511 skill collections. Deterministic analysis, mechanical re-derivation, model-assisted review, and platform documentation checks identify six categories of configuration exposure and conformance issues. Unpinned MCP package declarations occur in 9.8% of setups, broad execution grants in 2.5%, and broad skill tool preapproval in 3.8%. Their union covers 409 setups (15.4%); among setups with MCP configuration, 24.5% contain an unpinned declaration. Including required-field and skill-format issues brings the setup rate to 17.9% and the collection rate to 6.8%. Holding the six categories fixed, contextual review changes the setup rate from 18.3% to 17.9%; rule selection explains most of the reduction from the broader candidate set. The findings identify concrete opportunities to pin dependencies, review execution preapproval, and check component conformance before distribution or use. A documented permission exception also exposes a shared error in the scanner and its mechanical audit, motivating version-specific semantic checks. The study provides reproducible evidence about repository declarations; runtime harm and detector accuracy against human ground truth remain open questions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.07360v2</guid>
+      <category>cs.SE</category>
+      <category>cs.CR</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Benjamin Kapner, Carmel Soceanu, Alicia Petrunin, Hofni Gartner</dc:creator>
+    </item>
+    <item>
+      <title>The Vocabulary of Flaky Tests in Swift</title>
+      <link>https://arxiv.org/abs/2609.25516</link>
+      <description>arXiv:2609.25516v2 Announce Type: replace 
+Abstract: Flaky tests produce non-deterministic outcomes without code change, eroding CI confidence and delaying deliveries. While vocabulary-based machine learning prediction has proven effective for Java and JavaScript, no study has evaluated it for Swift, a language whose testing style is dominated by UI and asynchronous code. We collect 91 flaky and 22,349 stable tests from 15 open-source Swift projects via re-execution and commit-history mining, then train five classifiers (Random Forest, Decision Tree, Naive Bayes, SVM, KNN) on TF-IDF unigram+bigram features under stratified 5-fold cross-validation. Random Forest achieves the best performance (Precision = 0.92, F1 = 0.86, AUC = 0.95) and substantially outperforms trivial baselines, among them a vocabulary-threshold rule applied to the most informative tokens, confirming a genuine discriminative signal (MCC = 0.75 vs. 0.08 for the best baseline). Information-gain analysis reveals two complementary signal types. Flakiness markers appear predominantly in unstable tests and comprise concurrency primitives (async, await), expectation-based synchronisation (expectation, fulfill), error propagation (throws), and explicit timing dependence (timeout, wait, now). Stability markers, chiefly the assertion vocabulary of plainly synchronous tests (xctassertequal), count as evidence against flakiness. Error analysis shows that the model fails when flakiness is hidden in shared infrastructure outside the test body or when async constructs are used in a deterministic context, exposing the intrinsic limit of lexical prediction. These results extend vocabulary-based flakiness detection to the Swift ecosystem and characterise both its effectiveness and its boundaries.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.25516v2</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jo\~ao Medeiros, Denini Silva, Breno Miranda</dc:creator>
+    </item>
+    <item>
+      <title>An Empirical Analysis of Cross-OS Portability Issues in Python Projects</title>
+      <link>https://arxiv.org/abs/2609.25531</link>
+      <description>arXiv:2609.25531v2 Announce Type: replace 
+Abstract: While Python is designed as a cross-platform language, real-world applications encounter portability failures when deployed across different operating systems. We present the first large-scale empirical study of cross-OS portability issues in Python, analyzing 2,042 open-source repositories using two complementary approaches: systematic cross-OS test reexecution and manual analysis of GitHub issues. Our cross-platform testing of 500 projects reveals that 11.2% exhibit OS-dependent test failures. Through systematic analysis of 240 GitHub issues, we confirm 102 genuine portability problems spanning 95 additional projects. We develop a comprehensive taxonomy identifying 7 primary failure categories - with file/directory operations, process management, and library dependencies being most prevalent - along with 24 distinct sub-categories, 15 diagnostic signatures, and 4 systematic repair patterns. Our evaluation reveals that existing static analysis tools provide minimal support for portability detection, while large language models achieve 40-79% accuracy in identifying issues and 50-77% success in generating fixes when provided with structured guidance. Through 33 contributed pull requests, we demonstrate practical applicability and developer acceptance (17 merged, zero rejected) of our findings. This work establishes the first comprehensive baseline for understanding and addressing cross-OS portability issues in Python, providing actionable insights for developers, tool designers, and the broader research community.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.25531v2</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3793302.3793373</arxiv:DOI>
+      <arxiv:journal_reference>MSR 2026: Proceedings of the 23rd International Conference on Mining Software Repositories</arxiv:journal_reference>
+      <dc:creator>Denini Silva, MohamadAli Farahat, Marcelo d'Amorim</dc:creator>
+    </item>
+    <item>
+      <title>Who Finishes the Job? A Study of Follow-Up Fixes and Commit Authorship on AI Coding Agent Pull Requests</title>
+      <link>https://arxiv.org/abs/2609.26847</link>
+      <description>arXiv:2609.26847v2 Announce Type: replace 
+Abstract: AI coding agents now author a large share of pull requests (PRs) merged into popular open-source projects. A merged agent PR is usually considered finished work; yet, prior studies have reported issues in agent code after the merge (e.g., code smells and static-analysis issues). However, little is known about how often a merged agent PR is fixed afterward, and who actually authors the fixing. In this paper, we follow 6,774 merged agent PRs across five AI coding agents (OpenAI Codex, GitHub Copilot, Devin, Cursor, and Claude Code) from the AIDev-pop dataset (open-source repositories with at least 500 stars) into their follow-up fixes, against a baseline of 5,044 contemporaneous human PRs from the same repositories. We link each merge to its candidate fixes, verify every candidate with human annotators and an LLM judge that matches human-level agreement (binary Cohen's Kappa=0.78 against a human-human K=0.77, Direct-fix precision 90%), and attribute the fixing work at the PR and the commit level. Our findings show that (1) merged agent PRs attract verified fixes at 1.62 times the odds of merged human PRs in the same repositories over the same period of time; (2) 69.6% of verified fixes in agent merges come from the same agent; and (3) 76.4% of the verified fix PRs are agent-authored throughout all commits. These results show that agents currently largely finish their own job, but their merges still require fixing more often than human merges.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.26847v2</guid>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Wannita Takerngsaksiri, Nhat Duong, Scott Barnett</dc:creator>
+    </item>
+    <item>
+      <title>Context-Aware Trust Verification for Identity-Based Software Signing</title>
+      <link>https://arxiv.org/abs/2406.15596</link>
+      <description>arXiv:2406.15596v4 Announce Type: replace-cross 
+Abstract: Modern software release infrastructure uses identity-based software signing to associate software artifacts with a known identity. For example, registries such as npm and Docker Hub rely on Sigstore's identity-based software signing in their artifact provenance workflows. However, existing verification procedures only provide evidence of a signer's identity, but not the conditions under which signing occurred. As a result, compromised credentials, identity providers, or signing tools can still produce signatures that pass verification. This gap prevents software engineering tools (e.g., package registries, dependency analysis tools, deployment systems, and CI/CD verification stages) from enforcing verifiable context-aware trust policies for software signing.
+  We present DiVerify, a framework for automated verification of software signing conditions. A DiVerify signature binds identity claims from multiple independent scope providers, signing-environment attestation from a TEE-isolated daemon, and the signing key into a single verifiable object. A machine-checkable policy language specifies the identity, authentication, and environment conditions required for accepting a signature. We formally analyze DiVerify and show that it is sound, prototype it across three deployment modes, and demonstrate overhead under 400ms, with storage overhead of less than 1.6% of average PyPI package size. Case study integrations with existing systems confirm DiVerify composes well.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2406.15596v4</guid>
+      <category>cs.CR</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3832783.3834333</arxiv:DOI>
+      <dc:creator>Chinenye Okafor, James C. Davis, Santiago Torres-Arias</dc:creator>
+    </item>
+    <item>
+      <title>MOOSEnger: A Simulation-Aware AI Agent Framework for the MOOSE Ecosystem</title>
+      <link>https://arxiv.org/abs/2603.04756</link>
+      <description>arXiv:2603.04756v3 Announce Type: replace-cross 
+Abstract: MOOSEnger is a modeling and simulation AI agent framework for the Multiphysics Object-Oriented Simulation Environment (MOOSE) ecosystem, built around a simulation-aware harness that combines an interchangeable reasoning model with grounded domain knowledge, revised simulation artifacts, MOOSE-specific validation, and executable solver feedback. This surrounding system addresses a central limitation of one-shot large language model generation: small syntax, schema, reference, or solver-configuration errors can prevent a plausible input from executing, while successful execution alone does not establish scientific correctness. MOOSEnger's simulation-aware harness integrates MOOSE knowledge retrieval, Hierarchical Input Text (HIT)-aware parsing, syntax metadata, language-server diagnostics, revision-controlled authoring, and local or MCP-backed validation and execution in a generate-check-repair-run workflow that binds evidence to each input revision and guides bounded repair before acceptance. Across 200 prompts spanning eight simulation families, the MOOSEnger harness increases executable success from 10/200 (5%) to 179/200 (89.5%) with GPT 5.2 API and from 0/200 to 153/200 (76.5%) with Gemma 4 31B. A complementary ten-case Method of Manufactured Solutions benchmark moves beyond executability: all ten generated inputs satisfy the semantic-alignment criterion, and eight execute successfully while meeting the prescribed single-mesh numerical-accuracy criterion. These results show that executable reliability depends on the complete agent system rather than on the reasoning model alone, and that simulation-aware harnessing provides a path toward physics-informed verification and future full application-level and engineering verification and validation implementation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.04756v3</guid>
+      <category>cs.AI</category>
+      <category>cs.CE</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Mengnan Li, Jason Miller, Zaid Abulawi, Zachary Prince, Matt Kohl, Jack M. Cavaluzzi, Guillaume Giudicelli, Casey T. Icenhour, Alexander Lindsay, Cody Permann</dc:creator>
+    </item>
+    <item>
+      <title>Detecting Data Poisoning in Code Generation LLMs via Black-Box, Vulnerability-Oriented Scanning</title>
+      <link>https://arxiv.org/abs/2603.17174</link>
+      <description>arXiv:2603.17174v2 Announce Type: replace-cross 
+Abstract: Code generation large language models (LLMs) are increasingly integrated into modern software development workflows. Recent work has shown that these models are vulnerable to backdoor and poisoning attacks that induce the generation of insecure code, yet effective defenses remain limited. Existing scanning approaches rely on token-level generation consistency to invert attack targets, which is ineffective for source code where identical semantics can appear in diverse syntactic forms. We present CodeScan, the first black-box, vulnerability-specific scanning framework for auditing code generation LLMs, assuming that the defender specifies the target vulnerability classes and provides corresponding task-relevant prompts. CodeScan identifies attack targets by analyzing structural similarities across multiple generations conditioned on different clean prompts. It combines iterative divergence analysis with abstract syntax tree (AST)-based normalization to abstract away surface-level variation and unify semantically equivalent code, isolating structures that recur consistently across generations. CodeScan then applies LLM-based vulnerability analysis to determine whether the extracted structures contain security vulnerabilities and flags the model as compromised when such a structure is found. We evaluate CodeScan against four representative attacks under both backdoor and poisoning settings across three real-world vulnerability classes. Experiments on 117 models spanning three architectures and multiple model sizes demonstrate 97%+ detection accuracy with substantially lower false positives than prior methods.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.17174v2</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1145/3830454.3846687</arxiv:DOI>
+      <dc:creator>Shenao Yan, Shan Jin, Shimaa Ahmed, Sunpreet Singh Arora, Yiwei Cai, Yizhen Wang, Yuan Hong</dc:creator>
+    </item>
+    <item>
+      <title>Chart-Supported or Model-Supplied? Examining MLLM-Generated Claims for Accessible Visualization</title>
+      <link>https://arxiv.org/abs/2607.25021</link>
+      <description>arXiv:2607.25021v2 Announce Type: replace-cross 
+Abstract: Multimodal large language models (MLLMs) can connect visualization patterns to external causes, consequences, and domain knowledge, but the evidential basis of these interpretations is often unclear. We present an exploratory study of 102 visualizations from four sources, three MLLMs, and four input conditions that vary access to the image, accessible chart context (non-image artifacts such as data tables, captions, alt text, and screen-reader structures), and withheld-context framing. Across 1,224 descriptions, we analyze model-attributed DIRECT, DERIVED, and SPECULATIVE labels and conduct an automated audit of numeric agreement. Accessible chart context shifted Gemini and GPT toward DIRECT claims and improved numeric agreement for some models. Adding the image to the full context did not yield a consistent numeric benefit, and the withheld-context prompt did not reliably increase cautious language. The prompt-defined Real-World Significance section remained predominantly SPECULATIVE. These results motivate accessible description systems that distinguish claims supported by supplied evidence from model-supplied interpretation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.25021v2</guid>
+      <category>cs.AI</category>
+      <category>cs.HC</category>
+      <category>cs.MA</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ishrat Jahan Eliza, Md Dilshadur Rahman</dc:creator>
+    </item>
+    <item>
+      <title>Too Sure to Be Safe: Model Calibration for Reliable Log Anomaly Detection</title>
+      <link>https://arxiv.org/abs/2608.17965</link>
+      <description>arXiv:2608.17965v3 Announce Type: replace-cross 
+Abstract: Online log anomaly detection is critical for maintaining the reliability of large-scale computing systems. Although recent language model-based log anomaly detectors achieve strong detection performance, their confidence estimates remain poorly calibrated. We show that these detectors frequently assign excessive confidence to incorrect predictions, particularly for anomalous logs under severe class imbalance. Moreover, confidence on erroneous predictions remains persistently high even when conventional calibration metrics indicate good calibration, creating a critical reliability gap for operational monitoring systems. To address this issue, we propose Log Reconstruction and Distance (LoRD), a lightweight post-hoc calibration framework for reliable log anomaly detection. LoRD learns prediction-route-specific reliability models from latent representations of correctly classified validation samples and estimates prediction reliability through route-wise reconstruction distances. Based on the estimated reliability, LoRD selectively recalibrates high-risk predictions to suppress overconfident errors while preserving reliable predictions. Extensive experiments on four large-scale log benchmark datasets and multiple language model-based detectors demonstrate that LoRD consistently improves confidence reliability and substantially reduces overconfident anomaly-related errors without sacrificing anomaly detection performance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.17965v3</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Bin Li, Dongdong Wang, Siyang Lu</dc:creator>
+    </item>
+    <item>
+      <title>Metrics That Write Themselves: Evolving an Evaluator from Its Own Blind Spots</title>
+      <link>https://arxiv.org/abs/2608.18744</link>
+      <description>arXiv:2608.18744v2 Announce Type: replace-cross 
+Abstract: Agents improve quickly against a reliable automatic metric and stall without one, and the applications that need them most, report generation among them, are the ones nobody knows how to score. Can the metric write itself? Saying what makes an answer good is hard; pointing at something wrong with one is easier, so the metric we evolve is a pool of small Python operators that each flag a candidate for one named defect, or abstain, and vote. Asking a model for operators directly does not work: 183 candidates realise only 96 distinct behaviours, from one narrow region of an enormous space. EvalCEGAR instead borrows counterexample-guided abstraction refinement from program verification. It reads the pool as an abstraction and searches for a collision, two answers the operators score identically, one correct and one not. That pair, not a prompt, is the authoring request, and when a collision defeats every attempt the loop widens what an operator may read rather than resampling. On MBPP+ and HumanEval+, a sandbox whose hidden unit tests give exact ground truth, the loop writes a 55-line operator that closes 15.4% of the gap between flagging nothing and a perfect filter on 428 unseen tasks (+0.0065, p=0.0010) at a quarter of our best hand-written operator's flags. On the benchmark it never saw it matches that operator's effect exactly on a third of the flags. Six of eight runs admit such an operator and all six help out of sample; our 15 hand-written operators applied together as one filter lose accuracy. An LLM judge on the same information ties that delta on a nearly disjoint set of candidates, and charges a model call per candidate forever where the operator charges none.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.18744v2</guid>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Xing Zhang, Yanwei Cui, Guanghui Wang, Zhihao Lin, Peiyang He</dc:creator>
+    </item>
+    <item>
+      <title>Grow the Harness, Not the Context: From Strategy-Free Scaffolds to Reusable Specialist Agents</title>
+      <link>https://arxiv.org/abs/2609.26760</link>
+      <description>arXiv:2609.26760v2 Announce Type: replace-cross 
+Abstract: Large language model (LLM) agents often handle streams of related tasks, yet standard harnesses repeatedly ask the model to reconstruct the same control decisions inside each task's context. We study whether task feedback can instead turn recurring control into reusable executable code, while reserving LLM calls for task-specific semantic reasoning. We introduce Growing Harness, a failure-guided training paradigm that learns the agent harness itself from a strategy-free scaffold that exposes fixed model and tool interfaces but encodes no task-solving controller. Function-level execution traces localize each failure to a bounded code surface, an optimizer repairs a window of failures jointly, and a success-first held-out gate rolls back repair sequences that harm prior capability. Accepted edits accumulate in one shared harness, allowing its control structure to emerge from task feedback. Across BrowseComp-Plus and WebArena-Verified with three deployment models from 4B to 120B parameters, Growing Harness achieves the highest mean success in five of six benchmark-model settings and trails the best mean by 0.7 pp. in the sixth. Relative to a Tool-Calling agent, it reduces LLM calls by 76.0-91.8% and deployed-agent inference cost by 74.4-98.6%. On WebArena-Verified, its success remains 44.7-45.3% across model scales, whereas Tool-Calling falls to 6.7% with the 4B model. Ablations show that trace-local edits, joint repair, and gate-based rollback each improve final success. These results show that persistent program growth can move recurring control out of model context and into low-cost code, yielding reusable specialist agents that remain effective with smaller deployment models.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.26760v2</guid>
+      <category>cs.AI</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Laizhen Li, Jiarui Li, Juanjuan Zhao, Kejiang Ye, Ye Li, Cheng-zhong Xu, Xitong Gao</dc:creator>
+    </item>
+  </channel>
+</rss>
