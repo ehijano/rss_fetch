@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PF updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PF</link>
+    <description>cs.PF updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Sep 2026 04:00:14 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 28 Sep 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>To Store or To Regenerate? A Cost Model for AI-Generated Content at Scale</title>
+      <link>https://arxiv.org/abs/2609.30448</link>
+      <description>arXiv:2609.30448v1 Announce Type: new 
+Abstract: AI-generated content is becoming a rapidly growing class of digital artifacts. Because these artifacts accumulate over time, their exponential growth creates a substantial storage, energy, and infrastructure cost for operators and society. At the same time, GPU compute cost continues to fall rapidly with each hardware generation. This divergence raises a fundamental question: when does on-demand regeneration become cheaper than persistent storage?
+  This paper develops a cost model for comparing persistent storage and on-demand regeneration for AI-generated artifacts. The model accounts for corpus growth, HDD and tape price trends, drive replacement, electricity, request skew, caching, generator FLOPs, and future GPU price-performance improvements. For image generation, our analysis shows that prompt-based regeneration does not become cheaper than storage until around 2040, because every cache miss must still rerun the full prompt-to-artifact generation pipeline.
+  We observe that widely used diffusion-based generation models operate in latent space, creating an alternative point in the cost tradeoff: instead of storing the final artifact or only the prompt, operators can store a compact intermediate representation (IR) and perform cheap on-demand decoding. Our analysis shows that caching combined with IR-based regeneration substantially reduces both storage and compute cost, making it at least 2x cheaper than both full-object storage and prompt-based regeneration even today. On a production image trace with 2.07 billion requests, the same conclusion holds: prompt-based regeneration is over 100x more expensive than storage, while IR-based regeneration reduces total cost to roughly half that of full-object storage while preserving interactive miss latency.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30448v1</guid>
+      <category>cs.PF</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yunjia Zheng, Zirui Wang, Haoran Ni, Tingfeng Lan, Zhaoyuan Su, Yue Cheng, Juncheng Yang</dc:creator>
+    </item>
+    <item>
+      <title>SR-Gadgets: Make Scan-Resistant Caching Practical</title>
+      <link>https://arxiv.org/abs/2609.30468</link>
+      <description>arXiv:2609.30468v1 Announce Type: new 
+Abstract: Block caches commonly serve scan-heavy I/O workloads, motivating extensive studies on scan-resistant eviction algorithms. Many of these algorithms adopt a multi-queue structure. However, they focus primarily on one-time scans and do not handle repeated scans well. Two important challenges from repeated scans are miss-ratio cliffs, where a small increase in cache size sharply reduces the miss ratio, and Belady's anomalies, where increasing the cache size increases the miss ratio.
+  In this paper, we first develop two quantitative metrics to measure these behaviors. With these metrics, we find that LIRS is the only multi-queue algorithm that is scan-resistant (almost cliff- and anomaly-free). Contrary to conventional wisdom, we show that stack distance is not the secret sauce that makes LIRS scan-resistant. Instead, regulating the queues are the key to its scan resistance. Based on these insights, we design the \gadgetprefix Gadgets, easy-to-integrate augmentations that make existing algorithms scan-resistant without changing their eviction heuristics or queue structures. We implement the \gadgetprefix Gadgets in five algorithms: S3-FIFO, SIEVE, ARC, 2Q, and TinyLFU, and make them scan-resistant. Evaluated on 5,538 production traces, all augmented algorithms outperform their base versions, reducing miss ratios by up to 23.1% while consistently reducing cliffs and Belady's anomalies across the production traces.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30468v1</guid>
+      <category>cs.PF</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yunjia Zheng, Juncheng Yang</dc:creator>
+    </item>
+    <item>
+      <title>Evaluation of portability and performance of an OpenMP5 offloaded Quantum-Inspired Evolutionary Optimization Across the GPU Ecosystem</title>
+      <link>https://arxiv.org/abs/2609.30862</link>
+      <description>arXiv:2609.30862v1 Announce Type: new 
+Abstract: Quantum-inspired evolutionary optimization (QIEO) is a new class of population-based metaheuristic optimization algorithms which represents design variables as a set of qubits and searches a continuous, multi-dimensional landscape through rotation of the qubit's amplitude pair. Every generation rotates those amplitudes toward a single elite, which corresponds to that generation's best. The per-generation cost scales as $O(N_p N_g)$ for $N_p$ chromosomes and $N_g$ genes (decision variables).
+  Production use of such solvers is rarely confined to a single machine class. Prototypes are run on laboratory servers- before moving to rented cloud workstations for more involved campaigns. The largest problems are reserved for leadership-class accelerators. This paper asks whether a \emph{single} OpenMP~5 source of QIEO, offloaded with \texttt{\#pragma omp target}, is a viable production path in each of those settings.
+  We report three independent, campaigns of the 0/1 knapsack problem against a same-source multi-core Intel CPU baseline. The study comprises approximately 3,000 runs spanning varying chromosome and gene counts, evaluated using both chromosome-level and gene-level offload strategies on the NVIDIA Tesla V100 SXM2, NVIDIA A100 80GB, and AMD Instinct MI300X GPUs. Deployment-specific nuances such as Volta's constant-memory cliffs, Ampere's L2 persistence and \texttt{cp.async}, CDNA~3's Infinity Cache and XCD occupancy are addressed to ensure high performance of these platforms.
+  Results reveal gene-parallel offload achieved geometric-mean speedups of 90$\times$, 136$\times$, and 155$\times$ over a single CPU core on the V100, A100, and MI300X, respectively, and 12$\times$, 17$\times$, and 16.6$\times$ over 72 host threads. Furthermore DetermineElite, the $O(N_p)$ selection of the generation-best chromosome, is found to be better suited to the host than to the device.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30862v1</guid>
+      <category>cs.PF</category>
+      <category>math.OC</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Kasturi Venkata Srikanth, Ashish Singh, Ferdin Sagai Don Bosco, Aman Mittal, Abhishek Singh, Aditya Singh, Abhishek Chopra</dc:creator>
+    </item>
+    <item>
+      <title>DanLing NestedTensor: Composable Multi-Ragged Tensors for Deep Learning</title>
+      <link>https://arxiv.org/abs/2609.30379</link>
+      <description>arXiv:2609.30379v1 Announce Type: cross 
+Abstract: Variable-size inputs are common in deep learning, but dense batching allocates a shared envelope and spends computation on padding. The cost multiplies across varying axes: an explicit pair state allocates $BN_{\max}^2$ positions instead of $\sum_i N_i^2$. Packing removes that waste, but composing packed operations still requires the logical axes and sample boundaries a flat buffer no longer exposes. We present DanLing NestedTensor, a PyTorch tensor abstraction that makes multi-ragged structure a property of the tensor itself. Packed values carry tensor-backed partitions and logical dimension order, so broadcasting creates ragged axes, feature transformations retain them, and reductions consume them. The same representation carries through autograd and both eager and compiled execution. On an A100, the geometric-mean speedup over same-mode padding is 2.74$\times$ eager and 3.39$\times$ compiled across four BERT scales, and 1.97$\times$ eager across four FCN backbones. A four-block Pairformer-style workload runs 2.40-4.32$\times$ faster than a padded reference using native PyTorch kernels across square length regimes in eager execution, with peak allocation falling from 38.08 to 5.41 GiB on its high-variation batch. The tensor interface lets model code built from its supported operators compose efficient variable-size computation without managing offsets at any call site. Code will be released publicly upon publication.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30379v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/publicdomain/zero/1.0/</dc:rights>
+      <dc:creator>Zhiyuan Chen</dc:creator>
+    </item>
+    <item>
+      <title>Energy-efficient operation of neural operators for virtual sensing</title>
+      <link>https://arxiv.org/abs/2609.30580</link>
+      <description>arXiv:2609.30580v1 Announce Type: cross 
+Abstract: Virtual sensing repeatedly reconstructs physical fields from changing observations, often on a fixed geometry. We investigate how shared spatial computation reduces the energy of these updates while retaining the selected checkpoint and its evaluated predictions. In a heat-exchanger service, standard compiler freezing and explicit trunk reuse give similar operating energy reductions relative to graph replay: approximately 1% at one request per second and 20% at forty requests per second. In 15 W mode with fixed clocks, reuse with graph replay completes the same request sequence with 22.0 to 22.5% less energy than eager execution, including preparation and waiting. DeepONet and Fourier neural operator (FNO) controls distinguish the effects of reusable arithmetic and launch overhead. Preparation, artifact construction, and worker replacement add costs outside repeated inference. These results connect operator structure to operating energy and show how update frequency and execution lifetime govern the benefit of computation reuse in physical-field virtual sensing.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30580v1</guid>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jason Yoo, Samrendra Roy, Souvik Chakraborty, Syed Bahauddin Alam</dc:creator>
+    </item>
+    <item>
+      <title>Job Class Thermal Intent Aware Liquid Cooling Allocation for AI Data Centers</title>
+      <link>https://arxiv.org/abs/2609.30785</link>
+      <description>arXiv:2609.30785v1 Announce Type: cross 
+Abstract: GPU-dense AI data centers need to run on liquid cooling as air simply cannot shed the heat at these power densities. Yet the cooling loops themselves are blind to what workloads are about to run; they crank up flow only after a sensor catches a temperature climb, which can take 30 to 50 seconds. We built Job-Class Thermal Intent (JCTI) to close that window. The scheduler already knows a job is coming and what class it belongs to; JCTI feeds that information straight to the cooling controller so it can stage coolant before the heat shows up. We pulled the thermal signatures for each job class out of MLPerf GPU power traces and tuned arrival patterns against Alibaba cluster data. Over 120 paired Monte Carlo trials the numbers come out to 56.4% fewer thermal violations and 60.2% less cumulative overshoot than a straight PI loop. As AI data centers evolving towards gigawatt grid loads with highly fluctuating power swings, thermally-aware scheduling reduces sudden demand and improves load prediction in grid side. Cooling and scheduling have been running as two separate systems for years despite each one knowing something the other needs, JCTI wires them together.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30785v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Krishna Chaitanya Sunkara</dc:creator>
+    </item>
+    <item>
+      <title>The KV Cache Is the New Memory Wall</title>
+      <link>https://arxiv.org/abs/2609.30854</link>
+      <description>arXiv:2609.30854v1 Announce Type: cross 
+Abstract: Autoregressive LLM inference at long context is bounded by memory bandwidth, not arithmetic throughput, and the binding resource shifts from model weights to the Key-Value (KV) cache as sequence length grows. For Llama-3-70B in BF16, the 140 GB weight footprint exceeds the 80 GB HBM of a single accelerator, and one 128k-token sequence adds 42 GB of KV cache. Techniques that compress, evict, page, share, or offload KV state have proliferated, but reported gains use inconsistent workloads, hardware, and quality metrics, preventing cross-paper comparison. This SoK paper unifies the field analytically, with a protocol that strictly separates derived and reported claims. We derive closed-form arithmetic intensity as a decaying function of context length, parameterized by hardware topology for NVIDIA H100, NVIDIA B200, and AMD MI300X, including per-die bandwidth partitioning and the crossover lengths where KV traffic overtakes weight traffic. We classify the literature into five domains, quantization, token eviction, KV paging, prefix caching, and heterogeneous tiering, evaluating one method per domain at 128k context under a single protocol. The central finding is a three-regime structure: below a hardware-specific crossover, weight traffic dominates and KV compression yields negligible speedup; beyond it, KV traffic dominates and each domain trades quality for bandwidth savings approaching the roofline bound. Paging and prefix sharing are lossless but address capacity, not bandwidth. Quantization and eviction cut bandwidth directly, with degradation that accelerates below 4-bit precision and turns discontinuous for eviction on position-sensitive tasks. Tiering converts the bandwidth wall into an interconnect problem bounded by PCIe or NVLink rather than HBM. We close with design rules for selecting a compression domain given hardware, context length, and quality budget.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.30854v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Tejinder Singh</dc:creator>
+    </item>
+    <item>
+      <title>EAServe: Encode-Aware Disaggregated Serving for Multimodal Large Language Models</title>
+      <link>https://arxiv.org/abs/2609.31551</link>
+      <description>arXiv:2609.31551v1 Announce Type: cross 
+Abstract: Disaggregating the two stages, Prefill and Decode, onto separate GPU pools is now a standard optimization for (text-only) LLM serving. However, multimodal LLMs (MLLMs), which add a third phase, Encode, pose new challenges for resource allocation. Encode turns images, video, or audio into embeddings that the language model can consume, yielding a three-stage Encode-Prefill-Decode (EPD) pipeline. Existing frameworks offer only partial answers: text-only PD systems lack Encode, while EPD frameworks expose it as a separate service without regulating downstream request flow. The pipeline also carries a structural resource imbalance: every request enters through Encode before downstream work can begin, yet per-request execution leaves the encode GPU severely underutilized even at high loads, starving the downstream Prefill and Decode workers. Addressing this, we reposition Encode as the control point of the EPD pipeline, exposing three tightly coupled dimensions: when work enters downstream, where prefill executes, and how the GPU is shared. We instantiate this in EAServe across two co-designed layers. Its runtime manages load-adaptive micro-batching, rate-controlled partial offload to a co-resident prefill worker, and dynamic SM partitioning for predictable co-location. The configuration layer, Hybrid Auto Selection (HAS), navigates the joint space of GPU allocation, encode batch size, and offload ratio by pruning unbalanced allocations with per-stage capacity profiling and refining the remainder through TPE-based Bayesian optimization. Evaluated on three MLLM architectures spanning image, video, and audio, EAServe delivers up to 4.3x and 1.7x higher goodput than NVIDIA Dynamo and vLLM, respectively, under identical SLO constraints, sustains more balanced and higher GPU utilization across the EPD pipeline, and reaches near-optimal configurations faster than baseline search methods.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.31551v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3838684.3846886</arxiv:DOI>
+      <arxiv:journal_reference>International Conference on Parallel Architectures and Compilation Techniques (PACT '26), October 19-22, 2026, Chicago, IL, USA</arxiv:journal_reference>
+      <dc:creator>Kunxiong Zhu, Zhihao Shu, Hangyu Zheng, Minghai Qin, Miao Yin, Gagan Agrawal, Wei Niu</dc:creator>
+    </item>
+    <item>
+      <title>Energy Efficiency of Locally Deployed LLMs: A Preliminary Quantitative GPU Power Benchmark on Consumer Hardware</title>
+      <link>https://arxiv.org/abs/2608.00008</link>
+      <description>arXiv:2608.00008v2 Announce Type: replace-cross 
+Abstract: The local deployment of large language models (LLMs) is gaining traction due to privacy concerns and the desire for on-premise inference. However, the energy costs on consumer hardware remain poorly characterized, as most benchmarks focus solely on accuracy. This paper presents a reproducible, hardware-level energy benchmark of 18 open-source LLMs (0.5B to 7B parameters) executed on a single consumer GPU (RTX 4060ti 16GB). Using the Ollama inference engine, GPU power draw was sampled at 2hz via nvidia-smi across a fixed prompt set. We evaluate mean/peak power, total energy per prompt (J/prompt), energy per output token (J/tok), and throughput (tok/s). Our findings suggest that factors beyond raw parameter count, including model architecture and quantization strategy, drive energy efficiency. Specifically, qwen2.5:0.5b and tinyllama:1.1b achieve the lowest energy cost (0.2747 J/tok and 0.3234 J/tok) and the highest throughput (&gt;325 tok/s). In contrast, the 7B-Mistral model consumes up to 8.6x more energy per token than the most efficient model. Notably, qwen3.5:0.8b(on) exhibits anomalously high per-prompt energy due to extended internal reasoning, highlighting the need to distinguish between token generation modes in efficiency metrics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.00008v2</guid>
+      <category>cs.AI</category>
+      <category>cs.ET</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Philipp M. Z\"ahl, Elja Dalipaj, Anika Hennig, Timon Bayer</dc:creator>
+    </item>
+  </channel>
+</rss>
