@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Sep 2026 05:12:59 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Dynamic Flow, Static Graph: KV Cache Reuse for Efficient LLM Serving on Mobile NPUs</title>
+      <link>https://arxiv.org/abs/2609.34727</link>
+      <description>arXiv:2609.34727v1 Announce Type: new 
+Abstract: On-device large language model (LLM) serving is a cornerstone of local-first personal intelligence, offering users data sovereignty, strong privacy guarantees, and freedom from cloud API latency and cost. Although KV caching is widely used to reduce latency in long-context inference, existing designs were primarily optimized for cloud GPUs with dynamic execution environments and abundant memory bandwidth. These architectural assumptions do not hold on mobile NPUs, where computation graphs must be statically compiled and both memory capacity and I/O bandwidth are severely constrained. In this work, we present a compute-storage co-design for mobile-centric prefix and non-prefix KV reuse. We first propose an intra-graph mechanism that maps selective KV recomputation onto static NPU graphs, reconciling algorithmic dynamicity with NPU staticity. We further develop an inter-graph scheduler to optimize chunk merging and minimize padding with dynamic programming. To address mobile bandwidth limitations, we introduce a hierarchical KV manager featuring a tree-hash-semantic hybrid structure, along with cost-aware prefetching and eviction policies. We also build a two-dimensional pipeline that overlaps KV loading, rerotation, and storage with NPU execution, hiding data-movement latency. Experiments across representative on-device workloads and LLMs show that our design reduces time-to-first-token (TTFT) by $40-60\%$ compared with no reuse and prefix-only caching.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.34727v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zhengxiang Huang, Shengheng Chen, Chaoyue Niu, Yujie Sun, Zhaode Wang, Zeyu Zhao, Chengfei Lv, Fan Wu, Guihai Chen</dc:creator>
+    </item>
+    <item>
+      <title>Planarian: Managing Agent State with Statepoints</title>
+      <link>https://arxiv.org/abs/2609.35366</link>
+      <description>arXiv:2609.35366v1 Announce Type: new 
+Abstract: LLM agents solve complex tasks by iteratively changing files, invoking local tools, and interacting with remote services, which modifies state across their local environment and remote services. Today, agents and users must manage these changes explicitly, whether reverting exploratory actions or recovering from erroneous ones. Doing so safely requires coordinated actions, yet current agent harnesses lack unified abstractions and mechanisms for managing local and remote state consistently and efficiently.
+  We describe Planarian, an agent runtime with state management that enables agents and users to recover from erroneous actions and explore alternative executions over consistent local and remote environment state. Planarian introduces the abstraction of agent statepoints, which are consistent, restorable point-in-time versions of the environment state. Planarian exposes three state-management primitives to agents and users: (i) snapshot creates a new statepoint spanning local and remote state without requiring external services to support checkpoints: it relies on efficient incremental process and file system snapshotting to capture local sandboxed state, and transparently records compensating actions to undo remote state changes; (ii) rollback restores the environment to a previous statepoint by reverting to a prior local checkpoint and replaying compensating actions for remote state changes; and (iii) fork creates multiple isolated branches from a statepoint, enabling the agent to explore alternatives in parallel. We show that Planarian enables agents to undo mistakes and explore alternatives in parallel, improving task quality by up to 15x, and allows users to recover from erroneous actions with only 3% overhead.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.35366v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AI</category>
+      <category>cs.CR</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jinnan Guo, Hao Mark Chen, Kapil Vaswani, Andrew Paverd, Peter Pietzuch</dc:creator>
+    </item>
+    <item>
+      <title>Argus: Agentic, Reference-Calibrated, Tree-Guided, System-Software-Level Bottleneck Localization</title>
+      <link>https://arxiv.org/abs/2609.35508</link>
+      <description>arXiv:2609.35508v1 Announce Type: new 
+Abstract: Operating system (OS) code can account for a substantial share of CPU execution time. First, as application logic is offloaded to heterogeneous accelerators (e.g., GPUs), the CPU increasingly acts as an orchestrator, spending cycles in driver calls, data movement, and synchronization rather than in application code. Second, workloads such as serverless functions frequently invoke OS services. At the same time, the OS is a complex codebase spanning many subsystems (e.g., memory management, networking), making it hard to localize the specific code path responsible for a slowdown. Existing profilers expose measurements that require interpretation(e.g., perf and Intel VTune) or can perturb short operations when extensively instrumented (e.g., ftrace). Diagnosing OS bottlenecks can therefore require repeated kernel instrumentation and manual interpretation.
+  We introduce Argus, an agentic LLM-based profiler that produces instrumentation code and autonomously reasons over potential OS-level bottlenecks. Argus integrates two key mechanisms: (i) a calibration methodology that involves collecting a measurement from an idle system and using it as a reference point to discover potential bottlenecks, and (ii) a tree-based data structure that represents the different OS execution paths, improving the agent's bottleneck localization accuracy. Argus aims to identify a specific kernel code path rather than stop at a subsystem-level diagnosis. In two case studies, we employ Argus to autonomously discover bottlenecks present in the memory management subsystem caused by (i) a THP aggressor co-running with other applications, and (ii) applications that incur different types of page faults. Argus produces 19 times fewer incorrect deep-path diagnoses than the strongest evaluated LLM-based baseline, which lacks reference calibration, while preserving low time-to-diagnosis (approximately 31 s)</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.35508v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AR</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vlad-Petru Nitu, Harsh Songara, Konstantinos Sgouras, Spiros Galanopoulos, Konstantinos Kanellopoulos, Onur Mutlu</dc:creator>
+    </item>
+    <item>
+      <title>ThreadShift: Transparent Thread-Level Offloading on Transient Cloud Resources Using MPKs</title>
+      <link>https://arxiv.org/abs/2609.32153</link>
+      <description>arXiv:2609.32153v1 Announce Type: cross 
+Abstract: Transient cloud resources offer significant cost savings, but their unpredictability makes them hard to use for applications that cannot be safely restarted after reclamation. Existing approaches require application changes or rely on coarse-grained checkpointing, whose cost limits its benefits.
+  We present ThreadShift, a system that transparently offloads compute-intensive threads of unmodified Linux applications to cheap transient resources while preserving correctness under reclamation. By operating at thread granularity, ThreadShift enables fast, fine-grained checkpointing and offloads only the threads that benefit from transient execution.
+  The main challenge is to checkpoint individual threads despite cross-thread dependencies. ThreadShift does so by efficiently tracking memory dependencies, identifying per-thread memory writes, and maintaining coherence across machines. Three novel uses of Memory Protection Keys (MPKs) make these mechanisms efficient, enabling fast incremental checkpoints without pausing the entire application.
+  We implement ThreadShift on x86-64 Linux and evaluate it on workloads including machine-learning inference, cryptographic tasks, and in-memory data processing. ThreadShift offloads threads in as little as 164 us, performs checkpointing up to three orders of magnitude faster than CRIU, and reduces deployment cost by up to 56% on commodity clouds.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.32153v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Antoine Murat, Cl\'ement Burgelin, Rachid Guerraoui</dc:creator>
+    </item>
+    <item>
+      <title>Vulcan: Instance-specialized, Verifiable Systems Heuristics Through LLM-driven Search</title>
+      <link>https://arxiv.org/abs/2512.25065</link>
+      <description>arXiv:2512.25065v3 Announce Type: replace 
+Abstract: Systems resource management tasks rely primarily on hand-designed heuristics. However, growing hardware heterogeneity and workload diversity require heuristics specialized to particular deployment instances, making manual design expensive and difficult to scale. In this paper, we explore how to synthesize systems heuristics using LLMs. The main challenge is ensuring that generated heuristics execute safely, integrate correctly with the surrounding system, and still achieve strong performance. We propose Vulcan, a framework that identifies LLM-friendly interfaces that isolate core decision logic from the rest of the implementation. With Vulcan, LLM-generated code is restricted to simple stateless decision functions, while trusted runtime abstractions provide rich derived statistics for meaningful policy exploration without system-integration bugs. To ensure execution safety, LLMs synthesize heuristics in a restricted language, Anvil, that guarantees important properties by construction. We evaluate Vulcan across three well-studied domains and demonstrate up to 4.9$\times$ higher savings for spot-VM scheduling, up to 2$\times$ lower miss ratios for cache eviction, and up to 14% higher application performance for tiered-memory systems, while ensuring execution safety throughout.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.25065v3</guid>
+      <category>cs.OS</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3842654.3848582</arxiv:DOI>
+      <dc:creator>Rohit Dwivedula, Divyanshu Saxena, Sujay Yadalam, Eric Hayden Campbell, Daehyeok Kim, Aditya Akella</dc:creator>
+    </item>
+    <item>
+      <title>VUDA: Enabling Controlled Spatial Sharing of Graphics and Compute on NVIDIA GPUs</title>
+      <link>https://arxiv.org/abs/2605.01352</link>
+      <description>arXiv:2605.01352v2 Announce Type: replace 
+Abstract: Graphics and compute increasingly share a single GPU in embodied AI simulators, AI-enabled games, and VR systems. Running these workloads concurrently can improve utilization, but contention can also compromise rendering and inference latency. Effective sharing therefore requires control over both concurrency and resource allocation. Native CUDA and Vulkan runtimes complicate this task: they place work in separate scheduling domains, while compute-oriented resource controls do not govern the graphics pipeline.
+  We present VUDA, a system that enables controlled spatial sharing of native CUDA compute and Vulkan graphics on NVIDIA GPUs. An analysis of GPU scheduling, address translation, and workload dispatch reveals how to coordinate the two execution stacks without replacing either one. VUDA redirects CUDA channels into Vulkan's scheduling domain while preserving the runtimes' separate data address spaces. It then uses GPU front-end controls to partition execution resources between the graphics and compute pipelines, with allocations adjustable at runtime. Together, these mechanisms let applications control resource sharing without modifying GPU drivers or rewriting kernels and shaders.
+  We evaluate VUDA across four application scenarios on three NVIDIA GPU platforms, covering throughput and latency objectives for graphics, compute, or both. In embodied AI simulation, enabling concurrency improves throughput by up to $1.62\times$ over the same asynchronous pipeline under default time sharing. In driving perception, partitioned co-execution reduces the measured inference-budget miss rate from 80.1% to zero while sustaining 60-FPS rendering.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.01352v2</guid>
+      <category>cs.OS</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Bin Xu, Pengfei Hu, Jinyu Gu, Haibo Chen</dc:creator>
+    </item>
+  </channel>
+</rss>

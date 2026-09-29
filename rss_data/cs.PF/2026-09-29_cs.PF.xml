@@ -1,0 +1,327 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PF updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PF</link>
+    <description>cs.PF updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Sep 2026 05:12:53 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Bandwidth, Not FLOPS: FFT Kernels, Matrix Units and SAR Imaging on Apple M6</title>
+      <link>https://arxiv.org/abs/2609.32237</link>
+      <description>arXiv:2609.32237v1 Announce Type: new 
+Abstract: The fast Fourier transform (FFT) underlies radar, imaging and scientific computing. A classic rule for fast GPU FFTs is to compute the largest block that fits on chip and compose larger transforms from such blocks. We test this rule on Apple's M6 chip, whose GPU performs 29 arithmetic operations in the time it reads one byte from main memory, and which adds matrix units to both its GPU and CPU. Comparing our kernels with Apple's MPSGraph and vDSP libraries and MLX, we find that data movement, not arithmetic, sets FFT speed. Large batches run at or near the main-memory bandwidth limit in every GPU library, and benchmarks that keep data in cache overstate real throughput by up to $3.7\times$. The on-chip rule still predicts where speed collapses: MPSGraph and MLX lose half or more of their speed once a transform outgrows the GPU's 32\,KiB local memory. Keeping such transforms in registers avoids an extra trip through memory: $2.2\times$ faster than MPSGraph, and $4.4\times$ with half-precision storage. The GPU's matrix units do not help, because recasting the FFT as matrix products adds as much arithmetic as they save. The CPU's matrix unit, 47 times faster than its vector units, does: our kernel for it beats vDSP by up to $5.3\times$. End to end, a $4096\times4096$ synthetic aperture radar image takes 8.1\,ms on the GPU (6.0\,ms with half-precision intermediates), $14$--$19\times$ faster than a CPU reference. Running the CPU's matrix unit alongside the GPU gains nothing: both share one memory bandwidth.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.32237v1</guid>
+      <category>cs.PF</category>
+      <category>cs.AR</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mohamed Amine Bergach</dc:creator>
+    </item>
+    <item>
+      <title>Tool Waiting and Re-arrival in Compile-Time-Static LLM Serving: Cost Mechanisms and Configuration Selection</title>
+      <link>https://arxiv.org/abs/2609.34663</link>
+      <description>arXiv:2609.34663v1 Announce Type: new 
+Abstract: In agentic LLM services, a session calls an external tool, waits for it, and re-arrives to continue inference. Statically compiled NPU serving can fix the batch bucket set, the maximum batch size, and the number of KV cache slots at compile time. We define such an environment as a compile-time-static serving substrate and analyze the execution-time cost that tool waiting and re-arrival incur in it. On a single LLM instance, we run synthetic workloads following a measured tool waiting time distribution and compare, on the same inputs, a baseline configuration with settings {1, 2, 4, 8}, 8, and 8 against configurations that change some of them. Because re-arrival times differ across configurations, we build a simulator that replays request processing in time order, select the candidate with the lowest predicted cost among 2,077 configurations, and validate it on new inputs. We identify three mechanisms: discrete batch alignment, KV cache survival, and prefill interference. At a concurrency of 6, absent from the bucket set, tool waiting lowered the padding ratio (0.235 to 0.120) yet increased decode execution time 1.51-fold, so padding alone did not indicate cost. On new inputs at a concurrency of 8, where the baseline reused KV in 9 of 24 re-arrivals, enlarging the maximum batch size alone cut execution cost by 8.25%, and the selected configuration, which also adjusted the bucket set, by 9.72%. Where 17 of 18 re-arrivals were already reused, the effect was 0.59%. Compile-time configurations should thus be selected by diagnosing KV reuse loss and the resulting change in execution.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.34663v1</guid>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Dongkyeom Jang, In-Nea Wang, Junho Jeong</dc:creator>
+    </item>
+    <item>
+      <title>A Theory of Probabilistic Power Provisioning for Data Centers with Distributed Energy Storage</title>
+      <link>https://arxiv.org/abs/2608.12993</link>
+      <description>arXiv:2608.12993v1 Announce Type: cross 
+Abstract: The growing power demands and variability of AI workloads make electrical power delivery a critical constraint in data-center operation. Distributed energy storage can reduce the power capacity required to support stochastic loads, but its benefits depend fundamentally on the statistics and time scales of demand. This paper develops a probabilistic framework that jointly characterizes provisioned power, energy-storage capacity, and the probability of overdraw. We show that storage-assisted provisioning separates into two operating regimes. In the Small Battery Region, overdraw is dominated by short-lived demand excursions and storage provides nearly linear reductions in the required power margin. In the Large Battery Region, overdraw results from sustained demand fluctuations over longer spans of time, and the required margin exhibits diminishing returns with storage. For this regime we introduce effective power, an analogue of effective bandwidth that captures the temporal statistics of the demand and gives an asymptotically tight characterization of the required power. We further quantify how temporal correlation and spatial aggregation affect storage requirements and statistical multiplexing gains, and extend the analysis to loads with multiple demand time scales. Finally, we evaluate the framework using power-demand traces from three production data centers spanning HPC, GPU-training, and cloud-service workloads. Despite their heterogeneous, cyclo-stationary and multi-modal behavior, the measured workloads exhibit the predicted regimes, and a simple four-parameter two-state model captures the dynamics governing their storage-power tradeoffs. The resulting framework provides both a probabilistic foundation and practical dimensioning principles for storage-assisted power provisioning in next-generation AI data centers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.12993v1</guid>
+      <category>cs.IT</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <category>math.IT</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Can Emre Koksal, Richard A. Barry, Artun Sel</dc:creator>
+    </item>
+    <item>
+      <title>Distributed Service Orchestration in Edge-Cloud Continuum for Digital Healthcare</title>
+      <link>https://arxiv.org/abs/2609.28855</link>
+      <description>arXiv:2609.28855v1 Announce Type: cross 
+Abstract: Today's digital healthcare services rely on various applications and functions that must be continuously accessible. Cloud computing enables global access to these services through public networks, which often also introduce increased latency, higher bandwidth consumption, and additional security risks compared to local operation. Edge computing mitigates these challenges by deploying cloud services closer to the end users and data sources, thereby improving resilience to network disruptions and reducing latency, bandwidth usage, and exposure to security threats. However, service deployment typically relies on the availability of centralized registry servers. Consequently, if the network connection or the registry server itself becomes unavailable, service deployment at the target edge node may fail. To address this, we propose a three-tier registry architecture to enhance deployment reliability and service availability, considering DockerHub as a remote public registry, an MEC-based off-premises registry as a remote private registry, and a LAN-based on-premises registry as a local private registry. The performance and efficiency are analyzed through measurements related to the estimated deployment time, inflicted network and computational load, and energy consumption, while the required nanoservices are deployed from different tiers. The experimental results indicate that alongside the improved tolerance to network disruptions, the local private and remote private registries also outperform the remote public registry in the deployment performance. The findings highlight the effectiveness of proximity-aware service distribution in improving the resilience, performance and efficiency of service deployment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28855v1</guid>
+      <category>cs.DC</category>
+      <category>cs.NI</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Johirul Islam, Hafiz Faheem Shahid, Ijaz Ahmad, Tanesh Kumar, Ayan Mondal, Erkki Harjula</dc:creator>
+    </item>
+    <item>
+      <title>Cache-Aware Conv3D Lowering Across Embedded World-Model Decoders</title>
+      <link>https://arxiv.org/abs/2609.31938</link>
+      <description>arXiv:2609.31938v1 Announce Type: cross 
+Abstract: Generative world models can provide visual rollouts for embodied planning, yet their feasibility on edge devices depends not only on the learned model but also on how the execution runtime represents its operations. We introduce a cache-aware lowering that expresses supported causal Conv3D calls as batched spatial Conv2D operations while preserving pretrained weights, temporal-cache semantics, convolution parameters, bias placement, and output layout. Across the complete Cosmos3-Edge image-to-video pipeline on a 64-GB NVIDIA Jetson AGX Orin, the proposed route accelerates VAE decoding by approximately $7\times$ and reduces complete-generation latency by more than $2\times$, while repeated decoder evaluations maintain complete fast-path coverage without fallbacks. The unchanged lowering also improves Cosmos3-Nano and transfers to LingBot-World's architecturally distinct Wan2.1 VAE. A clean-device comparison against fully specialized TensorRT shows that TensorRT provides a further $1.36\times$ steady-state improvement, but requires substantially greater per-module and per-runtime-state AOT specialization. Same-latent BF16 and FP32 evaluations characterize the finite-precision differences introduced by the alternative execution order. Together, these results position cache-aware lowering as a lightweight runtime optimization that recovers most of the available decoder acceleration without modifying the learned models themselves.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.31938v1</guid>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jiaming Zhang, Wu Yang, Shuai Tao, Wulong Liu</dc:creator>
+    </item>
+    <item>
+      <title>Goal-Persistent Coding Agents as Scientific Performance Engineers: A Fixed-Radius Nearest-Neighbor Case Study</title>
+      <link>https://arxiv.org/abs/2609.31980</link>
+      <description>arXiv:2609.31980v1 Announce Type: cross 
+Abstract: Coding agents can pursue persistent objectives across many tool-use turns, but evidence that general-purpose agents can conduct rigorous scientific performance engineering remains limited. We present a repository-scale case study in which off-the-shelf Codex and Claude Code agents optimize fixed-radius nearest-neighbor (FRNN) search for particle tracking. Starting from a PyTorch-dependent CUDA implementation, the agents follow an executable goal that specifies exact-correctness tests, profiling requirements, and acceptance criteria without prescribing code transformations. In the primary sequential trajectory, they autonomously remove the PyTorch dependency and conduct hypothesis-driven optimization experiments. The resulting standalone C++/CUDA library exactly reproduces the targeted reference result. Its synchronous NumPy interface achieved 1.6-fold speedup over the original GPU-resident PyTorch interface, despite including host transfers. Similar speedups were observed across different GPU architectures and software stacks. An independent optimization rerun followed a different sequence of hypotheses and reached even better performance on the target workload. These results show that goal-persistent coding agents can act as experimental performance engineers, and that executable scientific contracts are needed both to guide and to validate their optimization.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.31980v1</guid>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Xiangyang Ju</dc:creator>
+    </item>
+    <item>
+      <title>SparSP: Exploiting Communication Sparsity for Sequence-Parallel Video DiTs</title>
+      <link>https://arxiv.org/abs/2609.32197</link>
+      <description>arXiv:2609.32197v1 Announce Type: cross 
+Abstract: Diffusion Transformers have become the dominant architecture for video generation. Their substantial computational cost motivates scaling inference across multi-GPU servers, yet efficient scaling remains challenging on commodity GPUs connected via PCIe, whose bandwidth is limited. Although sparse attention substantially reduces computation, its implications for communication remain underexplored.
+  This paper argues that attention sparsity should be treated as a communication primitive. We present SparSP, an efficient sparse sequence parallel communication system that co-designs token distribution, communication routing, and asynchronous execution for sparse video diffusion models. First, Dependency-Aware Placement distributes sequence blocks according to diffusion models' sparse attention patterns. Second, Demand-Directed KV Routing transfers KV blocks directly to requesting GPUs without intermediate relays. Third, a Decoupled Transfer Runtime separates communication from GPU computation to reduce resource contention and maximize effective bandwidth. Our evaluation shows that SparSP improves attention performance by 1.38- 1.5$\times$, achieves an average 1.17$\times$ (up to 1.69$\times$) end-to-end speedup across three representative servers and three video diffusion models, and reduces communication volume by 12.54-23.05%. Moreover, we achieve an average 1.53-1.76$\times$ bandwidth improvement over NCCL.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.32197v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Desen Sun, Xinrui Zhong, Yuke Wang, Sihang Liu</dc:creator>
+    </item>
+    <item>
+      <title>FA-Bench: A Benchmark for Word-Level and Phone-Level Forced-Alignment and ASR Timestamps Under Clean and Noisy Conditions</title>
+      <link>https://arxiv.org/abs/2609.32396</link>
+      <description>arXiv:2609.32396v1 Announce Type: cross 
+Abstract: Forced alignment aligns speech audio with a text transcript to generate word and phone timestamps. Published comparisons normalize transcripts, split the data and match boundaries differently, so their numbers cannot be read together. We present FA-Bench, an open framework that fixes those choices once and releases the code, splits, phone mapping, text normalization and scoring script, with results published periodically. Track 1 gives every aligner the reference transcript and Track 2 gives it a recognizer's output, on the same audio, clean and degraded four ways, with 21 open models and 9 commercial APIs under a unified protocol. We score every boundary of an utterance and check the two labels beside it, so a word the recognizer missed or invented is charged. Using a tolerance-based F1 as our primary metric eliminates the 9% to 14% score inflation that standard MAE causes on recognition-dependent systems in conversational speech. We then group boundaries by their position and how many adjacent words were recognized correctly, which shows where a system lost the score. We discovered systematic bias in how current systems time words, with Whisper about 150 ms early and several commercial ASR APIs over 50 ms late. Code and results are at https://github.com/olewave/fa-bench</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.32396v1</guid>
+      <category>cs.CL</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Wei Chu, Yuanzhe Dong, Ke Tan, Dong Han, Yichao Zhou, Ruchao Fan, Bingshen Mu, Jingbei Li, Vishwas Shetty, Sarthak Bisht, Ziyue Qiu, Massa Baali, Rita Singh, Bhisha Raj</dc:creator>
+    </item>
+    <item>
+      <title>Change the Product, Keep the Parameters: Associative Algebra Layers for Transformers</title>
+      <link>https://arxiv.org/abs/2609.32814</link>
+      <description>arXiv:2609.32814v1 Announce Type: cross 
+Abstract: Fast matrix multiplication algorithms keep the product fixed and search for a cheaper way to evaluate it. We instead ask whether a Transformer's learned projections can use a different, cheaper product altogether. Building on an associative-algebra construction that replaces ordinary matrix multiplication with a sparser interaction table over the same weight blocks, we construct a family with quadratic arithmetic in the matrix dimension when the physical block size remains fixed, and derive finite-shape constraints for GPU execution. The construction is provably optimal for its bilinear rank by the Alder--Strassen bound and can be realized as row-typed rectangular projections compatible with causal masking and KV-cached decoding. We provide an empirical test of this approach by training two approximately 110M-parameter decoder-only Transformer LMs from the same recipe and 12.3B-token budget, differing only in their feed-forward layer: one uses ordinary dense matrix multiplication and the other uses the associative-algebra product. Across four prompt domains, the algebraic model achieves a 6.2--7.8\% increase in end-to-end generation throughput, while obtaining lower scores on all three reported downstream metrics. We treat these results as a feasibility and trainability check for the proposed approach at small scale, leaving further investigation to future work.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.32814v1</guid>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ilya Koziev, Ivan Oseledets</dc:creator>
+    </item>
+    <item>
+      <title>Packets, Transactions and Queues: Design Principles for HFT Systems from a Measurement Study of CME Market Data</title>
+      <link>https://arxiv.org/abs/2609.32848</link>
+      <description>arXiv:2609.32848v1 Announce Type: cross 
+Abstract: HFT systems are conventionally built as a single-threaded event loop, on the rule that every thread hop adds latency. We test that rule against a measurement study of more than a year of CME market data for the NQ front-month contract, following every packet and matching-engine transaction through the feed's two exchange timestamps, and checking the results against a live production receiver. Packets arrive in near-critical self-exciting clusters that belong to the matching engine's transactions, not to how the exchange packs them. The engine often processes consecutive transactions within a fraction of a microsecond, while the market-data publisher sends at most one packet per publisher period of about 7.5 microseconds, so a burst reaches the receiver as a train of packets one period apart. This yields design principles for HFT systems. First, a receiver that handles each packet within one publisher period never queues on arrivals, however bursty the market; there one thread is best. Second, above that period a queueing tail appears, driven by the timing of transactions, not by packet rate or size, and two threads can be better than one: splitting the servicing chain into two stages on separate threads removes most of the tail at the cost of one hop on the median. Third, only the slowest stage matters, so a split pays only if it shortens it. Fourth, just under the period, where the production receiver runs, the remaining tail comes from multi-message packets and variable service times, and the levers are cost per message and spread of service, not thread count. An analytic framework, a burst-limit throughput identity and an exact reduction of the tandem to a single bottleneck server, supports these results.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.32848v1</guid>
+      <category>q-fin.TR</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <category>q-fin.ST</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vincent Maciejewski</dc:creator>
+    </item>
+    <item>
+      <title>Analyzing 10 Petabit/s Network Data with Accelerated Associative (Token) Arrays</title>
+      <link>https://arxiv.org/abs/2609.32978</link>
+      <description>arXiv:2609.32978v1 Announce Type: cross 
+Abstract: As networks expand and become an ever more critical infrastructure to modern society the need to analyze these networks with the highest regard for privacy is essential to ensure their proper function. Depending on the level of the network layer to be analyzed, sources and destinations can be any combination of physical, logical, or persona/agentic endpoints, which requires the ability to handle diverse data. Invaluable to these analyses are mathematical tools that enable sophisticated mathematical algorithms to be expressed succinctly while achieving scalable vertical (within a compute node), horizontal (across compute nodes), and temporal (over different generations of hardware) performance. Associative (token) array mathematics and corresponding libraries is one approach that can meet these requirements. Accelerating these libraries with GPUs enables the analysis of the largest networks. The MIT/IEEE/Amazon Anonymized Network Sensing Graph Challenge provides a venue for highlighting the applicability of accelerated associative arrays for these types of problems. The D4M associative library has been implemented in a number of languages. This work benchmarks a prototype Matlab D4M GPU accelerated implementation of the Anonymized Network Sensing challenge across a wide range of CPU and GPU hardware. Scalable performance is demonstrated within and across CPU cores, CPU nodes, and GPU nodes. Horizontal scaling across multiple nodes was linear. Running on hundreds of GPU nodes simultaneously achieved a sustained processing rate sufficient to potentially analyze a 10 Petabit/s network.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.32978v1</guid>
+      <category>cs.NI</category>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <category>cs.MS</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jeremy Kepner, Hayden Jananthan, LaToya Anderson, William Arcand, David Bestor, William Bergeron, Chansup Byun, Alex Bonn, Daniel Burrill, Vijay Gadepally, Michael Houle, Matthew Hubbell, Michael Jones, Piotr Luszczek, Peter Michaleas, Lauren Milechin, Julie Mullen, Andrew Prout, Albert Reuther, Antonio Rosa, Charles Yee, Alex Pentland</dc:creator>
+    </item>
+    <item>
+      <title>Just Let Linear States Forget the Distant Past: Prefix Caching via Suffix Replay for Hybrid LLMs</title>
+      <link>https://arxiv.org/abs/2609.33477</link>
+      <description>arXiv:2609.33477v1 Announce Type: cross 
+Abstract: Hybrid LLMs interleave full-attention layers with linear-attention layers to reduce long-context inference cost, but this structure complicates prefix caching. Full-attention KV caches are token-addressable, whereas linear-attention layers maintain recurrent states that cannot be rolled back to arbitrary prefix boundaries. Existing systems materialize recurrent-state checkpoints, restricting prefix reuse to checkpoint-aligned positions.
+  We present SuffixReplay, the first prefix caching system that lets hybrid LLMs reuse cached prefixes at every cache-supported page boundary without materializing recurrent-state checkpoints. Our key insight is to just let linear states forget the distant past. Modern linear-attention mechanisms use recurrent decay and gating to attenuate the influence of old inputs. Therefore, instead of checkpointing every prefix boundary, SuffixReplay approximates the state at a matched boundary by replaying only a recent suffix of the layer's input hidden states, which we retain as anchors. At the algorithmic level, SuffixReplay combines layer-wise and token-wise anchor sparsity with a bounded replay budget to control storage, computation, and quality. At the system level, it uses an independently managed anchor sidecar and a pipelined replay path to overlap anchor movement and state reconstruction with the native serving pipeline. We evaluate SuffixReplay on three hybrid LLMs: OLMo-Hybrid-7B, Qwen3.5-4B, and Qwen3.6-27B-FP8. Across these models, SuffixReplay retains 91.4-100% of full-prefill quality on average across LongBench and RULER, while using only 0.36-0.51x the amortized per-token storage of SGLang's default 8192-token checkpoint cache. Integrated into SGLang, SuffixReplay reduces median TTFT by 15-70% on branching workloads, sustains 2.3-4.3x SGLang's throughput when the working set exceeds HBM, and matches SGLang on high-hit continuation traffic.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.33477v1</guid>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yirui Liu, Ruoling Qi, Xuaner Wu, Yuxin Jin, Jian Chen, Penghang Liu, Yafei Huang, Jiawei Shao, Xuelong Li</dc:creator>
+    </item>
+    <item>
+      <title>JET: Justification Evaluation in Transformer</title>
+      <link>https://arxiv.org/abs/2609.33874</link>
+      <description>arXiv:2609.33874v1 Announce Type: cross 
+Abstract: JET uses pretrained language and vision-language models to select among a finite set of answers without additional training. It evaluates candidate likelihoods directly and shares computation across candidates. Experiments on desktop CPUs and consumer GPUs assess decision accuracy and execution cost. Qwen3.6-35B-A3B achieves 87.48% accuracy on the full MMLU test set and 3.69 requests per second on a separately timed MMLU subset. The accuracy-throughput comparison covers model, hardware, and reasoning choices, with Jev as an external reference. Controlled execution experiments show 2.18-2.23-fold speedups from prefix reuse and cache management, and a 30.8% reduction in process time from input preparation optimizations, with unchanged outputs. Optional reasoning has a task-dependent accuracy-throughput trade-off. These results support local decision inference from existing models.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.33874v1</guid>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Shenghao Ding</dc:creator>
+    </item>
+    <item>
+      <title>Where Activation Sparsity and KV-Cache Sparsity Cross in LLM Decoding</title>
+      <link>https://arxiv.org/abs/2609.33889</link>
+      <description>arXiv:2609.33889v1 Announce Type: cross 
+Abstract: At each step, decoding one sequence with a large language model rereads the projection weights, whose traffic is fixed, and the key-value (KV) cache, whose traffic grows with context. Activation sparsity trims the first term and KV-cache sparsity the second, yet their reported speedups are hard to compare because each depends on context length and on the dense attention kernel it is measured against. We derive a byte crossover, the context length at which the two savings are equal, together with ideal speedup bounds for each branch and for their composition, from model dimensions and keep ratios alone. We then time both branches and their composition from 2K to 128K tokens on two GPUs after a dense prefill of real text, with dense and sparse modes reading the cache through the same split-K attention kernel. The projection branch leads at short context and the KV branch at long context, with speedups that follow their byte bounds up to fixed kernel costs. Adding these costs, measured in separate sweeps, lets the byte account predict the measured crossings of three keep-ratio pairs, a second model, and a second GPU to within 4.1K tokens. Timing the dense baseline with masked instead of split-K attention inflates the apparent speedup of the same KV policy about fivefold. An attention-scored KV selection answers the same passkey and multi-key placements as dense decoding up to 127K tokens, whereas a KV window misses most of them. Under matched perplexity budgets, activation sparsity composed with this selection decodes 14 to 26% faster than the best single branch on both GPUs. Code is available at https://github.com/js-lee-AI/ByteCross.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.33889v1</guid>
+      <category>cs.LG</category>
+      <category>cs.CL</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jungseob Lee, Seungyoon Lee, Seongtae Hong, Sugyeong Eo, Heuiseok Lim</dc:creator>
+    </item>
+    <item>
+      <title>The Shape of Speed: Impacts of Partition Geometry and Rank Density in Distributed Quantum Circuit Simulations</title>
+      <link>https://arxiv.org/abs/2609.34369</link>
+      <description>arXiv:2609.34369v1 Announce Type: cross 
+Abstract: In distributed quantum circuit simulation, a poorly shaped partition can halve performance before computation begins. Evaluation on Fugaku across 764 validated configurations (twelve algorithms, thirteen torus partition geometries, and six rank densities for 39-qubit simulations on 1,024 nodes) shows that partition geometry dominates runtime. All twelve algorithms run 1.73-2.31x slower on flat partitions than on near-cubic ones despite identical data transfer, proving the slowdown stems from network delivery rather than communication volume. This penalty scales with the 3D torus partition aspect ratio (runtime $\propto a^{0.39}$, $r = 0.72$). Rank density is secondary, cutting runtime by 11% at 16 ranks per node only on compact geometries. Ultimately, requesting a near-cubic partition with 16 ranks per node roughly halves time-to-solution relative to flat partitions, which also consume 1.82x more energy. A simulator-free all-to-all microbenchmark confirms a similar geometry penalty for collective-dominated workloads.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.34369v1</guid>
+      <category>cs.ET</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yikai Mao, Yuan He, Shaowen Li, Masaaki Kondo</dc:creator>
+    </item>
+    <item>
+      <title>DPS: Dual-Mode Precision LLM Serving with Semi-Unified Memory</title>
+      <link>https://arxiv.org/abs/2609.34380</link>
+      <description>arXiv:2609.34380v1 Announce Type: cross 
+Abstract: Existing LLM serving systems virtualize and optimize KV-cache memory, but treat model-weight memory as fixed throughout execution. Recent work on multi-precision model representations challenges this design by allowing a single stored model to support both full-accuracy and lower-precision execution, making the effective weight footprint runtime-dependent. This creates an opportunity under bursty workloads, where temporary spikes in KV-cache demand often determine throughput and SLO compliance. We present DPS, a dual-precision LLM serving system that turns weight memory into an elastic resource: under normal load, DPS serves the full-accuracy model; under KV pressure, it switches to a nested, lower-precision variant and repurposes unused weight memory for KV cache blocks. DPS is built on Semi-Unified Memory (SUM), which partitions the weight region into a persistent lower-precision sub-region and a shared region that alternates between residual weight tensors and KV-cache blocks, preserving compatibility with paged KV-cache management. We implement DPS on top of vLLM and evaluate it across both dense and MoE models and various production workload traces. Our results show that \sysname improves sustained throughput by $2.1$--$3.3\times$ and effective pass@1 by up to $+41$\,pp over Static FP16, while preserving FP16-class accuracy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.34380v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.ET</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Xuan Truong Nguyen, Tien Son Pham, Tuan Duc Chu, Wookeun Jung, Thanh Tuan Dao</dc:creator>
+    </item>
+    <item>
+      <title>Accelerator Choice Is Not Enough: AlphaFold2 Inference on Cloud TPUs</title>
+      <link>https://arxiv.org/abs/2609.34818</link>
+      <description>arXiv:2609.34818v1 Announce Type: cross 
+Abstract: AlphaFold2 is written in JAX, so the same inference code compiles and runs unchanged on CPUs, GPUs and Google Cloud TPUs. That portability makes the accelerator look like the main decision a user has to make. We show that it is not. Running one AlphaFold2 inference workload across a Colab CPU runtime, an NVIDIA T4 GPU and a dedicated eight-chip Cloud TPU v5e slice, we find a large hardware advantage for the TPU, 0.47 s per call in steady state on a single chip against 13.1 s on the T4 in the same measurement campaign, and three ways in which the software layer decides how much of it a user actually gets. The default execution path uses one chip of the eight, and at list prices the idle capacity makes the slice cost about as much per prediction as the GPU. Batching with jax.vmap never exceeds single-query throughput, while mapping queries across chips with jax.pmap gives eight chips 6.5-7.9x the throughput of one on a matched grid; automatic sharding leaves the per-chip footprint unchanged, consistent with replication, most plausibly because AlphaFold2 carries no sharding annotations. Our retained trace analysis of a first call at a new input shape reports about three quarters of the traced span in JAX tracing and compilation rather than execution. Reruns five weeks later reproduced neither cloud baseline, the GPU one off by roughly a factor of two, so the hardware ratio above is specific to one campaign.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.34818v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Lorenzo Pazienza, Ihab El Bani</dc:creator>
+    </item>
+    <item>
+      <title>Beneath the Tokens: A Performance Engineering Study of Multi-Token Prediction in GPU-Accelerated LLM Inference</title>
+      <link>https://arxiv.org/abs/2609.35188</link>
+      <description>arXiv:2609.35188v1 Announce Type: cross 
+Abstract: Autoregressive large language model inference repeatedly invokes the target model to generate one token at a time, making generation sensitive to GPU memory movement and sequential execution. This study evaluates two-token multi-token prediction (MTP) against autoregressive decoding in a controlled single-request deployment on an NVIDIA A10G GPU. A 360-request benchmark covered plain-text, reasoning-intensive, and tool-calling workloads, while runtime telemetry, Nsight Systems, PyTorch Profiler, and selected Nsight Compute measurements were used to explain the observed performance. MTP increased output throughput by \(1.91\times\) to \(2.19\times\) across all prompts and reduced time to first output by 10.0--14.2\%. Median mean acceptance length ranged from 2.370 to 2.595 tokens per verification iteration. Profiling showed that MTP introduced a longer and more complex execution path, including proposal, sampling, attention, gathering, and reduction operations. However, it required 56.4--78.1\% fewer executions of the selected repeating CUDA Graph per generated token. The dominant MTP GEMM kernel was not faster than the dominant autoregressive GEMV kernel, and selected instances of both approached the A10G memory-bandwidth limit. These results show that MTP improved inference through amortization: greater token progress reduced repeated GPU execution sufficiently to outweigh the additional speculative-execution cost.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.35188v1</guid>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Suwesh Prasad Sah</dc:creator>
+    </item>
+    <item>
+      <title>Beyond Energy: When Sustainability Dimensions Reshape LLM Serving Decisions</title>
+      <link>https://arxiv.org/abs/2609.35569</link>
+      <description>arXiv:2609.35569v1 Announce Type: cross 
+Abstract: Large language model (LLM) serving has environmental impacts across energy consumption, carbon emission, water consumption, and biodiversity loss. Yet these dimensions are largely evaluated in isolation, leaving it unclear when and how they lead to different optimization decisions. We present PRISM, a unified framework for characterizing and optimizing LLM serving across energy, carbon, water, and biodiversity impacts. Our analysis reveals a fundamental distinction: computing configurations determine energy consumption, whereas where and when LLM serving is deployed determine its carbon, water, and biodiversity impacts. Under a fixed deployment choice and operational-only accounting, all dimensions preserve the same energy-based configuration ranking. Deployment rankings can diverge across dimensions, while embodied impacts can break configuration invariance when they exceed a lifecycle crossover boundary. PRISM identifies these conditions, quantifies cross-dimensional regrets, and balances the four dimensions. In regional-routing experiments, PRISM reduces median worst-case regret by 50.2% relative to the strongest baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.35569v1</guid>
+      <category>cs.CY</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Tianyao Shi, Xipeng Shen, Yi Ding</dc:creator>
+    </item>
+    <item>
+      <title>Hardware-Aware Features for CUTLASS Kernel Selection</title>
+      <link>https://arxiv.org/abs/2609.35587</link>
+      <description>arXiv:2609.35587v1 Announce Type: cross 
+Abstract: GPU libraries such as CUTLASS expose tens of thousands of semantically equivalent kernels for a single operation, making exhaustive autotuning expensive and execution-free selection difficult. Existing analytical selectors require hand-designed performance rules, while learned selectors operate on raw configuration parameters and must infer hardware consequences from data. We introduce a hardware-aware representation for CUTLASS kernel selection that augments candidate configurations with statically computable estimates of induced hardware behavior. We construct a dataset of 4.9 million CUTLASS kernels and train gradient-boosted and neural learning-to-rank models to rank candidates within each problem. On held-out exhaustive evaluation problems, hardware-aware representations reduce selection regret by up to 40\% relative to structural baselines and 64.2\% relative to NVIDIA's matrix-multiply heuristics. We further evaluate data-efficient cross-precision and epilogue-fusion transfer within CUTLASS GEMM, showing that explicitly representing candidate-induced hardware behavior provides a useful inductive bias for learned kernel selection.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.35587v1</guid>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shriram Chandran, Dominic Rinderer, Yakup Budanaz, Alexandru Calotoiu, Marcin Copik, Torsten Hoefler</dc:creator>
+    </item>
+    <item>
+      <title>PASCAL: A Progress Divergence-Aware Shared-Cache Model</title>
+      <link>https://arxiv.org/abs/2609.10515</link>
+      <description>arXiv:2609.10515v2 Announce Type: replace 
+Abstract: In modern AI accelerators and GPUs, many concurrent cores repeatedly access the same shared data. This pattern occurs in attention, where different query (Q) tiles share the same key and value (K/V) blocks, GEMM, where every tile in a row reads the same slice, and many other operators. We name this pattern shared cyclic scan. Due to a significant amount of data reuse in this pattern, the cache is expected to capture as much data reuse as possible and largely reduce requests sent to the main memory for both performance and energy consumption concerns. However, in reality, because of the intrinsic asynchrony of multi-cores, the actual cache miss rate and DRAM traffic can be much higher compared to ideal cases. In this paper, we propose PASCAL, a shared-cache model for shared cyclic scans. It calibrates finite-run traffic, which reflects progress divergence, on reference configurations and interpolates it along static program structure such as occupancy to predict the miss rate before execution. PASCAL supports software configuration exploration without target traces or counters at scales where cycle-accurate simulation is impractical, while its analysis gives a sharp $2\sigma-1$ sufficient capacity condition for preserving LRU sharing. Across held-out scans and GEMM on GB10 and Thor, PASCAL reaches 12.04% balanced fill-equivalent miss-rate MAPE. Replacing TileSight's cache component with PASCAL lowers GB10 GEMM latency MAPE from 18.17% to 13.14%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.10515v2</guid>
+      <category>cs.PF</category>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhongchun Zhou, Ya Wang, Chengtao Lai, Songtao Mao, Wei Zhang</dc:creator>
+    </item>
+    <item>
+      <title>FlexQuant: Elastic Quantization Framework for Locally Hosted LLM on Edge Devices</title>
+      <link>https://arxiv.org/abs/2501.07139</link>
+      <description>arXiv:2501.07139v2 Announce Type: replace-cross 
+Abstract: Deploying LLMs on edge devices presents serious technical challenges. Memory elasticity is crucial for edge devices with unified memory, where memory is shared and fluctuates dynamically. Existing solutions suffer from either poor transition granularity or high storage costs. We propose FlexQuant, a novel elasticity framework that generates an ensemble of quantized models, providing an elastic hosting solution with 31x more deployment options, 15x granularity improvement, and 10x storage reduction compared to SoTA methods. FlexQuant works with most quantization methods and creates a family of trade-off options under various storage limits through our pruning method. It brings great performance and flexibility to the edge deployment of LLMs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2501.07139v2</guid>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yuji Chai, Mujin Kwun, David Brooks, Gu-Yeon Wei</dc:creator>
+    </item>
+  </channel>
+</rss>
