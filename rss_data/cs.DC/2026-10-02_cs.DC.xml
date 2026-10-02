@@ -1,0 +1,414 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Oct 2026 04:00:03 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Pushing CPU Speech Synthesis to the Wall: Extreme Inference Tuning under Serverless Architecture and Billing</title>
+      <link>https://arxiv.org/abs/2610.00063</link>
+      <description>arXiv:2610.00063v1 Announce Type: new 
+Abstract: Instance-billed serverless platforms charge for CPU and memory over the lifetime of a warm instance, making idle inference state a direct serving cost. We present billing-aware neural text-to-speech (TTS) serving on serverless CPUs, optimizing CPU-seconds and GB-seconds rather than throughput or latency alone. Conventional runtimes are poorly suited to this setting: per-request parallelism causes CPU contention under concurrency, while warm instances retain gigabytes of billable inference and page-cache state.
+  We address these costs with request-sized concurrent inference, which bounds per-request CPU parallelism, and a reclaimable instance lifecycle, which releases inference state and page-cache memory after idle periods while retaining the server process and compile cache. On Kokoro-82M, our system achieves 2.71 audio-seconds per CPU-second versus 0.89 with ONNX Runtime defaults and reduces cost per audio-hour from $0.0631 with PyTorch to $0.0153, a 4.1x reduction. Idle billed memory falls from 8.7 GB to 1.33 GB, while restoration reaches first audio in 2.2 s versus 7.7 s for a PyTorch cold start. Under bursty traffic, lifecycle reclamation is essential for translating inference efficiency into lower serverless cost.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00063v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.CL</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Pakorn Nathong, Kunat Pipatanakul</dc:creator>
+    </item>
+    <item>
+      <title>MegaFlux: Skew-Resilient MoE Megakernels via Pipelined Expert Replication</title>
+      <link>https://arxiv.org/abs/2610.00671</link>
+      <description>arXiv:2610.00671v1 Announce Type: new 
+Abstract: Mixture-of-experts (MoE) megakernels fuse expert-parallel communication with expert computation. However, under fixed expert placement, routing skew creates GPU stragglers: overloaded GPUs determine layer latency while others sit idle. Replicating hot experts can shift work to underloaded GPUs, but dynamic replicas introduce additional work: replicas must receive expert weights to execute and, during training, their partial weight gradients must be reduced at the expert owners. We present MegaFlux, which makes expert replication a runtime decision and pipelines the communication induced by replication within persistent MoE execution. An on-device planner jointly selects replica locations and assigns tile-aligned token blocks under a per-GPU replica budget, leaving router outputs unchanged. The forward and backward megakernels realize pipelined expert replication: replicas begin computation as their required weights arrive, while backward overlaps replica-gradient reduction with ongoing expert computation. MegaFlux extends TensorRT-LLM's CuTeDSL MegaMoE forward kernel and introduces a new backward MoE megakernel. Across 147 configurations per direction on eight NVIDIA B200 GPUs, MegaFlux achieves geometric-mean speedups of $1.45\times$ for forward and $1.28\times$ for backward over the same megakernels with fixed placement, peaking at $2.14\times$ and $2.64\times$. In ablations, pipelining hides $56$--$76$% of replica-weight transfer cost in forward and $91$--$100$% of combined weight-transfer and replica-gradient-reduction cost in backward, yielding up to $13.2$% and $26.7$% additional layer-latency reductions over the same replication plans with these operations executed separately. Integrated into vLLM for DeepSeek-V4-Pro prefill, MegaFlux delivers $1.13$--$1.26\times$ median end-to-end speedups over fixed placement.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00671v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jianzhu Yao, Siva Kumar Sastry Hari, Vignesh Balaji, Sana Damani, Insu Jang, Pramod Viswanath, Christos Kozyrakis</dc:creator>
+    </item>
+    <item>
+      <title>Leto: Fast In-Place Recovery for LLM Training on Surviving Hardware</title>
+      <link>https://arxiv.org/abs/2610.00687</link>
+      <description>arXiv:2610.00687v1 Announce Type: new 
+Abstract: Hardware-operable failures (HOFs) interrupt large language model (LLM) training but permit recovery on the same hardware without reset, repair, or replacement. Existing recovery systems nevertheless reload checkpoints, recompute lost progress, and rebuild process state, idling GPUs that could otherwise continue training.
+  We present Leto, a fault-tolerant training system that leverages surviving hardware to enable efficient in-place recovery. Our key insight is that the state needed to resume training can be retained or prepared outside the active training process while remaining on the same hardware. Leto retains the working model state and the reusable process state, and preinitializes the remaining state in a shadow trainer. We devise two-tier erasure protection and chunk-level transactional updates to keep the retained model state recoverable and consistent, and reclaim the shadow state when active training needs its GPU memory. Evaluation on 6- and 72-GPU NVIDIA A100 clusters shows that Leto recovers 3.6--6.5$\times$ faster than the best-performing checkpointing baselines and improves productive training time by up to 13.7 percentage points. Large-scale simulation shows over 95% productive training time on a 131,072-GPU cluster.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00687v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Geon-Woo Kim, Joon Ha Kim, Daehyeok Kim</dc:creator>
+    </item>
+    <item>
+      <title>Ditto: Generalized Reconfigurable Linearizable Reads</title>
+      <link>https://arxiv.org/abs/2610.00702</link>
+      <description>arXiv:2610.00702v1 Announce Type: new 
+Abstract: Linearizability gives developers the illusion that operations on a distributed datastore execute sequentially on a single machine. Providing it is expensive, so numerous specialized reads algo- rithms have been proposed to make reads significantly faster without sacrificing linearizability, which matters because most workloads are read-dominant by orders of magnitude. Yet, none of these algorithms is the best choice for every deployment. We show why with a framework that classifies these algorithms into a generalized space together with a mathematical analysis of their latencies as a function of this generalization. The analysis exposes two fundamental tradeoffs, one between read and write latency and one between read and write tolerance to network variance, which together leave the best algorithm dependent on network and workload conditions that vary over time. It also exposes a gap: there is a way to minimize the delay a read incurs when it overlaps a concurrent write, at no cost to writes, yet exist- ing algorithms can apply it only for a subset of the tradeoff space, forcing any deployment that needs the full space to settle for a strictly worse solution. We close this gap with a new algorithm, Pairwise Quorums, and build a second, Ditto, that reconfigures across the space at runtime as conditions change. Together they subsume every existing algorithm under our model: against each, the combination is either strictly better, or reconfigures to match it where a genuine tradeoff applies.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00702v1</guid>
+      <category>cs.DC</category>
+      <category>cs.DB</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Aleksey Panas</dc:creator>
+    </item>
+    <item>
+      <title>MANTA: Machine Learning Augmented Tiering Advisor</title>
+      <link>https://arxiv.org/abs/2610.00714</link>
+      <description>arXiv:2610.00714v1 Announce Type: new 
+Abstract: Memory tiering has been used to expand memory capacity, particularly in datacenters, by combining fast DRAM with slower tiers, including CXL-attached memory. Its effectiveness depends on keeping useful pages in the fast tier, but existing heuristic policies can lag behind changing hot sets in phased or bursty workloads. To explore these limitations, we introduce ChOMP, a scalable offline optimizer that minimizes placement and bandwidth-sensitive migration costs. We then develop a trace-driven simulator that uses this reference to identify performance opportunities for online policies. Motivated by these results, MANTA predicts future page usefulness from runtime access features and integrates a lightweight learned model into ARMS. Across eight workloads on emulated CXL, MANTA achieves geometric-mean speedups over ARMS of 1.12$\times$ and 1.08$\times$ at 4~GB of fast memory on Linux 6.2 and 6.18, respectively; across six Optane workloads, it achieves 1.69$\times$. On individual workloads, MANTA is up to 1.25$\times$ faster than ARMS with emulated CXL on Linux 6.2, 1.21$\times$ on Linux 6.18, and 5.6$\times$ with Optane.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00714v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3842654.3848563</arxiv:DOI>
+      <dc:creator>Johannes Freischuetz, Kiet Pham, Sujay Yadalam, Konstantinos Kanellis, Michael Swift, Shivaram Venkataraman</dc:creator>
+    </item>
+    <item>
+      <title>Seamless Reconfiguration for DAG-BFT</title>
+      <link>https://arxiv.org/abs/2610.00896</link>
+      <description>arXiv:2610.00896v1 Announce Type: new 
+Abstract: Byzantine Atomic Broadcast in Asynchronous networks has been studied extensively for decades. The FLP impossibility result rules out deterministic consensus in a fully asynchronous setting, motivating randomized protocols that combine reliable broadcast with private coins to achieve termination with probability one.
+  More recently, DAG-Rider popularized a new abstraction in which processes continuously reliably broadcast blocks to construct a directed acyclic graph (DAG) and then locally derive a total order using a randomized perfect coin. This separation of dissemination from ordering has renewed interest in asynchronous DAG-based Byzantine fault tolerance and inspired numerous protocols that improve expected latency or throughput.
+  Reconfiguration, however, remains largely unexplored. Existing DAG-based BFT protocols generally assume a static set of processes, whereas deployed systems must occasionally add or remove nodes in response to operational demands. Existing solutions are not seamless; they either pause the system or delay membership changes until a predetermined epoch boundary. This may be impractical and can introduce downtime. However, a seamless solution is non-trivial; agreement on when to start utilizing a new configuration may yield a logical round number that was already surpassed by the concurrent asynchronous dissemination.
+  In this work, we present a seamless reconfiguration protocol for asynchronous DAG-based Byzantine atomic broadcast. Our protocol allows the DAG to continue growing while the membership and corresponding quorum thresholds change, without halting the system. To the best of our knowledge, ours is the first protocol to provide seamless reconfiguration for DAG-based Byzantine atomic broadcast in a fully asynchronous network.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00896v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Michael Yiqing Hu, Leander Jehl, Paul Franke-Bergmann, Jialin Li, Christian Berger</dc:creator>
+    </item>
+    <item>
+      <title>The Other Half of Workflow Portability: Evidence-Backed HPC Site Profiles with Agentic Discovery</title>
+      <link>https://arxiv.org/abs/2610.00971</link>
+      <description>arXiv:2610.00971v1 Announce Type: new 
+Abstract: Moving a workflow developed and tested at one HPC site to another rarely succeeds without some amount of trial and error. Package managers rebuild software environments, containers ship whole filesystems, and workflow specifications such as backpacks package a workflow with its software, data, and resource requirements. These approaches address one half of workflow portability: what a workflow needs. But none describes how a given HPC site must be used, and that missing half is why even a portable workflow requires manual adjustment at each new site. That gap includes the site's resource shape, storage configuration, network permissions, and operating policies. This information may be explicit in the batch system, hidden in the prose of documentation, or buried deep within a router's configuration, making it difficult for an automated deployment tool to turn site knowledge into useful deployment decisions. We propose the HPC site profile, a structured, evidence-backed document that makes this knowledge actionable. We automatically construct it in three steps that mirror where the information lives: measuring the login node, extracting typed fields from documentation with a bounded language-model agent, and submitting pilot jobs for eligible unresolved fields. Every field is verified against its evidence or discarded, so a rule, not the model, decides what enters the profile. The profile then preflights a workflow into an execution plan or an early, explainable failure. We build profiles at Purdue Anvil, TACC Stampede3, and Notre Dame CRC and present a case study of preflighting a real workflow.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00971v1</guid>
+      <category>cs.DC</category>
+      <category>cs.IR</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Md Saiful Islam, Douglas Thain</dc:creator>
+    </item>
+    <item>
+      <title>Serving a Revisable World: Versioned Execution for Interruptible Agents</title>
+      <link>https://arxiv.org/abs/2610.01160</link>
+      <description>arXiv:2610.01160v1 Announce Type: new 
+Abstract: LLM agents revise running tasks when users change instructions, tools fail, or new information changes a plan. Today's servers express a revision as aborting old requests and submitting replacements. Yet the old execution's buffered output and outstanding work must stop affecting the application, while completed KV state may still be useful to its replacement. Handling these obligations separately can leave obsolete effects publishable and force the successor to rebuild valid state.
+  We present \retire, a serving control-plane redesign around \emph{versioned execution}. Requests own scheduling and memory resources; execution versions own \emph{authority}, the permission to publish output or install state for the current execution. \retire first revokes obsolete work, then bounds its remaining execution and certifies the completed prefix its successor can inherit. The successor runs from that state while isolated old resources are reclaimed asynchronously. This unifies fast invalidation and selective preservation in one version transition.
+  We implement \retire in vLLM across output publication, GPU execution, KV handoff, tiered recovery, and distributed and multi-tenant serving. Correctness experiments verify current-version output and valid state inheritance across these paths. Combining invalidation with inheritance reduces revision-to-successor time-to-first-token by a median 17.1\% in controlled paired experiments. A replay of recorded coding-agent interruption arrivals emits no obsolete output and keeps every final version progressing through repeated revisions. \retire turns abort-and-restart into a coordinated handoff that stops obsolete work quickly and preserves useful work for its successor.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.01160v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yanxin Zhang, Rahul Sharma, Nitin Vegesna, Zheyu Fu, Chang Liu, Trivikram Krishnamurthy</dc:creator>
+    </item>
+    <item>
+      <title>RapidMoE: Exploiting Cross-Asymmetry via Adaptive Residual Offloading for Large-Scale MoE Inference</title>
+      <link>https://arxiv.org/abs/2610.01265</link>
+      <description>arXiv:2610.01265v1 Announce Type: new 
+Abstract: The widespread adoption of Mixture-of-Experts (MoE) has created a growing need for deployment on heterogeneous platforms. However, it exposes a fundamental mismatch between the algorithmic demands of large-scale MoE and the disparate characteristics of hardware.Existing CPU-GPU hybrid inference systems fail to resolve this as they either encounter PCIe bandwidth bottlenecks when loading experts to GPUs, or rely heavily on CPU computation. Consequently, this leads to low resource utilization and inevitable violations of fixed latency budgets as parameters scale. In this paper, we identify and exploit Cross-Asymmetry--a structural alignment between the algorithmic workload skew of MoE routing and the physical disparity of heterogeneous hardware. To this end, we introduce RapidMoE, a residual offloading system for efficient large-scale MoE inference. We propose how RapidMoE leverages a residual-split framework to enable offloading paradigm shift from expert-level to bit-level, which unfolds across three key dimensions: (1) data representation, enabling compact and decoupled storage; (2) routing strategy, partitioning computation into dual paths aligned with hardware capabilities; (3) execution parallelism, scheduling a balanced storage-compute workload across devices. We further employ a novel Unified Multi-Level Importance Arbitration to adaptively adjust the critical expert set at runtime, ensuring the accuracy-latency Pareto frontier. These innovations exploit inherent cross-asymmetry, fundamentally breaking the algorithm-hardware misalignment. Experimental results show that RapidMoE achieves up to 3.5x speedup in decoding and 2.1x speedup in prefill compared to state-of-the-art (SOTA) offloading systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.01265v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3842654.3848583</arxiv:DOI>
+      <dc:creator>Wenxun Wang, Likai Ma, Zongle Huang, Chen Tang, Yongpan Liu</dc:creator>
+    </item>
+    <item>
+      <title>Blockchain Lifecycle Prediction - Dead Coins</title>
+      <link>https://arxiv.org/abs/2610.01379</link>
+      <description>arXiv:2610.01379v1 Announce Type: new 
+Abstract: The cryptocurrency ecosystem has experienced extraordinary growth alongside an equally remarkable rate of failure, with over 52 percent of all tokens launched since 2021 ceasing to trade by early 2025. Despite the scale of this phenomenon, predictive modeling of cryptocurrency death remains an underdeveloped area of research, constrained by definitional ambiguity, data scarcity, and the absence of granular lifecycle frameworks. This work investigates whether the failure of cryptocurrency assets can be predicted using publicly available market data and deep learning methods. A Long Short-Term Memory (LSTM) recurrent neural network was trained on 90-day sequences of daily reference price and estimated market capitalization for 82 cryptocurrency assets (41 alive and 41 dead), sourced from Coin Metrics over the period 2020 to 2026. The model was evaluated using a strictly chronological train-test split to prevent look-ahead bias. The LSTM classifier achieved in best cases a Receiver Operating Characteristic Area Under the Curve (ROC AUC) of 0.98 on the held-out test set. Finally, the model was applied to unseen data, and it was observed that the ROC AUC decreased between 0.59 and 0.65. The findings demonstrate that temporal patterns in price and market capitalization alone contain sufficient discriminative signal to identify assets on a trajectory towards economic inactivity. Diagnostic analyzes reveal that failing assets exhibit gradual value erosion and elevated volatility in the months preceding inactivity, rather than sudden catastrophic collapse. This work also documents the practical infeasibility of a multi-stage lifecycle model under current data conditions and justifies the transition to a binary classification approach.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.01379v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Uwe A. Kuehn, Syed Muhammad Adnan</dc:creator>
+    </item>
+    <item>
+      <title>GPU-Initiated Communication: Dissecting Down to the Bone</title>
+      <link>https://arxiv.org/abs/2610.01380</link>
+      <description>arXiv:2610.01380v1 Announce Type: new 
+Abstract: GPU-initiated communication lets GPU threads post RDMA operations directly to the NIC. It underpins NVSHMEM, NCCL GIN, and DeepEP, which serve the fine-grained, latency-critical communication of Mixture-of-Experts (MoE) models, yet its performance characteristics and optimizations remain scarcely documented beyond source code, and library comparisons fail to separate the costs of the hardware mechanism from those of the library around it.
+  This paper dissects GPU-initiated communication at the GPU-NIC boundary. We first detail the GPU-side network path: queue placement, work-request construction, doorbell ordering, and completion semantics. We then introduce mini-gda and mini-proxy, minimal transports for the GPU and CPU-proxy submission paths, and measure them alongside NVSHMEM IBGDA, NCCL GIN, DeepEP, UCCL-EP, MSCCL++, and fabric-lib on NVIDIA H100, H200, B200, and GB200 platforms. A minimal GPU path issues an operation in 0.7 $\mu$s and completes in 4.0 $\mu$s; libraries add up to 4.6 $\mu$s of issue time through queue management, memory ordering, and completion scope, and issue time scales with the SM clock. A tuned CPU proxy matches or beats the GPU path at idle, at the cost of a dedicated core whose operating state sets its latency and throughput. On either path, sharing a queue with bulk traffic raises latency by one to three orders of magnitude. Reaching the 260 M msg/s ceiling of our InfiniBand platform requires doorbell batching and queue parallelism, and both have resource costs: communication code can reduce GPU block residency even when unused, and all-to-all traffic loses 59% of its NIC message rate at about 3,000 active connections. The submission path alone therefore does not predict communication performance. Our experiment code and results are available at https://github.com/ParCoreLab/Dissecting-GPU-Communication-Experiments.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.01380v1</guid>
+      <category>cs.DC</category>
+      <category>cs.NI</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Javid Baydamirli, Ismayil Ismayilov, Kaan Oktay, Didem Unat</dc:creator>
+    </item>
+    <item>
+      <title>GridSMR: Causal Compression for Sharded Blockchains</title>
+      <link>https://arxiv.org/abs/2610.01443</link>
+      <description>arXiv:2610.01443v1 Announce Type: new 
+Abstract: We present GridSMR, a sharded blockchain that scales execution horizontally while allowing dependent cross-shard operations to progress within a single block. Existing sharded systems typically place coordination between dependent cross-shard steps, making latency grow with causal depth. GridSMR localizes atomicity to individual accounts and executes cross-account work asynchronously. Using an execute-before-agree architecture, dependent operations execute across shards as they become available, while consensus later validates and commits the resulting schedule. This enables Causal Compression: cross-shard latency need not grow with the causal depth of a computation. GridSMR scales single-validator execution to 1.07M requests/s and four-validator execution to 193K committed requests/s, while reducing 16-hop causal-chain latency by 8.2x versus deferred execution.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.01443v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shir Cohen, Adam Alon, Raz Omessi, Amir Sarid, Dana Shamir, Ofir Zohar</dc:creator>
+    </item>
+    <item>
+      <title>Exploiting the Interplay of Compute- and Memory-Bound kernels in MPI Applications</title>
+      <link>https://arxiv.org/abs/2610.01587</link>
+      <description>arXiv:2610.01587v1 Announce Type: new 
+Abstract: Parallel applications are often designed for synchronous, lock-step execution, treating communication stalls as performance hazards. Yet, in a communication-light application without frequent synchronization points that alternates between compute-bound memory-bound execution, an MPI communication stall can act as an unintentional relief on memory-bandwidth contention. We demonstrate this using a Parallel Optical Flow Solver, which combines a compute-bound Ray Tracing kernel with a memory-bound Optical Flow Solver kernel and negligible inter-process communication. This program shows considerable speedup via desynchronization and automatic overlap between compute- and memory-bound phases, showing that natural desynchronization is an architecture-aware optimization. An optimal speedup is achieved when the number of processes concurrently executing the memory-bound phase on a ccNUMA domain is near the bandwidth saturation point. We also show a case where reducing communication overhead using MPI asynchronous progress significantly degrades performance because it allows too many ranks to contend for memory bandwidth simultaneously. In order to study the dynamics under more controlled conditions, we develop a tunable dual-kernel microbenchmark, with which we show that significant application or system noise (natural or injected) is required to achieve full desynchronization. Finally, we also validate these results using a bandwidth-aware, model-based simulator.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.01587v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ayesha Afzal, Krishna Manda, Georg Hager</dc:creator>
+    </item>
+    <item>
+      <title>Towards a Cloud Fog Edge System for Smart Building</title>
+      <link>https://arxiv.org/abs/2610.01647</link>
+      <description>arXiv:2610.01647v1 Announce Type: new 
+Abstract: In this article, we present our vision and recent advancements toward creating a decentralized system capable of learning from real-time data within buildings to support sustainable and privacy-preserving smart environments. Our approach promotes the concept of the building itself as the data center, aligning with the principles of edge computing to safeguard confidentiality and reduce reliance on external cloud infrastructure. This is particularly valuable in humanitarian contexts, where data sovereignty, energy efficiency, and infrastructure constraints are critical. We detail a lightweight, "Kubernetes-like" orchestration framework for deploying AI services within such environments and demonstrate our progress in implementing AI algorithms on low-power, cost-effective microcontrollers such as those in the Arduino ecosystem. By enabling in-situ learning directly on sensors or microcontrollers, our work aims to bring intelligent services to resource-limited settings, fostering autonomy, resilience, and sustainable development in vulnerable or underserved communities. The contributions in this article are related, firstly, to our project "Online Machine Learning Algorithms for Embedded Systems" and the evaluation of two new online algorithms. Secondly, we envision a cloud-fog-edge architecture based on the KOptim and FIWARE components, and we propose a methodology for coupling them. Experimental results of the online algorithms are also presented, showcasing real-world traces.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.01647v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Christophe C\'erin, Mamadou Sow, Fr\'ed\'eric Andr\`es</dc:creator>
+    </item>
+    <item>
+      <title>ePACT: Energy-Performance-Aware Commitment Tracking for LLM Serving</title>
+      <link>https://arxiv.org/abs/2610.01784</link>
+      <description>arXiv:2610.01784v1 Announce Type: new 
+Abstract: Reducing LLM serving energy does not by itself guarantee lower deployment cost when electricity procurement exposes operators to unfavorable deviations from preset commitments. We study hourly commitments with positive, potentially asymmetric costs for overuse and underuse, and formulate energy-Performance-Aware Commitment Tracking: minimize deviation costs subject to request-level service requirements. We implement ePACT, a two-level controller that adjusts serving capacity and GPU clocks as requests arrive. A global planner updates interval energy targets from measured consumption and the remaining hourly commitment. A local decision maker predicts candidate configurations' energy and completion times, checks predicted deadline misses, and selects among admitted configurations by asymmetric target-deviation cost, with a service-first fallback. Coarse-to-fine action search runs asynchronously with serving. We evaluate ePACT through single-hour comparisons, controller ablations, and full-day trace simulations for H20 and H200 GPU pools. In the 24-hour simulations, ePACT reduces the asymmetric deviation cost by $73.8\%$ and $75.7\%$ relative to vLLM while retaining near-vLLM SLO attainment. Mean absolute hourly deviations are $2.16\%$ and $2.31\%$, respectively.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.01784v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>You Peng, Youhe Jiang, Chen Wang, Binhang Yuan</dc:creator>
+    </item>
+    <item>
+      <title>MoE-CORE: Coordinated Expert Offloading and Residency for Memory-Constrained MoE Inference</title>
+      <link>https://arxiv.org/abs/2610.01950</link>
+      <description>arXiv:2610.01950v1 Announce Type: new 
+Abstract: Sparse expert activation reduces MoE models' computation, yet expert weights can exceed limited device memory. Offloading makes inference feasible on a compact AI appliance but exposes host-to-device transfers to the inference path. We present MoE-CORE, a system that coordinates expert offloading and residency for memory-constrained MoE inference. It stages complete expert layers in alternating buffers during prefill. During decode, it combines nonuniform layer-wise cache capacity, domain-informed initialization, routing-history-aware replacement, and cross-layer prefetching. The main configuration executes router-selected experts exactly; an optional score-based substitution path handles eligible low-score misses. The main comparison uses 1K- and 128-token output caps for MoE-CORE and vLLM Prefetch, respectively. Across five workloads per model, MoE-CORE records a mean time per output token (TPOT) of 38.0-44.8 ms versus 1268.9-1269.1 ms for the evaluated vLLM Prefetch configuration on DeepSeek-V4-Flash-W4A8; the corresponding values on GLM-5.2-W4A8C8 are 206.6-220.5 and 5941.5-5941.8 ms. Under an 84-GB NPU-memory cap, the best measured DeepSeek GSM8K configuration achieves a TPOT of 21.5 ms with approximate expert substitution and multi-token prediction (MTP) at depth 2. These results support coordinated expert residency and transfer scheduling under a device-memory constraint. The code is here.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.01950v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ke Yang, Yongji Gao, Xushi Li, Kui Luo, Sicheng Zhang, Tianming Zhou, Keyi Liu, Shufang Lu, Aoxuan Chen, Jie Meng, Jingchun Gao, Dan Li, Xinkai You, Dan Li, Zhixiang Xia, Yan Shi, Yang Liu, Yanjia Zeng, Liangjun Feng</dc:creator>
+    </item>
+    <item>
+      <title>Fault-Tolerant Budget Conservation in Distributed Multi-Agent Delegation</title>
+      <link>https://arxiv.org/abs/2610.00349</link>
+      <description>arXiv:2610.00349v1 Announce Type: cross 
+Abstract: Resource limits are becoming an authorization boundary for AI agents that delegate work across concurrent and failure-prone workers. Parent-child allocation constraints, affine objects, and distributed escrow do not by themselves prevent overspend when replies are lost, effects complete after timeout, messages repeat, branches partition, or DAG joins alias one lineage. We formalize fault-tolerant budget conservation for distributed multi-agent delegation. Budgets are quantized resource vectors represented by exclusive escrow credits that move through a delegation DAG. Before dispatch, a branch converts credit into an operation reservation bound to lineage, epoch, normalized effect, maximum charge, receiver, and idempotency key. It persists a signed dispatch permit with quarantine; the gateway verifies that permit before first acceptance. Uncertain effects remain charged until authenticated settlement, a fenced authoritative no-effect proof, or permanent retirement. We prove ownership partition, ledger and effect conservation, descendant non-amplification, at-most-once settlement, late-completion safety, and partition confinement under explicit mediation, durability, authentication, normalization, and gateway assumptions. An indistinguishability result shows that partition-local availability requires exclusive preallocation. Bounded TLA+ checking, an independent JavaScript explorer, and crash-injected two-process SQLite experiments exercise the declared scope and detect timeout-refund and historical-certificate-validation mutants. The mechanism preserves the issued budget bound across the evaluated crash, retry, duplicate, partition, join, and late-completion schedules.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00349v1</guid>
+      <category>cs.AI</category>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Genliang Zhu, Chu Wang</dc:creator>
+    </item>
+    <item>
+      <title>Redundancy Meets Synergy: Dependency-aware Expert Selection for MoE via Submodular Optimization</title>
+      <link>https://arxiv.org/abs/2610.00558</link>
+      <description>arXiv:2610.00558v1 Announce Type: cross 
+Abstract: While Mixture-of-Experts (MoE) models effectively scale model capacity through sparse activation, their deployment is often bottlenecked by prohibitive memory requirements. Extracting a compact subset of experts presents a promising solution. However, existing expert selection heuristics predominantly rely on Top-k ranking, which isolates the evaluation of individual experts and ignores the intricate inter-expert dependencies introduced by the MoE gating network. In this paper, we propose DS-MoE, a theoretically grounded framework that redefines expert selection via difference-of-submodular (DS) optimization. By analyzing the second-order Taylor expansion of the loss degradation, we reveal functional duality within expert combinations: redundancy (where experts encode overlapping representations) and synergy (where experts provide complementary error cancellation). To navigate this duality, we mathematically decouple redundancy reduction from synergy maximization by formulating the selection objective as a DS function. Furthermore, we devise a tailored majorization-minimization (MM) algorithm with provable monotonicity guarantees to efficiently identify the optimal expert subset. Extensive experiments demonstrate that DS-MoE effectively preserves indispensable expert combinations, achieving superior performance compared to the state-of-the-art baselines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00558v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zheng Lin, Shaoke Fang, Yuxin Zhang, Jinfeng Xu, Zihan Fang, Zhe Chen, Wei Ni, Jun Luo, Symeon Chatzinotas</dc:creator>
+    </item>
+    <item>
+      <title>Progressive-Resolution Secure Aggregation for Federated Learning</title>
+      <link>https://arxiv.org/abs/2610.00695</link>
+      <description>arXiv:2610.00695v1 Announce Type: cross 
+Abstract: Secure aggregation lets a server recover an aggregate of client updates without observing any individual update, but conventional protocols fix the aggregate precision when clients upload. We introduce and formulate a new progressive-resolution secure-aggregation functionality in which clients upload once and successively finer resolutions of the same aggregate can later be authorized without renewed client participation. To realize this functionality, we propose progressive-resolution secure aggregation (PSA): each clipped, dithered update is represented by compatible nested-lattice digits; separately releasable layers are protected by secure aggregation and an additional aggregate pad that remains unavailable to the server until a non-colluding release controller authorizes that layer.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00695v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <category>cs.IT</category>
+      <category>cs.LG</category>
+      <category>math.IT</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Seyed Mohammad Azimi-Abarghouyi</dc:creator>
+    </item>
+    <item>
+      <title>HakiCC: LLM-Driven Multi-Agent Design and Optimization of Concurrency Control Protocols</title>
+      <link>https://arxiv.org/abs/2610.00889</link>
+      <description>arXiv:2610.00889v1 Announce Type: cross 
+Abstract: Large language models (LLMs) have recently been applied in systems research as a tool to reduce human-intensive engineering effort through cost-efficient automation. Decades of research have produced a rich landscape of concurrency control (CC) protocols, each encoding distinct trade-offs in correctness, throughput, and abort behavior. However, most applications in practice default to 2PL or OCC, because selecting and adapting a protocol to a specific application requires expert knowledge that is rarely available to application designers. This is a wasted opportunity, as an application-specific CC protocol can yield significant performance advantages over a generic baseline, but designing one requires deep expertise in CC protocol design.
+  In this paper, we propose HakiCC, an LLM-driven multi-agent pipeline that automatically designs, verifies, and optimizes concurrency control protocols tailored to a given target application. HakiCC provides a two-stage pipeline. In Stage 1, a multi-agent system takes a workload description as input and generates an application-specific CC protocol implementation, which is iteratively repaired and verified for conflict-serializability. In Stage 2, the verified protocol is further optimized for that application through an LLM-driven evolutionary loop targeting correctness and throughput. We evaluate HakiCC on TPC-C and AuctionMark as target workloads, producing and reporting ten application-specific CC protocols. All ten are conflict-serializable after Stage 1; Stage 2 improves throughput for every protocol, with average gains of +50.6% for TPC-C protocols and +92.2% for AuctionMark protocols.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.00889v1</guid>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <category>cs.MA</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Farzad Habibi, Juncheng Fang, Faisal Nawab</dc:creator>
+    </item>
+    <item>
+      <title>Nalar: Workflow-Aware Management of Agentic Applications</title>
+      <link>https://arxiv.org/abs/2601.05109</link>
+      <description>arXiv:2601.05109v2 Announce Type: replace 
+Abstract: LLM-driven agentic applications automate complex, multi-step tasks, but serving them efficiently remains difficult due to heterogeneous components, dynamic model-driven control flow, long-lived state, and highly variable latencies. Nalar is a serving framework for agent workflows that separates workflow specification from execution while providing the runtime visibility and control needed for robust performance. Nalar preserves ordinary Python interfaces and control flow through lightweight auto-generated stubs that turn agent and tool invocations into futures carrying dependency and execution-context metadata. A two-level control architecture combines global policy computation with local event-driven enforcement to support adaptive routing, scheduling, and resource management across evolving workflows. A workflow-aware KV-cache layer enables the runtime to manage cache placement and lifetime. Together, these mechanisms enable scalable, efficient, policy-driven serving of heterogeneous agentic applications without burdening developers with orchestration logic. Across three agentic workloads, Nalar reduces tail latency by 34-74% and achieves up to 3.38x speedups.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.05109v2</guid>
+      <category>cs.DC</category>
+      <category>cs.MA</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Saurabh Agarwal, Marco Laju, Donghyun Son, Nitin Kedia, Myungjin Lee, Jayanth Srinivasa, Aditya Akella</dc:creator>
+    </item>
+    <item>
+      <title>Echo: Merging Host Device Buffers to Avoid Redundant Data Movement on Unified Memory SoCs</title>
+      <link>https://arxiv.org/abs/2609.05635</link>
+      <description>arXiv:2609.05635v2 Announce Type: replace 
+Abstract: GPU applications on unified-memory (UMA) edge platforms often inherit a discrete-GPU memory abstraction in which they allocate one buffer for the CPU, another for the GPU, and copy data between them before and after GPU execution. On UMA hardware these buffers reside in the same physical DRAM pool, so the copies consume bandwidth, time, and energy. Despite the growing adoption of UMA platforms, this pattern remains common because production software stacks, libraries, and samples were written for portability across discrete GPUs. However, removing these copies is not as simple as merging the two buffers, because the original program may rely on the two buffers being distinct, or on the copy itself ordering CPU and GPU accesses. Echo removes these copies only when it preserves the data values and access ordering on which the program depends. It does so along two complementary paths: source-level rewriting and binary deployment. Echo-SR is a compile-time LLVM transformation that proves safety and rewrites accepted pairs in place. Echo-DR is a profile-guided binary optimizer for existing applications that profiles and validates stable allocation/copy patterns and, at runtime, intercepts the matching calls to unify profile-matched pairs while preserving the ordering effects of removed copies. Across seven benchmarks on three NVIDIA Jetson platforms, Echo's benefit grows with the fraction of baseline time spent on copies. Copy-dominated workloads speed up by up to 7.05x, closed-source end-to-end applications speed up by up to 1.40x. On the five source-available Orin benchmarks, both automatic paths recover &gt;=99% of the gain of a manually optimized reference.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.05635v2</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yuheng Zhu, Yanbo Zhao, Jiajia Li, Man-Ki Yoon</dc:creator>
+    </item>
+    <item>
+      <title>LBFAST: A Lightweight Moment-Represented Lattice Boltzmann Solver for Multi-GPU Architectures</title>
+      <link>https://arxiv.org/abs/2609.09160</link>
+      <description>arXiv:2609.09160v2 Announce Type: replace 
+Abstract: We present LBFAST, a GPU-oriented lattice Boltzmann solver based on a lightweight moment-represented formulation, in which post-collision populations are reconstructed on the fly from a reduced set of moments rather than stored explicitly. This approach significantly lowers the memory footprint, enabling large three-dimensional simulations within the constraints of modern accelerator architectures, where VRAM capacity and bandwidth are critical resources. The method is assessed through standard single- and two-component benchmarks demonstrating good accuracy and stability. Extensive scaling experiments on multi-GPU systems show near-ideal weak scaling up to 512 GPUs and sustained performance across different velocity sets. The combination of reduced memory usage, competitive throughput, and stable energy efficiency makes the proposed formulation a practical route for large-scale lattice Boltzmann simulations on current and emerging HPC platforms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09160v2</guid>
+      <category>cs.DC</category>
+      <category>physics.comp-ph</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1016/j.procs.2026.08.017</arxiv:DOI>
+      <arxiv:journal_reference>Procedia Computer Science 286 (2026) 34-47</arxiv:journal_reference>
+      <dc:creator>Marco Lauricella, Andrea Montessori, Giorgio Amati, Filippo Spiga, Adriano Tiribocchi, Massimo Bernaschi, Sauro Succi</dc:creator>
+    </item>
+    <item>
+      <title>PaxosLease Revisited: A Checked Model of Diskless Distributed Leases</title>
+      <link>https://arxiv.org/abs/2609.14640</link>
+      <description>arXiv:2609.14640v2 Announce Type: replace 
+Abstract: PaxosLease is a protocol by which a quorum of acceptors grants time-bounded exclusive ownership with no durable acceptor lease state and no disk write on the lease acquisition path. This paper gives a precise, machine-checked statement of the protocol and of its standard use, electing a Multi-Paxos leader. Formalizing and model checking the original protocol changes three rules of its acceptor: two are required for safety, the third allows shorter restart quarantines. The protocol is formalized in TLA+ and checked by TLC, its timing arithmetic is proved in TLAPS, and an executable Python model demonstrates the distributed algorithm for human readers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.14640v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>M\'arton Trencs\'eni</dc:creator>
+    </item>
+    <item>
+      <title>When Fancy Eviction Fails: Rethinking Cache Replacement For LLM Prefix Reuse</title>
+      <link>https://arxiv.org/abs/2609.28870</link>
+      <description>arXiv:2609.28870v2 Announce Type: replace 
+Abstract: Long-running LLM applications repeatedly send growing context, making prefix caching critical for reducing prefill cost. Yet prefix-cache behavior under agentic workloads remains poorly understood. We study production traces from two companies and evaluate 14 eviction algorithms across HBM-constrained and large memory-pool settings. Despite a large gap to Belady, sophisticated policies designed for traditional caches provide little benefit over LRU. The reason is structural: prefix reuse is dominated by the regular pacing of active sessions, making recency unusually predictive. Prefix caching nevertheless introduces new challenges, including heavy-tailed session footprints and highly variable miss costs as attention computation grows with sequence length. We introduce the compute-savings ratio and two offline oracles to quantify these effects. Our results show that effective prefix-cache management should retain recency as its foundation while selectively adding quick demotion for one-hit prefixes, compute-aware partial eviction for expensive misses, and capacity-dependent eviction granularity. We will release the traces and simulator to support future research.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.28870v2</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yiyu Liu, Minlan Yu, Juncheng Yang</dc:creator>
+    </item>
+    <item>
+      <title>UNIQ: Communication-Efficient Distributed Quantum Computing via Unified Nonlinear Integer Programming</title>
+      <link>https://arxiv.org/abs/2512.00401</link>
+      <description>arXiv:2512.00401v2 Announce Type: replace-cross 
+Abstract: Distributed quantum computing (DQC) is widely regarded as a promising approach to overcome quantum hardware limitations. A major challenge in DQC lies in reducing the communication cost introduced by remote CNOT gates, which are significantly slower and more resource-consuming than local operations. Existing DQC approaches treat the three essential components (qubit allocation, entanglement management, and network scheduling) as independent stages, optimizing each in isolation. However, we observe that these components are inherently interdependent, and therefore adopting a unified optimization strategy can be more efficient to achieve the global optimal solutions. Consequently, we propose UNIQ, a novel DQC optimization framework that integrates all three components into a non-linear integer programming (NIP) model. UNIQ aims to reduce the circuit runtime by maximizing parallel Einstein-Podolsky-Rosen (EPR) pair generation through the use of idle communication qubits, while simultaneously minimizing the communication cost of remote gates. To solve this NP-hard formulated problem, we adopt two key strategies: a greedy algorithm for efficiently mapping logical qubits to different QPUs, and a JIT (Just-In-Time) approach that builds EPR pairs in parallel within each time slot. Extensive simulation results demonstrate that our approach is widely applicable to diverse quantum circuits and QPU topologies, while substantially reducing communication cost and runtime over existing methods.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.00401v2</guid>
+      <category>quant-ph</category>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Hui Zhong, Jiachen Shen, Lei Fan, Xinyue Zhang, Hao Wang, Miao Pan, Zhu Han</dc:creator>
+    </item>
+    <item>
+      <title>Emergence-as-Code as a Foundation for Reliable Self-Governance</title>
+      <link>https://arxiv.org/abs/2602.05458</link>
+      <description>arXiv:2602.05458v3 Announce Type: replace-cross 
+Abstract: Local adaptations can preserve component health while changing whether a system meets its reliability requirements. The system-level consequence depends on the interaction affected and its role in the user journey. Emergence-as-Code (EmaC) makes this relationship part of an executable, evidence-reconciled CompositeSLO assessment. A declared journey obligation persists while discovery maintains a hypothesis of its runtime realization. An inferred operator-to-role binding selects the measurements used in the calculation; its evidential status determines whether the binding supports a numerical assessment. Each result retains the obligation and versioned hypothesis as a basis for governance decisions. A PetClinic proof of concept recovered the exact operator-state/edge-binding change in all 20 randomized treatments, with no false change in 20 controls. EmaC and a manual dynamic composite matched disjoint semantic outcomes in all 40 conditions. A model with frozen suppression knowledge overestimated required-history availability by 0.01, placing treatments above a 0.995 target despite observed availability of 0.99. Ambiguous and contradictory evidence produced UNASSESSABLE. The research programme evaluates sustained binding maintenance, calibrated uncertainty, and the decision value of this requirement-level account of local adaptation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.05458v3</guid>
+      <category>cs.SE</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Anatoly A. Krasnovsky</dc:creator>
+    </item>
+    <item>
+      <title>Impossibility of One-Way One-Round Quantum 4-Coloring via Matrix-Space Stability</title>
+      <link>https://arxiv.org/abs/2609.09091</link>
+      <description>arXiv:2609.09091v2 Announce Type: replace-cross 
+Abstract: We show that one-way one-round quantum-LOCAL algorithms cannot $4$-color directed cycles with high probability. This is the first lower bound in the high-probability quantum LOCAL setting that goes beyond the non-signaling and bounded-dependence models, exploiting the structure of distributed quantum algorithms.
+  Our proof establishes a bidirectional connection between distributed quantum computing and extremal combinatorics. We obtain our lower bound by proving a Mantel-type stability theorem for weighted matrix spaces.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.09091v2</guid>
+      <category>quant-ph</category>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Tom Gur, Longcheng Li</dc:creator>
+    </item>
+    <item>
+      <title>Fast Stencil Computations on a Single Arbitrarily Moving Interval</title>
+      <link>https://arxiv.org/abs/2609.14879</link>
+      <description>arXiv:2609.14879v2 Announce Type: replace-cross 
+Abstract: A stencil computation repeatedly updates every cell of a grid from its neighbours' values at the previous timestep. Simulating T steps on N cells directly costs Theta(NT), and a line of work beginning with Ahmad et al. reduces this by composing many timesteps into one linear operator and applying it with a Fast Fourier Transform. That technique needs to know which cells will still obey the same operator when the composed step ends, and in a free-boundary problem they do not: the region governed by a given rule is determined by the solution and moves as it evolves.
+  We study one spatial dimension, a three-point stencil with time-varying coefficients, and a computed region that is a single interval whose two endpoints move by arbitrary amounts at every step, revealed online. Let B be the horizon plus the total variation of the boundary trajectory. We give a schedule whose work is O((B+N) log T log(N+B)) and whose span is O(T log T log(N+B)), and we prove that the values it computes are exact.
+  The best existing bound for a region that moves requires its boundary to travel at most one cell per timestep. We drop that requirement and lose nothing by it: a boundary obeying it has B &lt;= 3T, so our bound stays near-linear on every trajectory the earlier result covers. Elsewhere, B grows only by the distance the boundary actually travels -- one jump of width N costs T + 2N.
+  The reason total variation suffices is that everything the two endpoints touch over a time window of any length lies in two intervals, one per endpoint. This cannot be relaxed: with p regions the bound degrades by a factor p, and at p = sqrt(T) there is an instance on which the work is Theta(T^{3/2}) while B + N = Theta(T).
+  All results are machine-checked in Lean 4, apart from the classical convolution bound, which is imported as an interface.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.14879v2</guid>
+      <category>cs.DS</category>
+      <category>cs.DC</category>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Aaron Gregory</dc:creator>
+    </item>
+  </channel>
+</rss>
