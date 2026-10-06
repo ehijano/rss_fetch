@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PL updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PL</link>
+    <description>cs.PL updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PL" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Oct 2026 04:10:17 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Morph-Aware Computing: Compiler-Ordered Updates of Program State after Topology Changes</title>
+      <link>https://arxiv.org/abs/2610.03985</link>
+      <description>arXiv:2610.03985v1 Announce Type: new 
+Abstract: In wireless sensor and mesh networks, modular robots, and shape-adaptive computers, computing modules attach, detach, or are replaced while the others keep running with their local state. A value computed under the old arrangement, such as a cached next hop, stays in memory but may no longer describe the current one, so a program can send to a neighbor that has left without any runtime errors.
+  We present morph-aware computing, a programming model in which the application specifies a corrective update of such state, called a repair, and the compiler decides when it runs. In MorphLang, the repair is a Reconfigure branch next to the ordinary branches that handle sends, receives, and sensor samples. MorphC compiles MorphLang to bare-metal RISC-V and inserts a guard before every ordinary branch, so that each module repairs its state before any other branch sees a new topology. Relying on this order, MorphC also rejects sends whose target may be a literal or a value the repair does not always refresh.
+  For a model of the code MorphC generates, we prove in Rocq that the repair precedes every later ordinary branch for any number of roles and topology changes. This shows that send-target checking is sound for a core language. On 19 MorphLang programs derived from seven network stacks, removing the repair worsens destination validity in ten of the 13 programs that declare one and never improves it. In a reduced reproduction of a released Contiki-NG defect, a callback-based version sends to a departed parent after 60 of 384 changes and the MorphLang version after none. The guards cost 12 cycles per loop in a microbenchmark, and on an FPGA the delay from each commit to the first send to the new neighbor matches RTL simulation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.03985v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yusuke Izawa, Junichiro Kadomoto</dc:creator>
+    </item>
+    <item>
+      <title>Decompiling Quantum Assembly into Structured Programs</title>
+      <link>https://arxiv.org/abs/2610.05012</link>
+      <description>arXiv:2610.05012v1 Announce Type: new 
+Abstract: Quantum compilers translate programs into native gates, insert SWAP gates to route interactions onto a device, and optimize the result. The output is quantum assembly, a flat gate list that hides the algorithm's structure (QFT, Grover iteration, QAOA layers). Understanding, auditing, porting, or reusing such assembly requires recovering a program that exposes this structure.
+  We present Quelle, a decompiler that recovers structured programs (library calls, loops, functions, symbolic angles) from routed and optimized quantum assembly (OpenQASM) and checks every output for equivalence with its input. Quelle is built on one invariant: every step is either an exact rewrite, checked where it is applied, or a hypothesis, checked against the input before use. It first lifts the assembly into a circuit by removing compilation artifacts, notably un-routing, which recovers the SWAPs that routing inserted, including those merged into other gates. It then recovers algorithm templates (sketches) whose parameters are solved from quantities preserved by compilation, and, for algorithms without a template, library calls and loops by anti-unification. Failed hypotheses are rejected; the corresponding operations remain in gate-level form.
+  On 816 assembly programs from 22 algorithm families and a random-circuit control, compiled at four routing and optimization levels with native two-qubit gates CX, ECR, or CZ, Quelle's output is equivalent to the input for 100% of the inputs, and it fully decompiles 94% of them; compared on the same inputs, it fully decompiles 1.7x as many as the best LLM-based decompiler, which spends 15K tokens per input. On nine algorithm families for which it has no template, the structure it recovers without templates explains 60% of the gates. It checks inputs of up to 2.3 million gates and emits no inequivalent output on 237 real-world QASMBench assembly files.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.05012v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Pingchuan Ma, Zhantong Xue, Zongjie Li, Qixin Zhang, Yuxuan Du, Zhaoyu Wang, Yuguang Zhou, Shuai Wang, Xiaoqin Zhang</dc:creator>
+    </item>
+    <item>
+      <title>More Powerful Constant Value Checking with SMT Solving</title>
+      <link>https://arxiv.org/abs/2610.05316</link>
+      <description>arXiv:2610.05316v1 Announce Type: new 
+Abstract: Pluggable type systems extend the basic type system of a programming language by introducing additional type hierarchies to specify more complex properties and dependencies between variables.
+  We consider the Constant Value Checker, a pluggable type checker for Java implemented using the Checker Framework, which provides various pluggable type systems and corresponding checkers.
+  The Constant Value Checker lets users specify restrictions on the values a primitive integer or boolean variable can hold using a set or range of constant values.
+  However, the current implementation of the Value Checker makes use of a limited set of syntactic typing rules that, in practice, often fail to verify well-typedness of more complex code.
+  In this paper, we introduce an extension to the Checker Framework using Satisfiability Modulo Theories (SMT) solvers to address these limitations by creating corresponding first-order logic formulas for expressions whose type checks fail with the current syntactic typing rules and determining their well-typedness based on the satisfiability of these formulas.
+  Furthermore, we introduce new dependent types for specifying allowed values with expressions that can depend on other variables in the program.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.05316v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Jonas Mittnacht, Florian Lanzinger</dc:creator>
+    </item>
+    <item>
+      <title>VHDL-REPOBENCH: A Repository-Level Benchmark for Evaluating Large Language Models on VHDL Design Generation</title>
+      <link>https://arxiv.org/abs/2610.05380</link>
+      <description>arXiv:2610.05380v1 Announce Type: new 
+Abstract: Large Language Models (LLMs) are increasingly applied in hardware design automation, demonstrating strong potential in generating and understanding hardware description languages. However, most existing benchmarks focus on Verilog, with limited evaluation of VHDL, which remains widely used in industry and academia for FPGA and safety-critical systems. To address this gap, we introduce VHDL-REPOBENCH, a large-scale, cross-file, repository-level benchmark for assessing LLM capabilities on realistic VHDL design generation and analysis tasks. VHDL-REPOBENCH curates ~100 open-source VHDL repositories, encompassing ~2.5k VHDL files and ~500 testbenches, and provides structured problem statements, module stubs, and self-verifying testbenches. The benchmark enables comprehensive evaluation across syntax, semantic correctness, hierarchical reasoning, cross-file dependency resolution, and functional verification. We evaluate several state-of-the-art models, including GPT-4o, Llama-3-70B, Qwen2.5-72B, CodeLlama-70B, and multi-step reasoning approaches such as Reflexion and CoDes. Results reveal that while current LLMs achieve moderate line- and block-level accuracy, substantial challenges remain in multi-file reasoning, hierarchical design understanding, and specification-to-module generation. VHDL-REPOBENCH represents the first large-scale VHDL-focused benchmark and provides a valuable resource for the hardware design community to evaluate, compare, and advance LLM capabilities for practical VHDL development.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.05380v1</guid>
+      <category>cs.PL</category>
+      <category>cs.AR</category>
+      <category>cs.CL</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <arxiv:journal_reference>IEEE International Conference on LLM-Aided Design, 2026</arxiv:journal_reference>
+      <dc:creator>Prashanth Vijayaraghavan, Akul Malhotra, Ashutosh Jadhav, Ehsan Degan, Vandana Mukherjee</dc:creator>
+    </item>
+    <item>
+      <title>RESOLVE: Language-Agnostic Validation of GPU Kernels Through Testing, Reduction, and Proof</title>
+      <link>https://arxiv.org/abs/2610.05683</link>
+      <description>arXiv:2610.05683v1 Announce Type: new 
+Abstract: AI systems can now write and optimize production GPU kernels, but validating them remains an important challenge. Evaluating the kernel on a few random inputs and checking that its outputs match a trusted reference kernel within numeric tolerances is not sufficient: races can cause nondeterministic behavior that fails to manifest in tests, and numeric tolerances can hide bugs and cause false positives even after extensive calibration. To address this challenge, we present RESOLVE, which combines testing and formal verification to build a comprehensive kernel validation pipeline. It operates in three steps: First, it tests for nondeterminism using binary instrumentation that perturbs execution timing to expose races. Second, an agent rewrites the candidate and reference kernels to obtain "reduced-concurrency" versions that are simpler to analyze but still produce bitwise-identical outputs in all tests. Third, the reduced kernels are formally analyzed in the F*/Pulse framework and prove that they perform the same computation on real numbers. This sidesteps the need for numeric tolerances. We show that RESOLVE can validate a broad selection of kernels using KernelBench, and prove equivalence across fused GEMMs in three state-of-the-art frameworks and languages: CUTLASS, Triton, and Gluon. It also analyzes mega-kernels, notoriously difficult to validate, and finds four previously unreported issues, including two clear bugs. We show that agents can use RESOLVE to repair the issues, with minimal performance impact, highlighting that agents can optimize aggressively when they can rigorously check their results.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.05683v1</guid>
+      <category>cs.PL</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ashkan Vedadi Gargary, Guido Mart\'inez, Sebastian Burckhardt, Gabriel Ebner, Abhinav Jangda, Madan Musuvathi, Tyler Sorensen</dc:creator>
+    </item>
+    <item>
+      <title>A Complete, Formal Semantics for Rust Source Code</title>
+      <link>https://arxiv.org/abs/2610.06003</link>
+      <description>arXiv:2610.06003v1 Announce Type: new 
+Abstract: Formally reasoning about Rust programs requires a rigorous formal semantics, especially in the context of deductive verification and concurrent programming. We present a modular, flexible semantics for a significant subset of (close to) source code level Rust, based on the recent locally abstract, globally concrete semantics framework, separating local evaluation of expressions from their composition into concrete traces. The semantics is extended to model Rust's asynchronous programming features and Rust's most popular async runtime, Tokio. Based on our more abstract formalization, we establish the fairness of Tokio's scheduler. Further, we show the applicability of our semantics to deductive verification of Rust by providing soundness proofs for a Rust program logic.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.06003v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Daniel Drodt</dc:creator>
+    </item>
+    <item>
+      <title>TreeWalker: Partial Evaluation for Grouped Tree-Ensemble Inference</title>
+      <link>https://arxiv.org/abs/2610.03939</link>
+      <description>arXiv:2610.03939v1 Announce Type: cross 
+Abstract: Many inference workloads evaluate a trained tree ensemble on row groups that share feature values: discrete-time survival models expand each patient into $G$ time steps, click-through-rate models score every item in a search session, and scenario analyses vary a few inputs while holding the rest fixed. Standard inference treats each row independently and repeats the shared work $G$ times.
+  We present TreeWalker, which applies partial evaluation to grouped inference: constant features are static, varying features dynamic. It walks each tree once per group, partitions a row bitmask at varying splits, and skips empty subtrees. Training is unchanged: TreeWalker reads standard LightGBM and XGBoost models.
+  We prove a structural work decomposition: per-tree work splits into the constant-projected subtree size $|T_c|$, $G$ leaf writes, and a predicate-mask provisioning cost $Q$. For the trace evaluator, per-row work approaches a $(d_v+1)/(d+1)$ fraction of a row-independent walk as $G \to \infty$.
+  On Intel, TreeWalker is 2.5-3.2$\times$ faster than a row-independent traversal at the reference configuration ($T=500$, $L=8$) and 6.8-7.8$\times$ faster at $G=128$ on the survival datasets, with larger gains on Arm. On a scenario-analysis benchmark it is faster in all 16 configurations on both architectures. For f64 models, outputs match treelite's GTIL up to summation order; for f32 models, f64 accumulation is closer to a Kahan-compensated reference than native f32 on 99.98% of rows and never farther.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.03939v1</guid>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Durmus Karatay, Richard Newman</dc:creator>
+    </item>
+    <item>
+      <title>Hybrid Classical-Quantum Solutions to Accelerate the Adoption of Quantum Computing</title>
+      <link>https://arxiv.org/abs/2610.06638</link>
+      <description>arXiv:2610.06638v1 Announce Type: cross 
+Abstract: Despite the promise and potential of quantum computing, most of the current day developments of quantum computing have several limitations for relevant practical use. As a result, hybrid classical-quantum computing has emerged as a viable solution. This paper discusses the software aspects of hybrid classical-quantum computing solutions to understand and examine how hybrid computing solutions can be expected to work in practice.
+  This paper examines existing software solutions (cloud applications, middleware frameworks, and API gateways) that can enable classical and quantum computing to work together. For practitioners the paper provides a curated list of algorithms, full stack libraries, simulators, and cloud service providers that are likely to be central to the development of any hybrid computing solutions. We conclude by identifying an agenda for future research on classical-quantum hybrid software engineering, and some near-term priorities for development of functional, robust hybrid software systems. The paper argues that due to the deep dependency of quantum execution on classical pre- and post-processing, hybrid computing may represent a near-permanent outcome of classical-quantum computing rather than a transitional workaround.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.06638v1</guid>
+      <category>cs.ET</category>
+      <category>cs.DC</category>
+      <category>cs.PL</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Advait Deshpande, Luciano Baresi, Arosha K. Bandara</dc:creator>
+    </item>
+    <item>
+      <title>Type, Ability, and Effect Systems: Perspectives on Purity, Semantics, and Expressiveness</title>
+      <link>https://arxiv.org/abs/2510.07582</link>
+      <description>arXiv:2510.07582v2 Announce Type: replace 
+Abstract: Programming benefits from a clear separation between pure, mathematical computation and impure, effectful interaction with the world. Existing approaches to enforce this separation include monads, type-and-effect systems, and capability systems. All share a tension between precision and usability, and each one has non-obvious strengths and weaknesses.
+  This paper aims to raise the bar in assessing such systems. First, we propose a semantic definition of purity, inspired by contextual equivalence, as a baseline independent of any specific typing discipline. Second, we propose that expressiveness should be measured by the degree of completeness, i.e., how many semantically pure terms can be typed as pure. Using this measure, we focus on minimal meaningful effect and capability systems and show that they are incomparable, i.e., neither subsumes the other in terms of expressiveness.
+  Based on this result, we propose a synthesis and show that type, ability, and effect systems combine their respective strengths while avoiding their weaknesses. As part of our formal model, we provide a logical relation to facilitate proofs of purity and other properties for a variety of effect typing disciplines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.07582v2</guid>
+      <category>cs.PL</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Yuyan Bao, Tiark Rompf</dc:creator>
+    </item>
+    <item>
+      <title>CktFormalizer: Autoformalization of Natural Language into Circuit Representations</title>
+      <link>https://arxiv.org/abs/2605.07782</link>
+      <description>arXiv:2605.07782v4 Announce Type: replace-cross 
+Abstract: Hardware infrastructure is a critical bottleneck for LLM-driven circuit design, limiting what agents can express, compile, and iteratively refine within an agentic loop. To address this bottleneck, we introduce CKTLEAN, a typed hardware infrastructure embedded in Lean. It supports hardware description, compilation to SystemVerilog, and interactive type-checking and proof feedback through a persistent read-eval-print loop (REPL). On this foundation, we build CKTFORMALIZER, an agent framework for hardware generation, repair, optimization, and source-level equivalence proving. We evaluate structural correctness through compilation, functional correctness through RTL and gate-level simulation, and formal correctness through proofs relative to stated specifications. Across VerilogEval, RTLLM, ResBench, and CVDP, CKTFORMALIZER with CKTLEAN achieves compilation rates of 91.1%-99.4%. Among designs that pass RTL simulation, 95.4%-100.0% jointly complete synthesis and place-and-route and pass design-rule and layout-versus-schematic checks. In a separate evaluation on 30 VerilogEval problems, interactive proof-state feedback raises kernel-accepted equivalence proof completion from 53.3% to 63.3%. Hardware evaluation feedback also guides architecture exploration and iterative power, performance, and area (PPA) optimization, with synthesis-area reductions of up to 58.6% in the optimization loop. These results suggest that typed representations and explicit proof-state feedback help structure the agentic loop: compiler diagnostics guide targeted repairs, while proof-state feedback helps agents identify what remains to be proved and determine the next proof step. Project Page: https://ckt-formalizer.github.io/</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.07782v4</guid>
+      <category>cs.CL</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jing Xiong, Qi Han, Chenchen Ding, He Xiao, Zunhai Su, Chaofan Tao, Xiachong Feng, Ngai Wong</dc:creator>
+    </item>
+    <item>
+      <title>PopPy: Opportunistically Exploiting Parallelism in Python Agentic Workflows</title>
+      <link>https://arxiv.org/abs/2605.18697</link>
+      <description>arXiv:2605.18697v2 Announce Type: replace-cross 
+Abstract: Agentic workflows, which compose calls to ML models using a general-purpose programming language like Python, are widely used for a variety of user-facing tasks, from software engineering to enterprise automation, making their end-to-end latency a critical bottleneck. To improve their latency, developers can either manually parallelize them or use restricted agentic frameworks that cannot express or exploit all forms of parallelization. We address this by developing PopPy, a system that parallelizes external calls, e.g., AI models, in agentic workflows written in a very expressive subset of Python. PopPy combines an ahead-of-time compiler with a runtime, addressing three key challenges in extracting parallelism from Python applications: language complexity, dynamic dispatch, and variable mutation. On a set of real-world agentic workflows, PopPy achieves up to $6.7\times$ speedups in end-to-end execution time, compared to standard Python execution and several agentic frameworks, while preserving the sequential program semantics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.18697v2</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Stephen Mell, David Mell, Harry Y. H. Li, Zhihao Jia, Konstantinos Kallas, Steve Zdancewic, Osbert Bastani</dc:creator>
+    </item>
+    <item>
+      <title>ShannonProver: Towards Automating Formal Cryptographic Proofs</title>
+      <link>https://arxiv.org/abs/2607.02847</link>
+      <description>arXiv:2607.02847v3 Announce Type: replace-cross 
+Abstract: Cryptographic proofs are produced at a scale that increasingly exceeds the community's ability to verify them manually. Machine-checked proofs offer a path toward scalable proof verification, but they shift the bottleneck to writing the proofs themselves: even when the high-level proof plan is known, turning it into a proof script requires spelling out every detail the plan leaves implicit, which is laborious even for experts. This paper presents ShannonProver, an agentic system for automating cryptographic proofs. Given a protocol and its security definitions modeled by a cryptographer, ShannonProver decomposes the main theorem into intermediate games and lemmas, and constructs EasyCrypt proof scripts for those lemmas.
+  We evaluate ShannonProver on a new dataset of lemmas in EasyCrypt. The benchmark spans textbook primitives, deployed standardized protocols, as well as recent NIST proposals, and includes expert case studies drawn from a corpus that has not previously been available online. On case studies such as ChaChaPoly1305 and MEE-CBC, ShannonProver completes within hours proof developments that historically took experts weeks to months. More broadly, this work suggests a path toward accelerating cryptographic research: as agents automate the proof-engineering burden, cryptographers can iterate more quickly on new constructions, obtain machine-checked assurance earlier, and bring protocols from design to deployment faster.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.02847v3</guid>
+      <category>cs.CR</category>
+      <category>cs.PL</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yiping Ma, Yu-Lin Tsai, Mayank Rathee, Deevashwer Rathee, Fran\c{c}ois Dupressoir, Pierre-Yves Strub, Raluca Ada Popa</dc:creator>
+    </item>
+  </channel>
+</rss>

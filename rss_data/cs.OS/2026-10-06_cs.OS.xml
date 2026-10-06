@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Oct 2026 04:10:22 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Awkernel: RTOS Bridging DAG Scheduling Theory and Component-Oriented Real-Time Systems Practice</title>
+      <link>https://arxiv.org/abs/2610.04861</link>
+      <description>arXiv:2610.04861v1 Announce Type: new 
+Abstract: Real-time directed acyclic graph (DAG) scheduling provides a rigorous basis for timing analysis and efficiency in component-oriented real-time systems (CORTS) such as autonomous driving systems, yet challenges remain from the perspectives of both theorists and practitioners. For theorists, no OS natively supports the DAG task model; algorithms are therefore evaluated only analytically or in simulation, ignoring real-hardware overheads. For practitioners, today's CORTS platforms (ROS~2 and AUTOSAR Adaptive Platform) are designed for service composition rather than timing analyzability; adopting DAG scheduling research therefore demands substantial code changes and developer discipline. This paper proposes Awkernel, the first open-source real-time operating system (RTOS) that natively supports real-time DAG scheduling research, bridging DAG scheduling theory and CORTS practice. For theorists, Awkernel is a real-hardware testbed: it exposes a modular OS-native DAG scheduler for easy algorithm implementation, plus a random workload generator and built-in metrics for evaluation. For practitioners, Awkernel is not a full replacement for today's platforms but a CORTS platform maximizing timing analyzability: its familiar publish/subscribe model keeps porting mechanical, mapping each callback to one subtask. Moreover, its function-as-subtask (FasS) API enforces DAG semantics (precedence constraints) without programmer discipline, yielding applications that match the theoretical DAG model and directly inherit its efficiency and safety guarantees. On a Raspberry Pi~4, microbenchmarks confirm microsecond-level scheduling overheads; a global earliest deadline first (GEDF) scheduler fits in 226~lines; and a practitioner ports part of an autonomous driving system using only the FasS API, without reasoning about DAG semantics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.04861v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Atsushi Yano, Ryo Nishimura, Yutaro Kobayashi, Yuuki Takano, Takahiro Ishikawa-Aso, Takuya Azumi</dc:creator>
+    </item>
+    <item>
+      <title>RetainZ: Reclaim-Time-Aware Placement for AI Checkpoints on Zoned SSDs</title>
+      <link>https://arxiv.org/abs/2610.05554</link>
+      <description>arXiv:2610.05554v1 Announce Type: new 
+Abstract: Solid State Drives (SSDs) are becoming the dominant medium for performance-critical storage. Zoned Namespace (ZNS) SSDs are getting more and more attractive because sequential writes and explicit zone resets reduce address-mapping, over-provisioning, and internal garbage-collection costs. However, reclaiming space requires resetting an entire zone, so deleting one file does not free its space while other files there must be kept. This erase-before-write constraint becomes a bottleneck for write-intensive workloads, particularly AI checkpointing during model training, where frequent saves of model and optimizer state compete for space with long-retained checkpoints. We observe that retention policies inherently encode when data can be retired, avoiding the need for a learned lifetime predictor. We present RetainZ, a storage backend that translates these policies into explicit reclaim epochs. Its allocator isolates long-retained data and groups objects with nearby reclaim epochs, balancing delayed space reclamation against unused space at zone ends. Evaluated on FEMU with multi-tenant streams and checkpoint manifests up to Pythia-1B, RetainZ reduces space occupied by deleted data and unused zone tails by 41.7% and mean per-input checkpoint p99 latency by 47.5% at 84% target load compared with the allocator of ZenFS, an established lifetime-aware ZNS backend, and lowers host write amplification from 1.165 to 1.003.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.05554v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AR</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Minxing Chu, Ruoxi Yang</dc:creator>
+    </item>
+    <item>
+      <title>No More Translation at Runtime: LLM-Empowered Static Binary Translation</title>
+      <link>https://arxiv.org/abs/2610.05999</link>
+      <description>arXiv:2610.05999v1 Announce Type: new 
+Abstract: While AArch64 CPUs are becoming strong market contenders, their software ecosystem lags behind the mature x86-64 environment, hindering the adoption of the new architectures and impacting user experience. Binary translation bridges this divide by converting binary code from one architecture (e.g., x86-64) to run on another (e.g., AArch64), allowing legacy software to benefit from modern hardware's performance and energy efficiency advantages.
+  Current translation methods are typically either dynamic, which adds significant runtime overhead, or static, which struggles with reliability due to the inherent complexities of binary analysis. This paper introduces a new static, assembly-to-assembly translation paradigm that transforms binary code ahead of execution, generating portable, efficient native-like binaries that run on AArch64 devices without runtime frameworks. Benefiting from recent breakthroughs in large language models (LLMs), we provide a practical and automated translation engine that produces high-quality code with minimal human intervention. To ensure correctness, we introduce a crucial verification step, where we split the assembly code into simplified snippets, enabling efficient and scalable semantic verification.
+  Our evaluation shows that this approach significantly outperforms existing open-source solutions with a large margin, producing binaries with near-native performance. Furthermore, it shows substantial improvements over the leading industrial translator, ExaGear, illuminating a promising new direction for cross-architecture binary translation research.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.05999v1</guid>
+      <category>cs.OS</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1145/3767295.3803600</arxiv:DOI>
+      <dc:creator>Zhibo Liu, Huaijin Wang, Wai Kin Wong, Daoyuan Wu, Shuai Wang</dc:creator>
+    </item>
+    <item>
+      <title>When Agent Context Goes Stale: Incoherence in Volatile Agent Context</title>
+      <link>https://arxiv.org/abs/2610.05281</link>
+      <description>arXiv:2610.05281v1 Announce Type: cross 
+Abstract: Modern agents increasingly ground their reasoning in observations returned by tools, such as file contents read from a workspace. However, the data sources underlying these observations may later be modified by users, other agents, or external tools, while the model retains only the stale content in its context window. Existing agent runtimes provide little support for notifying the model that a previously observed fact has become stale, causing agents to reuse outdated observations and make incorrect claims about the current workspace state. We propose Concord, a context coherence framework that maintains the consistency between tool observation in agent context and the mutable sources from which they were derived. Concord links each observation to its source, detects source changes, and uses configurable handling policies to update, annotate, or suppress stale context before reuse. Concord is applicable across different agent runtimes and external resources, and can be easily extended to new runtime-resource settings. We implement Concord as a general framework, and instantiate a concrete use case to assess its effectiveness. We construct ConcordBench, where previously observed file contents become stale after subsequent edits. Across three evaluated frontier models, Concord produces answers consistent with the restored workspace state in all evaluated cases under these constructed conditions, matching the oracle on recover count for this benchmark, while using 46.4% fewer tokens than the strongest non-oracle baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.05281v1</guid>
+      <category>cs.AI</category>
+      <category>cs.OS</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yingying Liu, Junzhou Fang, Chenxiong Qian</dc:creator>
+    </item>
+    <item>
+      <title>Optimal Dynamic Resource Allocation for Multicore Real-time Systems</title>
+      <link>https://arxiv.org/abs/2610.05530</link>
+      <description>arXiv:2610.05530v1 Announce Type: cross 
+Abstract: We formulate a novel optimal control problem for data-driven dynamic resource allocation in multicore real-time systems. The proposed formulation accounts for hard deadline constraints and resource bounds. Under mild assumptions, we prove several results on the feasibility and existence of optimal solution for the proposed formulation. Building on these analyses, we design an algorithm to solve the multi-core dynamic resource allocation problem. We demonstrate the practical use of this new algorithm by experimentally evaluating it on a real multicore platform using four benchmarks from the literature.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.05530v1</guid>
+      <category>eess.SY</category>
+      <category>cs.OS</category>
+      <category>cs.SY</category>
+      <category>math.OC</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Georgiy A. Bondar, Abigail Eisenklam, Ripon C. Sarker, Linh Thi Xuan Phan, Abhishek Halder</dc:creator>
+    </item>
+    <item>
+      <title>PRA-TLS: Attestation of a Client Application for TEE</title>
+      <link>https://arxiv.org/abs/2610.06061</link>
+      <description>arXiv:2610.06061v1 Announce Type: cross 
+Abstract: Trusted Execution Environments (TEEs) are secure foundations for protecting sensitive information and executing computations over confidential data. Processing in an isolated execution environment (enclave) is invoked by an untrusted application in the Rich Execution Environment (REE). Then the enclave returns the execution results to the untrusted application. Even if the enclave has been attested, the boundary between the enclave and the untrusted application poses risks, such as tampering with input arguments or return values and manipulating the order in which the application invokes functions. Therefore, it is necessary to establish the authenticity and integrity of not only the enclave itself but also the application and its execution environment. In this study, we propose an attestation protocol, Portable Remote Attestation TLS (PRA-TLS), for a client application that invokes an enclave. We introduce a daemon that acts as an attester. PRA-TLS uses a trusted Attester Daemon to measure the state of the host environment and application code at runtime, providing these measurements as attestation evidence for verification by a remote Verifier. This mechanism allows the enclave to proceed only when the software environment is in the expected state and the application code is verified as legitimate. We define attack models and security requirements for the proposed protocol and formally evaluate its security using the Tamarin Prover. Furthermore, we implement a prototype of PRA-TLS using Intel SGX and evaluate its performance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.06061v1</guid>
+      <category>cs.CR</category>
+      <category>cs.OS</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Reina Sasaki, Yutaka Ishikawa, Atsuko Takefusa, Masato Oguchi</dc:creator>
+    </item>
+    <item>
+      <title>ARMS: Adaptive and Robust Memory Tiering System</title>
+      <link>https://arxiv.org/abs/2508.04417</link>
+      <description>arXiv:2508.04417v2 Announce Type: replace 
+Abstract: Memory tiering systems seek cost-effective memory scaling by adding multiple tiers of memory. For maximum performance, frequently accessed (hot) data must be placed close to the host in faster tiers and infrequently accessed (cold) data can be placed in farther slower memory tiers. Existing tiering solutions such as HeMem, Memtis, and TPP use rigid policies with pre-configured thresholds to make data placement and migration decisions. These thresholds make the systems brittle - they fail to perform well in all scenarios. Our analysis of existing systems revealed that incorrect tiering parameters lead to: inaccurate hot page identification, delayed response to hot set changes, and wasteful migrations.
+  Based on this study, we designed ARMS that replaces sensitive parameters with robust policies and mechanisms. We develop a novel hot/cold page identification mechanism that uses relative scoring rather than threshold comparison, a hot set change detector to adapt to workload distribution changes, an adaptive migration policy based on cost/benefit analysis, and a bandwidth-aware batched migration scheduler. Combined, these approaches provide an out-of-the-box performance that matches the best tuned performance of prior systems, while being 1.22-1.85x better than prior systems without tuning.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.04417v2</guid>
+      <category>cs.OS</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sujay Yadalam, Konstantinos Kanellis, Michael Swift, Shivaram Venkataraman</dc:creator>
+    </item>
+    <item>
+      <title>FDP: The Data Placement Promise of Modern NVMe SSDs</title>
+      <link>https://arxiv.org/abs/2610.02676</link>
+      <description>arXiv:2610.02676v2 Announce Type: replace 
+Abstract: NVMe SSDs are now widely deployed as the storage tier in data centers. As SSDs have evolved over the past decade, the commu- nity has continued to debate the interfaces they expose and how operating systems and storage systems should exploit them. The NVMe Flexible Data Placement (FDP) proposal is the latest point in this design space. FDP introduces an interface based on Reclaim Units that enables explicit data placement to reduce device write amplification without the software engineering costs of sequential- write constraints and host garbage collection. FDP-enabled SSDs are emerging in commercial products and early data center de- ployments. Their compatibility with conventional block I/O allows existing applications to run unchanged, allowing a frictionless adop- tion in industry.
+  This paper presents an experimental evaluation of FDP SSDs to characterize their data placement guarantees over the raw device interface. We then revisit two widely deployed and distinct open- source storage systems, MySQL and RocksDB, and examine whether lifetime-based data separation and distinct write patterns built into their architectures can be mapped onto FDP SSDs without inva- sive changes. Our evaluation shows end-to-end WAF reductions at higher device utilization, along with QoS and throughput improve- ments under synthetic and real-world workloads. These results demonstrate that FDP provides a practical and deployable cross- layer mechanism for data placement with open-source ecosystem support on Linux. They also highlight why FDP SSDs are gaining traction in industry.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.02676v2</guid>
+      <category>cs.OS</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Sijie Lan, Hui Qi, Xing He, Mahmut Kandemir, Javier Gonz\'alez, Vivek Shah</dc:creator>
+    </item>
+    <item>
+      <title>Computational Onboard Data Management for Heterogeneous Autonomous Vehicle Streams</title>
+      <link>https://arxiv.org/abs/2511.19453</link>
+      <description>arXiv:2511.19453v2 Announce Type: replace-cross 
+Abstract: Autonomous vehicles continuously generate large volumes of heterogeneous sensor and state data streams. While this data supports real-time autonomy, it also enables emerging vehicle computing applications that require retained historical context. Existing in-vehicle logging stacks are largely replay- or compliance-oriented: rich sensor streams are often discarded after online processing or recorded only in limited windows for offline replay. This creates a new onboard vehicle-data operating point: transforming transient multimodal streams into compact, long-horizon, queryable history under embedded resource constraints.
+  We present Autonomous Vehicle Storage (AVS), a computational and hierarchical in-vehicle data management system for this operating point. AVS introduces a vehicle-specialized architecture including (i) utility-aware modality preprocessing before persistence, (ii) a chunk-indexed append-only logger for sustained ingest, time-range lookup, and prefix recovery, and (iii) an SSD-HDD hot/cold hierarchy that supports direct cold queries. Evaluated on a real L4 platform with three days of traces and concurrent LiDAR, camera, and GPS logging, AVS reduces storage by 8.0-8.7x relative to raw rosbag2 from its modality and task aware preprocessing, delivers hot-tier (SSD) query Time To First Byte (TTFB) of 0.9-9.1 ms and cold-tier (HDD) query TTFB of 25.6-44.0 ms, recovers from power loss in 9.98 s with a bounded 0.24 s loss window, and sustains background archival to HDD at about 107-108 MB/s. It shows the feasibility of AVS on real in-vehicle platforms, and it also exposes key tradeoffs and open challenges for vehicle data engineering.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.19453v2</guid>
+      <category>cs.DC</category>
+      <category>cs.DB</category>
+      <category>cs.OS</category>
+      <category>cs.RO</category>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <arxiv:journal_reference>Proceedings of the 37th Magnetic Recording Conference (TMRC 2026), p. E-7</arxiv:journal_reference>
+      <dc:creator>Yuxin Wang, Yuankai He, Damien Kah, Weisong Shi</dc:creator>
+    </item>
+  </channel>
+</rss>
