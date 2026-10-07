@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PL updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PL</link>
+    <description>cs.PL updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PL" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Oct 2026 04:00:12 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 07 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>ASAP: Assembly-Source Aligned Pseudocode Refinement For Binary Decompilation</title>
+      <link>https://arxiv.org/abs/2610.06900</link>
+      <description>arXiv:2610.06900v1 Announce Type: new 
+Abstract: Large language models (LLMs) are increasingly used in binary decompilation to refine the C-like pseudocode produced by traditional rule-based decompilers. While this pseudocode is useful, it is a heuristic and lossy abstraction rather than a faithful copy of the source code. It often contains decompiler errors, especially for aggressively optimized binaries where critical low-level details are obscured. We present ASAP, an assembly-source aligned pseudocode refinement framework for binary decompilation. ASAP learns source-aligned assembly representations from paired source and binary functions using joint function-level and snippet-level contrastive alignment. A Q-Former then compresses chunk-level assembly features into a fixed number of assembly tokens that condition the decompilation LLM alongside the decompiler-produced pseudocode. During refinement, we use stochastic pseudocode masking and a relative assembly-advantage loss to reduce the model's tendency to ignore assembly features and rely only on pseudocode refining. On two decompilation benchmarks across multiple compiler optimization levels, ASAP improves the average re-execution rate from 64.7% to 71.9% and the average recompilation rate from 91.6% to 96.6% compared with the strongest baseline, offering both a new perspective and a practical solution to binary decompilation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.06900v1</guid>
+      <category>cs.PL</category>
+      <category>cs.CR</category>
+      <category>cs.SE</category>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yujian Zhuang, Dehong Gao, Qichao Zhang, Qijing Lai, Jiaxin Wang, Libin Yang, Xiaoyan Cai</dc:creator>
+    </item>
+    <item>
+      <title>Pattern-Guided Graph Synthesis for Suppressing Known Defects in DL Compiler Fuzzing</title>
+      <link>https://arxiv.org/abs/2610.06968</link>
+      <description>arXiv:2610.06968v1 Announce Type: new 
+Abstract: Fuzzing is effective at finding bugs in deep learning (DL) compilers, but existing fuzzers repeatedly trigger faults they have already uncovered. Current fuzzers diversify the generated programs, and downstream tools deduplicate bug reports post hoc, but neither stops a fuzzer from generating programs that re-trigger known defects. We present Reprise, a DL compiler fuzzer that suppresses reports of known defects during test generation. Reprise uses a deliberately lightweight generator that builds graphs in a unified intermediate representation (UIR) with local operator signatures. Instead of diversifying programs, Reprise distills each discovered defect into a semantic graph pattern that captures the operators, value constraints, graph context, and data flow required to trigger it. During graph synthesis, it regenerates any node that completes a known pattern, so known defect triggers are avoided before compilation and execution. We evaluate Reprise on three DL compilers: TVM, PyTorch Inductor, and ONNX Runtime. Against its unguided variant, patterns written for the dominant known defects reduce crash reports by 90.2% on TVM (254 to 25) and by 93.8% on PyTorch Inductor (594 to 37), with comparable branch coverage and 1.0-17.9% fewer executed tests. These results come from one run per configuration and concern the defects the patterns were distilled from. Reprise also found 25 previously unknown bugs across the three compilers, 24 of them within one month, of which 7 have been fixed and 12 more confirmed by developers. The replication package has been provided at [11].</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.06968v1</guid>
+      <category>cs.PL</category>
+      <category>cs.SE</category>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Qiong Feng, Xiaotian Ma, Di Cui, Wei Song, Peng Liang</dc:creator>
+    </item>
+    <item>
+      <title>WarpDRF: Data-Race Freedom for Warp-Level Programming</title>
+      <link>https://arxiv.org/abs/2610.07541</link>
+      <description>arXiv:2610.07541v1 Announce Type: new 
+Abstract: Warp primitives such as tensor core operations, shuffles, reductions, and barriers are critical to high-performance GPU kernels, and every major GPU language supports some set of them. The threads that participate in a primitive, and therefore synchronize, are determined dynamically by how threads diverge and reconverge, and by intra-warp scheduling such as independent thread scheduling. In practice, many high-performance kernels use these primitives and behave as expected, following an intuitive but unwritten data-race-freedom contract that has never been stated precisely or empirically tested.
+  We present WarpDRF, the first abstract warp programming model to make this contract precise, with participation rules parameterized by reconvergence guarantees and per-primitive requirements so that instantiations match different GPU languages. We prove (formalized in Rocq) that a kernel satisfying WarpDRF executes every warp primitive with the participants the reference semantics assigns and produces the same results, so a programmer can reason in the reference semantics alone. We implement the model in MLIR with a reference interpreter and fuzz 10K conformance tests for each of three configurations across CUDA, HIP, HLSL, Metal, and SPIR-V on 16 device and backend pairs; at least one WarpDRF configuration describes each, with CUDA honoring the strictly weakest configuration. Finally, we extend Faial, a static data-race analyzer for CUDA, into the first DRF checker for an empirically validated warp model, and apply it to llama.cpp, where most kernels that use warp primitives already satisfy the contract, but three contain previously unknown data races, showing the need for tools that check it.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.07541v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zheyuan Chen, Simon Kagle, Tiago Cogumbreiro, Tyler Sorensen</dc:creator>
+    </item>
+    <item>
+      <title>Cleave: Scaling Tensor Program Optimization via Decoupled Algebraic Search and Operator Scheduling</title>
+      <link>https://arxiv.org/abs/2610.07742</link>
+      <description>arXiv:2610.07742v1 Announce Type: new 
+Abstract: Optimized kernels such as FlashAttention and FlashDecoding are crucial for accelerating today's large models. Most of them are handwritten by experts because existing ML compilers cannot match their efficiency. Producing such kernels requires fusing computations with multiple reductions, which requires both algebraic transformation of the computation graph and operator scheduling of the transformed graph. Unfortunately, searching the two jointly yields a space too large to navigate. We propose Cleave, an ML compiler built on symbolic decoupling: Cleave discovers transformations by performing superoptimization on a graph with symbolic shapes, and then schedules each resulting graph on concrete shapes. Representing shapes as symbols makes equivalence checking cheap and lets a new Split operator, with a symbolic split count, parallelize along a reduction dimension. Cleave's scheduler fuses graphs with multiple reductions through iterative tiling and horizontal fusion. Evaluation on common LLM subgraphs shows that Cleave generates kernels up to 2.8x faster than the best baseline (1.6x on average) and reduces compilation time by 5.9x on average compared to Mirage. For dynamic workloads captured from production serving traces, Cleave compiles each operator once and achieves geometric mean speedups of 1.4x and 1.7x over FlashInfer's handwritten FA2 and FA3 backends. Cleave's code is available at: https://github.com/nyu-systems/cleave</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.07742v1</guid>
+      <category>cs.PL</category>
+      <category>cs.AI</category>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>David Pissarra, Jinkun Lin, Haitian Jiang, Aurojit Panda, Jinyang Li</dc:creator>
+    </item>
+  </channel>
+</rss>
