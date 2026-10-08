@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DB updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DB</link>
+    <description>cs.DB updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Oct 2026 04:00:00 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>RiftANN: Efficient Graph Traversal for Vector Search with RDMA-Based Memory Disaggregation</title>
+      <link>https://arxiv.org/abs/2610.08990</link>
+      <description>arXiv:2610.08990v1 Announce Type: new 
+Abstract: Graph indexes for billion-scale vector collections can exceed a single server's DRAM capacity. Passive RDMA-based disaggregated memory provides scalable capacity without memory-node computation, but conventional best-first search performs poorly in this setting. Fine-grained and unnecessary remote reads increase communication cost, while dependencies between candidate evaluation and subsequent expansion serialize traversal and leave CPUs idle.
+  We present RiftANN, a graph-based approximate nearest neighbor search (ANNS) system for passive RDMA-based disaggregated memory. RiftANN navigates using compact vectors at compute nodes and selectively verifies exact vectors using a threshold calibrated from observed approximation errors. A bounded one-sided RDMA pipeline batches and overlaps the remaining remote accesses with local processing. RiftANN evaluates returned neighbors in parallel and incrementally incorporates completed results. An impact gate estimates whether unfinished evaluations may change the candidate set, allowing traversal to continue when their expected influence is small while preventing unsafe advancement from incomplete search state. A lightweight feedback controller coordinates RDMA concurrency with background evaluation capacity as search configurations and query loads change.
+  We evaluate RiftANN on SIFT, DEEP, and SPACEV at 100M scale and SIFT1B. At matched recall, RiftANN achieves 1.6x to 4.3x latency speedups and 1.1x to 2.2x higher throughput than DistVS, and 1.6x to 5.6x latency speedups over SSD-based DiskANN and PipeANN. These results show that passive disaggregated memory can support low-latency graph-based vector retrieval without query-time computation at memory nodes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.08990v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Qi Lin, Zhenyu Zhang, Jun Kong, Zhichao Cao</dc:creator>
+    </item>
+    <item>
+      <title>Building Navigable Graphs Without Search in Three Composable Stages</title>
+      <link>https://arxiv.org/abs/2610.09041</link>
+      <description>arXiv:2610.09041v1 Announce Type: new 
+Abstract: Navigable graphs can be built without searching for neighbors: partition the data, evaluate every pair inside each part, and select each point's edges from the candidates. We give such a construction in three separable stages and show that the middle one decides the quality. The pool is any partition with a few memberships per point. The ending turns a point's candidates into out-edges; ours keeps a bounded heap, prunes by occlusion with a per-corpus slack, and appends reverse edges, re-pruning only where a list overflows. The spine is any edge set, exempt from the prune, that keeps the graph reachable from its entry; ours, half-space-proximal edges over a random sample, routes monotonically to every sampled point and replaces a spanning tree at 1/10 to 1/500 of its cost. The ending composes with any partitioner: on PiPNN's own candidate pool it beats PiPNN's ending on each of six corpora from $10^6$ to $10^8$ points, by 3 to 14% in distance evaluations at equal recall, and with 60 to 120 memberships per point the composed build matches or beats a full dense construction at k=10 and k=100 on all six, in 0.5 to 0.9 of its build time, deterministically. The analysis explains why. Once a pool is localised its quality is set by the data: every pool built on GIST lands within 4% of the exact-kNN ceiling, and the pairs a block cover misses are predicted, point by point, by the local clustering of the kNN graph, whose zero-clustering tail sets the memberships a corpus needs and grows with n. All code, patches and logs are public.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.09041v1</guid>
+      <category>cs.DB</category>
+      <category>cs.IR</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>\'Edgar Ch\'avez</dc:creator>
+    </item>
+    <item>
+      <title>CATune: Structural Constraint-Aware Bayesian Optimization for DBMS Configuration Tuning</title>
+      <link>https://arxiv.org/abs/2610.09276</link>
+      <description>arXiv:2610.09276v1 Announce Type: new 
+Abstract: Modern DBMSs expose hundreds of configuration knobs, resulting in a high-dimensional and heterogeneous search space that makes automated tuning costly. Existing ML-based tuning systems typically treat the configuration domain as box-constrained and rely on workload feedback to implicitly capture inter-knob relationships. However, DBMS documentation specifies deterministic knob dependency constraints, particularly ordering constraints, that characterize structurally valid regions of the configuration space. We present CATune, a constraint-aware Bayesian optimization (BO) framework that models deterministic inter-knob ordering constraints as structural components of the search domain. Instead of learning feasibility boundaries through sampled violations, CATune performs optimization within a constraint-consistent subspace. We develop a topology-aware sampling strategy that respects dependency structure during exploration and avoids the inefficiencies of post-hoc constraint handling. To enable automated constraint discovery, we further design a precision-first extraction pipeline that combines LLM-based parsing with reliability safeguards to mitigate hallucinated dependencies. Experiments on PostgreSQL and MySQL using TPC-C and TPC-H workloads show that CATune substantially improves both sample efficiency and final tuning quality across surrogate models and BO frameworks. Under default ranges, CATune reaches the baseline optimum up to 12.5x faster and improves throughput by up to 63.37%. The improvements persist under knowledge-guided reduced ranges and alternative optimization implementations. These results demonstrate that explicitly modeling system-defined deterministic ordering constraints enhances optimization robustness and system stability.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.09276v1</guid>
+      <category>cs.DB</category>
+      <category>cs.LG</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.14778/3849398.3849421</arxiv:DOI>
+      <dc:creator>Fangping Lan, Qi Zhang, Eduard Dragut</dc:creator>
+    </item>
+    <item>
+      <title>No Trace, No Claim: Two Contracts for Database Agents</title>
+      <link>https://arxiv.org/abs/2610.09286</link>
+      <description>arXiv:2610.09286v1 Announce Type: new 
+Abstract: LLM agents can generate database operations and explain their results, but current interfaces often leave a gap between generated plans, execution conditions, and claims presented to users. We argue that agent-facing data systems need two enforceable contracts. A plan contract defines what an agent may execute and reference; an evidence contract records the belief state, completeness, and provenance under which a result supports a claim.
+  We instantiate these contracts in TGMS, a bi-temporal graph system in which an LLM plans over a fixed temporal operator interface. A static verifier checks plans before execution, and a claim verifier checks typed claims against content-addressed traces. Live model runs exposed two failures missed by input-only schemas and value-only grounding: nonexistent result fields and page-local counts reported as complete-result counts. Result-field checking makes the first a repairable rejection. Completeness propagation detects the second in all 15 controlled cases and misses all 15 when disabled.
+  On the frozen CollegeMsg workload, TGMS reaches 0.408 typed-answer accuracy versus 0.064--0.284 for the evaluated baselines. On Bitcoin-OTC, direct SQL over the same bi-temporal store matches TGMS, showing no universal accuracy advantage for the fixed operator interface. On correction probes, TGMS and bi-temporal SQL answer historical-belief questions, while latest-state baselines cannot. Before claim gating, 21 of 220 answers contain an unsupported gated claim; after gating, none of 199 emitted answers does, at the cost of 21 fewer answers. The plan contract makes invalid plans rejectable and execution reproducible under recorded conditions, while the evidence contract makes gated claims faithful to cited evidence. Neither guarantees correct interpretation of user intent.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.09286v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Xiaofei Zhang</dc:creator>
+    </item>
+    <item>
+      <title>Indexing Designs and Adaptive Data Distribution Optimization for In-Memory Databases on Hybrid DDR--CXL Memory</title>
+      <link>https://arxiv.org/abs/2610.09414</link>
+      <description>arXiv:2610.09414v1 Announce Type: new 
+Abstract: CXL memory expands single-node memory capacity for in-memory databases but has higher latency and lower bandwidth than local DDR. Hybrid DDR--CXL databases require joint indexing and data distribution design. Indexing designs differ in access and migration paths and constrain the placement of indexes and tuples, creating trade-offs in runtime performance, DDR memory efficiency, and system integration complexity. Their performance impact is thus difficult to determine. Indexes and tuples may differ in access characteristics: placing them in the same tier may reduce DDR efficiency, while separate management adds tracking and decision overhead.
+  We propose five indexing designs based on two approaches: treating the two tiers as a unified data space or managing them separately. We analyze their trade-offs and underlying causes and develop adaptive data distribution optimization for single-index designs in which the database explicitly manages distribution. The method manages index objects and tuples separately, reduces metadata overhead through hierarchical hotness tracking and an index object residency policy, and extends benefit-aware admission and randomized eviction to determine and adjust their placement according to each type's expected benefits and memory footprints.
+  We implemented the designs in a hybrid DDR--CXL database prototype and evaluated them using YCSB. The single-index design with direct addressing achieves the best performance under most workloads and system configurations. The dual-index design performs better mainly when DDR capacity is limited or accesses are highly concentrated, and has relatively low integration complexity. Adaptive distribution optimization improves DDR memory efficiency and system performance, enabling single-index designs to achieve up to $1.59\times$ the throughput of their counterparts with non-separated management.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.09414v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Huijie Cao (East China Normal University, Shanghai, China), Shun Yang (East China Normal University, Shanghai, China), Yinan Zhang (East China Normal University, Shanghai, China), Huiqi Hu (East China Normal University, Shanghai, China), Xuan Zhou (East China Normal University, Shanghai, China), Weining Qian (East China Normal University, Shanghai, China)</dc:creator>
+    </item>
+    <item>
+      <title>Correspondences as Decisions: JevNexus for Decision-Centric Schema Matching</title>
+      <link>https://arxiv.org/abs/2610.09487</link>
+      <description>arXiv:2610.09487v1 Announce Type: new 
+Abstract: Schema matching increasingly uses generative language models to rerank retrieved column candidates, although the underlying task is a bounded correspondence decision. We present JevNexus, which combines typed pairwise decisions with schema/instance evidence and invokes listwise refinement only when the evidence disagrees and the fused margin is small. The evaluation covers 561 cases from six benchmark families. JevNexus obtains dataset-macro MRR and Hits@1 of 0.930 and 0.909, compared with 0.926 and 0.903 for Magneto, while reducing mean latency from 123.452 to 15.929 seconds (7.750). Paired analysis finds no statistically significant difference in either MRR or Hits@1. The gate invokes listwise refinement for only 5.665% of source columns and avoids the degradation caused by unconditional refinement. Code and experimental artifacts are available at https://github.com/RazeenLI/JevNexus.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.09487v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Runze Li, Hanchen Wang, Ying Zhang, Wenjie Zhang</dc:creator>
+    </item>
+    <item>
+      <title>LDPGraph: Locally Differentially Private Graph Synthesis by Exploiting Neighborhood Structure</title>
+      <link>https://arxiv.org/abs/2610.09642</link>
+      <description>arXiv:2610.09642v1 Announce Type: new 
+Abstract: The widespread application of graph data inevitably brings significant privacy risks, as its unprotected use can lead to the leakage of sensitive information. These risks are particularly acute in the setting with an untrusted curator, where the data remains decentralized and each user only holds the connections to their neighbors. To mitigate such privacy risks, we adopt local differential privacy (LDP) to collect users' private information and generate a synthetic graph. However, existing methods suffer from either excessive noise injection by perturbing the local adjacency lists or significant structural information loss due to the simplistic graph encoding process. To address these issues, we propose LDPGraph, an effective graph synthesis algorithm that takes one step further by exploiting neighborhood structures under LDP. To obtain neighborhood statistics beyond degrees, LDPGraph aggregates a noisy global view from perturbed adjacency lists and combines it with projected local connections to estimate node-level triangle counts. To correct the structural inconsistency caused by separately perturbing degree and triangle count, LDPGraph jointly refines them into feasible degree-triangle targets. To reconstruct a global graph from these estimated targets, LDPGraph adopts a triangle-first strategy that first preserves local clustering structures and then fulfills remaining degree requirements. Extensive experiments on four real-world datasets and multiple commonly used graph metrics validate the superiority of LDPGraph. Source code is available at https://github.com/ZJU-TrustAID/LDPGraph.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.09642v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jiawei Dong, Zhikun Zhang, Quan Yuan, Zhe Liu, Yunjun Gao</dc:creator>
+    </item>
+    <item>
+      <title>QCATS: Query Context-Aware Transformer Slicing for Efficient Predictive Query Processing</title>
+      <link>https://arxiv.org/abs/2610.09894</link>
+      <description>arXiv:2610.09894v1 Announce Type: new 
+Abstract: In-database predictive query processing increasingly applies Transformer-based models within relational pipelines. However, existing in-database inference typically exposes only tuple-level model inputs to the inference runtime, leaving relational predicates and metadata statistics invisible to neural execution planning. In this paper, we propose QCATS, a query context-aware transformer slicing framework that enables efficient sparse inference inside database systems. QCATS executes at query granularity: instead of routing individual tokens or tuples during inference, it uses query predicates and metadata statistics to pre-select context-aligned FFN slices before model execution. The framework comprises offline expert construction and lightweight query-level routing that dynamically selects experts during execution. QCATS further introduces system optimizations, including asynchronous CPU-GPU pipelines and routing-aware batching. Experiments on four predictive-query workloads with BERT-base and Qwen-0.6B show that QCATS achieves up to 4.42x latency reduction while preserving prediction accuracy comparable to dense baselines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.09894v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yueying Li, Zhongle Xie, Ke Chen, Lidan Shou</dc:creator>
+    </item>
+    <item>
+      <title>ERP Event Logs: A Canonical Form for KPI Time-Series Extraction and Characterization</title>
+      <link>https://arxiv.org/abs/2610.09903</link>
+      <description>arXiv:2610.09903v1 Announce Type: new 
+Abstract: Enterprise resource planning (ERP) systems record operations as transactions spread across hundreds of normalized relational tables. Extracting an operational key performance indicator (KPI) from this schema requires a separate, bespoke join for almost every metric. We show that an event log, a canonical (case, activity, timestamp) representation derived from the same tables, collapses this heterogeneity into one flat structure, from which KPI families reduce to reusable operations after a one-time mapping. Using standardized event logs built from hundreds of SAP S/4HANA customers under a shared activity ontology, we define three families of process-derived KPIs (volumes, durations, and rates) and extract them uniformly across customer systems for two common end-to-end organizational processes, order-to-cash and procure-to-pay. We normalize rates and screen series for minimum coverage to support comparison across customers of very different sizes. We then characterize heterogeneity across industries and tenants using descriptors derived directly from the canonical form, before analyzing the resulting KPI time series. The same process executes heterogeneously across customers and industries, yet this shared representation enables direct comparison of sales- and procurement-side signals, including lead times and order arrivals. Using this shared representation, we characterize which KPI families are forecastable and find a recurring ordering from volumes through durations to rates across both processes and a highly heterogeneous customer base; a pretrained time-series foundation model (Chronos) is competitive with classical baselines such as ARIMA and ETS on rate and duration series, while classical models retain an edge on volumes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.09903v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sherri Hadian, Adrian Rebmann, Atacan Korkmaz, Gregor Berg, Ulf Brackmann</dc:creator>
+    </item>
+    <item>
+      <title>The Case for Synthesized Data Compression</title>
+      <link>https://arxiv.org/abs/2610.09913</link>
+      <description>arXiv:2610.09913v1 Announce Type: new 
+Abstract: Compression is a fundamental tool in data management. Today's compression schemes are generally designed by hand to apply to many different types of data (e.g., run length encoding or arithmetic encoding), leading to a zoo of general-purpose algorithms which work well for many datasets, but may not be optimal for any specific dataset. Inspired by recent advancements in agentic coding, we propose synthesizing custom-tailored data compression algorithms on a per-dataset basis. Unlike prior work using agents to synthesize database components, a data-specific compression algorithm can be fully verified at construction time, alleviating most correctness concerns. Modern file formats, like AnyBlox and F3, allow including the synthesized code alongside the data itself. Experimentally, we show that our synthesis agent can expand the compression-factor/decompression-speed Pareto front, outperforming general-purpose methods by nearly $2\times$ in compression factor.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.09913v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ivan Iachnyk, Mihail Stoian, Luisa Neubauer, Ryan Marcus, Andreas Kipf</dc:creator>
+    </item>
+    <item>
+      <title>Truly Sub-$3^n$ Min-Sum Subset Convolution and Join Ordering</title>
+      <link>https://arxiv.org/abs/2610.10282</link>
+      <description>arXiv:2610.10282v1 Announce Type: cross 
+Abstract: We present a deterministic reduction from min-sum subset convolution to min-plus matrix product. We show that if the min-plus product of two $D\times D$ matrices with $\beta$-bit integer entries can be computed in $D^{3-\delta}\operatorname{poly}(\beta,\log D)$ time for a fixed rational $0&lt;\delta&lt;1$, then min-sum subset convolution on an $n$-element universe can be solved in $(2+2^{-\delta})^n 2^{O(\sqrt n\log(n+1))}\operatorname{poly}(n,\beta)$ time. Instantiating this reduction with the recent breakthrough on subcubic min-plus matrix product by Alman and Vassilevska Williams gives a Las Vegas algorithm with expected running time $O^*(2.9987^n)$ and a deterministic algorithm with running time $O^*(2.9997^n)$, strictly breaking the longstanding $3^n$ computational barrier. Notably, these speedups translate directly to database query optimization, yielding the same expected and deterministic running-time bounds for join ordering under the $C_{\mathrm{out}}$ cost function.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.10282v1</guid>
+      <category>cs.DS</category>
+      <category>cs.DB</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mihail Stoian</dc:creator>
+    </item>
+    <item>
+      <title>K-Join: Combining Vertex Covers for Parallel Joins</title>
+      <link>https://arxiv.org/abs/2603.10177</link>
+      <description>arXiv:2603.10177v2 Announce Type: replace 
+Abstract: Significant research effort has been devoted to improving the performance of join processing in the massively parallel computation model, where the goal is to evaluate a query with the minimum possible data transfer between machines. However, it is still an open question to determine the best possible parallel algorithm for any join query. In this paper, we present an algorithm that takes a step forward in this endeavour. Our new algorithm is simple and builds on two existing ideas: data partitioning and the HyperCube primitive. The novelty in our approach comes from a careful choice of the HyperCube shares, which is done as a linear combination of multiple vertex covers. The resulting load with input size $n$ and $p$ processors is characterized as $n/p^{1/\kappa}$, where $\kappa$ is a new hypergraph theoretic measure we call the reduced quasi vertex-cover. The new measure matches or improves on all state-of-the-art algorithms and exhibits strong similarities to the edge quasi-packing that describes the worst-case optimal load in one-round algorithms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.10177v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Simon Frisk, Austen Fan, Paraschos Koutris</dc:creator>
+    </item>
+    <item>
+      <title>Cost-Aware Optimization for Agentic Query Execution</title>
+      <link>https://arxiv.org/abs/2606.03152</link>
+      <description>arXiv:2606.03152v2 Announce Type: replace 
+Abstract: Classical query optimization searches over algebraically equivalent plans that differ only in cost. This assumption breaks once LLM-backed operators enter the picture: their placement, ordering, and granularity jointly determine both cost and answer quality, and the right choice among the alternatives is often revealed only at runtime. We formalize this setting as agentic query execution, a query execution paradigm in which agent-based planning is interleaved with execution, and agent workflow optimization becomes the analogue of classical query optimization. We then present EnumGRPO, a self-improving optimizer for this setting. During a learning stage, EnumGRPO enumerates query plans over decisions such as execution paradigm, operator type, operator placement, selectivity scope, and projection width, then distills quality-cost feedback into reusable planning heuristics via in-context reinforcement learning. On SWAN, EnumGRPO achieves higher execution accuracy than LOTUS, Palimpzest, and Agentic BlendSQL, while cutting LLM-operator cost by up to 317x. Without retraining, the learned experiences transfer to another LLM family, the SemBench workload, and purely relational Spider and BIRD workloads, improving or preserving quality while reducing LLM-operator use.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.03152v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Lunyiu Nie, Yilin Xia, Yiren Liu, Christopher Jermaine, Swarat Chaudhuri</dc:creator>
+    </item>
+    <item>
+      <title>Property Testing for Recursive Query Languages</title>
+      <link>https://arxiv.org/abs/2609.03908</link>
+      <description>arXiv:2609.03908v2 Announce Type: replace 
+Abstract: In the context of database querying, property testing provides a framework for testing query answers with high confidence while inspecting only a sublinear part of the database, through completion queries and size queries. A fundamental result of Chen and Yoshida (2019) states that non-satisfaction of a Boolean conjunctive query $q$ is testable with a constant number of such queries and one-sided error if and only if $q$ is equivalent to an $\alpha$-acyclic query. In this article, we initiate the study of property testing for recursive query languages, focusing on two-way regular path queries (2RPQs) and monadic Datalog. One of our main results is positive: non-answers to any 2RPQ are constant query testable with one-sided error. We extend this slightly to a certain class of monadic Datalog programs in which recursion is restricted to be linear and rule bodies must be $\alpha$-acyclic. Turning towards unrestricted monadic Datalog, we next show that if a monadic Datalog program $\Pi$ is not equivalent to an $\alpha$-acyclic program, then falsity of $\Pi$ is not constant query testable with one-sided error. This is under the assumption that all rule-bodies are self-join free. We leave open the case of monadic Datalog programs with $\alpha$-acyclic rule bodies that are not restricted to linear recursion, but observe as a first step that there exist $\alpha$-acyclic programs that are mildly non-linear and constant query testable with one-sided error.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.03908v2</guid>
+      <category>cs.DB</category>
+      <category>cs.LO</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3850131</arxiv:DOI>
+      <dc:creator>Isolde Adler, Carsten Lutz, Quentin Mani\`ere, Marcin Przyby{\l}ko, Lukas Schulze</dc:creator>
+    </item>
+    <item>
+      <title>Tractable Gap-Constraint Languages for Complex Event Recognition</title>
+      <link>https://arxiv.org/abs/2606.18878</link>
+      <description>arXiv:2606.18878v2 Announce Type: replace-cross 
+Abstract: For strings $u, D \in \Sigma^*$, a subsequence embedding of $u$ in $D$ is a function $e \colon \{1, 2, \ldots, |u|\} \to \{1,2,\ldots,|D|\}$ with $e(i) &lt; e(i+1)$ for every $i \in \{1,2,\ldots,|u|-1\}$ and the $i$-th symbol of $u$ equals the $e(i)$-th symbol of $D$. A gap-constraint for $u$ is a triple $(i,j,L)$ with $1 \leq i &lt; j \leq |u|$ and $L$ is a regular language over $\Sigma$. An embedding $e$ satisfies a gap-constraint $(i, j, L)$ if the factor of $D$ strictly between positions $e(i)$ and $e(j)$ is a word from $L$. We investigate the subsequence matching problem with gap-constraints, which is relevant in the context of complex event recognition (CER): given $u, D \in \Sigma^*$ and a set $C$ of gap-constraints, find an embedding of $u$ in $D$ that satisfies all gap-constraints from $C$. In general, subsequence matching with gap constraints is NP-complete and the only known tractable variants restrict the interval structure of the gap-constraints. In this work, we show that we can solve subsequence matching with gap-constraints with an arbitrary interval structure rather efficiently (in fact, optimally under SETH) in time $O(|D| (|u|+|C|))$ if the gap-constraint languages satisfy a property which we dub left-convexity: whenever $u v w \in L$ and $v \in L$, then also $uv \in L$. Left-convex languages are sufficiently expressive to model interesting real-world scenarios considered in CER, e.g., length constraints $L = \{w \mid a \leq |w| \leq b\}$ for $a, b \in \mathbb{N}$. We also show how our algorithm can be used in order to efficiently enumerate all satisfying embeddings, which is particularly relevant for possible applications in CER. Finally, we show how non-left-convex languages can lead to intractability, i.e., if in addition to length constraints we allow $\{aa,\epsilon\}$ as the only non-left-convex constraint language, then the problem is NP-complete again.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.18878v2</guid>
+      <category>cs.DS</category>
+      <category>cs.DB</category>
+      <category>cs.FL</category>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Antoine Amarilli, Florin Manea, Tina Ringleb, Markus L. Schmid</dc:creator>
+    </item>
+  </channel>
+</rss>
