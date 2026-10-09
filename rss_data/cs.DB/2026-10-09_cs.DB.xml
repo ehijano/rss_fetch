@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DB updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DB</link>
+    <description>cs.DB updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Oct 2026 04:00:18 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Implementation Guidelines for Data Quality Metrics</title>
+      <link>https://arxiv.org/abs/2610.10919</link>
+      <description>arXiv:2610.10919v1 Announce Type: new 
+Abstract: Despite decades of data quality (DQ) research, a gap remains between DQ dimensions, such as accuracy or completeness, which the literature defines in textual form, and DQ tools, which typically implement low-level checks that are not aligned with these dimensions. ISO/IEC 25024 and ISO/IEC 5259 attempt to bridge this gap by defining DQ metrics for each dimension. However, these DQ metrics are hardly used, because the standards leave open how to implement them: for example, the metric for syntactic accuracy counts syntactically accurate values, but does not state how to decide that a value is syntactically accurate. This simply moves the problem to another level without solving it. As a result, DQ assessment currently cannot build on the standards.
+  In this paper, we make the ISO DQ metrics executable. We classify all data-level metrics of both standards into (i) generalizable metrics that need no input beyond the data, (ii) parameterized metrics whose parameters can be learned from clean reference data or set by an expert, and (iii) non-generalizable metrics that need qualitative judgment and cannot be automated. For the metrics that can be automated, i.e., categories (i) and (ii), we propose implementation guidelines that resolve what the standards leave open. We realize the guidelines in dqmeasure, an open-source library of 20 metrics that learns these parameters from reference data instead of relying on manually defined rules. Our experiments on real-world and synthetic datasets show that the metric scores decrease monotonically with an increasing number of injected errors, decline together with downstream ML performance, and scale linearly with the number of rows, which enables automated DQ monitoring based on the standards.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.10919v1</guid>
+      <category>cs.DB</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Philipp Jung, Katinka Becker, Felix Biessmann, Valerie Restat, Martin Seyferth, Daniel Schwabe, Lisa Ehrlinger</dc:creator>
+    </item>
+    <item>
+      <title>CORAL: Cross-modal Vector Retrieval via Incremental Graph Construction at Scale</title>
+      <link>https://arxiv.org/abs/2610.11230</link>
+      <description>arXiv:2610.11230v1 Announce Type: new 
+Abstract: Cross-modal vector retrieval is widely used in multimodal systems, such as search engines and vector databases. It typically operates in out-of-distribution (OOD) settings, where query vectors follow a distribution that differs from that of the vectors stored in the database. In such cases, conventional indexes suffer significant performance degradation, and even methods specially designed for OOD remain limited by inefficient use of query modal characteristics, restricted GPU parallelism, and inadequate support for dynamic updates. We present CORAL, a novel GPU-accelerated graph-based vector index for scalable cross-modal retrieval, featuring hierarchical memory management that spans GPU, CPU, and disk. Specifically, CORAL incrementally incorporates the characteristics of query modality and terminates index construction timely. Crucially, it introduces coverage-aware adaptive pruning to address the imbalanced coverage of the query vector's neighbors. Moreover, CORAL presents a fully neighborhood-aware projection approach to efficiently utilize GPUs for highly parallel index construction, and a targeted connectivity enhancement method to refine the index structure. Besides, CORAL also supports modal-semantics-based vector insertion and topology-repairing deletion that restore node connectivity. Experimental results demonstrate that CORAL outperforms existing methods with up to 1.6 times the throughput at matched recall while reducing construction time by up to 56%. Furthermore, it exhibits remarkable resilience under dynamic updates and remains effective at the billion scale.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.11230v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Shixin Wan, Guoyu Hu, Yifan Wu, Ke Chen, Lidan Shou</dc:creator>
+    </item>
+    <item>
+      <title>Should Your Database Systems Use Hardware-Assisted Memory Safety Extensions in Production?</title>
+      <link>https://arxiv.org/abs/2610.11525</link>
+      <description>arXiv:2610.11525v1 Announce Type: new 
+Abstract: Database systems are predominantly developed in unsafe languages (e.g., C/C++) to meet performance requirements through low-level memory management, yet this reliance renders them prone to systemic memory-safety issues that compromise reliability, consistency, security, and durability. Through an extensive bug analysis of prominent database systems, we show that these memory-safety issues persist in production environments despite advancements in database testing tools. While emerging hardware-assisted extensions, such as Arm's Memory Tagging Extension (MTE) and CHERI, offer a promising mitigation path for memory safety, their practical applicability and performance overhead within the specialized constraints of database systems remain largely unexplored.
+  In this paper, we evaluate hardware extensions through the lens of what we define as the database trilemma: the fundamental trade-off between safety, performance, and portability, to determine their viability for production-grade database systems. We provide the first side-by-side comparison of MTE and CHERI across a database workload suite. Our bottom-up study spans microarchitecture, the compiler/runtime/OS stack, core data structures (ART, B+Tree, hash table, skip list, linked list, and queue), and full database systems (Redis, LevelDB, SQLite, MySQL, DuckDB, and LadyBugDB) to characterize their performance, safety guarantees, and ease of adoption.
+  We find that while hardware extensions can offer near-deterministic protection, they introduce non-uniform performance taxes: MTE provides high portability with modest overheads (~10%), while CHERI delivers superior safety guarantees with higher performance penalties (20-60%) and significant porting effort. Our study equips database systems architects with an actionable guide toward building the next generation of reliable, secure databases using hardware-assisted safety mechanisms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.11525v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3856373</arxiv:DOI>
+      <dc:creator>Ilya Meignan--Masson, Martin Fink, Masanori Misono, Dimitrios Stavrakakis, Pramod Bhatotia</dc:creator>
+    </item>
+    <item>
+      <title>Grant: A Framework for Approximate Nearest Neighbor Search with Multi-Attribute Range Filters</title>
+      <link>https://arxiv.org/abs/2610.11563</link>
+      <description>arXiv:2610.11563v1 Announce Type: new 
+Abstract: Recently, academia and industry have considered the problem of approximate nearest neighbor search (ANNS) with filters. In this setting, each object consists of a high-dimensional vector and attribute values. Given a query vector, filters for attribute values, and $k$, this problem retrieves $k$ vectors approximately nearest to the query vector among a set of objects passing the filters. This paper considers range filters, i.e., users can specify a range constraint for each attribute. Most existing works do not consider this setting, and they assume (i) only a single attribute or (ii) matching filters that require the same attribute values or categories. Existing techniques for these assumptions are not available for our setting or are trivially not efficient. Although standard solutions, such as pre-filter and post-filter, can handle our problem, they are also inefficient. Some works tackle the same problem as ours, but their techniques necessitate historical query workloads, which significantly limit practical use cases. To remove these limitations, this work proposes Grant, a novel framework that solves this problem efficiently while accepting arbitrary range filters and ANNS data structures. Grant can guarantee a search time sub-linear to the number of objects, which is not held by existing techniques. We conduct extensive experiments, and their results demonstrate that Grant outperforms existing techniques.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.11563v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Daichi Amagata</dc:creator>
+    </item>
+    <item>
+      <title>Traveling with a Map: Reducing the Search Space of Link Traversal Queries Using RDF Shapes</title>
+      <link>https://arxiv.org/abs/2610.11701</link>
+      <description>arXiv:2610.11701v1 Announce Type: new 
+Abstract: The centralization of web information raises legal and ethical concerns, particularly in social, healthcare, and education applications. Decentralized architectures offer a promising alternative by keeping data closer to its source, yet efficient query processing remains a significant challenge. Link Traversal Query Processing (LTQP) enables querying across decentralized networks but often suffers from long execution times and high data transfer costs due to the large number of HTTP requests involved. Many queries are highly selective with respect to the data model objects distributed across the network. For example, in a social media application where users store heterogeneous data, a query may target only users' posts and comments, ignoring their other information. We refer to such queries as data-model selective. We propose a shape-based pruning approach that relies on shape indexes and a query-shape subsumption algorithm to reduce the search space and thus the number of HTTP requests. We formalize this approach as a link pruning mechanism for LTQP and evaluate it on social media queries from the SolidBench benchmark across multiple metrics. Our results show that shape-based pruning substantially improves query execution time, first-result arrival time, diefficiency, and network usage for data-model selective queries, while having a negligible impact on non-selective data-model queries. These gains cost only a minor increase in triples per shape-index instance. Our approach is also resilient, retaining its benefits even when some data providers do not supply shape indexes. This work demonstrates that shape-based metadata can significantly optimize LTQP in decentralized knowledge graphs for an important class of queries. By exposing such metadata, data providers not only enhance data quality and interoperability but also improve the efficiency of traversal-based query processing.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.11701v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Bryan-Elliott Tam, Joanna Van Herwegen, Pieter Colpaert, Ruben Verborgh, Ruben Taelman</dc:creator>
+    </item>
+    <item>
+      <title>Cost-Aware Mixture-of-Experts Coordination for Model Markets</title>
+      <link>https://arxiv.org/abs/2610.11908</link>
+      <description>arXiv:2610.11908v1 Announce Type: new 
+Abstract: Existing model marketplaces typically trade and select individual models as indivisible units, limiting their ability to exploit complementarities among heterogeneous experts. This paper proposes an MoE-based model market framework that lifts Mixture-of-Experts from a model-level learning architecture to a market-level coordination mechanism. In this framework, brokers use gating networks to coordinate multiple heterogeneous experts and deliver a composite model service. We formalize the market participants, service workflow, expert cost structure, and a welfare objective that combines predictive utility with heterogeneous execution costs. We then derive a cost-aware gating mechanism and market-aware training objective, and introduce a cost-adjusted revenue allocation rule that distributes residual revenue according to realized expert participation and execution cost. We also establish basic theoretical properties of the allocation rule, including budget balance, participation monotonicity, and cost sensitivity. Experiments over five random seeds on fifteen tabular and image benchmarks use independently trained and frozen neural and tree-based experts together with latency-derived execution costs. MoE Market achieves the highest mean welfare on all fifteen datasets and a lower mean expected cost than Standard MoE in every case, while maintaining competitive predictive performance. The allocation experiments further demonstrate systematic sensitivity to expert participation and cost, together with substantially lower computational overhead than exact Shapley allocation. These results suggest that MoE can serve as a market-level coordination principle for collaborative, cost-aware, and economically grounded model marketplaces.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.11908v1</guid>
+      <category>cs.DB</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yizhou Ma, Wenbo Wu, Xikun Jiang, Zhuoqin Yang, Luis-Daniel Ib\'a\~nez</dc:creator>
+    </item>
+    <item>
+      <title>Soft Voting for Policy-Aware Private Data Synthesis</title>
+      <link>https://arxiv.org/abs/2610.11285</link>
+      <description>arXiv:2610.11285v1 Announce Type: cross 
+Abstract: Blowfish privacy relaxes differential privacy (DP) by protecting only the attribute-value substitutions a data owner specifies as edges of a policy graph. A sparser policy can reduce the noise required by a mechanism, but only when the released statistic changes less across protected substitutions than across arbitrary DP neighbors. We study this question for evolutionary, nearest-neighbor DP synthesizers such as Private Evolution (PE) and its tabular instantiation Tab-PE, which score private records against a candidate population and release a noisy vote histogram. Their hard vote is constant inside each candidate's decision region and jumps at its boundary. Its policy-specific sensitivity therefore equals the full worst-case value whenever at least one protected substitution crosses a boundary, regardless of how short that substitution is. Because every round we examined contained such a substitution, the policy graph gave no reduction in noise. We propose BF-Soft, a temperature-smoothed soft vote whose response changes gradually with distance. Its sensitivity has a tight closed-form bound in the policy graph's reach and the temperature, independent of the number of candidates, and the bound can be computed once before synthesis. It also predicts from the policy alone when policy-aware smoothing cannot substantially reduce noise: protecting a flat categorical or binary attribute drives the reach to its maximum. On real and synthetic datasets under narrow numeric policies, BF-Soft reduces error relative to hard voting at strong privacy budgets, while the advantage reverses at weaker budgets. A public-data pilot predicts when soft voting is beneficial without spending private budget.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.11285v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yingge Hu, Gautham Ramesh Babu, Mostafa Milani</dc:creator>
+    </item>
+    <item>
+      <title>Evaluating Local Language Model Agents for Reproducible Data Engineering: An Empirical Software Engineering Study of Mobility Workflows</title>
+      <link>https://arxiv.org/abs/2610.11482</link>
+      <description>arXiv:2610.11482v1 Announce Type: cross 
+Abstract: Context: Large language model (LLM) agents are increasingly used as software and data-engineering assistants, yet evidence about locally deployable open-weight agents remains limited. Existing evaluations often emphasize textual responses or isolated code generation rather than the validity of complete engineering artifacts.
+  Objectives: We evaluate whether local LLM agents can produce correct and reproducible data-engineering artifacts, quantify the effect of a closed-loop workspace condition, and examine trade-offs in model scale, architecture, quantization, runtime, tool use, and failure.
+  Methods: We introduce a benchmark of fifteen mobility-workflow tasks covering data discovery, connectors, transport-feed processing, semantic enrichment, feature engineering, validation, visualization, and reporting. Deterministic checkers assess generated scripts, tables, structured files, figures, and reports. Ten local configurations are evaluated in one-shot and closed-loop conditions, with five repetitions per model, mode, and task, yielding 1,500 scored attempts on a consumer-grade GPU.
+  Results: Among models larger than two billion parameters, the workspace condition increases pass rates by 26.7-52.0 percentage points over one-shot generation. The strongest configuration reaches 85.3% artifact-level success, and a quantized 9-billion-parameter model reaches 69.3% with an approximately 6.5 GB memory footprint. Gains are largest when intermediate artifacts expose errors the agent can inspect and repair.
+  Conclusion: Local open-weight agents can support a meaningful subset of software-intensive data-engineering work, but reliability depends on model capability, task verifiability, and deterministic validation. The benchmark provides a reproducible method for evaluating complete agent configurations before adoption in engineering workflows.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.11482v1</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jorge Garc\'ia-Carrasco, Javier Sanchis, Alejandro Reina-Reina, Alejandro Mat\'e, Juan Trujillo</dc:creator>
+    </item>
+    <item>
+      <title>Compact and Efficient Indexes for Learned Sparse Retrieval</title>
+      <link>https://arxiv.org/abs/2610.12300</link>
+      <description>arXiv:2610.12300v1 Announce Type: cross 
+Abstract: This paper investigates how to substantially reduce the memory footprint of learned sparse retrieval indexes without sacrificing the efficiency of state-of-the-art retrieval data structures. Building on SEISMIC, we revisit both levels of its design: the inverted index used to select candidates and the forward index used to score them. For the inverted index, we replace costly per-block summaries with medoids, namely existing documents elected as block representatives, collapsing the per-block metadata from a sparse vector to a single document identifier. For the forward index, we compress both components and values. We reorder the vocabulary to place co-occurring components closer together and encode the resulting $\Delta$-gaps with DOTPACKING8, a SIMD-friendly bit-packing scheme that fuses decompression with dot-product evaluation; values are quantized with compact per-component 4-bit codebooks fitted to each component's distribution. We further introduce JUMPDOT, a blocked dot-product kernel tailored for queries that contain only a few non-zero entries. Our forward-index compression is independent of SEISMIC and can be plugged into any system relying on forward-index-based scoring, as we demonstrate by integrating it into KANNOLO. A comprehensive evaluation on MS MARCO with three state-of-the-art learned sparse encoders shows that our solutions markedly improve the speed-space trade-off of learned sparse retrieval: at equal accuracy, our indexes answer queries up to 5.3x faster than the best competitor while using about 3x less memory, and in the most memory-constrained regime, they remain up to 1.9x faster while using up to 3.9x less memory.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.12300v1</guid>
+      <category>cs.IR</category>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Franco Maria Nardini, Luca Rizzo, Cosimo Rulli, Rossano Venturini</dc:creator>
+    </item>
+    <item>
+      <title>Adaptive Anomaly Detection in the Presence of Concept Drift: Extended Report</title>
+      <link>https://arxiv.org/abs/2506.15831</link>
+      <description>arXiv:2506.15831v3 Announce Type: replace 
+Abstract: The presence of concept drift poses challenges for anomaly detection in time series. While anomalies are caused by undesirable changes in the data, differentiating abnormal changes from varying normal behaviours is difficult due to differing frequencies of occurrence, varying time intervals when normal patterns occur, and identifying similarity thresholds to separate the boundary between normal vs. abnormal sequences. Differentiating between concept drift and anomalies is critical for accurate analysis as studies have shown that the compounding effects of error propagation in downstream tasks lead to lower detection accuracy and increased overhead due to unnecessary model updates. Unfortunately, existing work has largely explored anomaly detection and concept drift detection in isolation. We introduce AnDri, a framework for Anomaly detection in the presence of Drift. AnDri introduces the notion of a dynamic normal model where normal patterns are activated, deactivated or newly added, providing flexibility to adapt to concept drift and anomalies over time. We introduce a new clustering method, Adjacent Hierarchical Clustering (AHC), for learning normal patterns that respect their temporal locality; critical for detecting short-lived, but recurring patterns that are overlooked by existing methods. Our evaluation shows AnDri outperforms existing baselines using real datasets with varying types, proportions, and distributions of concept drift and anomalies.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.15831v3</guid>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jongjun Park, Fei Chiang, Mostafa Milani</dc:creator>
+    </item>
+    <item>
+      <title>Can AI Agents Answer Your Data Questions? A Benchmark for Data Agents</title>
+      <link>https://arxiv.org/abs/2603.20576</link>
+      <description>arXiv:2603.20576v3 Announce Type: replace 
+Abstract: However, building reliable data agents remains difficult because real enterprise data is fragmented across many heterogeneous database systems, with duplicated and inconsistent data, and key information often buried in unstructured text, requiring agents to go beyond just writing SQL or data science scripts to answer questions. Existing benchmarks tackle only individual pieces of this end-to-end workflow (e.g., text-to-SQL over a single database) and are increasingly saturated and contaminated. We present a new benchmark for LLM agents, the Data Agent Benchmark (DAB), grounded in a study of enterprises building production data agents across six industries. DAB comprises 104 queries across 17 datasets and 4 database management systems. On DAB, the best state-of-the-art agent achieves only 57% pass@1. We analyze agent failure modes and distill takeaways for future data-agent development. Our benchmark and experiment code are published at github.com/ucbepic/DataAgentBench.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.20576v3</guid>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ruiying Ma, Shreya Shankar, Ruiqi Chen, Yiming Lin, Sepanta Zeighami, Rajoshi Ghosh, Abhinav Gupta, Anushrut Gupta, Tanmai Gopal, Aditya G. Parameswaran</dc:creator>
+    </item>
+    <item>
+      <title>When Plans Change Answers: Formalizing Cost-Accuracy Optimization for Semantic Queries</title>
+      <link>https://arxiv.org/abs/2610.08089</link>
+      <description>arXiv:2610.08089v2 Announce Type: replace 
+Abstract: In semantic query engines, predicates are evaluated by machine-learned models, and the choice of a query plan affects not only the cost of a query but also its result. Existing systems either apply a fixed threshold to each semantic operator or tune accuracy per operator, without accounting for how errors propagate through joins. We give a formal problem definition for cost-accuracy optimization of such queries. Our starting point is the calibrated confidence that decision models such as Jev attach to each decision. It yields an expected error for every decision; weighting these errors by each decision's contribution to the output (in the simplest case, its fan-out) gives the expected output quality of a plan without any labeled data, and the same computation in reverse turns an output-level accuracy target into a price on each base or intermediate tuple. Building on this, we define an oracle semantics for relational algebra with semantic operators, physical plans as pairs of a logical plan and a decision policy, declarative output-level targets, and a hierarchy of plan equivalence. We show that accuracy is plan-invariant under pointwise-deterministic policies, and that selection pushdown is not quality-sound when escalation bands are calibrated on the plan's own candidates. Expected quality can be computed in polynomial time under bag semantics; under set semantics it follows the dichotomy of tuple-independent probabilistic databases when every relation carries a semantic predicate. Choosing which tuples to drop is NP-hard, while the optimization problem decomposes into per-tuple decisions through two Lagrange multipliers, and, with what we call confidence-centric skipping, tuples that can no longer affect the target are skipped without being scored. Simulations on a synthetic workload illustrate these effects; an evaluation on real engines is left for future work.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.08089v2</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Kyoungmin Kim</dc:creator>
+    </item>
+    <item>
+      <title>Hybrid Sketching Methods for Dynamic Connectivity on Sparse Graphs</title>
+      <link>https://arxiv.org/abs/2605.15173</link>
+      <description>arXiv:2605.15173v2 Announce Type: replace-cross 
+Abstract: Dynamic connectivity is a fundamental dynamic graph problem, and recent algorithmic breakthroughs on dynamic graph sketching have reshaped what is theoretically possible: by encoding the graph as per-vertex linear sketches, these algorithms solve dynamic connectivity in only $\Theta(V \log^2 V)$ space, independent of the number of edges,outperforming lossless $\Theta(V+E)$-space structures that grow as the graph becomes denser. Prior to this work, no practical dynamic connectivity algorithm has been able to translate these theoretical breakthroughs into space savings on real-world graphs. The main obstacle is that per-vertex sketches cost thousands of bytes per vertex, so sketching only pays off once the graph becomes extremely dense. We observe that sparse real-world graphs are often not uniformly sparse, these graphs can contain dense cores on a small subset of vertices that account for a large fraction of edges. We exploit this structure via hybrid sketching: sketch only the dense core, and store the sparse periphery losslessly. We design new hybrid algorithms for fully-dynamic and semi-streaming connectivity with space $O(\min\{V+E, V \log V \log(2+E/V)\})$ w.h.p., simultaneously matching the lossless bound on sparse graphs, the sketching bound on dense graphs, and improving on both in an intermediate regime. A key component is BalloonSketch, a new l0-sampler reducing per-vertex sketch sizes by up to 8x. We implement HybridSCALE, a modular system treating the lossless and sketch-based components as subroutines. HybridSCALE is the first sketch-based dynamic connectivity system to save space on common real-world graphs. Compared to the state-of-the-art lossless baseline, HybridSCALE saves up to 15% space on sparse graphs (average degree &lt; 100), up to 92% on intermediate density graphs (average degree ~ 100--1000), and up to 97% on dense graphs (average degree &gt; 1000).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.15173v2</guid>
+      <category>cs.DS</category>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Quinten De Man, Gilvir Gill, Michael A. Bender, Laxman Dhulipala, David Tench</dc:creator>
+    </item>
+    <item>
+      <title>Cassandra: Consensus with Partial Progress via Robust Partitionable View Synchronization</title>
+      <link>https://arxiv.org/abs/2607.02856</link>
+      <description>arXiv:2607.02856v2 Announce Type: replace-cross 
+Abstract: Replicated databases and permissioned blockchains rely on Byzantine Fault-Tolerant (BFT) consensus to maintain a consistent order of transactions across replicas. These protocols preserve safety even under asynchrony, as they commit a transaction only after agreement among a strong quorum of replicas. During network partitions, however, when no strong quorum is reachable, they lose liveness and cannot make useful progress.
+  In this paper, we present Cassandra, a consensus protocol that enables partial progress without sacrificing safety. Cassandra achieves this through a two-tier certification framework that decouples availability from commitment, allowing each partition to extend its own chain and reconcile these chains once the network is restored. To support this, Cassandra introduces a pacemaker that advances views without requiring a strong quorum and calibrates each replica's timeout off the critical path.
+  Our evaluation results show that Cassandra remains competitive with state-of-the-art BFT protocols under stable conditions, sustaining 900K TPS at 16 replicas and 480K TPS at 104 replicas, with latency ranging from 0.31s at 16 replicas to 0.75s at 104 replicas. Under severe partitions, Cassandra maintains non-zero speculative throughput through PoA-backed progress, preserving work that can be reconciled once connectivity is restored.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.02856v2</guid>
+      <category>cs.DC</category>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shaokang Xie, Dakai Kang, Junchao Chen, Suyash Gupta, Daniel P. Hughes, Mohammad Sadoghi</dc:creator>
+    </item>
+    <item>
+      <title>Truly Sub-$3^n$ Min-Sum Subset Convolution and Join Ordering</title>
+      <link>https://arxiv.org/abs/2610.10282</link>
+      <description>arXiv:2610.10282v2 Announce Type: replace-cross 
+Abstract: We present a deterministic reduction from min-sum subset convolution to min-plus matrix product. We show that if the min-plus product of two $D\times D$ matrices with $\beta$-bit integer entries can be computed in $D^{3-\delta}\operatorname{poly}(\beta,\log D)$ time for a fixed rational $0&lt;\delta&lt;1$, then min-sum subset convolution on an $n$-element universe can be solved in $(2+2^{-\delta})^n 2^{O(\sqrt n\log(n+1))}\operatorname{poly}(n,\beta)$ time. Instantiating this reduction with the recent breakthrough on subcubic min-plus matrix product by Alman and Vassilevska Williams gives a Las Vegas algorithm with expected running time $O^*(2.9987^n)$ and a deterministic algorithm with running time $O^*(2.9997^n)$, strictly breaking the longstanding $3^n$ computational barrier. Notably, these speedups translate directly to database query optimization, yielding the same expected and deterministic running-time bounds for join ordering under the $C_{\mathrm{out}}$ cost function.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.10282v2</guid>
+      <category>cs.DS</category>
+      <category>cs.DB</category>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mihail Stoian</dc:creator>
+    </item>
+  </channel>
+</rss>
