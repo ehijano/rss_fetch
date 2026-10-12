@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Oct 2026 04:00:21 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>PredictIO: Decoupling Workload Prediction from OS-Controlled Storage Prefetching</title>
+      <link>https://arxiv.org/abs/2610.12971</link>
+      <description>arXiv:2610.12971v1 Announce Type: new 
+Abstract: Storage stalls remain a significant source of application latency even on fast storage devices. Prefetching can hide part of this latency by fetching data before it is demanded, but general-purpose operating-system mechanisms typically infer future accesses from recent file offsets. This approach is ineffective when accesses are determined by workload structure, such as recurring sparse accesses during application launch, logical traversal in database scans, or model-layout metadata in LLM runtimes. Existing workload-aware prefetchers usually embed prediction logic inside individual applications and couple execution to application-level I/O paths, making policies difficult to reuse across workloads and systems. We present PredictIO, a programmable interface that separates workload prediction from prefetch execution. PredictIO delivers kernel-observed accesses and application hints to user-space policies, which express predictions as uniform page-range requests. A kernel-space executor validates, bounds, and filters these requests against cached and in-flight pages before issuing asynchronous prefetch I/O. We implement PredictIO for application launch, SQLite range scans, and LLM model loading. Across these workloads, PredictIO reduces latency by 5.3-26.3%, achieves up to 2.99x speedup for SQLite scans, and reduces LLM loading latency by 8.8-47.9%. We further show that a common prediction policy can be reused across SQLite and LMDB through lightweight adapters, that an application-integrated RocksDB readahead policy can be migrated while preserving its workload selectivity, and that the execution backend determines how much benefit migration provides for different access patterns and storage devices.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.12971v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jun Lu, Yancan Mao, Zhenya Ma, Sheng Yue, Yongjian Fu, Ju Ren</dc:creator>
+    </item>
+    <item>
+      <title>Characterizing CPU-GPU Memory Sharing over Unified Memory Architecture</title>
+      <link>https://arxiv.org/abs/2610.13125</link>
+      <description>arXiv:2610.13125v1 Announce Type: new 
+Abstract: Unified Memory Architecture (UMA) enables the CPU and GPU to share a single physical memory. However, its complexity and opacity often drive applications back to inefficient copying or to incorrect direct access that sacrifices performance or even correctness. This paper presents a comprehensive study of CPU-GPU memory sharing on UMA, covering correctness and performance across data-plane transmission and control-plane coordination on four platforms. It yields four findings that guide libumsh, a portable library that delivers correct and efficient memory sharing across platforms and extends to emerging ones (e.g., NVIDIA DGX Spark). Applied to nine real-world systems, libumsh reduces data-plane time by 16-75% and control-plane overhead by 7-90%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.13125v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AR</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jinrong Yang, Zimeng Wang, Rong Chen, Haibo Chen</dc:creator>
+    </item>
+    <item>
+      <title>Ember: Making Unified Virtual Memory Practical for Discrete-Memory GPUs</title>
+      <link>https://arxiv.org/abs/2610.13408</link>
+      <description>arXiv:2610.13408v1 Announce Type: new 
+Abstract: GPU working sets have outgrown GPU memory, so applications must oversubscribe it, keeping only hot data on the GPU. NVIDIA's Unified Virtual Memory (UVM) supports oversubscription, but its performance degrades once data exceeds the GPU's memory. This stems from its fault-driven data placement, wasting interconnect bandwidth, and underutilizing the GPU. This raises the question: can UVM oversubscription become practical on stock GPUs, exploiting GPU memory speed and minimizing wasted interconnect bandwidth, without placement hints, profiling runs, or application changes?
+  To this end, we present Ember, a UVM management framework for oversubscribed workloads. Ember introduces a hybrid address space; allocations start as mapped into host memory, omitting data migration. Ember's counter-driven region promotion uses GPU's hardware counters to fetch hot regions to the GPU, its decay-based eager reclamation proactively evicts cold regions in batches, while via online region re-placement, Ember tracks the hot set at runtime.
+  We implement Ember within NVIDIA's open-source UVM driver for unmodified applications and as a userspace variant on stock CUDA. At 1.5x oversubscription, it is 6.8-10.6x faster than UVM on six applications across three PCIe GPUs, and generates LLM tokens 4.7-16x faster at sizes where manual placement cannot run at all. Without a profiling run, it beats a profile-guided alternative by 2.1x on kernel time.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.13408v1</guid>
+      <category>cs.OS</category>
+      <category>cs.DC</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Senad-Leandro Lemes Galera, Michail Georgoulakis Misegiannis, Ferdinand Gruber, Jana Giceva, Dimitrios Stavrakakis</dc:creator>
+    </item>
+    <item>
+      <title>Enabling Extended SGX Enclaves inside Confidential Virtual Machines</title>
+      <link>https://arxiv.org/abs/2610.12695</link>
+      <description>arXiv:2610.12695v1 Announce Type: cross 
+Abstract: Confidential Virtual Machines (CVMs), such as AMD SEV-SNP, and process enclaves, such as Intel SGX, provide workload protection against cloud threats. However, they strongly differ in TCB, deployment cost and speed, peer workload protection, resource sharing, fine-grained isolation and attestation, and programming capabilities. Nesting process enclaves within CVMs offers an optimal solution and an opportunity to address long-standing SGX limitations: lack of intra-enclave protection, expensive transitions and exception paths, slow enclave cloning, and a restricted programming model that limits Library Operating Systems (LibOS).
+  This paper introduces TEEVisor, a CVM-resident architecture consisting of a security monitor and a kernel driver that leverages AMD SEV-SNP Virtual Machine Privilege Levels (VMPLs) to build hardware-protected, process-level enclaves inside a guest CVM with two modes: (1) an SGX binary compatibility mode to run unmodified SGX applications; and (2) a novel extended SGX~(eSGX) mode optimizing slow execution paths and offering richer enclave programming capabilities. On commercial AMD EPYC hardware, against native CVM execution, TEEVisor incurs under 5% overhead on compute- and memory-bound workloads, around 12% on I/O-heavy applications, and accelerates enclave cloning to a rate of 93~$\mu$s/MB of enclave size, demonstrating that eSGX semantics inside a CVM are practical for production use.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.12695v1</guid>
+      <category>cs.CR</category>
+      <category>cs.OS</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Pamenas Kariuki, Dong Yiliang, Quoc Do Le, Christof Fetzer</dc:creator>
+    </item>
+    <item>
+      <title>GPU-resident Execution for Timing-predictable Sensor Processing Systems</title>
+      <link>https://arxiv.org/abs/2610.13809</link>
+      <description>arXiv:2610.13809v1 Announce Type: cross 
+Abstract: Real-time embedded systems increasingly place GPU-accelerated processing of high-bandwidth sensor streams inside closed-loop systems, but the CPU (the host) remains the primary orchestrator of each iteration. The host observes sensor inputs, submits CUDA work, waits for completion, and commits actuation. This host-mediated path exposes the closed-loop end-to-end latency to I/O interrupts, host scheduler decisions, and CUDA API overheads even after common host-side mitigations such as GPU-memory RDMA or CPU core isolation. This paper presents GPU-resident Execution, a new execution model for real-time sensor processing pipelines that keeps I/O and GPU execution in a long-lived device-resident loop. Sensor inputs arrive in GPU memory, trigger GPU-side processing, and reach GPU-visible output endpoints without any host wakeups. We implement the model in the NVIDIA Holoscan C++ framework and provide reference components for building GPU-resident applications. We evaluate our system on NVIDIA GPUs and SoCs with inference, host-contention, multi-loop, and streaming camera workloads. On an industry-grade 1080p, 60 Hz real-time camera-to-display application, GPU-resident Execution reduces photon-to-display jitter from 4.83 ms to 0.66 ms (7.3x) relative to a CPU-driven GPU-memory RDMA baseline and reduces software-processing jitter from 1.70 ms to 0.01 ms (170x).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.13809v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Soham Sinha, Rahul Choudhury, Shekhar Dwivedi, Gregory Lee, Gigon Bae, Anisha Goel, Elena Agostini, Patrick O'Grady, Yosi Levi, Mahdi Azizian</dc:creator>
+    </item>
+    <item>
+      <title>Beyond Edge Coverage: Per-Task Data-Flow Extraction at Kernel Function Boundaries via LLVM</title>
+      <link>https://arxiv.org/abs/2606.00455</link>
+      <description>arXiv:2606.00455v4 Announce Type: replace-cross 
+Abstract: Coverage-guided kernel fuzzers such as syzkaller rely on edge coverage trace-pc as their sole feedback signal. This context-blind approach cannot distinguish execution paths that differ only in argument values. For example, two invocations of copy_from_user() with different size parameters hit identical basic blocks yet have vastly different security implications. I present, an LLVM-based instrumentation framework that extends Linux KCOV with data-flow extraction of function arguments and return values. A compiler pass emits lightweight callbacks that report one source-level parameter per call, passing the value itself in a register together with its index and byte size. A composite is instead reported by the address of the object holding it, paired with a constant table of field (offset, size) pairs derived from DWARF DICompositeType metadata, with zero source annotation. The callbacks carry no program counter. The kernel derives it from the return address, which also attributes records the compiler emitted from inside an inlined body to the callee that was inlined. A lock-free per-task record buffer delivers variable-length records to user space with no interference to existing KCOV or syzkaller infrastructure, carrying entry, return, and comparison-operand records in one unified stream.
+  I demonstrate dual utility: (1) fuzzers gain state-aware feedback for mutation guidance into value-dependent state transitions, and (2) security analysts obtain deterministic argument records for root-cause analysis without printk or kprobe overhead.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.00455v4</guid>
+      <category>cs.CR</category>
+      <category>cs.OS</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yunseong Kim</dc:creator>
+    </item>
+  </channel>
+</rss>

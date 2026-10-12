@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DB updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DB</link>
+    <description>cs.DB updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Oct 2026 04:00:26 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Distributed Datalog at Scale with Worst-Case Optimal Joins</title>
+      <link>https://arxiv.org/abs/2610.12692</link>
+      <description>arXiv:2610.12692v1 Announce Type: new 
+Abstract: Scalable logic-based analytics are frequently dominated by cyclic multi-way joins over large relational datasets. State-of-the-art systems evaluate these joins through chains of binary joins, incurring substantial overhead from large intermediate relations that must be materialized and redistributed across the network. Worst-Case Optimal Joins (WCOJ) offer a provably superior alternative by evaluating joins one variable at a time, eliminating intermediate blowup. However, existing WCOJ implementations target either shared-memory machines or one-shot, non-recursive queries on dataflow and big-data platforms, leaving WCOJ-based recursive evaluation on distributed-memory HPC systems an open problem. We present, to our knowledge, the first distributed-memory Datalog engine that uses WCOJ for recursive fixpoint evaluation. Our design builds on HyperCube partitioning, which hash-partitions relations along variable-aligned grid dimensions and replicates them along missing dimensions, and extends it from a single shuffle to iterative execution: in every semi-naive iteration, only newly derived tuples are repartitioned and re-replicated, using MPI all-to-all collectives and per-dimension all-gathers over subcube communicators, while the same layout is reused across iterations so that all WCOJ intersections remain rank-local. We evaluate our system on the Aurora and Polaris leadership-class supercomputers at Argonne National Laboratory using graph mining and program analysis benchmarks, demonstrating strong scalability, outperforming state-of-the-art Datalog engines on most benchmarks, and characterizing how partition dimensionality trades runtime against memory feasibility.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.12692v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Kunting Qi, Yihao Sun, Kristopher Micinski, Thomas Gilray, Sidharth Kumar</dc:creator>
+    </item>
+    <item>
+      <title>Semantic Views: Certified Reuse of LLM Labels Across Semantic Queries</title>
+      <link>https://arxiv.org/abs/2610.12768</link>
+      <description>arXiv:2610.12768v1 Announce Type: new 
+Abstract: Semantic query engines evaluate natural-language filters with a large language model, and every evaluation is a costly oracle call. Optimizers that reduce these calls face a dilemma: cascades that trust a cheap proxy miss their precision and recall targets on many queries, methods with finite-sample guarantees save little, and all of them discard the oracle's labels when the query ends. We present SemViews, a certified semantic filter that orders tuples by signals that cost no oracle calls (the labels that earlier queries left behind as semantic views, a local embedding, and a helper model's score), refines that order with labels it must pay for anyway, and certifies its answer with fresh stratified oracle samples. The answer meets user precision and recall targets with probability at least $1-\delta$ for every workload and every catalog, so a stale or misleading view can cost oracle calls but never accuracy. On four workloads replayed against 725,000 recorded oracle labels, SemViews meets both targets on 99.63% of queries and saves 28%-45% of the oracle calls, whereas the only prior method in our study with the same guarantee needs 1.32x-1.71x as many calls. When a question returns in different words, views cut its calls by a further 27%-36%, with both targets met on at least 99.8% of such queries; similarity caches and entailment-based reuse meet them on only 17%-47%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.12768v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Oktie Hassanzadeh, Dharmashankar Subramanian</dc:creator>
+    </item>
+    <item>
+      <title>CALQA: Conformal Screening of Forecast-Ensemble Configurations from One Mergeable State</title>
+      <link>https://arxiv.org/abs/2610.13249</link>
+      <description>arXiv:2610.13249v1 Announce Type: new 
+Abstract: AutoML systems fit ensemble weights over model libraries; a search can score, per category, market or time pane, thousands of weightings of the quantile-averaged (Vincentized) ensemble for the narrowest conformally calibrated interval; exact calibration scores a group's rows per candidate. We present CALQA, a fixed-size integer aggregate per group and pane that stores histograms of normalised block scores at a net of weight vectors. One GROUP BY builds it; it merges by addition, retracts deletions by subtraction and scores any candidate without reading a row. We prove that its score never falls below the exact split-conformal shift and exceeds it by at most the net distance plus a grid gap; that coverage carries over to each fixed weight vector and, for i.i.d. blocks and up to a union-bound slack, to a searched weight vector deployed with the state's shift; and how small any such state can be. The state is thus a screen: it ranks all candidates, and exact recomputation re-checks the top 100. On five public panels (604 groups, 10,000 candidates each) this two-stage plan matches exact search on held-out blocks (99.95% of its Winkler score), 1.3-59 times faster. On two real panels of about $10^8$ rows (smart meters, retail sales) it is 44-54 times faster at 99.98-100.01% of that score and beats sample screens with the same re-check in regret at less total time. Picks deployed with their exact shift need a held-out coverage check. The state does not pay off for small or greedy searches, off-net weights at ample memory or full twelve-member support.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.13249v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Xiufeng Liu, Ruyu Liu, Yusen Liu, Huan Huo, Per Sieverts Nielsen</dc:creator>
+    </item>
+    <item>
+      <title>MatQuery: Execution-Grounded Natural-Language Querying over Heterogeneous Materials Databases</title>
+      <link>https://arxiv.org/abs/2610.13573</link>
+      <description>arXiv:2610.13573v1 Announce Type: new 
+Abstract: Materials scientists increasingly combine information from several public databases, each with its own interface, schema, units and calculation conventions. MatQuery is a prototype and experimental infrastructure for studying how a natural-language request can be turned into queries over such databases and how the returned values can be interpreted. This report describes what has been built and the preliminary results obtained so far. The prototype holds frozen, self-verifying local copies of six public materials databases (about 10,000 records each), a catalog of declared fields derived from them, a database-independent query representation with an adapter for each database, and an eight-step pipeline in which a language model proposes and deterministic program steps check, execute and assemble. A benchmark generator produces questions whose reference queries are verified by execution on the frozen copies and whose wording is checked by back-translation and review. An evaluation harness runs direct prompting, CHESS and Alpha-SQL on the same frozen basis. Preliminary experiments on an 800-question development set show that direct generation with three demonstrations reaches 82.4% strict execution accuracy (56.5% without demonstrations), that a low-cost scorer selects the exact set of databases for 85.0% of complete requests with well-calibrated probabilities, and that band gaps differ by more than 0.5 eV in 31.6% of composition-matched cross-database clusters. Two pilots show the limits of the current approach: a probe-then-ask policy gave answers rated valid by both reviewers in only 11 of 50 sessions, and only 115 of 300 sampled record pairs could be compared by structure. The complete pipeline is in smoke testing and has not yet been evaluated at scale.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.13573v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Chen Jason Zhang, Qi Chen</dc:creator>
+    </item>
+    <item>
+      <title>Time-Varying Favorite-Longshot Bias in Polymarket Weather Markets</title>
+      <link>https://arxiv.org/abs/2610.13593</link>
+      <description>arXiv:2610.13593v1 Announce Type: new 
+Abstract: Prediction-market prices combine traders' judgments about future outcomes, but their errors may be concentrated in particular price ranges and change as settlement approaches. Prior cross-category evidence shows that Polymarket weather markets have larger pricing bias than other major categories, without separating low-price longshots from high-price favorites. This study compares the two ranges at different horizons in daily maximum-temperature markets. Event-level probability scores, cubic B-spline recalibration, and Buy-NO tests are used to examine the form and effect of the bias. Longshot overpricing mainly occurs at distant horizons, whereas favorite overpricing becomes much stronger during the final 1-12 hours and is nearly one order of magnitude larger. Event-level scores improve toward the daily temperature peak, while simple recalibration yields no statistically significant gains. The Buy-NO results in the corresponding time windows also show that the main pricing error is concentrated at the favorite end.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.13593v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Shouchen Qiu, Huaijun Qiu</dc:creator>
+    </item>
+    <item>
+      <title>Benchmarking Content-Defined Chunking Algorithms for Data Deduplication</title>
+      <link>https://arxiv.org/abs/2610.13704</link>
+      <description>arXiv:2610.13704v1 Announce Type: new 
+Abstract: Data deduplication relies on content-defined chunking (CDC) algorithms to decide where data is split. We observe that most CDC algorithms are modular: a base chunking algorithm fixes the byte-level cut-point condition, while high-level techniques (size normalization, min/max thresholds, caching) layer on top. Existing benchmarks conflate the two, obscuring which design choices actually drive performance. We isolate and evaluate eight state-of-the-art base chunking algorithms across four realistic workloads and four metrics: throughput, deduplication ratio, mean chunk size, and chunk-size variance. Further, we derive new formulas relating algorithm parameters to expected chunk size for AE, RAM, and MII. In doing so, we uncover a longstanding error in the widely-used AE parameterization reproduced across multiple papers and evaluation tools that produces chunks 13-39% smaller than intended and inflates AE's reported deduplication. Across our evaluation, AE is the most balanced base chunking algorithm across all four metrics, RAM's similarity to AE does not carry over to low-entropy data, and MII and PCI show limited advantages over simpler alternatives in storage-oriented workloads. We release all implementations, datasets, and analysis scripts as open source.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.13704v1</guid>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Marcel Gregoriadis, Leonhard Balduf, Bj\"orn Scheuermann, Johan Pouwelse</dc:creator>
+    </item>
+    <item>
+      <title>ProvQML: Efficient Provenance Capture for Machine Learning as Recursive Aggregate SQL [Extended Version]</title>
+      <link>https://arxiv.org/abs/2610.13756</link>
+      <description>arXiv:2610.13756v1 Announce Type: new 
+Abstract: Expressing ML algorithms as recursive aggregate SQL queries over distributed systems enables large-scale declarative data analytics, yet no existing system supports scalable provenance capture, necessary for ML explainability. We present ProvQML, a provenance-aware recursive aggregate SQL engine that efficiently captures fine-grained provenance while evaluating ML algorithms as recursive aggregate queries. We capture two types of provenance: (i) local provenance that records the contribution of each training instance to gradient computation at a specific model state, and (ii) global provenance that encodes the sequence of model parameter updates across the iterations. Extensive experiments on widely used ML datasets demonstrate that our approach efficiently captures both provenance for various ML models over widely used ML datasets.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.13756v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Nkechi J. Akinwale, Seokki Lee</dc:creator>
+    </item>
+    <item>
+      <title>Same Query, Different Answer: Run-to-Run Variance in Semantic Query Processing</title>
+      <link>https://arxiv.org/abs/2610.13823</link>
+      <description>arXiv:2610.13823v1 Announce Type: new 
+Abstract: Semantic query engines ask a large language model (LLM) to judge individual rows, and benchmarks compare these engines on the quality of a few executions at temperature 0. We measure how much another execution changes. We re-execute the text and tabular workloads of SemBench, LRO-Bench, and UDA-Bench through their own harnesses, log every one of 1.2 million model calls, and reanalyze SemBench's published executions. At temperature 0, between 0.07% and 10.2% of rows change their operator output over five executions, depending on the model, and up to 24.0% on one task. Plans amplify these changes exponentially in the number of rows an answer exposes, as a possible-worlds model predicts: on UDA-Bench, a few percent of extracted values change, but about two thirds of the answers do. In SemBench's published results, 21% of text results change quality between executions, including on engines whose plans are deterministic. Several per-query system comparisons, and 16 of 28 tests of LRO-Bench's implementation recommendations, are not settled by the executions the benchmarks run. Changing rows are rows on which models disagree with each other; identical requests within one execution disagree as often as across executions; and one execution's decision margin or reasoning length predicts which rows change. Voting reduces the variance but does not remove it, and a calibrated cascade keeps its guarantee while the rows it returns change. We derive reporting rules for benchmarks and design rules for engines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.13823v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Oktie Hassanzadeh, Dharmashankar Subramanian</dc:creator>
+    </item>
+    <item>
+      <title>Leakage-Resistant Evaluation of AI-Generated Database Specifications in Specification-Driven Migration</title>
+      <link>https://arxiv.org/abs/2610.12778</link>
+      <description>arXiv:2610.12778v1 Announce Type: cross 
+Abstract: This paper presents a leakage-resistant framework and benchmark (LRFB) for measuring evaluators of AI-generated Oracle PL/SQL specifications. The benchmark contains 494 labelled source-specification pairs across 19 quality metrics grouped into seven dimensions; each metric contains 26 records divided into development and held-out subsets of 13 records each, with three clean and ten defective specifications per subset. Ground truth is mechanically sealed from inference and checked with canary and label-permutation tests. Three LLM judges were evaluated with three runs per record and compared against two trivial baselines. On 247 held-out records, GPT-4o, DeepSeek V4 Pro, and Claude Sonnet 4.5 reached balanced accuracies of 0.87, 0.89, and 0.81, respectively, while a specification-length baseline reached 0.88. Exact paired tests did not separate any judge from that baseline. The judges nevertheless provided information unavailable to length: the labelled defect category appeared among findings in 84%-92% of violated records, and quoted evidence overlapped the labelled span in 92%-93%. The study therefore reframes specification evaluation from binary issue detection toward evidence-linked, typed findings and benchmark-validity controls.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.12778v1</guid>
+      <category>cs.SE</category>
+      <category>cs.DB</category>
+      <category>cs.LO</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Oleg Grynets, Ivan Fedorchuk, Vasyl Lyashkevych</dc:creator>
+    </item>
+    <item>
+      <title>Access Paths for Efficient Ordering with Large Language Models</title>
+      <link>https://arxiv.org/abs/2509.00303</link>
+      <description>arXiv:2509.00303v5 Announce Type: replace 
+Abstract: In this work, we present the \texttt{LLM ORDER BY} semantic operator as a logical abstraction and conduct a systematic study of its physical implementations. First, we propose several improvements to existing semantic sorting algorithms and introduce a semantic-aware external merge sort algorithm. Our extensive evaluation reveals that no single implementation offers universal optimality on all datasets. From our evaluations, we observe a general scaling relationship between sorting cost and the ordering quality for comparison-based algorithms. Building on these insights, we design a budget-aware optimizer that utilizes heuristic rules, LLM-as-Judge evaluation, and consensus aggregation to dynamically select the near-optimal access path for LLM ORDER BY. In our extensive evaluations, our optimizer consistently achieves ranking accuracy on par with or superior to the best static methods across all benchmarks. We believe that this work provides foundational insights into the principled optimization of semantic operators essential for building robust, large-scale LLM-powered analytic systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2509.00303v5</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <category>cs.IR</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Fuheng Zhao, Jiayue Chen, Yiming Pan, Tahseen Rabbani,  Sohaib, Divyakant Agrawal, Amr El Abbadi, Paritosh Aggarwal, Anupam Datta, Dimitris Tsirogiannis</dc:creator>
+    </item>
+    <item>
+      <title>MetaJoin: Adaptive Join Selections for Heterogeneous Tables</title>
+      <link>https://arxiv.org/abs/2512.02444</link>
+      <description>arXiv:2512.02444v2 Announce Type: replace 
+Abstract: Joining heterogeneous tables requires different forms of correspondence, including exact agreement, syntactic transformation, semantic similarity, and entity-level matching. The appropriate join method is often unknown in advance, while running every candidate method incurs unnecessary cost. We introduce MetaJoin, a label-free framework for adaptive join selection. MetaJoin uses input evidence to choose an initial specialist, then uses specialist-specific output evidence to determine whether that result should be retained, compared with an alternative, escalated, or repaired. This allows join selection to adapt after execution rather than committing to a one-shot routing decision. We also introduce MNN Join, a transformation specialist that searches for string transformations by maximizing mutual-nearest-neighbor coverage between two unaligned columns and uses the same reciprocal structure to validate its output. We evaluate MetaJoin on 670 datasets from six benchmarks. It achieves 0.817 macro row-F1, slightly exceeding a benchmark-level oracle that is given the best standalone specialist for each benchmark (0.812), and outperforms label-free selection policies built from the same specialist portfolio by more than 0.13. Across the 609 datasets in the four transformation-dominant benchmarks, MNN Join outperforms every evaluated transformation baseline. Finally, MetaJoin's accuracy varies by only 0.015 as the controller backbone ranges from 3B to 14B parameters, showing that output validation and repair substantially reduce dependence on the initial routing decision.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.02444v2</guid>
+      <category>cs.DB</category>
+      <category>cs.LG</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ning Wang, Sainyam Galhotra</dc:creator>
+    </item>
+    <item>
+      <title>The Stretto Execution Engine for Semantic Data Systems</title>
+      <link>https://arxiv.org/abs/2602.04430</link>
+      <description>arXiv:2602.04430v3 Announce Type: replace 
+Abstract: Semantic data systems enable querying over both structured and unstructured data using LLMs, but a central challenge is navigating the performance-accuracy trade-off when selecting among alternative strategies for executing semantic operators. In this paper, we present Stretto, a new execution engine for semantic query processing that combines a novel optimizer with a rich set of physical execution strategies for semantic operators. Unlike prior work, Stretto provides global - rather than per-operator - accuracy guarantees while optimizing query performance. To this end, Stretto formulates query planning as a constrained optimization problem and employs a gradient-based optimizer to jointly select operator implementations and allocate error budgets across the full query plan. Furthermore, to enable diverse execution choices, Stretto introduces a new technique that builds on KV-cache compression to realize a spectrum of physical execution strategies for semantic operators with controllable runtime-accuracy trade-offs. Experimental results demonstrate that Stretto outperforms state-of-the-art systems while consistently satisfying quality guarantees.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.04430v3</guid>
+      <category>cs.DB</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Gabriele Sanmartino, Matthias Urban, Paolo Papotti, Carsten Binnig</dc:creator>
+    </item>
+    <item>
+      <title>Protocol effects on feature-based hardware-Trojan detection across Trust-Hub families</title>
+      <link>https://arxiv.org/abs/2609.07199</link>
+      <description>arXiv:2609.07199v2 Announce Type: replace-cross 
+Abstract: Trust-Hub reuses host circuits: several files differ mainly in the inserted Trojan. When gates from sibling variants enter both training and test folds, a detector can benefit from host logic it has already seen. We measure that effect instead of proposing another classifier. The corpus contains 49,124 gates from 16 netlists grouped into five host families. We left the parser, 36 gate features, class weighting, model settings, threshold, and family-level aggregation unchanged and altered one choice: the test boundary. The three settings draw test gates from the pooled corpus, withhold a complete netlist, or withhold every variant of one host. The choice matters. Random forest records F1/AP of 0.914/0.978 with pooled gates, 0.636/0.851 with one netlist held out, and 0.460/0.577 with a host family held out. XGBoost falls from 0.946/0.976 to 0.464/0.544 across the same comparison. Logistic regression loses AP, although its fixed-threshold F1 is not monotonic. Each family shows the same pooled-to-family direction. Feature removal, repeated model and simulator seeds, score normalization, parser-related exclusions, and a smaller sample change the size of the gap without reversing it. Aggregation also matters: a gate-weighted average is dominated by the larger ISCAS files, so the headline values give each host family one vote. Bootstrap and jackknife summaries keep the gap positive, but their folds reuse training families. We treat the five family rows as descriptive evidence rather than independent trials. Five host families are too few for a population claim, and the experiment says nothing about transfer to a new cell library or an industrial design. It supports a narrower conclusion: sibling benchmark variants can inflate apparent transfer. Benchmarks with several variants of one host circuit should report family-aware holdouts and all five family results beside pooled scores.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.07199v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.CE</category>
+      <category>cs.DB</category>
+      <category>cs.GT</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Hang Xiao, Chuhong Xu, Kainan Zhou, Gangzhen Qian, Lu Yi</dc:creator>
+    </item>
+  </channel>
+</rss>
