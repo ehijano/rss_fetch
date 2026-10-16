@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Oct 2026 04:00:32 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 16 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Where the SRAM Goes: Per-Symbol Attribution of Static Memory in FreeRTOS-C and Embassy-Rust IoT Firmware on a 64 KB RISC-V Microcontroller</title>
+      <link>https://arxiv.org/abs/2610.21064</link>
+      <description>arXiv:2610.21064v1 Announce Type: new 
+Abstract: Selecting a firmware stack for a memory-constrained microcontroller is usually guided by aggregate binary sizes, which report how much SRAM a build consumes but not where it goes or why. We address that gap with a per-symbol attribution method that decomposes static RAM into architectural categories - scheduler heap, network buffers and pools, task stacks, and linker-reserved regions - by bounding sized ELF symbols to the .data, .bss and .stack section ranges. The method is validated by reconciling every category sum exactly against the size-based totals for all sixteen builds. We apply it to eight cumulative firmware milestones, from a bare task scaffold to a full MQTT-over-Ethernet client, implemented twice, in FreeRTOS-C and in Embassy-Rust, on the CH32V203RBT6, a RISC-V microcontroller with 64 KB SRAM and an on-chip Ethernet MAC and PHY, with functional parity verified on hardware at every milestone. The decomposition shows that both stacks spend a nearly identical share of their RAM on networking (63.8% versus 63.9%), yet the absolute cost differs by 4.4 times: 40,719 bytes for lwIP against 9,316 bytes for smoltcp. FreeRTOS task stacks grow linearly at roughly 1 KB per task while Embassy async state grows with state-machine complexity. We also report that lwIP could not be integrated under an all-static discipline on this platform, requiring a 20 KB arena that smoltcp does not. The measurement harness, the attribution tool, and the sixteen firmware implementations are released as artefacts.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.21064v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AR</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Romi Fadli, Jan Everhard Riwurohi, Wahyu Ramadani Putri Utami, Zulfa Malika Amana</dc:creator>
+    </item>
+    <item>
+      <title>Range: Decoupling KV-Cache Reuse Granularity from Storage Work</title>
+      <link>https://arxiv.org/abs/2610.21241</link>
+      <description>arXiv:2610.21241v1 Announce Type: new 
+Abstract: LLM serving reuses cached key-value (KV) state to skip prefill, and growing contexts push that state past GPU HBM and CPU DRAM onto NVMe SSDs, placing prefix restore on the critical path of time-to-first-token (TTFT). We find that on a well-configured host-issued path the SSD is not the bottleneck: restoring the same 6 GiB of KV takes 2.1 s as 192 objects but 3.0 s as 6,144 objects, and more under layerwise loading, because every layer of the storage stack - lookup, allocation, I/O submission, GPU delivery, store, index - charges per logical object while the bytes stay the same. This cost grows with the KV footprint: longer contexts, deeper models under layerwise loading, and tensor parallelism each multiply the object count. Prior systems move this per-object work from the CPU to the GPU; the work remains per object.
+  This paper presents Range, a KV-cache storage engine for vLLM and LMCache built on one principle: every cost on the storage path scales with bytes or physical batches, never with logical objects. Range tickets replace per-key lookup and ownership with token metadata and physical leases; byte stripes make the on-media layout independent of reuse granularity; completion-owned GPU transfer banks batch delivery and extraction and release each layer to attention as it lands. Range keeps the kernel cuFile path and changes four lines of vLLM. On a fixed 6 GiB restore, Range's median TTFT stays at 1.79-1.80 s across a 32x range of object counts and under layerwise delivery, within 70 ms of the prefix already being resident in GPU memory, while tuned in-process LMCache rises from 2.12 s to 3.01 s. Range improves on the fastest multiprocess DRAM-bounced path by 0.44 s at coarse granularity while moving no payload through host memory, and holds layerwise reuse at the cost of coarse-grained reuse, where the best stock path takes 2.24 s.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.21241v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Dingsen Shi, Jiahao Zhang, Liqiang Lv, Boming Huang, Yanbo Dai, Ying He, Donger Chen, Harry Fu, Wang Feng, Song Fu</dc:creator>
+    </item>
+    <item>
+      <title>Characterizing Predictability-Latency Trade-offs of KV-Cache SSD Offloading in LMCache for LLM Serving Systems</title>
+      <link>https://arxiv.org/abs/2610.21249</link>
+      <description>arXiv:2610.21249v1 Announce Type: new 
+Abstract: KV-cache offload is widely used to stretch GPU memory for LLM serving, but its storage behavior has not been characterized at the block-device level. In this paper, we study LMCache through realworld multi-session workloads that span same/different context x same/different prompt, using over 100 stateless requests per workload. Our comparison is observational rather than factorial: it contrasts two realizable deployment snapshots -- LMCache 0.3.0 with buffered I/O and the kernel page cache, and LMCache 0.3.16 with prefix-aware deduplication and O_DIRECT. Key findings define the paper. First, the legacy stack appears almost read-free at the SSD layer in all four workloads, but a flush_ram experiment shows that this is conditional on page-cache warmth: once the cache is evicted, the same path issues about 1 GB of sequential reads in 683 ms. Second, deduplication delivers a dramatic write reduction only for the exact-repeat workload: one set collapses from 1.62 GB to 11.75 MB of writes, while the other three sets remain in the 2-5 GB range. Third, O_DIRECT converts a hidden and bimodal read cost into an explicit and stable one: on one set, warm TTFT rises from 27 ms to 93 ms because each of the 99 warm requests re-reads the same ~12 MB partial chunk from SSD. The main conclusion is therefore not "newer is better," but a system trade-off: predictability versus average-case latency.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.21249v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ying He, Dingsen Shi, Yanbo Dai, Donger Chen, Harry Fu, Chris Tsu, Wang Feng, Song Fu</dc:creator>
+    </item>
+    <item>
+      <title>Apple Neural Engine: Architecture, Programming, and Performance</title>
+      <link>https://arxiv.org/abs/2606.22283</link>
+      <description>arXiv:2606.22283v2 Announce Type: replace-cross 
+Abstract: The Apple Neural Engine (ANE) is Apple's fixed-function matrix accelerator. It has shipped in every Apple system-on-chip since the A11 in iPhones and iPads and the M1 in Macs. Applications reach it only through Core ML, which documents almost nothing below its own surface. This work reverse-engineers the engine. We reach it directly, below Core ML, from an ordinary user process, and that access opens the rest to measurement. We measure on Apple silicon and decompile the private runtime, compiler, kernel driver, and firmware, checking each against the other. We give the datapath and the roofline that bounds throughput and energy. Below that are the compiler and the program format it emits, the weight-compression scheme, the kernel driver, the firmware, and the command protocol. We decode compiler targets for the A11 through A18 and M1 through M5 families, with per-chip tables and an operation-by-device matrix. We measured silicon on the M1 and M5 only, and we mark every claim measured, decompile-derived, or predicted. We record how we reached the engine and what we could not measure. The route is callable from user space, but Apple does not document or support it, and it breaks across operating-system updates. It serves measurement and on-device research. Core ML remains the path for shipped software.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.22283v2</guid>
+      <category>cs.AR</category>
+      <category>cs.OS</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Spencer H. Bryngelson</dc:creator>
+    </item>
+  </channel>
+</rss>
