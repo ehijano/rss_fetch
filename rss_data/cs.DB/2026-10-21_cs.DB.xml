@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DB updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DB</link>
+    <description>cs.DB updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Oct 2026 04:00:09 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>VS-Flash: Harnessing Vector Search with Computational Memory-Semantic Flash</title>
+      <link>https://arxiv.org/abs/2610.26960</link>
+      <description>arXiv:2610.26960v1 Announce Type: new 
+Abstract: As generative AI continues to evolve, retrieval-augmented generation (RAG) systems are driving rapid growth in vector database capacity requirements. As datasets outgrow host DRAM, vector databases rely on MMap-based serving over SSDs to extend capacity. However, high-fan-out ANN searches generate concurrent irregular accesses that contend for host memory and storage resources, degrading bulk throughput and inflating tail latency under mixed workloads. In this paper, we address these challenges through memory-semantic capacity and workload-aware compute placement. VS-Flash exposes flash as a large-capacity memory-semantic space and dynamically selects the execution engine according to runtime query and workload characteristics. It offloads throughput-oriented large-batch queries to a Computational Memory-Semantic Flash (CMS-Flash) device, while executing latency-sensitive small-batch queries on the host CPU. Both paths access the same resident segments, avoiding a separate host-DRAM replica. Across three billion-scale datasets, VS-Flash improves bulk-search throughput over vanilla Milvus by 36.8X on average, with up to a 57.4X improvement. Under mixed workloads, VS-Flash reduces the p99 latency of latency-sensitive requests by up to 24.8X while sustaining device-side bulk search. These results show that VS-Flash delivers scalable vector search beyond host DRAM capacity while jointly improving bulk throughput and small-request tail latency.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.26960v1</guid>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Donguk Kim, Sangjun Pae, Daeyoung Lee, Dong Kim</dc:creator>
+    </item>
+    <item>
+      <title>MultiCard: Multiple Attribute Cardinality Estimation via Deep Learning</title>
+      <link>https://arxiv.org/abs/2610.27019</link>
+      <description>arXiv:2610.27019v1 Announce Type: new 
+Abstract: Cardinality estimation is essential for query optimization, but most existing learned estimators focus on a single predicate type, such as string LIKE clauses or numerical range filters. In practice, analytical workloads often combine both types, while the accuracy of string estimators tends to decrease with longer patterns. We introduce MultiCard, a comprehensive learned cardinality estimator that unifies LIKE predicates and numerical filters within a single end-to-end architecture. By combining a Transformer for long-range sparse patterns with an LSTM for short, frequent patterns, MultiCard achieves robust pattern modeling. In parallel, a numerical encoder integrates catalog histograms and structural predicate features, enabling the model to dynamically assess histogram estimation accuracy across different operators and data skew conditions. A final Transformer layer captures interactions among heterogeneous predicates before a multilayer perceptron predicts query cardinalities. We also introduce UPCI, a workload generator that produces length-balanced LIKE patterns, multi-column numerical predicates, and exact cardinality labels for training and evaluation. Experiments on five real-world datasets show that, for string-only workloads, MultiCard achieves the best or near-best Q-error across all datasets compared with state-of-the-art methods. For mixed multi-attribute queries, MultiCard reduces PostgreSQL's mean Q-error by up to 16 times while maintaining an inference latency below 5 ms.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.27019v1</guid>
+      <category>cs.DB</category>
+      <category>cs.IR</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mobina Koochaknia, Maryam Ramezani, Mohammad Hasan Shafaat</dc:creator>
+    </item>
+    <item>
+      <title>SweepANN: A GPU-Accelerated Large-K Approximate Vector Search for Drug Discovery</title>
+      <link>https://arxiv.org/abs/2610.27306</link>
+      <description>arXiv:2610.27306v1 Announce Type: new 
+Abstract: DrugCLIP places small molecules and protein pockets in one space, turning genome-wide drug discovery into large-K retrieval by vector proximity. A campaign fixes over 20K pockets in advance for one library of over 500M molecules. Each pocket keeps K = 500K candidates, 0.1% of the collection, versus 100 in ANN benchmarks. Missed hits never get tested, so mean recall must reach 99% relative to exact search. Large answers make IVF probe every list holding a result and graph search track K or more candidates, so costs grow with K. On our CPUs and GPUs, neither index family reaches the target without losing most of its edge over scanning.
+  SweepANN partitions compressed vectors across GPUs and scans each resident partition. One matrix multiplication scores each block for a whole query batch, reading it once. Several plans perform the K-dependent selection and merging of each query's K answers, each returning an exact top-K under compressed scoring. The window plan retains each query's best K from sampled blocks as its seed, and only rows above each seed's minimum score, shared once across GPUs, enter the buffers.
+  Four Blackwell GPUs (RTX PRO 6000) answer all 26,562 pockets with a resident time of about 61 seconds, excluding library loading, and 99.6% mean recall relative to exact FP32 search. DrugCLIP reports roughly 24 hours with eight A100 GPUs in its own campaign. On 500M rows, the window plan runs 1.41x faster than SweepANN's grouped plan in the same memory. Across 25M-500M rows and K of 10K-500K, all GPU IVF configurations meeting the recall target take 8.2-24x SweepANN's resident time. On DEEP1B's 1B vectors across eight GPUs, against SweepANN's exact full-score scan of uncompressed FP32 rows, the window plan cuts resident time by 5.4x and 3.2x at K = 100K and 500K. It also cuts per-GPU peak memory by 6.0x and 5.3x, losing 1.0 and 0.7 mean-recall points.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.27306v1</guid>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <category>cs.IR</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhenyu Zhang, Qi Lin, Nan Zhang, Zhichao Cao</dc:creator>
+    </item>
+    <item>
+      <title>KatoANN: Enabling Near-Exact Vector Search at the Speed of Lossy Scans with CPU Matrix Engines</title>
+      <link>https://arxiv.org/abs/2610.27508</link>
+      <description>arXiv:2610.27508v1 Announce Type: new 
+Abstract: Distance scans in partition-family approximate nearest-neighbor (ANN) search are typically limited by memory bandwidth. Existing systems therefore improve throughput by reading fewer bytes per candidate, often at the cost of recall. We present KatoANN, a CPU ANN search system that removes this tradeoff by batching distance scans on Intel AMX, a CPU matrix engine. Batching allows multiple queries to reuse each fetched vector code, shifting the scan from memory-bound to compute-bound and enabling near-exact distances at the speed of a lossy scan. KatoANN stores each vector once as a 16-bit SQ16 code split into high- and low-byte planes. Its adaptive rank-then-refine scan first ranks all candidates using only the high byte, then refines a small survivor set using the full-byte code. Both stages use the same representation, avoiding a second copy of the raw vectors. Experiments across diverse high-dimensional workloads show that KatoANN is the fastest partition-family ANN search system in our evaluation throughout the high-recall range.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.27508v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Soobin Cho, Gyuyeong Kim</dc:creator>
+    </item>
+    <item>
+      <title>Local Inference of LLMs on Long Contexts: A Data Systems Perspective</title>
+      <link>https://arxiv.org/abs/2610.28223</link>
+      <description>arXiv:2610.28223v1 Announce Type: new 
+Abstract: Large language models can solve complex problems across a variety of subjects, such as mathematics and coding. For such complex analytical tasks, models with a long context perform better. Serving models with long context is currently mostly done on powerful systems with multiple GPUs, which are too expensive for most users. An alternative is local inference, or serving a model on a user's own machine, which removes per-token costs and rate limits, besides keeping sensitive data private and giving users full control over the models they run. The common understanding, however, is that local LLMs need compression (e.g., quantization) to run on a single GPU. In this paper, we set out to study the limitations that prevent serving long-context models for single users, besides the capacity issue. Rather than characterizing a single model on one GPU, we analyze how different models behave across several GPU generations. This lets us uncover not just individual bottlenecks but broader trends in where inefficiencies arise. Our analysis confirms that, as expected, self-attention dominates the runtime for long-context inference. More unexpectedly, our evaluation reveals that the current structure of self-attention leaves key GPU resources significantly underutilized, and the newest GPU is often the least well served. Many of these findings are fundamentally data management problems, from paging the KV cache to improving cache utilization and synchronization in the GPU, which is why we bring this study to the Data Systems community. To engage this community, we present our findings as a series of experimental observations and formulate recommendations for future work.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.28223v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mattias D\"urrmeier, Alberto Lerner</dc:creator>
+    </item>
+    <item>
+      <title>SWatcher+: A Holistic Approach to Deploying Learned Cardinality Estimators in a Dynamic Setting</title>
+      <link>https://arxiv.org/abs/2610.28270</link>
+      <description>arXiv:2610.28270v1 Announce Type: new 
+Abstract: Cardinality estimation (CE) is crucial in database query optimization. Although recent advances have improved accuracy, deploying machine-learned CE models in dynamic databases remains challenging due to data updates and workload shifts. Retraining can be costly, but existing practices offer little guidance on when and how to update models, resulting in simple periodic retaining strategies that are suboptimal. We propose SWatcher+, a framework that adapts learned CE to dynamic workloads by monitoring data updates and query feedback. SWatcher+ selectively monitors high-impact subqueries for which wrong estimates lead to poor plan performance, and it proactively applies corrections to estimates during query optimization. This strategy enables immediate adaption to data and workload shifts without waiting for full model retraining, and carefully balances the cost and benefit of monitoring and adaption versus retraining. Our experiments show that SWatcher+ offers a better trade-off between query performance and overhead compared with existing approaches, making it a more practical solution for deploying learned CE in dynamic settings.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.28270v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yuxi Liu, Vincent Capol, Xiao Hu, Pankaj K. Agarwal, Jun Yang</dc:creator>
+    </item>
+    <item>
+      <title>NousDB - A Fast Query Engine for Semantic Analytics</title>
+      <link>https://arxiv.org/abs/2610.28551</link>
+      <description>arXiv:2610.28551v1 Announce Type: new 
+Abstract: Semantic data analytics systems integrate AI-powered operators into query pipelines, enabling declarative queries over structured and unstructured data. However, existing systems rely on per-tuple model invocations, ad hoc operator designs, and lack principled cost models, resulting in poor scalability and limited optimization. We present NousDB, a high-performance semantic analytics engine built on Apache DataFusion\cite{10.1145/3626246.3653368}.Through NousDB we propose an extended relational algebra with three semantic operators and formal algebraic properties that enable principled query rewriting and cross-operator optimization. We further propose a token-based cost model using equi-depth token histograms to optimize batch sizing under context-window constraints and provide statistical guarantees for safe batching. Experiments show that NousDB achieves up to $\times 86$ speedups with both local and enterprise LLMs, while leading competitors in token efficiency and accuracy. These gains extend to complex JOB and Stack workloads augmented with semantic operators, supporting both traditional and semantic analytics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.28551v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Christos Tsapelas (Department of Informatics and Telecommunications, National and Kapodistrian University of Athens, Archimedes, Athena Research Center), Georgia Koutrika (Archimedes, Athena Research Center), Yannis Ioannidis (Department of Informatics and Telecommunications, National and Kapodistrian University of Athens, Archimedes, Athena Research Center)</dc:creator>
+    </item>
+    <item>
+      <title>TriGeoBench: A Multimodal Mathematical Geometry Benchmark with Figures and TikZ</title>
+      <link>https://arxiv.org/abs/2610.27626</link>
+      <description>arXiv:2610.27626v1 Announce Type: cross 
+Abstract: Multimodal Large Language Models show strong vision-language capabilities, yet their geometry-centric reasoning remains insufficiently understood. Existing mathematical benchmarks typically rely on rasterized figures and cover limited geometric knowledge areas and response formats, making it difficult to assess whether models reason over geometric structures or exploit superficial visual patterns. We introduce TriGeoBench, a geometry-centric multimodal benchmark constructed from Chinese middle- and high-school mathematics examinations. TriGeoBench contains 7,000 question-answer pairs and 12,235 geometric figures with TikZ code, spanning plane geometry, solid geometry, analytic geometry, function, and vector geometry across diverse response formats. Each instance forms a {question-answer pair, image, TikZ} triplet: question-answer pairs are stored in LaTeX, images as RGB figures, and TikZ preserves geometric topology, symbolic annotations, and relational structure. We evaluate representative open- and closed-source MLLMs through image-to-TikZ and multimodal reasoning probes. Results reveal persistent fine-grained structure and image-text alignment challenges. Oracle experiments with human-curated reference TikZ suggest that accurate executable representations provide complementary geometric cues; they do not evaluate an end-to-end conversion pipeline. TriGeoBench offers a testbed for structure-aware mathematical reasoning.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.27626v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jing Wang, Yitong Yang, Hao Dou, Yaomin Wu, Shuting He, Tingfei Shen, Jia Wu, Jiaqi Li, Yinglin Wang</dc:creator>
+    </item>
+    <item>
+      <title>Containment of Conjunctive Queries with Negative Information over Semirings</title>
+      <link>https://arxiv.org/abs/2610.27957</link>
+      <description>arXiv:2610.27957v1 Announce Type: cross 
+Abstract: We study the containment problem for (unions of) conjunctive queries ((U)CQs) with negative information on semiring-annotated databases. Our approach to negative information follows the treatment of negation proposed by Gr\"adel and Tannen (2017, 2019, 2021 and 2024) for first-order logic and fixed point logic which applies productively to large classes of semirings, including bounded distributive lattices, as well as the important provenance semirings studied for positive CQ containment by Green (2009). Negation features in (U)CQs along two dimensions: negated equalities (disequations), and negated relational atoms. We study complexity for each of them separately, as well as jointly. For disequations, we extend a methodology that proves the same complexity bounds as the ones already known for the standard Boolean semiring (in the second level of the polynomial hierarchy) for most semirings of interest. Two prominent exceptions are $\mathbb{N}[X]$ and Trio(X) where the complexity bound for containment is in the second level of the counting hierarchy. For CQs with negated relational atoms we show that the complexity, surprisingly, is the same as that of the containment of CQs without negation when one considers model-defining and provenance-tracking interpretations (namely, nondeterministic polynomial time). Interestingly, among bounded distributive lattices, the Boolean two-element case is the only one where the complexity of the problem continues to be hard for the second level of the polynomial hierarchy for model-defining interpretations. Furthermore, we show that the complexity increases again for distributive lattices if we focus on other classes of interpretations. Finally, we consider queries that have both negated equalities and negated relational atoms and show that the complexity of containment continues to be that of the case with just negated equalities.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.27957v1</guid>
+      <category>cs.LO</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Guillermo Badia, Carles Noguera, Gaia Petreni, Alice Portone, Val Tannen</dc:creator>
+    </item>
+    <item>
+      <title>A General LLM Framework for Query Refinement</title>
+      <link>https://arxiv.org/abs/2602.15681</link>
+      <description>arXiv:2602.15681v2 Announce Type: replace 
+Abstract: Numerous studies have explored the SQL query refinement problem, where the objective is to minimally modify an input query so that its output satisfies a specified set of constraints. However, these works typically target restricted classes of queries or constraints. We present OmniTune, a general framework for refining arbitrary SQL queries using LLM-based optimization by prompting (OPRO). OmniTune employs a two-step OPRO scheme that explores promising refinement subspaces and samples candidates within them, supported by concise history and skyline summaries for effective feedback.
+  Experiments on a comprehensive benchmark demonstrate that OmniTune handles both previously studied refinement tasks and more complex scenarios beyond the scope of existing solutions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.15681v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Eldar Hacohen, Yuval Moskovitch, Amit Somech</dc:creator>
+    </item>
+    <item>
+      <title>Tabular Foundation Models Can Learn Association Rules</title>
+      <link>https://arxiv.org/abs/2602.14622</link>
+      <description>arXiv:2602.14622v3 Announce Type: replace-cross 
+Abstract: Association Rule Mining (ARM) is a fundamental task for knowledge discovery in tabular data and is widely used in high-stakes decision-making. Classical ARM methods rely on frequent itemset mining, leading to rule explosion and poor scalability, while recent neural approaches mitigate these issues but suffer from degraded performance in low-data regimes. Tabular foundation models (TFMs), pretrained on diverse tabular data with strong in-context generalization, provide a basis for addressing these limitations. We introduce a model-agnostic association rule learning framework that extracts association rules from any conditional probabilistic model over tabular data, enabling us to leverage TFMs. We then introduce TabProbe, an instantiation of our framework that utilizes TFMs as conditional probability estimators to learn association rules out-of-the-box without frequent itemset mining. We evaluate our approach on tabular datasets of varying sizes based on standard ARM rule quality metrics and downstream classification performance. The results show that TFMs consistently produce concise, high-quality association rules with strong predictive performance and remain robust in low-data settings without task-specific training. Source code is available at https://github.com/DiTEC-project/tabprobe.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.14622v3</guid>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:journal_reference>Transactions on Machine Learning Research, 2026</arxiv:journal_reference>
+      <dc:creator>Erkan Karabulut, Daniel Daza, Paul Groth, Martijn C. Schut, Victoria Degeler</dc:creator>
+    </item>
+    <item>
+      <title>Can You Trust the Vectors in Your Vector Database? Black-Hole Attack from Embedding Space Defects</title>
+      <link>https://arxiv.org/abs/2604.05480</link>
+      <description>arXiv:2604.05480v3 Announce Type: replace-cross 
+Abstract: Vector databases serve as the retrieval backbone of modern AI applications, yet their security remains largely unexplored. We propose the Black-Hole Attack, a poisoning attack that injects a small number of malicious vectors near the geometric center of the stored vectors. These injected vectors attract queries like a black hole and frequently appear in the top-k retrieval results for most queries. This attack is enabled by a phenomenon we term centrality-driven hubness: in high-dimensional embedding spaces, vectors near the centroid become nearest neighbors of a disproportionately large number of other vectors, while this centroid region is nearly empty in practice. The attack shows that vectors in a vector database cannot be blindly trusted: geometric defects in high-dimensional embeddings make retrieval inherently vulnerable. Based on this insight, we propose four attack paths tailored to different attacker capabilities. Our experiments show that up to 94.4% of queries are successfully attacked. Additionally, we study two directions of defense: hubness mitigation and detection-based filtering. Hubness mitigation either significantly reduces retrieval accuracy or provides only limited protection, while the detection-based defense is effective against some attack paths but fails against others. A robust and adaptive defense thus remains an open problem, and our findings indicate that vector databases require more careful treatment of security.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.05480v3</guid>
+      <category>cs.CR</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Hanxi Li, Jianan Zhou, Jiale Lao, Yibo Wang, Zhengmao Ye, Yang Cao, Junfen Wang, Mingjie Tang</dc:creator>
+    </item>
+    <item>
+      <title>CAFS: A Cache-Aware Frequency Sort for Low-Cardinality Integer Data on x86-64</title>
+      <link>https://arxiv.org/abs/2605.25040</link>
+      <description>arXiv:2605.25040v2 Announce Type: replace-cross 
+Abstract: Integer sorts in OLAP engines often run on columns whose cardinality $K$ is much smaller than the array length $N$. After a group-by stage the intermediate key column has $K$ bounded by the number of distinct group keys, and even a column-store scan typically operates on dictionary-encoded categorical fields where $K$ never exceeds a few thousand. A comparison sort on such a column still pays $\Theta(N \log N)$ comparisons, and a radix sort still pays $\Theta(N \cdot B/b)$ byte passes, irrespective of $K$. This paper describes CAFS, an integer sort that does exploit it on x86-64 with AVX2. The algorithm combines a SIMD bucket sized to one cache line, a Chao1 cardinality estimator over 1024 strided samples (kept in a heap-allocated 40 KB open-addressing table), and an adaptive dispatcher backed by a spill safety guard. The hot loop is branchless and uses AVX2 cmpeq together with movemask and tzcnt to locate the matching lane. We benchmarked CAFS on a full-factorial grid of 58 array sizes $N$ from $10^3$ to $3 \cdot 10^7$ with dense $K$ schedules per $N$, producing 592770 timed runs against pdqsort, IPS4o, vqsort, ska_sort, and std::sort. In the $K \ll N$ band the throughput is 1.7 to 3.1x that of pdqsort, 1.7 to 3.5x IPS4o, and 1.2 to 2.3x vqsort. The operational crossover against pdqsort is at $K \approx 1.3 \cdot 10^5$; against ska_sort, $K \approx 8.14 \cdot 10^5$; against vqsort, $K \approx 6.7 \cdot 10^5$; and against IPS4o the curves only converge near $K = N$. Of the five baselines, only vqsort actually overtakes CAFS once the crossover is passed, which makes the vqsort threshold at $K \approx 6.7 \cdot 10^5$ the binding constraint on the operational range of CAFS.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.25040v2</guid>
+      <category>cs.DS</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vasiliy S. Shlyk</dc:creator>
+    </item>
+  </channel>
+</rss>

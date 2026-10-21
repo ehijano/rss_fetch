@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PF updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PF</link>
+    <description>cs.PF updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Oct 2026 04:00:17 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>Stop Paying by the Letter: Accelerating Full-Chip RTL Simulation with Host-Side Tokenized Logging</title>
+      <link>https://arxiv.org/abs/2610.27356</link>
+      <description>arXiv:2610.27356v1 Announce Type: cross 
+Abstract: Firmware diagnostic logging (printf) is an essential debug instrument in full-chip SoC design verification, yet it imposes a heavy tax on cycle-accurate RTL simulation: formatting a 30-character, 1-argument message on a simulated CPU and serializing it through an MMIO aperture costs 3.04 to 15.23 $\mu$s per call (15.27 $\mu$s unweighted / 15.08 $\mu$s print-weighted critical-path mean on Suite A). Unlike embedded tokenizers that target flash footprint and wire bytes with offline decoding, RTL simulation is governed by a two-regime cost function---cross-fabric SoC paths are dominated by MMIO bus stalls (84.7% of call latency) whereas local subsystem paths are dominated by on-core vsprintf formatting (61.7%)---and requires live, zero-simulation-time string reconstruction to drive UVM scoreboards.
+  We present a host-side in-simulation tokenized logging architecture for heterogeneous multi-core SoCs that eliminates both bottlenecks with zero firmware call-site edits. Using link-time ELF format-string virtual addresses as tokens over a fixed 32-bit word-aligned slot protocol across Arm, RISC-V, and DSP cores, on-core logging collapses to a single-pass specifier scan and $(1+S)$ MMIO word writes. This removes all on-core radix conversion ($C_{\mathrm{fmt}} \to 0$), 85.0%--94.5% of deployed bus transactions, 84.6%--93.3% of MMIO bus-stall cycles, and 63.5%--90.9% of total on-core logging cycles ($2.74\times$--$11.03\times$), while a SystemVerilog monitor reconstructs bit-exact strings in zero simulated cycles ($\Delta t_{\mathrm{sim}} = 0$). Across 858 matched full-chip test pairs (1,716 paired runs across 1,972 runs), we achieve 100% output parity with zero simulator memory overhead, saving 1,314.85 CPU hours (-26.18%) per regression pass, cutting median test CPU time by 41.51% (Suite A) and 21.33% (Suite B), and shrinking traces by 42.84% and waveforms by 28.82%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.27356v1</guid>
+      <category>cs.AR</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Daniel Keller, Rohit Kumar</dc:creator>
+    </item>
+    <item>
+      <title>MLIPS: Multi-Layer Indexer Pool Sharing</title>
+      <link>https://arxiv.org/abs/2610.27438</link>
+      <description>arXiv:2610.27438v1 Announce Type: cross 
+Abstract: Sparse attention limits the keys used by each query, but finding those keys can still require a full-prefix scan at every layer. We introduce \textbf{MLIPS (Multi-Layer Indexer Pool Sharing)}, a training-free method that shares candidate search while retaining each consumer's own scoring and selection. A producer publishes a top-$M$ pool larger than the attention budget $K$; subsequent layers select their own top-$K$ from that pool. Measurements across three sparse-attention model families show substantially higher coverage from broad pools than overlap between final selections. We implement layerwise sharing, persistent decode reuse, and a coarse producer in vLLM for DeepSeek-V4-Flash. Across four long-context suites, three consumer layers per producer give $1.14$--$1.40\times$ speedups and $14.8$--$27.4\%$ lower GPU energy, with observed accuracy changes of $-1.49$ to $+0.29$ percentage points in single runs. More extensive sharing exposes task-dependent quality losses. Sampled prefill traces also reveal recurring selected KV positions across query groups and layers. We characterize this shared working-set structure and use it to motivate Top-$G$, an exploratory bounded pool construction for prefill. Its deployment, task accuracy, and serving benefits remain open.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.27438v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Samkit Jain, Sai Kishan Pampana, Shlok Agarwal</dc:creator>
+    </item>
+    <item>
+      <title>The Token-Energy Law of LLM Decode: Active Bytes and Realized Time Account for Joules per Token</title>
+      <link>https://arxiv.org/abs/2610.28576</link>
+      <description>arXiv:2610.28576v1 Announce Type: cross 
+Abstract: Energy-efficient deployment of large language models requires understanding how model architecture, hardware, and serving settings shape energy per generated token. We introduce the Token-Energy Law, a compact, interpretable model of GPU-board energy per output token for dense, full-history decoding. It relates token energy to two core dimensions: active bytes and realized decode time. Active bytes describe logical byte demand per output, separating dense weights shared within a decode iteration from private key--value (KV) histories read and updated for each request. Realized decode time is the elapsed decode duration divided by the number of output tokens produced. We combine the two byte coordinates and time in a common affine form, with coefficients calibrated for each model and hardware/runtime configuration. This formulation explains how batching amortizes shared-weight work, longer attended histories increase private KV demand, and throughput determines the time-associated cost per output. Our experiments cover three models under BF16 decoding on NVIDIA Hopper and Blackwell GPUs, including two-GPU tensor parallelism on Hopper. Using fixed coefficients and observed decode time, held-out condition-mean energy estimates differ from measurements by at most 3.73%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.28576v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Chenxu Niu, Batuhan Sencer, Wei Zhang, Yong Chen</dc:creator>
+    </item>
+    <item>
+      <title>OPTIMA: Optimal One-shot Pruning for LLMs via Quadratic Programming Reconstruction</title>
+      <link>https://arxiv.org/abs/2512.13886</link>
+      <description>arXiv:2512.13886v3 Announce Type: replace-cross 
+Abstract: Post-training pruning cuts the inference cost of large language models, yet it faces a trade-off: simple heuristics that zero weights are fast but degrade accuracy, while principled joint optimization methods recover accuracy but are computationally infeasible at modern scale. One-shot methods such as SparseGPT sit in between and apply efficient but approximate weight updates. To close this gap, we introduce OPTIMA, a practical one-shot post-training pruning method that balances accuracy and scalability. OPTIMA casts layer-wise weight reconstruction after mask selection as independent, column-wise quadratic programs (QPs) that share one Hessian per weight matrix. Solving these QPs yields, at solver convergence, the per-column minimizer of the layer-wise reconstruction objective under the shared Hessian, and the shared Hessian makes the QPs easy to batch on accelerators. We implement an accelerator-friendly QP solver that accumulates one Hessian per weight matrix and solves many small QPs in parallel with a convergence certificate per column, enabling one-shot post-training pruning at scale on a single accelerator without fine-tuning. OPTIMA integrates with existing mask selectors and improves average zero-shot accuracy in 40 of 49 (model, mask selector, sparsity) settings across the LLaMA and Gemma families, with mean gains of +0.61, +0.56, and +1.01 points at 50% unstructured, 2:4, and 60% unstructured sparsity, and up to +3.97 points at 60% sparsity, while matching ADMM-based exact reconstruction on its own masks. On an NVIDIA H100, OPTIMA prunes an 8B-parameter transformer end-to-end in 40 hours and 60 GB of peak GPU memory. This shows that principled column-wise QP reconstruction is a practical alternative to heuristic weight updates in one-shot post-training pruning.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.13886v3</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mohammad Mozaffari, Samuel Kushnir, Maryam Mehri Dehnavi, Amir Yazdanbakhsh</dc:creator>
+    </item>
+    <item>
+      <title>TreeWalker: Partial Evaluation for Grouped Tree-Ensemble Inference</title>
+      <link>https://arxiv.org/abs/2610.03939</link>
+      <description>arXiv:2610.03939v2 Announce Type: replace-cross 
+Abstract: Many prediction tasks evaluate a trained tree ensemble on groups of rows that share feature values: discrete-time survival models expand each patient into $G$ time steps, click-through-rate models score every item in a search session, and scenario analyses vary a few inputs while holding the rest fixed. Standard inference treats each row independently and ignores this input-side correlation.
+  We present TreeWalker, which instantiates partial evaluation for grouped tree-ensemble inference: constant features are static, varying features dynamic. TreeWalker walks each tree once per group, partitions a row bitmask at varying splits, and skips empty subtrees via an unsplit shortcut. It reads standard LightGBM and XGBoost models; training is unchanged.
+  We prove a structural work decomposition: per-tree work splits into the constant-projected subtree size $|T_c|$, $G$ leaf writes, and a predicate-mask provisioning cost $Q$. For the trace evaluator, per-row work approaches $(d_v+1)/(d+1)$ as $G \to \infty$, giving asymptotic speedup $1/(1-\bar\rho_G)$.
+  On Intel, TreeWalker is ${\sim}3\times$ faster than a row-independent traversal at the reference model size ($T{=}500$, $L{=}8$; $G{=}16$ for SUPPORT/FLCHAIN and empirical groups for Expedia) and $7.7$--$9.1\times$ faster at $G{=}128$ on the survival datasets; on Arm, $2.5$--$2.9\times$ and $5.5$--$6.0\times$. On a scenario-analysis benchmark it is faster in all $16$ configurations on both machines. For f64 models, outputs match treelite GTIL up to tree-ordering roundoff; for f32 models, TreeWalker's f64 leaf accumulation is closer than native f32 to an exactly rounded reference on every audited row.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.03939v2</guid>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <category>cs.PL</category>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Durmus Karatay, Richard Newman</dc:creator>
+    </item>
+  </channel>
+</rss>
