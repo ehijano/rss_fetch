@@ -7,118 +7,38 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Oct 2026 04:02:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 04:00:37 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
-    <pubDate>Tue, 20 Oct 2026 00:00:00 -0400</pubDate>
+    <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
     <skipDays>
-      <day>Sunday</day>
       <day>Saturday</day>
+      <day>Sunday</day>
     </skipDays>
     <item>
-      <title>Visual Cache Reuse for Efficient Multimodal Inference</title>
-      <link>https://arxiv.org/abs/2610.25136</link>
-      <description>arXiv:2610.25136v1 Announce Type: new 
-Abstract: Vision-language model (VLM) inference incurs substantial prefill latency and memory overhead due to the long visual token sequences of large visual inputs. Existing serving systems typically exploit exact cache reuse through prefix caching or position-independent caching, overlooking the potential of approximate caching in real-world workloads. However, directly reusing an approximate cache entry may introduce spurious visual information, which naive approaches that select a subset of important visual tokens for recomputation fail to adequately mitigate this risk.
-  We present VisMemo, an efficient serving system that enables approximate KV cache reuse for modern VLMs. Its core is a system-algorithm co-design that combines an entropy-aware KV cache reuse algorithm with differentiated cache management. Specifically, VisMemo uses patch entropy to identify reuse candidates and warmup attention to prioritize recomputation based on the current query. To support the large cache capacity across GPU memory, CPU memory, and SSD storage, VisMemo applies distinct I/O and cache policies to exact and approximate hits: sparse patch-level I/O for approximate hits, prioritized retention for exact hits, and a reserved CPU victim cache for preset entries selected using offline workload priors and online reuse observations. VisMemo further optimizes the memory access path between the inference engine and the storage backend, eliminating redundant caching and unnecessary data movement. Experiments on multiple public datasets show that VisMemo preserves output quality under approximate reuse. On a real-world production trace, VisMemo increases the overall cache hit rate from 27.78% to 61.45% and reduces prefill latency by up to 48.3% at 8K input tokens.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2610.25136v1</guid>
+      <title>CXLResume: Retained-State Checkpoint and Restore for In-Memory Services</title>
+      <link>https://arxiv.org/abs/2610.27636</link>
+      <description>arXiv:2610.27636v1 Announce Type: new 
+Abstract: Checkpointing and restoring an in-memory service typically require writing its memory pages to checkpoint images and refilling them at the destination. When application state already resides in shared memory that remains accessible after failover, copying those pages into and out of checkpoint images is unnecessary. We present CXLResume, a prototype that retains the service's main heap objects in shared memory while checkpointing the remaining execution state and mapping metadata. Checkpointing preserves the shared heap at the same freeze point as the serialized process state. During recovery, CXLResume remaps the same shared memory at its original virtual addresses before restoring execution, preserving direct pointers within and across shared and private memory. We evaluate CXLResume with Redis and Memcached using QEMU CXL functional emulation. At 6 GiB, CXLResume reduces combined checkpoint and restore time from 15.015 s to 0.242 s for Redis and from 19.770 s to 0.276 s for Memcached in the evaluated deployments. These results show that retaining shared application state removes large application heaps from the checkpoint data path and substantially reduces checkpoint and restore latency.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.27636v1</guid>
       <category>cs.OS</category>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
       <arxiv:announce_type>new</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Shuheng Gao, Yuankai Fan, Jiaqiang Ma, Jiawei Shao, Yongkun Li, Xuelong Li</dc:creator>
+      <dc:creator>Haonan Li, Zhaoxiang Huang, Zhihao Zhang, Yiming Zhang</dc:creator>
     </item>
     <item>
-      <title>gKSM: GPU Memory Deduplication at Driver Layer for Serverless LLM Inference</title>
-      <link>https://arxiv.org/abs/2610.25219</link>
-      <description>arXiv:2610.25219v1 Announce Type: new 
-Abstract: In serverless LLM inference, cloud providers commonly locate multiple instances on a single GPU to improve utilization. However, each instance independently maintains its model weights and runtime state, making duplicate GPU memory the primary bottleneck. Memory deduplication is a widely-used technique for eliminating duplicate data in CPU systems, but extending it to GPU memory faces fundamental challenges. Effective GPU memory deduplication must avoid redundant data movement between CPU and GPU while preserving write isolation for shared pages without native copy-on-write (COW) support.
-  This paper presents gKSM, a transparent GPU memory deduplication framework for serverless LLM inference. gKSM addresses these challenges through CPU-GPU collaborative hash management that offloads hash computation to GPU kernels, zero-copy model weight deduplication that eliminates duplication before model weight transfer, and a cross-privilege page fault handler that combines a lightweight kernel hook and CUDA Virtual Memory Management (VMM) remapping in the user space. gKSM also designs a stable page scanning algorithm and a reuse-aware placement policy in cluster scale. Experiments show that gKSM reduces GPU memory usage by 59.8% while maintaining high throughput compared to ServerlessLLM. Under memory constrained workloads, gKSM improves aggregate throughput by 2.15X and supports five instances concurrently. In cluster level simulation, gKSM achieves a service rate of 99.97%, compared to 78.2% for SLInfer and 26.9% for ServerlessLLM.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2610.25219v1</guid>
-      <category>cs.OS</category>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <arxiv:DOI>10.1145/3828523.3857017</arxiv:DOI>
-      <dc:creator>Shuheng Gao, Fan Guo, Yongkun Li, Ziye Yue, Yinlong Xu, John C. S. Lui</dc:creator>
-    </item>
-    <item>
-      <title>AgentLens: Framework-Aware Characterization and Resource Control for Heterogeneous LLM Agents</title>
-      <link>https://arxiv.org/abs/2610.25231</link>
-      <description>arXiv:2610.25231v1 Announce Type: new 
-Abstract: LLM-based agents are increasingly deployed on shared hosts, yet their host-side resource demands remain poorly understood, limiting effective resource coordination. We present AgentLens, which combines a cross-framework workload characterization with a framework-aware resource controller for co-located agents. Across 10 frameworks and 11 matched coding tasks, we find that framework orchestration strongly shapes resource demand: framework identity explains 52.95% of peak RSS variance, compared with 4.22% for task identity, while execve events per tool call differ by 39x between MetaGPT and CAMEL. Resource dimensions are not interchangeable: peak RSS and subprocess count have a Spearman correlation of 0.13. Static budgets and framework-agnostic policies miss these structural differences and the alternation between API waiting and tool execution. AgentLens combines offline framework fingerprints with online execution-phase signals to coordinate memory through cgroup v2, without modifying framework internals. In trace-driven replay across three co-location pairs at a memory budget of 90% of aggregate peak demand, AgentLens keeps the protected worker's P95 allocation latency at 5.7-7.1 ms, improving on static allocation by 2.1-2.6x.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2610.25231v1</guid>
-      <category>cs.OS</category>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Wentao Hong</dc:creator>
-    </item>
-    <item>
-      <title>Comments Paper: Counterexample for Schedulability Analysis for Self-Suspending Tasks under EDF-Like Scheduling</title>
-      <link>https://arxiv.org/abs/2610.26274</link>
-      <description>arXiv:2610.26274v1 Announce Type: new 
-Abstract: This paper provides a counterexample of the sufficient schedulability test for self-suspending real-time tasks under EDF-Like scheduling given by Wang et al. in Theorem 11 of IEEE Transactions on Computers, 74(7):2364-2375, 2025. This paper also shows that their necessary condition is unsound.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2610.26274v1</guid>
-      <category>cs.OS</category>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>new</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Michael Frichert, Mario G\"unzel, Marion Sudvarg, Jian-Jia Chen</dc:creator>
-    </item>
-    <item>
-      <title>Connection Escrow: Holding AI-Agent Pod Egress in the Kernel Until an Isolated Verifier Rules</title>
-      <link>https://arxiv.org/abs/2610.26501</link>
-      <description>arXiv:2610.26501v1 Announce Type: cross 
-Abstract: AI agents in containers act by opening network connections, and the text that drives them can be hostile. Controls placed between the agent and its tools are bypassed by a child process or a direct socket, and their approval is not tied to the connection the kernel later opens. We present connection escrow: every outbound TCP connection from a supervised pod is parked inside the kernel's connect() path, before any packet exists, by a 98-instruction eBPF program on the pod's cgroup. A node interceptor attributes the held socket to its kernel socket cookie, process, executable digest, cgroup and pod identity, parks the first bytes the agent writes, and asks a verifier in a separate container with its own key. The connection is released only on a signed verdict naming that one socket cookie and destination, unexpired and unused; no verdict by the deadline resets it, and a late approval is refused. The agent is unmodified. A 36-check adversarial suite with real cgroups passes on the eBPF hold point (33 of the checks also apply, and pass, on an iptables hold point): refused connections never reach the destination; forged, rebound, replayed, expired and late verdicts are refused; the agent's attempt to reach the verifier is itself escrowed; child-process and renamed-binary bypasses fail; UDP is pinned to the resolver. On a Kubernetes cluster, unmodified pods are held per connection and attributed to their SPIFFE identity, a raw socket that bypasses a sidecar proxy is held, and 600 connections from six pods are gated. The hold adds 4.5 ms median per released connection, of which 24 us is policy. Finally, we gate on request content without terminating TLS: an eBPF uprobe reads the plaintext at the agent's TLS-library boundary (shared OpenSSL, static OpenSSL, Go crypto/tls), a model scores it, and the connection is held on that verdict while TLS stays end-to-end and the enforcer holds no key.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2610.26501v1</guid>
+      <title>ClawMMU: Protection-Coherent Virtual Memory for Stateful LLM Agents</title>
+      <link>https://arxiv.org/abs/2610.28093</link>
+      <description>arXiv:2610.28093v1 Announce Type: cross 
+Abstract: AI agents keep long-term memory, much of which comes from web pages and tool results. Agent harnesses, the software that runs the model, do not record who may act on this memory, so an instruction hidden in a fetched page can be treated as the user's own instruction. We propose ClawMMU, a protection layer that labels every piece of memory with its owner, scope, origins, and authority. ClawMMU checks these labels whenever content enters the model's context, is written to storage, returns from storage, or drives a tool call. Its central rule is that information may rise in authority, but authority never lifts itself. Because the checks depend on where content came from, not on what it says, memory attacks become classical protection faults that the harness stops even when the model is fooled.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.28093v1</guid>
       <category>cs.CR</category>
-      <category>cs.NI</category>
-      <category>cs.OS</category>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>cross</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Ashok Subbabhatta Gopalakrishna</dc:creator>
-    </item>
-    <item>
-      <title>Behind a Simple Read: Understanding Work and Waiting in the Linux I/O Stack</title>
-      <link>https://arxiv.org/abs/2610.10137</link>
-      <description>arXiv:2610.10137v2 Announce Type: replace 
-Abstract: A simple read interface provides uniform semantics but unpredictable performance. Using synchronous large-buffer Linux reads, we decompose the buffered-read path into work volume, processing time, and critical-path exposure. Reducing local cost or accelerating request submission need not shorten a complete read. Linux uses large folios to reduce metadata work and I/O-copy overlap to hide most cold-read copying; an experimental kernel prototype shows that more aggressive overlap and parallelism can shorten the host path when these mechanisms fail.
-  Device waiting dominates SSD cold reads. We abstract first-completion wait F and subsequent completion capacity B_CQ from request-batch timelines. Real-SSD experiments characterize their variation with request and batch size, while MQSim traces explain their internal origins. A wait chain along the folio-bio-request mapping connects device completion to upper-layer waiting. Under strict batching, the median absolute cross-layer prediction error is at most 7.43%.
-  Finally, we apply the completion model and wait chain to request supply, Linux readahead, data layout, and waiting policies. Cases cover gains, no gains, and reversals, comparing predictions with interventions to close the loop from observation and modeling to understanding and control and provide a measurable basis for layered I/O decisions.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2610.10137v2</guid>
-      <category>cs.OS</category>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace</arxiv:announce_type>
-      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
-      <dc:creator>Yang Shen, Wenzhe Zhang, Yong Dong, Min Xie, Wei Zhang, Huijun Wu, Zhenwei Wu</dc:creator>
-    </item>
-    <item>
-      <title>Instrumentation Optimization for Practical Dynamic Race Detection</title>
-      <link>https://arxiv.org/abs/2512.05555</link>
-      <description>arXiv:2512.05555v2 Announce Type: replace-cross 
-Abstract: Dynamic data race detectors are successful at flagging concurrency bugs, but their high runtime overhead limits adoption. This overhead stems primarily from pervasive instrumentation of memory accesses -- a significant fraction of which is for safe accesses. We address this inefficiency through a compiler-integrated approach that identifies safe accesses using static analysis and eliminates instrumentation for these. We strike a careful balance between analysis precision and cost, to ensure applicability to real-world applications. We show that our optimizations never cause ThreadSanitizer to miss races it would otherwise detect. We further observe that many checks are redundant: They only flag a race if a preceding check has already flagged an equivalent race for the same memory location. We show that, when reporting one representative per class is sufficient, even more instrumentation can be eliminated. Lastly, we introduce a dynamic technique that skips instrumentation when there is only one thread at runtime, even when this could not be determined statically. We integrate these static analyses and program transformations into the ThreadSanitizer race detector based on LLVM. Our experiments on a diverse suite of real-world applications, including Memcached, Redis, SQLite, MySQL, and Chromium, demonstrate that our optimizations reduce the number of instrumentation calls at runtime by up to 91% and yield application-level speedups of up to 1.91x, a geometric-mean Chromium speedup of 1.25x on Blink and 1.14x on Speedometer 3.0, and peak speedups reaching 2.28x on Memcached with two server threads. Our optimizations are in the process of being upstreamed into ThreadSanitizer.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2512.05555v2</guid>
-      <category>cs.PL</category>
-      <category>cs.OS</category>
-      <category>cs.SE</category>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
-      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Alexey Paznikov, Michael Schwarz, Andrey Kogutenko, Yaroslav Osipov, Umang Mathur</dc:creator>
-    </item>
-    <item>
-      <title>InfraBench: Evaluating Infrastructure Agents Across Layers, Lifecycle, and Risk</title>
-      <link>https://arxiv.org/abs/2608.11234</link>
-      <description>arXiv:2608.11234v4 Announce Type: replace-cross 
-Abstract: Managing modern computing infrastructure has become a steadily harder problem due to the ever-increasing complexity. Recent advances in AI agents create a timely opportunity to automate infrastructure management tasks, but it remains unclear how well such agents can handle real-world infrastructure complexity. We present InfraBench, a benchmark for infrastructure agents organized around system layers, the operational lifecycle, and risk. The current prototype couples container, VM, and bare-metal backends with task-specific verifiers that distinguish functional repair from durability and cleanup, and analyzes retained action-trace findings for unsafe shortcuts. We evaluate 18 agent-model configurations on 12 seed tasks, with three attempts per task. Mean effective scores range from 45.5% to 89.2%; the strongest configuration completes 77.8% of attempts perfectly. In the available lifecycle checks, pass rates fall from 91.5% for functional repair to 80.9% for durability and 38.9% for cleanup. These results show why immediate recovery is an incomplete measure of operational capability. We use this evidence to motivate a planned expansion toward 40-60 tasks centered on managed cloud infrastructure and redesign after incidents, including provider-native Kubernetes networking. This extension is a research direction; the reported results remain those of the 12-task prototype. InfraBench, its tasks, evaluation harness, and live leaderboard are available at infraben.ch.</description>
-      <guid isPermaLink="false">oai:arXiv.org:2608.11234v4</guid>
       <category>cs.AI</category>
       <category>cs.OS</category>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 -0400</pubDate>
-      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
-      <dc:creator>Yuan Gao (Wanxiang), Zeren Yang (Wanxiang), Junnan Li (Wanxiang),  Shawn (Wanxiang),  Zhong, Ahmed Dajani, Mai Zheng, Andrea Arpaci-Dusseau, Remzi Arpaci-Dusseau</dc:creator>
+      <dc:creator>Jinhao Hu, Bardia Mohammadi, Mofasshara Binte Rafique, Lars Henning Klein, Akhil Arora, Ashvin Goel, Laurent Bindschaedler</dc:creator>
     </item>
   </channel>
 </rss>
