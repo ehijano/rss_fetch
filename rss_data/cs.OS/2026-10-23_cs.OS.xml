@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 Oct 2026 04:00:38 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 23 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Breaking the Coupling: Efficient Concurrency Fuzzing for Linux Kernel Data Race Detection</title>
+      <link>https://arxiv.org/abs/2610.30813</link>
+      <description>arXiv:2610.30813v1 Announce Type: new 
+Abstract: Detecting data races in the Linux kernel requires exploring both the input space and the thread-interleaving space. Existing kernel concurrency fuzzers couple these two searches by exploring interleavings during fuzzing, often spending substantial scheduling effort on inputs with little potential to trigger real races. In this paper, we present a new concurrency fuzzing paradigm that decouples concurrent-input generation from thread-interleaving exploration, enabling expensive scheduling to focus on promising inputs.
+  To identify inputs that warrant targeted scheduling, we introduce May Race Pairs (MRPs), which represent conflicting memory-access pairs observed within a dynamically determined time threshold. Our framework first generates and executes concurrent syscall groups without controlled scheduling, collecting MRPs to guide further input mutation and identify schedule-worthy inputs. It then uses a separate scheduling instance to explore targeted interleavings and confirm real data races. To improve the effectiveness of both stages, we incorporate LLM-assisted semantic mutation for generating diverse syscall groups, backpressure-guided dynamic threshold control for balancing candidate production and scheduling consumption, and history-aware context recovery, context-aware interleaving scheduling, and candidate MRP prioritization for efficient race confirmation.
+  We implement our framework for the Linux kernel and evaluate it on eight common kernel modules in Linux 6.17. It discovers 187 unique real-world data races, including 59 harmful races. Under the same testing budget, our approach detects substantially more data races than existing kernel concurrency fuzzers, including SegFuzz and CONZZER. These results demonstrate the effectiveness of decoupling concurrent-input generation from interleaving exploration and concentrating scheduling effort on promising candidates.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.30813v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Cen Zhang, Jia-Ju Bai, Zi-Yu Zhang, Zuming Jiang</dc:creator>
+    </item>
+    <item>
+      <title>SARIA: Persistence-Aware KV Caching with Coordinated DRAM--SSD Reload for LLM Agents</title>
+      <link>https://arxiv.org/abs/2610.31169</link>
+      <description>arXiv:2610.31169v1 Announce Type: new 
+Abstract: Multi-turn LLM agents usually reuse long context prefixes, making key value (KV) caching crucial for reducing prefill latency. SSDs provide a low-cost extension to limited DRAM capacity but introduce two key challenges. Eagerly persisting all KV cache blocks incurs substantial write traffic and rapidly consumes finite SSD endurance. Meanwhile, the small number of SSDs provisioned in typical GPU servers limits aggregate reload bandwidth, making SSD-resident KV cache much slower to retrieve than that in DRAM and inflating prefill latency.
+  We present \textsc{Saria} (Selective Admission and Reload for Inference Acceleration), a KV caching system that jointly manages DRAM and SSD by exploiting the session-level temporal locality of LLM agents to reduce SSD writes and accelerate cache reload. On the write path, \textsc{Saria} uses eviction and reuse history to selectively persist KV cache blocks that exhibit reuse opportunities beyond their DRAM residency, avoiding unnecessary writes for KV cache already hosted in DRAM. On the read path, \textsc{Saria} promotes selected SSD-hit KV cache blocks from GPU memory into DRAM after prefill, allowing subsequent reuse within the same session to reduce SSD read traffic while limiting DRAM contention. A transfer coordinator paces DRAM reads while SSD transfers are active, allowing both paths to make progress and efficiently share GPU ingress bandwidth.
+  We implement \textsc{Saria} on LMCache MP and evaluate it using workloads from TraceLab and WEKA, covering both full-attention and hybrid-attention models. The results show that \textsc{Saria} reduces SSD writes by 57.1--58.9\% compared with popular full duplicate caching and the mean time to first token (TTFT) by 42.3--79.7\% over DRAM-only caching.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.31169v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Hui Li, Qihui Zhou, Xiao Yan, Shumeng Zhang, Zijie Dai, Zequn Gong, Mingcong Song, Guoping Long, Hongjie Si, James Cheng</dc:creator>
+    </item>
+    <item>
+      <title>uGDS: A User-Space Development Kit for High-Performance GPU Direct Storage</title>
+      <link>https://arxiv.org/abs/2610.30868</link>
+      <description>arXiv:2610.30868v1 Announce Type: cross 
+Abstract: Data-intensive GPU applications increasingly rely on NVMe SSDs to extend GPU memory. NVIDIA GPU Direct Storage (GDS) enables direct SSD-GPU transfers via PCIe peer-to-peer DMA, eliminating host staging. However, GDS retains three key limitations: (1) its control path traverses the kernel for every I/O request, introducing software overhead; (2) its stream-ordered path imposes strict total ordering even when workloads only require batch-level ordering; and (3) its closed-source user-space engine hinders diagnosis and custom scheduling.
+  We present uGDS, https://github.com/ScaleX-IO/uGDS, an open-source user-space GPU Direct Storage library built on four principles: user-space control, unified cross-vendor abstraction, workload-aware scheduling, and end-to-end transparency. The host CPU manages the entire NVMe command lifecycle in user space, while payloads move via PCIe P2P DMA without consuming GPU compute. A minimal kernel module (ugds_drv.ko) is used only for one-time privileged setup. uGDS partitions hardware queues between synchronous and batch traffic, enforces DMA-safe buffer lifetimes, and provides cuFile-compatible synchronous, batched, and stream-ordered APIs with polling or interrupt completion on both NVIDIA CUDA and AMD HIP.
+  Evaluated on an A100 with a Samsung 990 PRO, uGDS achieves up to 12.12x GDS's batch-read bandwidth and 30.69x its batch-write bandwidth (8- and 4-KiB requests, batch size 128), and reduces 4-KiB synchronous write latency by 84.1% with two threads. Its stream-ordered path sustains 5.49 GiB/s on a single stream, where GDS retains only 40.8% of its synchronous bandwidth. In LMCache, uGDS reduces median time-to-first-token (TTFT) by up to 62.7% and raises serving goodput by 2.63x. On AMD, uGDS achieves up to 1.19x hipFile's synchronous-write bandwidth.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.30868v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jing Wei, Guanyi Chen, Qi Chen, Chuyu Zhang, Zheng Zhou, Chutian Wang, Jian Zhang</dc:creator>
+    </item>
+  </channel>
+</rss>
