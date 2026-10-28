@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DC updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DC</link>
+    <description>cs.DC updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DC" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Oct 2026 04:00:46 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>INC-MoE: Overlapping In-Network Collectives and Expert Computation for Expert-Parallel Mixture-of-Experts Inference</title>
+      <link>https://arxiv.org/abs/2610.36339</link>
+      <description>arXiv:2610.36339v1 Announce Type: new 
+Abstract: In expert-parallel mixture-of-experts (MoE) serving, dispatch moves tokens to the accelerators hosting their selected experts, and combine returns expert outputs to each token's owner. Both operations lie on the critical path and can dominate MoE layer latency in multi-node deployments. We present INC-MoE, an expert-parallel MoE layer that offloads dispatch and combine to the network switch and overlaps both collectives with each other and with expert computation. Dispatch uses in-network AllGather through switch-side multicast, while combine uses in-network ReduceScatter through switch-side reduction. Both collectives use message semantics between the end hosts and the switch. Because the in-network collectives load opposite directions of each link, executing them concurrently reduces bandwidth-bound communication time by $(N-2)/(2(N-1))$ relative to concurrent ring-based collectives: 33% for four ranks and 43% for eight.
+  INC-MoE partitions tokens into bands and processes them through a three-stage AllGather-feed-forward network (FFN)-ReduceScatter pipeline inside a single persistent kernel. At steady state, role-specialized thread blocks gather the next band, compute the current band, and reduce the previous band concurrently, overlapping both collectives with each other and with computation using device-side synchronization. INC-MoE integrates as a drop-in replacement for the MoE layer of vLLM. We evaluate it in an emulated four-node scale-out deployment with a dedicated accelerator emulating an in-network computing (INC) switch. On OLMoE prefill with four-way expert parallelism, INC-MoE reduces time to first token (TTFT) by up to 33% and increases throughput by up to 50% relative to vLLM's default collective path, while matching its outputs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.36339v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>John Stephan, Razvan Puscasu, Xu Yong, Ding Jiutao, Guan Zixuan</dc:creator>
+    </item>
+    <item>
+      <title>IOSage: Detecting HPC I/O Bottleneck Patterns to Guide LLM Recommendations</title>
+      <link>https://arxiv.org/abs/2610.36370</link>
+      <description>arXiv:2610.36370v1 Announce Type: new 
+Abstract: HPC applications often leave much of their parallel file system's bandwidth unused, and turning their Darshan logs into concrete I/O fixes still requires a scarce I/O expert. Rule-based tools flag counters against thresholds set by experts, and in tools built on large language models (LLMs), such as ION and IOAgent, the LLM decides which bottlenecks a log contains. We present IOSage, in which a classifier trained on many labeled logs, not the LLM, makes that decision, since a single log gives an LLM no baseline for what is abnormal. The LLM receives the I/O bottleneck patterns the classifier detects, the job's configuration files, per-file Darshan evidence, and for each pattern a card built from benchmark training runs, and writes recommended changes. Applied by hand and measured in repeated paired runs, the changes IOSage names speed up median total wall time 4.38x for an openPMD kernel (4.02x on a second storage tier) and 1.42x for hourly WRF restarts. For 5 of the 6 application scenarios with a helpful change, IOSage with Claude Sonnet 4 names it, including the change for 10-minute WRF restarts (up to 1.93x faster); with GPT-4o and Llama 3.1 as well, the classifier and cards name more helpful changes than the LLM alone. On 78 benchmark test runs without a pattern, the LLM deciding alone proposes changes for 64; with the classifier, for 9. The classifier reaches 0.929 Micro-F1 on 488 labeled benchmark test runs (0.916 as the gate; 0.832 on the 158 from configurations and jobs outside training), above Drishti's rules, WisIO, and IOAgent's pipeline without its literature retrieval. On TraceBench's nine expert-labeled traces from production systems, it has the highest precision of the tools compared (0.82), with 2 false positives against 12 for the keyword-mapped LLM diagnoses shipped with TraceBench and 5 for Drishti, on the five issue labels that match registered patterns.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.36370v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mahdi Banisharif, Tabassum Mahmud, Ahmad Tarraf, Suren Byna, Ali Jannesari</dc:creator>
+    </item>
+    <item>
+      <title>JustGoal: With Only a Goal, the AI Baseline Is Above the Expert Kernels</title>
+      <link>https://arxiv.org/abs/2610.36434</link>
+      <description>arXiv:2610.36434v1 Announce Type: new 
+Abstract: A small number of GPU kernels often determines the efficiency of large language model training and inference. High-performance kernel development typically relies on expert knowledge through manual implementation, collaboration with general-purpose models, or specialized agents equipped with domain knowledge, evaluation methods, and search workflows. We investigate how much value this knowledge provides as foundation models become stronger. We introduce JustGoal, a goal-only baseline in which a general-purpose agent receives only the optimization objective and constraints, without kernel-specific infrastructure, knowledge bases, or predefined workflows, and builds its own evaluation loop. On NVIDIA B200 GPUs, JustGoal outperforms open-source libraries on 8 of 10 operators, achieving per-operator geometric mean speedups of 1.14x to 2.34x. It also surpasses the fastest publicly released specialized-agent kernel on 5 of 9 operators with available comparisons. In a controlled same-model comparison using Fable 5.1 on single shapes, the KDA-0.5 harness reaches 0.95x of JustGoal's performance, while single-mechanism ablations show no consistent benefit from domain knowledge or predefined workflows. These results indicate that specialized machinery should be justified by clear gains over a same-model, same-scope goal-only baseline and reevaluated whenever the foundation model changes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.36434v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yaojian Chen, Dazhi Peng, Zhui Zhu, Leshan Li, Haojun Sun, Yiyun Zheng, Qingfeng He, Shangzhan Li, Xianglong Deng, Yifei Shen, Shengye Xiang, Zhen Li, Lin Gan, Yuxuan Li, Xu Han, Zhiyuan Liu</dc:creator>
+    </item>
+    <item>
+      <title>Agar: What-If Analysis for Microservice Applications</title>
+      <link>https://arxiv.org/abs/2610.36636</link>
+      <description>arXiv:2610.36636v1 Announce Type: new 
+Abstract: Microservice operators must reason about how applications would behave under changes that have not yet occurred: different workloads, resource allocations, or SLO targets. Evaluating every alternative experimentally is expensive, but predicting such counterfactuals is difficult because microservices contain many interacting components. End-to-end models must learn behavior over a combinatorial space of conditions, but composing per-component predictors causes prediction errors to accumulate. We address this challenge by changing what each component model must predict. Rather than predicting exact values, we learn simple, interpretable bounds that contain every observed behavior while remaining tight enough to support useful end-to-end conclusions. We build AGAR, a counterfactual performance analysis tool that composes these models to answer end-to-end SLO-feasibility questions. This allows us to formulate autoscaling as a counterfactual query: what is the smallest resource allocation under which an SLO is met? Our evaluation demonstrates that across three microservice applications, AGAR's bounds are actionable: its derived autoscaler reduces CPU allocation by up to 36.8% over state-of-the-art horizontal autoscalers while satisfying application SLOs. Further, AGAR is able to predict operational cost given workload traces, provide guidance on which service's startup time to optimize and localize performance bugs within each application.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.36636v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Saarth Deshpande, Neeraja J. Yadwadkar, Venkat Arun</dc:creator>
+    </item>
+    <item>
+      <title>Taming Multi-Dimensional Skew in Sparse Matrix Multiplication with Contention-Aware Scheduling [Technical Report]</title>
+      <link>https://arxiv.org/abs/2610.36822</link>
+      <description>arXiv:2610.36822v1 Announce Type: new 
+Abstract: Sparse general matrix-matrix multiplication (SpGEMM) is a key kernel in graph analytics, relational queries, and machine learning. Yet, its performance remains a significant challenge, due to the inherent sparsity and, more critically, the prevalent skew patterns often found in real-world workloads. This paper investigates this problem and demonstrates that an unbalanced workload distribution is the main culprit, harming performance through two co-existing root causes: first, multi-dimensional skew, where imbalance across computation cost, output density, and data locality cannot be captured by any single balancing metric; and second, cache contention, where dense substructures induce severe on-chip interference.
+  To that end, we propose adaptive morsel scheduling (AMS), a dynamic scheduling framework that decouples skew dimensions via fixed-result-size morsels and integrates contention-aware load balancing (CALB) and data-conscious simultaneous multithreading activator (SMTact) to alleviate cache-level contention, alongside a hybrid accumulation mechanism (HYB) that adaptively selects the best accumulator per morsel. Evaluations across matrix squaring, relational queries, graph analytics, and other sparse matrix kernels show that AMS significantly outperforms state-of-the-art methods on skewed workloads while maintaining comparable performance on non-skewed ones. These gains, along with improved bandwidth utilization, remain valid across a wide range of workloads and hardware systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.36822v1</guid>
+      <category>cs.DC</category>
+      <category>cs.DB</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Wentao Huang, Qiming Huang, Yunhong Ji, Mian Lu, Yuqiang Chen, Bingsheng He, Kian-Lee Tan</dc:creator>
+    </item>
+    <item>
+      <title>PipeLink: Contract-Guided Linking of GPU Kernel Components</title>
+      <link>https://arxiv.org/abs/2610.37200</link>
+      <description>arXiv:2610.37200v1 Announce Type: new 
+Abstract: The fastest machine-learning kernels are compositions of components, such as loaders, matrix-multiply mainloops, epilogues and communication stages, that run concurrently on one GPU streaming multiprocessor and share its on-chip memory, barriers, warps and registers. Because these components hard-code where they sit in this shared space, they cannot be compiled, shipped or replaced on their own: combining components from different sources means forking them by hand or keeping them in separate kernels. We present PipeLink, a contract-guided linker for GPU kernel components. Each component is compiled separately into an LTO object that carries a contract stating what it requires and what it promises; PipeLink checks the contracts against each other, relocates every component by solving one joint placement of the SM's resources, and generates the transfers between them, and the vendor LTO backend folds the result into constants. Across 51 configurations on Hopper and Blackwell GPUs, linked kernels run within 0.2% of the same sources compiled as one unit. Linking makes new compositions practical: a CuTe attention operator inside a ThunderKittens decode megakernel speeds up decoding by 2.16$\times$, a four-owner MoE training megakernel matches the original monolith, one unchanged attention core yields sparse and context-parallel variants that outperform FlexAttention, vLLM and Transformer Engine, and a GEMM + SwiGLU composition whose consumer serves three GPU architectures runs 1.2$\times$ faster on Blackwell than cuBLAS with a compiled activation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.37200v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jize Guo, Xupeng Miao</dc:creator>
+    </item>
+    <item>
+      <title>TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving</title>
+      <link>https://arxiv.org/abs/2610.37230</link>
+      <description>arXiv:2610.37230v1 Announce Type: new 
+Abstract: Agentic services alternate between model inference on clustered GPUs and external tools on distributed CPUs. In this scenario, existing systems (1) overlook tool-return readiness in service evaluation, wasting limited resources, and (2) use heuristic strategies to decide admission and placement on GPUs, resulting in suboptimal scheduling decisions. To bridge this gap, we present TAO, a tool-aware joint scheduling framework for LLM-based agentic serving. Its value interface combines near-term tool readiness, node-specific cache credit with time-aware decay, and token footprint; a dynamic program jointly selects and places waiting sessions under capacity constraints. Across the 12 reported model-workload-concurrency settings, TAO reduces latency by up to 26.8%, reduces mean time to first token (TTFT) by up to 36.3%, and increases decode throughput by up to 29.5% relative to the best evaluated state-of-the-art baseline for each metric.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.37230v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Shuhuai Li, Shengdong Ye, Dongdong Ge, Yinyu Ye, Jianghao Lin</dc:creator>
+    </item>
+    <item>
+      <title>Request-Adaptive Execution for Efficient Hybrid LLM Inference</title>
+      <link>https://arxiv.org/abs/2610.37432</link>
+      <description>arXiv:2610.37432v1 Announce Type: new 
+Abstract: Hybrid large language models (LLMs) have emerged as a promising way to combine the modeling capability of the Attention mechanism with the efficiency of state space models (SSMs). However, most existing hybrid LLMs still inherit a static design philosophy: once the Attention-to-SSM layout is chosen, every request must follow the same hybrid execution. This one-layout-fits-all design is inefficient for real-world serving workloads, where different requests rely on contextual information in different ways.
+  This paper presents Morph, a serving system that co-designs the model architecture and runtime for request-adaptive hybrid LLM inference. Its model architecture pairs Attention and SSM layers within each block and uses prefill-oriented gating to select a request-specific layout that remains fixed throughout decoding. Its serving runtime preserves batching efficiency under divergent layer choices through selective batching and enables correct prefix reuse through hybrid-aware context caching. Experiments on six datasets show that Morph achieves a better quality-efficiency trade-off than existing static hybrid baselines. System-level evaluation further shows that Morph improves the serving throughput by up to 3.87x over baselines while substantially reducing inference latency.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.37432v1</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Fahao Chen, Xuzhe Yan, Qi Zhang, Peng Li, Dongxiao Yu, Song Guo</dc:creator>
+    </item>
+    <item>
+      <title>Quality-Driven Energy-Efficient Big Data Aggregation in WBANs</title>
+      <link>https://arxiv.org/abs/2206.05699</link>
+      <description>arXiv:2206.05699v1 Announce Type: cross 
+Abstract: In the Internet-of-Things (IoT) era, the development of Wireless Body Area Networks (WBANs) and their applications in big data infrastructure has gotten a lot of attention from the medical research community. Since sensor nodes are low-powered devices that require heterogeneous Quality-of-Service (QoS), managing large amounts of medical data is critical in WBANs. Therefore, effectively aggregating a large volume of medical data is important. In this context, we propose a quality-driven and energy-efficient big data aggregation approach for cloud-assisted WBANs. For both intra-BAN (Phase I) and inter-BAN (Phase II) communications, the aggregation approach is cost-effective. Extensive simulation results show that the proposed approach DEBA greatly improves network efficiency in terms of aggregation delay and cost as compared to existing schemes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2206.05699v1</guid>
+      <category>cs.NI</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Amit Samanta, Tri Gia Nguyen</dc:creator>
+    </item>
+    <item>
+      <title>IoT-based Smart Real-Time Energy-Aware Server Room Monitoring System</title>
+      <link>https://arxiv.org/abs/2610.35873</link>
+      <description>arXiv:2610.35873v1 Announce Type: cross 
+Abstract: The integration of the Internet of Things (IoT) into monitoring systems has become increasingly significant across various fields, including energy management, environmental monitoring, and industrial applications. This paper proposes a smart, real-time, energy-aware monitoring system architecture for IoT using a brokerless Data Distribution Service (DDS) middleware. Environmental and electrical metrics are transmitted with high reliability, achieving an average latency of 1.76 milliseconds and a throughput of 57.1 Mbps. These metrics are processed by a multi-head Long Short-Term Memory network. Evaluated on the empirical TDC2.0 data center dataset, the architecture simultaneously performs three tasks: predicting thermal stress, detecting cooling inefficiency, and forecasting multi-step cooling power demand. The multi task network achieved an F1-score of 0.92 for proactive thermal stress prediction and demonstrated the capability to identify systemic cooling anomalies. Furthermore, the model generated consistent power forecasts across 5-minute, 10-minute, and 30 minute horizons, maintaining an R2 &gt; 0.83. A post-hoc SHAP analysis indicated that the predictive logic aligns with established thermodynamic relationships. Overall, the proposed architecture offers a transparent and low-latency framework for critical facility management.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.35873v1</guid>
+      <category>cs.NI</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Muhammad Dikko Gambo, Sami Ul Haq, Syed M. Minhaj Naqvi, Khaled M. Rabie, Abdallah Moubayed</dc:creator>
+    </item>
+    <item>
+      <title>Merkle-Tree-Based Verifiable Public Data Auditing for Cloud Object Storage Using Smart Contracts</title>
+      <link>https://arxiv.org/abs/2610.36001</link>
+      <description>arXiv:2610.36001v1 Announce Type: cross 
+Abstract: Owners of data in cloud object storage cannot directly check whether the provider still keeps every object unchanged. Existing research mostly checks blocks inside files or relies on third-party auditors, and less attention has been given to checking each object against a public blockchain reference while measuring the cost. A full-data audit downloads every object and compares it with a saved hash list, which is slow and only as reliable as that list. We propose a public auditing system in which the SHA-256 hash of each object and its name forms a leaf of a Merkle tree, so the whole dataset is represented by one Merkle root. This root is stored in an Ethereum smart contract as a trusted public record, while the objects stay with the provider. An auditor downloads an object, rebuilds the root using a short Merkle proof and compares it with the stored root, marking the object as intact, modified or missing. In five experiments on an S3-compatible store and a local Hardhat blockchain (normal audit, single- and multiple-object tampering, deletion and scalability), the system detected 15 of 15 single modifications, 2,205 of 2,205 modified objects and 830 of 830 deleted objects with no false alarms. The proof needed only 14 hashes for 10,000 objects, so checking one object took about 10 ms and a 100-object sample about 150 ms regardless of dataset size, while a full audit of 10,000 objects (14.3 s) took about as long as downloading them (13.5 s). Storing the root cost 91,863 gas, 252 times less than storing 1,000 hashes on-chain. The system thus shows exactly which objects were modified or are missing, with its main savings coming from checking selected objects.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.36001v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Siri Reddy Tadi, K. Gangadhara Rao, M. Venu Gopalachari, C. Chetann Reddy, Jaswanth Bhimireddy</dc:creator>
+    </item>
+    <item>
+      <title>Plenty of Room in the Middle: Revealing Opportunities on a GPU Cluster via Fine-Grained Monitoring</title>
+      <link>https://arxiv.org/abs/2610.36329</link>
+      <description>arXiv:2610.36329v1 Announce Type: cross 
+Abstract: GPU clusters have become essential computing resources for AI and scientific research in academia and industry. However, their high cost and growing demand often result in long queueing delays. While previous monitoring efforts have operated at second- or minute-level frequencies, they primarily informed job-level scheduling for clusters and lacked the detail needed to optimize GPU-level utilization.
+  This paper presents an in-depth study of a university research GPU cluster, analyzing resource usage at 100 ms intervals. We have developed a lightweight monitoring tool that leverages Nvidia's DCGM library to capture fine-grained "compute utilization" metrics within GPUs. Deployed on a cluster with 89 nodes and 319 GPUs, our tool collected data over several months. This paper focuses on a 10-day period with 7,399 jobs submitted by 150 users from 12 departments. Our study reveals three key findings: (1) the GPU cluster exhibits significant underutilization, with over 70% of jobs using less than 20% of GPU memory and 50% averaging below 5% Streaming Multiprocessor (SM) utilization; (2) 80% of jobs have a drastic mismatch between their requested and actual durations, significantly limiting the scheduler's effectiveness; and (3) the multi-GPU jobs we examined show highly periodic communication patterns. These findings suggest there is plenty of room in the middle: substantial utilization gains are available through better job scheduling and GPU multitasking, independent of hardware or application improvements.
+  Our monitoring solution is available as open-source software at https://github.com/als244/gpu_server_monitoring.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.36329v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Andrew Sheinberg, Samyak Gupta, Kai Li</dc:creator>
+    </item>
+    <item>
+      <title>From Generation to Scoring: Scaling LLM-Based Semantic Labeling at LinkedIn</title>
+      <link>https://arxiv.org/abs/2610.36383</link>
+      <description>arXiv:2610.36383v1 Announce Type: cross 
+Abstract: For efficiency, industrial large language model (LLM) labelers often pack many candidate labels into one prompt and generate a YES/NO answer for each, even when each decision depends only on the entity and one candidate. Generating these independent decisions as one answer list couples them, spends decoding on the list, and relies on the list being well-formed. In this paper, we present an end-to-end recipe that reformulates the labeler as semantic scoring, fine-tuning it on single-candidate prompts to return each decision as one answer-token score from a prefill-only pass. We also adapt Multiple-Item Scoring (MIS) to score hundreds of candidates in one sequence with attention masked between them. Deployed for profile qualification labeling at LinkedIn, semantic scoring changes at most 0.01% of decisions when candidates are reordered and matches the agreement with reference labels that packed generation reaches only with about 4.7x as many training pairs. The MIS-based stack raises throughput over the deployed stack by 1.24x offline and 1.9x in model serving under a one-second p99 latency target. For offline batch inference, we implement MIS-based scoring as a reusable, model-agnostic Ray Data API proposed for upstream adoption. Model serving uses MIS support contributed to SGLang.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.36383v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <category>cs.IR</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jian Sheng, Sriram Vasudevan, Sundara Raman Ramachandran, Yang Hu, Junyu Zhou, Xiaojing Ma, Haolan Qin, Tiffany Zhou, Vedant Vipul Jhaveri, Ashwini Bhingare, Chinmay Kini, Qing Lan, Xiaoqing Wang, Suleyman Cetintas, Fedor Borisyuk</dc:creator>
+    </item>
+    <item>
+      <title>InfraDev: Can Coding Agents Develop AI Infrastructure, and How Can We Tell?</title>
+      <link>https://arxiv.org/abs/2610.36589</link>
+      <description>arXiv:2610.36589v1 Announce Type: cross 
+Abstract: Coding agents are beginning to develop the production-grade AI infrastructure that trains and serves large models, yet existing benchmarks cover only single kernels or single-GPU tasks, and grade with tests and prompts that misjudge both correct and incorrect patches. We introduce InfraDev, a benchmark of 36 tasks built from real-world pull requests to Megatron-LM, vLLM, and verl, covering infrastructure development for training, inference, and reinforcement learning. Each task asks an agent to reimplement a real change that spans many files and must run correctly across many GPUs. To grade such changes, we jointly synthesize hidden probes, which enforce the requirements the original tests leave unchecked, and a prompt that states every interface the probes call without revealing the solution. We also design a shared execution environment that reuses dependencies and artifacts across tasks, cutting storage by 52-57% and build time by 13-14% on Megatron-LM and vLLM. Across six frontier models, the best resolves only 38.9% of the tasks; the probes reject 32% of the submissions that pass every official test, and with the original pull request descriptions as prompts, no model resolves a single task. Failure analysis shows that structural and state errors dominate and that agents' own tests rarely check memory, time, or traffic. Turning these findings into an agent skill raises the resolved rate of a frontier model on the Megatron-LM tasks by 10.5%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.36589v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yangshen Deng, Jiaqi Ruan, Yeqi Huang, Nick Lau, Guangming Sheng, Luo Mai</dc:creator>
+    </item>
+    <item>
+      <title>R2CC: Reliable and Resilient Collective Communication for Distributed Learning</title>
+      <link>https://arxiv.org/abs/2512.25059</link>
+      <description>arXiv:2512.25059v2 Announce Type: replace 
+Abstract: Modern ML training and inference now span hundreds to tens of thousands of GPUs, where failures can waste 10-15% of GPU hours due to slow recovery. Common network errors and link fluctuations can cause up to 50% of job interruptions, triggering timeouts that often terminate entire jobs, forcing expensive checkpoint rollback during training and request reprocessing during inference. We present R2CC, a fault-tolerant communication library that provides lossless, low-overhead failover by exploiting multi-NIC hardware. R2CC performs rapid connection migration, bandwidth-aware load redistribution, and resilient collective algorithms to maintain progress under failures. We evaluate R2CC on four 8-GPU H100 InfiniBand servers and via large-scale ML simulators modeling up to 1024 GPUs with diverse failure patterns. Experiments show that R2CC is highly robust to inter-node network failures, incurring less than 1.1% training and 3% inference overhead under active failure scenarios. Compared to existing fault-tolerant approaches, R2CC reduces failure-induced overhead by up to 92% for training and 98% for inference. R2CC is open-sourced at https://github.com/r2cc-project/R2CC.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.25059v2</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.NI</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Wei Wang, Nengneng Yu, Sixian Xiong, Zaoxing Liu</dc:creator>
+    </item>
+    <item>
+      <title>ML-ECS: Heterogeneity-Aware Collaborative Multimodal Learning for Edge-Cloud Synergies</title>
+      <link>https://arxiv.org/abs/2602.14107</link>
+      <description>arXiv:2602.14107v2 Announce Type: replace 
+Abstract: Edge-cloud synergies provide a promising paradigm for privacy-preserving deployment of foundation models in heterogeneous web environments, enabling lightweight edge models to support domain-specific multimodal we b services while cloud-hosted models facilitate collaborative knowledge sharing. However, in practical edge-cloud web environments, collaborative multimodal learning is challenged by modality heterogeneity (different modality combinations across domains) and model-structure heterogeneity (different modality-specific encoders/fusion modules). To address these issues, we propose ML-ECS, a collaborative multimodal learning framework that enables joint training between a server-based model and heterogeneous edge models. This framework consists of four components: (1) cross-modal contrastive learning (CCL) to align modality representations in a shared latent space, (2) adaptive multimodal tuning (AMT) to preserve domain-specific knowledge from local datasets, (3) modality-aware aggregation (MAA) to robustly aggregate while mitigating noise caused by missing modalities, and (4) SLM-enhanced CCL (SE-CCL) to facilitate bidirectional knowledge transfer between cloud and edge. Experimental results on various multimodal tasks show that ML-ECS consistently outperform state-of-the-art baselines under varying modality availability, achieving improvements of 1.55% to 16.75% in Rouge-LSum and improving both client- and server-side performance. In addition, by communicating only low-rank LoRA parameters and fused representations, ML-ECS achieves high communication efficiency, requiring only 0.71% of the total parameter volume.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2602.14107v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Yuze Liu, Shibo Chu, Tiehua Zhang, Hao Zhou, Zhishu Shen, Jinze Wang, Jianzhong Qi, Feng Xia</dc:creator>
+    </item>
+    <item>
+      <title>Speeding up Log-Sum-Exp: Kernel Fusion at the Memory Wall, Integer Arithmetic at the Compute Wall</title>
+      <link>https://arxiv.org/abs/2610.33647</link>
+      <description>arXiv:2610.33647v2 Announce Type: replace 
+Abstract: While the Log-Sum-Exp (LSE) function is a foundational numerical primitive for stable log-domain computation in modern machine learning, its fast and efficient computation on generic platforms (\ie, CPUs and GPUs) has been underexplored, potentially creating execution bottlenecks for large workloads. On GPU, the de facto implementation $\texttt{torch.logsumexp}$ dispatches a chain of nine sub-kernels per call, incurring redundant High Bandwidth Memory (HBM) traffic and launch overhead. On CPU, exp and log operations are hardware-hungry, limiting the computing efficiency. To address these bottlenecks, we propose two drop-in kernels to significantly accelerate LSE computation on both GPUs and CPUs: FuseLSE, a single-pass fused kernel that evaluates LSE's exp and log functions on the GPU's Special Function Unit (SFU); and IntLSE, which further replaces the LSE computation with approximated integer arithmetic for CPU computation. Our experiments, validated by benchmarks across workload sizes and hardware platforms, show that both kernels are ${\sim}10-11\times$ faster than PyTorch at small workloads and ${\sim}6\times$ faster on larger ones on GPUs, where the speed-up is attributed to reduced launch overhead and HBM traffic. On CPU, where no SFU is available, LSE computation dominates the cost, allowing IntLSE to gain ${\sim}3-6\times$ execution speed over FuseLSE.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.33647v2</guid>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Lingyun Yao, Martin Andraud, Niki Loppi, Andrea Pilzer, Anji Liu, Guy Van den Broeck, Martin Trapp</dc:creator>
+    </item>
+    <item>
+      <title>Waypoint: Analytically Modeling GEMM for CPUs</title>
+      <link>https://arxiv.org/abs/2610.34914</link>
+      <description>arXiv:2610.34914v2 Announce Type: replace 
+Abstract: High-performance General Matrix Multiplication (GEMM) implementations rely on breaking down GEMM into carefully selected tiles to achieve peak performance. We present Waypoint, a new analytical model to automatically identify the optimal tile size for a given hardware and input matrix shape. Waypoint estimates the achievable performance for a given tile choice by capturing all the architectural effects including interactions with memory hierarchy, instruction-level parallelism, and multi-threading. Using the estimates as a proxy, we search through the space of possible tile sizes to identify the one that maximizes performance. Additionally, Waypoint helps hardware designers estimate realistic performance on experimental hardware optimizations. We build a new GEMM library OPAM for CPUs that uses Waypoint to automatically break down GEMM and achieve performance that matches state-of-the-art GEMM libraries and helps accelerate LLM inference on CPUs achieving $1.36 - 1.98 \times$ speedups.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.34914v2</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Srinidhi N, Sunanda Somwase, Hemant Kumar Chandrakant Chandavar, Eashan Dash, Varun Agrawal, Prakash Raghavendra</dc:creator>
+    </item>
+    <item>
+      <title>Correcting Before Adapting: Gradient Correction for Federated Adaptive Optimization</title>
+      <link>https://arxiv.org/abs/2502.02727</link>
+      <description>arXiv:2502.02727v4 Announce Type: replace-cross 
+Abstract: Client-drift compensation methods mitigate the impact of data heterogeneity in federated learning (FL). While drift correction is well studied for stochastic gradient descent (SGD)-based FL, its interaction with adaptive client optimizers remains less understood. Adaptive optimizers such as Adam build each update from running averages of past gradients, so correcting only the final update direction leaves those averages, and the drift they contain, unchanged. We propose Federated Adaptive Gradient Correction ({\tt FA-GC}), which corrects each gradient before it enters these running averages, and compare it with Federated Adaptive Naive Tracking ({\tt FA-NT}), which adds the correction to the final direction. We show that, in an idealized setting without gradient noise, the direction FA-GC follows vanishes only at stationary points of the global objective, whereas the direction FA-NT follows can vanish elsewhere when the optimizer is nonlinear. We also prove convergence of FA-GC for Adam-family methods, gradient normalization, and Muon, which orthogonalizes matrix updates. Unlike our bound for FA-NT, these bounds contain no term for client heterogeneity. On seven image and language tasks, FA-GC with Adam needs the fewest rounds on average to reach the target accuracy, and on the three image tasks it also uses less total communication than uncorrected local Adam and FA-NT. On the QNLI question-entailment task with SOAP, which applies Adam in a rotated basis, and Muon under strong heterogeneity, FA-GC gives the highest accuracy, while FA-NT falls below the uncorrected optimizers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2502.02727v4</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Evan Chen, Shiqiang Wang, Dong-Jun Han, Shahryar Zehtabi, Christopher Brinton</dc:creator>
+    </item>
+    <item>
+      <title>Differential Privacy of Decentralized Learning: Centralized Rate Conditions and Nearly Tight Guarantees</title>
+      <link>https://arxiv.org/abs/2505.19969</link>
+      <description>arXiv:2505.19969v4 Announce Type: replace-cross 
+Abstract: We analyze the differential privacy of gossip averaging on a graph with independent Gaussian noise at every node, as seen by a subset of observing nodes. We characterize the privacy loss of any sensitive node over multiple gossip steps as that of a Gaussian mechanism whose sensitivity is the solution to a binary quadratic problem with a coefficient matrix determined by the gossip matrix. We recognize this matrix as a Toeplitz matrix plus a small correction, and show that its Toeplitz symbol controls how the DP guarantees grow with the number of steps. Under a computable condition on the Toeplitz symbol, the privacy guarantee matches that of a trusted central aggregator, and we give a utility bound for strongly convex learning problems that similarly matches the centralized case. Finally, we give numerical recipes for upper and lower bounds on the DP guarantees. On realistic test cases, the two bounds agree to within a few percent.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.19969v4</guid>
+      <category>cs.LG</category>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Antti Koskela, Tejas Kulkarni</dc:creator>
+    </item>
+    <item>
+      <title>From Legacy Fortran to Portable Kokkos: An Autonomous Agentic AI Workflow</title>
+      <link>https://arxiv.org/abs/2509.12443</link>
+      <description>arXiv:2509.12443v4 Announce Type: replace-cross 
+Abstract: Scientific applications continue to rely on legacy Fortran codebases originally developed for homogeneous, CPU-based systems. As High-Performance Computing (HPC) shifts toward heterogeneous GPU-accelerated architectures, many accelerators lack native Fortran bindings, creating an urgent need to modernize legacy codes for portability. Frameworks like Kokkos provide performance portability and a single-source C++ abstraction, but manual Fortran-to-Kokkos porting demands significant expertise and time. Large language models (LLMs) have shown promise in source-to-source code generation, yet their use in fully autonomous workflows for translating and optimizing parallel code remains largely unexplored, especially for performance portability across diverse hardware. This paper presents an agentic AI workflow where specialized LLM "agents" collaborate to translate, validate, compile, run, test, debug, and optimize Fortran kernels into portable Kokkos C++ programs. Results show the pipeline modernizes a range of benchmark kernels, producing performance-portable Kokkos codes across hardware partitions. Paid OpenAI models such as GPT-5 and o4-mini-high executed the workflow for only a few U.S. dollars, generating optimized codes that surpassed Fortran baselines, whereas open-source models like Llama4-Maverick often failed to yield functional codes. This work demonstrates the feasibility of agentic AI for Fortran-to-Kokkos transformation and offers a pathway for autonomously modernizing legacy scientific applications to run portably and efficiently on diverse supercomputers. It further highlights the potential of LLM-driven agentic systems to perform structured, domain-specific reasoning tasks in scientific and systems-oriented applications.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2509.12443v4</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sparsh Gupta, Kamalavasan Kamalakkannan, Maxim Moraru, Galen Shipman, Patrick Diehl</dc:creator>
+    </item>
+    <item>
+      <title>Seeing is believing: The case for hardware-centric inefficiency detection and remediation</title>
+      <link>https://arxiv.org/abs/2510.26008</link>
+      <description>arXiv:2510.26008v3 Announce Type: replace-cross 
+Abstract: Large-scale machine learning workloads on the cloud suffer from silent inefficiencies, which do not trigger failures or obvious anomalies, making them hard to detect and diagnose. Existing diagnosis systems rely on guest-side instrumentation or dedicated healthy baselines. These assumptions do not hold in modern production cloud environments, where operators cannot observe inside the guest, and a healthy baseline for each setup is impractical because of system diversity. We present Unveil, a hardware-centric observability framework for detecting, identifying, and remediating silent inefficiencies using only host-visible telemetry. Unveil requires neither guest instrumentation nor application modification. It uses unsupervised learning models to detect inefficiencies and identifies known ones through a novel fingerprinting algorithm. An extensible knowledge base containing curated remediation scripts is used to correct problems without interrupting workloads when possible. We evaluate Unveil on distributed machine learning workloads, such as large language model serving, introducing less than 2% monitoring overhead. It successfully recovered from a 7% throughput loss and reduced inference latency by up to 43.48%. These results demonstrate that host-visible telemetry is sufficient for practical and continuous diagnosis of production machine learning systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2510.26008v3</guid>
+      <category>cs.PF</category>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3828161.3857898</arxiv:DOI>
+      <dc:creator>Ziji Chen, Steven W. D. Chien, Peng Qian, Noa Zilberman</dc:creator>
+    </item>
+    <item>
+      <title>Characterizing WebGPU Dispatch Overhead for LLM Inference Across Four GPU Vendors, Three Backends, and Three Browsers</title>
+      <link>https://arxiv.org/abs/2604.02344</link>
+      <description>arXiv:2604.02344v2 Announce Type: replace-cross 
+Abstract: WebGPU's security-focused design imposes per-operation validation that compounds across the many small dispatches in neural network inference, yet the true cost of this overhead is poorly characterized. We present a systematic characterization of WebGPU dispatch overhead for LLM inference at batch size 1, spanning four GPU vendors (NVIDIA, AMD, Apple, Intel), two native implementations (Dawn, wgpu-native) and three browsers (Chrome, Safari, Firefox), and two model sizes (Qwen2.5-0.5B and 1.5B). Our primary contribution is a sequential-dispatch methodology that reveals naive single-operation benchmarks overestimate dispatch cost by ${\sim}20\times$. The true per-dispatch cost of WebGPU API overhead alone is 24-36 $\mu$s on Vulkan and 32-71 $\mu$s on Metal, while the total per-operation overhead including Python cost is ${\sim}95$~$\mu$s, which turns out to be a distinction critical for optimization. On Vulkan, kernel fusion improves throughput by 53%, while CUDA fusion provides no benefit, confirming that per-operation overhead is a primary differentiator. LLM inference was tested across three major operating systems (Linux, Windows, macOS). We built $\texttt{torch-webgpu}$, a PrivateUse1-based out-of-tree PyTorch backend and an FX-to-WebGPU compiler, which on our reference platform achieves 11--12% of CUDA performance. At dtype-matched float32, RTX PRO 2000 achieves 1.4$\times$ WebGPU's throughput despite ${\sim}6\times$ less compute than RTX 5090. For dispatch overhead, backend choice is the dominant factor, although implementation choice also matters substantially within a backend (2.2$\times$ for Metal). In terms of dispatch vs kernel compute efficiency, we conclude that at batch=1 with the current dispatch-heavy pipeline, per-operation overhead dominates regardless of kernel quality. All code, benchmarks, and raw data are open source.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.02344v2</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>J\k{e}drzej Maczan</dc:creator>
+    </item>
+    <item>
+      <title>Amplified Pruning and Path Selectors for Deterministic Radio Gossiping</title>
+      <link>https://arxiv.org/abs/2610.28930</link>
+      <description>arXiv:2610.28930v3 Announce Type: replace-cross 
+Abstract: We study deterministic gossiping in unknown strongly connected directed radio networks with $n$ vertices, $m$ arcs, and distinct identifiers in $[N]$, where $N=n^{\mathcal O(1)}$. Messages are unrestricted and collision detection is unavailable. Our neighborhood-clearing procedure reuses an elected receiver to secure its entire closed in-neighborhood in $\mathcal O(n\log^2n\log\log n)$ rounds. Charging each distinct closed neighborhood once yields $\mathcal O(m\log^2n\log\log n)$ rounds under an explicit degree-concentration condition, for every polynomial identifier range. A complementary adaptive-pruning procedure combines quadratic contraction with completion sensitive to the number of unsecured sources. If $a\ge1$ sources remain at completion entry, permutation selectors reduce the balanced completion budget by a factor of $\log^{2/3}(a+1)$ relative to interleaved path selectors. A geometric execution attains $\widetilde{\mathcal O}(k^2+n\tau+\min\{u^2,(nu)^{2/3}\})$ for a path cover of scale $k$, weight $\tau$, and $u$ exceptions. For directed graphs with common in- and out-degree $\Delta$, the portfolio achieves $\widetilde{\mathcal O}(\min\{n\sqrt\Delta,n^2/\Delta\})$. Every graph also admits $\widetilde{\mathcal O}(\min\{n^{4/3},N+(mn)^{3/5}\})$ rounds. Only $n,N$ are inputs; degrees, covers, and structural constants are used solely in the analysis. The unrestricted polynomial-identifier density extension remains open.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.28930v3</guid>
+      <category>cs.DS</category>
+      <category>cs.CC</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Qin Xin</dc:creator>
+    </item>
+  </channel>
+</rss>
