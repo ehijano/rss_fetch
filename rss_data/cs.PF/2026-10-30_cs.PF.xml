@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PF updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PF</link>
+    <description>cs.PF updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Oct 2026 06:39:19 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>How Far Are We From On-Device VLM Inference? A Measurement Study on Edge NPUs</title>
+      <link>https://arxiv.org/abs/2610.40039</link>
+      <description>arXiv:2610.40039v1 Announce Type: new 
+Abstract: Diverse optimizations spanning model architecture, inference runtime, and hardware acceleration have been proposed for on-device vision-language model (VLM) deployment on edge NPUs. Still, cross-layer coordination of VLM execution on edge NPUs remains largely underexplored. This paper presents an empirical measurement study across six representative VLMs, three real-world edge platforms, and ten multimodal benchmarks. Our evaluation drills down from end-to-end application-level latency and thermal traces down to low-level kernel-scale execution behaviors, challenging several widely held community assumptions. First, softmax dominates attention costs; even lookup-table-based softmax optimizations cannot eliminate pipeline bubbles that severely underutilize NPU matrix units. Second, theoretical speedups from linear attention vanish under real-NPU execution due to prohibitive tensor-rearrangement overhead. Third, no hardware backend universally dominates autoregressive decoding: attention-tensor-shaped parallelism dictates NPU efficiency and shifts the CPU-NPU performance balance. We further find task-specific Sweet Resolutions for VLMs, which deliver meaningful accuracy gains at only modest latency overhead. Complementing these findings, we provide actionable cross-layer recommendations for hardware architects, runtime developers, and model designers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.40039v1</guid>
+      <category>cs.PF</category>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Huan Yang, Shiqi Jiang, Yu Mao, Chuanyue Xiong, Deyu Zhang</dc:creator>
+    </item>
+    <item>
+      <title>A Comparative Study of Parallel Implementations of Short-Time Fourier Transform</title>
+      <link>https://arxiv.org/abs/2610.38069</link>
+      <description>arXiv:2610.38069v1 Announce Type: cross 
+Abstract: The short-time Fourier transform (STFT) computes the Fourier transform of a short-duration window of a longer signal, which characterizes how a frequency changes over time. While the Fourier transform algorithms, particularly the Fast Fourier Transform (FFT) algorithm, has been well developed to take advantage of parallel computing, there is limited work on understanding the performance of parallel short-time Fourier transform algorithms. In this study, two parallel short-time Fourier transform algorithms, one is FFT-based and the other a quasi-parallel feedforward algorithm, are implemented and analyzed in comparison with each other. It is found that while the quasi-parallel algorithm outperforms in runtime under low concurrency settings, the FFT-based algorithm scales better and has lower memory usage. For each algorithm, three parallel approaches, shared-memory, distributed-memory and hybrid distributed-shared-memory, are tested. Profiling results show that all implementations are compute bound except for the hybrid feedforward algorithm, and that the distributed-memory variants incur significantly higher communication cost. Overall, this study presents a deeper and more comprehensive analysis and demonstrates the defining characteristics of different families of parallel short-time Fourier transform algorithms, in which the FFT-based approach uses less memory while the quasi-parallel feedforward algorithm has lower runtime but higher serial fraction.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38069v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Minh Chau Nguyen, Marcelo Ponce</dc:creator>
+    </item>
+    <item>
+      <title>The Endgame of FSDP Communication: Layout-Aware Collectives on Copy Engines, RDMA, and NVSwitch</title>
+      <link>https://arxiv.org/abs/2610.38228</link>
+      <description>arXiv:2610.38228v1 Announce Type: cross 
+Abstract: Fully Sharded Data Parallelism (FSDP2) maintains parameters and gradients as per-parameter tensors, whereas its collective path operates on flat, rank-major buffers. Converting between these layouts copies all-gather outputs into parameter storage and packs gradients into full-group fp32 buffers. Layout conversion alone accounts for 6.4% of step time in Llama-3.1 70B training at 8K tokens per GPU. Communication kernels impose a second cost: a default NCCL reduce-scatter can slow a concurrent GEMM that would otherwise complete in a single wave by 69%. We present TIDE, a set of zero-copy collectives built on public NCCL 2.31+ APIs. TIDE preserves FSDP2's per-parameter storage and compute kernels while folding layout placement into collective addressing. TIDE-AG delivers shards directly to parameter storage using NVSwitch multicast and paced recursive-doubling RDMA, with no SMs used for transport or placement. TIDE-RS consumes per-parameter bf16 gradients directly and reduces them into fp32 shards (a mixed-precision mode that NCCL does not provide) using copy engines and short-lived thread blocks (CTAs) for node-local accumulation and NVSwitch for cross-node reduction. A two-phase pipeline separates gradient reads from network progress; Slot-Reuse optionally stages gradients in vacated all-gather slots. On 64 GPUs, TIDE reduces step time by up to 27.1% relative to Stock FSDP2 and 6.0% relative to FSDP2+SymmMem across Llama-3.1 70B, Wan2.2, and Qwen3-30B-A3B. It reduces reduce-scatter SM time by factors of 12.5-14.5 and cuts interference with concurrent compute by up to an order of magnitude. Its reduce-scatter buffer remains nearly constant from 16 to 64 GPUs at a fixed per-GPU output size, and its peak memory is up to 4.7 GiB below FSDP2+SymmMem's and, with Slot-Reuse on Wan2.2, below Stock FSDP2's.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38228v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zejian Wang, Yifan Zhao, Kaihui Ren, Xiaoling Zhou, Yubin Wang, Chenhao Guan, Lin Zhang, Yufeng Li, Zhikang Mo, Zhuoru Ma, Yingtong Xiong, Jihu Guo, Yiqiao Liao, Chengru Song</dc:creator>
+    </item>
+    <item>
+      <title>When the Same Prompt Gives Different Answers (and the Same Answer Isn't Always Right): A Taxonomy of Failure Mechanisms, Testing, and Mitigation Strategies for LLM-Assisted Evidence Synthesis Read-and-Evaluate Tasks</title>
+      <link>https://arxiv.org/abs/2610.39070</link>
+      <description>arXiv:2610.39070v1 Announce Type: cross 
+Abstract: LLM read-and-evaluate tasks include study screening, data extraction, risk-of-bias assessment, and critical appraisal in the evidence synthesis field. These task differ in the amount of LLM interpretation they require. Some tasks involve retrieving relatively simple information, such as an author name, sample size, or publication year. Others require the LLM to read source material, interpret it against predefined criteria, and make a judgement. Researchers should assess whether LLM judgements are accurate, supported by appropriate source evidence, and reproducible under specified conditions. A correct judgement does not necessarily indicate that the underlying evaluation process is reliable. We developed a taxonomy for identifying mechanisms that may compromise these properties and for informing the selection and reporting of appropriate evaluation methods. The taxonomy outlines potential ways that LLM judgments from read-and-evaluate tasks can fail, called TRAILS (Taxonomy of Reliability And Instability in LLM-assisted evidence Synthesis). The TRAILS taxonomy addresses two complementary questions. First, what mechanisms can cause the same read-and-evaluate task to produce different judgements across repeated LLM runs? Second, what mechanisms can systematically affect the judgement or required output in a way that is not apparent from the judgement itself? This study presents 38 mechanisms and identifies the deployment settings in which each can operate, approaches for testing them, and mitigation strategies. We also show why repeatability or accuracy does not rule out a hidden judgement failure and why human evaluation should assess whether a judgement is grounded in the supplied evidence, independent of inappropriate external influence, and produced through a process that can be examined and verified.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39070v1</guid>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <category>stat.ME</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Carole Lunny, Ian Goodman, Stefano Berrone, Connor TA Brenna, Emma K Reid, Ivan Perez-Neri, Shailesh Kolekar, Nityanand Jain, Ashwin Kamath, Lucas HCC Santos, Yulia Otmakhova, Heba Hussein, Diana M Cespedes, Gioia Dahdal, Salmaan Kanji</dc:creator>
+    </item>
+    <item>
+      <title>Integer-Quantized Hierarchical Matrices with Adaptive Bit Allocation</title>
+      <link>https://arxiv.org/abs/2610.40134</link>
+      <description>arXiv:2610.40134v1 Announce Type: cross 
+Abstract: We present an adaptive bitwidth allocation method for quantizing low-rank factors in hierarchical matrices in order to decrease storage while meeting a given constraint on their reconstruction error. For the bitwidth allocation we formulate a discrete storage minimization problem and show that an optimal assignment can give larger singular values at least as many bits as smaller ones. We further develop a greedy algorithm that meets the specified max-norm quantization error budget. We investigate a hierarchical block partition in which all of the non-diagonal blocks are represented by quantized low-rank factors and only dense blocks remain dense; in this way a global reconstruction bound related to $\eta_k$ and $R_k$ is obtained, with the former and latter being bounds on the truncation and reconstruction arithmetic errors, respectively. Extensive simulations, carried out with kernel and BEM matrices under block-relative budgets, indicate that the proposed method achieves a reduction in storage of up to $44.3\times$ when compared to storing the complete matrix densely in FP64, and a reduction of up to $5.70\times$ when compared to the FP64 low-rank factors within the same partition, together with measured reconstruction errors that remained below the maximum norm bounds in all the hierarchical tests.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.40134v1</guid>
+      <category>math.NA</category>
+      <category>cs.MS</category>
+      <category>cs.NA</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Erin Carson, Xinye Chen, Ritesh Khan</dc:creator>
+    </item>
+    <item>
+      <title>Only Accepted Tokens Count: An Energy Accounting of Speculative Decoding Under Latency Targets</title>
+      <link>https://arxiv.org/abs/2610.40287</link>
+      <description>arXiv:2610.40287v1 Announce Type: cross 
+Abstract: Large language model serving is limited by facility power. Energy per token determines how many tokens a datacenter can serve, while a latency target bounds how quickly each user receives them. During decode, every weight is read from memory for every generated token. Batching amortizes this read across users but makes no individual user faster. Speculative decoding does: a drafter proposes several future tokens, and the target model verifies them in a single forward pass that reuses the same weight read. Because every drafted token must be verified whether or not it is accepted, the energy speculation saves depends on how many drafted tokens are accepted. This saving is hard to pin down. It varies across target models from different attention families and across drafting schemes, and it depends on the text being served. Every drafter we evaluate accepts fewer tokens on conversation than on code, and every trained drafter accepts fewer on Romansh, a low-resource language, than on English. We measure speculative decoding under production serving conditions (SGLang, CUDA graphs enabled) on H100 and H200 GPUs, at batch sizes up to 64 across 5 corpora. On dense models, verification, not drafting, dominates the energy cost. The saving shrinks as the batch grows, because batching has already shared the weight read that speculation would divide among the accepted tokens. At large batch sizes, block drafters push verification past the balance point between arithmetic and memory traffic into the compute-bound regime, where the saving becomes a loss, and a drafter with low acceptance raises energy per token. Meeting a tighter latency target with speculation then costs additional energy. Larger batches lower energy per token without speculation. Speculation adds to that saving only when acceptance is high, and on the model we tested it leaves little headroom for latency-preserving DVFS.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.40287v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Bole Ma, Ayesha Afzal, Jan Eitzinger, Harald Koestler, Gerhard Wellein</dc:creator>
+    </item>
+    <item>
+      <title>Optimizing OpenFaaS on Kubernetes: Comparative Analysis of Language Runtimes and Cluster Distributions</title>
+      <link>https://arxiv.org/abs/2604.05496</link>
+      <description>arXiv:2604.05496v2 Announce Type: replace-cross 
+Abstract: Serverless computing, particularly Function-as-a-Service (FaaS), has revolutionized cloud computing by abstracting infrastructure management and enabling dynamic resource allocation. This paper examines the performance and compatibility of OpenFaaS, an open-source serverless platform, when deployed on various Kubernetes distributions, including Kubeadm, K3s, MicroK8s, and K0s. Moreover, leveraging the CloudLab infrastructure, this study examines the impact of Python, Go, and Node$.$js programming languages on the performance of Kubernetes-enabled OpenFaaS, specifically when these languages are used to develop functions deployed on the platform. The performance is evaluated and analyzed under various levels of concurrent invocations using several usage-level metrics, such as throughput and CPU usage, as well as responsiveness metrics, such as delay. According to our findings, Go consistently outperforms Python and Node$.$js in terms of throughput and CPU usage, making it the ideal runtime for serverless applications. Among the Kubernetes distributions, K3s and Kubeadm exhibit superior performance, with Kubeadm maintaining low latency and efficient CPU usage, and K3s demonstrating high throughput. This study provides valuable insights into optimizing the Kubernetes-enabled OpenFaaS platform, highlighting the strengths and trade-offs of different Kubernetes distributions and language runtimes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.05496v2</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ehsan Ataie, Mohammadreza Pooshani, Hossein Aqasizade</dc:creator>
+    </item>
+    <item>
+      <title>The Illusion of Power Capping in LLM Decode: A Phase-Aware Energy Characterisation Across Attention Architectures</title>
+      <link>https://arxiv.org/abs/2605.11999</link>
+      <description>arXiv:2605.11999v2 Announce Type: replace-cross 
+Abstract: Power capping is a common GPU energy lever in LLM serving, and it appears to work: the cap is set, the GPU reports drawing less than it, and the energy budget is met. We show the cap does little for the phase that dominates LLM serving: autoregressive decode. Across four attention paradigms (GQA, MLA, Gated DeltaNet, and Mamba2) on an NVIDIA H200 under vLLM eager execution, decode kernels wait on HBM and the GPU idles between kernel launches, so decode draws less than half of the GPU's 700W rating and throughput stays within a few percent under every cap we set. The cap engages only when a large batch runs a long generation. Locking the SM clock instead lowers power without slowing memory-bound decode and recovers up to 32% of decode energy at minimal throughput loss. We identify three architecture-dependent frequency-scaling classes and find that, once prefill is measured without prefix caching, the recurrent architectures pay no prefill penalty: their linear-time mixing undercuts quadratic attention on long prompts, so their efficient decode adds to the prefill saving and lowers total request energy from the first output token at large batch.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.11999v2</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Bole Ma, Ayesha Afzal, Jan Eitzinger, Gerhard Wellein</dc:creator>
+    </item>
+    <item>
+      <title>Trigger Timing, Deadline Readiness, and Event-Aligned Accounting for Dynamic Ad Insertion</title>
+      <link>https://arxiv.org/abs/2609.19899</link>
+      <description>arXiv:2609.19899v2 Announce Type: replace-cross 
+Abstract: An ad break in a live stream is a hard deadline. Once a cue arrives, the ad path has seconds to produce a state the player can use, and starting that work earlier buys time while giving the prepared state longer to expire before the break. Comparing trigger policies means scoring which of these happened; the records easiest to collect do not. We separate trigger, reach, readiness, playback, billability and measurement in an observed-event ledger, fix the reference-deadline rule before candidates are assigned, and account for contribution over every planned break-session pair, reached or not. Readiness means the declared state is valid at that deadline. We prove when scoring completion by the deadline instead reverses a policy comparison: for monotone playback with a shared latency law, a fixed state lifetime and common coefficients, the reversal occurs when the earlier policy's extra trigger cost falls between its validity gain and its completion gain. A synthetic study of 45,000 scripted sessions matches this condition on monotone paths, a check of its generator, and, outside its assumptions, finds the same reversal in mixtures with restarts, seeks, late joins and pauses. Playhead summaries misclassify up to 41% of reach indicators yet reverse no comparison in the study: maximum-position errors cancel exactly, and terminal-position errors change only magnitudes. Completion scoring reverses the comparison in three of nine short-lifetime conditions, all at the one latency setting where the proved condition holds. The evidence is synthetic by design; code, seeds and event histories are public.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.19899v2</guid>
+      <category>cs.MM</category>
+      <category>cs.NI</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Prashant Chaudhary, Kapil Khandelwal</dc:creator>
+    </item>
+  </channel>
+</rss>

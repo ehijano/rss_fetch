@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.AR updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.AR</link>
+    <description>cs.AR updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.AR" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Oct 2026 06:39:31 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Search-Guided Reasoning Trace Curation for Verilog Generation</title>
+      <link>https://arxiv.org/abs/2610.37706</link>
+      <description>arXiv:2610.37706v1 Announce Type: new 
+Abstract: Recent advances in large language models (LLMs) have improved Verilog generation. However, most training pipelines distill natural-language reasoning traces whose intermediate design decisions are weakly structured and are primarily selected according to the correctness of the final generated RTL. We present MCTS-SFT, a verifier-guided framework for curating reasoning traces for supervised fine-tuning (SFT) of Verilog generation models. MCTS-SFT formulates trace construction as search over intermediate reasoning states and uses Monte Carlo Tree Search (MCTS) to propagate functional feedback from complete Verilog rollouts to earlier design decisions. Within this framework, we introduce Plan-MCTS, which searches over compact hardware-design plans that explicitly represent interfaces, timing, state, behavior, and update rules. We further study plan-preserving supervision, in which the searched structured state is retained as part of the downstream SFT target. Our experiments find that Plan-MCTS achieves the highest functional trace yield, with 84.2% correct traces compared with 81.9% for one-shot structured planning and 82.0% for unguided tree exploration. For identical Plan-MCTS trajectories and Verilog outputs, retaining the explicit searched plan during SFT raises pass@10 from 52.56% to 57.7%, demonstrating that the representation of intermediate design decisions materially affects downstream learning. In a separate 6,000-trace study, MCTS-curated supervision improves pass@10 over full-response chain-of-thought distillation by up to 3.7 points while reducing downstream generation length by approximately 50% on VerilogEval-v2. These results demonstrate that structured hardware planning, verifier-guided search, and explicit intermediate-state supervision provide complementary mechanisms for constructing more effective and token-efficient training data for Verilog generation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.37706v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-sa/4.0/</dc:rights>
+      <dc:creator>Matthew DeLorenzo, Kevin Tieu, Prithwish Jana, Piyush Jha, Dileep Kalathil, Vijay Ganesh, Jeyavijayan Rajendran</dc:creator>
+    </item>
+    <item>
+      <title>zkDuel: Characterizing SumCheck Prover Kernels across GPU Programming Models</title>
+      <link>https://arxiv.org/abs/2610.37710</link>
+      <description>arXiv:2610.37710v1 Announce Type: new 
+Abstract: SumCheck is a central prover primitive in zero-knowledge proofs, exposing table-parallel work that maps naturally to GPUs but becomes increasingly arithmetic-intensive as finite fields widen. We study how this shift affects the cost of programming SumCheck in Triton rather than CUDA. Our benchmark, zkDuel, provides matched implementations of 25 zkPHIRE-derived constraints alongside diagnostic polynomials, covering 32-, 64-, 128-, and 256-bit prime fields, with independent CPU-reference validation and cross-backend checksum gating. Of 800 configurations attempted on an NVIDIA H100, 758 complete with matching checksums. CUDA's median advantage over Triton falls from 3.5x at 32 bits to 1.4x at 256 bits, and Triton is faster on 19 large-table configurations; the same convergence appears on an A100, where the gap falls from 4.4x to 1.6x. Profiling shows that the small-field gap largely reflects host launch overhead and redundant modular additions in Triton's original block reduction, whose relative costs diminish as multi-limb Montgomery work grows. Replacing that reduction with tl.reduce brings Triton's median kernel time within 8% of CUDA on both GPUs, while specialized point interpolation improves 256-bit evaluation kernels by 1.55-1.75x. At cryptographic widths, these results show that a Python-embedded DSL can approach CUDA performance, although the largest fully unrolled constraints still expose compiler-scalability limits.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.37710v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3857307.3857312</arxiv:DOI>
+      <dc:creator>Samarth Narang, Alhad Daftardar, Brandon Reagen</dc:creator>
+    </item>
+    <item>
+      <title>The Code Behind the Layout: AI Agents for Analog Layout Generators</title>
+      <link>https://arxiv.org/abs/2610.38426</link>
+      <description>arXiv:2610.38426v1 Announce Type: new 
+Abstract: Analog layout remains largely manual and hard to automate. Generator frameworks such as gLayout express layouts as programs, producing layouts from parameterized, design-rule-aware generators; however, writing such generators still takes expert effort. Large language models (LLMs) could now write generator code, and frontier models can even draw layout geometry from design intent. This raises a practical question: if a model can draw the layout itself, what does a generator framework still contribute, and is applying these models to a generator framework better than having them draw a layout from scratch? Through controlled experiments on gLayout in SKY130, we find that the main obstacle to drawing a layout directly is its time and token cost, and that the main advantage of a model building on a generator framework is reusability. Its verified primitives keep each model edit small enough to check, and its parameters allow a single edit to be evaluated across an entire family of layouts. Accordingly, a model is most effective when it develops the layout from the generator source of the family that the design intent belongs to, and tests each edit on the family members most likely to fail, so that one verified change improves every layout the generator produces. The results of these family tests can then serve as supervision for a local model, which learns edits that hold across the family at a fraction of the inference cost.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38426v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Minxing Chu, Anhang Li, Martins Atilla, Ruichen Qi, Mehdi Saligane</dc:creator>
+    </item>
+    <item>
+      <title>GI-RTL-Fuzz: Grammar-Informed RTL Generation with LLMs for End-to-End Differential Simulator Fuzzing</title>
+      <link>https://arxiv.org/abs/2610.38489</link>
+      <description>arXiv:2610.38489v1 Announce Type: new 
+Abstract: Register-Transfer Level (RTL) simulators are fundamental to modern IC design workflows, yet like any complex software, they frequently contain critical bugs that compromise simulation accuracy. To systematically stress-test these tools, we introduce GI-RTL-Fuzz, a grammar-informed fuzzing framework that leverages Large Language Models (LLMs) to generate high-quality RTL test cases. Our key innovation is guiding the LLM's generation process using Backus-Naur Form (BNF) grammar coverage information, enabling the exploration of complex and rarely-tested language features. By performing differential testing against different RTL simulators, our framework uncovered a significant number of previously unknown inconsistencies in both the linting process and simulation results of major Verilog simulators.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38489v1</guid>
+      <category>cs.AR</category>
+      <category>cs.CR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ziyue Zheng, Zhi Qu, Yangdi Lyu</dc:creator>
+    </item>
+    <item>
+      <title>Exploring and optimizing the Vivado Flow on large FPGA designs: A Practical Analysis of Strategies and Their Impact on Timing</title>
+      <link>https://arxiv.org/abs/2610.38575</link>
+      <description>arXiv:2610.38575v1 Announce Type: new 
+Abstract: Achieving timing closure in FPGA designs is crucial, especially for high-performance applications. The Vivado Design Suite offers several strategies for optimization, but finding the best configuration for a given project remains challenging. This paper explores the various Vivado's timing directives and strategies to improve performance across timing, area, and runtime. Through two test-case designs, an NQR spectrometer SoC-FPGA and a digital readout ASIC prototype for high energy physics particle detector's, different strategies and configurations are compared to identify the most efficient flow.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38575v1</guid>
+      <category>cs.AR</category>
+      <category>eess.SP</category>
+      <category>hep-ex</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Kachkachi Nor Eddine (LPCA)</dc:creator>
+    </item>
+    <item>
+      <title>IMPACT: Constraint-Aware Search for Imperfectly Factorized Accelerator Mappings</title>
+      <link>https://arxiv.org/abs/2610.39040</link>
+      <description>arXiv:2610.39040v1 Announce Type: new 
+Abstract: The efficiency of Deep Neural Network (DNN) accelerators depends on how each tensor operation is mapped onto the hardware. A mapping specifies how the computation is tiled across the memory hierarchy, ordered, and parallelized across the processing elements. These choices form a combinatorially large search space, where efficient mappings are hard to find. Most violate hardware constraints, and most remaining mappings underutilize the hardware. Existing mappers either search only part of this space to keep the search tractable, excluding the most efficient mappings, or sample the full space randomly, so most mappings they evaluate are infeasible. We present IMPACT, a mapper that searches the full space. IMPACT pairs a genetic algorithm with a constraint-aware repair operator that converts each infeasible mapping into a feasible one instead of discarding it. On a flexible accelerator, IMPACT outperforms state-of-the-art mappers in EDP, latency, and energy on every DeepBench workload. On a compute-in-memory (CIM) accelerator, whose constraints leave few mappings feasible, it reduces EDP by 66%, latency by 47%, and energy by 18% over the strongest prior mapper across five networks, and rivals hand-crafted expert mappings. Across flexible and highly constrained accelerators, IMPACT finds efficient mappings automatically. IMPACT will be released as open source.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39040v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Konstantinos Stavrakakis, Ilgaz Er, Theofilos Spyrou, Dimitrios Stavrakakis, Stephan Wong, Georgi Gaydadjiev, Said Hamdioui</dc:creator>
+    </item>
+    <item>
+      <title>Energy-Efficient FPGA Implementation of an End-to-End Cosine-Domain CNN Using High-Level Synthesis</title>
+      <link>https://arxiv.org/abs/2610.39268</link>
+      <description>arXiv:2610.39268v1 Announce Type: new 
+Abstract: The computational cost of conventional Convolutional Neural Networks (CNNs) limits their deployment in low-power devices for high-speed edge AI applications. This paper presents an end-to-end cosine-domain CNN (CD-CNN) architecture for energy-efficient FPGA inference using high-level synthesis (HLS). The proposed architecture performs intermediate feature extraction using real-valued DCT-domain representations, avoiding complex-valued arithmetic and intermediate inverse transforms between spectral layers. The design is implemented on a Xilinx Kintex UltraScale+ XCKU5P FPGA and evaluated against a fully spectral Fourier-domain CNN (FD-CNN) under consistent network and implementation constraints. Experiments on the MNIST and 94-class ASCII datasets show that the CD-CNN reduces normalized resource utilization and improves inference throughput on both datasets. Its energy efficiency reaches 112.91 frames/J for MNIST and 101.27 frames/J for ASCII, corresponding to improvements of $1.51\times$ and $2.76\times$, respectively, over the fully spectral FD-CNN architecture. Furthermore, compared to the previous GPU-based fully spectral CD-CNN implementation, the proposed end-to-end FPGA implementation improves energy efficiency by $12.96\times$. These results demonstrate the potential of real-valued spectral processing in the DCT domain for energy-efficient edge AI deployment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39268v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sana Fatima, Ab Al-Hadi Ab Rahman, Ibrahim Yousef Alshareef, Farhad Khodadadi, Nuzhat Khan</dc:creator>
+    </item>
+    <item>
+      <title>Learning to Formulate: Agentic Hardware-Software Co-Design of AI Infrastructure through Progressive Optimization and Verification</title>
+      <link>https://arxiv.org/abs/2610.39380</link>
+      <description>arXiv:2610.39380v1 Announce Type: new 
+Abstract: AI infrastructure, the chips and software that train and serve AI models, is designed in layers. Layers make the system manageable, but they also fix which choices an optimizer can consider. Gains that need the chip and its software to change together are excluded before optimization begins: the formulation leaves them out. Language-model agents make it possible to revisit these boundaries, but an agent's proposal cannot show by itself that a design is correct or optimal. We present Formulaic, a flow that divides the work. The agent writes the formulation, a mathematical solver optimizes within it, and verification and measurement check its assumptions and results. The agent refines the problem step by step, from the computation graph toward the chip. Each step is a template: a family of programs with the conditions under which they are correct. Wall relaxation searches the chip by pricing the hardware limits that bind the software. This paper takes a first step, through separate studies rather than one end-to-end run. On NVIDIA GB10, templates the agent wrote run complete Qwen3-8B layers $1.075\times$ faster than SGLang. In a simulated Ventus GPU study, joint design cuts the worst-scenario cycles of Qwen2.5-0.5B to 0.428 of the reference, against 0.934 for software alone. On a five-step GEMM refinement chain, reusing proofs makes checking $2.51\times$ faster.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39380v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yi Ding, Li Shang</dc:creator>
+    </item>
+    <item>
+      <title>OPERA: OPamp Design by an Expert-Taught Reasoning Agent, from Specifications to Layout</title>
+      <link>https://arxiv.org/abs/2610.39395</link>
+      <description>arXiv:2610.39395v1 Announce Type: new 
+Abstract: Analog flows from specifications to a signed-off layout rarely run without manual iteration. Recent large language model (LLM) agents size circuits with optimizer loops over the device dimensions and stop at the schematic. We present OPERA (OPamp design by an Expert-taught Reasoning Agent), in which a general-purpose LLM agent designs CMOS opamps from specifications to post-layout sign-off with open-source tools. First, the designer teaches the agent the gm/ID method: map the specifications to transconductances and minimum currents, choose gm/ID per device role from characterized lookup tables, and size from equations, leaving a few knobs to search and an explainable design. Second, the agent learns the gLayout framework and taught layout practice, and writes a reusable layout generator that closes the layout and extraction loop at designer-approved gates. In SKY130, the agent designed a shared constant-gm bias and six opamps (5T, folded-cascode and telescopic OTAs; Miller, folded-cascode and telescopic two-stage) for fun &gt;= 50 MHz, PM &gt;= 60 degrees, SR 25 V/{\mu}s into 1 pF and a minimum dc gain of 30 to 60 dB. All six layouts are DRC-clean and LVS-matched, and their extracted netlists meet every target at all 15 PVT corners ( fun &gt;= 53.7 MHz, PM &gt;= 62.1 degrees, SR &gt;= 27.9 V/{\mu}s). The benchmark netlists are released at https://github.com/AMPICLab/AMPICBench.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39395v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vishal Saxena, Soumyajit Mandal</dc:creator>
+    </item>
+    <item>
+      <title>Energy-Efficient Memristor Accelerator for Depression Detection with a CNN-LSTM Hybrid Model</title>
+      <link>https://arxiv.org/abs/2610.39420</link>
+      <description>arXiv:2610.39420v1 Announce Type: new 
+Abstract: Early screening of depression requires efficient analysis of audio and speech data, while conventional CPU and GPU platforms incur high latency and energy consumption for CNN-LSTM inference. To address this challenge, we propose a unified resistive RAM (ReRAM) processing-in-memory accelerator for a CNN-LSTM attention workload. The architecture integrates convolutional, recurrent, attention, and multi-layer perceptron (MLP) stages within a crossbar-based framework, reducing intermediate data movement between spatial and temporal branches. CNN operations are mapped through im2col-based vectorization, while LSTM gate computations are reformulated using concatenated input-state vectors and mapped onto ReRAM crossbars. We further provide module-level workload breakdown, parameter sensitivity analysis, and matched-workload context against representative ReRAM/PIM accelerators. Experimental results show 32.1 times and 9.3 times latency reduction over CPU and GPU baselines, respectively, with about 160 times and 140 times energy reduction. Simplified weight-perturbation tests characterize ASLF sensitivity in an untrained pipeline with synthetic spectrogram-shaped inputs. Task-level prediction accuracy and robustness remain to be evaluated.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39420v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jiaqi Liu, Yun Yu, Fenglin Xi, Shenjian Zhang, Shenghao Liao, Wenze Zheng, Mingxuan Hu, Yangbin Chen, Xinhong Chen, Chun Zhao</dc:creator>
+    </item>
+    <item>
+      <title>APPlace: Co-Optimizing Device Locations and Access Points for Routing-Aware Analog Placement</title>
+      <link>https://arxiv.org/abs/2610.39515</link>
+      <description>arXiv:2610.39515v1 Announce Type: new 
+Abstract: Analog layout automation remains challenging in Analog/Mixed-Signal circuit design, because parasitics and mismatches introduced during layout strongly affect circuit performance. Placement is especially critical among the layout stages, as it constrains the routing solution space and the achievable post-layout performance. Existing analytical placement methods optimize device coordinates under center-based wirelength proxies and leave access point (AP) selection to routing. In analog circuits, however, a routing pin is an extended piece of terminal metal rather than a fixed point, and the best AP on it depends on where the other connected devices are placed, so a coordinate-only placement optimizes for connection points that the router will not use. We present APPlace, a routing-aware analog placement framework that co-optimizes device locations and AP selections during global placement, followed by a legalization stage that preserves the structure established by global placement. Experimental results on four real-world analog benchmarks show that APPlace achieves better overall post-layout performance than representative baselines at comparable layout area. Ablation studies further show that removing AP co-optimization causes up to a 13 dB CMRR loss among the OTA benchmarks and a 23% increase in comparator delay.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39515v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3840404.3848293</arxiv:DOI>
+      <dc:creator>Bingyang Liu, Xiaohan Gao, Souradip Poddar, David Z. Pan</dc:creator>
+    </item>
+    <item>
+      <title>LLM Agent-Based Design of RISC-V CPUs with FPGA-in-the-Loop Evaluation</title>
+      <link>https://arxiv.org/abs/2610.39570</link>
+      <description>arXiv:2610.39570v1 Announce Type: new 
+Abstract: Long-run RTL simulation of CPU candidates can take hours, while short diagnostic runs may miss performance degradation that emerges later in execution. This evaluation cost can delay design decisions in LLM-agent-based CPU development. We present a development environment in which LLM agents implement CPU candidates on an FPGA and use on-board performance measurements to guide design decisions. We applied it to the human-supervised development of a single-cycle RV32I core into a three-wide out-of-order RV32IM core. The final design reaches 5.61 CoreMark/MHz at 130 MHz on a Artix-7 FPGA. For the same CPU candidate running 8,000 CoreMark iterations, FPGA evaluation, including implementation, was 9.6x faster than single-threaded RTL simulation. In one case, board measurements revealed long-run performance degradation in a candidate that improved in a short diagnostic run. The result guided candidate selection and led to RTL-based root-cause analysis and a fix.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39570v1</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Leo Itoh, Junichiro Kadomoto</dc:creator>
+    </item>
+    <item>
+      <title>MRUD: Maximally Redundant Unsigned Digit Number Systems for High-Performance Arithmetic Units</title>
+      <link>https://arxiv.org/abs/2610.39638</link>
+      <description>arXiv:2610.39638v1 Announce Type: new 
+Abstract: Signed digit redundant number systems such as Maximally Redundant Signed Digit (MRSD) enable carry-free addition but introduce significant overhead in multiplication due to the presence of both positive and negative bits. While Unsigned Digit Redundant (UDR) systems have shown promise in radix-2, their extension to higher radices remains unexplored. This work presents the first generalized Maximally Redundant Unsigned Digit (MRUD) number systems for high-radix arithmetic, extending UDR representations from radix-2 to radix-$2^h$ while preserving carry-free addition. The proposed framework includes digit encoding, digit extension, arithmetic operations (addition, subtraction, and multiplication), sign inversion, forward/reverse conversion algorithms, overflow/underflow detection, and hardware architectures for both signed and unsigned MRUD representations. Unlike MRSD, which is inherently limited to signed arithmetic, MRUD supports both signed and unsigned representations, similar to conventional binary systems. Evaluations across three multiplier modes---RRR (Redundant inputs, Redundant output), BBR (Binary inputs, Redundant output), and BBB (Binary inputs, Binary output)---as well as Multiply-Accumulate (MAC) units, using the FreePDK 45nm library, demonstrate that MRUD achieves up to 30\% lower delay, 26\% smaller area, and 87\% lower power than MRSD. In BBR mode, MRUD achieves up to 43\% delay reduction over the best conventional architecture for 32$\times$32 operands, while in Multiply-Accumulate (MAC) units, performing reverse conversion only once at the end yields up to 64\% higher throughput than DesignWare and over 150\% higher than Wallace. These results demonstrate that MRUD enables high-radix redundant arithmetic with significantly improved multiplier and MAC performance, making it an efficient alternative to conventional signed digit redundant number systems.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39638v1</guid>
+      <category>cs.AR</category>
+      <category>eess.IV</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Samaneh Rahimi, Ali Azarpeyvand</dc:creator>
+    </item>
+    <item>
+      <title>Caerus: Prefetching by Thinking Globally and Acting Locally</title>
+      <link>https://arxiv.org/abs/2610.39797</link>
+      <description>arXiv:2610.39797v1 Announce Type: new 
+Abstract: Modern processors rely heavily on data prefetching to bridge the growing performance gap between computation and memory accesses. In offset prefetching, prefetches are issued at an address delta relative to the most recently observed access, selecting deltas that have exhibited high coverage in the recent access-stream history. The Best-Offset Prefetcher (BOP) exemplifies this approach by selecting a single uniformly-issued global offset that delivers timely prefetches. However, its lack of context-sensitive accuracy tracking results in significantly increased DRAM traffic and sometimes disappointing performance. Conversely, Berti, the state-of-the-art offset prefetcher, achieves impressive prefetching performance and accuracy. However, its Program-Counter (PC)-local approach to extracting offsets limits its ability to capture global memory patterns, meaning there are many scenarios where simpler global offset prefetchers, such as BOP, outperform it.
+  Observing the limitations of contemporary offset prefetchers, we present Caerus: an offset prefetcher that employs PC-local filtering on multiple non-overlapping globally derived offsets. Caerus extracts multiple offsets from the global memory trace and maximizes their combined coverage by training each offset only on accesses not already covered by previously learned offsets. The accuracy of each extracted offset is tracked per-PC based on whether it can cover future accesses for any PC. This allows Caerus to address complex delta patterns while maintaining high accuracy. In SPECspeed 2017, Caerus gains a geomean speedup of 8.3%, outperforming Berti by 2.0% while achieving low hardware and DRAM-traffic overhead.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39797v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Jacky Wong, Jacob Alexandrou, Yinting Huang, Luke Panayi, Lev Mukhanov, Sam Ainsworth, Paul Kelly</dc:creator>
+    </item>
+    <item>
+      <title>LAMP: LLM-Driven Analog Placement through Adaptive Tool Composition</title>
+      <link>https://arxiv.org/abs/2610.39882</link>
+      <description>arXiv:2610.39882v1 Announce Type: new 
+Abstract: Analog placement requires circuit-specific trade-offs among area, matching, routability, and electrical performance. Balancing these trade-offs through predefined objectives and fixed placement flows remains difficult. In this paper, we propose an analog placement framework in which a large language model (LLM) acts as a layout engineer through composable placement components. These components support constraint management, placement and legalization, and lightweight evaluation of routability and electrical performance. Using multimodal checkpoints of the initial and evolving design, the LLM selects and combines components to construct and revise its own placement flow. It also adapts the placement hierarchy by reopening modules or partitioning and regrouping devices, allowing local layouts to respond to global design needs. An experience skill provides reusable design knowledge to guide these decisions. Evaluation on two SMIC 180 nm circuits shows that the framework reduces placement area and improves most measured post-layout performance metrics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39882v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zecheng Xu, Guanhua Chen, Yumao Wu, Keren Zhu</dc:creator>
+    </item>
+    <item>
+      <title>NORmal: Architecting 3D Ferroelectric NOR Flash as Main Memory -- From Co-Fabricated BEOL Arrays to 200B-Class Multi-Agent LLMs in a Smartphone</title>
+      <link>https://arxiv.org/abs/2610.40000</link>
+      <description>arXiv:2610.40000v1 Announce Type: new 
+Abstract: Smartphone agents increasingly work as teams, in which a large planner directs parallel workers across long sessions. Running such a team on the device requires 200B-class models and contexts that exceed phone DRAM many times over, yet existing tiers treat flash as storage: UFS starves per-token weight streaming, and mobile High-Bandwidth Flash (HBF) needs a redesigned SoC and cannot absorb continuous KV writes. We show that a non-volatile memory can join an unmodified LPDDR6 bus as a plain rank only if its access latency fits the DRAM timing window, a condition no NAND tier meets. We present NORmal, to our knowledge the first main-memory architecture for 3D ferroelectric NOR flash. We have fabricated and experimentally characterized back-end-of-line (BEOL) 3D FeNOR arrays that co-integrate dense 3-bit MLC and fast, high-endurance in-place-writable SLC with sub-7.5 ns sensing. NORmal turns these co-fabricated arrays into a byte-addressable, deterministic-timing load/store rank on an unmodified LPDDR6 interface through an under-array DRAM-emulation bridge, staggered bank reads with zero-cycle weight swizzling, and posted SLC writes. Across this rank and DRAM, NORmal places agent state by mutability and lifetime rather than by hotness, serving 200B-class models and persistent planner contexts in place while dynamically partitioning subchannels across agent phases. In serving-level simulation on production agent traces, NORmal is 8.9$\times$--28.0$\times$ faster than UFS offloading, within 0.4% of an unlimited-DRAM ideal, and 2.8$\times$--6.3$\times$ faster than HBF on sessions beyond 256K tokens, with 8.1$\times$--17.8$\times$ less memory energy per token.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.40000v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zhuoran Li, Chen Gu, Zhuohang Bian, Haochen Yu, Yibo Zhao, Xuxiao Yang, Zhaori Cong, Jinshan Yue, Qing Luo, Di Geng, Ling Li, Youwei Zhuo</dc:creator>
+    </item>
+    <item>
+      <title>SPARSEBLEED: Bypassing Attribute-Inference Defenses via Sparsity Optimizations</title>
+      <link>https://arxiv.org/abs/2610.38110</link>
+      <description>arXiv:2610.38110v1 Announce Type: cross 
+Abstract: Deep neural networks (DNNs) are widely deployed in safety- and privacy-critical domains such as healthcare and finance, where models are trained on confidential data. This paper presents the first hardware-level attribute-stealing attack that bypasses state-of-the-art privacy defenses, revealing that accelerator optimizations intended for performance can directly undermine data confidentiality. SparseBleed requires no access to gradients, logits, model weights, ground-truth labels, power traces, DVFS manipulation, shared caches, or other channels. Instead, we show that sparsity-driven execution paths encode stable timing signatures that act as a surrogate for model confidence, enabling high-fidelity attribute inference from a single query. SparseBleed generalizes across heterogeneous backends and hardware engines, including Intel AVX2/AVX-512/AMX, NVIDIA Ampere Tensor Cores with 2:4 sparsity, and nine well-known sparse and dense libraries such as Intel oneDNN, oneMKL SparseBLAS, and NVIDIA cuSPARSE. We evaluate SparseBleed to infer sensitive input attributes and true output labels. On Texas-100X, SparseBleed infers sensitive input attributes such as Sex with 66.39% accuracy and recovers the true output label, Surgical Procedure, with 99.8% accuracy. Finally, we evaluate mitigations. Constant-time execution by disabling sparsity optimizations is expensive (e.g., up to $2\times$ higher latency on NVIDIA Sparse Tensor Cores and $\approx 25\%$ higher power in AMX microbenchmarks). By contrast, a padding defense that equalizes responses to the worst-case time masks timing leakage with only 7.24% average performance overhead across nine libraries on Texas-100X/Adult and near-zero extra energy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38110v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Darsh Asher, Farshad Dizani, Joshua Kalyanapu, Ro Cammarota, Aydin Aysu, Samira Mirbagher Ajorpaz</dc:creator>
+    </item>
+    <item>
+      <title>FPGAFly: A 166.7k-Neuron Fruit-Fly Connectome on One FPGA via Deferred Spike Expansion and Shared-Codeword States</title>
+      <link>https://arxiv.org/abs/2610.38118</link>
+      <description>arXiv:2610.38118v1 Announce Type: cross 
+Abstract: Synapse-resolution fruit-fly (Drosophila) connectomes enable neuron-by-neuron simulation of entire insect nervous systems, yet whole-brain models still require computationally demanding software or multiple neuromorphic chips, and single FPGAs support only small or statistical networks. Scaling to the full connectome, per-synapse spike expansion scales queue traffic with fan-out up to 11.2k, while 41-bit neuron states require 6.83 Mbit, exceeding the 6.27 Mbit on-chip block static RAM (BSRAM) of the target device. FPGAFly runs the 166.7k-neuron, 25.6M-connection leaky integrate-and-fire male central nervous system (CNS) connectome on one FPGA. Order-preserving deferred expansion queues one 64-bit descriptor per spike in source-ID order, cutting external memory traffic by 54.5%-57.9% and peak queue data by 95.6%-96.5% with bit-identical results. A 24-bit encoding shares codewords across normal, refractory, and quantized out-of-range states, reducing BSRAM usage from 438 to 270 with 1245 extra LUTs and zero changes across 10,000 MNIST predictions. At 80 MHz on a Gowin GW5AST-LV138, each 100 ms window finishes in 86.83 ms on average and within 93.05 ms across 2000 tests, realizing the first complete Drosophila CNS connectome simulation on one FPGA.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38118v1</guid>
+      <category>cs.NE</category>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>YE Ziyang</dc:creator>
+    </item>
+    <item>
+      <title>Rosemary: Efficient and Adaptable In-Storage Acceleration for Fully Homomorphic Encryption</title>
+      <link>https://arxiv.org/abs/2610.38262</link>
+      <description>arXiv:2610.38262v1 Announce Type: cross 
+Abstract: Fully Homomorphic Encryption (FHE) enables computation on encrypted data and is promising for privacy-preserving computing. However, FHE deployment remains constrained due to massive computational, memory, and data-movement overheads. Existing acceleration strategies often overlook the storage I/O bottleneck caused by the enormous size of FHE data in large-scale applications, as most prior works focus on small benchmarks that fit in main memory. Our studies show that state-of-the-art FHE systems spend 71\% to 85\% of their execution time moving data between storage and compute units rather than performing useful computation. To address the I/O bottleneck, we present Rosemary, a heterogeneous FHE acceleration system that incorporates a novel in-storage processing (ISP) architecture with compiler-level and algorithmic optimizations. Our key innovations include 1) an adaptable hardware-aware FHE engine inside a NAND flash-based solid-state drive (SSD) for efficient and cost-effective in-storage FHE processing, 2) a Throughput-Data-Aware Program Allocator (TDAP) that partitions FHE workloads into heterogeneous programs, and 3) a Compiler-Level Ciphertext-Aware Optimizer (CLCAO) that exploits ISP-friendly FHE kernels for low-cost ISP execution. Across a diverse set of FHE workloads, including encrypted deep learning inference and cloud database queries, Rosemary achieves geometric-mean speedups of $185.7\times$ over state-of-the-art CPU/GPU implementations and $3.7\times$ over prior FHE accelerators, while improving energy efficiency by up to $3.9\times$ and Energy-Delay-Area-Product (EDAP) by up to $16.5\times$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38262v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Xuan Wang, Tianqi Zhang, Gabrielle De Micheli, Yujin Nam, Keming Fan, Augusto Vega, Minxuan Zhou, Tajana Rosing</dc:creator>
+    </item>
+    <item>
+      <title>A Case Study of a Multi-Agent Kernel-Optimization Loop That Learns a New AI Accelerator</title>
+      <link>https://arxiv.org/abs/2610.38329</link>
+      <description>arXiv:2610.38329v1 Announce Type: cross 
+Abstract: Frontier large language models write correct CUDA kernels for most single-operator benchmark tasks, yet their accuracy collapses on accelerators whose architecture and programming language they have rarely seen. We present a case study of an LLM agent loop built for such accelerators. Our example is the FuriosaAI RNGD NPU, programmed in a recent, sparsely documented Rust DSL, where the loop optimized three Gemma-4-12B decode kernels over 12 days on a shared, scarce device. The loop builds its own target knowledge: it writes and checks a summary of the DSL documentation, measures the chip with microbenchmarks, records compiler-derived legality rules, and revisits this knowledge when the toolchain changes, rechecking rules and measurements where it can. A role-based search over per-kernel Design Trees explores whole-kernel designs and accumulates small accepted changes in the best version of each kernel. Because device time is scarce and readings are noisy, cheap checks screen new designs before any device run, and late in the run a change was accepted only after repeated comparisons with the best kernel on the device. The final kernels reach a 9.293x geomean speedup over the official baseline, each within 1.25x of the cycles needed just to move its weights. Our prompts, profiler and acceptance test are available at https://github.com/bgchun-fs/multi-agent-kernel-gen-loop.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38329v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <category>cs.PL</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Byonggon Chun</dc:creator>
+    </item>
+    <item>
+      <title>Streaming Speech Recognition on a Microcontroller: a 65.7M-Parameter Transducer in 2 and 4 Bits on the ESP32-P4</title>
+      <link>https://arxiv.org/abs/2610.38739</link>
+      <description>arXiv:2610.38739v1 Announce Type: cross 
+Abstract: We run Kroko, a 65.7M-parameter streaming Zipformer2 transducer for English, on the ESP32-P4, a microcontroller with two 400 MHz RISC-V cores, a 128-bit SIMD extension (PIE) and 32 MB of PSRAM, but no neural accelerator. Without any training, the encoder's 290 matrices are stored with 2 or 4 bits per weight in Hadamard-rotated groups: the width of each matrix comes from its measured sensitivity, and each matrix is first corrected toward the original model's output, then rounded with GPTQ and a search over the group norms. The released 71 MB of int8 weights become a 26.65 MB file. Activations are int16 between the matrix products and int8 into them. A C engine with hand-written PIE kernels processes each 1.28 s chunk of audio in 0.90 s on both cores, beam search included, and its PC build computes the same bits as the chip, so accuracy is measured on whole test sets. LibriSpeech WER is 4.34% on test-clean and 10.26% on test-other, against 3.94% and 9.17% for the released model; on FLEURS and Common Voice the gap grows to 2.3 and 1.1 points. A GPU simulator shows that the integer arithmetic costs nothing and that the whole gap comes from the weights, and an ablation on all of test-clean shows that GPTQ does most of the work. We also report the port's speed history, from 51.3 s to 0.62 s of encoder time per chunk, each design step measured again in one build, an attempt to reach 16 MB that stopped at 19.63 MB, and what did not work. We did not measure energy. The inference engine, the firmware and the 2/4-bit weights are available at https://github.com/BoumedineBillal/esp32-pie-asr.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38739v1</guid>
+      <category>eess.AS</category>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Billal Boumedine</dc:creator>
+    </item>
+    <item>
+      <title>Hardwired Distributed Processing Units at the Sensor: Truly Parallel Vision Pre-Processing that Frees the Host CPU</title>
+      <link>https://arxiv.org/abs/2610.38752</link>
+      <description>arXiv:2610.38752v1 Announce Type: cross 
+Abstract: Conventional vision pipelines route every pixel to a host processor, which must then wait for a complete frame before it can act and devote part of each frame period to routine pre-processing. We examine an alternative organisation in which this work is distributed across hardwired distributed processing units (HDPUs): small, fixed datapaths attached directly to the sensor, each committed to a single always-on task, operating truly in parallel on the same pixel stream and delivering compact results to the host. From one library of 3x3 operators sharing a common two-clock latency, we construct three HDPUs (Canny edges, Harris corners, and a line tracker that issues a steering decision) and run them side by side on a single camera stream in a low-cost Artix-7 FPGA, at a cost of 2,568 LUTs and an estimated 0.318 W. Every stage of every unit is bit-exact with its software model. In a full-system simulation with a datasheet camera model, each decision leaves its HDPU within 11.03 camera lines of the pixel that produced it, 22-67x sooner than the earliest moment at which a frame-based program on the host could respond; the HDPU latency varies by no more than 17 ns, whereas the host's own run times reached 12.5x their median. Offloading the three tasks returns 18-30% of a core to the host in every frame period at 640x480, and 63% of the frame period, with all threads in use, at 1080p. The cost of the units grows with frame width only through their line buffers, and in a closed-loop model of a line-following vehicle the HDPU raises the highest speed at which the line is held from 4.75 to 10.00 m/s.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38752v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AR</category>
+      <category>eess.IV</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Raj Mali</dc:creator>
+    </item>
+    <item>
+      <title>Tactus: Tactile &amp; Pose Sensing Glove for Natural Dexterity Data Collection</title>
+      <link>https://arxiv.org/abs/2610.39076</link>
+      <description>arXiv:2610.39076v1 Announce Type: cross 
+Abstract: Collecting naturalistic human manipulation demonstrations with accurate contact force and hand pose is essential for robot dexterous manipulation policy and foundational world model learning - yet no existing wearable platform provides both calibrated fingertip force sensing and occlusion-resilient hand tracking in a form factor that preserves natural manipulation behavior. We present Tactus, a textile-integrated sensing glove that co-optimizes three design pillars: (1) a thin, conformal 3D-knit form factor (1.5 mm fingertip stackup) designed to minimize interference with natural manipulation, (2) strategically placed capacitive tactile sensors at manipulation-relevant regions informed by empirical contact studies, and (3) IMU-fused pose tracking that maintains accuracy through the hand-object occlusions where manipulation data is most valuable. Tactus includes a documented calibration pipeline for cross-glove consistency and per-session calibration for subject-dependent correction. To enable objective comparison, we introduce standardized benchmarking protocols for tactile force regression and hand pose estimation, and apply them to Tactus and two commercially available tactile gloves - to our knowledge the first quantitative cross-platform evaluation of this kind. Tactus resolves a minimum detectable force of 0.59 N at 95% confidence, 1.6 - 2.7x lower than the commercial baselines, and with 0.87 cross-participant consistency, while our pose tracking sustains 11.0 mm fingertip keypoint relative error during manipulation, when occlusion is heaviest. We show that these combined signals support object property estimation, slip detection, and representative recording of hand-object interaction - yielding demonstration data with the fidelity required for contact-aware manipulation policies and world models.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39076v1</guid>
+      <category>cs.RO</category>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Li Guan, Rachael Granberry, Sahar Aseeri, Sahar Rostami, Taylor Niehues, Sai Dhanooshi Marri, Mia Huang, Dingtian Zhang, Ziyi Kou, Jason Pursel, Eric Whitmire, Vatsal Mehta, Ashish Deshpande, Tristan Trutna, Reed Belcher, Emelia Black, Julian Blake, Roger Boldu, Sean Bonaventure, Einar Boyovich, Jordan Brennan, Elizabeth Casillas, David Christensen, Tyler Christensen, Nicholas Colonnese, Stuart Dealey, Gaige DeHaven, Katie Doran, Chris Doughty, Robert Drury, Silvia Espino, Gabriel Geyne, Beth Goodrich, Kyra Gould, Joe Grisso, Susana Guerrero, Andrew Gwozdziowski, Monica Ha, Ehsan Hajiesmaili, Kate Healy, Rose Hope, Michael Hurst, Claire Ikemiya, Daisy Isibor, Rick James, Yashasvi Joginapally, Samuel Johnson, Tyler Jorgensen, Kristy Jost, Ben Kamath, Slava Karulin, Alexander Keener, Woo Kim, Alison Krauskopf, Ankit Kumar, Joshua Lang, Lizzy Li, Cameron Lynch, Daniel Ma, Hector Martinon, Christina Matos, Keagan McCurdy, Lee Mincey, Stuart Nezlek, Tiffany Nguyen, James O'Hara, Jason Osborne, Jacky Pai, Roham Pardakhtim, David Perek, Alexandre Poulin, Nick Raines, Salwa Rasheed, Leah Resneck, Kevin Rhodes, Ergys Ristani, Douglas Roberts, Anik Sarker, Harrison Scarborough, Jonas Schmidtler, Brian Shieh, Benjamin Shuman, Garrett Simard, Forrest Smith, Udara Somarathna, Eliot Sosin, Jonathan Stewart, Kristine Strom, Adam Swett, Hal Talbot-Mantooth, Julia Tanner, Sai Sharan Thirunagari, Curtis Torrey, Simge Uzun, Eileen Wachs, Rylan Wasson, Henry Wei, Jesse White, Beau Woodbyrne, Antonio Woods, Noah Young, Chandler Yount, Joseph Zhang, Sean Keller</dc:creator>
+    </item>
+    <item>
+      <title>When Does Heterogeneity Pay Off? Understanding GPU-WSE System Complementarity</title>
+      <link>https://arxiv.org/abs/2610.39222</link>
+      <description>arXiv:2610.39222v1 Announce Type: cross 
+Abstract: As AI accelerator architectures become increasingly diverse, integrating different architectures into a unified system is emerging as a new heterogeneous computing paradigm. GPUs and WSEs differ substantially in compute, memory, and communication organization, creating both architectural complementarity and additional overheads, yet how to translate this heterogeneity into practical performance gains remains unclear. To address this gap, we propose a hierarchical benchmarking methodology to characterize GPU--WSE heterogeneous execution and the conditions for exploiting complementarity, together with an analytical performance model that identifies when heterogeneity becomes a bottleneck and when it yields system-level performance gains.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39222v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Ziyu Hu, Zhijing Ye, Jiamin Wang, Zhiqing Zhong, Zhendong Mi, Shaoyi Huang, Weijian Zheng, Rajkumar Kettimuthu, Xiaodong Yu</dc:creator>
+    </item>
+    <item>
+      <title>RV2GC: Reconstructing the Garbling Boundary in a RISC-V Garbled Processor</title>
+      <link>https://arxiv.org/abs/2610.39572</link>
+      <description>arXiv:2610.39572v1 Announce Type: cross 
+Abstract: Programmable garbled-circuit execution must balance the benefits of cross-program reuse against the cost of repeated work during secure execution. A complete garbled processor provides a fixed circuit for many programs, but its evaluator repeatedly visits processor-wide structures even when only a small part performs the current protected computation. We present RV2GC, which reconstructs the garbling boundary around a fixed library of RISC-V instruction circuits. Public scheduling and operand routing operate outside the circuit topologies; persistent label-encoded state connects independently invoked garbled instruction circuits and instruction-specific garbling-free paths through a common interface. A Conditional-execution Stack and protected commits support secret-dependent branches, bounded loops, and secret-indexed memory access under public scheduling, keeping instruction and memory-address sequences independent of private inputs. Across nine benchmarks, measured ARM2GC-to-RV2GC runtime ratios range from 12.81 to 4,043. In terms of circuit size, the largest listed instruction circuit has 3,386 gates, corresponding to 2.044% and 0.393% of the 256-byte and 4,096-byte Amber processors, respectively. Additional comparisons quantify schedule storage, communication, and the cost of secret-dependent execution.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39572v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zixiao Feng, Xiaolin Li, Chenglu Jin, Wei Yan, Yong Zhang, Hongwei Liu, Yong Liu, Qinfen Hao</dc:creator>
+    </item>
+    <item>
+      <title>How Far Are We From On-Device VLM Inference? A Measurement Study on Edge NPUs</title>
+      <link>https://arxiv.org/abs/2610.40039</link>
+      <description>arXiv:2610.40039v1 Announce Type: cross 
+Abstract: Diverse optimizations spanning model architecture, inference runtime, and hardware acceleration have been proposed for on-device vision-language model (VLM) deployment on edge NPUs. Still, cross-layer coordination of VLM execution on edge NPUs remains largely underexplored. This paper presents an empirical measurement study across six representative VLMs, three real-world edge platforms, and ten multimodal benchmarks. Our evaluation drills down from end-to-end application-level latency and thermal traces down to low-level kernel-scale execution behaviors, challenging several widely held community assumptions. First, softmax dominates attention costs; even lookup-table-based softmax optimizations cannot eliminate pipeline bubbles that severely underutilize NPU matrix units. Second, theoretical speedups from linear attention vanish under real-NPU execution due to prohibitive tensor-rearrangement overhead. Third, no hardware backend universally dominates autoregressive decoding: attention-tensor-shaped parallelism dictates NPU efficiency and shifts the CPU-NPU performance balance. We further find task-specific Sweet Resolutions for VLMs, which deliver meaningful accuracy gains at only modest latency overhead. Complementing these findings, we provide actionable cross-layer recommendations for hardware architects, runtime developers, and model designers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.40039v1</guid>
+      <category>cs.PF</category>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Huan Yang, Shiqi Jiang, Yu Mao, Chuanyue Xiong, Deyu Zhang</dc:creator>
+    </item>
+    <item>
+      <title>EdgeCIM: A Hardware-Software Co-Design for CIM-Based Acceleration of Small Language Models</title>
+      <link>https://arxiv.org/abs/2604.11512</link>
+      <description>arXiv:2604.11512v2 Announce Type: replace 
+Abstract: The growing demand for deploying Small Language Models (SLMs) on edge devices, including laptops, smartphones, automotive and robotic computing platforms, and high-performance embedded systems, has exposed fundamental inefficiencies in existing accelerators. While GPUs handle prefill workloads efficiently, the autoregressive decoding phase is dominated by GEMV operations that are inherently memory-bound, resulting in poor utilization and prohibitive energy costs at the edge. In this work, we present EdgeCIM, a hardware-software co-design framework for accelerating autoregressive decoding of SLMs on edge devices in latency-critical applications. At its core is a CIM macro, implemented in 65 nm, coupled with a tile-based mapping strategy that balances pipeline stages, maximizing parallelism while alleviating DRAM bandwidth bottlenecks. Our simulator enables design space exploration of SLMs up to 4B parameters, identifying hardware configurations that optimize latency and energy according to a configurable objective function. On LLaMA3.2 3B (INT4), EdgeCIM achieves 1.76x and 3.21x higher throughput than NVIDIA Jetson AGX Orin and Orin Nano Super operating in MAXN mode, respectively, and 7.07x higher throughput than Qualcomm's Snapdragon-X Elite. Extensive benchmarks on TinyLLaMA 1.1B, LLaMA3.2 (1B, 3B), Phi 3.5 mini 3.8B, Qwen2.5 (0.5B, 1.5B, 3B), SmolLM2 1.7B, SmolLM3 3B, and Qwen3 (0.6B, 1.7B, 4B) reveal that our accelerator, at INT4 precision, achieves on average 336.4 tokens/s and 173 tokens/J. These results establish EdgeCIM as a compelling solution towards real-time, energy-efficient, latency-critical SLM inference at the edge.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.11512v2</guid>
+      <category>cs.AR</category>
+      <category>cs.AI</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jinane Bazzi, Mariam Rakka, Fadi Kurdahi, Mohammed E. Fouda, Ahmed Eltawil</dc:creator>
+    </item>
+    <item>
+      <title>Proba: A High-Performance, Low-Traffic Probabilistic Spatial Memory Streaming Prefetcher</title>
+      <link>https://arxiv.org/abs/2610.30448</link>
+      <description>arXiv:2610.30448v3 Announce Type: replace 
+Abstract: Spatial Memory Streaming (SMS) prefetchers exploit recurring spatial access patterns across memory regions to predict future accesses. Despite their effectiveness, existing SMS-based designs suffer from coarse control over aggressiveness and limited adaptability to dynamic program behavior and historical patterns. In this work, we present Proba, a feedback-directed SMS-based prefetcher that integrates probabilistic pattern updates, marginal accuracy decision-making, and pattern accumulation over several trigger features to achieve fine-grained accuracy-coverage trade-offs. When accuracy deteriorates, Proba moderates its aggressiveness to prioritize accurate prefetches; conversely, when accuracy rises, it expands its coverage. Proba achieves higher speedups than any other SMS-based prefetcher while being vastly more efficient in DRAM traffic. This culminates in a large performance gap between Proba and other techniques in multicore and DRAM-constrained scenarios without harming single-threaded throughput.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.30448v3</guid>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yinting Huang, Jacky Wong, Sam Ainsworth</dc:creator>
+    </item>
+    <item>
+      <title>RETENTION: Resource-Efficient Tree-Based Ensemble Model Acceleration with Content-Addressable Memory</title>
+      <link>https://arxiv.org/abs/2506.05994</link>
+      <description>arXiv:2506.05994v3 Announce Type: replace-cross 
+Abstract: Although deep learning has demonstrated remarkable capability in learning from unstructured data, modern tree-based ensemble models remain superior in extracting relevant information and learning from structured datasets. While several efforts have been made to accelerate tree-based models, the inherent characteristics of the models pose significant challenges for conventional accelerators. Recent research leveraging content-addressable memory (CAM) offers a promising solution for accelerating tree-based models, yet existing designs suffer from excessive memory consumption and low utilization. This work addresses these challenges by introducing RETENTION, an end-to-end framework that significantly reduces CAM capacity requirement for tree-based model inference. We propose an iterative pruning algorithm with a novel pruning criterion tailored for bagging-based models (e.g., Random Forest), which minimizes model complexity while ensuring controlled accuracy degradation. Additionally, we present a tree mapping scheme that incorporates two innovative data placement strategies to alleviate the memory redundancy caused by the widespread use of don't care states in CAM. Experimental results show that implementing the tree mapping scheme alone reduces CAM capacity requirement by $1.46\times$ to $21.30 \times$, while the full RETENTION framework achieves $4.35\times$ to $207.12\times$ reduction with less than 3\% accuracy loss. These results demonstrate that RETENTION is highly effective in minimizing CAM resource demand, providing a resource-efficient direction for tree-based model acceleration.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.05994v3</guid>
+      <category>cs.LG</category>
+      <category>cs.AR</category>
+      <category>cs.ET</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1109/TCAD.2026.3691288</arxiv:DOI>
+      <arxiv:journal_reference>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol. 45, no. 11, pp. 6105-6118, Nov. 2026</arxiv:journal_reference>
+      <dc:creator>Yi-Chun Liao, Chieh-Lin Tsai, Yuan-Hao Chang, Cam\'elia Slimani, Jalil Boukhobza, Tei-Wei Kuo</dc:creator>
+    </item>
+    <item>
+      <title>ESBMC-PLC: Formal Verification of IEC 61131-3 Ladder Diagram Programs Using SMT-Based Model Checking</title>
+      <link>https://arxiv.org/abs/2606.15461</link>
+      <description>arXiv:2606.15461v2 Announce Type: replace-cross 
+Abstract: Ladder diagram (LD) is the relay-circuit language of IEC 61131-3 in which many PLC safety interlocks are written, and model checkers built on SMT solvers do not read it. A verdict reached through a translation is only as good as that translation. We present ESBMC-PLC, which verifies LD programs with the ESBMC model checker, and argue that its translation is faithful. It encodes the scan cycle as a single loop with nondeterministic inputs, resolves graphical PLCopen XML networks into ordered rungs, models timers in milliseconds, and rejects programs outside an explicit subset. We prove, under eight stated hypotheses, that one iteration of the emitted loop agrees with one scan of a semantics for the subset, so scan-count verdicts on programs without user function blocks hold on that semantics. For timing-mode verdicts, a refinement theorem for MATIEC's timers gives evidence, not proof. One SMT query per program also compares the emitted loop with the C that MATIEC generates. On the 241 labeled LD variants of a public benchmark suite, ESBMC-PLC returns no wrong verdict against the current labels and proves 127 variants safe; ESBMC on MATIEC's C for the same programs proves 2. PLCverif with NuSMV, which shares neither our frontend nor ESBMC, agrees with ESBMC-PLC on all 207 of the 208 variants within the theorem's scope that it can run. On 413 LD programs from public GitHub repositories, none of the 104 that the per-program query can check differs from MATIEC. Every k-induction proof closes at k = 2. ESBMC's inductive step proves only properties that one scan preserves, so properties that depend on a longer history stay unproved.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.15461v2</guid>
+      <category>cs.CL</category>
+      <category>cs.AR</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Pierre Dantas, Lucas Cordeiro, Waldir Junior</dc:creator>
+    </item>
+    <item>
+      <title>Continuous-time nonlinear closed-loop in-memory computing for high-accuracy massive MIMO detection</title>
+      <link>https://arxiv.org/abs/2607.02842</link>
+      <description>arXiv:2607.02842v2 Announce Type: replace-cross 
+Abstract: Analog in-memory computing (IMC) has emerged as a promising approach for accelerating matrix operations by exploiting the intrinsic physics of memory arrays. To date, however, most IMC architectures have focused on linear algebra workloads in which computation is encoded in the equilibrium state of a physical system. Extending these principles to nonlinear optimization remains challenging and typically relies on iterative algorithms composed of repeated linear operations. Here, we introduce a continuous-time nonlinear closed-loop IMC architecture for box-constrained zero-forcing (BCZF) decoding in massive multiple-input multiple-output (MIMO) systems. The proposed architecture embeds the decoding problem directly within the dynamics of a nonlinear feedback network of memory arrays and supply-limited operational amplifiers, allowing solutions to emerge through continuous-time physical optimization. We derive a compact analytical model of the circuit and show that its trajectories minimize an equivalent energy function. Experimental emulation using a fabricated IMC chip confirms the predicted dynamics under realistic hardware nonidealities for up to 16x16 MIMO systems. To overcome the finite precision of analog hardware, we extend mixed-precision iterative refinement from linear algebra to nonlinear continuous-time optimization, enabling reliable detection of high-order modulation formats including 1024-QAM. Benchmark projections indicate operation from ultra-low-energy approximate decoding to high-accuracy massive MIMO detection. Together, these results extend closed-loop IMC from equilibrium-based linear algebra to continuous-time nonlinear optimization and establish a pathway toward efficient physical accelerators for high-accuracy wireless communications.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.02842v2</guid>
+      <category>cs.ET</category>
+      <category>cs.AR</category>
+      <category>eess.SP</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Piergiulio Mannocci, Giacomo Pedretti, Giacomo Larelli, Fabian B\"ohm, Thomas Van Vaerenbergh</dc:creator>
+    </item>
+    <item>
+      <title>Ego-OSCAR: Egocentric Open source Stereo CAptuRe System</title>
+      <link>https://arxiv.org/abs/2608.08285</link>
+      <description>arXiv:2608.08285v3 Announce Type: replace-cross 
+Abstract: Egocentric vision has scaled its corpora far faster than its instruments. Calibrated stereo rigidly coupled to a synchronized inertial stream is not new; research-grade headsets deliver it. What does not exist is an open version: those platforms are closed products a third party cannot build or extend, and the consumer cameras used elsewhere are monocular and rolling-shutter. The instrument is the least reproducible part of an otherwise open pipeline. We present our system, an open-hardware head-mounted capture platform, at a complete bill of materials under USD 200 in commodity parts and 3D prints. It pairs a hardware-synchronized global-shutter stereo camera with a 6-axis IMU, an embedded Linux SBC for on-device encoding, and a real-time microcontroller that bridges the camera and inertial clock domains to a residual of 700 microseconds and watchdogs the recording against silent failure. We release the full stack alongside the device: CAD, firmware, recording and time-synchronization tooling, and our corpus, roughly 550 hours of stereo video over 1,462 sessions and 25 contributors, every device shipping its own stereo calibration. The corpus ships with model-predicted annotation layers rather than raw video alone, including per-frame 3D hand reconstructions spanning essentially the whole timeline; these are automatic predictions, not human-verified ground truth, and we report them as such. We characterize the instrument along sensor fidelity, data utility, and six months of distributed field deployment. Our system is not the highest fidelity egocentric rig; it is the cheapest one a reader of this paper can reproduce, and the only corpus here that others can extend rather than only consume.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.08285v3</guid>
+      <category>cs.CV</category>
+      <category>cs.AR</category>
+      <category>cs.RO</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Senthil Palanisamy, Satpal Singh Rathore, Pratyush Kumar Patnaik, Shubhanshu Khatana, Gunjan Paul, Abhishek Anand</dc:creator>
+    </item>
+  </channel>
+</rss>

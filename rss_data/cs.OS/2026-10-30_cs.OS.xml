@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Oct 2026 06:39:18 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Rimuru: Unified Memory Management for Modern LLM Serving via Elastic Expert Offloading</title>
+      <link>https://arxiv.org/abs/2610.40305</link>
+      <description>arXiv:2610.40305v1 Announce Type: new 
+Abstract: Modern LLMs strain device memory through large model weights and attention states, particularly in resource-constrained scenarios. Existing systems separately provision memory for model weights and attention states, imposing fixed fixed boundaries that cannot adapt to the changing memory demands of workloads. Under heavy workloads, insufficient state capacity limits request concurrency and reduces throughput; under light workloads, idle memory in one region cannot be reallocated to another, wasting device memory. Meanwhile, modern LLM architectures introduce heterogeneous tensors with diverse layouts and lifetimes, further complicating memory management. These problems motivate unified memory management for heterogeneous tensors. However, a shared pool alone does not make memory directly reusable across tensors with different allocation granularities and execution layouts. This paper presents Rimuru, a modern LLM serving system that unifies memory management through elastic expert offloading. Rimuru establishes a shared page pool to enables elastic memory sharing across heterogeneous tensors. To accommodate different allocation granularities, Rimuru introduces memory views that allow each tensor type to interpret the shared memory space using its own page size and page table. Furthermore, Rimuru combines huge-page alignment with a multi-level page allocator that splits and merges pages, enabling cross-type capacity reuse. A page-table-aware fused MoE kernel directly accesses non-contiguous expert weights, avoiding copy overhead. Building on these mechanisms, Rimuru employs a workload-aware adjuster that dynamically reallocates pages across tensor types according to runtime demands. Implemented on top of vLLM, Rimuru remains compatible with modern LLMs. Evaluations show that Rimuru achieves up to 19.03x baseline throughput and reduces TTFT by 98.1% on average.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.40305v1</guid>
+      <category>cs.OS</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Zhiyuan Fang, Dingyang Li, Jianfeng Zhong, Bin Wang, Weixi Zhu, Cunshu Ni, Zicong Hong, Wuhui Chen, Zibin Zheng</dc:creator>
+    </item>
+    <item>
+      <title>GearUp: DAG-aware Acceleration for Serverless Inference Serving via Slack-guided Pre-loading</title>
+      <link>https://arxiv.org/abs/2610.38196</link>
+      <description>arXiv:2610.38196v1 Announce Type: cross 
+Abstract: Serverless platforms increasingly host machine learning (ML) inference workflows, modeled as directed acyclic graphs (DAGs) of interdependent functions. Beyond container startup, each ML node must load libraries, model weights, and CUDA kernels before it can run. These costs accumulate along dependent DAG paths and place initialization on the end-to-end critical path. Existing systems optimize one half of this problem. DAG-agnostic pre-loading prepares nodes the request may never reach, wasting host and GPU memory. DAG-aware serving routes and scales whole functions, leaving the loading stages inside a node untouched. This paper presents GearUp, a serverless DAG inference serving system that removes ML-node loading from the end-to-end critical path at low resource cost. GearUp profiles the loading stages of each node and schedules them inside the slack time the DAG exposes, hiding initialization behind upstream execution. It reuses initialized instances within and across requests to avoid redundant cold starts. A probabilistic, traffic-adaptive keep-alive policy sets how long idle instances are retained, balancing memory cost against cold-start risk under bursty load. On the AMBER Alert and FINRA-ML workflows with NVIDIA L40S GPUs, GearUp reduces median end-to-end latency by 64.5% and 75.9% against SMIless, for median speedups of 3.1x and 10.0x over cold execution. Integrated GPU and host memory allocation fall by up to 83.9% and 94.6% against eager pre-loading in InstaInfer. GearUp achieves 4.2x strong scaling on four workers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38196v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.OS</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Qi Qi, Yifan Sui, Hanfei Yu, Hong Zhang, Hao Wang</dc:creator>
+    </item>
+    <item>
+      <title>LLM-PowerTrace: A Dataset of Time-Resolved GPU Power Traces for AI Compute</title>
+      <link>https://arxiv.org/abs/2610.38315</link>
+      <description>arXiv:2610.38315v1 Announce Type: cross 
+Abstract: AI compute is becoming large and fast-changing electrical loads. Its impacts on data center infrastructure and power grids depend not only on total energy consumption, but also on how their power draw moves over sub-second to minute timescales, including peaks, ramps, and synchronized fluctuations across accelerators. Existing energy benchmarks for large language models (LLMs) report aggregate quantities such as joules per token and rarely release the underlying time-series measurements, leaving these power dynamics poorly characterized and difficult to model. We introduce LLM-PowerTrace, an open dataset of time-resolved, per-GPU power traces for LLM fine-tuning and inference, sampled every 100\,ms on varying NVIDIA platforms paired with complete workload and system metadata. For fine-tuning, LLM-PowerTrace profiles open model families spanning a wide range of model sizes and fine-tuning methods, together with controlled sweeps over batch size, sequence length, precision, parallelism, and checkpointing. For inference, it covers variations in concurrency, GPU frequency, KV-cache and weight quantization, prompt and output lengths, and request-arrival patterns. LLM-PowerTrace profiles a set of open model families across a wide range of model sizes, and controlled sweeps over batch size, sequence length, precision, parallelism, and checkpointing for fine-tuning, and it sweeps concurrency, GPU frequency, KV cache and weight quantization, prompt and output lengths, and request arrival patterns for inference. Built upon power traces, we define power-grid-facing metrics as well as AI-compute power\&amp;energy scaling law for extrapolating beyond the measured settings. Together, LLM-PowerTrace provides a dataset foundation for modeling, forecasting, and managing the fast-changing electrical behavior of AI compute.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38315v1</guid>
+      <category>eess.SY</category>
+      <category>cs.AI</category>
+      <category>cs.OS</category>
+      <category>cs.SY</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jiansheng Wang, Jaskeerat Singh, Haochen Xu, Xinyi Li, Mingyuan Yan, Shaohui Liu, Yuzhuo Li, Yize Chen, Wenqi Cui</dc:creator>
+    </item>
+    <item>
+      <title>FlatCake: A Flat KVCache Storage Architecture for LLM Serving</title>
+      <link>https://arxiv.org/abs/2610.38355</link>
+      <description>arXiv:2610.38355v1 Announce Type: cross 
+Abstract: KV cache reuse accelerates LLM serving, but existing systems manage host DRAM and NVMe SSD as a tiered hierarchy where DRAM acts as an intermediate cache. Production LLM workloads break both premises of this hierarchy. First, bimodal reuse defeats DRAM temporal filtering, since workloads are dominated either by one-shot blocks with long reuse distances or by multi-gigabyte agentic sessions that exceed DRAM capacity, putting SSD on the critical read path. Second, DRAM staging and eviction-ordered layout bottleneck SSD restoration. Holding host staging buffers for in-flight prefixes causes contention under load that aborts prefetches, while incremental eviction scatters a session's blocks across the SSD and prevents large sequential reads.
+  We present FlatCake, a flat KV storage architecture that exposes host DRAM and NVMe SSD as peer media in a unified 64-bit address space. Exploiting the fact that KV blocks are write-once, immutable, and reused at session scope, FlatCake places each block directly onto its target medium in session-contiguous, layer-major order at creation time and never migrates it. FlatCake streams coalesced SSD reads directly into a bounded GPU window via GPUDirect Storage and decouples DRAM and SSD request queues to prevent head-of-line blocking. On a production Claude Code trace with DeepSeek-V4-Flash, FlatCake sustains a 94% cache hit rate as load increases (versus 64% for Mooncake), eliminates Mooncake's $6.5\times$--$6.7\times$ SSD read amplification, and reduces peak-load mean TTFT by $1.6\times$ while improving total token throughput by $1.6\times$. Across 8K--128K contexts on Llama-3.1-70B, FlatCake further reduces mean TTFT by up to $2.4\times$ over Mooncake and $1.8\times$ over Mooncake-GDS.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38355v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Xin Huang, Teng Ma, Zhuoran Li, Yibo Zhao, Zhaoshi Li, Qianchao Zhu, Wei Yang, Chenxi Wang, Tao Xie, Youwei Zhuo</dc:creator>
+    </item>
+    <item>
+      <title>Tracekit Box: Running AI Agents in Micro-VMs Where Every Way Out Is Decided and Signed</title>
+      <link>https://arxiv.org/abs/2610.38458</link>
+      <description>arXiv:2610.38458v1 Announce Type: cross 
+Abstract: AI agents now install packages, call model APIs with their operators' keys and change code in repositories that deploy to production. The network, credentials and write access they need are also how they can leak data, steal a key or change a system nobody approved. Sandboxes contain an agent but leave little evidence of what crossed their boundary; tracing records what happened but contains nothing. We present Tracekit Box, an open-source system (MIT, v0) that does both. Each job runs in its own Firecracker micro-VM with no network card. The only ways out are doors on the host, served over vsock: commands, outbound connections, secrets, model calls and the workspace patch. At every door a Tracekit signer the agent cannot reach decides what passes and signs it into one run per box. Names are resolved on the host; private and cloud-metadata addresses are always refused; secrets never enter the VM, which sees placeholders the host proxy swaps for real values only in one header for bound hosts; and changes come back as a patch applied file by file after the signer decides each file. Box fails closed, and each job ends as a .tkb bundle anyone can verify offline. All 13 end-to-end checks pass on a real KVM runner (the test that runs them takes 28.5 s, including image pull and boot); 15 fuzz targets on the trust boundary produced nine findings, all fixed; and the demo run's 102 signed records verify. Box does not yet run Firecracker's jailer, needs a co-located signer, and records processes inside the VM only where they cross a door.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38458v1</guid>
+      <category>cs.CE</category>
+      <category>cs.AI</category>
+      <category>cs.CR</category>
+      <category>cs.OS</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Bravish Ghosh (Cygnux Labs)</dc:creator>
+    </item>
+    <item>
+      <title>PhOSv1: Efficient Scaling of Model Sleeping on a Single Server for Autoscaling with GPU-Context Deduplication</title>
+      <link>https://arxiv.org/abs/2610.39999</link>
+      <description>arXiv:2610.39999v1 Announce Type: cross 
+Abstract: Autoscaling is a key mechanism in model-as-a-service systems, where fast scale-up is essential because the scale-up time directly determines how long a model service remains overloaded, which in turn governs serving quality. The state-of-the-art approach, model sleeping, adopted by mainstream serving engines including vLLM and SGLang, achieves near-zero-cost scale-up by pausing pre-spawned engines on the GPU. However, sleeping is not a free lunch: each sleeping model must keep its GPU context resident, and this cost grows linearly with the number of models, degrading serving performance. Because providers must support many models, they face a dilemma between fast scale-up for all models and high service performance.
+  In this paper, we show that a single server can keep many models asleep without paying this GPU context tax. The key observation is that the contexts of sleeping models are largely duplicated: the driver (CUDA) context can be shared across models, and their GPU kernel binaries overlap heavily due to common operators and libraries. PhOSv1 deduplicates this context by transparently delegating each engine's GPU context allocation to a central daemon through API remoting; therefore, a single server can keep far more models asleep than current engines allow. Our evaluation shows that PhOSv1 matches the scale-up time of vanilla vLLM sleep mode while substantially reducing the GPU memory footprint, improving end-to-end multi-model serving performance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.39999v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0400</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Tianle Sun, Xingda Wei, Rong Chen</dc:creator>
+    </item>
+  </channel>
+</rss>
