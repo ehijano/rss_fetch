@@ -7,12 +7,181 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Nov 2026 05:00:05 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 08:51:15 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
     <skipDays>
       <day>Saturday</day>
       <day>Sunday</day>
     </skipDays>
+    <item>
+      <title>An Agentic OS Kernel for Flexible and Enhanced Semantics</title>
+      <link>https://arxiv.org/abs/2611.00002</link>
+      <description>arXiv:2611.00002v1 Announce Type: new 
+Abstract: Modern OS kernels expose general-purpose but rigid interfaces (e.g., syscalls) that are slow to evolve due to compatibility, performance, and security constraints, leaving apps to pay for mismatched semantics and legacy APIs. Existing kernel mechanism customization approaches (e.g., eBPF) improve flexibility but still face strict safety and performance restrictions and thus require substantial expertise. What's more, they targets customized kernel mechanisms rather than kernel abstractions.
+  This paper presents agentic kernel, a new architecture that decomposes monolithic syscall functions into fine-grained, composable kernel-native micro-syscalls, and then enables Large Language Models (LLMs) to orchestrate them dynamically. Agentic kernel introduces a new entry, isyscall (intent syscall), which lets apps submit high-level intents describing their requirements. Then the kernel leverages LLMs to resolve each intent into composition plan of micro-syscalls to satisfy the user's goal. LLMs can further optimize the plan continuously at kernel runtime. To eliminate LLM inference costs on the critical path, agentic kernel caches and reuses verified plans to bypass LLM entirely. Crucially, agentic kernel's safety guarantees are independent of LLM correctness: micro-syscalls follows syscall-level security mechanisms, ensuring OS safety under arbitrary combinations and orchestration.
+  We implement agentic kernel in Linux, called IntentOS, and evaluate it across four kernel versions and three application domains (about ten intents each). IntentOS outperforms baseline Linux in real-world applications, achieving up to 17.55% latency reduction for backend processes creation, 6.97% performance gain for multiple files operations, and 75.52% lower performance impact for frontend Nginx server during memory operations triggered by backend tasks.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.00002v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Haocheng Wang, Xinyue Sun, Hao Yi, Dong Du, Yubin Xia, Haibo Chen</dc:creator>
+    </item>
+    <item>
+      <title>TenonAgent: Virtualizing Execution Residency for Memory-Oversubscribed LLM Agents</title>
+      <link>https://arxiv.org/abs/2611.00051</link>
+      <description>arXiv:2611.00051v1 Announce Type: new 
+Abstract: LLM agents execute as long-lived, multi-stage workflows with substantial resource-demand variation across phases. Provisioning each agent or sandbox for its lifetime peak leads to low resource utilization, particularly for memory, whereas aggressive oversubscription risks memory contention, out-of-memory failures, and costly workflow retries. This tension limits the concurrency and efficiency of agent serving under constrained host memory.
+  We present TenonAgent, a runtime system that virtualizes sandbox residency by decoupling the logical agent's lifetime from its physical execution environment. To manage memory oversubscription, TenonAgent employs a dual-timescale control plane. At action boundaries, it combines predictive admission control with a fail-closed, restart-safe contract, dynamically materializing or dematerializing sandboxes based on global memory pressure. During active tool execution, a sched_ext-based kernel gate paces sandbox execution permissions to reduce unexpected concurrent memory growth. The gate provides feedback control over future execution opportunities.
+  Evaluations across diverse agentic workloads show that, under the tested workloads and parameter settings, TenonAgent substantially reduces observed OOM failures and achieves a 100% task success rate in bursts reaching an 8.6x memory oversubscription ratio. Overall, it delivers up to a 5.5x speedup over unmanaged execution, outperforms existing agent-level and cgroup-based schedulers by 5x to 37x, and provides consistent benefits across both Docker and Firecracker microVM backends.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.00051v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yifan Zhang, Xinkui Zhao, Ruixin Huang, Lezhuo Xuan, Dianyu Wang, Siying Sun, Xiaoyi Li, Hengxuan Lou, Guanjie Cheng, Naibo Wang, Chang Liu</dc:creator>
+    </item>
+    <item>
+      <title>Memorix: Managing Memory Selections for AI Agents</title>
+      <link>https://arxiv.org/abs/2611.00060</link>
+      <description>arXiv:2611.00060v1 Announce Type: new 
+Abstract: AI agents now handle a growing share of tasks across sessions within a persistent project. Their behavior depends not only on the model, but heavily on the persistent state they read from the environment. Existing systems assemble this memory at use time, splicing selected files into the prompt as a one-off payload. As a result, per-task assembly is costly and can still miss critical material, failures cannot be traced or replayed, and agents can read documentation written for the wrong version. Our key insight is that what an agent should read is mostly determined by its project, so the selection can be computed once, ahead of time, and reused across tasks.
+  We propose Memorix, an agent memory system that realizes this insight. Memorix achieves this via three key mechanisms: (1) an immutable and versioned Store pins every source by identity and reproduces historical layouts cheaply, (2) a View that splits selection (Derivations) from composition (Environment), making the result reproducible and shareable, and (3) Quests and Profiles keep a delivered view refreshable and available inside the project as sources evolve. We implement Memorix and evaluate it on SWE-ContextBench and LibEvolutionEval against mainstream agent memory systems. Precomputed Environments raise resolved rate by up to 1.5X and deliver the correct library version on every version-conditioned task, while cutting amortized cost by up to 100X and build time by up to 38X.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.00060v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jing Zhang, Xiaguannan Song, Dong Du, Erhu Feng, Yubin Xia</dc:creator>
+    </item>
+    <item>
+      <title>Beyond Source Compatibility: WebAssembly as a Stable ABI for ARINC 653 Applications</title>
+      <link>https://arxiv.org/abs/2611.00891</link>
+      <description>arXiv:2611.00891v1 Announce Type: new 
+Abstract: Thirty years ago, ARINC 653 was introduced to provide a vendor-independent platform for software applications in Integrated Modular Avionics (IMA). A platform is characterized by a well-defined interface abstracting over implementation details; in the case of ARINC 653 this is an Application Programming Interface (API), defined on the source-code level. However, several aspects of this API - such as the memory layout and partially also the integer bit width of data types - remain implementation dependent, so portability across Operating Systems (OSs) requires recompilation, and often also source code adaptation. Our contribution is three-fold; first, we refine the ARINC 653 header file, eliminating remaining ambiguities. Second, building on WebAssembly (Wasm), we define an OS- and processor-architecture-agnostic Application Binary Interface (ABI) at the object-code level, resolving differences in data layout, endianness, and function-pointer representation between host and guest environments. Third, we demonstrate a Wasm-VM-agnostic shim-library that executes ARINC 653 partitions, compiled to Wasm bytecode and following our ABI, on multiple processor architectures using two independent Wasm runtimes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.00891v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Wanja Zaeske, Patrick Siegl, Florian Hartung, Fabian Bauriedl, Nicolaus B\"ar, Umut Durak</dc:creator>
+    </item>
+    <item>
+      <title>RTP-LLM: Building an Evolvable and Reliable LLM Inference Engine at Alibaba Scale</title>
+      <link>https://arxiv.org/abs/2611.00967</link>
+      <description>arXiv:2611.00967v1 Announce Type: new 
+Abstract: Large language models and inference techniques evolve rapidly, making model enablement a recurring production task rather than a one-time integration effort. At Alibaba, a shared inference infrastructure must keep pace with new models and serving capabilities while remaining reliable across heterogeneous production environments. To reconcile rapid evolution with production reliability, we present RTP-LLM, an open-source production inference engine developed and deployed at Alibaba. Its architecture separates model-specific execution from shared request processing, state management, and resource coordination. Explicit interfaces localize compatible model changes while allowing models and deployment configurations to reuse common serving mechanisms. RTP-LLM has evolved from an exploratory system into a shared production engine that supports $\sim$100 models and processes hundreds of trillions of tokens per day. We describe how its architecture and production practices accommodate model evolution and contain the impact of failures, and share lessons for building evolvable and reliable inference engines at enterprise scale.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.00967v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jiarui Guo, Zhi Zhang, Boyu Tan, Zongwei Lv, Haobo Sun, Na He, Ziqing Wang, Xinfei Shi, Wei Zhang, Xi Yang, Haosheng Hu, Wending Bao, Zetao Hu, Dong Cao, Yong Li, Lining Wang, Chengjun Yang, Tianpeng Wang, Huanbing Lu, Yidan Wang, Hengyi Bao, Yaxin Yu, Hanyun Guo, Huidong Zhang, Haiyu Zhou, Zefeng Liu, Weixiang Huang, Ziyi Wang, Chenyi Song, Ruixuan Zhang, Zhengkai Ao, Haocheng Luo, Zhichen Xue, Jialin Zhang, Chi Zhang, Lingjun Zhu, Silu Zhou, Zongyuan Wu, Yinghao Yu, Yi Zheng, Miao Sun, Yuxing Yuan, Juncheng Yin, Guoding Li, Nan Wang, Xiyu Wang, Lin Yang, Zechao Zhang, Jianning Zhang, Bo Cai, Xiaolin Wang, Tao Lan, Tong Yang, Kan Liu, Lu Chen</dc:creator>
+    </item>
+    <item>
+      <title>High-Throughput Private Information Retrieval with on-CPU Accelerators</title>
+      <link>https://arxiv.org/abs/2611.02376</link>
+      <description>arXiv:2611.02376v1 Announce Type: new 
+Abstract: Private information retrieval (PIR) hides which record a client retrieves by scanning the entire database, and batching is an effective technique to improve throughput by sharing this scan across queries. However, existing CPU-based solutions gain little from batching because each query still requires its own multiplications, and vector instructions perform only a few at a time. GPUs and other discrete accelerators can accelerate these computations, but require extra hardware and can constrain database size due to their limited memory capacity. In this paper, we present AltoPIR, the first PIR system that leverages on-CPU matrix accelerators such as Intel AMX. AltoPIR keeps the accelerator fed from the CPU caches, reading each database byte from memory once for all queries in a batch and never writing intermediate products to memory. This enables high-performance PIR through efficient batching without requiring discrete accelerators. Our evaluation shows that AltoPIR achieves up to 50.1x higher throughput than existing CPU-based solutions and serves databases larger than a GPU's memory.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.02376v1</guid>
+      <category>cs.OS</category>
+      <category>cs.CR</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Gyuyeong Kim</dc:creator>
+    </item>
+    <item>
+      <title>BitLLM: Efficient Low-Bit, Conversion-Hiding LLM Decoding on Mobile GPUs</title>
+      <link>https://arxiv.org/abs/2611.00547</link>
+      <description>arXiv:2611.00547v1 Announce Type: cross 
+Abstract: The rapid scaling of large language models (LLMs) has unlocked remarkable capabilities across various domains. However, deploying LLMs on mobile devices remains challenging because of their high computational and memory requirements. Low-bit quantization (e.g., 4-bit weights, 8-bit activations) can reduce model size while preserving accuracy, but its practical efficacy on mobile GPUs has been limited so far. In this paper, we identify that the performance gap stems primarily from frequent data type conversions between quantized and floating-point values, and dynamic and inefficient memory access patterns caused by the growing Key-Value (KV) cache during autoregressive decoding. We introduce BitLLM, a mobile inference engine that addresses type conversion overhead and suboptimal memory accesses in quantized LLMs. Our approach features an adaptive layout and packing strategy for the KV cache that ensures efficient memory access throughout LLM decoding. This is coupled with an integer-native execution pipeline that defers and overlaps type conversion outside the compute hot path, keeping the critical MatMul stages in the integer domain. Implemented on off-the-shelf mobile GPUs, BitLLM outperforms leading engines, i.e., LLAMA.CPP, MNN-LLM, LiteRT-LM, and MLC-LLM, achieving average speedups of 1.78$\times$, 1.73$\times$, 1.58$\times$, and 1.47$\times$, respectively, across various models and quantization levels. Under long-context generation, BitLLM reduces average energy consumption (per token) by up to 88.9%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.00547v1</guid>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <category>cs.OS</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1145/3845814.3850028</arxiv:DOI>
+      <dc:creator>Hangyu Zheng, Zhihao Shu, Kunxiong Zhu, Minghai Qin, Xiaolong Ma, Gagan Agrawal, Wei Niu</dc:creator>
+    </item>
+    <item>
+      <title>Ripple: Deadline-Aware CPU-GPU Sharing for Embodied Inference</title>
+      <link>https://arxiv.org/abs/2611.01067</link>
+      <description>arXiv:2611.01067v1 Announce Type: cross 
+Abstract: Unified-memory edge devices increasingly run LLM/VLM inference alongside time-critical CPU tasks for perception and control. GPU memory traffic can overwhelm these tasks, yet platforms such as DGX Spark expose neither bandwidth counters nor direct bandwidth regulation. We present Ripple, a CPU-GPU co-scheduler that combines model-derived GPU memory volumes with CPU completion feedback to regulate interference. Ripple divides inference into pausable, layer-based units and translates each CPU job's deadline slack into a GPU-byte budget, admitting work within the budgets of all overlapping jobs. Online updates track changing interference, while deadline-aware pacing and judicious SM footprint narrowing preserve inference progress. Implemented with SGLang engine hooks and a central scheduler, we evaluate Ripple on DGX Spark with four robotic CPU task mixes and LLM/VLM inference. It is the only evaluated approach that consistently meets the 2% CPU deadline-miss target and VLM deadlines across the tested deadline settings while retaining best-effort LLM throughput.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.01067v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.OS</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jiadong Zhang, Xiaosong Ma</dc:creator>
+    </item>
+    <item>
+      <title>When Benign Is Unverified: Label-Signal Mismatch and Abstention-First Triage in Graph-Based Memory Forensics</title>
+      <link>https://arxiv.org/abs/2611.01225</link>
+      <description>arXiv:2611.01225v1 Announce Type: cross 
+Abstract: Machine-learning triage for memory forensics is usually validated on corpora whose benign class is asserted by provenance and never verified. We report a validation study of a graph-based triage pipeline for Windows memory images: Volatility 3 output is compiled into typed heterogeneous graphs and scored by a temperature-scaled GINE classifier and two one-class encoders, fused with rule risk under an abstention gate. On MalVol-25 a transparent rule layer contradicts the benign label on every control (15/15 and 18/18 flagged; at least 11 of 15 paired controls rated HIGH or CRITICAL), and mean injection and command-and-control counts run higher on controls than on infected captures. We call this rule-label discordance label-signal mismatch; it shows the benign class is unverified, not compromised. Leave-one-family-out AUROC over matched pairs is provably three-valued, so a reported mean and standard deviation identify the fold composition. The learned model (0.786 +- 0.311; 9/4/1, scored in-sample by a frozen checkpoint) equals a logistic model over rule-derived attributes (0.786 +- 0.410; 11/0/3) in mean only, and its significance rests on dropping four saturated ties. The fusion path sends 97.7% of snapshots to analyst review, 95.3% with every gate disabled. Two public feature-level corpora show the same defect: on CIC-MalMem-2022 every benign row carries injected regions and one host-population feature reaches AUROC 0.997 under leave-one-family-out validation; on the Sihwail et al. (2021) sample the injection indicator fires on 53% of benign rows. We close with seven reporting artefacts for learned triage on corpora whose ground truth is asserted.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.01225v1</guid>
+      <category>cs.CR</category>
+      <category>cs.OS</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Viraj Rajeshbhai Chudasama, Eduardo Palmieri, Dipo Dunsin, Aisha Junejo, Mohamed Chahine Ghanem</dc:creator>
+    </item>
+    <item>
+      <title>DIMWIT: Directly Invoking Models Without Intensive Tuning</title>
+      <link>https://arxiv.org/abs/2611.01463</link>
+      <description>arXiv:2611.01463v1 Announce Type: cross 
+Abstract: Resource managers typically encode what to do in a task-specific policy---a heuristic, an optimization procedure, or a model trained for the task---that must be developed before use and may need revision as the workload or system changes. We propose bypassing policy development and instead asking pretrained models to make resource-management decisions directly, given the current system state, desired outcome, and available choices. We evaluate this approach on microservice autoscaling, DRAM sizing, and video encoding, using a frontier LLM and two small decision models. On two microservice applications, a small decision model meets latency targets while using within 10% of the replicas allocated by policy-based autoscalers and within 13% of the frontier LLM. In DRAM sizing, a small decision model reduces DRAM usage by up to 27.5% relative to static provisioning while maintaining at least 95% of baseline performance. In video encoding, it completes encodes up to 4.3$\times$ faster than the frontier LLM, with an imperceptible 1.1-point decrease in Video Multi-Method Assessment Fusion (VMAF), a metric of perceptual video quality. Making individual resource-management decisions may be considerably simpler than developing a general strategy for making them.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.01463v1</guid>
+      <category>cs.PF</category>
+      <category>cs.AI</category>
+      <category>cs.CV</category>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Saarth Deshpande, Neeraja J. Yadwadkar, Venkat Arun</dc:creator>
+    </item>
+    <item>
+      <title>QFabric: Guarded Cross-Domain Task Recovery and Its Limits on a Linux-RTOS Board</title>
+      <link>https://arxiv.org/abs/2611.01598</link>
+      <description>arXiv:2611.01598v1 Announce Type: cross 
+Abstract: Heterogeneous embedded boards pair a Linux application processor with a real-time microcontroller (MCU), which suggests moving a task between the two domains when its timing degrades. We present QFabric, a prototype that treats cross-domain placement as guarded recovery from a violated empirical soft real-time contract: a bounded task is compiled for both domains, monitored in windows with hysteresis, switched only after semantic and capacity admission at a quiescent epoch boundary, and committed or rolled back after probation. On an Arduino UNO Q (Cortex-A53 Linux and a Cortex-M33 running Zephyr), we characterize the stock Bridge RPC interconnect and measure five workloads in both domains under idle, CPU-load, and higher-priority SCHED_FIFO contention, with ordinary and real-time callers. Each MCU invocation costs about 19 ms of dispatch regardless of compute, the MCU runs the heaviest kernel 34x slower, and because every call traverses Linux userspace, Linux contention inflates the MCU path far more than the Linux path (p99 up to 400 ms versus 17.0 ms). Across 30 cells of a four-node chain, Linux meets every contract within 0.8% misses and QFabric correctly never migrates; a controller without hysteresis migrates in 7 cells, raising p95 by up to 177x, and probation rolls back 5 of those moves. On Linux-dispatched heterogeneous boards, migration therefore cannot isolate a task from Linux interference, and recovery guards matter chiefly by preventing harmful moves. This paper supersedes an earlier artifact release whose reported improvement arose from measurement defects that we identify. All source, raw traces, and generators are public.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.01598v1</guid>
+      <category>cs.AR</category>
+      <category>cs.OS</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ayushman Bhattacharya, Anwesha Chakraborty</dc:creator>
+    </item>
+    <item>
+      <title>GearUp: DAG-aware Acceleration for Serverless Inference Serving via Slack-guided Pre-loading</title>
+      <link>https://arxiv.org/abs/2610.38196</link>
+      <description>arXiv:2610.38196v2 Announce Type: replace-cross 
+Abstract: Serverless platforms increasingly host machine learning (ML) inference workflows, modeled as directed acyclic graphs (DAGs) of interdependent functions. Beyond container startup, each ML node must load libraries, model weights, and CUDA kernels before it can run. These costs accumulate along dependent DAG paths and place initialization on the end-to-end critical path. Existing systems optimize one half of this problem. DAG-agnostic pre-loading prepares nodes the request may never reach, wasting host and GPU memory. DAG-aware serving routes and scales whole functions, leaving the loading stages inside a node untouched. This paper presents GearUp, a serverless DAG inference serving system that removes ML-node loading from the end-to-end critical path at low resource cost. GearUp profiles the loading stages of each node and schedules them inside the slack time the DAG exposes, hiding initialization behind upstream execution. It reuses initialized instances within and across requests to avoid redundant cold starts. A probabilistic, traffic-adaptive keep-alive policy sets how long idle instances are retained, balancing memory cost against cold-start risk under bursty load. On the AMBER Alert and FINRA-ML workflows with NVIDIA L40S GPUs, GearUp reduces median end-to-end latency by 64.5% and 75.9% against SMIless, for median speedups of 3.1x and 10.0x over cold execution. Integrated GPU and host memory allocation fall by up to 83.9% and 94.6% against eager pre-loading in InstaInfer. GearUp achieves 4.2x strong scaling on four workers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.38196v2</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.OS</category>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Qi Qi, Yifan Sui, Hanfei Yu, Hong Zhang, Hao Wang</dc:creator>
+    </item>
   </channel>
 </rss>
