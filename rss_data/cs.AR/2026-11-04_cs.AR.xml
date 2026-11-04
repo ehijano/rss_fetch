@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.AR updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.AR</link>
+    <description>cs.AR updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.AR" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Nov 2026 05:10:59 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Saturday</day>
+      <day>Sunday</day>
+    </skipDays>
+    <item>
+      <title>HyPAIC: Personal AI Computer with High Bandwidth Flash for High Performance Trillion-Parameter LLM Inference</title>
+      <link>https://arxiv.org/abs/2611.04144</link>
+      <description>arXiv:2611.04144v1 Announce Type: new 
+Abstract: LLMs have rapidly expanded from simple chatbots to agentic AI, where models directly use tools to solve complex problems. To improve problem solving, most frontier LLMs adopt an MoE architecture, pushing model sizes into the trillion-parameter regime. While cloud services have dominated large-scale LLM inference, cost and security concerns drive demand for on-premises deployment. Thus, GPU manufacturers have introduced personal AI computers (PAICs). However, existing PAICs with LPDDR-based unified main memory suffer from severe capacity limitations, restricting hostable LLM size on a single device. If most memory holds model weights, little remains for the KV cache, reducing supported context length. In this paper, we propose HyPAIC, a PAIC architecture incorporating HBF to overcome these memory constraints. HyPAIC stores read-only model weights in HBF and mutable runtime data in LPDDR. HBF offers over 10x the capacity of HBM with comparable TB/s-scale bandwidth. HyPAIC addresses HBF's access latency, limited write endurance, and page-level access granularity through prefetching, read-only weight placement, and coarse-grained weight accesses, respectively; power and cooling remain significant implementation challenges. Through simulation-based evaluation, we show that a single HyPAIC improves end-to-end system throughput by up to 1.04x and TDP-normalized throughput by up to 3.59x during 1T-parameter MoE inference versus the aggregate of eight baseline systems without HBF, one HyPAIC thus approaches the raw performance of eight baselines with far superior power efficiency. For small model inference, HyPAIC increases the maximum number of concurrent tasks sustaining at least 50 decode TPS per task by up to 4x, enhancing user experience and productivity. Although HBF specifications are still evolving, this study demonstrates strong architectural synergy between HBF and PAICs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.04144v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Minho Ha, Myunghyun Rhee, Euiseok Kim, Hoshik Kim</dc:creator>
+    </item>
+    <item>
+      <title>GSPIM: A Temporal-Locality-Aware 4DGS Accelerator for PIM-Enabled Edge Devices</title>
+      <link>https://arxiv.org/abs/2611.04804</link>
+      <description>arXiv:2611.04804v1 Announce Type: new 
+Abstract: 4D Gaussian Splatting (4DGS) enables high-quality real-time novel-view synthesis for dynamic scenes, supporting free-viewpoint video, mobile XR, and autonomous systems at the edge. Methods using explicit 4D distributions, keyframe interpolation, or anchor binding share two GPU data-movement bottlenecks. Temporal filtering follows model record loading, wasting LPDDR5 bandwidth on inactive data. Frame-isolated execution also overlooks highly overlapping active sets and depth relationships across adjacent frames, reloading shared attributes when working sets exceed on-chip cache capacity. To address these bottlenecks, we present GSPIM, a temporal-locality-aware 4DGS accelerator for PIM-enabled edge devices. Polymorphic PIM adapts a shared near-memory datapath to representation-specific field layouts and selection procedures. It filters and compacts valid data into contiguous inputs before the GPU accesses complete attributes, reducing ineffective transfers. Multi-Frame Rendering Dataflow reuses active attributes and stable depth relationships within a temporal window, reducing repeated work across frames. Hybrid Dataflow Scheduling overlaps near-memory data preparation with GPU rendering to reduce waiting. Evaluation combines a GPU-PIM model calibrated to Jetson AGX Orin 64 GB with a 1z DRAM physical implementation of the added circuits. Across three 4DGS methods and six dynamic scenes, GSPIM achieves a 4.15x geometric-mean speedup and a 4.99x geometric-mean energy-efficiency improvement over a fully optimized frame-by-frame GPU baseline. The maximum scene-level PSNR difference is 0.011 dB, and the added physical footprint is 18.7172 square millimeters across 32 LPDDR5 dies.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.04804v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zirui Ma, Zhihua Fan, Haibin Wu, Dongrui Fan, Xiaochun Ye, Wenming Li</dc:creator>
+    </item>
+    <item>
+      <title>GC-MoE: Overlapping Expert-Parallel Token Dispatch with FP8/FP4 Grouped GEMM via CUDA Green Contexts</title>
+      <link>https://arxiv.org/abs/2611.04222</link>
+      <description>arXiv:2611.04222v1 Announce Type: cross 
+Abstract: Under expert parallelism, mixture-of-experts (MoE) layers pay all-to-all token dispatch, grouped GEMMs, and a combine step in every layer. In decode each rank holds only 1-256 tokens: dispatch latency and weight traffic dominate while tensor-core utilization is inherently low. In fused operators such as DeepGEMM's Mega MoE, dispatch and computation overlap only by sharing every SM: dispatch warps compete with TMA/MMA and epilogue warps for registers, shared memory, and issue slots; every phase shares one CTA resource budget, synchronization spans the whole SM array, and every replay ends with a workspace-clean pass and a cross-rank barrier. We present GC-MoE, an open-source FP8/FP4 MoE inference operator for NVIDIA Hopper and Blackwell GPUs that uses CUDA Green Contexts to split the device into a small communication partition and a large compute partition. Each role gets its own kernel, resource budget, and synchronization domain, so dispatch and GEMM tune independently. A three-node CUDA Graph (four on Hopper with fused shared experts) launches the dispatch and grouped-GEMM kernels as concurrent roots; a token-ring handshake starts computation on the first filled ring blocks, and double-buffered receive counters remove the trailing cross-rank barrier between replays. The compute partition runs operand-swapped tcgen05 block-scaled MMA on Blackwell and register-A WGMMA with in-register FP4 decoding on Hopper, with fused SwiGLU, requantization, and optional shared experts. On 8 H20 GPUs GC-MoE accelerates DeepSeek-V4.1-Flash decode by 1.188x on average on both the routed and shared-expert suites (peaks 1.296x and 1.353x); on 8 B300 GPUs it accelerates GLM-5.2 and DeepSeek-V4.1-Flash by 1.106x (1.123x with fused shared experts, peak 1.209x), beating Mega MoE at all 54 measured points at matched accuracy. GC-MoE reserves only 20 of 148 SMs on B300 for dispatch.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.04222v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yong Li, Kan Liu, Tao Lan</dc:creator>
+    </item>
+    <item>
+      <title>UMLoad: Fast On-Demand Model Loading on Unified Memory Architecture</title>
+      <link>https://arxiv.org/abs/2611.04253</link>
+      <description>arXiv:2611.04253v1 Announce Type: cross 
+Abstract: On-demand model loading dominates response latency for interactive on-device AI, yet unified memory architectures (UMAs), now common on edge devices, should make it cheap by placing weights in memory the GPU already sees. However, frameworks still use the loading flow built for discrete GPUs, leaving significant inefficiencies. This paper presents UMLoad, a system-level model-loading accelerator that decouples a framework's logical allocations from their physical page backing. UMLoad uses on-demand reconstruction to eliminate the weight copy while preserving copy independence, and GPU-assisted page zeroing to accelerate runtime allocation while preserving its security guarantee. Implemented on Intel, AMD, and NVIDIA UMA platforms and evaluated with llama.cpp, PyTorch, and vLLM across six models, UMLoad reduces average loading time by 36.6%-71.9% over vanilla and 19.9%-62.7% over pipelined loaders, and cuts mean LLM-routing time to first token (TTFT) by 51.3%-59.3% and model-backed tool completion latency by 10.2%-31.6%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.04253v1</guid>
+      <category>cs.OS</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zimeng Wang, Jinrong Yang, Rong Chen</dc:creator>
+    </item>
+    <item>
+      <title>Deep Learning Compilers: Architecture, Optimization, and Empirical Characterization</title>
+      <link>https://arxiv.org/abs/2611.04273</link>
+      <description>arXiv:2611.04273v1 Announce Type: cross 
+Abstract: As deep learning (DL) models become increasingly complex and hardware architectures grow more heterogeneous, DL compilers play a critical role in optimizing computational efficiency and enabling scalable deployment. This paper presents a systematic analysis of DL compilers, covering their architectural evolution, compilation workflows, optimization techniques, and emerging research directions. We organize DL compiler architectures into frontend, middle-end, and backend stages, emphasizing the role of the middle-end in connecting high-level model representations with hardware-specific optimizations. We further examine representative DL compilers and recent optimization techniques across different compilation stages. Beyond architectural and technical analysis, we conduct an empirical evaluation of compiler behaviors to investigate the effectiveness of graph optimization, compilation overhead, and dynamic-shape handling. Experiments using PyTorch/TorchInductor on an NVIDIA RTX A6000 demonstrate that compiler benefits depend strongly on workload characteristics, with speedups of up to 8.21\times for fusion-friendly computation graphs, while other workloads exhibit limited improvements. Our results further reveal that compilation overhead can require thousands of executions to amortize, and dynamic-shape compilation reduces cumulative shape-transition costs by approximately 70\% at the expense of modest steady-state performance degradation. By combining systematic architectural analysis with quantitative experimental evidence, this work provides insights into the design, optimization, and practical deployment of modern DL compilers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.04273v1</guid>
+      <category>cs.LG</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jinghao Wen, Ruixuan Wang, Xun Jiao</dc:creator>
+    </item>
+    <item>
+      <title>A RISC-V Simulator for the Tenstorrent Tensix Architecture</title>
+      <link>https://arxiv.org/abs/2611.04740</link>
+      <description>arXiv:2611.04740v1 Announce Type: cross 
+Abstract: RISC-V based AI accelerators have become popular and not only for AI and ML, but also as vehicles for exploring HPC workloads more generally. Tenstorrent are one example, and whilst they document their Tensix architecture in detail and develop their software stack openly, running code has historically required a physical card, and their recently released simulator targets hardware equivalence rather than introspection. In this paper we present Wolfpine, a community developed RISC-V simulator for the Tensix architecture, supporting both the Wormhole and Blackhole generations and integrating seamlessly with the TT-Metal software stack.
+  Constructed entirely from publicly available documentation, open source software and measurements on physical hardware, Wolfpine is written in pure Python for readability and ease of modification. An opt-in, provenance-tracked cost model adds timing fidelity incrementally, and typed event streams, per-component tracing and timeline export enable programmers to identify and diagnose performance bottlenecks that the hardware itself hides.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.04740v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Nick Brown, Daniyal Arshad</dc:creator>
+    </item>
+    <item>
+      <title>Workload-Static Optical Circuit Switching For Scalable LLM Inference Decode</title>
+      <link>https://arxiv.org/abs/2611.05104</link>
+      <description>arXiv:2611.05104v1 Announce Type: cross 
+Abstract: LLM inference decode executes fine-grained collectives whose latency directly limits per-user interactivity, yet scale-up fabrics are still built from electronic packet switches designed for training. We observe that, for a given model deployment and parallelization, the communication structure of decode is fixed, and propose workload-static optical circuit switching (OCS): circuits are configured once per deployment, co-designed with model parallelism and with topology-aware collective schedules that turn spare accelerator ports into fewer communication phases or higher bandwidth. We evaluate this design with GXNET, a graph-based workload emulator coupled to analytical and flit-level network models grounded in hardware measurements. In a 576-accelerator scale-up domain serving 5T-parameter MoE models with up to 5M tokens of context, all-OCS fabrics improve interactivity by up to 65% and energy efficiency by up to 119% over 4:1 oversubscribed packet-switched fabrics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.05104v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <category>cs.NI</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Maximilian Th\"urmer, Nicolas Scotto di Perto, Eloise Stein, Natanijel Vasic, Mikaeil Bagherli, Zhenguo Wu, Benjamin Klenk, Holger Fr\"oning, Johannes Feldmann</dc:creator>
+    </item>
+    <item>
+      <title>DynaMite: Dynamic Measurement Scheduling To Accelerate Fault-Tolerant Quantum Programs</title>
+      <link>https://arxiv.org/abs/2611.05233</link>
+      <description>arXiv:2611.05233v1 Announce Type: cross 
+Abstract: Fault-tolerant quantum computers run millions of logical cycles to perform quantum error correction (QEC). As logical operations span entire logical cycles, the logical cycle time (LCT) dictates program runtime. Qubit measurements, critical to extract parity information for QEC, are the slowest operations and account for 43-86% of LCT. Measurement latencies impact fidelity: fast measurements lower our ability to correctly classify quantum states, whereas slow measurements increase the likelihood of decoherence. Hardware providers thus calibrate measurement latencies that maximize readout fidelity per qubit and use them to schedule all measurements during program execution. However, calibrated latencies are sub-optimal for logical performance because logical cycles span multiple QEC rounds, during which data qubits are not measured. This increases LCT and logical error rates (LERs) due to decoherence at the logical level.
+  We propose DynaMite, a lightweight real-time measurement latency selection policy built on two key insights. First, logical cycles must use a measurement latency that is fast enough to reduce both LCT and LER for the QEC code, instead of the calibrated latency that only maximizes readout fidelity. Second, not all logical cycles are equal; many do not fully utilize the error budget of the QEC code, i.e., the number of failed parity checks it can tolerate without compromising LER. These cycles could use even faster measurements but do not, because latencies are chosen statically, whereas error information is only available at runtime. DynaMite exploits the fact that a logical cycle comprises multiple QEC rounds and selects the fastest latency for an upcoming round based on the error budget left and rounds remaining. Our evaluations show that DynaMite reduces LCT by 1.69x on average and up to 2.29x, and reduces LER to 0.46x on average and up to 0.13x of baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.05233v1</guid>
+      <category>quant-ph</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Dongwhee Kim, Suhas Vittal, Poulami Das</dc:creator>
+    </item>
+    <item>
+      <title>Sustainable operation of research infrastructure for novel computing</title>
+      <link>https://arxiv.org/abs/2506.23901</link>
+      <description>arXiv:2506.23901v3 Announce Type: replace 
+Abstract: Novel compute systems are an emerging research topic, aiming towards building next-generation compute platforms. For these systems to thrive, they need to be provided as research infrastructure to allow acceptance and usage by a large community. By the example of the neuromorphic BrainScaleS-2 system, we showcase the transformation from a laboratory setup to a publicly available research platform. It is embedded into a purpose-built institute, tightly coupling a conventional cluster with novel compute hardware. Our key contribution is the sustainable operation of such a research system: automation, integration, and resource separation enable maintainability, stable operation, and continuity in a fluctuating academic environment. We implement these concepts by adopting established best practices, such as network infrastructure with strong resource separation, 19-inch rack units, the integration of physical and simulated hardware into CI/CD processes, and system monitoring. We evaluate six years of platform operation comprising 3718 production deployments and an average of 198 hardware CI/CD runs per day, with the integration of simulated and physical hardware increasing the full-stack software line coverage from 57% to 79%. We conclude with an explicit collection of lessons learned during the transformation from single-user laboratory setups to a publicly accessible research platform that, since 2023, has served more than 520 individual researchers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2506.23901v3</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yannik Stradmann, Joscha Ilmberger, Eric M\"uller, Johannes Schemmel</dc:creator>
+    </item>
+    <item>
+      <title>PIMCQG: Co-Designing Billion-Scale Graph-Based Approximate Nearest Neighbor Search for Processing-in-Memory</title>
+      <link>https://arxiv.org/abs/2605.25522</link>
+      <description>arXiv:2605.25522v2 Announce Type: replace 
+Abstract: Graph-based Approximate Nearest Neighbor Search (ANNS) has emerged as the dominant approach for large-scale AI applications, offering superior accuracy-efficiency trade-offs over alternative methods. However, graph-based ANNS is inherently memory-bound due to frequent and irregular graph traversal. This constrains CPU throughput due to limited memory bandwidth, while GPUs lack sufficient HBM capacity for billion-scale indexes. Processing-in-Memory (PIM) offers massive internal bandwidth by co-locating computation with data, making it a natural fit for irregular, memory-bound workloads. However, directly mapping graph-based ANNS onto PIM exposes severe algorithm-architecture mismatches: restricted per-PU local memory, costly inter-PU communication, heavy coordination overhead, and weak compute capability, forcing existing PIM-based ANNS to rely on cluster-based algorithms that plateau at low recall. We propose PIMCQG, an algorithm-hardware co-design framework through three optimizations: (1) a compact index reducing PIM-resident footprint by 14.5x; (2) an asynchronous pipelined scheduler fully utilizing host-PIM bandwidth; and (3) a multiplication-free distance kernel with less than 0.08% recall loss. Evaluations on three billion-scale datasets show up to 20x/17.1x throughput over CPU/GPU baselines, 129x over prior PIM accelerators at high recall, and scale well across multi-node and emerging PIM architectures.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.25522v2</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Sitian Chen, Yusen Li, Yao Chen, Minwen Deng, Jintao Meng, Amelie Chi Zhou</dc:creator>
+    </item>
+    <item>
+      <title>Dual-Node NVIDIA DGX Spark over Tailscale: A Remote-Access Testbed for Distributed LLM Training and Cyber-Threat-Intelligence Fine-Tuning</title>
+      <link>https://arxiv.org/abs/2608.07226</link>
+      <description>arXiv:2608.07226v2 Announce Type: replace 
+Abstract: Practical evidence for multi-node training on desktop-class accelerators remains limited. This report presents a proof-of-concept deployment of distributed NanoChat pretraining across two NVIDIA DGX Spark systems, each with a GB10 Grace Blackwell system-on-chip and 128 GB of unified memory, administered remotely over a Tailscale mesh VPN and connected for training by a dedicated 200 Gb/s QSFP56 direct fiber link. PyTorch torchrun, DDP, and NCCL were configured with one process per node, a depth-20 NanoChat model, a device batch of 32 sequences per node, a 2,048-token context, and eight gradient-accumulation steps, giving 1,048,576 tokens per optimizer step for the 896.5-million-parameter model. The run took 4,980 steps over about four days, averaging 63.4 s of measured training time per step (about 16,540 tokens/s) and processing about 5.22 billion tokens. We document link configuration, container setup, interface binding, a step-zero evaluation bug that triggered NCCL timeouts, checkpointing, and troubleshooting lessons. We also built a cybersecurity fine-tuning dataset from 77 CISA advisories (338 training, 37 validation conversations) and compared a baseline SFT checkpoint against a CTI-augmented checkpoint on 17 held-out prompts with an Ollama-hosted LLM judge: CTI-specific categories improved while general-knowledge categories regressed, for a small overall change from 2.06 to 2.29 on a 0-10 scale. Version 2 adds a stage-2 fine-tune with a MITRE ATT&amp;CK technique dictionary under a deterministic evaluation: in-dictionary ID-to-name lookup reaches 98.5%, yet none of 50 held-out IDs is named correctly, knowledge of held-out threat groups, software, campaigns, and vulnerabilities stays near zero, and general ability drops measurably. The study establishes feasibility rather than a scaling-efficiency claim.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.07226v2</guid>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vasanth Iyer</dc:creator>
+    </item>
+    <item>
+      <title>TEMPO: A Tag-Based Framework for Efficient Memory Ordering</title>
+      <link>https://arxiv.org/abs/2609.22743</link>
+      <description>arXiv:2609.22743v4 Announce Type: replace 
+Abstract: Weak-memory processors rely on ordering instructions for correctness, yet conventional implementations often enforce them more conservatively than the memory model requires. This over-enforcement manifests as drain-induced retirement stalls at ordering instructions and conservative squash/replay of speculative loads, suppressing legal executions and reducing throughput. We present TEMPO, a tag-based framework for precise micro-architectural implementation of ordering instructions. TEMPO assigns lightweight ordering tags to instructions and decomposes enforcement across retirement-time predicates and completion-time store ordering, allowing the core to enforce required ordering without conservative retirement serialization. TEMPO eliminates unnecessary retirement serialization at ordering instructions and speculative-load squash/replay. In our evaluation, TEMPO reduces geometric-mean normalized execution cycles by 7.9% on native four-thread workloads and improves geometric-mean IPC by 15.9% on an instrumented SPEC2017 dynamic binary translation (DBT) proxy for cross- ISA execution (e.g., x86-on-Arm), while adding only 262 bytes per core.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2609.22743v4</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Pranith Kumar, Prasun Gera, Hyojong Kim, Chulhyung Park, Hyesoon Kim</dc:creator>
+    </item>
+    <item>
+      <title>Demystifying the Impact of Physical Non-Idealities on Kernel Performance</title>
+      <link>https://arxiv.org/abs/2610.37466</link>
+      <description>arXiv:2610.37466v2 Announce Type: replace 
+Abstract: Physical non-idealities in integrated circuit (IC) design, fabrication, and operation are concealed by conventional hardware abstractions, causing unexpected performance variations in kernels. For large-scale workloads, such as AI training and inference, performance unpredictability can lead to substantial losses. We investigate this problem in NVIDIA H100 GPUs with their distributed shared memory (DSMEM) architectural feature that reduces data movement from the L2 cache to Streaming Multiprocessors (SMs) with multicast loads, and uncover that floorsweeping restricts the number of SMs usable for clustered execution, increasing the number of execution waves of kernels. To alleviate this performance penalty, we introduce the wave-aware clustering strategy that accounts for these resource constraints and improves the throughput of the Hopper version of FlashAttention 4 by up to 5.30% over the unclustered baseline. Furthermore, we discover that the power constraint imposed by the thermal design power (TDP) limit causes the DSMEM-based memory bandwidth optimization to improve the throughput even for compute-bound kernels by creating a power headroom for higher SM frequencies through reduced data movement. Extending this analysis beyond GPUs, we find that power constraints also limit throughput scaling on Tenstorrent's Wormhole accelerator, highlighting the broader importance of accounting for physical non-idealities in kernel performance engineering.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.37466v2</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Supun Kuruppu, Pranav Dangi, Wei Li, Zhenyu Bai, Tulika Mitra</dc:creator>
+    </item>
+    <item>
+      <title>NORmal: Architecting 3D Ferroelectric NOR Flash as Main Memory -- From Co-Fabricated BEOL Arrays to 200B-Class Multi-Agent LLMs in a Smartphone</title>
+      <link>https://arxiv.org/abs/2610.40000</link>
+      <description>arXiv:2610.40000v3 Announce Type: replace 
+Abstract: Smartphone agents increasingly work as teams, in which a large planner directs parallel workers across long sessions. Running such a team on the device requires 200B-class models and contexts that exceed phone DRAM many times over, yet existing tiers treat flash as storage: UFS starves per-token weight streaming, and mobile High-Bandwidth Flash (HBF) needs a redesigned SoC and cannot absorb continuous KV writes. We show that a non-volatile memory can join an unmodified LPDDR6 bus as a plain rank only if its access latency fits the DRAM timing window, a condition no NAND tier meets. We present NORmal, to our knowledge the first main-memory architecture for 3D ferroelectric NOR flash. We have fabricated and experimentally characterized back-end-of-line (BEOL) 3D FeNOR arrays that co-integrate dense 3-bit MLC and fast, high-endurance in-place-writable SLC with sub-7.5 ns sensing. NORmal turns these co-fabricated arrays into a byte-addressable, deterministic-timing load/store rank on an unmodified LPDDR6 interface through an under-array DRAM-emulation bridge, staggered bank reads with zero-cycle weight swizzling, and posted SLC writes. Across this rank and DRAM, NORmal places agent state by mutability and lifetime rather than by hotness, serving 200B-class models and persistent planner contexts in place while dynamically partitioning subchannels across agent phases. In serving-level simulation on production agent traces, NORmal is 8.9$\times$--28.0$\times$ faster than UFS offloading, within 0.4% of an unlimited-DRAM ideal, and 2.8$\times$--6.3$\times$ faster than HBF on sessions beyond 256K tokens, with 8.1$\times$--17.8$\times$ less memory energy per token.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.40000v3</guid>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhuoran Li, Zhuohang Bian, Yibo Zhao, Xuxiao Yang, Youwei Zhuo</dc:creator>
+    </item>
+    <item>
+      <title>A parity obstruction to degree-optimal syndrome extraction in bivariate bicycle codes</title>
+      <link>https://arxiv.org/abs/2509.26494</link>
+      <description>arXiv:2509.26494v5 Announce Type: replace-cross 
+Abstract: Syndrome extraction for a CSS code has depth at least the Tanner-graph degree $\Delta$, attained by edge colouring if gate order is ignored; correctness adds a parity constraint. We prove three general obstructions to depth-$\Delta$ extraction and show that, for every two-block group-algebra code with weight-three polynomials whose checks overlap in at most two qubits, no correct single-round circuit with one ancilla per check and one CNOT per Tanner edge has depth six: the minimum is seven, so the seven-layer cycle of Bravyi \emph{et al.} is optimal for their seven bivariate bicycle codes. This is the first analytic, family-wide impossibility result, extending prior instance-specific solver-based infeasibility results. The hypothesis cannot be dropped: a single orbit of four-qubit overlaps with a collision element of even order and $2$-height at most eight makes depth six attainable, and a $[[72,8,6]]$ code of this kind has a verified six-layer circuit. The refutations carry DRAT certificates. As a further application of the same scheduling scheme, we construct Stab-QRAM, a quantum random access memory for affine Boolean data that uses only CNOT and $X$ gates and has the minimum depth possible for this gate set.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2509.26494v5</guid>
+      <category>quant-ph</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Guangyi Li, Yu Gan, Zeguan Wu, Xueyue Zhang, Zheshen Zhang, Junyu Liu</dc:creator>
+    </item>
+    <item>
+      <title>ELMoE-3D: Leveraging Intrinsic Elasticity of MoE for Hybrid-Bonding-Enabled Self-Speculative Decoding in On-Premises Serving</title>
+      <link>https://arxiv.org/abs/2604.14626</link>
+      <description>arXiv:2604.14626v3 Announce Type: replace-cross 
+Abstract: Mixture-of-Experts (MoE) models have become the dominant architecture for large-scale language models, yet on-premises serving remains fundamentally memory-bound as batching turns sparse per-token compute into dense memory activation. Memory-centric architectures (PIM, NMP) improve bandwidth but leave compute underutilized under MoE's low arithmetic intensity on high batch sizes. Speculative decoding (SD) trades idle compute for fewer target invocations, yet verification must load experts even for rejected tokens, severely limiting its benefit in MoE especially on low batch sizes. We propose ELMoE-3D, a hybrid-bonding (HB)-based HW-SW co-designed framework that unifies cache-based acceleration and speculative decoding to offer overall speedup across batch sizes. We identify two intrinsic elasticity axes of MoE---expert and bit---and jointly scale them to construct Elastic Self-Speculative Decoding (Elastic-SD), which serves as both an expert cache and a strongly aligned self-draft model accelerated by high HB bandwidth. Our LSB-augmented bit-sliced architecture exploits inherent redundancy in bit-slice representations to natively support bit-nested execution. On our 3D-stacked hardware, ELMoE-3D achieves an average $6.6\times$ speedup and $4.4\times$ energy efficiency gain over naive MoE serving on xPU across batch sizes 1--16, and delivers $2.2\times$ speedup and $1.4\times$ energy efficiency gain over prior accelerator baselines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.14626v3</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yuseon Choi, Jingu Lee, Jungjun Oh, Sunjoo Whang, Byeongcheol Kim, Minsung Kim, Junhyuk Lee, Hoi-Jun Yoo, Sangjin Kim</dc:creator>
+    </item>
+    <item>
+      <title>Time-Deterministic and Instruction-Dynamic Execution: A field-programmable gate array quantum-control processor</title>
+      <link>https://arxiv.org/abs/2608.15173</link>
+      <description>arXiv:2608.15173v2 Announce Type: replace-cross 
+Abstract: Long-running quantum computations, including error-corrected workloads, demand instruction availability, measurement-dependent control, and calibration updates. We present Time-Deterministic and Instruction-Dynamic Execution, an FPGA quantum-control processor supporting runtime revision at both instruction and parameter levels. Dynamic Instruction Parameter Update supplies one-shot, next-match patches before parameter capture, while Dynamic Instruction Stream Overwrite provides guarded replacement, logical deletion, and out-of-line insertion in eligible future regions of a resident program. A moving fetch-visibility guard coordinates instruction updates with execution, and event commitment isolates complete descriptors for independent hardware-timed dispatch. Revision applicability depends on update timing and execution progress; deterministic service applies to committed events under the stated scheduling conditions. The Xilinx ZCU102 implementation uses a 250-MHz control core and a 425-MHz timing/update domain. FPGA-resident measurements at the registered digital interfaces confirmed programmed-cycle dispatch for all tested descriptors committed at least one timing-domain cycle before their timestamps, with downstream ready and the stated FIFO ordering conditions. Separate tests confirmed post-commit timestamp and payload invariance. The minimum all-success mapped DIPU margin was four control-domain cycles, and a replacement of L instruction words completed in L+5 update-domain cycles under continuous payload delivery. Within the tested guard-distance range, rejected DISO requests reported an error and preserved the resident path, whereas all admitted revisions tested here executed complete revised sequences. These results provide a hardware execution basis for incorporating runtime-generated sequences and parameter corrections into precisely timed quantum computations with feedback.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.15173v2</guid>
+      <category>quant-ph</category>
+      <category>cs.AR</category>
+      <pubDate>Wed, 04 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:DOI>10.1063/5.0356629</arxiv:DOI>
+      <arxiv:journal_reference>Rev. Sci. Instrum. 97, 103204 (2026)</arxiv:journal_reference>
+      <dc:creator>Xiaoqin Luo, Jiayun Song, Xiaolu Su</dc:creator>
+    </item>
+  </channel>
+</rss>
