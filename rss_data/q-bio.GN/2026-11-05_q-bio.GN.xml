@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>q-bio.GN updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/q-bio.GN</link>
+    <description>q-bio.GN updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/q-bio.GN" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Nov 2026 05:00:13 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Thu, 05 Nov 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>A Training-Free Socket for DNA in Frozen Language Models</title>
+      <link>https://arxiv.org/abs/2611.05401</link>
+      <description>arXiv:2611.05401v1 Announce Type: new 
+Abstract: Connecting a DNA foundation model to a large language model (LLM) usually requires training a connector, and often the LLM too. We show that a closed-form map is enough for gene-level questions. Our method, the socket, fits one ridge regression (the plug) from frozen Evo 2 features to the host LLM's own representation of the gene's symbol, name, and description at an early layer. The plug's output replaces the hidden state at placeholder positions, and no gradient passes through the host.
+  We test it on GeneHop, a five-way multiple-choice benchmark split by homology. In a single run on the held-out test set, under a frozen analysis plan, real DNA beats shuffled DNA on all four hosts: by +22.2 points [19.8, 25.0] on Qwen3.5-4B, +26.1 [24.3, 27.9] on Qwen3.6-27B, +16.7 [14.2, 19.7] on Mistral-7B, and +18.4 [16.2, 21.0] on OLMo-2-7B. All four survive Holm correction, every null control stays within two points of the sham level, and the development results agree within 2.3 points.
+  A layer rule that uses no task items was selected on three hosts; it predicted the working layer of the fourth before any DNA-plug scoring on it. A text-only linear map lets one plug feed any other host, at a cost of at most 0.9 points on test. The socket conveys gene identity: nearest-neighbour retrieval recovers 72-84% of the effect, but the plug beats it on every host by 3.0-5.2 points and keeps most of its effect without training homologs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.05401v1</guid>
+      <category>q-bio.GN</category>
+      <category>cs.AI</category>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Arash Fatehi</dc:creator>
+    </item>
+    <item>
+      <title>VenusGenome: Genome-Aware Masked Autoencoding for Microbial Genome Representation Learning</title>
+      <link>https://arxiv.org/abs/2611.05405</link>
+      <description>arXiv:2611.05405v1 Announce Type: new 
+Abstract: Genomic-context models have shown that contextualizing protein embeddings can improve predictions of microbial function. We observe that a gene's protein embedding is partially predictable from the embeddings of neighboring genes in the genome, motivating high-ratio masking that requires reconstruction from sparser genomic context. Genomic modeling must also distinguish biological relationships from assembly conventions, since the ordering of separate contigs does not imply adjacency and strand labels depend on the reference orientation. We therefore introduce VenusGenome, a gene-resolution masked autoencoder that combines visible-only encoding with genome-aware attention incorporating contig boundaries, relative strand orientations, and gene positions. We pretrain this model on a curated corpus of over 1.7 million microbial genome assemblies from isolate and metagenomic sources, using frozen protein embeddings as gene-level inputs. Across genome-level phenotype prediction and gene-level tasks, the resulting frozen representations achieve the highest mean performance among the evaluated models on nine of eleven primary metrics. An exploratory gene-input perturbation analysis further links representation sensitivity to experimentally measured fitness defects. Ablations support the contribution of genome-aware attention and show the benefits of masked autoencoding over BERT-style masked modeling, with further gains from higher masking ratios.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.05405v1</guid>
+      <category>q-bio.GN</category>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhang Liang, Zhang Yukun, Tan Yang, Jiang Fan, Zhong Bozitao, Cheng Xiaoran, Hong Liang, Li Mingchen, Yu Yuanxi</dc:creator>
+    </item>
+    <item>
+      <title>Rethinking One Gene, One Token: Transcriptome-Aware Tokenization for Single-Cell Foundation Models</title>
+      <link>https://arxiv.org/abs/2611.05410</link>
+      <description>arXiv:2611.05410v1 Announce Type: new 
+Abstract: Single-cell foundation models typically treat each gene as a token, which is both costly and wasteful. A cell can express thousands of genes, so one token per gene makes self-attention expensive, yet many of these genes are detected at low levels and carry too little signal to deserve a token of their own. Genes that are expressed together could instead share a token, leaving separate tokens for genes that stand out. We introduce scTAT (Transcriptome-Aware Tokenization), which pairs a gene-set vocabulary with a per-cell tokenizer. The vocabulary holds overlapping gene sets that recur with stable relative expression across the pretraining corpus. Using these sets raises two difficulties. First, which genes should share a token depends on the cell, whereas existing multi-gene tokens fix the grouping in advance. Second, gene sets of different sizes must be compared with single genes on a common scale. The tokenizer therefore decides per cell, letting gene sets and single genes compete for token positions under an expression score normalized by the square root of set size. Training still reconstructs individual genes, so predictions stay at gene resolution. In frozen-embedding cell-type annotation, scTAT matches the strongest one-gene-per-token model with half the token budget. Its advantage over one-gene-per-token models at the same budget grows as the budget shrinks and the tokenizer assigns more positions to gene sets. Encoding the same genes with gene-set tokens also nearly halves the Transformer's matrix-multiplication cost. These results show that a token need not hold exactly one gene: when the tokenizer decides per cell which genes share a token, a fixed budget covers more of each transcriptome at no cost in annotation accuracy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.05410v1</guid>
+      <category>q-bio.GN</category>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Jiaqi Xiong, Jiaying Li, Yu Zheng, Xiang Zhou, Ziteng Wang, Xinting Hu, Jiaxin Qi</dc:creator>
+    </item>
+    <item>
+      <title>BIOTRAM: Biochemistry-informed Transformer for Relative Abundance via Metabarcoding</title>
+      <link>https://arxiv.org/abs/2611.05418</link>
+      <description>arXiv:2611.05418v1 Announce Type: new 
+Abstract: Arthropod monitoring at scale begins with metabarcoding of bulk samples: trap collections of hundreds to thousands of specimens processed as one unit, extraction of DNA from the bulked specimens, then sequencing of the DNA from all specimens together. Metabarcoding reveals which taxa such a sample contains, but due to factors such as differing DNA amplification rates and body sizes, its read counts do not neatly correspond to how abundant the different taxa are relative to one another. This lack of relative abundance limits the data's utility for the multitude of ecological analyses that depend on it. We propose BIOTRAM: a neural network that estimates per-taxon specimen counts by dividing the observed read counts by a learned read yield per specimen, which it factors into the DNA each specimen contributes and how efficiently that DNA is amplified. On a paired dataset of 1,188 bottles (800 k specimens) processed both by metabarcoding and by comprehensive individual barcoding for ground-truthing, BIOTRAM reduces the Jensen-Shannon divergence between the estimated and the true composition from 0.3586 for raw read proportions (the usual proxy for abundance) to 0.1200. Trained on the same objective and inputs as four generic deep architectures, all with tuned loss weights, it reaches a count error 3.2% below that of the strongest of them and the lowest composition divergence. It also generalizes to out-of-domain data better, beating all baselines on bottles from unseen regions, later collection dates and unseen sequencing batches, and transferring to data from an unseen laboratory. Structuring the mapping from reads to counts around the steps of the experimental pipeline thus yields more accurate abundance estimates than leaving that mapping unconstrained.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.05418v1</guid>
+      <category>q-bio.GN</category>
+      <category>cs.LG</category>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Emma Boehly, Scott C. Lowe, Ken A. Thompson, Anthony Fuller, Will Armstrong, Iuliia Zarubiieva, Neelu Madan, Tiancheng Gao, Sameer Padhye, Jayme Sones, Kate H. J. Perez, Bess Hardwick, Brendan Furneaux, Evgeny V. Zakharov, Dirk Steinke, Jeremy R. deWaard, Stephanie L. deWaard, Jaclyn McKeown, Norman Monkhouse, Cole Pace, Sujeevan Ratnasingham, Raina Schmuck, Amy Thompson, Jorge L. Le\'on-Cort\'es, Luciano Cagnolo, Julieta Soledad Arena, Jerem\'ias Dom\'inguez Masciale, Errol Douwes, Elli Groner, Masae Iwamoto Ishihara, Shunsuke Matsuoka, Mailyn A. Gonzalez, Alexandre Antonelli, Renata S. Sousa-Lima, Armin Niessner, Patr\'icia Guedes, Elizabeth G. Biro, Zuania Col\'on-Pi\~neiro, Dezene P. W. Huber, Santosh Mazumdar, Magda Bou Dagher Kharrat, Eddie P. Mondejar, Pablo Luis Tubaro, Eugene Marais, Marie-Eug\'enie Maggia, Dar\'io Alejandro Lijtmaer, Sean W. J. Prosser, Andrea Murillo-V\'azquez, Paola Pulido-Santacruz, Paula Leitman, Thiago Arnt Dorigo, Nao Ito, Paul Knoops, Maria L. Kuzmina, Hikaru Morishita, Keishi Kimoto, Dimby Raharinjanahary, Rhian J. Smith, Solny A. Adalsteinsson, Kevin G. Borja-Acosta, Paul Amouroux, Angela M. Mendoza-Henao, Ang\'elica Diaz-Pulido, Anamaria Dal Molin, Luke L. Powell, Diego Inclan, Alice Calvente, David Dunson, Brian Fisher, Tomas Roslin, Otso Ovaskainen, Paul D. N. Hebert, Graham W. Taylor</dc:creator>
+    </item>
+  </channel>
+</rss>
