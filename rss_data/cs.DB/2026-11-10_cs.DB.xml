@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.DB updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.DB</link>
+    <description>cs.DB updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.DB" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Nov 2026 08:33:32 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>LoStBench: Benchmarking Longitudinal Studies Data Integration</title>
+      <link>https://arxiv.org/abs/2611.10242</link>
+      <description>arXiv:2611.10242v1 Announce Type: new 
+Abstract: A longitudinal study observes the same subjects or variables, repeatedly over an extended period of time, allowing researchers to examine changes, trends, and relationships as they develop. Such studies typically evolve over their life cycles, as improved understanding of the study's domain, or external factors trigger the need for revisions. The resulting heterogeneity among collected data must be resolved before the survey's results may be analyzed. Although this problem is a form of schema matching, it is a form of schema matching that differs significantly from prior workloads explored by the database community. For instance, rather than the short attribute names and data instances that many schema matching tools rely on, a stronger signal in longitudinal studies arises from longer prose questions that these tools are less equipped to handle.
+  This paper documents the joint efforts of a team of computer scientists and domain experts to adapt existing schema matching algorithms to our new use case of longitudinal data integration. We present a case study in the context of a representative workload: The American National Election Studies (ANES) dataset, a nearly eight-decade survey with publicly available data and a canonical domain-expert curated schema matching. Using ANES, we develop LoStBench (Longitudinal Studies Benchmark for data integration), a medium-scale, subject-matter-expert-annotated benchmark. Using LoStBench, we conduct a comprehensive empirical study evaluating state-of-the-art schema matching algorithms, and expose limitations of these algorithms when applied in the context of longitudinal studies. We propose improvements that address some of these limitations, and identify key challenges to motivate future data integration work to address the others.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.10242v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Pratik Pokharel, Oliver Kennedy, Abhi Ramtel, Poonam Kumari, Jeff Good, Katarzyna Kordas, Marianthi Markatou, Andrew Talal</dc:creator>
+    </item>
+    <item>
+      <title>Comparing Write, Read, and Query Performance of General-Purpose and Columnar Data Serialization Formats at Increasing Scale: An Empirical Benchmark Study with Statistical Validation on Synthetic and Real-World Data</title>
+      <link>https://arxiv.org/abs/2611.10398</link>
+      <description>arXiv:2611.10398v1 Announce Type: new 
+Abstract: This study presents an empirical benchmark comparing nine format and access-method combinations across six data serialization technologies: CSV (including a column-projected variant), gzip CSV, JSON Lines, Python Pickle, SQLite (unindexed and indexed), and Apache Parquet (naive and pyarrow pushdown). A synthetic dataset was generated at four scales (50,000 to 3,000,000 rows), with write time, storage size, read time, and query time measured across twenty trials on two independent hosts, a native 24 GB Apple Silicon machine and a memory-constrained, single-core 4 GB Linux virtual machine. Mean, standard deviation, and 95 percent confidence intervals are reported for each host. The most robust finding, stable across every scale and both hosts, is that flat formats requiring full deserialization before filtering are one to three orders of magnitude more expensive for selective queries than any approach that avoids it. Welch t-tests, corroborated by Mann-Whitney U tests, show SQLite (indexed) is significantly fastest for selective access at every scale on both hosts, with the pushdown path of Parquet significantly cheaper than naive materialization. With the increased trial count, the write-time variance of Pickle narrowed enough to show it is significantly faster than Parquet at write time on both hosts, not the statistical tie an earlier five-trial pilot suggested. These findings were confirmed on a real, public 1.47-million-row e-commerce fraud dataset, which reproduced the same order-of-magnitude gap between flat and non-flat formats and the same SQLite (indexed) advantage. These results offer statistically grounded guidance for format selection in data engineering pipelines.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.10398v1</guid>
+      <category>cs.DB</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Asra Fathima</dc:creator>
+    </item>
+    <item>
+      <title>Extending DBLog-Based Incremental Snapshots to Handle Orphan Rows in CDC Pipelines</title>
+      <link>https://arxiv.org/abs/2611.10810</link>
+      <description>arXiv:2611.10810v1 Announce Type: new 
+Abstract: Applications use heterogeneous datastores where a source feeds sinks such as search indexes or data warehouses via change data capture (CDC). As transaction logs have limited retention, CDC alone cannot bootstrap sinks, and traditional approaches either stall source writes or hold back log events. DBLog-based incremental snapshots, adopted by Debezium and Flink CDC, read tables in chunks interleaved with the log without blocking writes or long log stalls and resume where they stopped.
+  After the initial bootstrap, a sink can drift when losing change events or receiving unintended writes. Even a repeated bootstrap can leave orphan rows that exist in the sink and not at the source. A common remedy is to populate a new empty sink, but repairing an existing sink avoids parallel pipelines, a switch and serving traffic from a drifted sink until the new sink is ready.
+  In DBLog's original design, each chunk only emits the latest state of the rows the table still contains, so it does not handle orphan rows. We extend DBLog to delete them using what a chunk read already knows, namely the keys that the range select did not return, emitting a new kind of event that sinks apply as deletes. We also add a repair request that an external process calls with orphan candidates, which the connector checks with its own read, emitting these events for keys confirmed absent. This enables three modes. In the fully integrated mode, every chunk pass removes the orphans it finds during full or periodic repairs. In the second mode, an external drift process hands suspected orphans to the connector. The third mode combines both and is what we recommend.
+  Together, they turn DBLog into a complete data synchronization engine whether a sink catches up on live changes or missing rows, holds wrong column values, or contains orphan rows. Their safety and convergence are formally verified in Isabelle/HOL and Lean 4.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.10810v1</guid>
+      <category>cs.DB</category>
+      <category>cs.DC</category>
+      <category>cs.LO</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Andreas Andreakis</dc:creator>
+    </item>
+    <item>
+      <title>Agents Propose, Code Verifies, Humans Decide: Verified Agentic Ingestion of Heterogeneous Scientific Tables into Relational Databases</title>
+      <link>https://arxiv.org/abs/2611.11045</link>
+      <description>arXiv:2611.11045v1 Announce Type: new 
+Abstract: Public scientific datasets rarely arrive analysis-ready. They arrive as messy folders of wide matrices, long tables, spreadsheets, and per-cohort files whose keys and encodings differ, and every reanalysis must reconnect them first. A coding agent can automate this, but its mistakes can look plausible, and without an audit trail, a mistake that corrupts data can go uncaught. We present an AI-assisted ingestion pipeline built on one rule: LLM agents propose, deterministic code verifies, and humans decide. Narrow agents see compact, citable evidence about the files, never the data, and return typed proposals. A verifier with 39 check types tests each proposal against that evidence in two loops, one for the schema's structure and one for its meaning, and a human reviewer approves the schema and the load. Code compiles PostgreSQL DDL, reshapes the data, quarantines rows it cannot place, records provenance, and reconciles every staged row against the database. On four public biomedical datasets, one held out from development, 9 of 20 first proposals failed a check and every failure was caught: the loops repaired eight, and a one-line reviewer edit fixed the ninth. All 45.1 million values loaded with zero reconciliation gap. Discovering a dataset's structure took 4-7 LLM calls and preparing its data at most one more, costing under $0.50 per dataset. In a separate test, each of nine planted data errors was quarantined with a reason or recorded in an audit log.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.11045v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <category>q-bio.QM</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Bharatha Rankothge, Suzanne Hodgkins, Virginia Rich, Michael Kirby</dc:creator>
+    </item>
+    <item>
+      <title>Samyama-SDG: A Declarative GraphQL @count and Regex/Ontology Synthetic Data Compiler with $O(1)$-Memory Referential Integrity and Causal Ground Truth</title>
+      <link>https://arxiv.org/abs/2611.11295</link>
+      <description>arXiv:2611.11295v1 Announce Type: new 
+Abstract: Synthetic data generators face a divide between declarative relational mockets and domain causal simulators. Declarative generators specify entities, regexes, and foreign keys via schemas, but buffer parent primary-key pools in RAM ($O(N)$ memory) and lack ontology bindings or causal ground truth. Conversely, domain simulators emit realistic streams and ground-truth labels, but require thousands of lines of procedural code per domain.
+  We present Samyama-SDG (sdg-rs), a Rust synthetic data compiler unifying declarative schema compilation with ontology-bound causal simulation. At Layer 1, Samyama-SDG compiles Cardinality-Extended GraphQL schemas (@count, @pk, @ontology, @regex, @dist, @fk, @after) and an Attribute Data Dictionary into a topologically sorted DAG. Combining stateless counter-based seekable PRNGs (SplitMix64 over $(\text{seed}, \text{entity}, \text{row}, \text{field})$) with index-bijective primary keys $f_{\text{PK}}(s, E, i)$ lets child tables resolve uniform or Zipfian foreign keys and multi-hop @after constraints in $O(1)$ memory without buffering parent tables. At Layer 2, causal processes layer fault propagation and machine-scorable ground truth (ground_truth.jsonl) over the same seekable PRNG and samyama-ontologies binder. Across three schemas, Samyama-SDG generates $1{,}000{,}000$ records in $128.79\text{ ms}$--$172.43\text{ ms}$ ($5.80\text{M}$--$7.76\text{M}$ rows/s) and $5{,}000{,}000$ records in $676.12\text{ ms}$--$808.56\text{ ms}$ at flat $31.4\text{ MiB}$--$35.1\text{ MiB}$ memory, with $0$ conformance errors across $1{,}150{,}000$ foreign keys and $900{,}000$ temporal constraints.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.11295v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Madhulatha Mandarapu, Sandeep Kunkunuru</dc:creator>
+    </item>
+    <item>
+      <title>PLDP-IDS: Personalized Local Differential Privacy for Infinite Data Stream</title>
+      <link>https://arxiv.org/abs/2611.11467</link>
+      <description>arXiv:2611.11467v1 Announce Type: new 
+Abstract: Streaming data collection under local differential privacy (LDP) enables real-time analytics without a trusted curator. Existing $w$-event LDP mechanisms, however, impose a uniform privacy window and budget on all users, forcing everyone to adopt the most stringent requirement. We study personalized continual frequency estimation under LDP, where each user specifies her own window size and privacy budget, and identify two challenges. First, a single sampling size cannot balance sampling and perturbation errors for privacy groups with heterogeneous requirements. Second, borrowing estimates from groups with larger budgets reduces variance but introduces bias when privacy preferences correlate with the data. We first propose Optimal Population Selection (OPS) and two OPS-guided mechanisms, PLPD and PLPA. We then develop PLPD+ and PLPA+, which combine group-aware population scheduling with bias-aware cross-group fusion while preserving personalized w-event LDP. Experiments on real-world and synthetic streams show that PLPA+ reduces the AMSE of the direct personalized extension of LDP-IDS by 52.3% and 40.8% on average, respectively, and remains about $5\times$ more accurate than PLPA under strong privacy--data correlation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.11467v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Leilei Du, Yikun Hu, Xu Zhou, Yang Cao, Peng Cheng, Wangze Ni, Kenli Li</dc:creator>
+    </item>
+    <item>
+      <title>Causal Resolution of Undefined Answers in Datalog with Negation</title>
+      <link>https://arxiv.org/abs/2611.11756</link>
+      <description>arXiv:2611.11756v1 Announce Type: new 
+Abstract: Unstratified negation may leave the answer to a Boolean Datalog query undefined under the well-founded semantics. We study database causality in this setting by asking which fact insertions and deletions realize a prescribed transition and which other changes preserve the observed query answer while making a designated fact pivotal. Such a set of changes to other facts is a contingency for the designated fact and the prescribed transition. Our game representation assigns one shared move to each mutable fact and preserves query values and intervention distances. Pairing source and target certificates characterizes all minimum contingencies for the six transitions among true, false, and undefined. When inserting or deleting a move resolves a draw, a directed tree traces the newly winning and losing positions along alternating paths to the source of that move. For the fixed one-rule win--move program, deciding whether a contingency of size at most $k$ exists is $\mathrm{NP}$-complete for each transition, even on bounded-degree graphs. Computing the minimum size is $\mathrm{FP}^{\mathrm{NP}[\log]}$-complete, and counting minimum contingencies is $\#\mathrm{P}$-hard under polynomial-time Turing reductions. When only one of true and false is reachable, the prime implicants of undefinedness satisfied at the observation cover every undefined state, and their supports induce nonempty subtrees of a common tree, we compute a minimum resolving intervention in polynomial time from the game instance. From the explicit tree and these implicants, we construct an equally large family of disjoint supports, certifying optimality.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.11756v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Ratan Bahadur Thapa</dc:creator>
+    </item>
+    <item>
+      <title>OmniSynth: A Meta-Evaluation Framework for Benchmarking the Quality of Missingness-Inclusive Synthetic Health Data</title>
+      <link>https://arxiv.org/abs/2611.11888</link>
+      <description>arXiv:2611.11888v1 Announce Type: new 
+Abstract: Synthetic data are an emerging solution to the reproducibility crisis in machine learning for health, driven by data privacy restrictions surrounding electronic health records. Yet no consensus exists on how to evaluate synthetic health data quality, existing metrics functionally overlook missingness despite its prevalence in clinical data, and benchmarking frameworks have never been empirically validated. We introduce OmniSynth, a modular Python benchmarking suite that evaluates synthetic tabular data across fidelity, missingness similarity, utility, and privacy - the first framework to explicitly evaluate missingness as a distinct dimension of synthetic data fidelity. OmniSynth further proposes a meta-evaluation procedure that stress-tests evaluation performance under controlled degradation scenarios, providing a systematic characterization of how an evaluation framework behaves across datasets, sample sizes, and variable types. Applying this procedure to OmniSynth in two health datasets (Pima Indians Diabetes; MIMIC-IV-ED), we found that scores responded monotonically to degradation, three of four novel missingness metrics captured induced missing data patterns, and individual metric contributions to the scoring system were empirically justified.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.11888v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Annabel Zhu, Oc\'eane Doremus, Ariel Guerra-Adames, Marta Avalos-Fernandez, Emmanuel Lagarde, C\'edric Gil-Jardin\'e, Vianney Jouhet</dc:creator>
+    </item>
+    <item>
+      <title>Toward Verifiable Auto-Research for Data Systems</title>
+      <link>https://arxiv.org/abs/2611.12063</link>
+      <description>arXiv:2611.12063v1 Announce Type: new 
+Abstract: AI auto-research is poised to forge bespoke data systems, from key-value stores and indexes to query engines, each engineered for a specific workload and hardware platform. Yet this promise rests on fragile ground. An agent optimizes what it can measure, not necessarily what users need. Natural-language requirements leave ample room for specification gaming, producing systems that blaze through benchmarks while silently losing updates or violating consistency. Worse, each research iteration consumes tokens, while validating a candidate under real concurrency, memory pressure, and failure conditions can stretch the entire research process into weeks.
+  In this paper, we envision a more cost-efficient and verifiable approach to auto-research. Precise and composable specifications anchor the search, lightweight performance critics prune costly dead ends, and falsification and deductive verification make correctness an integral part of the process rather than an afterthought. By treating correctness, performance, research time, and token cost as equally important objectives, we aim to transform AI-generated data systems from plausible artifacts into trustworthy, production-grade systems whose behavior can be understood, audited, and ultimately relied upon.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.12063v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Kaiwen Zheng, Srijan Srivastava, Zheng Yan, Xinpeng Zhao, Shaohua Li, Chieh-Jan Mike Liang, Tianyu Chen, Haoxian Chen, Eric Lo</dc:creator>
+    </item>
+    <item>
+      <title>Transactional Data Change for Real-Time Analytics in Lakehouses</title>
+      <link>https://arxiv.org/abs/2611.12169</link>
+      <description>arXiv:2611.12169v1 Announce Type: new 
+Abstract: Real-time data analytics has become a key demand for lakehouses. It requires propagating data changes from the data source to the lakehouse in real time, while ensuring ACID guarantees and minimizing resource consumption and impact on analytical query performance. This is highly challenging for a data system according to the RUM conjecture, especially given the read-optimized immutable file storage layer in lakehouses. Existing lakehouses offer only git-style catalog version control on a single table, and they trade data freshness, query performance, and/or resource efficiency to achieve a barely acceptable data-change throughput. In this paper, we propose a novel data synchronization framework, Retina, that enables real-time, cost-efficient, query-performant, and fully transactional data changes in lakehouses. We implement and open-source Retina. Evaluations show that Retina delivers 10-millisecond-level data freshness and over 3.2 million row/s linear-scalable data-change throughput with low resource consumption and query-performance overhead, significantly outperforming state-of-the-art lakehouse systems and lake-compatible HTAP databases.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.12169v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:DOI>10.14778/3849398.3849411</arxiv:DOI>
+      <dc:creator>Dongyang Geng, Haoqiong Bian, Zinuo Li, Haoyue Li</dc:creator>
+    </item>
+    <item>
+      <title>Certifying the Error-Detection Value of Functional Dependencies without Ground Truth</title>
+      <link>https://arxiv.org/abs/2611.12512</link>
+      <description>arXiv:2611.12512v1 Announce Type: new 
+Abstract: Functional dependencies are used to flag erroneous cells, but without error labels the value of these flags is unknown. Dependency strength cannot settle it, because identical data and flags can have positive value in one clean state and negative value in another. We treat this value as partially identified and certify a fixed detector when its value is positive in every clean state compatible with the observation under an error model and budget. The largest such budget is the certification radius. For a detector that flags departures from the unique mode of each class, the worst case reduces to a 0/1 knapsack over class flips, yielding sharp bounds on true positives and the exact radius in polynomial time. Allowing bounded legitimate exceptions in the clean data, we derive an exact threshold for the existence of a positive certificate and compute the radius with the same knapsack. Across five relations and 21,981 candidate dependencies, rules with nearly equal $g_3$ and flag rate can have certification margins differing tenfold. Error injection confirms sound certification and shows that, at equal error counts, changing the organization of errors reverses certification outcomes for every tested rule.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.12512v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Xiaolong Wan, Xixian Han</dc:creator>
+    </item>
+    <item>
+      <title>Dynamic Graph Indexing for Label-Filtered Approximate Nearest Neighbor Search</title>
+      <link>https://arxiv.org/abs/2611.12539</link>
+      <description>arXiv:2611.12539v1 Announce Type: new 
+Abstract: Approximate nearest neighbor search (ANNS) over high-dimensional vectors is a core primitive in modern retrieval systems. In practice, objects are often also associated with labels (e.g., attributes or keywords), and retrieval must combine vector similarity with explicit label-based filtering, giving rise to label-filtered ANNS. This task is challenging because label filtering and ANNS favor very different index structures, selective filters fragment the admissible search space, and updates complicate index maintenance.
+  To address these challenges, we propose DYLAN, a dynamic composite index for label-filtered ANNS supporting containment, overlap, and their conjunctions and disjunctions. DYLAN organizes label sets by shared prefixes in a frequency-ordered trie and selectively shares HNSW-style graph indices across trie-induced subsets, so that each trie region has a constant-factor covering index while each object participates in only logarithmically many indices. To mitigate fragmentation, DYLAN performs a cross-region multi-graph search that exploits ancestor-level indices as bridges between otherwise isolated trie regions. To support insertions, it adopts a threshold-based maintenance scheme that rebuilds shared indices only when necessary, yielding low amortized update cost.
+  Extensive experiments with real data show that DYLAN consistently improves query throughput at comparable recall, by up to two orders of magnitude on challenging label-rich datasets, while retaining competitive memory, construction, and update costs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.12539v1</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mengxu Jiang, Zhi Yang, Fangyuan Zhang, Yin Yang, Sibo Wang</dc:creator>
+    </item>
+    <item>
+      <title>LUCQUE: A lung cancer screening dataset from Qu\'ebec for reliable AI evaluation</title>
+      <link>https://arxiv.org/abs/2611.12817</link>
+      <description>arXiv:2611.12817v1 Announce Type: new 
+Abstract: BACKGROUND: AI-based tools are expected to play a key role in lung cancer screening (LCS). The evaluation of these tools often relied on private datasets or fragmented public datasets with inconsistent availability of clinical data and expert nodule annotations. This has hindered reproducibility, comparability, and independent assessment of AI tools. To address these gaps, we present LUCQUE, a novel, large, comprehensively annotated dataset derived from LDCT lung cancer screening in Qu\'ebec, which is accessible for reliable AI evaluation.
+  METHODS: LUCQUE was curated and is hosted on PARADIM, a digital infrastructure supporting DICOM data de-identification, annotation, long-term storage and analysis. LDCT scans and clinical information were combined to a curated collection and complemented by voxel-level, expert-derived pulmonary nodule and cyst segmentations, and Lung-RADS-based lesion characteristics. Key dataset characteristics and statistics were reported, including participant demographics, imaging parameters, radiological findings, and segmented lesion characteristics. Dataset analyses were conducted according to PARADIM's model-to-data approach, in which user code is executed on the platform such that data remains on premise.
+  RESULTS: LUCQUE currently comprises 1,678 LDCT baseline studies from 1,678 participants. Most studies were classified as Lung-RADS 2. A total of 1,776 pulmonary nodules and 60 cysts were annotated, with a median (interquartile range) volume of $89\,(56,\,159)\,\mathrm{mm}^3$ and $1,384\,(589,\,3793)\,\mathrm{mm}^3$ respectively.
+  CONCLUSIONS: Compared to publicly available LCS datasets, LUCQUE currently represents the largest accessible annotated real-world LCS dataset. Access to LUCQUE is provided via a model-to-data approach, enabling privacy-preserving, reproducible, and independent real-world evaluation of AI tools in LCS.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.12817v1</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Johanna Topalis, Yannick Lemar\'echal, Gabriel Couture, Hanife Ersay, Loran Nas, Balthasar Schachtner, Bastian Oliver Sabel, Michael Ingrisch, Philippe Despr\'es, Katharina Jeblick</dc:creator>
+    </item>
+    <item>
+      <title>Towards a Privacy-Preserving Reliability-Aware Entity Resolution for Attributed Graphs [Vision] (Technical Report)</title>
+      <link>https://arxiv.org/abs/2611.10038</link>
+      <description>arXiv:2611.10038v1 Announce Type: cross 
+Abstract: Entity resolution (ER) on attributed graphs aims to identify nodes across multiple graphs that correspond to the same real-world entity and merge them into an integrated graph. When input graphs vary in quality and contain sensitive information, ER faces a dual challenge: while reliability information is crucial for accurate graph data integration, its presence in the published integrated graph can heighten privacy risks. This paper presents a research vision that unifies reliability assessment and privacy preservation within a single graph ER process. We highlight the inherent tension between these two objectives, propose a three-level coupled framework, and outline the remaining research challenges to enable the publication of integrated graphs that are both accurate and privacy-preserving.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.10038v1</guid>
+      <category>cs.CR</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Abdessamad Imine, Xiang Lian, Kambiz Ghazinour</dc:creator>
+    </item>
+    <item>
+      <title>Too Big to Inspect? Ethically Auditing Large Datasets Through Small Samples</title>
+      <link>https://arxiv.org/abs/2611.10399</link>
+      <description>arXiv:2611.10399v1 Announce Type: cross 
+Abstract: Big techs and researchers increasingly claim that their training datasets are too large to inspect for bias and ethical problems. However, in the race to build ever-large models, they have relied on automated web scraping and no human curation. Datasets built this way absorb the stereotypes, exclusionary norms, and historical prejudices of their sources, and the models trained on them can reproduce and amplify those patterns. Because manually auditing billions of samples is humanly impossible, we need practical, effective methods to identify biases in these datasets. This paper studies the feasibility of ethically auditing large datasets through small samples and proposes a practical method for identifying structural biases by applying AI Ethics Tools (AIETs) to random samples. We applied Datasheets for Datasets, Data Statements, Data Nutrition Labels, and Data Cards to a 1% sample of Framed Multi30K, and Datasheets for Datasets to two 0.00006% samples of relaion2B-en-research-safe. Our results show that evaluating small samples with AIETs can reveal ethical problems, structural biases, and technical inconsistencies. Although industry practice assumes that identifying problems requires analyzing the entire dataset, we show that a random subset supports a viable qualitative analysis without overwhelming computational or human resources. Demonstrating that a dataset is biased does not require examining every instance: if a bias appears in a random sample, it is a flaw of the creation process. The AIETs' questions acted as provocateurs, evoking different perspectives and analysis methods for the same dataset, but the analysis and its results depended fundamentally on the human factor. We hope these findings contribute to urgent public discussions about ethics, transparency, accountability, and AI regulation by offering a practical pathway for responsibly auditing massive datasets.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.10399v1</guid>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Giovana Marchetti, Jhessica Silva, Tiago Torrent, Carlos Caetano, Sandra Avila</dc:creator>
+    </item>
+    <item>
+      <title>Hybrid Product Search Without the Copy: Lexical, Semantic and Filtered Retrieval Served Directly from a Data Lake</title>
+      <link>https://arxiv.org/abs/2611.11031</link>
+      <description>arXiv:2611.11031v1 Announce Type: cross 
+Abstract: E-commerce catalogs increasingly live in lakehouse tables: Apache Iceberg metadata over Parquet files in object storage. Product search, however, still runs on copies of that catalog, in a lexical engine and a vector database, each with its own ingestion pipeline, schema, staleness window and bill. We show that search applications can be hosted directly on the data lake, with the lakehouse table as the single system of record. We extend Apache Pinot, a real-time OLAP engine that already serves Iceberg tables in place, with BM25 relevance scoring over its Lucene text index, corpus-wide term statistics so that scores are comparable across files, and reciprocal rank fusion in plain SQL; a real-time table fed by a stream can sit behind the same table, merged by the broker. On the Amazon ESCI benchmark (1.2M US products, 22,458 test queries), hybrid search served from the lake matches exact retrieval (nDCG@10 .361). The lake table is queryable 149 s after its files are registered, and a lake commit is searchable in 3.8 s, close to indexing directly into a search engine. On a brand-sorted lake of 277M products (0.8 TB), one 16-vCPU node answers brand-scoped vector, BM25 and client-fused hybrid searches in 6.5-9 ms (p50), sustains 1,100 vector and 635 BM25 searches per second at under 180 ms p99, and makes a commit searchable in 4.3 s. Search adds only its indexes: no copy of the catalog, no sync pipeline and no second schema, which cuts storage, rebuild time and the operational work of keeping copies consistent.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.11031v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DB</category>
+      <category>cs.IR</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Raghvendra Yadav, Xiang Fu, Chinmay Soman</dc:creator>
+    </item>
+    <item>
+      <title>Learned Adaptive Indexing with Updatable Learned Index</title>
+      <link>https://arxiv.org/abs/2508.03471</link>
+      <description>arXiv:2508.03471v2 Announce Type: replace 
+Abstract: Indexes can significantly improve search performance in databases. However, if the query workload changes frequently or new data updates occur continuously, it may not be worthwhile to build a conventional index upfront for query processing. Building a conventional fine-grained index, like B+-tree on the entire dataset can be very expensive since it may involve processing terabytes to petabytes of data. Moreover, with a traditional indexing, data ingestion tends to slow down in case of heavy updates as the index also needs to be updated. In these cases, adaptive indexing is a viable solution instead of traditional indexing. Adaptive indexing is a technique in which an index gets built on the fly as a byproduct of query processing. In recent years, research has taken on a new direction where machine learning models are employed for the purpose of indexing. These indexes, known as learned indexes, are more efficient compared to traditional indexes in terms of memory footprints and query performance. To the best of our knowledge, no learned indexes exist yet for adaptive indexing. We propose a novel learned approach, called FLAIRS, for adaptive indexing. It is built on the fly as queries are submitted. We also introduce an updatable learned index TULSI that is utilized by FLAIRS for indexing data. FLAIRS can employ a query workload prediction technique that makes future workload projection based on past workload data. We have evaluated FLAIRS against existing adaptive indexes for various query workloads. Our results show that our approach performs better than others in most cases, offering significant improvement in query performance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2508.03471v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Suvam Kumar Das, Suprio Ray</dc:creator>
+    </item>
+    <item>
+      <title>Natural Language Interfaces for Databases: What Changes for SQL-Literate Users?</title>
+      <link>https://arxiv.org/abs/2511.14718</link>
+      <description>arXiv:2511.14718v4 Announce Type: replace 
+Abstract: Natural Language Interfaces for Databases (NLIDBs) let users query data in everyday language instead of SQL, and modern systems translate most questions accurately. Does an NLIDB remove the work of querying, or move it? We compared SQL-LLM, a GPT-4o-backed NLIDB, with Snowflake, a manual-SQL platform. Twenty SQL-literate professionals and graduate students, ten per interface, each completed 12 BIRD benchmark tasks with hints naming target columns and operators. SQL-LLM cut completion time per query by 31%. It did not improve accuracy: SQL-LLM users answered 46% of queries correctly versus 64% for Snowflake, a gap this sample cannot confirm ($p = 0.08$) that narrows to 14 points without one session where the system timed out. Think-aloud audio from 11 participants (4 SQL-LLM, 7 Snowflake) showed how the work shifted: SQL-LLM users left initial schema navigation to the model, mainly on easier tasks, and focused on checking the generated SQL, while Snowflake users explored the schema and wrote queries by hand. Coded behavior rates did not differ detectably between arms, and positive remarks during a task did not reliably predict a correct answer. The evidence fits a reallocation of querying work, not its removal: users still had to check the generated SQL.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.14718v4</guid>
+      <category>cs.DB</category>
+      <category>cs.HC</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Panos Ipeirotis, Haotian Zheng</dc:creator>
+    </item>
+    <item>
+      <title>High-dimensional Regret Minimization</title>
+      <link>https://arxiv.org/abs/2512.24078</link>
+      <description>arXiv:2512.24078v2 Announce Type: replace 
+Abstract: Multi-criteria decision making over large databases is fundamental to many real-world applications. Interactive regret minimization has emerged recently as a promising approach that combines the controllable output size of top-$k$ queries with the flexibility of skyline queries, without requiring users to explicitly specify a utility function. Instead, the system iteratively presents a small set of options, learns the user's implicit preferences from their selections, and progressively refines its recommendations.
+  However, modern applications such as housing search and financial product selection often involve hundreds of attributes. Existing interactive methods either fail to scale to such high-dimensional data or require excessive user interaction, frequently exceeding $1000$ rounds. We address this limitation with FHDR (Fast High-Dimensional Reduction), a framework that exploits sparse linear preferences to discover key attributes through lightweight interactions. We also propose AttributeSubset, an efficient single-round algorithm that returns a compact recommendation set without further feedback. In our experiments on real datasets, FHDR completes in under $0.03$s and requires fewer than $30$ interaction rounds under the default setting.
+  Extensive experiments on both synthetic and real-world datasets show that FHDR outperforms the best-known baselines by at least one order of magnitude in execution time and by up to several orders of magnitude in interaction cost. These results establish FHDR as a new state of the art for scalable interactive regret minimization.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.24078v2</guid>
+      <category>cs.DB</category>
+      <category>cs.CG</category>
+      <category>cs.IR</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Junyu Liao, Ashwin Lall, Mitsunori Ogihara, Raymond Wong</dc:creator>
+    </item>
+    <item>
+      <title>Electrospinning-Data.org, a platform for electrospinning data and analysis</title>
+      <link>https://arxiv.org/abs/2603.27841</link>
+      <description>arXiv:2603.27841v3 Announce Type: replace 
+Abstract: Electrospinning produces nanofibers by depositing a polymer solution in an electrostatic field. Fiber morphology is governed by interacting material, solution, process, hardware, and environmental conditions, requiring extensive tuning. Yet observations remain dispersed across the literature in heterogeneous forms that hinder aggregation and reuse. We present Electrospinning-Data.org, the first open, community-oriented research infrastructure dedicated to electrospinning experimental data. Its domain-specific data model links materials, solution properties, process and hardware configurations, environmental conditions, and fiber outcomes, including unstable and unsuccessful experiments. Numeric quantities are harmonized to canonical units and morphology is represented through controlled descriptors. The platform supports guided web, batch, and programmatic contributions, governed by automated structural validation and expert moderation. Its continuously evolving data are complemented by immutable DOI-bearing releases that support reproducible analyses. Public web interfaces, a REST API, and a Python client enable interactive and programmatic access. The integrated Virtual Lab supports exploratory analysis, machine-learning modeling, model interpretation, and evidence-linked parameter exploration. Together, these components establish a failure-aware foundation for reproducible, data-centric electrospinning research.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2603.27841v3</guid>
+      <category>cs.DB</category>
+      <category>cond-mat.mtrl-sci</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mehrab Mahdian, Ferenc Ender, Tamas Pardy</dc:creator>
+    </item>
+    <item>
+      <title>PROTECT-DB: Protecting Data using Replicated State Machines: Efficient Corruption Detection &amp; Recovery</title>
+      <link>https://arxiv.org/abs/2605.11953</link>
+      <description>arXiv:2605.11953v2 Announce Type: replace 
+Abstract: Data is critical for the operation of any organization and needs to be protected, especially against attacks that compromise the state of the database. In this paper, we explore an approach based on Byzantine-fault tolerant replicated state machines, built on top of a deterministic extension of PostgreSQL. Each replica deterministically executes transactions recorded in a shared log/blockchain. Our focus is on creating a practical system that is designed for efficient and quick detection of corruption, as well as quick repair concurrent with execution of transactions. We also present a performance study showing the efficiency and practicality of our approach. We believe our work lays the foundations for the practical use of the BFT replicated state machine approach in the context of databases.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.11953v2</guid>
+      <category>cs.DB</category>
+      <category>cs.CR</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Anant Utgikar, S. Sudarshan</dc:creator>
+    </item>
+    <item>
+      <title>ERP Event Logs: A Canonical Form for KPI Time-Series Extraction and Characterization</title>
+      <link>https://arxiv.org/abs/2610.09903</link>
+      <description>arXiv:2610.09903v2 Announce Type: replace 
+Abstract: Enterprise resource planning (ERP) systems record operations as transactions spread across hundreds of normalized relational tables. Extracting an operational key performance indicator (KPI) from this schema requires a separate, bespoke join for almost every metric. We show that an event log, a canonical (case, activity, timestamp) representation derived from the same tables, collapses this heterogeneity into one flat structure, from which KPI families reduce to reusable operations after a one-time mapping. Using standardized event logs built from hundreds of SAP S/4HANA customers under a shared activity ontology, we define three families of process-derived KPIs (volumes, durations, and rates) and extract them uniformly across customer systems for two common end-to-end organizational processes, order-to-cash and procure-to-pay. We normalize rates and screen series for minimum coverage to support comparison across customers of very different sizes. We then characterize heterogeneity across industries and tenants using descriptors derived directly from the canonical form, before analyzing the resulting KPI time series. The same process executes heterogeneously across customers and industries, yet this shared representation enables direct comparison of sales- and procurement-side signals, including lead times and order arrivals. Using this shared representation, we characterize which KPI families are forecastable and find a recurring ordering from volumes through durations to rates across both processes and a highly heterogeneous customer base; a pretrained time-series foundation model (Chronos) is competitive with classical baselines such as ARIMA and ETS on rate and duration series, while classical models retain an edge on volumes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.09903v2</guid>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sherri Hadian, Adrian Rebmann, Atacan Korkmaz, Gregor Berg, Ulf Brackmann</dc:creator>
+    </item>
+    <item>
+      <title>Enforcing Demographic Coherence: A Harms Aware Framework for Reasoning about Private Data Release</title>
+      <link>https://arxiv.org/abs/2502.02709</link>
+      <description>arXiv:2502.02709v2 Announce Type: replace-cross 
+Abstract: The technical literature about data privacy largely consists of two complementary approaches: formal definitions of conditions sufficient for privacy preservation and attacks that demonstrate privacy breaches. Differential privacy is an accepted standard in the former sphere. However, differential privacy's powerful adversarial model and worst-case guarantees may make it too stringent in some situations, especially when achieving it comes at a significant cost to data utility. Meanwhile, privacy attacks aim to expose real and worrying privacy risks associated with existing data release processes but often face criticism for being unrealistic. Moreover, the literature on attacks generally does not identify what properties are necessary to defend against them.
+  We address the gap between these approaches by introducing demographic coherence, a condition inspired by privacy attacks that we argue is necessary for data privacy. This condition captures privacy violations arising from inferences about individuals that are incoherent with respect to the demographic patterns in the data. Our framework focuses on confidence rated predictors, which can in turn be distilled from almost any data-informed process. Thus, we capture privacy threats that exist even when no attack is explicitly being carried out. Our framework not only provides a condition with respect to which data release algorithms can be analysed but suggests natural experimental evaluation methodologies that could be used to build practical intuition and make tangible assessment of risks. Finally, we argue that demographic coherence is weaker than differential privacy: we prove that every differentially private data release is also demographically coherent, and that there are demographically coherent algorithms which are not differentially private.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2502.02709v2</guid>
+      <category>cs.CR</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mark Bun, Marco Carmosino, Palak Jain, Gabriel Kaptchuk, Satchit Sivakumar</dc:creator>
+    </item>
+    <item>
+      <title>Flash-Fusion: Fast, Expressive Queries over Sensor Streams with LLMs</title>
+      <link>https://arxiv.org/abs/2511.11885</link>
+      <description>arXiv:2511.11885v2 Announce Type: replace-cross 
+Abstract: Pervasive sensor deployments have generated significant interest in IoT data analysis across fields such as healthcare, transportation and urban planning. At the same time, the rise of Large Language Models (LLMs) offer a new tool for exploring IoT data through their expressive, natural language interface. Unfortunately, natural language querying of IoT sensor streams is impractical today: raw telemetry exhausts LLM context windows in fractions of a second at scale, incurs prohibitive per-token costs, and produces hallucinated responses. Existing systems work around these limits with lossy text summarization or unconstrained code synthesis, producing expensive, unverified computations. Multi-step queries compound this problem: logical errors in intermediate operations can derail the final answer.
+  We present Flash-Fusion, an agentic framework for natural-language querying of tabular IoT data. Flash-Fusion identifies which available data fields and supported derivations can answer the user's query, constructs a plan using typed, domain-specific operators, and validates its structure and schema compatibility before executing. Because constructing plans still requires costly LLM reasoning, Flash-Fusion caches validated operator sequences for reuse across compatible queries. A smaller LLM adapts a cached plan's parameters to each query, cutting latency and cost.
+  We evaluate Flash-Fusion across human activity recognition, ECG monitoring, and vehicular telematics, covering direct lookups, multi-step reasoning, predictive tasks, and out-of-scope requests. Flash-Fusion achieves 92.2% query accuracy versus 76.1% for ReAct, the strongest baseline, while completing queries 7x faster and consuming 5x fewer tokens. Flash-Fusion enables users across disciplines to explore IoT data without manually constructing queries.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2511.11885v2</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Kausar Patherya, Ashutosh Dhekne, Francisco Romero</dc:creator>
+    </item>
+    <item>
+      <title>gHAWK: Local and Global Structure Encoding for Scalable Training of Graph Neural Networks on Knowledge Graphs</title>
+      <link>https://arxiv.org/abs/2512.08274</link>
+      <description>arXiv:2512.08274v2 Announce Type: replace-cross 
+Abstract: Knowledge Graphs (KGs) are a rich source of structured data, and graph neural networks (GNNs) are the dominant tool for learning over them. However, existing message-passing GNNs struggle to scale to large KGs because they rely on the iterative message passing process to learn graph structure. This process is inefficient, especially under mini-batch training, where a node sees only a partial view of its neighborhood. In this paper, we address this problem and present gHAWK, a novel and scalable GNN training framework for large KGs. The key idea is to precompute structural features for each node that capture its local and global structure before GNN training even begins. Specifically, gHAWK introduces a preprocessing step that computes: (a)~Bloom filters to compactly encode local neighborhood structure, and (b)~TransE embeddings to represent each node's global position in the graph. These features are then fused with any domain-specific features (e.g., text embeddings), producing a node feature vector that can be used with any GNN backbone. Equipped with these structural priors, the GNN no longer needs to rediscover graph structure, significantly improving convergence and model accuracy with little memory overhead. Extensive experiments on large datasets from the Open Graph Benchmark demonstrate that gHAWK improves accuracy on both node property prediction and link prediction tasks. Remarkably, gHAWK enables simple GNNs to match or exceed more complex relation-aware ones, suggesting that careful preprocessing can substitute for architectural complexity in KG learning.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2512.08274v2</guid>
+      <category>cs.LG</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Humera Sabir, Fatima Farooq, Ashraf Aboulnaga</dc:creator>
+    </item>
+    <item>
+      <title>Counting Hypertriangles through Hypergraph Orientations</title>
+      <link>https://arxiv.org/abs/2601.03573</link>
+      <description>arXiv:2601.03573v2 Announce Type: replace-cross 
+Abstract: Counting the number of small patterns is a central task in network analysis. While this problem is well studied for graphs, many real-world datasets are naturally modeled as hypergraphs, motivating the need for efficient hypergraph motif counting algorithms. In particular, we study the problem of counting hypertriangles - collections of three pairwise-intersecting hyperedges. These hypergraph patterns have a rich structure with multiple distinct intersection patterns unlike graph triangles.
+  Inspired by classical graph algorithms based on orientations and degeneracy, we develop a new theoretical framework that generalizes these concepts to hypergraphs and yields provable algorithms for hypertriangle counting.
+  We implement these ideas in DITCH (Degeneracy Inspired Triangle Counter for Hypergraphs) and show experimentally that it is faster on all but one small instance, achieving speedups of up to 100x, and is 6-100x more memory-efficient than existing state-of-the-art methods.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2601.03573v2</guid>
+      <category>cs.DS</category>
+      <category>cs.DB</category>
+      <category>cs.SI</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Daniel Paul-Pena, Vaishali Surianarayanan, Deeparnab Chakrabarty, C. Seshadhri</dc:creator>
+    </item>
+    <item>
+      <title>HNSecW: A Logarithmic-Time MPC Protocol for Approximate Nearest Neighbor Search</title>
+      <link>https://arxiv.org/abs/2610.34248</link>
+      <description>arXiv:2610.34248v2 Announce Type: replace-cross 
+Abstract: As a core component of modern RAG systems, approximate nearest neighbor (ANN) search has been extensively studied for decades. In practice, deploying ANN often requires symmetric privacy, where the querier's query and the database owner's data must remain hidden from each other, necessitating a secure multi-party computation (MPC) solution. So far, most MPC-based ANN protocols follow a cluster-based approach: they evaluate distances for the query over a large candidate set and rely on heavyweight primitives such as distributed ORAM to hide access patterns. As a result, each search typically requires $O(\sqrt{N})$ time. We propose HNSecW, a novel MPC protocol for ANN search that achieves the $O(\log N)$ search time for the first time. We first study the single-query setting. Starting from HNSW, the state-of-the-art ANN algorithm, we redesign its control flow and data structures to achieve fully data-independent execution. To further achieve logarithmic search time, we employ offline reshuffling and partial database duplication. Furthermore, we extend our protocol to support multiple sequential queries by introducing a "double visited" caching structure that eliminates redundant cross-query memory accesses, thereby avoiding per-query online shuffling. In addition, we develop a batch-query protocol that exploits higher parallelism to reduce both round complexity and the circuit's critical path. Our experiments show that HNSecW preserves the high accuracy of plaintext HNSW ($\geq 90\%$ recall) and delivers over a $20\times$ efficiency improvement over prior work on million-scale datasets.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.34248v2</guid>
+      <category>cs.CR</category>
+      <category>cs.DB</category>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Fahong Zhang, Weijie Jin, Lixu Wang, Ning Luo, Xiao Wang, Wei Dong</dc:creator>
+    </item>
+  </channel>
+</rss>
