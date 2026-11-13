@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PF updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PF</link>
+    <description>cs.PF updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Nov 2026 07:37:08 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Towards Runtime-Aware Observability for Java Virtual Threads</title>
+      <link>https://arxiv.org/abs/2611.14999</link>
+      <description>arXiv:2611.14999v1 Announce Type: new 
+Abstract: OS-level observability tools join application requests to kernel events through the OS thread ID, assuming that a unit of work occupies one OS thread until it completes. Java virtual threads break this assumption: many virtual threads are multiplexed onto a few carrier threads, so a stable thread ID hides a changing unit of work, and the join fails silently. Existing virtual-thread-aware channels republish context or identity on every mount and unmount, and the JVMTI-based one pays this cost for the lifetime of the JVM, whether or not an observer is attached. We bind a 64-byte off-heap trace buffer to each virtual thread, at a fixed address for its lifetime, and publish the address to eBPF consumers through four USDT probes in a patched OpenJDK; a re-implemented JVMTI channel over the same buffer serves as a controlled comparison. The four-probe design attributed all 768 test markers correctly on both the content and the identity plane, while the naive two-probe design silently misattributes trace context. With no consumer attached, publication costs at most about 33 ns per transition; the remaining dormant cost is buffer allocation, about 0.37 microseconds per virtual thread, which is negligible on transition-heavy workloads but nearly doubles the cost of a creation-only microbenchmark. The JVMTI channel costs about 20% on transition-heavy workloads and about 1.8 microseconds per virtual thread on the creation-only one. We also show that, of the two update strategies OTEP 4947 permits, only in-place rewriting guarded by the record's valid flag is sound for readers that cache the record's address, as lifecycle-event readers do.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.14999v1</guid>
+      <category>cs.PF</category>
+      <category>cs.OS</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Wenjie Ding</dc:creator>
+    </item>
+    <item>
+      <title>Instruction-Aware Transfer of GPU Implementation Crossovers: a Tensor-Product Discontinuous Galerkin Operator on GB200, H100, and A100</title>
+      <link>https://arxiv.org/abs/2611.15032</link>
+      <description>arXiv:2611.15032v1 Announce Type: new 
+Abstract: We compare up to six implementations of an FP64 tensor-product discontinuous Galerkin operator at p = 7-1023 on GB200, H100, and A100 with fixed numerics, input, and code. The fastest path is machine dependent: at p = 511, a fused-epilogue GEMM path is 5.0% faster than a fused Tensor Core kernel on GB200 and 6.9% slower on A100. Nominal-peak scaling reproduces the A100 ranking but fails on H100, where the cost of FP64 arithmetic in the profiler-defined FP64 budget depends on the instruction. We therefore price each issued instruction at its architecture-dependent cost in that budget, using a calibration-side counter profile and one derived calibration factor per kernel, with no fit to the target. A retrospective leave-one-GPU-out evaluation, holding out target timings and counters but not the model form, transfers the p &gt;= 511 path times with 1.9% median error at the common MMA shape, and the direction of the crossover at the H100 shape. Restricting the streaming multiprocessors of one A100, with nothing fitted, reproduces the A100-to-GB200 reversal. At roduction-relevant orders the model does not resolve the fastest fused path; the result identifies the crossover mechanism.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.15032v1</guid>
+      <category>cs.PF</category>
+      <category>cs.DC</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Seiya Nishizawa, Yuta Kawai, Xuanzhengbo Ren</dc:creator>
+    </item>
+    <item>
+      <title>LLMRunner: Closed Workload Model Performance Testing Framework for LLM Servings</title>
+      <link>https://arxiv.org/abs/2611.15372</link>
+      <description>arXiv:2611.15372v1 Announce Type: new 
+Abstract: Performance testing large language model (LLM) serving engines is a crucial requirement considering the criticality of the infrastructure for deploying conversational AI at scale. Most of the benchmarking tools used to carryout performance evaluation of LLM serving do not capture realistic workload orchestration unlike closed workload performance testing infrastructure used in other domains such as web and database engines. For example, state-of-the-art LLM benchmarks for performance testing model traffic as streams of independent single-turn and stand-alone requests omitting the end-user behavior such as think-time between conversational turns. We present LLMRunner, a performance tester for LLM serving that addresses this gap by providing a framework to generate realistic load consisting of multi-turn conversations with configurable end-user parameters such as number of users in the workload loop, think-time distributions etc. Moreover, LLMRunner provides declarative matrix-sweep experiment plans, integrated GPU and KV-cache monitoring, and an automated artifact collection and plotting subsystem.
+  We use LLMRunner to comparatively analyze the performance of LLM serving when NVIDIA CUDA Unified Virtual Memory (UVM) is used as a drop-in replacement memory allocator for the Key-Value cache (KV-Cache). Our test demonstrates that UVM incurs no measurable throughput or latency penalty compared to the baseline memory allocation technique for non-oversubscription scenarios.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.15372v1</guid>
+      <category>cs.PF</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Arush Upadhyaya, Debadatta Mishra</dc:creator>
+    </item>
+    <item>
+      <title>Towards Automated Recommendation of Steady-State Detection Algorithms for Software Performance Benchmarks</title>
+      <link>https://arxiv.org/abs/2611.16566</link>
+      <description>arXiv:2611.16566v1 Announce Type: new 
+Abstract: Steady-state detection is a central step in software performance benchmarking, yet different detection methods rely on different assumptions and may perform best on different execution profiles. This paper formulates steady-state detection as an algorithm-recommendation problem: given a benchmark time series, predict which of two complementary detectors is more appropriate. The first, CP-SSD, identifies steady state through changepoint-based segmentation of the execution trace, whereas the second, KB-KSSD, uses a kernel-based approach to identify stable behaviour. We propose a data-driven recommender that characterises benchmark time series using automatically extracted features and combines supervised prediction with information derived from groups of time series exhibiting similar behaviour. The approach is evaluated on 407 labelled benchmark time series for which one of the two detectors can be identified as preferable with respect to a reference steady-state index. The proposed recommender selects the better detector correctly for 72.97% of the series, compared with 62.65% when always selecting the detector that performs best most often, corresponding to an absolute improvement of 10.32 percentage points. Paired statistical testing and bootstrap confidence intervals support this improvement. A comparison with a recommender using time-series features alone shows that the cluster-derived information mainly improves interpretability rather than predictive accuracy. Recommendations also remain highly stable when the unsupervised representation is learned from either the labelled subset or the full collection of 5,860 time series. These results demonstrate the feasibility of per-series steady-state detector recommendation while highlighting the need for broader labelled data, particularly for execution profiles favouring the changepoint-based detector.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.16566v1</guid>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Martin Beseda, Vittorio Cortellessa, Federico Di Menna, Daniele Di Pompeo, Luca Traini</dc:creator>
+    </item>
+    <item>
+      <title>Control-Flow Profiling for Workload Representativeness</title>
+      <link>https://arxiv.org/abs/2611.16889</link>
+      <description>arXiv:2611.16889v1 Announce Type: new 
+Abstract: Workload characterization in performance engineering often replaces expensive target executions with lower-cost proxies, including reduced datasets, miniapps, and training inputs. Such substitutions require empirical verification that the proxy faithfully exercises the target's dynamic execution behavior. This paper presents an address-keyed control-flow profiling methodology and tool suite designed to evaluate workload representativeness directly from compiled, unmodified binaries. We pair time-ordered basic-block vector (BBV) recurrence analysis with exp-branchprof, an experimental Valgrind tool that captures five orthogonal structural profile families spanning branch direction bias, four-bit global history contexts, dynamic indirect targets, function call transitions, and intraprocedural CFG edges.
+  Our method compares weighted event distributions from two executions of the same binary. It reports support coverage, reference event-mass coverage, distribution distance, entropy-derived quantities, and phase structure, rather than claiming that a single similarity score certifies a proxy. We validate the tool with exact-oracle microbenchmarks across AArch64 and x86-64, covering conditional and inverted exits, calls, returns, direct and indirect jumps, and forked processes. We then apply the workflow to SPEC CPU2017 and CPU2026 train/reference pairs and seven refrate/refspeed pairs. The corpus contains both close matches and cases where a shorter execution reaches much of the same code but misses substantial target, callgraph, CFG, or BBV event mass. The accompanying artifact supports the same analysis for proprietary workload/proxy pairs without requiring raw PC-level profiles to leave the collection environment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.16889v1</guid>
+      <category>cs.PF</category>
+      <category>cs.AR</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Mahesh Madhav</dc:creator>
+    </item>
+    <item>
+      <title>Theoretical and Empirical Analysis of Sparse Convolution</title>
+      <link>https://arxiv.org/abs/2611.17212</link>
+      <description>arXiv:2611.17212v1 Announce Type: new 
+Abstract: Deep neural networks for image processing are increasingly deployed on resource-constrained edge devices such as drones, medical systems, and smartphones, where limited computational resources and memory bandwidth pose significant challenges for efficient inference. Pruning during training often produces highly sparse convolutional kernels, offering the potential to significantly reduce computation and memory requirements. However, exploiting this sparsity efficiently at runtime remains challenging due to irregular memory access patterns and workload imbalance across processing elements. In this work, we investigate the standard convolution with sparse weights and analyze its performance characteristics through roofline analysis, showing that a 3 x 3 sparse convolution achieves an arithmetic intensity of approximately 10 FLOP/byte compared to roughly 96 FLOP/byte for its dense counterpart. We propose techniques for an efficient sparse convolution at high sparsities. Preliminary results demonstrate that our approach achieves upto 1.65x speedup as compared to dense convolution on NVIDIA A100 and upto 1.52x on NVIDIA Jetson Nano (Tegra X1) , motivating further exploration of direct convolution as a practical path to efficient sparse inference on modern accelerators/edge devices.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17212v1</guid>
+      <category>cs.PF</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Keshvi Tuteja, Yu-Hsiang Tsai, Gregor Olenik, Markus G\"otz, Achim Streit, Hartwig Anzt, Charlotte Debus</dc:creator>
+    </item>
+    <item>
+      <title>Reconstructing Fine-grained Memory Reuse Structure in GPU Kernels</title>
+      <link>https://arxiv.org/abs/2611.14741</link>
+      <description>arXiv:2611.14741v1 Announce Type: cross 
+Abstract: Optimizing GPU data movement requires knowing which instructions access the same data and across which execution scopes reuse occurs. Existing profilers can attribute memory behavior to individual instructions but do not expose the reuse relations among them, while aliasing, dynamic indexing, and runtime parameters prevent static analysis from establishing these relations in general. Cycle-level simulation can reconstruct such relations, but at costs prohibitive for production workloads. We introduce two abstractions for representing this structure: Topological Distance, which labels each dynamic memory access with the smallest execution scope (thread, warp, block, or grid) containing its most recent reuse, and PCDepGraph, which organizes these labels into a PC-level graph of the kernel's memory reuse structure. Defined over logical execution scopes rather than transient hardware state, the representation remains stable across runs and GPU targets while directly indicating the sharing scope that candidate optimization mechanisms must cover. Our tool, cuVein, reconstructs PCDepGraph directly from optimized binaries, without sampling, at generally under 10x overhead. Across HPC and AI workloads on NVIDIA RTX 4090 and H100, optimizations guided by PCDepGraph eliminate up to 90.18% of memory instructions and yield up to 2.84x kernel speedup; reuse-scope distributions remain consistent across platforms, supporting that the representation captures program structure rather than transient hardware behavior.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.14741v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <category>cs.PL</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yanbo Zhao, Yueming Hao, Zecheng Li, Mao Lin, Shuyin Jiao, Keren Zhou, Xu Liu, Jiajia Li</dc:creator>
+    </item>
+    <item>
+      <title>UniPipe: Unified Inference Serving and Fine-Tuning for Deadline-Constrained DNN Surrogate Workflows</title>
+      <link>https://arxiv.org/abs/2611.14748</link>
+      <description>arXiv:2611.14748v1 Announce Type: cross 
+Abstract: DNN surrogates are increasingly used to accelerate scientific workflows that must process high-rate sensor streams in near real time, exemplified by Ptychographic imaging at next-generation X-ray light sources. Such surrogates deliver 100-1000x higher throughput than iterative solvers, enabling faster steering of experiments. To preserve surrogate accuracy during an experiment, as the input distribution evolves, state-of-the-art deployments freeze the pretrained surrogate or run a separate CUDA context that fine-tunes concurrently with serving. However, multi-context concurrency causes significant contention on the GPU, inflating both the mean and the variance of inference latency, triggering deadline misses in workflows where sensor data has to be processed within a hard per-unit deadline. To address this challenge, we propose UniPipe, a single-context system that unifies inference serving and fine-tuning of a DNN surrogate on a single edge GPU. UniPipe is driven by three key insights: both serving and fine-tuning require a forward pass and can be fused into one; the per-sample latency of modern GPUs is non-linear in batch size; and the workload is repetitive across intervals, enabling offline scheduling. Specifically, UniPipe fuses training and inference data in a single forward pass with a selective backward pass on the training subset, and uses a polynomial-time scheduler that exploits the latency curve to compute the batch composition. We evaluate UniPipe on a real-world Ptychographic reconstruction workflow with sensor rates up to 5000 patterns/sec.; UniPipe lowers reconstruction MSE by up to 30% and inference MSE by up to 50% over a pretrained baseline, and reduces the deadline-miss rate by 13%-22% over a multi-context baseline. UniPipe's unified deployment reduces the latency spread from 106% to 57% of the mean, and increases total throughput compared to multi-context baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.14748v1</guid>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <category>cs.SY</category>
+      <category>eess.SY</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jaiaid Mobin, Avinash Maurya, M. Mustafa Rafique, Bogdan Nicolae</dc:creator>
+    </item>
+    <item>
+      <title>Recompute or Restore? Host-Tier KV for Multi-Model Agent Workflows on a Static-Graph NPU Serving Stack</title>
+      <link>https://arxiv.org/abs/2611.15126</link>
+      <description>arXiv:2611.15126v1 Announce Type: cross 
+Abstract: Agent workflows issue dependent model calls that share long context prefixes, so serving them efficiently depends on reusing the key-value (KV) cache of those prefixes. On accelerators that compile model graphs ahead of time, however, the device KV budget is fixed, and prefixes evicted under load must be recomputed. Restoring them from host memory avoids this recomputation, but the transfer occupies the same engine thread as prefill and decode, so its benefit is not guaranteed. In this paper, we study when restoring beats recomputing on a commercial static-graph neural processing unit (NPU) stack (Rebellions ATOM+, vllm-rbln 0.10.2) that serves a Qwen3-8B planner on two cards and a Qwen3-0.6B executor on one. We first show that repeated prefill dominates planner work when default serving collapses: 89.5% of the executed planner prompt tokens had been materialized before. We then build a synchronous host-DRAM tier on the runtime's public KV copy calls, together with a scheduler-aware event model whose predictions are frozen before each test cohort. Experimental results show that the host tier raises workflow service-level objective (SLO) attainment from 22.8% to 100% and from 9.4% to 99.8% in the two tested overload conditions, and endpoint confirmation on two new seeds supports conservative load gains of 11.8% (chain) and 18.2% (fork), while mixed and bursty workloads remain seed-sensitive. The frozen model predicts median and 99th-percentile (P99) latency within its 15% tolerance in all 24 common-load conditions, including the 16-18% P99 increase that the tier causes for fork workflows, but it misorders three policy contrasts and overestimates the benefit of a cheaper store path (11% predicted against 3.1% measured). The trade-off therefore depends on runtime scheduling and transfer cost as well as cache capacity.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.15126v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Sungwon Woo, Seyeon Kim</dc:creator>
+    </item>
+    <item>
+      <title>NVIDIA Vera: A Microarchitecture-Level Comparison with Grace, Turin, and Granite Rapids</title>
+      <link>https://arxiv.org/abs/2611.15926</link>
+      <description>arXiv:2611.15926v1 Announce Type: cross 
+Abstract: The majority of new HPC systems are centered around NVIDIA, AMD, or Intel CPUs. Vera is NVIDIA's latest data-center CPU, including its first custom data-center core design, Olympus. This paper investigates Vera in comparison to AMD Turin and Intel Granite Rapids, using NVIDIA Grace as a baseline. We navigate up the performance ladder, from microbenchmarks that isolate performance metrics, through NAS kernels and miniapps, to single-socket performance of a range of scientific codes.
+  We find that Vera achieves the best performance of the architectures evaluated in most codes tested, and that this gain is primarily attributed to its high memory bandwidth, effective Spatial Multithreading implementation, and low-latency memory subsystem aided by the architecture's predictive structures. While Vera represents a major leap over its predecessor, we show that its comparatively modest floating-point performance trails Intel and AMD in a small number of compute-bound workloads reflecting NVIDIA's GPU focus for such workloads.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.15926v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AR</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Joseph Moore, Thomas Green, Simon McIntosh-Smith</dc:creator>
+    </item>
+    <item>
+      <title>Snoopie: A Multi-GPU Communication Profiler and Visualizer</title>
+      <link>https://arxiv.org/abs/2611.16330</link>
+      <description>arXiv:2611.16330v1 Announce Type: cross 
+Abstract: With data movement becoming one of the most expensive bottlenecks in computing, the need for profiling tools to analyze communication becomes crucial for effectively scaling multi-GPU applications. While existing profiling tools including first-party software by GPU vendors are robust and excel at capturing compute operations within a single GPU, support for monitoring GPU-GPU data transfers and calls issued by communication libraries is currently inadequate. To fill these gaps, we introduce Snoopie, an instrumentation-based multi-GPU communication profiling tool built on NVBit, capable of tracking peer-to-peer transfers and GPU-centric communication library calls. To increase programmer productivity, Snoopie can attribute data movement to the source code line and the data objects involved. It comes with multiple visualization modes at varying granularities, from a coarse view of the data movement in the system as a whole to specific instructions and addresses. Our case studies demonstrate Snoopie's effectiveness in monitoring data movement, locating performance bugs in applications, and understanding concrete data transfers abstracted beneath communication libraries. The tool is publicly available at https://github.com/ParCoreLab/snoopie.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.16330v1</guid>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3650200.3656597</arxiv:DOI>
+      <dc:creator>Mohammad Kefah Taha Issa, Muhammad Aditya Sasongko, Ilyas Turimbetov, Javid Baydamirli, Do\u{g}an Sa\u{g}bili, Didem Unat</dc:creator>
+    </item>
+    <item>
+      <title>SPEC CPU2026 Under the Microscope: Programs, Phases, and Samples</title>
+      <link>https://arxiv.org/abs/2611.16376</link>
+      <description>arXiv:2611.16376v1 Announce Type: cross 
+Abstract: SPEC CPU2026, the latest generation of the SPEC CPU benchmarks, is set to become the standard benchmark suite in computer architecture research, where new designs are often evaluated through sampled simulation with tools such as SimPoint. Existing characterizations of the suite focus on whole-run averages, which reveal neither how behavior changes within a run nor how well sampling captures it. We characterize CPU2026 on real hardware at three levels: programs, phases, and samples. At the program level, we report whole-run metrics and top-down bottleneck classes for all four suites and examine how they change with workload size, compiler version, and platform, across machines with three different instruction set architectures: x86, Arm, and RISC-V. Notably, changing only the compiler version can halve or nearly double the IPC of individual benchmarks. At the phase level, we track hardware counters every 10 ms over all 90 SPECrate inputs, identify recurring patterns of time-varying behavior, and divide the inputs into three groups: steady, multi-phase, and bursty. More than half of the inputs show time-varying behavior, and IPC within a single input can vary by more than an order of magnitude. At the sample level, we validate SimPoint against hardware measurements of every interval it can select. SimPoint is accurate on steady inputs, but its error reaches 43% on the others, and changing only the random seed spreads the error of one input over a range of 58 percentage points. Keeping SimPoint's clusters but choosing each representative by measured CPI brings every input within 2.6%, so the error comes from the choice of representatives, not from the clustering. We conclude with practical recommendations on sampling strategy for CPU2026, which give researchers a deeper understanding of the suite and show where additional simulation effort is needed to keep sampled results accurate.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.16376v1</guid>
+      <category>cs.AR</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Peijun Li, Pei-Hung Lin, Tianming Cui, Caiwen Ding, Yang Katie Zhao, Maya Gokhale</dc:creator>
+    </item>
+    <item>
+      <title>To Race or Not to Race? Exploiting Performance Variability in Mixed-Integer Programming via Root-Gated Resource Allocation</title>
+      <link>https://arxiv.org/abs/2611.16543</link>
+      <description>arXiv:2611.16543v1 Announce Type: cross 
+Abstract: Mixed-integer programming (MIP) solver runtimes vary substantially across random seeds. Parallel replication exploits this variability but can waste computational resources when applied indiscriminately. We investigate whether information from an ordinary solve can guide this allocation decision.
+  We formulate replication under a finite deadline, establish an exact relationship between runtime dispersion and the value of independent searches, and analyze delayed replication and imperfect allocation decisions. Using 101,615 seeded SCIP runs, we examine the association between root-LP dual degeneracy and replication value. We then introduce a non-invasive root-gated policy that preserves the original solver trajectory and launches three additional seeded processes when a root dual-degeneracy indicator reaches a fixed threshold.
+  In a prospective two-hour experiment on 130 paired instances, root-gated racing proves optimality on 77 instances (59.23%), versus 73 (56.15%) for both Single and unconditional Race-4, while reducing active worker-process occupancy by 43.00% relative to unconditional racing. These findings demonstrate the promise of selective parallel resource allocation without solver-source modifications.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.16543v1</guid>
+      <category>math.OC</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Mourchid Adegbindin, Brenda Dietrich, Jamol Pender</dc:creator>
+    </item>
+    <item>
+      <title>HistogramTools for Efficient Data Analysis and Distribution Representation in Large Data Sets</title>
+      <link>https://arxiv.org/abs/2504.00001</link>
+      <description>arXiv:2504.00001v2 Announce Type: replace-cross 
+Abstract: Histograms provide a powerful means of summarizing large data sets by representing their distribution in a compact, binned form. The HistogramTools R package enhances R built-in histogram functionality, offering advanced methods for manipulating and analyzing histograms, especially in large-scale data environments. Key features include the ability to serialize histograms using Protocol Buffers for distributed computing tasks, tools for merging and modifying histograms, and techniques for measuring and visualizing information loss in histogram representations. The package is particularly suited for environments utilizing MapReduce, where efficient storage and data sharing are critical. This paper presents various methods of histogram bin manipulation, distance measures, quantile approximation, and error estimation in cumulative distribution functions (CDFs) derived from histograms. Visualization techniques and efficient storage representations are also discussed alongside applications for large data processing and distributed computing tasks.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2504.00001v2</guid>
+      <category>cs.DB</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Shubham Malhotra</dc:creator>
+    </item>
+    <item>
+      <title>OSCAR: Offline Spectral Covariance-Aware Rotation for 2-bit KV Cache Quantization</title>
+      <link>https://arxiv.org/abs/2605.17757</link>
+      <description>arXiv:2605.17757v2 Announce Type: replace-cross 
+Abstract: INT2 KV-cache quantization is attractive for long-context LLM serving, yet making it both accurate and practical remains challenging. Data-oblivious rotations such as Hadamard transforms flatten channel outliers, but still degrade sharply at INT2 because they ignore how downstream attention queries the cache. We propose OSCAR, an ultra-low-bit KV-cache quantization method that estimates attention-aware covariance targets offline and uses them to derive fixed per-layer rotations and clipping thresholds. By aligning the quantization basis with the second-moment structures consumed by attention, OSCAR preserves attention fidelity at 2-bit precision. Beyond theoretical analysis under a frozen-error surrogate, we build a serving-ready OSCAR system with fused Triton write and decode kernels that preserve paged KV-cache layouts and prefix caching, integrating into modern serving engines such as SGLang and vLLM.
+  We evaluate OSCAR on reasoning and coding benchmarks with generation traces of up to 32K tokens across five tasks. On Qwen3-4B-Thinking-2507 and Qwen3-8B, OSCAR narrows the BF16 accuracy gap to 3.78 and 1.21 points, respectively, where Hadamard-only INT2 collapses, and matches BF16 within run-to-run variance on Qwen3-32B and GLM-4.7 (358B parameters). On RULER-NIAH up to 128K tokens, OSCAR substantially outperforms QuaRot-style INT2 across context lengths. System-wise, OSCAR compresses KV-cache memory by nearly $8\times$, boosts multi-request throughput by up to $7.8\times$ at large batch sizes within the same memory budget, and accelerates batch-size-1 decoding by up to $3.1\times$ over BF16 by cutting KV memory traffic.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.17757v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Zhongzhu Zhou, Donglin Zhuang, Jisen Li, Ziyan Chen, Shuaiwen Leon Song, Ben Athiwaratkun, Xiaoxia Wu</dc:creator>
+    </item>
+    <item>
+      <title>Transactional Data Change for Real-Time Analytics in Lakehouses</title>
+      <link>https://arxiv.org/abs/2611.12169</link>
+      <description>arXiv:2611.12169v2 Announce Type: replace-cross 
+Abstract: Real-time data analytics has become a key demand for lakehouses. It requires propagating data changes from the data source to the lakehouse in real time, while ensuring ACID guarantees and minimizing resource consumption and impact on analytical query performance. This is highly challenging for a data system according to the RUM conjecture, especially given the read-optimized immutable file storage layer in lakehouses. Existing lakehouses offer only git-style catalog version control on a single table, and they trade data freshness, query performance, and/or resource efficiency to achieve a barely acceptable data-change throughput. In this paper, we propose a novel data synchronization framework, Retina, that enables real-time, cost-efficient, query-performant, and fully transactional data changes in lakehouses. We implement and open-source Retina. Evaluations show that Retina delivers 10-millisecond-level data freshness and over 3.2 million row/s linear-scalable data-change throughput with low resource consumption and query-performance overhead, significantly outperforming state-of-the-art lakehouse systems and lake-compatible HTAP databases.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.12169v2</guid>
+      <category>cs.DB</category>
+      <category>cs.AI</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <arxiv:DOI>10.14778/3849398.3849411</arxiv:DOI>
+      <dc:creator>Dongyang Geng, Haoqiong Bian, Zinuo Li, Haoyue Li</dc:creator>
+    </item>
+    <item>
+      <title>Inference Validation for Regulated AI: A Governed Decision Pipeline for LLM Serving</title>
+      <link>https://arxiv.org/abs/2611.12737</link>
+      <description>arXiv:2611.12737v2 Announce Type: replace-cross 
+Abstract: Deploying large language models in regulated industries requires more than picking the fastest inference engine: it requires evidence that a configuration meets contractual and legal obligations before it serves a single customer request. We describe Runway, an internal validation harness built at MasterControl that builds a governed decision pipeline around NVIDIA AIPerf. The key insight is separating concerns: AIPerf provides the trusted measurement, while Runway provides the experiment design that comes before it and the compliance, cost, and audit decisions that come after. We describe the architecture and the storage model that makes caching and audit one mechanism. We report three findings from Runway sweeps: TensorRT-LLM and vLLM rankings invert with concurrency; a newer, pricier GPU instance can be the cheaper one per request; and speculative decoding behaves differently across engines under load, so engine configuration can outweigh engine choice.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.12737v2</guid>
+      <category>cs.SE</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Dev Akre, Roman Bobalo, Manoj Dobbali</dc:creator>
+    </item>
+  </channel>
+</rss>

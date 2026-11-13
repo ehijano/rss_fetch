@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Nov 2026 07:37:22 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>Tideway: Phase-Aware Tiered Memory Management for MoE Inference on Consumer Devices</title>
+      <link>https://arxiv.org/abs/2611.14848</link>
+      <description>arXiv:2611.14848v1 Announce Type: new 
+Abstract: Large language model (LLM) agents are rapidly becoming a dominant paradigm for AI applications. Recently, there is a growing demand to deploy large-scale Mixture-of-Experts (MoE) models locally on consumer PCs to balance data privacy, API costs, and inference efficiency. However, unlike datacenter servers with abundant DRAM, consumer devices are tightly constrained in both GPU VRAM and host RAM, forcing massive MoE weights to spill across VRAM, host RAM, and SSD. Under such spilling, we observe that existing systems fail to fully utilize this memory hierarchy, treating the tiers as independent caches and thrashing in inference.
+  We present TIDEWAY, a system for efficient inference of large MoE models on memory-constrained consumer devices. Our core insight is to manage host RAM and GPU VRAM as a unified memory pool. Within this pool, TIDEWAY couples phase-aware memory layouts, which adapt to the distinct access patterns of prefill and decode, with an execution engine that optimizes CUDA Graph execution under expert paging. Our evaluations on representative consumer hardware with frontier MoE models demonstrate that TIDEWAY significantly outperforms state-of-the-art systems. On average, TIDEWAY achieves speedups of 1.97x in end-to-end latency and 2.40x in Time-to-First-Token (TTFT), along with 1.61x higher decode throughput against the fastest baseline.
+  Our source code is publicly available at https://github.com/Afterglow231/Tideway .</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.14848v1</guid>
+      <category>cs.OS</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yifei Wang, Tsun-yu Yang, Yechen Xu, Hancheng Ye, Qinsi Wang, Baijun Zhou, Tingjun Chen, Hai "Helen" Li, Danyang Zhuo, Yiran Chen</dc:creator>
+    </item>
+    <item>
+      <title>Towards Runtime-Aware Observability for Java Virtual Threads</title>
+      <link>https://arxiv.org/abs/2611.14999</link>
+      <description>arXiv:2611.14999v1 Announce Type: cross 
+Abstract: OS-level observability tools join application requests to kernel events through the OS thread ID, assuming that a unit of work occupies one OS thread until it completes. Java virtual threads break this assumption: many virtual threads are multiplexed onto a few carrier threads, so a stable thread ID hides a changing unit of work, and the join fails silently. Existing virtual-thread-aware channels republish context or identity on every mount and unmount, and the JVMTI-based one pays this cost for the lifetime of the JVM, whether or not an observer is attached. We bind a 64-byte off-heap trace buffer to each virtual thread, at a fixed address for its lifetime, and publish the address to eBPF consumers through four USDT probes in a patched OpenJDK; a re-implemented JVMTI channel over the same buffer serves as a controlled comparison. The four-probe design attributed all 768 test markers correctly on both the content and the identity plane, while the naive two-probe design silently misattributes trace context. With no consumer attached, publication costs at most about 33 ns per transition; the remaining dormant cost is buffer allocation, about 0.37 microseconds per virtual thread, which is negligible on transition-heavy workloads but nearly doubles the cost of a creation-only microbenchmark. The JVMTI channel costs about 20% on transition-heavy workloads and about 1.8 microseconds per virtual thread on the creation-only one. We also show that, of the two update strategies OTEP 4947 permits, only in-place rewriting guarded by the record's valid flag is sound for readers that cache the record's address, as lifecycle-event readers do.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.14999v1</guid>
+      <category>cs.PF</category>
+      <category>cs.OS</category>
+      <category>cs.SE</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Wenjie Ding</dc:creator>
+    </item>
+    <item>
+      <title>MARS: Towards High Goodput and Low KV Thrashing in Agent Serving under GPU Memory Constraints</title>
+      <link>https://arxiv.org/abs/2604.26963</link>
+      <description>arXiv:2604.26963v3 Announce Type: replace 
+Abstract: Self-hosted LLM agents offer greater control over sensitive data and model customization while avoiding per-request API fees. However, serving concurrent, multi-turn workflows within limited GPU memory makes it difficult to achieve high workflow-level goodput. In particular, as workflows accumulate context, their reusable key-value (KV) caches can easily outgrow GPU capacity, triggering repeated eviction and recovery, known as KV cache thrashing. This process consumes resources and delays workflow completion. Although existing approaches propose various methods, our motivation study shows that the evaluated baselines still incur substantial thrashing overhead or fail to address the workflow-level goodput issue.
+  We present MARS, an agent serving system that coordinates workflow admission and in-engine scheduling to achieve high workflow-level goodput on memory-constrained devices while avoiding KV cache thrashing. Specifically, outside the engine, an admission controller selects root workflows using initial prefix footprint estimates and live KV availability, adapting admissions to memory pressure. Inside, an agent-centric scheduler prioritizes turn completion and coordinates prefill allocation with KV reclamation to reduce disruptive evictions. Across two models and three GPU configurations, MARS achieves 1.59x-7.56x mean end-to-end latency speedups over the fastest baseline. Integrated as the serving backend for OpenCode, Codex, and OpenHands, MARS further improves mean workflow completion time by 1.17x-1.87x.
+  Our source code is publicly available at https://github.com/Afterglow231/MARS_preview .</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.26963v3</guid>
+      <category>cs.OS</category>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.MA</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yifei Wang, Tsun-yu Yang, Hancheng Ye, Yechen Xu, Cong Guo, Chiyue Wei, Qinsi Wang, Dongting Li, Tingjun Chen, Hai "Helen" Li, Danyang Zhuo, Yiran Chen</dc:creator>
+    </item>
+    <item>
+      <title>Idleness is Relative: Exploiting Tool-Call Idle Windows for Offloading in Agentic Systems with MORI</title>
+      <link>https://arxiv.org/abs/2606.00866</link>
+      <description>arXiv:2606.00866v2 Announce Type: replace 
+Abstract: Agentic programs alternate between LLM inference and tool calls, each request extending the previous one's context. Program-aware schedulers pin a program's KV cache in GPU HBM across tool calls to avoid re-prefilling it at every step, but as contexts grow, pinned KV cache exceeds HBM, raising program eviction: deciding when a program releases GPU memory and when it returns. Offloading to CPU DRAM lets an evicted program wait out a tool call instead of recomputing its context, but existing schedulers leave DRAM to LRU, so offloaded programs thrash. Making these decisions is hard: tool-call durations vary by orders of magnitude and are unknown in advance. We observe that programs nevertheless stay busy (short tool calls) or idle (long ones) for extended periods, and use a program's idleness, its recent fraction of time in tool calls, as a continuous, relative metric. MORI ranks programs by idleness, keeps the least idle in HBM and the next in DRAM, and drops the rest, enforcing admission control at both tiers under any GPU-to-CPU capacity ratio; it also proactively demotes idle programs to make room for ready ones. On real coding-agent traces, MORI achieves on average 64% higher throughput and 72% lower p90 TTFT than the best offloading baseline under high load.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2606.00866v2</guid>
+      <category>cs.OS</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Tian Xia, Yi Xu, Hanchen Li, Zhifei Li, Xiaokun Chen, Hao Kang, Yifan Qiao, Ion Stoica</dc:creator>
+    </item>
+    <item>
+      <title>GPUOS: A GPU Operating System Primitive for Transparent Operation Fusion</title>
+      <link>https://arxiv.org/abs/2604.17861</link>
+      <description>arXiv:2604.17861v2 Announce Type: replace-cross 
+Abstract: Modern deep learning workloads often consist of many small tensor operations, especially in inference, attention, and micro-batched training. In these settings, kernel launch overhead can become a major bottleneck, sometimes exceeding the actual computation time.
+  We present GPUOS, a GPU runtime JIT system that reduces launch overhead using a persistent kernel architecture with runtime operator injection. GPUOS runs a single long-lived GPU kernel that continuously processes tasks from a host-managed work queue, eliminating repeated kernel launches. To support diverse operations, GPUOS uses NVIDIA NVRTC to just-in-time compile operators at runtime and inject them into the running kernel through device function pointer tables. This design enables operator updates without restarting the kernel or recompiling the system.
+  GPUOS introduces four key ideas: (1) a persistent worker kernel with atomic task queues, (2) a runtime operator injection mechanism based on NVRTC and relocatable device code, (3) a dual-slot aliasing scheme for safe concurrent operator updates, and (4) transparent PyTorch integration through TorchDispatch that batches micro-operations into unified submissions. The system supports arbitrary tensor shapes, strides, data types, and broadcasting through a generic tensor abstraction.
+  Experiments show that GPUOS achieves up to 15.3x speedup over standard PyTorch on workloads dominated by small operations, including micro-batched inference and attention patterns. GPUOS improves utilization while remaining compatible with the PyTorch ecosystem.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2604.17861v2</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yiwei Yang, Xiangyu Gao, Yuan Zhou, Yuhang Gan, Yusheng Zheng, Andi Quinn</dc:creator>
+    </item>
+    <item>
+      <title>BunshinRL: Whole-Workspace Forking for Agentic Reinforcement Learning Rollouts</title>
+      <link>https://arxiv.org/abs/2611.10453</link>
+      <description>arXiv:2611.10453v2 Announce Type: replace-cross 
+Abstract: Agentic reinforcement learning (RL) rollouts interleave model reasoning with tool calls in persistent workspaces. Scaling these rollouts incurs substantial memory costs for concurrent environments, while slow tool calls delay entire rollout batches. We present BunshinRL, an agentic RL rollout system that exploits shared environment state and recurring tool calls through three techniques: memory sharing across environments, tool-prefix caching, and speculative tool execution. These techniques build on BunshinFork, a novel live whole-workspace forking mechanism for containers. BunshinFork reconstructs process trees, shares memory copy-on-write, and preserves file, communication, and GUI state, enabling cached-state reuse and rollback after incorrect speculation. We implement BunshinRL and BunshinFork through Linux kernel module and CRIU modifications. BunshinRL reduces peak memory by up to 43%, total memory consumption by up to 51%, and end-to-end rollout latency by 23%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.10453v2</guid>
+      <category>cs.AI</category>
+      <category>cs.OS</category>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yutong Huang, Vikranth Srivatsa, Alex Asch, Yiying Zhang</dc:creator>
+    </item>
+  </channel>
+</rss>
