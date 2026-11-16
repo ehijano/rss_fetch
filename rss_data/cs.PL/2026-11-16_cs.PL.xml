@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.PL updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.PL</link>
+    <description>cs.PL updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.PL" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Nov 2026 05:00:05 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>User-Schedulable Approximations for Quantized Tensor Programs</title>
+      <link>https://arxiv.org/abs/2611.17526</link>
+      <description>arXiv:2611.17526v1 Announce Type: new 
+Abstract: Quantization lets language models run on edge devices, but it sharply increases the number of tensor kernels a library must maintain: every weight format must be paired with every activation format on every instruction set and GPU, with an encoder and a decoder that agree on the stored bytes. In GGML, the tensor library used by llama.cpp, these kernels are written by hand, and only 8 of the 54 weight-activation pairs it runs on our Arm CPU have a tiled matrix-multiplication kernel.
+  We extend Halide's separation of algorithm and schedule to the representation of values. Each approximation is a codec, an encoder paired with a decoder, composed from reusable units: quantizers, integer representations, bit packers and layouts. A new directive, approximate_by, applies a codec to one stage of a program and returns the encoder and decoder as ordinary stages that Halide can schedule, so both decoders fuse into the register tiles of a matrix product. Optional contracts, such as a round-trip law, are checked by property tests; the law exposed an inconsistent block sum in GGML's q8_1.
+  One algorithm and one schedule library generate 347 kernels for 31 of GGML's and KleidiAI's formats on Arm CPUs and Apple GPUs, covering 38 weight-activation pairs for which GGML has no kernel, in 3.7x less code than GGML and KleidiAI. On an Apple M3 Max, our kernels reach at least 95% of the speed of GGML's format-specific kernels in 91.0% of the cases that have one, with a median speedup of 1.13x, and are faster still where GGML falls back to blocked dot products. Counting Apple's BLAS library, which is usually faster for larger f32 products, we still reach that threshold in 86.9% of CPU cases. A port to x86 with Intel's AMX adds 793 lines of code and matches GGML in 83.5% of its cases.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17526v1</guid>
+      <category>cs.PL</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Alex Reinking</dc:creator>
+    </item>
+    <item>
+      <title>An Algebraic Perspective on Operational Semantics</title>
+      <link>https://arxiv.org/abs/2611.17587</link>
+      <description>arXiv:2611.17587v1 Announce Type: new 
+Abstract: Languages with effects are typically given two independently specified semantic accounts: a denotational semantics based on (free) models, and an operational semantics defined by effect-specific reduction rules. This separation leads to two independently constructed semantic structures whose relationship must then be established a posteriori. We present a unified construction in which both denotational interpretation and operational reduction are constructed from an algebraic theory specifying the effects.
+  We work with call-by-push-value extended by the operations of an algebraic theory. We prove equational canonicity and give a tree-based operational semantics that reduces every closed computation to a tree of operations. When the free model monad is a monadic container, we derive from it a configuration-based small-step semantics. Configurations are elements of the free model. Every step preserves the denotation. Under a condition we call affinity, every reduction terminates and at ground types computes the denotation. We instantiate the framework with state, errors, writer, and weighted and pre-convex probabilistic choice. For errors, writer and weighted choice we recover the familiar rules. For state we get a machine that runs the program from every initial state at once.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17587v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Eric Bond, Max New</dc:creator>
+    </item>
+    <item>
+      <title>Meta Build Systems as Logic Programs</title>
+      <link>https://arxiv.org/abs/2611.17672</link>
+      <description>arXiv:2611.17672v1 Announce Type: new 
+Abstract: Meta build systems such as CMake, Meson and Bazel derive command graphs from project descriptions, user choices and machine facts. Imperative scripts, search paths and special cases make routine decisions interact poorly: search order can choose compatible packages without an explicit project choice, packagers must patch author flag preferences, and cross-builds need annotations or nested build trees for tools run during the build.
+  Our central insight is to express configuration as relational inference: objects follow from sources, flags and libraries from dependencies, and language standards from transitive requirements. We introduce buildlog, a meta build system whose stratified logical core isolates build derivation from impure environmental probes. It rejects ambiguity in toolchain or package selection and explains derived facts through provenance. Author constraints and user preferences use distinct, statically checked input relations. Libraries can ship consumer rules, including Qt's moc/rcc rules, using the same facts for installed and built code. Using a compiled program in a build rule lets buildlog infer its build-machine configuration.
+  We evaluate buildlog on eleven case studies of ten projects, validating configurations through execution and artifact checks while reporting remaining flag differences and platform limits. In Halide, generators link an LLVM-based compiler and run during the build to emit WebAssembly or Android code; where CMake requires nested builds, buildlog derives build-machine and target-platform configurations in one graph. A supporting formal account establishes termination, within-round probe-order independence, and agreement between fresh and validated cached runs under explicit finiteness and probe obligations. The results show that confining impurity to fact discovery yields a small, uniform and explainable configuration semantics.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17672v1</guid>
+      <category>cs.PL</category>
+      <category>cs.SE</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Alex Reinking</dc:creator>
+    </item>
+    <item>
+      <title>Super-Analysis for Aggressive yet Scalable Compiler Optimization</title>
+      <link>https://arxiv.org/abs/2611.17737</link>
+      <description>arXiv:2611.17737v1 Announce Type: new 
+Abstract: Aggressive compiler optimization today occupies two distant extremes. Conventional optimizers run in milliseconds but reason through ad-hoc heuristics that miss opportunities; superoptimizers synthesize faster code but take hours, confining them to small kernels and offline use. We introduce solver-based super-analysis, a middle ground that uses expensive SMT-based analysis while transformations remain conventional, avoiding program synthesis entirely. The key argument for super-analysis is that conventional compilers have rich transformation rules, but proving them to be safe requires complex reasoning: proving a safety check dead often needs facts from three independent LLVM analyses simultaneously, a conjunctive entailment problem suited to an SMT solver, not to any single dataflow pass.
+  We instantiate super-analysis in ODeSSy, an LLVM pass that proves sanitizer traps and native-language safety checks unreachable and removes them. One mechanism serves four frontend languages and yields speedups in each, including a 3.78x speedup for a GEMM implemented in Julia. A further solver-based optimization, guard synthesis, handles checks that are not dead for every input: the solver synthesizes a cheap invariant safety guard under which a fast check-free loop is cloned, speeding up a Swift Base64 encoder by 1.44x and a Julia LZ77 compressor by 4.01x. Compared with Souper, the synthesizing superoptimizer for LLVM, ODeSSy removes more safety checks in significantly less time, making it viable as an online compiler pass.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17737v1</guid>
+      <category>cs.PL</category>
+      <category>cs.SC</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Amirali Ebrahimzadeh, Amir Shaikhha</dc:creator>
+    </item>
+    <item>
+      <title>Compiling Matrix Formulas to Quantum Block Encodings</title>
+      <link>https://arxiv.org/abs/2611.17756</link>
+      <description>arXiv:2611.17756v1 Announce Type: new 
+Abstract: Realizing the promise of quantum applications such as chemistry or fluid dynamics requires building quantum circuits that efficiently encode and manipulate exponentially large matrices. This process forces researchers to grapple with the reality that a matrix expressible as one equation on paper can map to thousands of bit-level quantum logic gates, historically written by hand. Even worse, it often ends with a discovery that the needed resources grow so quickly with matrix size that the quantum algorithm loses its asymptotic speedup.
+  In this work, we present MARBLE, a language that automatically synthesizes an efficient circuit from the publication-style formula for the entries of a matrix. MARBLE algebraically rewrites programs into symbolic combinations of simpler matrices that have known circuit realizations. It analyzes costs of possible representations, notably the subnormalization term that dominates time complexity. It then emits an OpenQASM circuit and certifies whether its cost is poly-logarithmic in problem size, as required by quantum algorithms.
+  When evaluated on quantum applications ranging from fluid dynamics to physical Hamiltonians, MARBLE matches or surpasses 37 of 39 published baselines. On the low end, it automatically matches many theoretically optimal circuits, and on the high end, it improves on a published construction in fluid dynamics by 10,487x in subnormalization. MARBLE produces exponentially smaller circuits than the leading tool FABLE, and it successfully compiles matrices whose dimensions exceed 2^100 within five seconds on a laptop.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17756v1</guid>
+      <category>cs.PL</category>
+      <category>quant-ph</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Daksh Shami, Charles Yuan</dc:creator>
+    </item>
+    <item>
+      <title>C-to-Rust Translation Validation at the LLVM IR Level via AI-Assisted Refinement Proof</title>
+      <link>https://arxiv.org/abs/2611.18036</link>
+      <description>arXiv:2611.18036v1 Announce Type: new 
+Abstract: Migrating C codebases to Rust is a promising approach to securing legacy software, but existing translators do not guarantee that a translated Rust program preserves the behavior of the C program. Neither rule-based nor large language model (LLM)-based translators have been formally verified, and existing approaches to checking translation correctness are limited to testing and bounded checks, which cannot reason about all possible executions. In this work, we present R2C2, which validates C-to-Rust translation by proving in Rocq that the Rust program refines the C program, i.e., every behavior on the Rust side is also a behavior on the C side. Since no formal semantics defines the behaviors of C and Rust programs in the same terms, we prove refinement between the two programs compiled to the LLVM intermediate representation (LLVM IR). In addition, to resolve the discrepancies between the data representations of C and Rust, we introduce a common abstraction that relates two corresponding representations through an abstract value, and specify the behavior of each library function over abstract values. We construct the refinement proof as a chain of refinement relations, where only one relation is program-specific and proved at validation time, while the others are proved for all programs in advance. Proof construction is automated by AI agents, and since Rocq checks the proofs, the agents need not be trusted. We evaluate R2C2 on LLM translations of 519 C programs drawn from a benchmark suite used in prior work on C-to-Rust translation validation. R2C2 proves the translations of 486 programs correct without bounding their executions and discovers three incorrect translations, providing valid counterexamples that existing translation validation tools cannot find. We also conduct a case study on a small real-world image compression library and demonstrate how R2C2 can handle file operations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18036v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Eunsu Kim, Sukyoung Ryu, Jaemin Hong</dc:creator>
+    </item>
+    <item>
+      <title>DeCompCert: A Verified Decompiler for CompCert-Generated AArch64</title>
+      <link>https://arxiv.org/abs/2611.18055</link>
+      <description>arXiv:2611.18055v1 Announce Type: new 
+Abstract: DeCompCert is a Rocq-verified decompiler for AArch64 assembly generated by CompCert. It reconstructs CompCert C through nine reverse passes, combining deductively verified transformations with translation validation. Untrusted OCaml and Datalog analyses propose candidate reconstructions, while verified validators accept only candidates that satisfy the required semantic correspondence. The composed correctness theorem guarantees that every defined, safe behavior of an accepted C reconstruction is matched by the input CompCert assembly; under a safety assumption, the two programs are observationally equivalent. We evaluate DeCompCert on approximately 2.16 million lines of C. With exact function and call signatures, it reconstructs and recompiles all 3,173 eligible contexts under both unoptimized and optimized CompCert pipelines. Without retained signatures, its cumulative inference portfolio validates 2,606 of 3,164 contexts (82.4%), while the platform-plus-IDA configuration validates 2,407 contexts (76.1%). Native execution and output-quality experiments further evaluate the generated C and characterize the remaining limitations in signature recovery and source resemblance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18055v1</guid>
+      <category>cs.PL</category>
+      <category>cs.CR</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Swarn Priya, Basavesh Ammanaghatta Shivakumar, Thomas Gilray, Kristopher Micinski</dc:creator>
+    </item>
+    <item>
+      <title>Quantifying the Advantage of Coarser DPOR</title>
+      <link>https://arxiv.org/abs/2611.18069</link>
+      <description>arXiv:2611.18069v1 Announce Type: new 
+Abstract: Dynamic partial-order reduction (DPOR) has emerged as a promising approach to addressing interleaving explosion in bounded model checking of concurrent programs. Given an equivalence relation on interleavings, the model checker explores a program's executions while minimizing repeated visits to the same class; optimal model checkers avoid such repetition altogether. A coarser equivalence promises faster exploration by reducing the number of classes. This has motivated alternatives to Mazurkiewicz's trace equivalence such as reads-from and reads-value-from equivalence. This promise, however, does not always materialize in practice: while a coarser equivalence can yield exponentially fewer classes on some families of programs, it may offer little or no reduction for the program at hand.
+  We show how to quantify the advantage of coarser equivalences for individual programs. We focus on the problem of counting the reads-from (RF) equivalence classes induced by a given program, as well as the problem of computing the ratio of RF to Mazurkiewicz class counts under sequential consistency. We show that both problems are $\#\mathrm{P}$-hard and that the reduction ratio remains hard to approximate accurately under standard complexity assumptions.
+  Guided by these limits, we present CoEst, a sampling-based algorithm for estimating both the RF count and its ratio to the Mazurkiewicz count. For a fixed number of threads, each trial runs in polynomial time and yields unbiased count estimates. As the number of independent trials grows, the count and ratio estimates converge almost surely to their true values. Our algorithm can provide statistical evidence for deciding whether Mazurkiewicz or RF model checking is likely to be faster for a given program. In experiments across 34 benchmark configurations, our method selects the faster checker in 99.4% of runs using a one-minute estimation budget.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18069v1</guid>
+      <category>cs.PL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Minjian Zhang, Rupak Majumdar, Umang Mathur, C. -H. Luke Ong</dc:creator>
+    </item>
+    <item>
+      <title>SIMTurn: Lightweight Divergent Subgroup Scheduling for Intra-Warp Synchronization</title>
+      <link>https://arxiv.org/abs/2611.17827</link>
+      <description>arXiv:2611.17827v1 Announce Type: cross 
+Abstract: Stack-based reconvergence enables efficient SIMT execution with a shared warp program counter and compact control-flow state. However, its fixed serialization of divergent paths can deadlock programs that rely on intra-warp synchronization: a spinning subgroup may prevent a resource-holding sibling from executing. Independent Thread Scheduling (ITS) enables finer-grained progress through per-thread execution state, but introduces additional hardware cost. We present SIMTurn, a lightweight compiler-hardware mechanism that enables forward progress among divergent subgroups while retaining stack-based reconvergence. SIMTurn combines a compiler-inserted yield instruction at potentially blocking loops with a bounded pool of resumable subgroups. The scheduler allows a waiting subgroup to yield to a sibling that can make progress, without requiring independent program counters for every thread. We implement SIMTurn in the compiler, simulator, and RTL on the open-source Vortex GPGPU and evaluate it against baseline IPDOM and per-thread ITS schemes. Across the evaluated GPU thread configurations, SIMTurn introduces only 17-24% scheduler-area overhead relative to IPDOM, compared with 39-91% for ITS, and stays within 8% of IPDOM on workloads that never need cross-subgroup progress. On kernels with genuine cross-subgroup parallelism, SIMTurn tracks ITS closely and is up to 2.7x faster than a software-serialized IPDOM baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17827v1</guid>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <category>cs.PL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Nikhil Rout, Joe Samuel Rosh, Blaise Tine</dc:creator>
+    </item>
+    <item>
+      <title>Parameterized Weakest-Precondition Calculus for Fine-grained Properties of Quantum Loops</title>
+      <link>https://arxiv.org/abs/2611.18132</link>
+      <description>arXiv:2611.18132v1 Announce Type: cross 
+Abstract: Quantum loops may execute arbitrarily many iterations, and understanding their runtime behavior requires knowing how often they terminate, how long terminating runs take, and how common very long runs are. We develop a compositional weakest-precondition framework for analyzing these properties on possibly infinite-dimensional state spaces. It uses parameterized predicates: families of quantum effects indexed by a positive observation scale. These families retain runtime information even when the expected runtime is infinite and can be reused through sequential composition and nested loops. We prove that weakest-precondition equations for loops have unique solutions in the parameterized predicate domain. From the asymptotic behavior of the derived weakest preconditions, we then recover these runtime properties and quantify the influence of very long terminating executions. For the classic discrete-time quantum walk on the one-dimensional infinite line with one absorbing boundary at the origin and the Hadamard gate as its coin operator, we verify its termination probability $2/\pi$, conditional mean $\pi/2$, and logarithmic growth of the conditional capped second moment. We then reuse the walk's specification to verify the termination probability and conditional mean runtime of an outer loop that repeatedly invokes it.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18132v1</guid>
+      <category>cs.LO</category>
+      <category>cs.PL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Tianshi Yu, Minbo Gao, Li Zhou</dc:creator>
+    </item>
+    <item>
+      <title>Compiling Specialized GPU-Initiated Networking</title>
+      <link>https://arxiv.org/abs/2611.18145</link>
+      <description>arXiv:2611.18145v1 Announce Type: cross 
+Abstract: Machine learning systems specialize computation to the workload and hardware, but communication remains in generic libraries whose device code and transport decisions are not visible to high-level compilers. We present Obaleth, a compiler that makes GPU-initiated communication part of a kernel's intermediate representation, co-optimizes it alongside computation, and lowers it to specialized transport code. Obaleth plans completions around buffer lifetimes and optimizes memory ordering, synchronization, and batching across NVIDIA and AMD GPUs. On H100 GPUs, Obaleth sends small messages up to 3.3$\times$ faster, and on 256 GPUs runs all-to-all 1.25$\times$ and 2.3$\times$ faster than NVSHMEM and NCCL GIN, with much smaller memory and register use. In vLLM, it serves Qwen3-235B on 16 B200 GPUs and answers requests up to 1.29$\times$ faster than with DeepEP.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18145v1</guid>
+      <category>cs.DC</category>
+      <category>cs.LG</category>
+      <category>cs.PL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Javid Baydamirli, Ismayil Ismayilov, Kaan Oktay, Didem Unat</dc:creator>
+    </item>
+    <item>
+      <title>Formulating Uncomputation Beyond Classical Ancilla Use</title>
+      <link>https://arxiv.org/abs/2611.18325</link>
+      <description>arXiv:2611.18325v1 Announce Type: cross 
+Abstract: Ancilla qubits are routinely used to simplify quantum circuit construction and reduce implementation costs, but their use introduces the burden of designing proper uncomputation afterward. To alleviate this, prior work has developed automated uncomputation synthesis based on a computational-basis formulation of ancilla use. However, this formulation is tailored to classically structured ancilla computations. For more general circuits, it may be undefined, yield unintended functionality, or fail to synthesize uncomputation. It therefore falls short of providing a precise and general formulation of uncomputation beyond classical ancilla use.
+  To address these limitations, we propose a new formulation of ancilla use that specifies the operation of each gate through two complementary aspects: (1) the functionality it implements and (2) the transformation it induces on ancilla roles. Based on this specification, we define uncomputation as restoring the initial ancilla role while implementing the identity functionality. This perspective enables a simple Use-first strategy for automatically synthesizing uncomputation in cases both within and beyond the scope of prior approaches. We further develop a complete inference system for reasoning about specifications, together with a derivation-directed procedure for automatically synthesizing efficient uncomputation, enabling systematic uncomputation synthesis even in challenging cases beyond the scope of our automatic strategy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18325v1</guid>
+      <category>quant-ph</category>
+      <category>cs.PL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Bonan Su, Shengyuan Yang</dc:creator>
+    </item>
+    <item>
+      <title>SoCal: A Language for Memory-Layout Factorization of Recursive Datatypes</title>
+      <link>https://arxiv.org/abs/2605.01140</link>
+      <description>arXiv:2605.01140v2 Announce Type: replace 
+Abstract: Array-of-structures (AoS) to structure-of-arrays (SoA) is a classic compiler transformation that improves memory locality and enables data-parallel execution. Existing AoS-to-SoA transformations target regular, array-based programs in imperative languages, such as C. However, many applications traverse tree-shaped data such as ASTs in compilers, DOM trees in browsers, and k-d trees in scientific workloads. Prior work speeds up functional programs over trees by serializing algebraic datatypes (ADTs) into one contiguous buffer. Such a representation interleaves the fields of every node, similar to an AoS layout. We introduce a factored layout of ADTs, which stores its fields in separate buffers, producing a layout that resembles SoA. In a factored layout, a traversal can focus on relevant fields and ignore the rest, similar to extracting a column from a SoA representation; in this setting, traversals over scalar fields can be vectorized. Working with raw byte arrays is error-prone, though: wrong indexing can silently read bytes from a wrong field or write past the end of a value. We therefore introduce SoCal, a type-safe language for expressing traversals over factored ADTs. Our compiler, Colobus, transforms a simple functional language with ADTs reminiscent of Haskell to C, using SoCal as the intermediate representation. Colobus generates traversals over byte arrays in the factored representation and performs optimizations such as field skipping and vectorization. Across a suite of benchmarks, Colobus shows the average speedups of 3.8x and 5.2x over fold and map passes, respectively.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.01140v2</guid>
+      <category>cs.PL</category>
+      <category>cs.PF</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Vidush Singhal, Mikah Tal Kainen, Logan Anderson, Artem Pelenitsyn, Michael Vollmer, Michael H. Borkowski, Milind Kulkarni</dc:creator>
+    </item>
+    <item>
+      <title>Hybrid Mechanical and Agentic Specification Inference</title>
+      <link>https://arxiv.org/abs/2605.10005</link>
+      <description>arXiv:2605.10005v3 Announce Type: replace 
+Abstract: Adoption of formal verification has long been hindered by the cost of manual specification. To prove high-level properties, one must also write contracts for supporting functions, many of which are mechanical and low-level. Specification inference automatically derives such contracts from the program. We present a hybrid of mechanical and agentic inference for Move, a smart contract language, integrated into its verifier, the Move Prover. A large language model (LLM) agent drives inference and verification through a tool that calls the Move Prover and derives specifications from code by weakest-precondition (WP) analysis. We evaluate our approach on 26 targets, 24 of them extracted from public Move functions of the Aptos framework that have no specifications, under a frontier model and a mid-tier model of the same family (Sol 5.6 and Terra 5.6). With and without WP, the agent completes over 90% of its runs, so agentic inference is effective on its own. Adding WP lowers its cost by 11-21% overall and by 40-64% on targets without loops.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.10005v3</guid>
+      <category>cs.PL</category>
+      <category>cs.AI</category>
+      <category>cs.LO</category>
+      <category>cs.SE</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Wolfgang Grieskamp, Teng Zhang, Vineeth Kashyap</dc:creator>
+    </item>
+    <item>
+      <title>Parametric Proof-Carrying Compilation for Quantum Error-Correction</title>
+      <link>https://arxiv.org/abs/2611.12985</link>
+      <description>arXiv:2611.12985v2 Announce Type: replace 
+Abstract: We present PC-QEC, a proof-carrying compilation framework for quantum error correction parameterized by both code distance and syndrome-extraction scheme. It covers all four schemes---Standard, Flag, Shor and Knill---with circuit-level distance guarantees for every legal code distance in each proved family under the declared error and readout contracts. The circuit-level model permits single-wire Pauli errors at every operation's qubit operands, capturing data errors, readout errors and ancilla errors that propagate into multi-qubit hook errors. For each family and scheme, supplied code-algebra and invariant proofs combine with proved scheme-specific propagation lemmas into a finite symbolic certificate whose size is independent of code distance. We demonstrate family-wide guarantees for five code families across all four schemes. For rotated Surface code, one Standard Scheme certificate proves a distance lower bound $d$ for every odd $d\ge3$ and checks in 214\,s on average. Lean 4 mechanizes the metatheory and exact circuit-level distances for canonical rotated Surface, unrotated Surface and Toric code families.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.12985v2</guid>
+      <category>cs.PL</category>
+      <category>quant-ph</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>John Zhuoyang Ye, Jens Palsberg</dc:creator>
+    </item>
+    <item>
+      <title>REFORGE: A Method for Benchmarking LLMs' Reverse Engineering Capabilities in Decompiled Binary Function Naming</title>
+      <link>https://arxiv.org/abs/2607.07738</link>
+      <description>arXiv:2607.07738v3 Announce Type: replace-cross 
+Abstract: Large language models (LLMs) are increasingly applied to reverse-engineering tasks, and recent threat-intelligence reporting shows them operating inside live offensive-security workflows. Claims about their capability, however, outpace our ability to measure it. Existing benchmarks for LLM-assisted binary analysis treat the construction of function-level ground truth as a solved pre-processing step and report accuracy without disclosing how many functions were reliably evaluable. We argue that the principal obstacle to fair evaluation is not model capability but the reliability of binary-to-source alignment under compiler optimization. This paper presents Reforge, a provenance-tracked pipeline that constructs function-level ground truth from C source through compilation, DWARF and syntactic extraction, alignment, and decompilation, and that operationalizes alignment uncertainty as an eight-gate confidence funnel with three-tier stratification. On a controlled micro-benchmark, high-confidence yield falls from 87.2% to 65.9% across optimization levels, and unpaired comparisons overstate optimization-induced performance decay through survivorship bias. A proof-of-concept evaluation of seven contemporary LLMs on function naming demonstrates the validity of the concept and generally motivates an uncertainty-aware benchmarking practice.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2607.07738v3</guid>
+      <category>cs.SE</category>
+      <category>cs.AI</category>
+      <category>cs.CR</category>
+      <category>cs.PL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <arxiv:journal_reference>Proceedings of the 23rd International Conference on Applied Computing 2026 (AC 2026), Lisbon, Portugal, 24-26 October 2026, IADIS Press, pp. 202-211, ISBN 978-989-8704-82-5</arxiv:journal_reference>
+      <dc:creator>Nicolas Koller, Andreas U. Schmidt</dc:creator>
+    </item>
+    <item>
+      <title>Staying Productive Under the Palm Trees: On Graded Coeffect Typing in the Tropical Semiring</title>
+      <link>https://arxiv.org/abs/2608.02596</link>
+      <description>arXiv:2608.02596v3 Announce Type: replace-cross 
+Abstract: We give a temporal reading of graded coeffects: tropical grades carry guards on infinite computation. To illustrate it, we first define $G_T$, a polymorphic calculus with guarded recursive types that guarantees productive infinite computation, in the form of hereditary head normalisation. The calculus supports stream computing via the Scott encoding, and embeds Nakano's later modality. We then introduce $I_T$, a graded intersection type system with guarded infinitary types for the pure {\lambda}-calculus, whose typability allows for an exact characterisation of hereditary head normalisation. We prove that the characterising typability predicate is $\Pi_0^2$, matching the recursion-theoretic complexity of the characterised property.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2608.02596v3</guid>
+      <category>cs.LO</category>
+      <category>cs.PL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>R\'emy Cerda, Ugo Dal Lago</dc:creator>
+    </item>
+  </channel>
+</rss>

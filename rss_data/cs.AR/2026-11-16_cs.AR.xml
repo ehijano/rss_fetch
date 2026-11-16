@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.AR updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.AR</link>
+    <description>cs.AR updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.AR" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Nov 2026 05:00:04 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>CHARMING: Parallel Edge AI Acceleration Across Tensor Processing and In-Memory Computation</title>
+      <link>https://arxiv.org/abs/2611.17785</link>
+      <description>arXiv:2611.17785v1 Announce Type: new 
+Abstract: Edge AI increasingly relies on specialized accelerators for low-latency inference under tight resource and energy constraints, yet their efficiency remains limited by data movement. Prior work, CHARM, mitigates this overhead by overlapping data movement with computation. We observe that in-memory computing can further supplement tensor processing as a parallel accelerator while eliminating certain data movements entirely.
+  We present CHARMING, a heterogeneous edge AI architecture that uses accuracy- and quantization-aware partitioning to distribute and concurrently execute inference workloads across tensor processing and in-memory computation. CHARMING partitions attention heads between an AIE array and an in-DRAM compute unit, balancing execution according to model architecture, sequence length, and precision while selecting heads to minimize accuracy degradation. CHARMING also integrates quantization into the AIE projection stage to further reduce data movement. We validate CHARMING end-to-end in hardware on AMD Versal VCK5000 and Alveo U200 platforms and evaluate LLM and video-generation models across multiple precisions using measured hardware results and simulation of the latest in-memory compute hardware.
+  CHARMING improves prefill performance by up to 23.6 percent and decode performance by up to 44 percent over AIE-only acceleration. With int4 x int4 fixed-point in-memory computation, CHARMING reduces per-layer energy by up to 7.6 percent and improves energy-delay product by up to 24.7 percent, while maintaining accuracy similar to a 32-bit floating-point baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17785v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Md Omar Faruque, Jingang Jin, Jo\~ao Paulo C. de Lima, Shouzhi Fang, William C. Tegge, Peipei Zhou, Qinru Qiu, Alex K. Jones</dc:creator>
+    </item>
+    <item>
+      <title>Elasticy: A Runtime-Reconfigurable Architecture for Dynamic Streams</title>
+      <link>https://arxiv.org/abs/2611.17798</link>
+      <description>arXiv:2611.17798v1 Announce Type: new 
+Abstract: Reconfigurable Dataflow Accelerators (RDAs) have demonstrated high performance and energy efficiency for dense, regular tensor applications. However, conventional RDAs with static configurations show dramatically reduced performance and efficiency on irregular tensor workloads with data-dependent, non-uniform, dynamic tensor shapes. We propose Elasticy, a dynamically reconfigurable dataflow accelerator that employs streaming and tile abstractions to minimize the overhead of dynamic support. By encoding dynamic shapes into streams using rank-variable expressions, Elasticy exploits data-dependent tensor shape dynamism to minimize off-chip data traffic and wasted compute cycles. Elasticy employs stream-embedded reconfiguration information to trigger fine-grained runtime scheduling decisions. Elasticy also introduces a novel distributed linked streaming memory (DLSM) that more effectively uses on-chip memory to minimize off-chip data traffic and support dynamically sized tensors.
+  Both reconfiguration and shape dynamism incur minimal overhead in Elasticy: reconfiguration occurs infrequently at the granularity of a stream of tiles, while rank-variable expressions enable lightweight handling of dynamic dimensions. On a Llama 3-8B decode layer, Elasticy achieves 92.6% of its roofline performance, compared to 69.7% on an H100. On evaluated GEMMs, the DLSM reduces total off-chip traffic by up to 61.4% relative to the best evaluated cache configuration, with no additional burden of programmer-managed memory. Elasticy's distributed runtime scheduler overlaps dependent kernels, speeding up kernel pairs by up to 1.42x. Programs can also run in both space and time: each phase of a layer's graph is pipelined spatially, while phases fold onto the same fabric over time. Compared to a traditional spatial accelerator, Elasticy achieves a 6.34x-31.67x improved area delay product on full layers.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17798v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Konstantin J Hossfeld, Nathan Sobotka, Gina Sohn, Tun-Yu Chang, Kunle Olukotun</dc:creator>
+    </item>
+    <item>
+      <title>SIMTurn: Lightweight Divergent Subgroup Scheduling for Intra-Warp Synchronization</title>
+      <link>https://arxiv.org/abs/2611.17827</link>
+      <description>arXiv:2611.17827v1 Announce Type: new 
+Abstract: Stack-based reconvergence enables efficient SIMT execution with a shared warp program counter and compact control-flow state. However, its fixed serialization of divergent paths can deadlock programs that rely on intra-warp synchronization: a spinning subgroup may prevent a resource-holding sibling from executing. Independent Thread Scheduling (ITS) enables finer-grained progress through per-thread execution state, but introduces additional hardware cost. We present SIMTurn, a lightweight compiler-hardware mechanism that enables forward progress among divergent subgroups while retaining stack-based reconvergence. SIMTurn combines a compiler-inserted yield instruction at potentially blocking loops with a bounded pool of resumable subgroups. The scheduler allows a waiting subgroup to yield to a sibling that can make progress, without requiring independent program counters for every thread. We implement SIMTurn in the compiler, simulator, and RTL on the open-source Vortex GPGPU and evaluate it against baseline IPDOM and per-thread ITS schemes. Across the evaluated GPU thread configurations, SIMTurn introduces only 17-24% scheduler-area overhead relative to IPDOM, compared with 39-91% for ITS, and stays within 8% of IPDOM on workloads that never need cross-subgroup progress. On kernels with genuine cross-subgroup parallelism, SIMTurn tracks ITS closely and is up to 2.7x faster than a software-serialized IPDOM baseline.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17827v1</guid>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <category>cs.PL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Nikhil Rout, Joe Samuel Rosh, Blaise Tine</dc:creator>
+    </item>
+    <item>
+      <title>DiffusionSSD: Achieving Extreme Visual Compression with Dual-stage Diffusion and Cross-level Near-Data Processing</title>
+      <link>https://arxiv.org/abs/2611.17908</link>
+      <description>arXiv:2611.17908v1 Announce Type: new 
+Abstract: Growing visual data overwhelms storage on resource-constrained edge devices, making compression essential. Traditional codecs offer inadequate rate-distortion performance, motivating the exploration of diffusion codecs. Diffusion codecs face two limitations: (1) At the algorithm level, diffusion decoders preserve perceptual quality under extreme compression, but require substantial computation. (2) At the architecture level, in NPU-centered devices, neural codecs occupy the NPU, interfering with other AI applications. Meanwhile, the complex codec pipeline incurs long I/O paths, leading to additional overhead and energy cost.
+  To address these issues, we propose DiffusionSSD, a cross-level near-data processing framework for extreme visual data compression on edge devices, using an algorithm-architecture co-design method. Specifically, (1) at algorithm level, we present Dual-stage Diffusion, a lightweight solution tailored for diffusion codecs that employs patchification and single-step diffusion, reducing computation cost while preserving perceptual quality; (2) at architecture level, we introduce a Cross-level Near Data Processing architecture that integrates the proposed computational universal flash storage (cUFS) and LPDDR-PIM, enabling codecs to be entirely offloaded to data side while reducing visual-data movement and avoiding SoC redesign; (3) at system level, combining both the algorithm and the underlying architecture, we propose a Patch-Workload co-aware scheduling scheme to enable more efficient system-level execution. Experiments show that Dual-stage Diffusion maintains comparable perceptual quality while reducing computation cost by up to 92.7%. Compared with NPU+DRAM and near-data-processing design such as SmartSSD, cUFS+PIM improves coding throughput by 2.32 times and 2.91 times on average, respectively.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17908v1</guid>
+      <category>cs.AR</category>
+      <category>cs.CV</category>
+      <category>eess.IV</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Kuai Yu, Wen Li, Shengwen Liang, Jie Zhang, Ying Wang, Huawei Li, Xin Yao, Renhai Chen, Gong Zhang</dc:creator>
+    </item>
+    <item>
+      <title>OpenLayout: An Open and Agentic-Driven Platform for Holistic VLSI Physical Design and Benchmarking</title>
+      <link>https://arxiv.org/abs/2611.18517</link>
+      <description>arXiv:2611.18517v1 Announce Type: new 
+Abstract: Physical design automation of very large-scale integrated circuits (VLSI) has made significant strides, progressing from single-stage placement and routing toward increasingly integrated full-flow implementation. Yet, existing approaches struggle with the vast design space optimization (DSO) arising from diverse technology nodes, circuit designs, and varied constraints. The substantial runtime of physical-design tools further exacerbates this challenge, leaving industrial workflows heavily dependent on experienced engineers to navigate the design space and achieve power, performance, and area (PPA) targets, incurring significant engineering effort.
+  We argue that large language models (LLMs) with strong reasoning capabilities, enriched with distilled human design expertise, offer a promising path toward efficient and automated DSO. Unlike traditional algorithms, LLMs can interpret complex design contexts and naturally incorporate human expertise expressed in natural language for reasoning, acting, observing, and adapting throughout the design process, a capability that conventional optimization methods cannot exploit. To this end, we present OpenLayout, an agentic platform that leverages multi-agent collaboration with embedded design knowledge to enable self-iterative DSO. We further introduce OpenLayout-Bench, a benchmark targeting advanced technology nodes with commercial EDA tools to systematically evaluate physical design automation capabilities of LLMs. Experimental results demonstrate that OpenLayout achieves state-of-the-art performance, with approximately 20% accuracy improvement over baseline methods. Our work is open-sourced at https://github.com/fenggev56/OpenLayout</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18517v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Qiufeng Li, Sizhe Tang, Quan Cheng, Zirui Wang, Wantong Li, Tian Lan, Weidong Cao</dc:creator>
+    </item>
+    <item>
+      <title>Mutable Inference: Architecting LLM Accelerators for Inference-Time Learning</title>
+      <link>https://arxiv.org/abs/2611.18523</link>
+      <description>arXiv:2611.18523v1 Announce Type: new 
+Abstract: Long-context LLMs must retain growing histories, but full attention makes each new token increasingly expensive. Inference-time learning (ITL) offers another approach. The model keeps training on the context during inference, retaining what it learns in its weights. Recent work shows that ITL can match full-context attention quality while attending only to a recent fixed-size window. This bounds attention costs but adds Learning (backward computation and weight updates) alongside Prediction (the forward pass) costs. Inference accelerators assume fixed weights, while training accelerators target complete training steps.
+  This work identifies two opportunities. Attention's non-matrix operations leave enough idle matrix capacity for Learning, while selected layers can tolerate delayed weight updates with little quality loss. We exploit both with Learning While Serving (LWS), an inference accelerator architecture that shares compute hardware between latency-critical Prediction and deadline-flexible Learning. Hardware-managed per-layer weight versioning allows Learning to publish updates while in-flight computations read older versions. Resumable reduction blocks let Learning kernels span fragmented idle windows and yield to Prediction, while dedicated softmax-gradient units relieve vector contention. On modeled datacenter and edge NPUs, LWS hides Learning within Prediction, sustaining Prediction-only throughput while preserving 99.3% of fully fresh Learning's quality benefit for TTT-E2E 3B at 128K tokens. Across nine models, LWS achieves 1.6x the throughput of serial execution and 1.3x that of the best prior co-execution architecture. RTL synthesis shows that LWS adds 1.5% to NPU core area without another MAC array. By efficiently turning idle inference capacity into learning capacity, LWS establishes inference-time learning as a first-class workload for future LLM accelerators.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18523v1</guid>
+      <category>cs.AR</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yimin Gao, Liangtao Dai, Melika Morsali, Junting Huo, Mircea Stan</dc:creator>
+    </item>
+    <item>
+      <title>EventSpikeSeg: Memory-Aware Mixed-Signal Architecture for Event-Camera Spiking Segmentation</title>
+      <link>https://arxiv.org/abs/2611.18524</link>
+      <description>arXiv:2611.18524v1 Announce Type: new 
+Abstract: Event-camera segmentation requires persistent neural state despite sparse input events, making memory organization a central constraint on embedded implementation. We present EventSpikeSeg, a mixed-signal architecture combining resident capacitor memory with shared analog processing in GF180MCU 180-nm CMOS. Its 25-population spiking encoder-decoder has 143,824 synaptic weights but requires 30,976,000 membrane states at 440 x 640 resolution. The mapping specifies chronological 5-ms model updates, digital event/address services and 64-state capacitor banks. Characterization covers 22 module families and 74 operating points, distinguishing transistor simulations from digital-library estimates. Nominal results include 41.711 microwatts biased neuron-core power, 3.338-pJ positive terminal energy for a 1.4-microsecond cell read, and 0.531-mV selected-state drift over a 5-ms extracted-tile hold. Commit and coupling errors are reported separately. The software checkpoint records 27.976% mean intersection-over-union on a held-out six-class DSEC split; this is not hardware accuracy. Component layouts and simulation evidence quantify local implementation costs and expose storage replication and service scheduling as scaling constraints. A detailed SPICE-calibrated behavioral forward simulation of one full-resolution DSEC frame achieves 24.26% mean intersection-over-union, versus 26.22% for the matched PyTorch reference, using a compact 5-fF bank variant and external count/voltage calibration. Physical full-network operation, system energy and mismatch robustness remain unverified.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18524v1</guid>
+      <category>cs.AR</category>
+      <category>cs.CV</category>
+      <category>cs.NE</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Amir Mohammad Khadem Hosseini, Sattar Mirzakuchaki</dc:creator>
+    </item>
+    <item>
+      <title>WaferTetris: Efficient Freeform Mapping on Wafer-Scale Accelerators</title>
+      <link>https://arxiv.org/abs/2611.18527</link>
+      <description>arXiv:2611.18527v1 Announce Type: new 
+Abstract: Wafer-scale accelerators offer massive compute capacity through hundreds of thousands of processing elements (PEs) interconnected across a single wafer, but realizing this potential requires efficient application mapping. Their scale makes programming these systems and mapping applications onto them challenging. Existing approaches rely on template-based mappings to maintain productivity, but these templates restrict the mapping design space. In particular, they impose fixed geometric layouts over the PE grid, often leaving compute and memory resources underutilized.
+  In this work, we present WaferTetris, a system that removes these geometric restrictions through freeform mapping. Its Tetris-like strategy flexibly packs computation across the wafer, improving PE utilization and usable memory capacity while preserving PE-task code. We develop a recurrence-based throughput model that captures branch-and-join dependencies to guide spatial parallelism, and an architecture model with per-color gates that enable existing FPGA place-and-route algorithms to enforce WSE routing constraints.
+  We evaluate WaferTetris on Cerebras WSE-3 using LLM decoding and scientific stencil benchmarks. For LLM decoding, it achieves up to $4.42\times$ the system throughput of a template-based automatic mapping baseline on the same fabric size. Compared with the manually optimized WaferLLM, WaferTetris supports $1.8\times$ the context length for LLaMA3.1-8B (80k versus 44k), while delivering equal or higher per-user throughput at matched context lengths, up to $1.10\times$.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18527v1</guid>
+      <category>cs.AR</category>
+      <category>cs.CL</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Dayou Du, Congjie He, Andrew Boutros, Luo Mai, Vaughn Betz, Jianyi Cheng</dc:creator>
+    </item>
+    <item>
+      <title>A Unified Device-Level Physical Framework for DRAM Read Disturbance</title>
+      <link>https://arxiv.org/abs/2611.17634</link>
+      <description>arXiv:2611.17634v1 Announce Type: cross 
+Abstract: Read disturbance in dynamic random-access memory (DRAM) depends on both local device interactions and the electrical conditions imposed by shared array circuitry. Here, we combine DIMM-level characterization results, device measurements, and TCAD simulations to interpret RowHammer, RowPress, and ColumnDisturb within a unified device-level physical framework. We relate charge evolution at the floating storage node to three key mechanisms: trap-assisted electron migration (EM), capacitive coupling (CC), and sense-amplifier-mediated disturb (SAMD). EM is local and trap-sensitive, while CC weakens with wordline separation. SAMD extends disturbance through shared column circuitry by modifying unselected-cell leakage under rail-level bitline biases, a contribution supported by the approximately ninefold higher OFF-state leakage measured relative to retention-like conditions for a high-voltage storage state. These distinct spatial ranges account for localized RowHammer and RowPress failures and remote ColumnDisturb populations with abrupt changes at subarray boundaries. We further interpret prolonged RowPress activation as a transition from an initial RowHammer-like transient to sustained leakage driven mainly by SAMD under held wordline and bitline biases. Within this device-level framework, trap effectiveness and storage-state-dependent leakage provide an interpretation of previously puzzling failure signatures, including the earlier onset of 0-to-1 RowHammer failures despite the predominance of 1-to-0 failures at high hammer counts. The same framework explains the observed RowPress and ColumnDisturb polarities and the duration-dependent reversal of neighboring- and passing-wordline effectiveness. These results provide a physical basis for developing compact DRAM reliability models across access patterns and array configurations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17634v1</guid>
+      <category>cond-mat.mes-hall</category>
+      <category>cs.AR</category>
+      <category>physics.app-ph</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Zhaoqiang Bai, Haocong Luo, Xinhe Wang, Xujing Li, Yuelin Jiang, Xuelu Huang, Guilei Wang, Hao Meng, Ataberk Olgun, Ismail Emir Yuksel, F. Nisa Bostanc{\i}, Jikun Wang, Onur Mutlu</dc:creator>
+    </item>
+    <item>
+      <title>uhd-rfsoc: Bringing Off-the-Shelf RFSoC Boards to Unmodified UHD Applications</title>
+      <link>https://arxiv.org/abs/2611.17723</link>
+      <description>arXiv:2611.17723v1 Announce Type: cross 
+Abstract: Next-generation wireless research relies on software-defined radios (SDRs) with more channels and larger bandwidth. The USRP family is one of the most widely used SDR platforms, and much of the wireless software ecosystem is built on top of the USRP hardware driver (UHD). However, each USRP model comes with a fixed channel count, bandwidth, and streaming capability. Off-the-shelf radio frequency system-on-chip (RFSoC) boards, on the other hand, integrate up to 16 analog-to-digital converters (ADCs) and 16 digital-to-analog converters (DACs) operating at several gigasamples per second (GS/s), but existing UHD applications cannot directly use them. We present uhd-rfsoc, an open-source FPGA design and host software stack that turns these boards, including the 16-channel ZCU216 and the RFSoC 4x2, into standard UHD devices without modifying UHD. Through standard UHD calls, applications can configure the carrier frequency, channel count, the per-channel I/Q sample rate, and the wire format. uhd-rfsoc combines timestamped, flow-controlled sample transport in the FPGA with data plane development kit (DPDK) packet processing and vectorized sample conversion on x86 and Arm hosts. The built bitstreams for a number of RFSoC board configurations with varying RF data converter rates, channel counts, I/Q sample rates, and wire formats all successfully pass UHD's built-in streaming benchmarks. We further demonstrate compatibility with unmodified GNU Radio flowgraphs, a custom GPU-accelerated transceiver digital signal processing pipeline, as well as the OCUDU and Duranta 5G radio access network stacks using both software and commodity user equipment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17723v1</guid>
+      <category>cs.NI</category>
+      <category>cs.AR</category>
+      <category>eess.SP</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Wei Cheng, Yiming Li, Junyao Zheng, Cheng-Bin Chen, Tingjun Chen</dc:creator>
+    </item>
+    <item>
+      <title>The Transformer Paradigm: Dynamic Processing and a New Principle of Inference</title>
+      <link>https://arxiv.org/abs/2611.17953</link>
+      <description>arXiv:2611.17953v1 Announce Type: cross 
+Abstract: We argue that the Transformer revolution is not adequately understood as a merely quantitative expansion of deep learning, but as the emergence of a new paradigm based on a different principle of inference. We interpret the Transformer as a system in which token representations are transformed by parameterized transformations, or transforming concepts. During inference, some of these transformations are dynamically constructed from the current input: previously acquired transformations are first adapted and then applied. At the mechanical-structural level, this dynamic processing is realized through output-weight interconnections, whereby outputs of some networks determine the weights of others. The resulting mode of processing, which we call Sequence-level Interactive Dynamic Parallel Processing (SIDPP), provides a framework for explaining strong prompt sensitivity and opens research directions concerning interpretability, control, alternative AI architectures, neuromorphic systems, and possible biological realizations of dynamic processing.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17953v1</guid>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <category>cs.CY</category>
+      <category>cs.ET</category>
+      <category>cs.NE</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Marco Giunti, Fabrizia Giulia Garavaglia</dc:creator>
+    </item>
+    <item>
+      <title>The State Is Not the Bottleneck: A Paged-State Gated-DeltaNet Tile on a Tri-Mode Multicast Mesh, Bit-Exact from RTL to Silicon</title>
+      <link>https://arxiv.org/abs/2611.18422</link>
+      <description>arXiv:2611.18422v1 Announce Type: cross 
+Abstract: Linear-attention language models replace a growing key-value cache with a recurrent state of fixed size. On an edge FPGA, this state can exceed the on-chip memory and must be paged to external memory. This paper asks whether such paging dominates the cost of decoding (generating tokens). We built a hardware tile that computes one complete layer of a custom 369-million-parameter hybrid Gated DeltaNet model on an Agilex 5 FPGA and pages its recurrent state. The model state needs 6.2 MiB, whereas the device has 0.87 MiB of block memory. Paging adds 26.0 MB of memory traffic per decoded token, at most 11.2 percent of the calculated total. On the board at 75 MHz, with synthetic weights, one token takes 11.15 ms in this layer. The matrix-vector products with the weights take about 62 percent of this time and the state phase, including the paging, 13 percent. The tile is one node of a multicast mesh of tri-mode processing elements. We measure the error of the fixed-point arithmetic against floating point and check that the hardware agrees bit for bit with a fixed-point reference. In simulation, the state logic agrees with the reference on all 18 recurrent layers. On the board, six builds pass all 30 runs of 64 tokens and two runs of 1,024 tokens. For this model and memory interface, the delivery of the weights limits the decoding performance, and the recurrent state does not. State paging is therefore practical for such a model on an edge FPGA.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.18422v1</guid>
+      <category>cs.RO</category>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Cong Xu, Ravi Sankar</dc:creator>
+    </item>
+    <item>
+      <title>AdaptViT: Runtime-Adaptive Vision Transformer Deployment on Custom RISC-V</title>
+      <link>https://arxiv.org/abs/2610.02288</link>
+      <description>arXiv:2610.02288v2 Announce Type: replace 
+Abstract: Deploying Vision Transformers (ViTs) on low-power edge devices is challenging due to high computational demands. Conventional pruning frameworks require a separate compiled binary for each sparsity level, increasing storage overhead and limiting runtime adaptability. This paper presents an end-to-end deployment pipeline that transforms pretrained ViTs into a single runtime-configurable binary, enabling dynamic compute-budget switching on embedded CPUs. This is achieved by restructuring generated C kernels with modified loop bounds and binary-mask control logic, allowing execution to switch across discrete sparsity levels via compact external configuration files. Compared to multi-binary deployment, the proposed runtime-adaptive approach reduces on-device storage by up to 4.86x, requiring only 163 MB for ViT-Base instead of nearly 800 MB. To maximize pruning efficiency, we introduce a hardware-aligned block pruning strategy for Multi-Layer Perceptron (MLP) layers. In addition, a custom ISA extension is proposed to exploit input-reuse patterns in linear projection kernels. On a Synopsys TRV32P3FX RISC-V processor, the full system achieves up to 2.8x speedup at 65% MLP and 50% attention-head pruning for ViT-Base. The ISA extension alone provides a 1.56x speedup and 33% lower inference energy, with a 24.7% area overhead in a TSMC 28 nm implementation.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.02288v2</guid>
+      <category>cs.AR</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Vishnu PS (University College Dublin, Ireland), Ajay Kumar M (University College Dublin, Ireland), Yike Li (University College Dublin, Ireland), Robert Bogdan Staszewski (University College Dublin, Ireland), Deepu John (University College Dublin, Ireland)</dc:creator>
+    </item>
+    <item>
+      <title>PRISM: Preference-based Reward and Uncertainty-Integrated Synthesis Minimization for RTL PPA Optimization</title>
+      <link>https://arxiv.org/abs/2611.11051</link>
+      <description>arXiv:2611.11051v2 Announce Type: replace 
+Abstract: This paper introduces a budget-aware, multi-objective framework (called PRISM) for RTL optimization that improves power, performance, and area (PPA) while sharply limiting expensive commercial synthesis tool calls. Starting from a synthesizable baseline and functional testbench, the method iterates through LLM-driven rewrite generation, fast compile/simulation equivalence filtering, low-cost proxy feature extraction, and selective commercial synthesis tool (Synopsys Design Compiler (DC)) evaluation. To prioritize which candidates deserve high-quality synthesis, we train a preference-based reward model using pairwise ranking supervision derived from commercial synthesis tool outcomes, and combine ensemble uncertainty with a diversity-aware acquisition rule to avoid early bias and redundant evaluations. A key advantage is that PRISM maintains a best-tradeoff set G of non-dominated designs throughout the run: G preserves the best solutions found so far, is fed back into generation and refinement, and enables consistent, cumulative improvements rather than repeatedly restarting from the baseline. Across RTLLM v2.0 modules, the approach consistently yields post-synthesis gains under fixed commercial synthesis tool call budgets, and ablations confirm that reward-guided selection and candidate dropping are central to sample-efficient progress. PRISM efficacy is evaluated across multiple technology nodes (7 nm, 15 nm, and 45 nm) using identical pipelines without retraining.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.11051v2</guid>
+      <category>cs.AR</category>
+      <category>cs.SE</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Armin Abdollahi, Negin Ashrafi, Mehdi Kamal, Massoud Pedram</dc:creator>
+    </item>
+    <item>
+      <title>KatoANN: Enabling Near-Exact Vector Search at the Speed of Lossy Scans with CPU Matrix Engines</title>
+      <link>https://arxiv.org/abs/2610.27508</link>
+      <description>arXiv:2610.27508v2 Announce Type: replace-cross 
+Abstract: Emerging CPU matrix engines, such as Intel AMX, enable high throughput by batching multiple queries. However, they support only low-precision formats, which can significantly degrade recall (i.e., search quality). We present KatoANN, the first approximate nearest neighbor (ANN) search system that achieves both high throughput and high recall simultaneously on CPU matrix engines. Specifically, KatoANN represents each vector using a 16-bit code, splits it into high- and low-byte planes, and computes near-exact distances using 8-bit matrix multiplications that the matrix engine supports. To reduce extra multiplication overhead, it ranks all candidates by their high bytes alone and refines only a few survivors with the full distance. KatoANN also reduces memory footprint since it does not maintain a full-precision copy of the vectors. We implement a KatoANN prototype on Intel AMX. Our experimental results show that KatoANN outperforms existing partition-based systems across the high-recall range.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2610.27508v2</guid>
+      <category>cs.DB</category>
+      <category>cs.AR</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Soobin Cho, Gyuyeong Kim</dc:creator>
+    </item>
+    <item>
+      <title>LazyWeights: Decode-on-Demand Edge LLMs</title>
+      <link>https://arxiv.org/abs/2611.17108</link>
+      <description>arXiv:2611.17108v2 Announce Type: replace-cross 
+Abstract: Memory decides which LLMs an edge device runs, and how fast: capacity on a 4 GB Jetson Nano, bandwidth on an 8 GB Jetson Orin Nano Super. Deployed formats (GPTQ, AWQ, llama.cpp's K- and I-quants) spend equal bits on every integer code of a matrix, although the codes are far from uniform. LazyWeights keeps these formats but tunes GPTQ so the codes compress, Huffman-codes them losslessly in interleaved lanes, and decodes them on demand in a small unit between DRAM and L2, so GPU kernels run unchanged and DRAM moves only coded bytes. At 1% and 3.5% perplexity budgets, coded Phi-3-mini, Mistral-7B and SmolLM-1.7B are 5.7-31.4% smaller than the best llama.cpp format. A bit-exact 0.21 mm^2 ASIC decoder unit (1 GHz, 7 nm) cuts Orin latency and energy per token by up to 36% and 38% (54% and 44% with prompt-lookup speculation). On the Nano, LazyWeights needs 58-64% less time and 53-57% less energy per token than CPU llama.cpp, and runs a streamed Mistral-7B 6.6x faster at 3.89 bits per weight. A Huffman decoder beats an rANS decoder in rate and area at equal throughput; the ASIC decoder unit runs bit-exact on a Zynq UltraScale+ FPGA (AMD ZCU102).</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17108v2</guid>
+      <category>cs.LG</category>
+      <category>cs.AR</category>
+      <category>cs.CL</category>
+      <category>cs.IT</category>
+      <category>math.IT</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Arnab Sanyal, Gourav Datta, Sandeep P. Chinchali</dc:creator>
+    </item>
+  </channel>
+</rss>

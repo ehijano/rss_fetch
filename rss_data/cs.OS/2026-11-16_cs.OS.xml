@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>cs.OS updates on arXiv.org</title>
+    <link>http://rss.arxiv.org/rss/cs.OS</link>
+    <description>cs.OS updates on the arXiv.org e-print archive.</description>
+    <atom:link href="http://rss.arxiv.org/rss/cs.OS" rel="self" type="application/rss+xml"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Nov 2026 05:00:15 +0000</lastBuildDate>
+    <managingEditor>rss-help@arxiv.org</managingEditor>
+    <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+    <skipDays>
+      <day>Sunday</day>
+      <day>Saturday</day>
+    </skipDays>
+    <item>
+      <title>TailGuard-GDS: Tail-Safe Control of GPU Storage Data Movement</title>
+      <link>https://arxiv.org/abs/2611.17824</link>
+      <description>arXiv:2611.17824v1 Announce Type: cross 
+Abstract: AI runtimes move state between NVMe storage and GPU memory on critical paths. GPUDirect Storage (GDS) removes host staging, yet our eight-H100 measurements show it is not consistently tail-optimal for semantically identical GPU-buffer operations. The preferred path varies with operation, request size, concurrency, placement, and resource contention; bandwidth and tail-latency winners can disagree. Frameworks specify what moves and when, while GPU I/O stacks expose mechanisms; neither combines phase semantics with measured tail behavior to choose a delivery plan.
+  We present TailGuard-GDS, a runtime that selects a semantically equivalent plan per application phase. It profiles plans varying backend, request shape, and placement, minimizes GPU-visible tail latency under phase constraints, and revisits decisions as conditions change. Resource reuse keeps policy lookup and switching at microsecond-scale overhead.
+  Integrated with PyTorch FSDP and DeepSpeed ZeRO-3, TailGuard reduces FSDP step p95 by 18.4% and GPU-idle p95 by 25.3% versus the strongest fixed path. Across five eight-GPU ZeRO-3 workloads, step p95 falls 7.9-24.6% versus fixed host staging and 28.4-42.6% versus fixed GDS. Against tuned DeepSpeed AIO, TailGuard reduces step p95 by 5.6% and raises estimated throughput by 6.1%.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.17824v1</guid>
+      <category>cs.DC</category>
+      <category>cs.OS</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jiaqi Liu, Fan Yang, Xiaohang Shi, Xianzhe Zhang, Tao Jiang, Guojun Yuan, Zhan Wang, Guangming Tan</dc:creator>
+    </item>
+    <item>
+      <title>DeltaBox: Millisecond-Scale Sandbox Checkpoint and Rollback for Stateful AI Agents</title>
+      <link>https://arxiv.org/abs/2605.22781</link>
+      <description>arXiv:2605.22781v3 Announce Type: replace 
+Abstract: Emerging LLM-powered AI agent workloads, such as test-time tree search and reinforcement learning (RL), require high-frequency state exploration, relying on rapid checkpoint/restore (C/R) of the complete sandbox state, including files and process state. Existing mechanisms duplicate the entire state, causing hundreds of milliseconds to seconds of latency per C/R, which severely bottlenecks deep search and large-scale fan-outs. We observe that consecutive sandbox states between checkpoints differ only marginally. Therefore, instead of full duplication, a sandbox should only duplicate the changes between consecutive checkpoints (Key Insight), yet the lack of OS support makes this hard to realize. We propose a new OS-level abstraction, DeltaState, that delivers change-based C/R for agents through co-designed OS mechanisms. First, DeltaFS checkpoints file state by freezing the writable layer and inserting a new one, turning updates into copy-on-write and rollback into a layer switch. Second, DeltaCR quickly restores process state by forking from a frozen template process. A coordinator pairs the two so each checkpoint is one consistent (filesystem, memory) state. Building on these mechanisms, we present DeltaBox, an agent sandbox with millisecond-level C/R. On SWE-bench, DeltaBox hides its checkpoint work (10.83 ms) under inference and rolls back in a mean 1.86 ms, with the same warm-template fork driving low-cost RL rollout fan-out. DeltaBox is open-sourced at https://github.com/delta-box.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.22781v3</guid>
+      <category>cs.OS</category>
+      <category>cs.AI</category>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yunpeng Dong, Jingkai He, Shiqi Liu, Yuze Hou, Dong Du, Zhonghu Xu, Si Yu, Baochuan Yang, Yubin Xia, Haibo Chen</dc:creator>
+    </item>
+  </channel>
+</rss>
