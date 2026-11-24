@@ -7,12 +7,196 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.PF" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Nov 2026 05:00:12 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 08:23:18 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
     <skipDays>
-      <day>Saturday</day>
       <day>Sunday</day>
+      <day>Saturday</day>
     </skipDays>
+    <item>
+      <title>HiPerfCC-KVCache: Accelerating Confidential LLM Serving with Hierarchical KV Caching</title>
+      <link>https://arxiv.org/abs/2611.28702</link>
+      <description>arXiv:2611.28702v1 Announce Type: new 
+Abstract: Hierarchical key-value (KV) caching reduces repeated prefill computation in large language model serving by retaining reusable state beyond GPU memory. Under GPU confidential computing (CC), however, protected transfers can erase this benefit. We show that bulk KV copies hold driver locks during prolonged CPU-side processing, stalling independent serving operations despite separate threads and streams. Our characterization on Hopper and Blackwell GPUs shows how lock scope, copy granularity, and allocation ownership affect foreground progress and transfer parallelism. Guided by these findings, we present HiPerfCC-KVCache, which manages resource lifetimes, prioritizes ready token readback between bounded backup submissions, and parallelizes KV restores through auxiliary contexts with shared GPU staging. Implemented in SGLang, HiPerfCC-KVCache uses existing protected transfer interfaces without hardware or driver changes. Across three models and three workloads on H200, HiPerfCC-KVCache achieves a geometric-mean output-token throughput speedup of $1.74\times$ (up to $2.72\times$) over the staged KV-transfer HiCache-Workers baseline at the highest tested loads. Mean time to first token decreases by 36% on average and up to 59%. The benefits generalize to RTX PRO 6000 Blackwell, with a geometric-mean throughput speedup of $1.28\times$ (up to $2.20\times$) over the same baseline. A capacity analysis further models and explains variation in gains and remaining gaps to CC-off serving.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.28702v1</guid>
+      <category>cs.PF</category>
+      <category>cs.CR</category>
+      <category>cs.DC</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Haoxuan Xu, Shaoyu Wang, Minghao Lin, Beijie Liu, Potung Yu, Yongqin Wang, Vincent Quentin Ulitzsch, Seo Jin Park, Murali Annavaram, Mengyuan Li</dc:creator>
+    </item>
+    <item>
+      <title>One Million Tokens in 20GB: Calibration-Free 2-Bit SRFT KV-Cache Compression for Looped MoE Inference on Apple Silicon</title>
+      <link>https://arxiv.org/abs/2611.29092</link>
+      <description>arXiv:2611.29092v1 Announce Type: new 
+Abstract: Long-context inference on unified-memory edge machines is governed by KV-cache capacity and memory bandwidth. On a 32 GB Apple M6 Mac mini (26.8 GB Metal working set, 150 GB/s DRAM), the 26.4B looped Mixture-of-Experts model Inkling-2-Mini (48 logical visits, 1M native context) exhausts memory by 64K tokens in stock oMLX (and by 512K even after fixing its 40 sliding-window visits to bounded ring buffers). We show that three structural properties of modern hybrid NoPE architectures -- bounded sliding windows, a 1,024-token banded relative bias whose tail is identically zero, and unit-RMS value normalization -- combine with an orthonormal Subsampled Randomized Fourier Transform (SRFT) to enable calibration-free, scale-free 2.000-bit Value and 2.125-bit Key Lloyd-Max compression (2.0625 effective bits/coordinate, $7.76\times$ smaller than bf16) on the 8 global visits' far prefix $[0, N-1024)$, merged with the exact bf16 local window and learned sink via online log-sum-exp. A custom GQA-packed Metal decode kernel with a 256-entry half4 LUT and Block-8 lazy exp2 rescaling reaches 73.4 GB/s and runs Inkling-2-Mini at 17.09 tok/s at 256K ($3.36\times$ faster than bf16), 13.81 tok/s at 512K, and 9.52 tok/s at 1,048,576 tokens in 19.49 GiB peak memory (4.37 GiB KV). Across $4\times 4096$ WikiText-2 windows, 3.06-bit SRFT is lossless ($\Delta$PPL $= -0.007$), 2.56-bit K3/V2 adds $+0.024$, and 2.06-bit adds $+0.130$ while achieving 100% (3/3) exact 7-digit passkey retrieval at 8K, 16K, and 32K.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.29092v1</guid>
+      <category>cs.PF</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Mohamed Amine Bergach</dc:creator>
+    </item>
+    <item>
+      <title>Queuing for Secrets: Model-Based Remote Timing Attacks</title>
+      <link>https://arxiv.org/abs/2611.30513</link>
+      <description>arXiv:2611.30513v1 Announce Type: new 
+Abstract: Remote timing attacks exploit variations in response times to infer sensitive information about remote systems. Their effectiveness, however, is often limited by the difficulty of accurately modeling the stochastic nature of server-side response times, taking into account the intrinsic variability of the service time of a request and the impact of varying workloads on the observed response times. In this article, we propose a new stochastic framework for remote timing attacks based on queuing models and Bayesian statistics. We assume that the attacker knows the service time distributions of two classes of requests and that the information leakage occurs when a malicious observer can distinguish with high probability the class based on the observed response times in the presence of noise induced by exogenous workload. Our experimental evaluation on popular websites demonstrates the practical viability of the approach: our attack outperforms formal techniques based on deterministic service times and existing empirical techniques, while requiring less tuning and fewer hyper-parameters compared to previous formal approaches. Overall, our results show that principled stochastic modeling can provide a solid foundation for building more effective remote timing attacks under realistic network and workload conditions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.30513v1</guid>
+      <category>cs.PF</category>
+      <category>cs.CR</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Simone Bozzolan, Diletta Olliaro, Stefano Calzavara, Andrea Marin, Gianfranco Balbo, Matteo Sereno</dc:creator>
+    </item>
+    <item>
+      <title>Decision models for UAVBench and the viability of edge deployment</title>
+      <link>https://arxiv.org/abs/2611.28331</link>
+      <description>arXiv:2611.28331v1 Announce Type: cross 
+Abstract: Small language models are often proposed for reasoning onboard a drone. However, a good benchmark score does not tell us whether a model will actually run, and run usefully, on an edge computer. In this paper we study three related questions using the UAV decision benchmark, UAVBench. First, are small structured decision models good candidates for these tasks? Second, can an ordinary local machine (a Mac) screen candidate models before we test them on physical devices? Third, what software and resource limits govern deployment? Our main Mac evaluation covers 24 model configurations on the same 2,000 validated multiple-choice questions from UAVBench. These include 20 size-and-precision configurations of 11 generative models, plus four open-weight structured decision models that received no additional UAVBench-specific training. A structured decision model, H2O Lightning 4B, achieved the highest accuracy we observed, scoring 77.65% on the Mac. This shows that these models are well suited to this kind of task. However, when we tried to deploy the decision models, we ran into conversion and runtime limits on the edge devices we tested, which we describe in detail. To test local screening, we ran matched evaluations of two generative models on both the Mac and a Qualcomm RB3 board. The accuracies did not match exactly, but the ranking did. LFM2 2.6B ranked above Qwen2.5 1.5B on both platforms. This supports using a local machine to shortlist candidates. That said, individual answers still differed between platforms, so testing on the actual hardware remained necessary.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.28331v1</guid>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Matthew Michelson, Goran Muric, Adrien Bibal, Steven Minton</dc:creator>
+    </item>
+    <item>
+      <title>Shoonya: Zero-Socket In-Process Small Language Models for Graph Databases with Schema-Epoch KV Caching, Live Catalog Logit Masking, and Verifier-Advantage Distillation</title>
+      <link>https://arxiv.org/abs/2611.28502</link>
+      <description>arXiv:2611.28502v1 Announce Type: cross 
+Abstract: Coupling a property-graph database to an external language-model server imposes a three-part socket tax: serialization overhead dwarfing microsecond graph reads, repeated prefill of verbose schemas, and blind decoding divorced from the live catalog and multi-version concurrency control (MVCC) engine. We present Shoonya, from-scratch commercially clean (0.0% non-commercial or share-alike data) tri-modal (Python, Rust, OpenCypher) small language models (16.8M to 1.07B parameters) co-designed with shoonya-infer, a zero-dependency pure-Rust runtime embedded inside the samyama-graph-enterprise address space. Direct GraphStore references unlock three database-native primitives: (1) an epoch-invalidated SchemaPrefixCache over a copy-on-write PagedKvArena accelerating warm CPU time-to-first-token by 4.91x--13.68x with O(1) DDL invalidation; (2) a 36 us columnar catalog and source-span logit mask enforcing valid ontology identifiers and verbatim spans; and (3) a sub-65 us read-only MVCC gate serving Tier-0 queries inside 389.8 MiB INT8 RSS (59.8--67.9 tok/s) with 0.0% hallucination leak. Rank-factorized tied embeddings (-74.5% vocabulary weights), atomic indentation tokens (0/421 indentation errors), 4:1 grouped-query attention with 2:1 cross-layer KV sharing (-93.75% INT8 KV memory), Warmup-Stable-Decay training, KnOTS SVD merging, Step-GRPO, and Rust Jacobi SVD governance keep 100% of layers heavy-tailed ($\alpha \in [1.88, 2.20]$). Finally, we synthesize nine lessons across v0.1--v1.0, resolving a Reverse-Token-Density Distillation Trap via teacher scaling and zero-VRAM Verifier-Advantage-Gated Knowledge Distillation (AdvKD), recovering +13.61 MBPP points (33.07%) while reaching 100% validity on enrichment, grounded extraction, and tool planning.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.28502v1</guid>
+      <category>cs.DB</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Madhulatha Mandarapu, Sandeep Kunkunuru</dc:creator>
+    </item>
+    <item>
+      <title>Refined, Reliable and Reproducible: Algorithmic Analysis and Reimplementation of the Popcorn Void Finder</title>
+      <link>https://arxiv.org/abs/2611.28882</link>
+      <description>arXiv:2611.28882v1 Announce Type: cross 
+Abstract: Cosmic voids are vast underdense regions of the Universe that encode valuable information about its large-scale structure and evolution. By extending spherical voids into overlapping sphere structures, the Popcorn Void Finder demonstrated an improved statistical characterization of cosmic void populations. However, its origin as a research prototype progressively hindered its maintainability and extensibility. Moreover, post-publication algorithmic modifications have not been systematically evaluated, leaving their statistical and computational consequences insufficiently characterized. In this work, we present a comprehensive reimplementation of the Popcorn Void Finder, prioritizing algorithmic transparency, maintainability, and reproducibility. We document the complete identification procedure, revisit the original algorithmic choices, and evaluate their statistical and computational consequences. Comparisons between implementations revealed a significant change in the behavior of the Void Size Function, which is now characterized by a power-law regime transitioning to a Schechter-like distribution. These changes not only provide a better characterization of void sizes, but enable a new and more robust method to the determination of the shot-noise dominated regime, without implicit dependencies on internal finder parameters present in previous works. Performance benchmarks demonstrate a 1.62x speedup in spherical void identification and a substantial improvement in overlap-removal throughput. We determined the Popcorn algorithm to be negatively affected by load imbalance, and found a speedup of 63x in a tested configuration with a newly introduced early growth termination criterion. These results establish a more maintainable and reproducible foundation for popcorn void identification, while clarifying the statistical and computational trade-offs that govern its performance.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.28882v1</guid>
+      <category>astro-ph.IM</category>
+      <category>astro-ph.CO</category>
+      <category>cs.PF</category>
+      <category>cs.SE</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-sa/4.0/</dc:rights>
+      <dc:creator>Alvaro Roy Schachner, Dante Javier Paz, Juan Antonio Rico Gallego, Carlos Mauricio Correa, Andr\'es Nicol\'as Ruiz, Sebasti\'an Rogelio Gualpa, Juan Bautista Cabral</dc:creator>
+    </item>
+    <item>
+      <title>HiPerfCC-StateReuse: Ciphertext Reuse for Fast Confidential GPU Data Movement</title>
+      <link>https://arxiv.org/abs/2611.29067</link>
+      <description>arXiv:2611.29067v1 Announce Type: cross 
+Abstract: Confidential GPUs offer near-native on-device compute performance, but transfers between CPU and GPU TEEs through untrusted host memory require bulk CPU encryption and decryption, even for unchanged data. Existing software techniques overlap or parallelize these operations but retain their per-byte CPU cost. Reusing exported ciphertext could avoid this work, but GPU TEE firmware enforces direction-specific encryption keys and fresh per-transfer initialization vectors (IVs), preventing direct reuse.
+  We introduce ciphertext rebinding, a purely software primitive enabling repeated and cross-GPU ciphertext reuse on existing GPU TEEs without hardware changes, while preserving confidentiality, integrity, and freshness. Specifically, ciphertext rebinding exploits the separation between ciphertext-dependent and IV-dependent components in GPU TEE's AES-GCM authentication: a GPU-precomputed summary under the destination key can enable the CPU to update authentication tags without processing the payload. With this modification, GPU's subsequent read on the retained ciphertext can still proceed through the GPU's hardware-fixed copy-engine interfaces, which cannot be modified by software. An additional GPU correction step can then compensate for differences in the keys and IVs to recover the original plaintext. By retaining GPU-exported ciphertext in untrusted host memory, ciphertext rebinding avoids bulk CPU decryption and re-encryption, improving effective bandwidth for GPU-state restoration and sharing. We implement this primitive in HiPerfCC-StateReuse through only driver and library changes, combining batched submissions with pipelined GPU processing and copy-engine transfers. We evaluate transfer efficiency and CPU overhead through microbenchmarks, and application performance through three case studies: model switching, key-value cache offloading, and cross-instance cache sharing.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.29067v1</guid>
+      <category>cs.CR</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by-nc-nd/4.0/</dc:rights>
+      <dc:creator>Haoxuan Xu, Shaoyu Wang, Minghao Lin, Beijie Liu, Potung Yu, Yongqin Wang, Vincent Quentin Ulitzsch, Seo Jin Park, Murali Annavaram, Mengyuan Li</dc:creator>
+    </item>
+    <item>
+      <title>Measuring GPU Memory Traffic on the NVIDIA GB10 Without C2C Telemetry</title>
+      <link>https://arxiv.org/abs/2611.29915</link>
+      <description>arXiv:2611.29915v1 Announce Type: cross 
+Abstract: The NVIDIA GB10, used in the DGX Spark and in desktop AI systems from several vendors, joins an Arm CPU die and a Blackwell GPU die with NVLink C2C. The GPU has no local memory, so every GPU access that misses in its L2 cache crosses C2C to the LPDDR5X attached to the CPU die. Yet the software on the systems we tested exposes no counter for this traffic. We show that five L2 sector counters of the GPU, sampled every 10 ms through NVIDIA's CUPTI sampling interface by a process that does not attach to the workload, measure GPU memory traffic live and separate copy engine traffic from the read misses and writes of GPU kernels. For large streaming transfers of known size, the counters agree within 0.28% on an Acer GN100 and within 0.005% on a DGX Spark, track the volume moved regardless of how it is split into copies, and exclude data reused in L2. The GPU's SMMU counter, a natural alternative, counts address translations rather than bytes. Applied to an unmodified server, the method shows Mistral 7B decode reading 13.47 GiB per token, the weights it uses plus its key value (KV) cache, at 83% of the memory bandwidth NVIDIA specifies. We release the method as an open source tool.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.29915v1</guid>
+      <category>cs.AR</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Deepak Panigrahy, Sirisha Kota, Aakash Tyagi, David Kebo, Rabi Mahapatra</dc:creator>
+    </item>
+    <item>
+      <title>Fast 4-bit KV-Cache Decoding on Hopper GPUs: Why Existing Kernels Are Slow and How to Fix Them</title>
+      <link>https://arxiv.org/abs/2611.30027</link>
+      <description>arXiv:2611.30027v1 Announce Type: cross 
+Abstract: A 4-bit KV cache reads about half the bytes of FP8, but Hopper GPUs have no FP4 hardware and little instruction-issue capacity per byte of memory bandwidth, so 4-bit values must be decoded in software. On H200, vLLM's NVFP4 KV path (FlashInfer's decode) reaches 10-20% of memory bandwidth and is up to 1.7x slower than FP8. NVBit instruction counts show two causes: the kernels behind vLLM's 4-bit paths (FlashInfer NVFP4, Triton UltraQuant) execute 2-6x Hopper's issue budget per byte and serialize loading, decoding and matrix multiplies. Our Hopper-native decode kernel overlaps a TMA producer warp with two compute warpgroups, lays the cache out at write time so decoded values feed the tensor cores from registers, and swaps the matrix operands so small query groups need no padding. On H200 it reaches 67-75% of peak bandwidth at batch 32-128 and at all 11 shapes is 1.12-1.49x faster than the faster of XQA and FlashAttention-4's proposed native FP8. Inside vLLM, with an accuracy recipe (K mean removal and rotation, 4 BF16 sink tokens, BF16 layer 0), it decodes 1.12-1.64x faster per step on Llama-3.1-8B than vLLM's FlashInfer FP8 path at batch 8 and above (1.04-1.24x over FlashAttention-4's FP8), is level at batch 1, and holds 1.63x as many tokens. On one H200 under a reasoning-like request stream, the highest rate at which 99% of requests meet the latency targets is 1.23-1.32x FP8's on Llama-3.1-8B and 1.67-2.20x on Qwen2.5-72B, as the cache becomes the limit; prefill-heavy streams are worse (7% slower prefill). On five 7B-32B models, repeated runs show no significant accuracy difference from BF16 KV. In Qwen2-family models, whose reasoning variants collapse under FP8 KV, layer 0's key mean is almost entirely the key-projection bias identified by prior work, seen through RoPE and computable from the weights alone; keeping that layer in BF16 restores FP8 KV and, with K mean removal, 4-bit KV.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.30027v1</guid>
+      <category>cs.LG</category>
+      <category>cs.DC</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jian Zhang</dc:creator>
+    </item>
+    <item>
+      <title>GC-MoE K3: A Green-Context Role Graph for Latent Mixture-of-Experts Decode</title>
+      <link>https://arxiv.org/abs/2611.30542</link>
+      <description>arXiv:2611.30542v1 Announce Type: cross 
+Abstract: Kimi K3 combines a latent routed mixture of experts with full-width shared experts. A complete feed-forward evaluation must score and select experts, project tokens into the latent space, exchange tokens across expert-parallel ranks, compute the routed and shared branches, and normalize and project the routed sum before joining the branches. We present GC-MoE K3, a datacenter Blackwell implementation that schedules this entire evaluation as a CUDA Graph across two Green Contexts. Five base roles split input projection, routing, dispatch, expert computation, and finalization. Dispatch can fill the routed input ring while the compute partition evaluates shared experts. Finalize waits for the expert owners needed by each token and overlaps routed reduction and RMSNorm with loading the output projection weights. Conditional roles reuse the communication partition for routed computation and reduce split-$K$ projection partials. On GB200 at EP8, EP16, and EP32, the operator is faster at all 24 measured configurations than the paired SGLang-style reference (mean speedup $1.1324\times$). A comparison with historical vLLM-style measurements gives $1.3651\times$ across the same 24 shapes. Both latency comparisons time single-layer graph replay on synthetic K3-shaped inputs with a residual prefix. The separate paired numerical suite passes all 142 cases and 2,936 rank checks.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.30542v1</guid>
+      <category>cs.DC</category>
+      <category>cs.AI</category>
+      <category>cs.AR</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Yong Li, Haoyu Wang, Kan Liu, Tao Lan</dc:creator>
+    </item>
+    <item>
+      <title>Scheduling in Queueing Systems with Uncertain and Evolving Holding Costs</title>
+      <link>https://arxiv.org/abs/2505.21331</link>
+      <description>arXiv:2505.21331v3 Announce Type: replace-cross 
+Abstract: In queueing systems, the holding costs of jobs may evolve in uncertain ways. For example, in content moderation for social media platforms, the cost of delaying the review of a content piece is proportional to its view trajectory, which fluctuates and is a priori unknown. To capture such uncertain and evolving holding cost patterns, we consider a queueing model where job states evolve based on a Markov chain with state-dependent instantaneous holding costs. We demonstrate that in the presence of such uncertain and evolving holding costs, the two canonical algorithmic principles, instantaneous-cost ($c\mu$-rule) and expected-remaining-cost ($c\mu/\theta$-rule), are suboptimal. By viewing each job as a Markovian ski-rental problem, we develop a new index-based algorithm, Opportunity-adjusted Remaining Cost (OaRC), that adjusts to the opportunity of serving jobs in the future when uncertainty partly resolves. We show that the suboptimality gap of OaRC scales as $\tilde{O}(\sqrt{N})$, where $N$ is the system size. This bound shows that OaRC achieves asymptotic optimality for overloaded systems when the system size $N$ scales to infinity. Moreover, the bound is independent of the state-space size, which is a desirable property when job states contain contextual information. We corroborate our results with an extensive simulation study based on two holding cost patterns (online ads and user-generated content) that arise in content moderation for social media platforms. Our simulations based on synthetic and real datasets demonstrate that OaRC consistently outperforms existing practice, which is based on the two canonical algorithmic principles.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2505.21331v3</guid>
+      <category>cs.DS</category>
+      <category>cs.GT</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <category>math.PR</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Caner Gocmen, Thodoris Lykouris, Deeksha Sinha, Wentao Weng</dc:creator>
+    </item>
+    <item>
+      <title>Mosaic: Efficient CPU--GPU Coordinated Block-Sparse Attention for Long-Context Decoding</title>
+      <link>https://arxiv.org/abs/2605.07719</link>
+      <description>arXiv:2605.07719v3 Announce Type: replace-cross 
+Abstract: Long-context LLM serving increasingly relies on CPU-resident context KV cache, driven by KV offloading and disaggregated prefill--decode execution. Although block-sparse attention reduces KV access, existing designs remain inefficient: GPU-centralized execution fetches selected KV blocks from CPU memory at each decoding step, making it PCIe-bound, while CPU--GPU partitioned execution places CPU-side sparse attention on the critical path, leaving substantial GPU time idle. This paper presents Mosaic, a CPU--GPU coordinated block-sparse attention system for efficient long-context decoding with CPU-resident context KV. Mosaic builds on three key insights: output-contribution-aware KV budgeting, head-specific and granularity-aware sparse configuration, and cross-device coordinated scheduling for sparse tasks over CPU-resident KV. Guided by these insights, Mosaic integrates a lightweight head-property predictor, a granularity--budget selector, and a priority-based scheduler to automatically configure and coordinate sparse attention, preserving output quality while improving efficiency on heterogeneous architectures. Across 2 models, 3 benchmarks, and 40 tasks, Mosaic preserves near-FULL quality while achieving a better overall quality--efficiency tradeoff than the evaluated baselines. Compared with the best-quality fixed Quest configuration, Mosaic improves TPOT by up to 3.7$\times$. We further validate Mosaic across four hardware configurations and in a large-model multi-GPU deployment.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.07719v3</guid>
+      <category>cs.LG</category>
+      <category>cs.AI</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1145/3828523.3857033</arxiv:DOI>
+      <dc:creator>Feiyu Yao, Zhixiong Niu, Xiaqing Li, Yongqiang Xiong, Juan Fang, Qian Wang</dc:creator>
+    </item>
+    <item>
+      <title>Energy per Successful Goal: Goal-Level Energy Accounting for Agentic AI Systems</title>
+      <link>https://arxiv.org/abs/2605.22883</link>
+      <description>arXiv:2605.22883v3 Announce Type: replace-cross 
+Abstract: AI agents plan, call tools and retry failed attempts, so they decide at run time how many model calls a goal takes. Energy is commonly reported per call or per token, which cannot show the energy needed to deliver a successful goal. We introduce energy per submitted, completed and successful goal (EpG, EpCG, EpSG), which charge every attempt to its goal and distinguish completion from correctness. We also introduce the Orchestration Overhead Index (OOI), the ratio of agentic to linear EpSG, where the linear workflow is a single model call, with a rule that states when the agent's higher success rate compensates for its extra energy. We evaluate the metrics on 11,621 goals with 8 models on three hardware platforms (Intel x86, NVIDIA GB10 and Apple M4), using a measurement method that declares the window, the idle correction and the hardware boundary. Across 45 comparisons over 23 goal types, OOI ranged from 0.04x to 51.21x: the agent cost more per successful goal wherever a single call already succeeded often, and less on a calculation goal, where it handed the computation to a calculator that the single call usually got wrong. Ranking models by EpSG instead of EpG changed the chosen model in 6 of 14 rankings, because EpG can favor a model that spends little energy on each goal but often answers incorrectly. Each failed attempt added about the energy of one complete attempt, while energy per call stayed almost unchanged, so reporting per call hides what retries cost. Engineers can therefore use EpSG and OOI to choose the workflow and model that meet their success, energy and latency requirements, and the measured energy of a failed attempt to set retry budgets.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2605.22883v3</guid>
+      <category>cs.AI</category>
+      <category>cs.LG</category>
+      <category>cs.PF</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>replace-cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Deepak Panigrahy, Aakash Tyagi, Stephen Abkin, David Kebo Houngninou, Rabi Mahapatra</dc:creator>
+    </item>
   </channel>
 </rss>
