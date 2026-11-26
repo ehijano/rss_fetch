@@ -7,12 +7,12 @@
     <atom:link href="http://rss.arxiv.org/rss/cs.CR" rel="self" type="application/rss+xml"/>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Nov 2026 05:00:17 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 05:03:26 +0000</lastBuildDate>
     <managingEditor>rss-help@arxiv.org</managingEditor>
     <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
     <skipDays>
-      <day>Saturday</day>
       <day>Sunday</day>
+      <day>Saturday</day>
     </skipDays>
     <item>
       <title>Demystifying Real-world LLM Service Freeloading</title>
@@ -233,6 +233,201 @@ Abstract: Clients of closed-weight LLM APIs cannot verify whether a provider ran
       <dc:creator>Liang Song</dc:creator>
     </item>
     <item>
+      <title>Agentic-Level Adversarial Purification: Revisiting Diffusion Purifiers on Native-Resolution Agentic Inputs</title>
+      <link>https://arxiv.org/abs/2611.34181</link>
+      <description>arXiv:2611.34181v1 Announce Type: new 
+Abstract: Vision-language agents act on native-resolution renders of multi-element pages, where one perturbed photo or a few altered text strokes can redirect the decision. Any content provider can craft such a perturbation on the open model behind the agent, so a plug-in purifier is the natural first line of defense. Yet diffusion purifiers were designed and evaluated at the fixed resolution of the diffusion model on classifier or natural-image benchmarks, and defense evaluations for agents test JPEG, blur and noise but no diffusion purifier. We present the first study of adversarial purification at the agentic level, for an agent built on Qwen3-VL-8B: purifiers run at native resolution on multi-element inputs, face grey-box attackers who know the agent's model but not the defense, and are compared at matched clean cost. We show that treating agentic inputs as classifier inputs misleads both evaluation and design. Resizing the input to the resolution of the diffusion model, as existing purifiers do, raises the TextVQA clean cost of the Divide-and-Conquer purifier (DC) from 4.0 to 35.7 points. On web-shop pages, DC keeps 85.0% grey-box robust accuracy against web-hardened perturbations, where cheap input transformations at matched clean cost keep at most 40.0%, and this robustness comes from the global noise level: input-estimated masks and noise levels add none. These findings hold on a disjoint held-out set and on a second VLM and yield three requirements for defenses, we release the protocol.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34181v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.CV</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yan Lin, Zhongliang Guo, Jingyu Lin, Daizong Liu</dc:creator>
+    </item>
+    <item>
+      <title>Evaluating Post-Quantum and Hybrid Signatures for Blockchains: Performance, Storage and Ledger Growth</title>
+      <link>https://arxiv.org/abs/2611.34229</link>
+      <description>arXiv:2611.34229v1 Announce Type: new 
+Abstract: Advances in quantum computing pose a long-term threat to blockchain systems that rely on classical digital signature schemes such as ECDSA. Migrating these systems to post-quantum cryptography introduces practical costs beyond cryptographic security, including larger transactions, higher computational costs and faster ledger growth. We present an empirical evaluation of 13 signature configurations in a common simulated blockchain framework: ECDSA, ML-DSA-44/65/87, Falcon-512/1024, SLH-DSA-SHA2-128s, and six hybrids combining ECDSA with each post-quantum scheme. We measure signing and verification costs, transaction-processing throughput, and signature and public-key sizes, and project the measured overheads onto five public blockchains: Bitcoin, Ethereum, Solana, BNB Smart Chain and TRON. Verification remains inexpensive for the evaluated lattice-based schemes, with Falcon-512 achieving a verification time comparable to ECDSA (30.1 versus 32.8 $\mu$s). Storage overheads, however, are substantial. Under our modelling assumptions, had the recorded transaction histories used Falcon-512, the most compact post-quantum scheme evaluated, ledger sizes would have been 79--229% larger, depending on the blockchain. Hybrid configurations introduce relatively modest additional storage overhead compared with their standalone post-quantum counterparts, while ECDSA+Falcon-512 approximately doubles the verification cost of standalone Falcon-512. Existing transaction- and script-size limits also present obstacles to straightforward migration in Bitcoin and Solana. Overall, our findings suggest that storage overhead may pose a greater challenge than signature verification costs when migrating blockchain systems to post-quantum cryptography.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34229v1</guid>
+      <category>cs.CR</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Anthony Mikhaiel, Essam Ghadafi</dc:creator>
+    </item>
+    <item>
+      <title>Latent-in-the-Middle: On the Security of Cross-Model Latent Communication in Multi-Agent Systems</title>
+      <link>https://arxiv.org/abs/2611.34278</link>
+      <description>arXiv:2611.34278v1 Announce Type: new 
+Abstract: As large language models increasingly collaborate in heterogeneous multi-agent systems, latent communication has emerged as an efficient alternative to exchanging natural-language messages. By sharing internal representations, agents can avoid repeatedly processing the same context, reducing communication overhead and prefill computation. One such mechanism is cross-model Key-Value (KV) cache transfer, which uses a learned mapper to translate a source model's KV cache into one a target model can use. However, this handoff means the target model consumes context it did not encode itself, thus calling into question whether its safety alignment still holds.
+  In this work, we investigate the security implications of latent handoffs by introducing Chasm, a framework characterizing cross-model handoff attacks across three new attack surfaces: the source model, mapper, and handoff mechanism itself. Our experiments reveal that latent handoffs substantially undermine safety alignment and prompt-injection defenses. Notably, a target model that follows only 0.4% of benchmark prompt injections natively, follows up to 44.2% when transferred through a mapper from a source model. On the other hand, for jailbreak attacks, transfer alone raises attack success by up to 24.6 pp within a model family and zero-shot attacks by up to 69.2 pp, whereas white-box optimization through the mapper boosts the attack success rate to 92.5%, against 37.5% for ordinary GCG on the same target. To address these vulnerabilities, we propose a lightweight target-side cache guard that corrects transferred caches to restore the target model's refusal, considerably mitigating these attacks.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34278v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Manit Baser, Vyoman Jain, Rachel Yeo Hui Min, Xianglin Yang, Meenatchi Sundaram Muthu Selva Annamalai, Dinil Mon Divakaran</dc:creator>
+    </item>
+    <item>
+      <title>Poisoning Attacks to Local Differential Privacy Protocols for Dynamic Graphs</title>
+      <link>https://arxiv.org/abs/2611.34340</link>
+      <description>arXiv:2611.34340v1 Announce Type: new 
+Abstract: With the increasing adoption of privacy-preserving techniques in dynamic graph analysis, local differential privacy (LDP) has become a fundamental paradigm for protecting user data in decentralized environments. However, despite its strong privacy guarantees, LDP-based dynamic graph protocols remain vulnerable to data poisoning attacks through malicious data injection. In this paper, we present the first systematic study of data poisoning attacks against privacy-preserving dynamic graphs under the LDP framework. Considering the temporal evolution of dynamic graphs, we identify key challenges in attack design and evaluation, including how to schedule attack resources across time and how to measure cumulative attack impact. To address these challenges, we introduce an absolute gain metric to quantify the overall deviation of graph statistical metrics before and after attacks across time. Based on this metric, we further propose a unified poisoning attack framework for dynamic graphs, which consists of target node selection, dynamic fake node scale scheduling, and fake edge injection. Within this framework, we design a temporal enhanced attack (TEA) strategy that dynamically schedules attack resources to maximize attack effectiveness, along with two baseline strategies, equal-scale attack (ESA) and random-scale attack (RSA), for comparison. Extensive experiments on real-world and synthetic datasets demonstrate that the proposed attacks can significantly degrade the accuracy of graph metric estimation for target nodes.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34340v1</guid>
+      <category>cs.CR</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Shang Liu, Yuhan Bao, Hongbin Zhao, Yanmei Zhang, Guan Yuan, Yang Cao</dc:creator>
+    </item>
+    <item>
+      <title>AgentLens: Graph-guided Security Auditing for LLM-based Agents</title>
+      <link>https://arxiv.org/abs/2611.34380</link>
+      <description>arXiv:2611.34380v1 Announce Type: new 
+Abstract: LLM-based agents are emerging as a key paradigm for automating software engineering by coupling LLM-driven decision-making with external tools, files, APIs, and execution environments. However, weaknesses in agent implementations and insecure interactions between the agent and external resources can lead to severe consequences, including remote code execution, arbitrary file access, SQL injection, and data leakage. This makes pre-deployment auditing essential for systematically identifying implementation weaknesses and validating whether they can manifest as concrete security risks in realistic agent workflows. Existing approaches either focus on specific vulnerability classes or lack the capability to validate whether identified static weaknesses correspond to executable exploits. In this paper, we propose AgentLens, a systematic auditing framework for LLM-based agents. AgentLens analyzes the target agent's implementation, component interactions, and built-in defenses, and organizes them into an Audit Knowledge Graph that captures how these factors interact to expose potential security risks. Based on this graph, AgentLens derives candidate attack paths, generates path-specific validation payloads, and constructs realistic multi-turn audit scenarios that place these payloads in task-relevant contexts to validate whether suspected risks manifest as security-violating behaviors during execution. Across five widely-used agent applications, each with over 24,000 GitHub stars, AgentLens identifies 44 vulnerabilities, and every vulnerability is validated by being triggered during execution. Compared with the state-of-the-art approach (AgentFuzz), AgentLens detects 3.67$\times$ more vulnerabilities. To date, 12 reported issues have been assigned CVE IDs.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34380v1</guid>
+      <category>cs.CR</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Peizhuo Lv, Tao Chen, Mengya Shi, Ziyu Lin, Yuxuan Chen, Ruigang Liang, Tianwei Zhang, Wei Dong, XiaoFeng Wang</dc:creator>
+    </item>
+    <item>
+      <title>Northstar: Efficient Verifiable Negacyclic Polynomial Arithmetic with Applications to Encrypted Lattice-based Multi-Asset ERC-20 and Verifiable FHE</title>
+      <link>https://arxiv.org/abs/2611.34417</link>
+      <description>arXiv:2611.34417v1 Announce Type: new 
+Abstract: Lattice-based cryptography can be used to construct a variety of post-quantum cryptographic schemes, ranging from standard cryptographic primitives such as digital signatures and encryption, to fully homomorphic encryption (FHE). However, the verification of correct lattice computations remains relatively expensive, particularly for computationally intensive FHE operations and for resource-constrained environments such as on-chain verification via smart contracts. We propose Northstar, an efficient technique for proving negacyclic arithmetic natively. When integrated with existing STARK proving frameworks, Northstar achieves the best overall performance across prover time, verifier time, and proof size compared to prior state-of-the-art approaches for verifiable FHE constructions. Furthermore, Northstar is used to construct the first verifiable encrypted multi-asset (~ 1000 assets) variant of ERC-20 that is efficiently verifiable by a smart contract, and is practically deployable in the current blockchain ecosystem.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34417v1</guid>
+      <category>cs.CR</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yeoh Wei Zhu, Shaltiel Eloul, Yash Satsangi, Rob Otter</dc:creator>
+    </item>
+    <item>
+      <title>Fuel as Identity: Authenticating Inter-Satellite Laser Links after Total Key Compromise</title>
+      <link>https://arxiv.org/abs/2611.34470</link>
+      <description>arXiv:2611.34470v1 Announce Type: new 
+Abstract: Optical inter-satellite links form the backbone of entire constellations in low Earth orbit, yet their security rests on keys alone. When an attacker obtains every key of a satellite, no secret is left to authenticate it again. Existing fixes fail, since ground rekeying encrypts new keys under the leaked ones, and post-compromise protocols assume an authenticated start. As a remedy, the satellite's orbit can take over as the trust anchor. The attacker then needs an impostor satellite that blocks and retransmits the beam, a chord beneath the curved orbit. Hence, the blocking point lies off free fall and costs the impostor continuous thrust. We formalize this position-gated adversary and prove, for satellites on a shared circular orbit, a tight lower bound on the propellant cost in delta-v of a point-mass craft that keeps blocking, however it moves. We present OrbitLock, a history-chained protocol that combines this position gate with ML-KEM. Each link authenticates on its own, and we sketch how combining links forces an impostor onto every link. Once the chain outlasts an impostor's propellant, every key back to the first is authenticated retroactively. A satellite thus needs no crosslink key before launch, so none can leak in the supply chain. The same mechanism heals the link after total key compromise, even without compromise awareness. A passive attacker is shut out at the next round, whereas an active one splits the chains and is exposed once its propellant runs out. The chain can then heal after an operator reset. As a result, every Starlink satellite has a partner on whose link a CubeSat-class impostor runs out of propellant in about two days. This holds against one rigid craft per link running the best attack we know, if each terminal enforces a 1 km exclusion zone, while the protocol only uses under 0.02% of the link.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34470v1</guid>
+      <category>cs.CR</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Leon Birkel, Mohammad Hamad, Sebastian Steinhorst</dc:creator>
+    </item>
+    <item>
+      <title>From Models to Services: Systematizing Security Assurance for Model-as-a-Service</title>
+      <link>https://arxiv.org/abs/2611.34623</link>
+      <description>arXiv:2611.34623v1 Announce Type: new 
+Abstract: Large language models are mainly delivered as cloud services, in which the assets of different principals are coupled within a single service pipeline, while the related security research is scattered across several fields with differing threat models. This paper systematizes this research from a service perspective. We decompose Model-as-a-Service (MaaS) into a five-layer stack and five trust boundaries, define six adversary classes and six security goals, use them to code 120 studies, and evaluate 50 defenses under a unified set of criteria. The results show that 44.2% of the studies concentrate on behavioral integrity, while service integrity, availability and cost, and accountability together account for only 13.3%. Defenses are evaluated on production services at less than half the rate of attacks, and none of the cryptographic or hardware mechanisms that protect against the provider can be adopted unilaterally by customers. Finally, we propose a research agenda by comparison with current standards and regulations.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34623v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jianming Zhou, Yang Luo, Guangpu Chen, Zhaoyu Chen, Yifeng Gao, Qingni Shen, Zhonghai Wu</dc:creator>
+    </item>
+    <item>
+      <title>BridgeHammer: DNN Backdoor Attack via CPU-iGPU Shared-memory Rowhammer</title>
+      <link>https://arxiv.org/abs/2611.34684</link>
+      <description>arXiv:2611.34684v1 Announce Type: new 
+Abstract: Heterogeneous systems-on-chips (SoCs) share physical memory between CPUs and integrated GPUs (iGPUs), creating a path for CPU-side memory corruption to compromise the integrity of deep learning models used for iGPU inference. Implanting a backdoor that causes targeted misclassifications on trigger-bearing inputs while retaining accuracy on normal inputs requires carefully selected weight changes. However, realizing these changes presents two challenges: where to induce faults, since vulnerable DRAM locations may not contain the targeted weights, and when to intervene, since memory placement and fault injection must align with different stages of the model deployment lifecycle that involve two distinct computation domains. We present BridgeHammer, a Rowhammer-based backdoor attack that addresses these challenges by coordinating targeted weight placement before zero-copy binding for the iGPU and fault injection before inference. The iGPU then uses the corrupted model for subsequent inferences. We evaluate BridgeHammer on a heterogeneous Intel CPU-iGPU platform using OpenVINO, targeting ResNet-20, VGG-16, and ResNet-50 at both INT8 and FP32 precision. Across all six configurations, BridgeHammer achieves an 88.9% attack success rate (ASR) and 86.3% clean accuracy on average, with reliable target-page placement and bit-flip reproduction. These results demonstrate a new integrity vulnerability on heterogeneous CPU-iGPU SoCs, motivating cross-domain memory integrity protections.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34684v1</guid>
+      <category>cs.CR</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yufei Wang, Saion K. Roy, Yunsi Fei</dc:creator>
+    </item>
+    <item>
+      <title>Distance from the Truth: Why Fragmented Merchant Underwriting Misses Risk, and What Source-Attributable Evidence Changes</title>
+      <link>https://arxiv.org/abs/2611.34696</link>
+      <description>arXiv:2611.34696v1 Announce Type: new 
+Abstract: Merchant underwriting becomes vulnerable when evidence is evaluated without enough visibility into its source, freshness, relationship to the applicant, or meaning for the proposed activity. Individually favorable checks do not necessarily establish that the same business is operating the merchant account, that its representative may bind it, or that its settlement instructions are authorized. We describe three failure modes of fragmented underwriting: distance from the source, the gap between a decision and the evidence needed to justify it; the correlation gap, in which material relationships among the person, legal entity, owners or controllers, representative, business activity, and settlement destination are not evaluated when each signal is considered alone; and point-in-time controls, in which a historical verification is treated as present eligibility. We map these failure modes to identity-proofing, customer-due-diligence, sanctions, third-party-risk, card-network, and Nacha requirements, and propose a merchant-underwriting application of the ChainIT Transaction Truth Architecture built on provenance, correlation, and persistence. The application keeps a logically unified evidence record that identifies what was checked, the subject and relationship involved, the relevant times, the applicable policy, the decision, and any exceptions, and it keeps evidence validation, applicant verification, organizational authority, and the institution's risk judgment separate. We also set out a proposed evidence and decision receipt, a defined 90-day shadow enrollment pilot with adjudicated outcome measures and deliberate control-failure tests, and a ten-question self-assessment. Proposed controls, illustrative scenarios, and pilot measures are identified as such and are not represented as observed production results.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34696v1</guid>
+      <category>cs.CR</category>
+      <category>q-fin.RM</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Russell Lessard, Jeremy Blackburn, Tim Hines, Matthew Koepp, Jason Patrick</dc:creator>
+    </item>
+    <item>
+      <title>Make the Adversary Spend More: Stateful Deception as a Cost-Exchange Primitive for AI-Era Cyber Defense</title>
+      <link>https://arxiv.org/abs/2611.34770</link>
+      <description>arXiv:2611.34770v1 Announce Type: new 
+Abstract: Large language models (LLMs) are transforming the economics of intrusion by reducing the attacker's cost to scan and adapt, while tempting defenders into unbounded compute. We argue that cyber deception should be judged by the cost exchange it imposes, not by realism or detection, and that the primitive making that exchange favorable is adversary-specific persistent state. Rather than a honeypot that resets or merges sessions, each recognized adversary re-enters the world it believes it has compromised, kept coherent with its own past actions and isolated from every other adversary, while the language model acts only as a constrained renderer of explicit state, never as its store. We formalize the trade-off as a Deception Exchange Rate (DER), relating mission-weighted adversary effort burned to defender resources spent, and instantiate it in an SSH honeypot pairing Cowrie with a local LLM. In this paper, we focus on the defender-side evaluation of that exchange, while specifying, but not yet measuring, per-adversary state and the adversary side of the DER. Across five open-weight models, deterministic-layer and prompt optimizations cut per-session defender cost by around 63% against a naive all-LLM decoy.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34770v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Alessandro Cantelli-Forti, Isabella Marasco, Hosam Alamleh, Giada Boschi, Michele Colajanni</dc:creator>
+    </item>
+    <item>
+      <title>Full Structure Recovery of Linearized Reed-Solomon Codes</title>
+      <link>https://arxiv.org/abs/2611.34835</link>
+      <description>arXiv:2611.34835v1 Announce Type: new 
+Abstract: Linearized Reed-Solomon codes (LRS) are optimal sum-rank-metric codes that generalize both Reed-Solomon and Gabidulin codes, and benefit from excellent decoding capabilities, making them potentially interesting candidates for post-quantum code-based cryptography. Previous works have investigated the underlying geometric structure of LRS codes, identifying geometric invariants that distinguish them from random codes. Other works have proposed approaches to recovering the LRS structure from an arbitrary generator matrix, together with additional data. However, both the distinguishers and the recovery techniques proposed so far are either not fully general, or have a prohibitive computational complexity. In this paper, we propose a polynomial-time procedure for the full structure recovery of LRS codes from the sole knowledge of an arbitrary generator matrix. Our results show that, like their Hamming and rank metric counterparts, LRS codes cannot be used as they are for McEliece-like encryption. Our approach combines Overbeck-type attacks with suitable matrix manipulations and shortening techniques to recover the evaluation parameters across different ranges of code dimensions.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34835v1</guid>
+      <category>cs.CR</category>
+      <category>cs.IT</category>
+      <category>math.CO</category>
+      <category>math.IT</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <dc:creator>Valentina Astore, Martino Borello, Alain Couvreur</dc:creator>
+    </item>
+    <item>
+      <title>Model Weights, Airlocks and Sandboxes: A Call for Technical Validation of Re-identification Tests under the EDPB Anonymisation Guidelines</title>
+      <link>https://arxiv.org/abs/2611.34859</link>
+      <description>arXiv:2611.34859v1 Announce Type: new 
+Abstract: The Guidelines 02/2026 on anonymisation of the European Data Protection Board (EDPB), published for consultation in July 2026, assess anonymity relative to the entities that may access data. They bring AI models into scope and call for testing, but do not say how a re-identification test should be designed or validated, or how far its result counts as evidence. Building on our reply to the consultation, we describe a framework based on a secure processing environment whose outputs are reviewed before release (an airlock), and distinguish forms of release and three types of evidence: formal, empirical and indirect. We raise seven open questions, each with a scenario, and examine their technical side in three settings: the release of model weights (the trained parameters of a machine learning model), review at an airlock, and regulatory sandboxes, in which an authority supervises development and testing. In each setting the assessment depends on how far a test result can be relied on, since a failed re-identification attempt may mean only that the test was too weak. Drawing on measurement practice in other regulated fields, we call for re-identification tests to be validated as measurement methods, with stated detection limit, bias and uncertainty.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34859v1</guid>
+      <category>cs.CR</category>
+      <category>cs.CY</category>
+      <category>cs.LG</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Rickard Br\"annvall, Henrik Forsgren, Erik Ylip\"a\"a, Aslak Felin, Michael Popoff, Susanne Stenberg</dc:creator>
+    </item>
+    <item>
+      <title>A Survey of Security, Privacy, and Ethics of Large Language Models in Telecom</title>
+      <link>https://arxiv.org/abs/2611.34868</link>
+      <description>arXiv:2611.34868v1 Announce Type: new 
+Abstract: Large Language Models (LLMs) are increasingly integrated into telecommunications for customer service, network analytics, and operational support. While offering efficiency and innovation, their deployment raises critical privacy, security, and ethical challenges due to the uniquely sensitive and longitudinal nature of telecom data. This paper presents a survey of LLM risks and safeguards in telecom context. Our survey introduces a telecom-specific taxonomy linking privacy, security, and ethics with use cases and outlines open research challenges such as longitudinal data privacy, cross-border compliance, and scalable guardrails.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34868v1</guid>
+      <category>cs.CR</category>
+      <category>cs.AI</category>
+      <category>cs.CY</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://creativecommons.org/licenses/by/4.0/</dc:rights>
+      <arxiv:DOI>10.1109/COMSNETS67989.2026.11418201</arxiv:DOI>
+      <dc:creator>Joy Bose, Srinivas Adyapak</dc:creator>
+    </item>
+    <item>
+      <title>SoK: When FL Clients Cannot Train -- Delegated Federated Learning for IoT</title>
+      <link>https://arxiv.org/abs/2611.34876</link>
+      <description>arXiv:2611.34876v1 Announce Type: new 
+Abstract: Federated learning (FL) assumes that a client can perform the computation required to produce its own contribution. This assumption is often unrealistic for resource-constrained Internet of Things (IoT) devices, motivating designs that delegate some or all client-side training to more capable parties. We systematize this setting as delegated federated learning (Delegated FL), where data ownership and execution of owner-attributed learning are separated. We develop a framework that examines three dimensions over the same delegated transition: delegate-view privacy, delegated attribution, and constrained-owner feasibility. Our audit of 29 systems reveals a recurring composition gap. Privacy mechanisms protect selected artifacts without necessarily characterizing the accumulated view. Attribution mechanisms establish individual execution relations without necessarily binding the complete delegated transition. Furthermore, computational offloading does not establish whether the remaining workload fits the owner's resource budget. Two controlled studies on Raspberry Pi devices illustrate these gaps. We show that encrypted inputs can coexist with information leakage through an exposed residual and that locally retained labels remain inferable from split-learning gradients. We also show that message authentication can reject tampering without establishing that the executor performed the prescribed computation. Our findings demonstrate why individually established guarantees do not necessarily support the same end-to-end claim and motivate evaluating privacy, attribution, and residual owner cost over the same delegated transition.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34876v1</guid>
+      <category>cs.CR</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>new</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Hamed Mohammed Alkharsh, Aydin Abadi, Jakub Szelag, Suleiman Muhammad Sabo, Ishak Semuel Beno</dc:creator>
+    </item>
+    <item>
       <title>A comprehensive survey of deep face verification systems adversarial attacks and defense strategies</title>
       <link>https://arxiv.org/abs/2611.33231</link>
       <description>arXiv:2611.33231v1 Announce Type: cross 
@@ -297,6 +492,32 @@ Abstract: Vision-language-action (VLA) models generate robot actions from visual
       <arxiv:announce_type>cross</arxiv:announce_type>
       <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
       <dc:creator>Zexi Zhao, Zizhen Liu, Jing Justin Ye, Huawei Li</dc:creator>
+    </item>
+    <item>
+      <title>Train-Only-Constrained LM for Synthetic Clinical Trajectories: Leak-Safe Calibration and Auditable Dynamics</title>
+      <link>https://arxiv.org/abs/2611.34258</link>
+      <description>arXiv:2611.34258v1 Announce Type: cross 
+Abstract: Simulating clinical time series necessitates temporal realism, calibration that preserves model integrity, and privacy transparency. We present a train-only, constrained language-model pipeline that factorizes generation. A compact GPT-style language model learns cross-biomarker co-occurrence through quantile tokens, and temporal directions are enforced by 3x3 per-biomarker Markov transitions fit on TRAIN, allowing dynamics to be audited. We fit a monotone quantile map (QMap) on TRAIN only (SYN(TRAIN) -&gt; SIM(TRAIN)); no TEST statistics are used. The fixed map is then applied to SYN(TEST) severities. The constrained LM demonstrated improved distributional fidelity and co-occurrence in a 5,000-patient simulated testbed (parameters within published clinical ranges) compared to an empirical sampler, maintained near-chance detectability after a small lambda-sweep, and exhibits temporal adherence by construction. A classifier-based membership-inference audit results in an AUC of approximately 0.5; we make no differential-privacy claim. We present multi-seed results with paired 95% confidence intervals and quantify the severity of QMap's alignment (Delta W1 with confidence interval). This is a Stage-1 method result obtained on a controlled simulator; Stage-2 validation on real EHR cohorts with clinical endpoints is planned.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34258v1</guid>
+      <category>cs.LG</category>
+      <category>cs.CR</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Yaser Kord, Moritz Hess</dc:creator>
+    </item>
+    <item>
+      <title>Know the Design, Pick the Attack: Sentence-Keyed Watermarks for LLMs</title>
+      <link>https://arxiv.org/abs/2611.34505</link>
+      <description>arXiv:2611.34505v1 Announce Type: cross 
+Abstract: A watermark lets the provider of a language model recognise the text its model wrote, which matters more as generated text becomes hard to tell from human writing: provenance underpins academic integrity, the fight against misinformation and new regulation. Providers have started to watermark the text of their models, and to explain how their watermarks work. Explaining a watermark, however, also tells an attacker how to break it, and there are two ways to do so: reword the text to erase the mark, or learn the mark and copy it onto text the model never wrote. Each attack has been studied on its own. We study an attacker that reads the published design to choose between them: it erases the watermarks that are hard to learn and forges the ones that survive rewording. Against it, every existing watermark we compare fails. We propose KeyedLex, which reads its secret key from the grammar of the previous sentence, which rewording changes little, and whose detector does not need to recover the key exactly. It outperforms every watermark we compare on both models we test, losing about half of its signal where the best alternative loses two thirds, at no extra cost in text quality over the best-known watermarks.</description>
+      <guid isPermaLink="false">oai:arXiv.org:2611.34505v1</guid>
+      <category>cs.CL</category>
+      <category>cs.CR</category>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 -0500</pubDate>
+      <arxiv:announce_type>cross</arxiv:announce_type>
+      <dc:rights>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</dc:rights>
+      <dc:creator>Jon Carmona, Jon Irureta, Jon Imaz, Aizea Lojo, Juan Mart\'inez-Romo, Lourdes Araujo</dc:creator>
     </item>
     <item>
       <title>SoK: A Defense-Oriented Evaluation of Software Supply Chain Security</title>
